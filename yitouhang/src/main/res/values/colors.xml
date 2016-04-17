@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_mi">#efede0</color>
+    <color name="white">#ffffff</color>
+    <color name="light_white">#66ffffff</color>
+    <color name="light_green">#83c254</color>
+    <color name="press_light_green">#6683c254</color>
+    <color name="fresh_green">#c4f089</color>
+
+    <!--分界线的颜色-->
+    <color name="divider_grey">#D6D6D6</color>
+
+    <!--页面的背景色-->
+    <color  name="light_grey">#F1F2F3</color>
+
+    <!--手势背景色-->
+    <color  name="gesture_color">#0E3C5D</color>
+
+    <!--标题主色调-->
+    <color  name="title_grey">#EE4E42</color>
+    
+    <!--金额的颜色，收益-->
+    <color name="money_org">#EE7737</color>
+
+    <!--金额的颜色，支出-->
+    <color name="money_blue">#00C021</color>
+
+    <!--VIP的颜色-->
+    <color name="vip_color">#FFE2A42A</color>
+    
+</resources>
