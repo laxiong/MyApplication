@@ -497,12 +497,12 @@ public class AsyncHttpClient {
 	}
 
 	/**
-	 * Sets the User-Agent header to be sent with each request. By default,
+	 * Sets the UserLogin-Agent header to be sent with each request. By default,
 	 * "Android Asynchronous Http Client/VERSION
 	 * (http://loopj.com/android-async-http/)" is used.
 	 *
 	 * @param userAgent
-	 *            the string to use in the User-Agent header.
+	 *            the string to use in the UserLogin-Agent header.
 	 */
 	public void setUserAgent(String userAgent) {
 		HttpProtocolParams.setUserAgent(this.httpClient.getParams(), userAgent);

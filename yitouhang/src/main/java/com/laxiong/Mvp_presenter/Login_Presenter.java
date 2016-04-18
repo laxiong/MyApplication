@@ -1,6 +1,7 @@
 package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.laxiong.Application.YiTouApplication;
@@ -9,17 +10,13 @@ import com.laxiong.Mvp_view.IViewLogin;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.StringUtils;
-import com.laxiong.entity.User;
+import com.laxiong.entity.UserLogin;
 import com.loopj.android.http.Base64;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
-import org.apache.http.client.methods.HttpPost;
 import org.json.JSONObject;
-
-import rx.Observable;
-import rx.Subscriber;
 
 /**
  * Created by xiejin on 2016/4/18.
@@ -40,19 +37,27 @@ public class Login_Presenter {
             return;
         }
         RequestParams params = new RequestParams();
-        params.put("phone", Base64.encode(phonnum.getBytes(), Base64.CRLF));
-        params.put("pwd", Base64.encode(pwd.getBytes(), Base64.CRLF));
+//        params.put("phone", Base64.encode(phonnum.getBytes(), Base64.CRLF));
+//        params.put("pwd", Base64.encode(pwd.getBytes(), Base64.CRLF));
+        params.put("phone", phonnum);
+        params.put("pwd", pwd);
         HttpUtil.post(InterfaceInfo.LOGIN_URL, params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 if (response != null) {
-                    User user = JSONUtils.parseObject(response.toString(), User.class);
-                    if (user != null&&user.getCode()==0) {
-                        YiTouApplication.getInstance().setUser(user);
-                        iviewlogin.loginsuccess();
-                    }else{
-                        iviewlogin.loginfailed();
+                    try {
+                    UserLogin userLogin = JSONUtils.parseObject(response.toString(), UserLogin.class);
+//                        UserLogin userLogin = new UserLogin(response.getInt("token_id"), response.getInt("token"), response.getInt("code"), response.getString("msg"), response.getLong("time"),
+//                                response.getString("photo"), response.getString("name"));
+                        if (userLogin != null && userLogin.getCode() == 0) {
+                            YiTouApplication.getInstance().setUserLogin(userLogin);
+                            iviewlogin.loginsuccess();
+                        } else {
+                            iviewlogin.loginfailed(userLogin.getMsg());
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -60,7 +65,7 @@ public class Login_Presenter {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
-                iviewlogin.loginfailed();
+                iviewlogin.loginfailed(responseString);
             }
         }, true);
     }

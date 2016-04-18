@@ -34,7 +34,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
     private RelativeLayout personIcon, nameSetting, addressSetting, trueName, phoneBind;
     private FrameLayout mBack;
     private ImageView mUseFace;
-
+    private Exit_Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
     }
 
     private void initData() {
-
+        presenter=new Exit_Presenter(this);
         backBtn.setOnClickListener(this);
         personIcon.setOnClickListener(this);
         nameSetting.setOnClickListener(this);
@@ -57,13 +57,13 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
     }
 
     @Override
-    public void logoutfailed() {
-        Toast.makeText(this, "退出登录失败", Toast.LENGTH_LONG).show();
+    public void logoutfailed(String msg) {
+        Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void logoutsuccess() {
-        YiTouApplication.getInstance().setUser(null);
+        YiTouApplication.getInstance().setUserLogin(null);
         Toast.makeText(this, "退出登录成功", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, PatternViewActivity.class);
         startActivity(intent);
@@ -109,7 +109,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         camearBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(PersonalSettingActivity.this, "拍照", 3).show();
+                Toast.makeText(PersonalSettingActivity.this, "拍照",Toast.LENGTH_LONG).show();
                 cameraImages();
             }
         });
@@ -117,7 +117,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         galleryBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(PersonalSettingActivity.this, "从相册中取", 3).show();
+                Toast.makeText(PersonalSettingActivity.this, "从相册中取",Toast.LENGTH_LONG).show();
                 galleryImages();
             }
         });
@@ -177,7 +177,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
                         PHOTO_FILE_NAME);
                 cropImages(Uri.fromFile(tempFile));
             } else {
-                Toast.makeText(PersonalSettingActivity.this, "未找到存储卡，无法存储照片", 3).show();
+                Toast.makeText(PersonalSettingActivity.this, "未找到存储卡，无法存储照片",Toast.LENGTH_LONG).show();
             }
         } else if (requestCode == PHOTO_REQUEST_CUT) {
 
@@ -260,7 +260,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
             @Override
             public void onClick(View arg0) {
                 Toast.makeText(PersonalSettingActivity.this, "退出登录", Toast.LENGTH_LONG).show();
-
+                presenter.exit();
             }
         });
 

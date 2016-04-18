@@ -8,5 +8,5 @@ public interface IViewLogin {
     public String getInputPhoneNum();
     public String getInputPwd();
     public void loginsuccess();
-    public void loginfailed();
+    public void loginfailed(String msg);
 }

@@ -7,7 +7,7 @@ package com.laxiong.Utils;
 public class StringUtils {
     public static boolean isBlank(String msg){
         if(msg.trim()==null||"".equals(msg.trim()))
-            return false;
-        return true;
+            return true;
+        return false;
     }
 }

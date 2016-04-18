@@ -308,7 +308,7 @@ public abstract class AsyncHttpResponseHandler implements ResponseHandlerInterfa
     }
 
     public void onUserException(Throwable error) {
-        Log.e(LOG_TAG, "User-space exception detected!", error);
+        Log.e(LOG_TAG, "UserLogin-space exception detected!", error);
         throw new RuntimeException(error);
     }
 

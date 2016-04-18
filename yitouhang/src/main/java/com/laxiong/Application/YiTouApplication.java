@@ -5,7 +5,7 @@ import java.io.File;
 import java.lang.reflect.Field;
 
 import com.laxiong.Common.Settings;
-import com.laxiong.entity.User;
+import com.laxiong.entity.UserLogin;
 
 import android.app.Application;
 import android.os.Environment;
@@ -13,14 +13,14 @@ import android.os.Environment;
 public class YiTouApplication extends Application{
 	
 	private static YiTouApplication instance = null ;
-	private User user;
+	private UserLogin userLogin;
 
-	public User getUser() {
-		return user;
+	public UserLogin getUserLogin() {
+		return userLogin;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserLogin(UserLogin userLogin) {
+		this.userLogin = userLogin;
 	}
 
 	/****

@@ -15,7 +15,7 @@ import com.laxiong.yitouhang.R;
 
 /**
  * Desc:
- * User: tiansj
+ * UserLogin: tiansj
  */
 public class PasswordInputView extends EditText {
     

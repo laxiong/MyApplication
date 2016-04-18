@@ -2,21 +2,21 @@ package com.laxiong.entity;
 
 /**
  * Created by xiejin on 2016/4/18.
- * Types User.java
+ * Types UserLogin.java
  */
-public class User {
+public class UserLogin {
     private int token_id;
-    private int token;
+    private String token;
     private int code;
     private String msg;
     private long time;
     private String photo;
     private String name;
 
-    public User() {
+    public UserLogin() {
     }
 
-    public User(int token_id, int token, int code, String msg, long time, String photo, String name) {
+    public UserLogin(int token_id, String token, int code, String msg, long time, String photo, String name) {
         this.token_id = token_id;
         this.token = token;
         this.code = code;
@@ -34,11 +34,11 @@ public class User {
         this.token_id = token_id;
     }
 
-    public int getToken() {
+    public String getToken() {
         return token;
     }
 
-    public void setToken(int token) {
+    public void setToken(String token) {
         this.token = token;
     }
 

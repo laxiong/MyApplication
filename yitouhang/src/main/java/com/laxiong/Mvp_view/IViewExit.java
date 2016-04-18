@@ -5,6 +5,6 @@ package com.laxiong.Mvp_view;
  * Types IViewExit.java
  */
 public interface IViewExit {
-    public void logoutfailed();
+    public void logoutfailed(String msg);
     public void logoutsuccess();
 }

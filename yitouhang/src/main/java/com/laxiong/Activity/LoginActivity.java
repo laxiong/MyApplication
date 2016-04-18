@@ -65,8 +65,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
     }
 
     @Override
-    public void loginfailed() {
-        Toast.makeText(this, "登录失败", Toast.LENGTH_LONG).show();
+    public void loginfailed(String msg) {
+        Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
     }
 
     private void initView() {
