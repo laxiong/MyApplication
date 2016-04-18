@@ -366,7 +366,8 @@
         android:paddingLeft="20dp"
         android:orientation="horizontal"
         >
-        <ImageView 
+        <ImageView
+            android:id="@+id/img_toggle"
             android:layout_width="12dp"
             android:layout_height="12dp"
             android:src="@drawable/img_read"

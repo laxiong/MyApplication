@@ -220,7 +220,8 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         >
-        <ImageView 
+        <ImageView
+            android:id="@+id/img_toggle"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:src="@drawable/img_read"

@@ -10,7 +10,7 @@ import com.laxiong.yitouhang.R;
 
 public class WithdrawCashDetailsActivity extends BaseActivity implements OnClickListener{
 	/***
-	 * 提现详情
+	 * 提现结果
 	 */
 	private TextView mTitle ;
 	private FrameLayout mBack ;
@@ -28,7 +28,7 @@ public class WithdrawCashDetailsActivity extends BaseActivity implements OnClick
 
 	private void initView() {
 		mTitle = (TextView)findViewById(R.id.title);
-		mTitle.setText("提现详情");
+		mTitle.setText("提现结果");
 		mBack = (FrameLayout)findViewById(R.id.back_layout);
 	}
 

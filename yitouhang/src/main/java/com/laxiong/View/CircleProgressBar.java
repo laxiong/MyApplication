@@ -17,6 +17,17 @@ public class CircleProgressBar extends View {
 	private float progress = 15;
 	private int progressStrokeWidth = 5;
 	private int marxArcStorkeWidth = 6;
+
+	private String PaintColor ; //画笔颜色
+
+	public String getPaintColor() {
+		return PaintColor;
+	}
+
+	public void setPaintColor(String paintColor) {
+		PaintColor = paintColor;
+	}
+
 	// 画圆所在的距形区域
 	RectF oval;
 	Paint paint;
@@ -51,7 +62,7 @@ public class CircleProgressBar extends View {
 
 		canvas.drawArc(oval, -90, 360, false, paint); // 绘制白色圆圈，即进度条背�?
 //		paint.setColor(Color.rgb(0x57, 0x87, 0xb6));
-		paint.setColor(Color.RED);
+		paint.setColor(Color.parseColor(PaintColor));
 		paint.setStrokeWidth(marxArcStorkeWidth);
 		canvas.drawArc(oval, -90, ((float) progress / maxProgress) * 360,
 				false, paint);  // 绘制进度圆弧，这里是蓝色�?
@@ -118,5 +129,7 @@ public class CircleProgressBar extends View {
 		animation.setFillAfter(true);//设置动画结束后是否停留在结束位置
 		return animation;
 	}
+
+
 
 }

@@ -14,20 +14,21 @@
             android:id="@+id/togetche"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="--账号总资产（元）--"
+            android:text="——在投资产(元)——"
             android:gravity="center_horizontal"
             android:textColor="@color/white"
             />
         
         <TextView
             android:id="@+id/togetche_tv"
-             android:layout_marginTop="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:layout_below="@id/togetche" 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="00.00"
+            android:text="28,364.25"
             android:gravity="center"
-            android:textSize="24dp"
+            android:textSize="26sp"
             android:textColor="@color/white"
             />
         
@@ -43,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:text="可用余额(元)" />
+                android:text="昨日收益(元)" />
 
             <View
                 android:id="@+id/view"
@@ -60,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/view"
                 android:textColor="@color/white"
-                android:text="累计收益(元)" />
+                android:text="账号余额(元)" />
 
             <TextView
                 android:id="@+id/textView1"
@@ -70,7 +71,7 @@
                 android:layout_toRightOf="@+id/view"
                 android:textSize="17dp"
                 android:textColor="@color/white"
-                android:text="0.00" />
+                android:text="29,689.89" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,7 +81,7 @@
                 android:layout_alignRight="@+id/tv1"
                 android:textSize="17dp"
                 android:textColor="@color/white"
-                android:text="0.00" />
+                android:text="23.58" />
         </RelativeLayout>
         
     </RelativeLayout>
@@ -168,6 +169,7 @@
         android:orientation="horizontal"
         >
         <RelativeLayout
+            android:id="@+id/touzi_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -182,7 +184,7 @@
             <TextView 
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:text="投资细明"
+                android:text="投资明细"
                 android:textSize="11dp"
                 android:gravity="center"
                 android:layout_below="@id/imgs3"
@@ -210,7 +212,7 @@
             <TextView 
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:text="福利中心"
+                android:text="我的红包"
                 android:textSize="11dp"
                 android:gravity="center"
                 android:layout_below="@id/imgs4"
@@ -239,7 +241,7 @@
             <TextView 
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:text="积分商城"
+                android:text="1T商城"
                 android:textSize="11dp"
                 android:layout_below="@id/imgs5"
                 android:gravity="center"

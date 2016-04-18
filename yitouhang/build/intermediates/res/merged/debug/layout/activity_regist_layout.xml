@@ -176,12 +176,13 @@
            android:textSize="12dp"
            android:layout_marginLeft="5dp"
            />
-        <ImageView 
+        <ImageView
+            android:id="@+id/img_showpswd"
            android:layout_width="16dp"
            android:layout_height="16dp"
            android:layout_alignParentRight="true"
            android:layout_marginRight="20dp"
-           android:background="@color/divider_grey"
+           android:src="@drawable/img_eye_close"
            android:layout_centerVertical="true"
            />
     </RelativeLayout>

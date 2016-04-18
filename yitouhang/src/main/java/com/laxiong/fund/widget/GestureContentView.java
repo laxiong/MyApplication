@@ -1,8 +1,5 @@
 package com.laxiong.fund.widget;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +9,9 @@ import com.laxiong.fund.common.AppUtil;
 import com.laxiong.fund.entity.GesturePoint;
 import com.laxiong.fund.widget.GestureDrawline.GestureCallBack;
 import com.laxiong.yitouhang.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *手势密码容器类

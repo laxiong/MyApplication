@@ -1,22 +1,22 @@
 package com.laxiong.Common;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import android.widget.ImageView;
 
 import com.laxiong.yitouhang.R;
 
-import android.widget.ImageView;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Common {
 
 	public final static String sharedPrefName = "YITOUHANG";
+
 	static boolean isChecked = false ;
+	static boolean isShowed = false ;
 	
-	
-	
-	// 阅读协议的
+	//TODO 阅读协议的 Bug
 	public static void isCheck(ImageView iv ){
-		
+
 		if(isChecked){ // 是阅读的
 			iv.setImageResource(R.drawable.img_read);
 			isChecked = false ;
@@ -24,7 +24,6 @@ public class Common {
 			iv.setImageResource(R.drawable.img_no_read);
 			isChecked = true ;
 		}
-		
 	}
 
 	// 验证手机号码

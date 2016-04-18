@@ -65,6 +65,7 @@
         android:layout_height="50dp"
         android:text="立即购买"
         android:gravity="center"
+        android:textColor="@color/title_grey"
         />
 
 </LinearLayout>

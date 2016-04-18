@@ -1,13 +1,12 @@
 package com.laxiong.Activity;
 
-import org.apache.http.Header;
-import org.json.JSONObject;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,13 +23,16 @@ import com.laxiong.yitouhang.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.apache.http.Header;
+import org.json.JSONObject;
+
 public class RegistActivity extends BaseActivity implements OnClickListener{
 	/***
 	 * 注册
 	 */
 	private TextView mLoginBtn , mRegistBtn ,mGetCode;
 	private FrameLayout mBack ;
-	private ImageView mToggleBtn ;
+	private ImageView mToggleBtn ,mShowPswd;
 	private EditText mPhoneEd , mPswdEd , mCodeEd, mInviteCodeEd ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 		mCodeEd.addTextChangedListener(watcher);
 		
 		mGetCode.setOnClickListener(this);
+		mShowPswd.setOnClickListener(this);
 	}
 
 	private void initView() {
@@ -60,6 +63,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 		mRegistBtn = (TextView)findViewById(R.id.registBtn);
 		mBack = (FrameLayout)findViewById(R.id.backlayout);
 		mToggleBtn = (ImageView)findViewById(R.id.toggle_img);
+		mShowPswd = (ImageView)findViewById(R.id.img_showpswd);
 		
 		mCodeEd = (EditText)findViewById(R.id.regist_code);
 		mInviteCodeEd = (EditText)findViewById(R.id.regist_invite_code); // 邀请码
@@ -85,13 +89,13 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 						if(Common.inputPswdCount(code)){
 							doRegist();
 						}else{
-							Toast.makeText(RegistActivity.this, "请输入密码6到20位字母和数字", 3).show();
+							Toast.makeText(RegistActivity.this, "请输入密码6到20位字母和数字", Toast.LENGTH_SHORT).show();
 						}
 					}else{
-						Toast.makeText(RegistActivity.this, "请输入正确的手机号", 3).show();
+						Toast.makeText(RegistActivity.this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
 					}
 				}else{
-					Toast.makeText(RegistActivity.this, "手机号码或密码,验证码不能为空", 3).show();
+					Toast.makeText(RegistActivity.this, "手机号码或密码,验证码不能为空", Toast.LENGTH_SHORT).show();
 				}
 				
 				break;
@@ -99,7 +103,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 				this.finish();
 				break;
 			case R.id.toggle_img:
-				Common.isCheck(mToggleBtn);
+				readProcotol();
 				break;
 			case R.id.getcode:   // 验证码
 				
@@ -108,16 +112,45 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 					if(Common.isMobileNO(mobile)){
 						getCode();
 					}else{
-						Toast.makeText(RegistActivity.this, "请输入正确的手机号", 3).show();
+						Toast.makeText(RegistActivity.this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
 					}
 				}else{
-					Toast.makeText(RegistActivity.this, "手机号码不能为空", 3).show();
+					Toast.makeText(RegistActivity.this, "手机号码不能为空", Toast.LENGTH_SHORT).show();
 				}
 				
 				break;
+
+			case R.id.img_showpswd:
+				showPassWord();
+				break;
 		}
 	}
-	
+	// 阅读协议
+	private boolean isRead = false ;
+	private void readProcotol(){
+		if(isRead){ // 是阅读的
+			mToggleBtn.setImageResource(R.drawable.img_read);
+			isRead = false ;
+		}else{  // 没有阅读
+			mToggleBtn.setImageResource(R.drawable.img_no_read);
+			isRead = true ;
+		}
+	}
+
+	// show password
+	private boolean isShowed = false ;
+	private void showPassWord(){
+		if(isShowed){ // 隐藏
+			mShowPswd.setImageResource(R.drawable.img_eye_close);
+			mPswdEd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+			isShowed = false;
+		}else{		//显示
+			mShowPswd.setImageResource(R.drawable.img_eye_open);
+			mPswdEd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+			isShowed = true;
+		}
+	}
+
 	// 获取验证码  code 
 	int count;
 	boolean stopThread;
@@ -137,10 +170,10 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 					try {
 						Log.i("URL", "code码：="+response.getInt("code"));
 						if (response.getInt("code") == 0) {
-							Toast.makeText(RegistActivity.this, "成功获取验证码", 3).show();
+							Toast.makeText(RegistActivity.this, "成功获取验证码", Toast.LENGTH_SHORT).show();
 						} else {
 							if (response.getString("msg") != null) {
-								Toast.makeText(RegistActivity.this, response.getString("msg"), 3).show();
+								Toast.makeText(RegistActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 								stopThread = true;
 							}
 						}
@@ -207,10 +240,10 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 				if(response!=null){
 					try{
 						if (response.getInt("code") == 0) {
-							Toast.makeText(RegistActivity.this, "注册成功", 3).show();
+							Toast.makeText(RegistActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
 						} else {
 							if (response.getString("msg") != null) {
-								Toast.makeText(RegistActivity.this, response.getString("msg"), 3).show();
+								Toast.makeText(RegistActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 							}
 						}
 					}catch (Exception e){

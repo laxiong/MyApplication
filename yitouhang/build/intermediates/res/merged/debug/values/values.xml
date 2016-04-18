@@ -93,18 +93,21 @@
     <color name="black">#000000</color>
     <color name="default_ev_border_color">#CCCCCC</color>
     <color name="default_ev_password_color">#CCCCCC</color>
-    <color name="divider_grey">#cccccc</color>
+    <color name="divider_grey">#D6D6D6</color>
     <color name="fresh_green">#c4f089</color>
     <color name="futext_grey">#666666</color>
+    <color name="gesture_color">#0E3C5D</color>
     <color name="goodname">#555555</color>
     <color name="grey_bg">#D6D6D6</color>
     <color name="grey_bg_text">#A6A6A6</color>
     <color name="grey_btn">#E6E6E6</color>
     <color name="light_green">#83c254</color>
-    <color name="light_grey">#F5F5F5</color>
+    <color name="light_grey">#F1F2F3</color>
     <color name="light_white">#66ffffff</color>
     <color name="maintext_grey">#333333</color>
     <color name="money">#EE7737</color>
+    <color name="money_blue">#00C021</color>
+    <color name="money_org">#EE7737</color>
     <color name="orangered">#F04F46</color>
     <color name="press_light_green">#6683c254</color>
     <color name="red">#ff0000</color>
@@ -112,6 +115,7 @@
     <color name="shen_grey">#999999</color>
     <color name="text_mi">#efede0</color>
     <color name="title_grey">#EE4E42</color>
+    <color name="vip_color">#FFE2A42A</color>
     <color name="white">#ffffff</color>
     <color name="yellow_paper">#FA8C1A</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr format="dimension" name="itemPadding"/></declare-styleable>
@@ -802,6 +806,16 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">17sp</item>
     </style>
+    <style mce_bogus="1" name="popupAnimation" parent="android:Animation">
+		<item name="android:windowFrame">@null</item>
+		<item name="android:windowIsFloating">true</item>
+		<item name="android:windowIsTranslucent">false</item>
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowEnterAnimation">@anim/anim_start</item>
+		<item name="android:windowExitAnimation">@anim/anim_dismiss</item>
+		<item name="android:backgroundDimEnabled">true</item>
+		<item name="android:backgroundDimAmount">0.0</item>
+	</style>
     <style name="whiteText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

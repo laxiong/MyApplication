@@ -88,14 +88,14 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
 		 onLineBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Toast.makeText(CountSettingActivity.this, "在线客服", 3).show();
+				Toast.makeText(CountSettingActivity.this, "在线客服", Toast.LENGTH_SHORT).show();
 			}
 		});
 		 
 		 kefuTelBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Toast.makeText(CountSettingActivity.this, "客服电话：400-0888-888", 3).show();
+				Toast.makeText(CountSettingActivity.this, "客服电话：400-0888-888", Toast.LENGTH_SHORT).show();
 			}
 		});
 		 

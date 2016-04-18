@@ -32,8 +32,6 @@ public class AssetActivity extends BaseActivity implements OnClickListener{
 	private void initData() {
 		mCircularView.setProgressFrist(65.0f);
 		mCircularView.setProgressSecond(15.0f);
-		mCircularView.setProgressThird(30.0f);
-		
 		mBack.setOnClickListener(this);
 		mNotice.setOnClickListener(this);
 	}

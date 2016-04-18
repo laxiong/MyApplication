@@ -13,9 +13,9 @@ import android.widget.TextView;
 
 import com.laxiong.Activity.AssetActivity;
 import com.laxiong.Activity.AvailableBalanceActivity;
+import com.laxiong.Activity.InvestmentRecordActivity;
 import com.laxiong.Activity.RechargeActivity;
 import com.laxiong.Activity.WithdrawCashActivity;
-import com.laxiong.Activity.WithdrawCashDetailsActivity;
 import com.laxiong.yitouhang.R;
 
 @SuppressLint("NewApi") 
@@ -25,7 +25,7 @@ public class MySelfFragment extends Fragment implements OnClickListener{
 	 */
 	View view ;
 	private TextView totleMoney ;
-	private RelativeLayout AvailableBalance ,WithdrawCash , Recharge;
+	private RelativeLayout AvailableBalance ,WithdrawCash , Recharge ,mTouZiLayout;// 投资明细
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class MySelfFragment extends Fragment implements OnClickListener{
 		AvailableBalance.setOnClickListener(this);
 		WithdrawCash.setOnClickListener(this);
 		Recharge.setOnClickListener(this);
+		mTouZiLayout.setOnClickListener(this);
 	}
 
 	private void initView() {
@@ -48,6 +49,7 @@ public class MySelfFragment extends Fragment implements OnClickListener{
 		AvailableBalance = (RelativeLayout)view.findViewById(R.id.availablebalance);
 		WithdrawCash = (RelativeLayout)view.findViewById(R.id.withdrawcash);
 		Recharge = (RelativeLayout)view.findViewById(R.id.recharge);
+		mTouZiLayout = (RelativeLayout)view.findViewById(R.id.touzi_layout);
 	}
 
 	@Override
@@ -68,6 +70,10 @@ public class MySelfFragment extends Fragment implements OnClickListener{
 		case R.id.recharge:  // 充值
 			startActivity(new Intent(getActivity(),
 					RechargeActivity.class));
+			break;
+		case R.id.touzi_layout: //投资明细
+			startActivity(new Intent(getActivity(),
+					InvestmentRecordActivity.class));
 			break;
 		}
 	}

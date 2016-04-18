@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,8 @@ import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.View.CircleProgressBar;
 import com.laxiong.View.PinnedSectionListView.PinnedSectionListAdapter;
 import com.laxiong.yitouhang.R;
+
+import java.util.ArrayList;
 
 public class VipPinnedListViewAdapter extends BaseAdapter implements PinnedSectionListAdapter{
 	/****
@@ -74,7 +75,7 @@ public class VipPinnedListViewAdapter extends BaseAdapter implements PinnedSecti
 					vh.mText_section=(TextView)converView.findViewById(R.id.tv1);
 					vh.mCircleProgressView=(CircleProgressBar)converView.findViewById(R.id.cricleprogress);
 					
-					vh.id_tag = (TextView)converView.findViewById(R.id.id_tag);
+//					vh.id_tag = (TextView)converView.findViewById(R.id.id_tag);
 					vh.vip_addbf = (TextView)converView.findViewById(R.id.vip_baifenbi);
 					
 					break;
@@ -119,7 +120,7 @@ public class VipPinnedListViewAdapter extends BaseAdapter implements PinnedSecti
 //		  		vh.mCircleProgressView.setValue(42);
 		  		vh.mCircleProgressView.setProgress(27.5f, vh.iv);
 		  	
-		  	 vh.id_tag.setText("五万起投");
+//		  	 vh.id_tag.setText("五万起投");
 			 vh.vip_addbf.setVisibility(View.VISIBLE);
 	  }
 	  

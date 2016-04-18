@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A6A6A6"
+    android:background="@color/gesture_color"
     android:orientation="vertical" >
     
     <LinearLayout
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="绘制解锁图案"
-            android:textColor="#F98F12"
+            android:textColor="@color/white"
             android:layout_marginTop="10dip" />
     </LinearLayout>
 
@@ -45,7 +45,7 @@
         android:layout_below="@id/gesture_container"
         android:layout_marginTop="20dip"
         android:text="设置手势密码,防止他人未经授权查看"
-        android:textColor="#816E6A" />
+        android:textColor="@color/white" />
     
     
 </RelativeLayout>

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_grey"
+    android:background="@color/gesture_color"
     android:orientation="vertical" >
     
 	<RelativeLayout
@@ -37,8 +37,8 @@
 
         <ImageView
             android:id="@+id/user_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/user_logo" />
 
@@ -49,7 +49,7 @@
             android:layout_marginTop="10dip"
             android:gravity="center_horizontal"
             android:text="152****8888"
-            android:textColor="#8C806F" />
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/text_tip"
@@ -83,7 +83,7 @@
             android:gravity="center"
             android:textSize="16sp"
             android:text="忘记手势密码"
-            android:textColor="#8C806F" />
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/text_other_account"
@@ -93,7 +93,7 @@
             android:gravity="center"
             android:textSize="16sp"
             android:text="其他账户登录"
-            android:textColor="#8C806F" />
+            android:textColor="@color/white" />
     </LinearLayout>
     
    

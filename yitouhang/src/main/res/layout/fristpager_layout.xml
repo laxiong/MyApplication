@@ -28,10 +28,18 @@
     
     <RelativeLayout 
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="30dp"
         android:background="@color/white"
         >
+        
+        <View
+            android:id="@+id/toutiao_line"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#FFFE9D83"/>
+        
         <TextView
+            android:layout_toRightOf="@+id/toutiao_line"
             android:id="@+id/toutiao" 
             android:layout_width="68dp"
             android:layout_height="match_parent"
@@ -76,37 +84,42 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             >
-            <ImageView
+            <View
                 android:id="@+id/imgs1" 
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="21dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/corners_border"
-                android:layout_marginRight="5dp"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="#FF7CC9E5"
                 />
-            <TextView 
+            <TextView
                 android:id="@+id/tv1"
                 android:layout_toRightOf="@+id/imgs1"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
                 android:layout_marginTop="20dp"
-                android:text="新手标"
+                android:text="新手专享"
                 android:gravity="center"
+                android:layout_marginLeft="21dp"
+
                 />
-            <TextView 
+            <TextView
+                android:layout_marginTop="3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
                 android:layout_below="@id/tv1"
-                 android:layout_toRightOf="@+id/imgs1"
-                 android:text="高达15%的年化，安心收益"
+                android:layout_toRightOf="@+id/imgs1"
+                android:text="超高收益 私人定制"
+                android:layout_marginLeft="21dp"
+                android:textSize="12sp"
+                android:textColor="#FF999999"
+
                 />
             <ImageView 
-                android:layout_width="44dp"
+                android:layout_width="32dp"
                 android:layout_height="20dp"
                 android:layout_toRightOf="@+id/tv1"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/corners_border"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/img_fire"
                 />
             <ImageView
                 android:id="@+id/arrow"
@@ -132,38 +145,33 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             >
-             <ImageView
+             <View
                 android:id="@+id/imgs2" 
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="21dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/corners_border"
-                android:layout_marginRight="5dp"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                 android:background="#FF41A8E3"
                 />
             <TextView 
                 android:id="@+id/tv2"
                 android:layout_toRightOf="@+id/imgs2"
+                android:layout_marginLeft="21dp"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
                 android:layout_marginTop="20dp"
                 android:text="时息通"
                 android:gravity="center"
                 />
-            <TextView 
+            <TextView
+                android:layout_marginLeft="21dp"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
                 android:layout_below="@id/tv2"
                  android:layout_toRightOf="@+id/imgs2"
-                 android:text="高达8%的年化，智能分散投资"
+                 android:text="一元起投 随存随取"
+                android:textSize="12sp"
+                android:textColor="#FF999999"
                 />
-            <ImageView 
-                android:layout_width="44dp"
-                android:layout_height="20dp"
-                android:layout_toRightOf="@+id/tv2"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/corners_border"
-                />
+
             <ImageView
                 android:id="@+id/arrow2"
                 android:layout_width="6dp"
@@ -188,37 +196,40 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             >
-             <ImageView
+             <View
                 android:id="@+id/imgs3" 
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="21dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/corners_border"
-                android:layout_marginRight="5dp"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                 android:background="#FF3B8CDF"
                 />
-            <TextView 
+            <TextView
+                android:layout_marginLeft="21dp"
                 android:id="@+id/tv3"
                 android:layout_toRightOf="@+id/imgs3"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
                 android:layout_marginTop="20dp"
-                android:text="固息宝，定息"
+                android:text="固息宝，碳银宝三期"
                 android:gravity="center"
                 />
-            <TextView 
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="21dp"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
                 android:layout_below="@id/tv3"
                  android:layout_toRightOf="@+id/imgs3"
-                 android:text="灵活理财，安全保障"
+                 android:text="稳固投资 超高收益"
+                android:textSize="12sp"
+                android:textColor="#FF999999"
                 />
             <ImageView 
-                android:layout_width="44dp"
+                android:layout_width="32dp"
                 android:layout_height="20dp"
                 android:layout_toRightOf="@+id/tv3"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/corners_border"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/img_jian"
                 />
             <ImageView
                 android:id="@+id/arrow3"

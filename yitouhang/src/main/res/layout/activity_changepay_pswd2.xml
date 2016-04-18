@@ -35,10 +35,12 @@
         android:paddingLeft="23dp"
         android:background="@color/white"
         >
-        <EditText 
+        <EditText
+            android:id="@+id/pswd"
         	android:layout_width="wrap_content"
         	android:layout_height="40dp"
         	android:textSize="12dp"
+            android:password="true"
         	android:hint="新支付密码（由字母、数字等11位组成）"
         	android:background="@null"
         	/>
@@ -49,10 +51,11 @@
             android:layout_marginRight="20dp"
             android:gravity="center"
             > 
-            <ImageView 
+            <ImageView
+                android:id="@+id/img_showpswd"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:background="@color/divider_grey"
+                android:src="@drawable/img_eye_close"
                 />
        </RelativeLayout>
     </RelativeLayout>

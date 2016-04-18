@@ -23,10 +23,11 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
  * 立即购买页面
  */
 	
-	private LinearLayout mChangeBankTpye,ll_redpaper ;
+	private static final int REQUEST_CODE=1;
+	private LinearLayout mChangeBankTpye,ll_redpaper;
 	private FrameLayout mBack ;
 	private TextView mBuyBtn ;
-	private static final int REQUEST_CODE=1;
+	private ImageView mToggleBtn;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,6 +40,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		mChangeBankTpye.setOnClickListener(this);
 		mBack.setOnClickListener(this);
 		mBuyBtn.setOnClickListener(this);
+		mToggleBtn.setOnClickListener(this);
 		ll_redpaper.setOnClickListener(this);
 	}
 
@@ -47,6 +49,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		mChangeBankTpye = (LinearLayout)findViewById(R.id.changebank);
 		mBack = (FrameLayout)findViewById(R.id.backlayout_);
 		mBuyBtn = (TextView)findViewById(R.id.buyingbtn);
+		mToggleBtn = (ImageView)findViewById(R.id.img_toggle);
 	}
 
 	@Override
@@ -63,8 +66,12 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 				break;
 			case R.id.ll_redpaper:
 				Intent intent=new Intent(BuyingActivity.this,WelCenterActivity.class);
-				intent.putExtra("isBuying",true);
+				intent.putExtra("isBuying", true);
 				BuyingActivity.this.startActivityForResult(intent,REQUEST_CODE);
+			break;
+			case R.id.img_toggle:
+				readProcotol();
+				break;
 		}
 	}
 	//处理红包选择回调
@@ -72,7 +79,19 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 	}
-	// pay Menthod
+	// 阅读协议
+	private boolean isRead = false ;
+	private void readProcotol(){
+		if(isRead){ // 是阅读的
+			mToggleBtn.setImageResource(R.drawable.img_read);
+			isRead = false ;
+		}else{  // 没有阅读
+			mToggleBtn.setImageResource(R.drawable.img_no_read);
+			isRead = true ;
+		}
+	}
+
+			// pay Menthod
 	
 			private PopupWindow mPayMathodWindow ;
 			private View PayView ;

@@ -3,10 +3,13 @@ package com.laxiong.Activity;
 import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
@@ -20,7 +23,8 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener{
 	 */
 	private TextView mFinish ;
 	private FrameLayout mBack ;
-	private ImageView toggleRead ;
+	private ImageView toggleRead , mShowPswd;
+	private EditText mPswdEd ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,6 +36,7 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener{
 		mFinish.setOnClickListener(this);
 		mBack.setOnClickListener(this);
 		toggleRead.setOnClickListener(this);
+		mShowPswd.setOnClickListener(this);
 	}
 	private void initView() {
 		mFinish = (TextView)findViewById(R.id.fininsh);
@@ -39,6 +44,9 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener{
 		toggleRead = (ImageView)findViewById(R.id.toggle);
 		TextView mTitle = (TextView)findViewById(R.id.title);
 		mTitle.setText("实名认证");
+
+		mPswdEd = (EditText)findViewById(R.id.pswd);
+		mShowPswd =(ImageView)findViewById(R.id.img_showpswd);
 	}
 	@Override
 	public void onClick(View v) {
@@ -54,6 +62,9 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener{
 			case R.id.toggle:
 				readProtocol();
 				break ;
+			case R.id.img_showpswd:
+				showPassWord();
+				break;
 		}
 	}
 	
@@ -70,7 +81,21 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener{
 			isRead = true ;
 		}
 	}
-	
+
+	// show password
+	private boolean isShowed = false ;
+	private void showPassWord(){
+		if(isShowed){ // 隐藏
+			mShowPswd.setImageResource(R.drawable.img_eye_close);
+			mPswdEd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+			isShowed = false;
+		}else{		//显示
+			mShowPswd.setImageResource(R.drawable.img_eye_open);
+			mPswdEd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+			isShowed = true;
+		}
+	}
+
 	/****
 	 * 认证通过现实的PopupWindow
 	 */

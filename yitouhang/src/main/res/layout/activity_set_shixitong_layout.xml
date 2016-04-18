@@ -74,6 +74,7 @@
             android:layout_height="match_parent"
             android:text="转入"
             android:gravity="center"
+            android:textColor="@color/title_grey"
             />
         <View 
           android:layout_width="1dp"
@@ -87,6 +88,7 @@
             android:layout_height="match_parent"
             android:text="转出"
              android:gravity="center"
+            android:textColor="@color/title_grey"
             />
     </LinearLayout>
 </LinearLayout>

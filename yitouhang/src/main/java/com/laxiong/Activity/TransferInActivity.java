@@ -15,6 +15,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.laxiong.yitouhang.R;
 
 public class TransferInActivity extends BaseActivity implements OnClickListener{
@@ -25,6 +26,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 	private TextView mBankCan ; // 银行限制
 	private LinearLayout mPayMethod ;
 	private TextView mTransferinBtn ;
+	private ImageView mToggleBtn ;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 		mBankCan.setOnClickListener(this);
 		mPayMethod.setOnClickListener(this);
 		mTransferinBtn.setOnClickListener(this);
+		mToggleBtn.setOnClickListener(this);
 	}
 
 	private void initView() {
@@ -46,6 +49,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 		mBankCan = (TextView)findViewById(R.id.bankcan);
 		mPayMethod = (LinearLayout)findViewById(R.id.selectpaymethod);
 		mTransferinBtn = (TextView)findViewById(R.id.transferinnow);
+		mToggleBtn = (ImageView)findViewById(R.id.img_toggle);
 	}
 
 	@Override
@@ -61,8 +65,23 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 				inputOverToPswd();
 				break;
 			case R.id.bankcan:
-				Toast.makeText(this, "银行限额", 2).show();
+				Toast.makeText(this, "银行限额", Toast.LENGTH_SHORT).show();
 				break;
+			case R.id.img_toggle:
+				readProcotol();
+				break;
+		}
+	}
+
+	// 阅读协议
+	private boolean isRead = false ;
+	private void readProcotol(){
+		if(isRead){ // 是阅读的
+			mToggleBtn.setImageResource(R.drawable.img_read);
+			isRead = false ;
+		}else{  // 没有阅读
+			mToggleBtn.setImageResource(R.drawable.img_no_read);
+			isRead = true ;
 		}
 	}
 
@@ -176,7 +195,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 			mForgetPswd.setOnClickListener(new OnClickListener() {
 				@SuppressLint("InlinedApi") @Override
 				public void onClick(View arg0) {
-					Toast.makeText(TransferInActivity.this, "忘记密码的操作", 2).show();
+					Toast.makeText(TransferInActivity.this, "忘记密码的操作", Toast.LENGTH_SHORT).show();
 				}
 			});
 			

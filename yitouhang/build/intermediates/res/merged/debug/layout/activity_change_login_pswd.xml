@@ -44,30 +44,32 @@
       android:layout_height="1dp"
       android:background="@color/divider_grey"  
       />
-    <RelativeLayout 
+    <LinearLayout
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:paddingLeft="23dp"
         >
         <EditText 
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:hint="新登录密码"
+            android:password="true"
+            android:id="@+id/pswd"
             android:textSize="15dp"
             android:background="@null"
             />
-        
         <!-- 小眼睛 -->
-        <ImageView 
+        <ImageView
+            android:id="@+id/img_showpswd"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:background="@color/divider_grey"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+            android:src="@drawable/img_eye_close"
             android:layout_marginRight="28dp"
+            android:layout_gravity="center_vertical"
             />
-    </RelativeLayout>
+    </LinearLayout>
     <View 
       android:layout_width="match_parent"
       android:layout_height="1dp"

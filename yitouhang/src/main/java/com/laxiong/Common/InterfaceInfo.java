@@ -13,6 +13,6 @@ public class InterfaceInfo {
 	
 	public final static String CODE_URL = BASE_URL+"/code";
 	
-	
+	public final static String PRODUCT_URL = BASE_URL +"/product";
 
 }
