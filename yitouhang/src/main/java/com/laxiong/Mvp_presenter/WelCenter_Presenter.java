@@ -1,6 +1,7 @@
 package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.TextView;
 
+import com.laxiong.Activity.WelCenterActivity;
 import com.laxiong.Adapter.RedPaper;
 import com.laxiong.Mvp_view.IViewWelcenter;
 import com.laxiong.yitouhang.R;
@@ -48,7 +50,8 @@ public class WelCenter_Presenter {
 
     public void initUnusedFootView(Context context) {
         if (iviewcenter.getMaxPage() == 0) {
-
+            loadEmptyView(context);
+            return;
         }
         if (iviewcenter.getMaxPage() > iviewcenter.getPageNow()) {
             loadmoreview(false, context);
@@ -79,6 +82,10 @@ public class WelCenter_Presenter {
     }
 
     public void initUsedFootView(Context context) {
+        if (iviewcenter.getMaxPage() == 0) {
+            loadEmptyView(context);
+            return;
+        }
         if (iviewcenter.getMaxPage() > iviewcenter.getPageNow()) {
             loadmoreview(true, context);
         } else {
@@ -91,13 +98,15 @@ public class WelCenter_Presenter {
         iviewcenter.addFootView(footview_nomore);
     }
 
-    private void lookExpire(Context context) {
+    private void lookExpire(final Context context) {
         View footview_nomore_used = LayoutInflater.from(context).inflate(R.layout.footview_nomoreused, null);
         final TextView tv_expire = (TextView) footview_nomore_used.findViewById(R.id.tv_clickmore);
         tv_expire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iviewcenter.addList(true, true);
+                Intent intent = new Intent(context, WelCenterActivity.class);
+                intent.putExtra("used", true);
+                context.startActivity(intent);
             }
         });
         iviewcenter.addFootView(footview_nomore_used);

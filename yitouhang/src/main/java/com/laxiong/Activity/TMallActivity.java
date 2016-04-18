@@ -52,6 +52,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
     }
 
     private void initData() {
+        presenter=new TMall_Presenter(this);
         list = new ArrayList<PaperYuan>();
         list.add(new PaperYuan("", 1));
         list.add(new PaperYuan("", 5));

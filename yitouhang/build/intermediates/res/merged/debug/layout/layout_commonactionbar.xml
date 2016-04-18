@@ -9,7 +9,7 @@ android:background="@color/title_grey">
     android:id="@+id/fl_back"
     android:layout_width="50dp"
     android:layout_height="match_parent"
-    android:background="@drawable/button_change_bg_border"
+    android:background="@drawable/button_change_noradius"
     android:layout_alignParentLeft="true">
 
     <ImageView

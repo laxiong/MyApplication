@@ -17,7 +17,7 @@ import com.laxiong.yitouhang.R;
 @SuppressLint("NewApi")
 public class InvestmentRecord_BuyingFragment extends Fragment {
     /***
-     * Í¶×Ê¼ÇÂ¼--¹ºÂò
+     *
      */
     private View view ;
     private ListView mListView ;

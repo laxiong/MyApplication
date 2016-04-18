@@ -82,15 +82,16 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
     private void initData() {
         intent_select = getIntent();
         actionbar.setTitle("福利中心");
+        boolean flag=getIntent()!=null&&getIntent().getBooleanExtra("used",false);
         listselect = new ArrayList<RedPaper>();
         listdata = new ArrayList<RedPaper>();
-        listdata = presenter.reqRedPaperList(pagenow = 1, false);
+        listdata = presenter.reqRedPaperList(pagenow = 1,flag);
         adapter = new RedPaperAdapter(this, listdata);
         lvlist.setAdapter(adapter);
-        if (getIntent() != null && getIntent().getBooleanExtra("used", false))
-            presenter.initUsedFootView(this);
+        if(!flag)
+        presenter.initUnusedFootView(this);
         else
-            presenter.initUnusedFootView(this);
+            presenter.initUsedFootView(this);
     }
 
     @Override
@@ -99,11 +100,9 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
             listdata.clear();
         listdata.addAll(presenter.reqRedPaperList(init ? (pagenow = 1) : ++pagenow, isused));
         adapter.setList(listdata);
-        if (isused) {
-            Intent intent = new Intent(this, WelCenterActivity.class);
-            intent.putExtra("used", true);
-            this.startActivity(new Intent(intent));
-        } else
+        if (isused)
+            presenter.initUsedFootView(this);
+        else
             presenter.initUnusedFootView(this);
         if (init && isused)
             lvlist.setSelection(0);
@@ -129,7 +128,7 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
 
     @Override
     public void setBottomTipVisibily(boolean flag) {
-        ll_bottom.setVisibility(flag ? View.VISIBLE : View.INVISIBLE);
+        ll_bottom.setVisibility(flag?View.VISIBLE:View.INVISIBLE);
     }
 
     private void initListener() {
