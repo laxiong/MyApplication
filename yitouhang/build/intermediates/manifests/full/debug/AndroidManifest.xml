@@ -23,6 +23,11 @@
         <activity
             android:name="com.laxiong.Activity.PatternViewActivity"
             android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name="com.laxiong.Activity.BaseActivity" />
 
@@ -117,11 +122,6 @@
         <activity android:name="com.laxiong.Activity.RechargeActivity" />
         <!-- 福利中心 -->
         <activity android:name="com.laxiong.Activity.WelCenterActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!-- 红包解释 -->
         <activity android:name="com.laxiong.Activity.RpExplainActivity" />

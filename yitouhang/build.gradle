@@ -25,4 +25,5 @@ dependencies {
     compile 'io.reactivex:rxjava:1.0.14'
     compile 'io.reactivex:rxandroid:1.1.0'
     compile files('libs/glide-3.6.1.jar')
+    compile files('libs/fastjson-1.2.2.jar')
 }

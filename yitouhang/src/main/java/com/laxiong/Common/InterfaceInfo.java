@@ -14,5 +14,9 @@ public class InterfaceInfo {
 	public final static String CODE_URL = BASE_URL+"/code";
 	
 	public final static String PRODUCT_URL = BASE_URL +"/product";
+	//用户登录
+	public final static String LOGIN_URL=BASE_URL+"/login";
+	//
+	public final static String LOGINOUT_URL=BASE_URL+"/logout";
 
 }
