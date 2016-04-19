@@ -37,7 +37,9 @@ public class Password_Presenter {
             return;
         RequestParams params=new RequestParams();
         params.put("type","edpwd");
-        params.put("old_pwd",newpwd);
+        params.put("old_pwd",oldpwd);
+        params.put("pwd",newpwd);
+        params.put("repwd",newpwd);
         UserLogin userlogin= YiTouApplication.getInstance().getUserLogin();
         if (userlogin == null || StringUtils.isBlank(userlogin.getToken_id() + "") || StringUtils.isBlank(userlogin.getToken())) {
             Intent intent=new Intent(context, LoginActivity.class);
