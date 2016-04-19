@@ -56,7 +56,8 @@
             android:layout_centerHorizontal="true"
             android:src="@drawable/img_person_logon"/>
         
-        <TextView 
+        <TextView
+            android:id="@+id/tv_phonenum"
             android:layout_below="@id/logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

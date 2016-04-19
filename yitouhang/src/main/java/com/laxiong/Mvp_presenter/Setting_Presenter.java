@@ -8,6 +8,7 @@ import android.util.Log;
 import com.laxiong.Activity.ChangeCountActivity;
 import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewSetting;
 import com.laxiong.Utils.HttpUtil;
@@ -54,7 +55,7 @@ public class Setting_Presenter {
         final String str = tokenid + ":" + token;
         String autori = Base64.encodeToString(str.getBytes(), Base64.NO_WRAP);
         RequestParams params = new RequestParams();
-        params.put("type", "nick");
+        params.put("type", Constants.ReqEnum.NICK.getVal());
         params.put("nickname", nickname);
         HttpUtil.put(InterfaceInfo.USER_URL, params, new JsonHttpResponseHandler() {
             @Override

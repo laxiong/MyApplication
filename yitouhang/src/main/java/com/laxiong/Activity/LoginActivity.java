@@ -23,7 +23,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
     /***
      * 登录
      */
-    private TextView mRegistBtn, mLoginBtn, mFindPswd, mChangeCount;
+    private TextView mRegistBtn, mLoginBtn, mFindPswd, mChangeCount, tv_phonenum;
     private FrameLayout mBack;
     private ImageView mShowPswd;
     private EditText mPswd;
@@ -55,18 +55,36 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
         mChangeCount.setOnClickListener(this);
         mBack.setOnClickListener(this);
         mShowPswd.setOnClickListener(this);
+        updateButton(false);
+        mPswd.addTextChangedListener(presenter.getTextWatcher());
+        if (StringUtils.isBlank(getInputPhoneNum())) {
+            Intent intent = new Intent(this, ChangeCountActivity.class);
+            startActivity(intent);
+        } else
+            tv_phonenum.setText(StringUtils.getProtectedMobile(getInputPhoneNum()));
     }
 
     @Override
     public void loginsuccess() {
         Toast.makeText(this, "登录成功", Toast.LENGTH_LONG).show();
-        Intent intent=new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         this.startActivity(intent);
     }
 
     @Override
+    public void updateButton(boolean isabled) {
+        if (!isabled) {
+            mLoginBtn.setEnabled(false);
+            mLoginBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
+        } else {
+            mLoginBtn.setEnabled(true);
+            mLoginBtn.setBackgroundResource(R.drawable.button_change_bg_border);
+        }
+    }
+
+    @Override
     public void loginfailed(String msg) {
-        Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 
     private void initView() {
@@ -77,6 +95,15 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
         mBack = (FrameLayout) findViewById(R.id.backlayout);
         mShowPswd = (ImageView) findViewById(R.id.img_showpswd);
         mPswd = (EditText) findViewById(R.id.password);
+        tv_phonenum = (TextView) findViewById(R.id.tv_phonenum);
+    }
+
+    public boolean valifiylogin() {
+        if (StringUtils.isBlank(mPswd.getText().toString())) {
+            Toast.makeText(this, "密码不能为空", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -87,7 +114,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
                         RegistActivity.class));
                 break;
             case R.id.loginBtn:
-//				Toast.makeText(this, "登录", 2).show();
                 if (valifiylogin())
                     presenter.login(this);
                 break;
@@ -108,13 +134,13 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
         }
     }
 
-    private boolean valifiylogin() {
-        if (StringUtils.isBlank(mPswd.getText().toString())) {
-            Toast.makeText(this, "密码不能为空", Toast.LENGTH_LONG).show();
-            return false;
-        }
-        return true;
-    }
+//    private boolean valifiylogin() {
+//        if (StringUtils.isBlank(mPswd.getText().toString())) {
+//            Toast.makeText(this, "密码不能为空", Toast.LENGTH_LONG).show();
+//            return false;
+//        }
+//        return true;
+//    }
 
     // show password
     private boolean isShowed = false;

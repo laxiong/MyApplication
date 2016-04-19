@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewChangePwd;
+import com.laxiong.Utils.StringUtils;
 import com.laxiong.yitouhang.R;
 
 public class ChangeLoginPswdActivity extends BaseActivity implements OnClickListener, IViewChangePwd {
@@ -76,6 +77,14 @@ public class ChangeLoginPswdActivity extends BaseActivity implements OnClickList
         mShowPswd = (ImageView) findViewById(R.id.img_showpswd);
     }
 
+    public boolean validatePwd() {
+        if (StringUtils.isBlank(mOldPwd.getText().toString()) || StringUtils.isBlank(mPswd.getText().toString())) {
+            Toast.makeText(this, "新旧密码不能为空", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -83,7 +92,8 @@ public class ChangeLoginPswdActivity extends BaseActivity implements OnClickList
                 this.finish();
                 break;
             case R.id.complete:
-                presenter.reqChangePwd(this);
+                if (validatePwd())
+                    presenter.reqChangePwd(this);
                 break;
             case R.id.img_showpswd:
                 showPassWord();

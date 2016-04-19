@@ -9,4 +9,5 @@ public interface IViewLogin {
     public String getInputPwd();
     public void loginsuccess();
     public void loginfailed(String msg);
+    public void updateButton(boolean isabled);
 }

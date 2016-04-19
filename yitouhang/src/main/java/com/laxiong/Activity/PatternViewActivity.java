@@ -76,7 +76,7 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
 					@Override
 					public void checkedSuccess() {
 						mGestureContentView.clearDrawlineState(0L);
-						Toast.makeText(PatternViewActivity.this, "密码正确", 1000).show();
+						Toast.makeText(PatternViewActivity.this, "密码正确",Toast.LENGTH_LONG).show();
 						startActivity(new Intent(PatternViewActivity.this,
 								MainActivity.class));
 						PatternViewActivity.this.finish();
@@ -104,6 +104,13 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
 			UserLogin user=JSONUtils.parseObject(userlogin, UserLogin.class);
 			YiTouApplication.getInstance().setUserLogin(user);
 		}
+		String phonenum=SpUtils.getStrValue(sp,SpUtils.USER_KEY);
+		if (StringUtils.isBlank(phonenum)) {
+			Intent intent=new Intent(this,ChangeCountActivity.class);
+			startActivity(intent);
+		}else{
+			mTextPhoneNumber.setText(StringUtils.getProtectedMobile(phonenum));
+		}
 	}
 	private void initView() {
 		mParamPhoneNumber = getIntent().getStringExtra(PARAM_PHONE_NUMBER);
@@ -125,18 +132,6 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
 		mTextForget.setOnClickListener(this);
 		mTextOther.setOnClickListener(this);
 	}
-	
-	private String getProtectedMobile(String phoneNumber) {
-		if (TextUtils.isEmpty(phoneNumber) || phoneNumber.length() < 11) {
-			return "";
-		}
-		StringBuilder builder = new StringBuilder();
-		builder.append(phoneNumber.subSequence(0,3));
-		builder.append("****");
-		builder.append(phoneNumber.subSequence(7,11));
-		return builder.toString();
-	}
-	
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){

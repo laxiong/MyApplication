@@ -2,6 +2,7 @@ package com.laxiong.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -14,9 +15,10 @@ import android.widget.Toast;
 
 import com.laxiong.Mvp_presenter.Login_Presenter;
 import com.laxiong.Mvp_view.IViewLogin;
+import com.laxiong.Utils.StringUtils;
 import com.laxiong.yitouhang.R;
 
-public class ChangeCountActivity extends BaseActivity implements OnClickListener, IViewLogin{
+public class ChangeCountActivity extends BaseActivity implements OnClickListener, IViewLogin {
     /***
      * 切换账号
      */
@@ -44,10 +46,17 @@ public class ChangeCountActivity extends BaseActivity implements OnClickListener
     public String getInputPwd() {
         return mPswd.getText().toString();
     }
+
     //当TextChange的时候改变button
     @Override
-    public void updateButton() {
-
+    public void updateButton(boolean isabled) {
+        if (!isabled) {
+            mComplete.setEnabled(false);
+            mComplete.setBackgroundResource(R.drawable.button_grey_corner_border);
+        } else {
+            mComplete.setEnabled(true);
+            mComplete.setBackgroundResource(R.drawable.button_change_bg_border);
+        }
     }
 
     @Override
@@ -64,23 +73,20 @@ public class ChangeCountActivity extends BaseActivity implements OnClickListener
 
     private void initData() {
         presenter = new Login_Presenter(this);
-        unableSubmit();
+        updateButton(false);
     }
-    private void initListener(){
+
+    private void initListener() {
         mFindPswd.setOnClickListener(this);
         mRegistBtn.setOnClickListener(this);
         mComplete.setOnClickListener(this);
         mBack.setOnClickListener(this);
         mShowPswd.setOnClickListener(this);
+        TextWatcher watcher = presenter.getTextWatcher();
+        mphone.addTextChangedListener(watcher);
+        mPswd.addTextChangedListener(watcher);
     }
-    public void enableSubmit(){
-        mComplete.setEnabled(true);
-        mComplete.setBackgroundResource(R.drawable.button_change_bg_border);
-    }
-    public void unableSubmit(){
-        mComplete.setEnabled(false);
-        mComplete.setBackgroundResource(R.drawable.button_grey_corner_border);
-    }
+
     private void initView() {
         mphone = (EditText) findViewById(R.id.et_phone);
         mRegistBtn = (TextView) findViewById(R.id.registBtn);
@@ -107,13 +113,22 @@ public class ChangeCountActivity extends BaseActivity implements OnClickListener
                 ChangeCountActivity.this.finish();
                 break;
             case R.id.completeBtn:
-                presenter.login(ChangeCountActivity.this);
+                if (valifyLogin())
+                    presenter.login(ChangeCountActivity.this);
                 break;
             case R.id.img_showpswd:
                 showPassWord();
                 break;
         }
 
+    }
+
+    public boolean valifyLogin() {
+        if (StringUtils.isBlank(mPswd.getText().toString()) || StringUtils.isBlank(mphone.getText().toString())) {
+            Toast.makeText(this, "账号密码不能为空", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 
     // show password

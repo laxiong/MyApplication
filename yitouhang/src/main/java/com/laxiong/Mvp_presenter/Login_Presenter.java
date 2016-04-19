@@ -2,6 +2,8 @@ package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -30,14 +32,30 @@ public class Login_Presenter {
     public Login_Presenter(IViewLogin iviewlogin) {
         this.iviewlogin = iviewlogin;
     }
+    public TextWatcher getTextWatcher(){
+        return new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String phonnum = iviewlogin.getInputPhoneNum();
+                String pwd = iviewlogin.getInputPwd();
+                boolean flag=StringUtils.isBlank(phonnum)||StringUtils.isBlank(pwd);
+                iviewlogin.updateButton(!flag);
+            }
+        };
+    }
     public void login(final Context context) {
-        String phonnum = iviewlogin.getInputPhoneNum();
+        final String phonnum = iviewlogin.getInputPhoneNum();
         String pwd = iviewlogin.getInputPwd();
-        if (StringUtils.isBlank(phonnum) || StringUtils.isBlank(pwd)) {
-            Toast.makeText(context, "账号密码不能为空", Toast.LENGTH_LONG).show();
-            return;
-        }
         RequestParams params = new RequestParams();
         params.put("phone", phonnum);
         params.put("pwd", pwd);
@@ -51,6 +69,7 @@ public class Login_Presenter {
                         if (userLogin != null && userLogin.getCode() == 0) {
                             SharedPreferences sp = SpUtils.getSp(context);
                             SpUtils.saveStrValue(sp,SpUtils.USERLOGIN_KEY,response.toString());
+                            SpUtils.saveStrValue(sp,SpUtils.USER_KEY,phonnum);
                             YiTouApplication.getInstance().setUserLogin(userLogin);
                             iviewlogin.loginsuccess();
                         } else {
