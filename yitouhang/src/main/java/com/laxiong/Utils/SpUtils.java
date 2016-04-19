@@ -12,6 +12,8 @@ public class SpUtils {
     private static final String SP_NAME="yitouhang";
     public static final String USER_KEY="username";
     public static final String PWD_KEY="password";
+    public static final String TOKEN_KEY="token";
+    public static final String TOKENID_KEY="tokenid";
     public static SharedPreferences getSp(Context context){
         if(sp==null){
             sp=context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);

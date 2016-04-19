@@ -1,6 +1,7 @@
 package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -9,6 +10,7 @@ import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewLogin;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
+import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.entity.UserLogin;
 import com.loopj.android.http.Base64;
@@ -29,7 +31,7 @@ public class Login_Presenter {
         this.iviewlogin = iviewlogin;
     }
 
-    public void login(Context context) {
+    public void login(final Context context) {
         String phonnum = iviewlogin.getInputPhoneNum();
         String pwd = iviewlogin.getInputPwd();
         if (StringUtils.isBlank(phonnum) || StringUtils.isBlank(pwd)) {
@@ -37,8 +39,6 @@ public class Login_Presenter {
             return;
         }
         RequestParams params = new RequestParams();
-//        params.put("phone", Base64.encode(phonnum.getBytes(), Base64.CRLF));
-//        params.put("pwd", Base64.encode(pwd.getBytes(), Base64.CRLF));
         params.put("phone", phonnum);
         params.put("pwd", pwd);
         HttpUtil.post(InterfaceInfo.LOGIN_URL, params, new JsonHttpResponseHandler() {
@@ -47,10 +47,13 @@ public class Login_Presenter {
                 super.onSuccess(statusCode, headers, response);
                 if (response != null) {
                     try {
-                    UserLogin userLogin = JSONUtils.parseObject(response.toString(), UserLogin.class);
-//                        UserLogin userLogin = new UserLogin(response.getInt("token_id"), response.getInt("token"), response.getInt("code"), response.getString("msg"), response.getLong("time"),
-//                                response.getString("photo"), response.getString("name"));
+                        UserLogin userLogin = JSONUtils.parseObject(response.toString(), UserLogin.class);
                         if (userLogin != null && userLogin.getCode() == 0) {
+                            SharedPreferences sp = SpUtils.getSp(context);
+                            SpUtils.saveIntValue(sp, SpUtils.TOKENID_KEY, userLogin.getToken_id());
+                            Log.i("kk", "ID:" + userLogin.getToken_id() + ",token:" + userLogin.getToken());
+                            Log.i("kk", "jsonstr:" + response.toString());
+                            SpUtils.saveStrValue(sp, SpUtils.TOKEN_KEY, userLogin.getToken());
                             YiTouApplication.getInstance().setUserLogin(userLogin);
                             iviewlogin.loginsuccess();
                         } else {
