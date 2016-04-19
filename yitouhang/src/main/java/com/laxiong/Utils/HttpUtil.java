@@ -26,7 +26,6 @@ public class HttpUtil {
 		client.addHeader("Content-Type", CONTENT_TYPE);
 		client.put(urlString, res);
 	}
-
 	public static void put(String urlString, RequestParams params, AsyncHttpResponseHandler res, String authorization) {
 		checkNet();
 		client.addHeader("client", "android");

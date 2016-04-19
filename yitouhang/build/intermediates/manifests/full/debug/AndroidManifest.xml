@@ -23,11 +23,6 @@
         <activity
             android:name="com.laxiong.Activity.PatternViewActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="com.laxiong.Activity.BaseActivity" />
 
@@ -130,7 +125,13 @@
         <!-- 我的壹币 -->
         <activity android:name="com.laxiong.Activity.MyYiBiActivity" />
         <!-- 壹币商城 -->
-        <activity android:name="com.laxiong.Activity.TMallActivity" />
+        <activity android:name="com.laxiong.Activity.TMallActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 =======
         <activity android:name="com.laxiong.Activity.BaseActivity" />
 

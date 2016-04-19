@@ -1,10 +1,12 @@
 package com.laxiong.Activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -14,7 +16,10 @@ import com.laxiong.Adapter.PaperYuan;
 import com.laxiong.Adapter.ReuseAdapter;
 import com.laxiong.Mvp_presenter.TMall_Presenter;
 import com.laxiong.Mvp_view.IViewTMall;
+import com.laxiong.View.CommonActionBar;
 import com.laxiong.View.CustomGridView;
+import com.laxiong.entity.Product;
+import com.laxiong.entity.TMall_Ad;
 import com.laxiong.yitouhang.R;
 
 import java.util.ArrayList;
@@ -22,11 +27,13 @@ import java.util.List;
 
 public class TMallActivity extends BaseActivity implements View.OnClickListener, IViewTMall {
     private CustomGridView gv_list;
-    private List<PaperYuan> list;
     private ScrollView sl;
     private TMall_Presenter presenter;
     private RelativeLayout rl_yibi, rl_rule;
     private ViewPager vp_ad;
+    private List<Product> plist;
+    private List<ImageView> alist;
+    private CommonActionBar actionbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +45,10 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
 
     private void initView() {
         vp_ad = (ViewPager) findViewById(R.id.vp_ad);
+        sl = (ScrollView) findViewById(R.id.sl);
         rl_yibi = (RelativeLayout) findViewById(R.id.rl_yibi);
         rl_rule = (RelativeLayout) findViewById(R.id.rl_rule);
+        actionbar= (CommonActionBar) findViewById(R.id.actionbar);
     }
 
     @Override
@@ -52,23 +61,23 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
     }
 
     private void initData() {
+        actionbar.setBackListener(this);
         presenter=new TMall_Presenter(this);
-        list = new ArrayList<PaperYuan>();
-        list.add(new PaperYuan("", 1));
-        list.add(new PaperYuan("", 5));
-        list.add(new PaperYuan("", 10));
-        list.add(new PaperYuan("", 20));
-        list.add(new PaperYuan("", 50));
-        list.add(new PaperYuan("", 100));
-        sl = (ScrollView) findViewById(R.id.sl);
         sl.smoothScrollTo(0, 0);
         gv_list = (CustomGridView) findViewById(R.id.gv_list);
-        gv_list.setAdapter(new ReuseAdapter<PaperYuan>(TMallActivity.this, list, R.layout.item_execrdpaper) {
+        presenter.reqLoadViewPager();
+        initListener();
+    }
+    //填充产品列表(壹币兑换列表)
+    @Override
+    public void fillPListData(List<Product> plist) {
+        this.plist=plist;
+        gv_list.setAdapter(new ReuseAdapter<Product>(TMallActivity.this,plist, R.layout.item_execrdpaper) {
             @Override
-            public void convert(ViewHolder viewholder, final PaperYuan item) {
+            public void convert(ViewHolder viewholder, final Product item) {
                 viewholder.setTextView(R.id.tv_price, item.getNum() + "元");
                 viewholder.setTextView(R.id.tv_num, item.getNum() * 100 + "");
-//                viewholder.setImageBitmap(R.id.ivpic, StringUtils.isBlank(item.getPath())? BitmapFactory.decodeResource(getResources(),R.drawable.ic_launcher):);
+                presenter.reqLoadImageView(item.getImg(),((ImageView)viewholder.getView(R.id.ivpic)));
                 TextView tv_btn_exc = viewholder.getView(R.id.tv_btn_exc);
                 tv_btn_exc.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -80,8 +89,12 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
                 });
             }
         });
-        presenter.reqLoadPagerAdaper();
-        initListener();
+    }
+
+    //填充viewpager广告栏图片
+    @Override
+    public void fillVPData(List<ImageView> alist) {
+        this.alist=alist;
     }
 
     private void initListener() {

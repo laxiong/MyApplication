@@ -20,5 +20,7 @@ public class InterfaceInfo {
 	public final static String LOGINOUT_URL=BASE_URL+"/logout";
 	//获取用户信息
 	public final static String GETCOUNT_URL=BASE_URL+"/user/";
+	//商城
+	public final static String SHOP_URL=BASE_URL+"/shoplist";
 
 }
