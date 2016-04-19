@@ -56,6 +56,8 @@ public class Password_Presenter {
                 try {
                     if(response!=null&&response.getInt("code")==0){
                         iviewchange.updateSuc();
+                    }else{
+                        iviewchange.updateFailure(response.getString("msg"));
                     }
                 } catch (JSONException e) {
                     iviewchange.updateFailure(e.toString());

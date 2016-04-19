@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -15,10 +14,9 @@ import android.widget.Toast;
 
 import com.laxiong.Mvp_presenter.Login_Presenter;
 import com.laxiong.Mvp_view.IViewLogin;
-import com.laxiong.Utils.SpUtils;
 import com.laxiong.yitouhang.R;
 
-public class ChangeCountActivity extends BaseActivity implements OnClickListener, IViewLogin {
+public class ChangeCountActivity extends BaseActivity implements OnClickListener, IViewLogin{
     /***
      * 切换账号
      */
@@ -34,18 +32,22 @@ public class ChangeCountActivity extends BaseActivity implements OnClickListener
         setContentView(R.layout.activity_changecount_layout);
         initView();
         initData();
+        initListener();
     }
 
     @Override
     public String getInputPhoneNum() {
-        Log.i("kk", mphone.getText().toString());
         return mphone.getText().toString();
     }
 
     @Override
     public String getInputPwd() {
-        Log.i("kk", mPswd.getText().toString());
         return mPswd.getText().toString();
+    }
+    //当TextChange的时候改变button
+    @Override
+    public void updateButton() {
+
     }
 
     @Override
@@ -62,13 +64,23 @@ public class ChangeCountActivity extends BaseActivity implements OnClickListener
 
     private void initData() {
         presenter = new Login_Presenter(this);
+        unableSubmit();
+    }
+    private void initListener(){
         mFindPswd.setOnClickListener(this);
         mRegistBtn.setOnClickListener(this);
         mComplete.setOnClickListener(this);
         mBack.setOnClickListener(this);
         mShowPswd.setOnClickListener(this);
     }
-
+    public void enableSubmit(){
+        mComplete.setEnabled(true);
+        mComplete.setBackgroundResource(R.drawable.button_change_bg_border);
+    }
+    public void unableSubmit(){
+        mComplete.setEnabled(false);
+        mComplete.setBackgroundResource(R.drawable.button_grey_corner_border);
+    }
     private void initView() {
         mphone = (EditText) findViewById(R.id.et_phone);
         mRegistBtn = (TextView) findViewById(R.id.registBtn);

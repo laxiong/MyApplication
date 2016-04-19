@@ -61,14 +61,21 @@ public class Setting_Presenter {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 try {
-                    if (response != null && response.getInt("code") == 0) {
-                        User user = YiTouApplication.getInstance().getUser();
-                        if (user != null)
-                            user.setNickname(nickname);
-                        iviewset.setNickSuccess();
+                    if (response != null) {
+                        if(response.getInt("code") == 0) {
+                            User user = YiTouApplication.getInstance().getUser();
+                            if (user != null)
+                                user.setNickname(nickname);
+                            iviewset.setNickSuccess();
+                        }else{
+                            iviewset.setNickFailure(response.getString("msg"));
+                        }
+                    }else{
+                        iviewset.setNickFailure(response.getString("msg"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    iviewset.setNickFailure(e.toString());
                 }
             }
 
