@@ -2,6 +2,7 @@ package com.laxiong.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
@@ -15,7 +16,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
+import com.laxiong.Utils.JSONUtils;
+import com.laxiong.Utils.SpUtils;
+import com.laxiong.Utils.StringUtils;
+import com.laxiong.entity.UserLogin;
 import com.laxiong.fund.widget.GestureContentView;
 import com.laxiong.fund.widget.GestureDrawline.GestureCallBack;
 import com.laxiong.yitouhang.R;
@@ -89,9 +95,16 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
 				});
 		// 设置手势解锁显示到哪个布局里面
 		mGestureContentView.setParentView(mGestureContainer);
-		
+		initUserLogin();
 	}
-	
+	private void initUserLogin(){
+		SharedPreferences sp = SpUtils.getSp(this);
+		String userlogin=SpUtils.getStrValue(sp,SpUtils.USERLOGIN_KEY);
+		if(!StringUtils.isBlank(userlogin)){
+			UserLogin user=JSONUtils.parseObject(userlogin, UserLogin.class);
+			YiTouApplication.getInstance().setUserLogin(user);
+		}
+	}
 	private void initView() {
 		mParamPhoneNumber = getIntent().getStringExtra(PARAM_PHONE_NUMBER);
 		mParamIntentCode = getIntent().getIntExtra(PARAM_INTENT_CODE, 0);

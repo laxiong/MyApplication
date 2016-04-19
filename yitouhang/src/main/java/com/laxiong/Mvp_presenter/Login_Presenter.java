@@ -50,10 +50,7 @@ public class Login_Presenter {
                         UserLogin userLogin = JSONUtils.parseObject(response.toString(), UserLogin.class);
                         if (userLogin != null && userLogin.getCode() == 0) {
                             SharedPreferences sp = SpUtils.getSp(context);
-                            SpUtils.saveIntValue(sp, SpUtils.TOKENID_KEY, userLogin.getToken_id());
-                            Log.i("kk", "ID:" + userLogin.getToken_id() + ",token:" + userLogin.getToken());
-                            Log.i("kk", "jsonstr:" + response.toString());
-                            SpUtils.saveStrValue(sp, SpUtils.TOKEN_KEY, userLogin.getToken());
+                            SpUtils.saveStrValue(sp,SpUtils.USERLOGIN_KEY,response.toString());
                             YiTouApplication.getInstance().setUserLogin(userLogin);
                             iviewlogin.loginsuccess();
                         } else {
