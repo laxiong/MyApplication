@@ -15,7 +15,6 @@ import java.util.List;
  * Types IViewTMall.java
  */
 public interface IViewTMall {
-    public void loadPageAdapter(ArrayList<ImageView> list);
-    public void fillVPData(List<ImageView> alist);
+    public void fillVPData(List<TMall_Ad> alist);
     public void fillPListData(List<Product> plist);
 }

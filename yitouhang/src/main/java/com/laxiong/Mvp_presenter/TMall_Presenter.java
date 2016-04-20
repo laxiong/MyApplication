@@ -3,12 +3,15 @@ package com.laxiong.Mvp_presenter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.text.Layout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewTMall;
@@ -39,7 +42,7 @@ public class TMall_Presenter {
         this.ivewtmall = ivewtmall;
     }
 
-    public void reqLoadViewPager(final Context context) {
+    public void reqLoadPageData(final Context context) {
         HttpUtil.get(InterfaceInfo.SHOP_URL, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -50,7 +53,7 @@ public class TMall_Presenter {
                         String adlist = response.getJSONArray("list").toString();
                         List<Product> plist = JSONUtils.parseArray(productlist, Product.class);
                         List<TMall_Ad> alist = JSONUtils.parseArray(adlist, TMall_Ad.class);
-                        ivewtmall.fillVPData(getImageList(context,alist));
+                        ivewtmall.fillVPData(alist);
                         ivewtmall.fillPListData(plist);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -63,19 +66,8 @@ public class TMall_Presenter {
                 super.onFailure(statusCode, headers, responseString, throwable);
             }
         });
-        //异步请求
-        ivewtmall.loadPageAdapter(new ArrayList<ImageView>());
     }
-    public List<ImageView> getImageList(Context context,List<TMall_Ad> alist){
-        if(alist.size()==0)
-            return null;
-        for(int i=0;i<alist.size();i++){
-            ImageView iv=new ImageView(context);
-            iv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-            reqLoadImageView(alist.get(i).getImageurl(),iv);
-        }
-        return new ArrayList<ImageView>();
-    }
+
     public void reqLoadImageView(String url, final ImageView iv) {
         HttpUtil.get(url, new AsyncHttpResponseHandler() {
             @Override
@@ -99,7 +91,6 @@ public class TMall_Presenter {
             }
         });
     }
-
     public void setImageFailure(int id, ImageView iv) {
         iv.setImageResource(id);
     }
@@ -108,34 +99,31 @@ public class TMall_Presenter {
         iv.setImageBitmap(bm);
     }
 
-    public PagerAdapter getPageAdapter(final ArrayList<ImageView> ivlist) {
+    public PagerAdapter getPageAdapter(final List<ImageView> ivlist) {
         if (ivlist == null || ivlist.size() == 0)
             return null;
         return new PagerAdapter() {
             @Override
             public int getCount() {
-                return Integer.MAX_VALUE >> 2;
+                return ivlist.size();
+//                return Integer.MAX_VALUE;
             }
 
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
-                position %= ivlist.size();
-                if (position < 0) {
-                    position = ivlist.size() + position;
-                }
-                ImageView view = ivlist.get(position);
-                ViewParent vp = view.getParent();
-                if (vp != null) {
-                    ViewGroup parent = (ViewGroup) vp;
-                    parent.removeView(view);
-                }
-                container.addView(view);
-                return view;
+                ImageView iv=ivlist.get(position);
+                container.addView(iv);
+                return iv;
             }
 
             @Override
             public boolean isViewFromObject(View view, Object object) {
                 return view == object;
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                container.removeView(ivlist.get(position));
             }
         };
     }

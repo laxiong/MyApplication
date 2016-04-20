@@ -2,12 +2,15 @@ package com.laxiong.Activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -16,6 +19,7 @@ import com.laxiong.Adapter.PaperYuan;
 import com.laxiong.Adapter.ReuseAdapter;
 import com.laxiong.Mvp_presenter.TMall_Presenter;
 import com.laxiong.Mvp_view.IViewTMall;
+import com.laxiong.Utils.DensityUtils;
 import com.laxiong.View.CommonActionBar;
 import com.laxiong.View.CustomGridView;
 import com.laxiong.entity.Product;
@@ -34,6 +38,11 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
     private List<Product> plist;
     private List<ImageView> alist;
     private CommonActionBar actionbar;
+    private LinearLayout ll_dot;
+    private int lastposition = 0;
+    private int nowposition=0;
+    private PagerAdapter adapter;
+    private Handler handler=new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +50,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
         setContentView(R.layout.activity_tmall);
         initView();
         initData();
+        initListener();
     }
 
     private void initView() {
@@ -48,36 +58,36 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
         sl = (ScrollView) findViewById(R.id.sl);
         rl_yibi = (RelativeLayout) findViewById(R.id.rl_yibi);
         rl_rule = (RelativeLayout) findViewById(R.id.rl_rule);
-        actionbar= (CommonActionBar) findViewById(R.id.actionbar);
-    }
-
-    @Override
-    public void loadPageAdapter(ArrayList<ImageView> list) {
-        if (list != null && list.size() > 0) {
-            PagerAdapter adapter = presenter.getPageAdapter(list);
-            if (adapter != null)
-                vp_ad.setAdapter(adapter);
-        }
+        actionbar = (CommonActionBar) findViewById(R.id.actionbar);
+        ll_dot = (LinearLayout) findViewById(R.id.ll_dot);
+        gv_list = (CustomGridView) findViewById(R.id.gv_list);
     }
 
     private void initData() {
-        actionbar.setBackListener(this);
-        presenter=new TMall_Presenter(this);
+        alist = new ArrayList<ImageView>();
+        presenter = new TMall_Presenter(this);
         sl.smoothScrollTo(0, 0);
-        gv_list = (CustomGridView) findViewById(R.id.gv_list);
-        presenter.reqLoadViewPager();
-        initListener();
+        presenter.reqLoadPageData(this);
+    }
+    private void showDelayed(){
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                vp_ad.setCurrentItem((++nowposition) % alist.size());
+                showDelayed();
+            }
+        },2000);
     }
     //填充产品列表(壹币兑换列表)
     @Override
     public void fillPListData(List<Product> plist) {
-        this.plist=plist;
-        gv_list.setAdapter(new ReuseAdapter<Product>(TMallActivity.this,plist, R.layout.item_execrdpaper) {
+        this.plist = plist;
+        gv_list.setAdapter(new ReuseAdapter<Product>(TMallActivity.this, plist, R.layout.item_execrdpaper) {
             @Override
             public void convert(ViewHolder viewholder, final Product item) {
                 viewholder.setTextView(R.id.tv_price, item.getNum() + "元");
                 viewholder.setTextView(R.id.tv_num, item.getNum() * 100 + "");
-                presenter.reqLoadImageView(item.getImg(),((ImageView)viewholder.getView(R.id.ivpic)));
+                presenter.reqLoadImageView(item.getImg(), ((ImageView) viewholder.getView(R.id.ivpic)));
                 TextView tv_btn_exc = viewholder.getView(R.id.tv_btn_exc);
                 tv_btn_exc.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -93,13 +103,64 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
 
     //填充viewpager广告栏图片
     @Override
-    public void fillVPData(List<ImageView> alist) {
-        this.alist=alist;
+    public void fillVPData(List<TMall_Ad> list) {
+        alist = initImageList(list);
+        if (alist != null && alist.size() > 0) {
+            adapter = presenter.getPageAdapter(alist);
+            if (adapter != null)
+                vp_ad.setAdapter(adapter);
+        }
+        showDelayed();
+    }
+
+    //赋值imagelist数据并填充dot
+    public List<ImageView> initImageList(List<TMall_Ad> list) {
+        if (list.size() == 0)
+            return null;
+        for (int i = 0; i < list.size(); i++) {
+            ImageView iv = new ImageView(this);
+            iv.setScaleType(ImageView.ScaleType.FIT_XY);
+            iv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            presenter.reqLoadImageView(list.get(i).getImageurl(), iv);
+            alist.add(iv);
+            TextView tv = new TextView(this);
+            setAdItem(tv, i == 0 ? true : false);
+            ll_dot.addView(tv);
+        }
+        return alist;
+    }
+
+    //设置dot状态
+    private void setAdItem(TextView tv, boolean isSelect) {
+        tv.setBackgroundResource(R.drawable.shape_rec_border);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(DensityUtils.dp2px(this, isSelect ? 20 : 10), DensityUtils.dp2px(this, 5));
+        params.setMargins(5, 0, 0, 0);
+        tv.setLayoutParams(params);
     }
 
     private void initListener() {
+        actionbar.setBackListener(this);
         rl_yibi.setOnClickListener(this);
         rl_rule.setOnClickListener(this);
+        vp_ad.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (lastposition != position)
+                    setAdItem((TextView) ll_dot.getChildAt(lastposition), false);
+                setAdItem((TextView) ll_dot.getChildAt(position), true);
+                lastposition = position;
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     @Override
