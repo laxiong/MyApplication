@@ -20,22 +20,21 @@
         custom:bgcolor="@color/title_grey"
         custom:texts="@string/welfare_exchange_title"
         custom:textcolor="@color/white"
-        custom:textsize="16sp" />
+        custom:textsize="10sp" />
 
-    <LinearLayout
-        android:id="@+id/ll_bg"
+    <RelativeLayout
+        android:id="@+id/rl_bg"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/grey_bg"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/exchange_string"
-            android:textColor="@color/grey_bg_text" />
-    </LinearLayout>
+        android:background="@color/white"
+       >
+        <ImageView
+            android:id="@+id/ivpic"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"/>
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rl_content"
@@ -180,6 +179,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textSize="15sp"
             android:text="@string/redpaper_string"
             android:textColor="@color/shen_grey" />
         <View
@@ -192,6 +192,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textSize="15sp"
             android:text="@string/redpaper_string2"
             android:textColor="@color/shen_grey" />
     </LinearLayout>
@@ -206,9 +207,11 @@
             android:id="@+id/tv_jiesuannum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_launcher"
+            android:drawableLeft="@drawable/yibi"
             android:drawablePadding="5dp"
+            android:textColor="@color/red"
             android:gravity="center_vertical"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:text="100"/>
         <TextView

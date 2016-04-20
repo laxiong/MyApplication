@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
+import com.laxiong.Mvp_presenter.UserCount_Presenter;
+import com.laxiong.Mvp_view.IViewCount;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
@@ -26,7 +28,7 @@ import com.laxiong.fund.widget.GestureContentView;
 import com.laxiong.fund.widget.GestureDrawline.GestureCallBack;
 import com.laxiong.yitouhang.R;
 
-public class PatternViewActivity extends BaseActivity implements OnClickListener{
+public class PatternViewActivity extends BaseActivity implements OnClickListener,IViewCount{
 	/***
 	 * 
 	 * 设置手势密码
@@ -49,6 +51,7 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
 	private long mExitTime = 0;
 	private int mParamIntentCode;
 	private String gestruepswd ;  // 手势密码
+	private UserCount_Presenter presenter;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,7 +60,23 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
 		initData();
 		setUpListeners();
 	}
+
+	@Override
+	public void getCountMsgSuc() {
+		startActivity(new Intent(PatternViewActivity.this,
+				MainActivity.class));
+		PatternViewActivity.this.finish();
+	}
+
+	@Override
+	public void getCountMsgFai() {
+		Intent intent=new Intent(this,ChangeCountActivity.class);
+		startActivity(intent);
+		PatternViewActivity.this.finish();
+	}
+
 	private void initData() {
+		presenter=new UserCount_Presenter(this);
 		// 初始化一个显示各个点的viewGroup
 		
 		// TODO 获取登录的手势密码,在启动页里  第一次打开app进入ModifyGestrueActivity这个类，设置初始手势密码   之后的在这里校验
@@ -77,9 +96,7 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
 					public void checkedSuccess() {
 						mGestureContentView.clearDrawlineState(0L);
 						Toast.makeText(PatternViewActivity.this, "密码正确",Toast.LENGTH_LONG).show();
-						startActivity(new Intent(PatternViewActivity.this,
-								MainActivity.class));
-						PatternViewActivity.this.finish();
+						presenter.reqUserCountMsg(PatternViewActivity.this);
 					}
 
 					@Override
@@ -108,6 +125,7 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
 		if (StringUtils.isBlank(phonenum)) {
 			Intent intent=new Intent(this,ChangeCountActivity.class);
 			startActivity(intent);
+			return;
 		}else{
 			mTextPhoneNumber.setText(StringUtils.getProtectedMobile(phonenum));
 		}

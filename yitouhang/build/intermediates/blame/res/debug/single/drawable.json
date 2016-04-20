@@ -1,27 +1,27 @@
 [
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_show_window_left.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_show_window_left.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_redborder_blank.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_redborder_blank.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_num_down.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_num_down.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_show_window_left.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_show_window_left.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\grey_border.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\grey_border.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_greybtn_border.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_greybtn_border.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_num_down.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_num_down.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_holo_light.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_ic_clear_holo_light.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_greybtn_border.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_greybtn_border.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\logo.png",
@@ -32,12 +32,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_white_enter.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_search_dropdown_light.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_search_dropdown_light.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_ok_up.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_ok_up.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_search_dropdown_light.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_search_dropdown_light.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\corners_border.xml",
@@ -56,12 +56,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\corners_border_days.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\recharge_btn_border.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\recharge_btn_border.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\recharge_btn_border.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\recharge_btn_border.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
@@ -84,12 +84,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_num.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_list_selector_holo_light.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_ic_clear.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\button_red_corner_border.xml",
@@ -104,28 +104,28 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\popwindow_bg.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_one9.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_one9.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\button_change_noradius.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\button_change_noradius.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_redmark.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_redmark.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_one9.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_one9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_num_del.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_num_del.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_shift_normal.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_shift_normal.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_num_downdel.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_num_downdel.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_shift_normal.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_shift_normal.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_num_del.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_num_del.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_redmark.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_redmark.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_ab_holo_light.xml",
@@ -136,12 +136,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_spinner_ab_holo_dark.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_edittext_focused.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\bg_edittext_focused.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_gray_del.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_gray_del.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_edittext_focused.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\bg_edittext_focused.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_search_dropdown_dark.xml",
@@ -160,32 +160,32 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\button_change_bg_border.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_right_holo_light.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_textfield_searchview_right_holo_light.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_gray_enter.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_gray_enter.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_right_holo_light.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_textfield_searchview_right_holo_light.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\button_grey_noradius.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\button_grey_noradius.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_show_window_right.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_show_window_right.png"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\transfer_bg.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\transfer_bg.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_ab_holo.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_tab_indicator_ab_holo.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\changepaypswd_edittext_bg.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\changepaypswd_edittext_bg.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_ab_holo.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_tab_indicator_ab_holo.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\transfer_bg.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\transfer_bg.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_show_window_right.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_show_window_right.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_bg.png",
@@ -196,12 +196,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\rotate.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\corners_border_new_person.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\corners_border_new_person.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_holo_dark.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_textfield_searchview_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\corners_border_new_person.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\corners_border_new_person.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_redbtn_border.xml",
@@ -212,20 +212,20 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_abc_down.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_rec_border.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_rec_border.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_abc_up.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_abc_up.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_rec_border.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_rec_border.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_holo_light.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_textfield_searchview_holo_light.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\count_setting_border.xml",

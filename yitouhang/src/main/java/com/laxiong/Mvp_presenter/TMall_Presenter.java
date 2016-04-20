@@ -67,8 +67,7 @@ public class TMall_Presenter {
             }
         });
     }
-
-    public void reqLoadImageView(String url, final ImageView iv) {
+    public static void reqLoadImageView(String url, final ImageView iv) {
         HttpUtil.get(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -91,11 +90,11 @@ public class TMall_Presenter {
             }
         });
     }
-    public void setImageFailure(int id, ImageView iv) {
+    public static void setImageFailure(int id, ImageView iv) {
         iv.setImageResource(id);
     }
 
-    public void setImageSuccess(Bitmap bm, ImageView iv) {
+    public static void setImageSuccess(Bitmap bm, ImageView iv) {
         iv.setImageBitmap(bm);
     }
 

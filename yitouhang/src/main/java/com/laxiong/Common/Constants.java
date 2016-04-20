@@ -7,7 +7,7 @@ package com.laxiong.Common;
 public class Constants {
     public static final String KEY_DATE="clickdate";
     public  enum ReqEnum{
-        PWD(0,"pwd"),NICK(1,"nick");
+        PWD(0,"pwd"),NICK(1,"nick"),BUY(2,"buy");
         int name;
         String val;
         private ReqEnum(int name,String val){

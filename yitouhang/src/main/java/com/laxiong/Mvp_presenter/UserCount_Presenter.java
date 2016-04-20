@@ -11,6 +11,7 @@ import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewCount;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.SpUtils;
@@ -34,7 +35,6 @@ public class UserCount_Presenter {
     public UserCount_Presenter(IViewCount iviewcount) {
         this.iviewcount = iviewcount;
     }
-
     public void reqUserCountMsg(Context context) {
         UserLogin userlogin = YiTouApplication.getInstance().getUserLogin();
         if (userlogin == null || StringUtils.isBlank(userlogin.getToken_id() + "") || StringUtils.isBlank(userlogin.getToken())) {
@@ -44,13 +44,13 @@ public class UserCount_Presenter {
         }
         int tokenid = userlogin.getToken_id();
         String token = userlogin.getToken();
+        final String str = tokenid + ":" + token;
+        String autori = Base64.encodeToString(str.getBytes(), Base64.NO_WRAP);
         User user = YiTouApplication.getInstance().getUser();
         if (user != null) {
             iviewcount.getCountMsgSuc();
             return;
         }
-        final String str = tokenid + ":" + token;
-        String autori = Base64.encodeToString(str.getBytes(), Base64.NO_WRAP);
         HttpUtil.get(InterfaceInfo.GETCOUNT_URL + tokenid, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

@@ -22,5 +22,7 @@ public class InterfaceInfo {
 	public final static String GETCOUNT_URL=BASE_URL+"/user/";
 	//商城
 	public final static String SHOP_URL=BASE_URL+"/shoplist";
+	//购买
+	public final static String SHOPORDER_URL=BASE_URL+"/shoporder";
 
 }

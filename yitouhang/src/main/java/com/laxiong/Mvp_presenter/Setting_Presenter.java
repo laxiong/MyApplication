@@ -11,6 +11,7 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewSetting;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
@@ -39,21 +40,9 @@ public class Setting_Presenter {
         final String nickname = iviewset.getNickName();
         if (!valify((nickname)))
             return;
-        UserLogin user = YiTouApplication.getInstance().getUserLogin();
-        if (user == null) {
-            Intent intent = new Intent(context, LoginActivity.class);
-            context.startActivity(intent);
+        String authori = CommonReq.getAuthori(context);
+        if (StringUtils.isBlank(authori))
             return;
-        }
-        int tokenid = user.getToken_id();
-        String token = user.getToken();
-        if (tokenid == -1) {
-            Intent intent = new Intent(context, ChangeCountActivity.class);
-            context.startActivity(intent);
-            return;
-        }
-        final String str = tokenid + ":" + token;
-        String autori = Base64.encodeToString(str.getBytes(), Base64.NO_WRAP);
         RequestParams params = new RequestParams();
         params.put("type", Constants.ReqEnum.NICK.getVal());
         params.put("nickname", nickname);
@@ -63,15 +52,15 @@ public class Setting_Presenter {
                 super.onSuccess(statusCode, headers, response);
                 try {
                     if (response != null) {
-                        if(response.getInt("code") == 0) {
+                        if (response.getInt("code") == 0) {
                             User user = YiTouApplication.getInstance().getUser();
                             if (user != null)
                                 user.setNickname(nickname);
                             iviewset.setNickSuccess();
-                        }else{
+                        } else {
                             iviewset.setNickFailure(response.getString("msg"));
                         }
-                    }else{
+                    } else {
                         iviewset.setNickFailure(response.getString("msg"));
                     }
                 } catch (JSONException e) {
@@ -85,7 +74,7 @@ public class Setting_Presenter {
                 super.onFailure(statusCode, headers, responseString, throwable);
                 iviewset.setNickFailure(responseString);
             }
-        }, autori);
+        }, authori);
     }
 
     private boolean valify(String nickname) {

@@ -65,7 +65,7 @@ public class PswdConturalActivity extends BaseActivity implements OnClickListene
 				break;
 			case R.id.resetpaypswd:  /**重置支付密码**/
 				startActivity(new Intent(PswdConturalActivity.this,
-						ResetPayPswdActivity1.class));
+						ResetPayPwdActivity.class));
 				break;
 			case R.id.changegesturepswd: /**修改手势密码**/
 				

@@ -33,7 +33,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_launcher" />
+                android:src="@drawable/yibi" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -51,9 +51,11 @@
                     android:textColor="@color/goodname" />
 
                 <TextView
+                    android:id="@+id/tv_yibi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/tv_name"
+                    android:layout_marginLeft="5dp"
                     android:text="2333"
                     android:textColor="@color/money" />
             </LinearLayout>
@@ -71,7 +73,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_launcher" />
+                android:src="@drawable/dingdan" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,7 +95,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_launcher" />
+                android:src="@drawable/guize" />
 
             <TextView
                 android:layout_width="wrap_content"

@@ -3,19 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/ivpic"
+    <RelativeLayout
+        android:id="@+id/rlimg"
         android:layout_width="match_parent"
         android:layout_height="155dp"
-        android:background="@color/grey_bg"
-        android:scaleType="fitXY" />
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/ivpic"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tv_price"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ivpic" />
+        android:layout_below="@id/rlimg"
+        android:layout_marginTop="10dp" />
 
     <RelativeLayout
         android:id="@+id/ll_mark"
@@ -29,8 +36,8 @@
             android:id="@+id/tv_yibi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/goodname"
-            android:text="壹币" />
+            android:text="壹币"
+            android:textColor="@color/goodname" />
 
         <TextView
             android:id="@+id/tv_num"

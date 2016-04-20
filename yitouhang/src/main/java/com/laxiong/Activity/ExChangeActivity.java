@@ -13,15 +13,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Basic.BackListener;
+import com.laxiong.Mvp_presenter.Exchange_Presenter;
+import com.laxiong.Mvp_view.IViewExchange;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.DialogUtils;
+import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
 import com.laxiong.View.PayPop;
+import com.laxiong.entity.User;
 import com.laxiong.yitouhang.R;
 
 /**
@@ -29,15 +36,21 @@ import com.laxiong.yitouhang.R;
  * @params tv_value 1元 兑换的红包
  * @params tv_total 所需要的壹币数量
  */
-public class ExChangeActivity extends BaseActivity implements View.OnClickListener {
+public class ExChangeActivity extends BaseActivity implements View.OnClickListener, IViewExchange {
     private static final String TAG = "ExChangeActivity";
-    private int yinum = 100;//壹币的数量
+    private int yinum = 0;//壹币的数量
     private int yuan = 1;//要兑换的人民币
     private int num = 1;//要兑换的个数
     private int type = 0;//要兑换的壹币的类型1元5元10元
+    private int id = -1;
+    private String url;
     private PayPop dialog;
     private TextView tv_exchange, tv_ecnum, tv_value, tv_total, tv_deduct, tv_plus, tv_jiesuannum;
     private CommonActionBar actionbar;
+    private User user;
+    private ImageView ivpic;
+    private Exchange_Presenter presenter;
+    public static final int REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +60,19 @@ public class ExChangeActivity extends BaseActivity implements View.OnClickListen
         init();
     }
 
+    @Override
+    public void exchangeSuc() {
+        Toast.makeText(this, "购买成功", Toast.LENGTH_LONG).show();
+        user.setScore(user.getScore() - yuan * 100);
+    }
+
+    @Override
+    public void exchangeFail(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
+
     private void init() {
+        ivpic = (ImageView) findViewById(R.id.ivpic);
         tv_ecnum = (TextView) findViewById(R.id.tv_ecnum);
         tv_total = (TextView) findViewById(R.id.tv_total);
         tv_exchange = (TextView) findViewById(R.id.tv_exchange);
@@ -59,14 +84,30 @@ public class ExChangeActivity extends BaseActivity implements View.OnClickListen
         yuan = Integer.parseInt(tv_ecnum.getText().toString());
         Intent intent = getIntent();
         type = intent.getIntExtra("type", 0);
+        id = intent.getIntExtra("id", -1);
+        url = intent.getStringExtra("url");
         if (intent != null && type != 0) {
             yuan = type;
+        }
+        if (type == 0 || id == -1) {
+            Intent back = new Intent(this, TMallActivity.class);
+            startActivity(back);
         }
         initValue();
         initListener();
     }
 
     private void initValue() {
+        presenter = new Exchange_Presenter(this);
+        if (!StringUtils.isBlank(url))
+            CommonReq.reqLoadImageView(url, ivpic);
+        user = YiTouApplication.getInstance().getUser();
+        if (user == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        } else {
+            yinum = user.getScore();
+        }
         boolean flag = yuan * 100 <= yinum;
         tv_value.setText(yuan + "元");
         tv_total.setText(yuan * 100 + "");
@@ -84,6 +125,20 @@ public class ExChangeActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public boolean valifyPwd() {
+        if (dialog != null) {
+            String pwd = dialog.getExcTextPwd();
+            return !StringUtils.isBlank(pwd);
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_exchange:
@@ -92,8 +147,17 @@ public class ExChangeActivity extends BaseActivity implements View.OnClickListen
                     @Override
                     public void onClick(View v) {
                         DialogUtils.bgalpha(ExChangeActivity.this, 1.0f);
-                        ToastUtil.customAlert(ExChangeActivity.this, "兑换成功");
+                        if (valifyPwd()) {
+                            presenter.exchange(ExChangeActivity.this, tv_ecnum.getText().toString()
+                                    , id, dialog.getExcTextPwd());
+                        }
                         dialog.dismiss();
+                    }
+                }, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(ExChangeActivity.this, ResetPayPwdActivity.class);
+                        startActivityForResult(intent, REQUEST_CODE);
                     }
                 });
                 dialog.showAtLocation(v, Gravity.CENTER, 0, 0);

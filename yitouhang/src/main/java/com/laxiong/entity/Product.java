@@ -1,10 +1,12 @@
 package com.laxiong.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by xiejin on 2016/4/19.
  * Types Product.java
  */
-public class Product {
+public class Product implements Serializable{
     private int id;
     private String title;
     private float pay;

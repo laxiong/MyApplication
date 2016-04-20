@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewLogin;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.SpUtils;
@@ -72,6 +73,7 @@ public class Login_Presenter {
                             SpUtils.saveStrValue(sp,SpUtils.USER_KEY,phonnum);
                             YiTouApplication.getInstance().setUserLogin(userLogin);
                             iviewlogin.loginsuccess();
+                            CommonReq.reqUserMsg(context);
                         } else {
                             iviewlogin.loginfailed(userLogin.getMsg());
                         }

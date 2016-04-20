@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-=======
+    =======
     android:versionName="1.0" >
     <application
         android:name="com.laxiong.Application.YiTouApplication"
@@ -23,6 +23,11 @@
         <activity
             android:name="com.laxiong.Activity.PatternViewActivity"
             android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name="com.laxiong.Activity.BaseActivity" />
 
@@ -60,9 +65,7 @@
         <activity android:name="com.laxiong.Activity.ChangePayPswdActivity2" />
 
         <!-- 重置支付密码 -->
-        <activity android:name="com.laxiong.Activity.ResetPayPswdActivity1" />
-        <activity android:name="com.laxiong.Activity.ResetPayPswdActivity2" />
-        <activity android:name="com.laxiong.Activity.ResetPayPswdActivity3" />
+
 
         <!-- 注册 -->
         <activity android:name="com.laxiong.Activity.RegistActivity" />
@@ -116,8 +119,7 @@
         <!-- 充值 -->
         <activity android:name="com.laxiong.Activity.RechargeActivity" />
         <!-- 福利中心 -->
-        <activity android:name="com.laxiong.Activity.WelCenterActivity" >
-        </activity>
+        <activity android:name="com.laxiong.Activity.WelCenterActivity" />
         <!-- 红包解释 -->
         <activity android:name="com.laxiong.Activity.RpExplainActivity" />
         <!-- 兑换壹币 -->
@@ -125,14 +127,8 @@
         <!-- 我的壹币 -->
         <activity android:name="com.laxiong.Activity.MyYiBiActivity" />
         <!-- 壹币商城 -->
-        <activity android:name="com.laxiong.Activity.TMallActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-=======
+        <activity android:name="com.laxiong.Activity.TMallActivity" />
+        =======
         <activity android:name="com.laxiong.Activity.BaseActivity" />
 
         <!-- 日历账单 -->
@@ -230,6 +226,7 @@
 
         <!-- 投资明细 -->
         <activity android:name="com.laxiong.Activity.InvestmentRecordActivity" />
+        <activity android:name="com.laxiong.Activity.ResetPayPwdActivity" />
     </application>
 
 </manifest>
