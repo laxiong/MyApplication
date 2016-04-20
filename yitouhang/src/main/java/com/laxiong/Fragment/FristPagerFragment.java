@@ -15,7 +15,6 @@ import android.widget.RelativeLayout;
 import com.laxiong.Activity.GuXiBaoActivity;
 import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.Activity.WebViewActivity;
-import com.laxiong.Common.Settings;
 import com.laxiong.Utils.ScollPagerUtils;
 import com.laxiong.View.ChildViewPager;
 import com.laxiong.yitouhang.R;
