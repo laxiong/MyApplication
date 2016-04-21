@@ -15,6 +15,7 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
+import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.UserLogin;
 import com.loopj.android.http.Base64;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -57,6 +58,7 @@ public class Login_Presenter {
     public void login(final Context context) {
         final String phonnum = iviewlogin.getInputPhoneNum();
         String pwd = iviewlogin.getInputPwd();
+        ToastUtil.customAlert(context,"phone:"+phonnum+"pwd:"+pwd);
         RequestParams params = new RequestParams();
         params.put("phone", phonnum);
         params.put("pwd", pwd);
