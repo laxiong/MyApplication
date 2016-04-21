@@ -42,12 +42,12 @@ public class ResetPayPwdActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    public void reqbackSuc(String tag) {
+    public void reqbackSuc() {
         ToastUtil.customAlert(this, "找回密码成功");
     }
 
     @Override
-    public void reqbackFail(String msg,String tag) {
+    public void reqbackFail(String msg) {
         ToastUtil.customAlert(this, msg);
     }
 

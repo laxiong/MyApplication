@@ -20,7 +20,7 @@ import com.laxiong.yitouhang.R;
  */
 public class CommonActionBar extends RelativeLayout {
     private String text;
-    private int textsize;
+    private float textsize;
     private int textcolor;
     private int bgcolor;
     private FrameLayout fl_back;
@@ -44,7 +44,7 @@ public class CommonActionBar extends RelativeLayout {
                     textcolor = tary.getColor(R.styleable.CommonActionBar_textcolor, getResources().getColor(defaultTextColor));
                     break;
                 case R.styleable.CommonActionBar_textsize:
-                    textsize = tary.getDimensionPixelSize(R.styleable.CommonActionBar_textsize, DensityUtils.dp2px(context, 14));
+                    textsize = tary.getDimension(R.styleable.CommonActionBar_textsize, DensityUtils.dp2px(context, 14));
                     break;
                 default:
                     break;
@@ -64,7 +64,7 @@ public class CommonActionBar extends RelativeLayout {
         fl_back = (FrameLayout) this.findViewById(R.id.fl_back);
         tv_title = (TextView) this.findViewById(R.id.tv_title);
         tv_title.setText(text);
-        tv_title.setTextSize(textsize);
+        tv_title.setTextSize(DensityUtils.dp2px(context,textsize));
         tv_title.setTextColor(textcolor);
     }
 
