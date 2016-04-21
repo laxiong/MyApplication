@@ -79,7 +79,10 @@ public class Login_Presenter {
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
+                        iviewlogin.loginfailed(e.toString());
                     }
+                }else{
+                    iviewlogin.loginfailed("出错");
                 }
             }
 

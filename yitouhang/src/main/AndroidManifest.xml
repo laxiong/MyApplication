@@ -61,10 +61,9 @@
         <activity android:name="com.laxiong.Activity.ChangeLoginPswdActivity" />
 
         <!-- 修改支付密码 -->
-        <activity android:name="com.laxiong.Activity.ChangePayPswdActivity1" />
-        <activity android:name="com.laxiong.Activity.ChangePayPswdActivity2" />
 
         <!-- 重置支付密码 -->
+
 
         <!-- 注册 -->
         <activity android:name="com.laxiong.Activity.RegistActivity" />
@@ -118,7 +117,7 @@
         <!-- 充值 -->
         <activity android:name="com.laxiong.Activity.RechargeActivity" />
         <!-- 福利中心 -->
-        <activity android:name="com.laxiong.Activity.WelCenterActivity"></activity>
+        <activity android:name="com.laxiong.Activity.WelCenterActivity" />
         <!-- 红包解释 -->
         <activity android:name="com.laxiong.Activity.RpExplainActivity" />
         <!-- 兑换壹币 -->
@@ -126,7 +125,7 @@
         <!-- 我的壹币 -->
         <activity android:name="com.laxiong.Activity.MyYiBiActivity" />
         <!-- 壹币商城 -->
-        <activity android:name="com.laxiong.Activity.TMallActivity"></activity>
+        <activity android:name="com.laxiong.Activity.TMallActivity" />
         =======
         <activity android:name="com.laxiong.Activity.BaseActivity" />
 
@@ -225,7 +224,8 @@
 
         <!-- 投资明细 -->
         <activity android:name="com.laxiong.Activity.InvestmentRecordActivity" />
-        <activity android:name="com.laxiong.Activity.ResetPayPwdActivity"></activity>
+        <activity android:name="com.laxiong.Activity.ResetPayPwdActivity" />
+        <activity android:name="com.laxiong.Activity.ChangePayPwdActivity"></activity>
     </application>
 
 </manifest>
