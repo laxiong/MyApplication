@@ -4,17 +4,17 @@
     android:layout_height="match_parent"
     android:background="@color/light_grey"
     android:orientation="vertical" >
-    
+
     <RelativeLayout
         android:id="@+id/barnner"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         >
-        <com.laxiong.View.ChildViewPager 
-        	android:layout_width="match_parent"
-        	android:layout_height="match_parent"
-        	android:id="@+id/childviewpager"
-        	/>
+        <com.laxiong.View.ChildViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/childviewpager"
+            />
         <LinearLayout
             android:id="@+id/layout_dot"
             android:layout_width="wrap_content"
@@ -25,67 +25,65 @@
             android:paddingBottom="2dp"
             />
     </RelativeLayout>
-    
-    <RelativeLayout 
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="@color/white"
         >
-        
+
         <View
             android:id="@+id/toutiao_line"
             android:layout_width="2dp"
             android:layout_height="match_parent"
             android:background="#FFFE9D83"/>
-        
+
         <TextView
             android:layout_toRightOf="@+id/toutiao_line"
-            android:id="@+id/toutiao" 
+            android:id="@+id/toutiao"
             android:layout_width="68dp"
             android:layout_height="match_parent"
             android:text="财经头条"
             android:gravity="center"
             android:textColor="#A6A6A6"
             />
-        <TextView 
+        <com.laxiong.View.VerticalScrollTextView
+            android:id="@+id/scrollTextView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="30dp"
             android:layout_toRightOf="@+id/toutiao"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:gravity="center"
-            android:text="这是一条十分重要的财经头条的消息。"
-            android:singleLine="true"
-            android:textColor="#D8D8D8"
             />
     </RelativeLayout>
-    <View 
-      android:layout_width="match_parent"
-      android:layout_height="1dp"
-      android:background="@color/divider_grey"  
-      />
-    
-    
-    
-    <View 
-      android:layout_marginTop="10dp" 
-      android:layout_width="match_parent"
-      android:layout_height="1dp"
-      android:background="@color/divider_grey"  
-      />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey"
+        />
+
+
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="243dp"
         android:orientation="vertical"
         android:background="@color/white"
         >
-        <RelativeLayout 
+        <RelativeLayout
             android:id="@+id/new_biao"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             >
             <View
-                android:id="@+id/imgs1" 
+                android:id="@+id/imgs1"
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="#FF7CC9E5"
@@ -102,6 +100,7 @@
 
                 />
             <TextView
+                android:id="@+id/tv1_define"
                 android:layout_marginTop="3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
@@ -113,7 +112,7 @@
                 android:textColor="#FF999999"
 
                 />
-            <ImageView 
+            <ImageView
                 android:layout_width="32dp"
                 android:layout_height="20dp"
                 android:layout_toRightOf="@+id/tv1"
@@ -131,27 +130,26 @@
                 android:layout_marginRight="22dp"
                 />
         </RelativeLayout>
-        
-        <View 
+
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/divider_grey"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="22dp"
             />
-        
-        <RelativeLayout 
+
+        <RelativeLayout
             android:id="@+id/time_xitong"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             >
-             <View
-                android:id="@+id/imgs2" 
+            <View
+                android:id="@+id/imgs2"
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
-                 android:background="#FF41A8E3"
+                android:background="#FF41A8E3"
                 />
-            <TextView 
+            <TextView
                 android:id="@+id/tv2"
                 android:layout_toRightOf="@+id/imgs2"
                 android:layout_marginLeft="21dp"
@@ -162,12 +160,13 @@
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/tv2_define"
                 android:layout_marginLeft="21dp"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
                 android:layout_below="@id/tv2"
-                 android:layout_toRightOf="@+id/imgs2"
-                 android:text="一元起投 随存随取"
+                android:layout_toRightOf="@+id/imgs2"
+                android:text="一元起投 随存随取"
                 android:textSize="12sp"
                 android:textColor="#FF999999"
                 />
@@ -182,25 +181,24 @@
                 android:layout_marginRight="22dp"
                 />
         </RelativeLayout>
-        
-        <View 
+
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/divider_grey"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="22dp"
             />
-        
-         <RelativeLayout
-            android:id="@+id/gu_xibao" 
+
+        <RelativeLayout
+            android:id="@+id/gu_xibao"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             >
-             <View
-                android:id="@+id/imgs3" 
+            <View
+                android:id="@+id/imgs3"
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
-                 android:background="#FF3B8CDF"
+                android:background="#FF3B8CDF"
                 />
             <TextView
                 android:layout_marginLeft="21dp"
@@ -213,17 +211,18 @@
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/tv3_define"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="21dp"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
                 android:layout_below="@id/tv3"
-                 android:layout_toRightOf="@+id/imgs3"
-                 android:text="稳固投资 超高收益"
+                android:layout_toRightOf="@+id/imgs3"
+                android:text="稳固投资 超高收益"
                 android:textSize="12sp"
                 android:textColor="#FF999999"
                 />
-            <ImageView 
+            <ImageView
                 android:layout_width="32dp"
                 android:layout_height="20dp"
                 android:layout_toRightOf="@+id/tv3"
@@ -242,39 +241,41 @@
                 />
         </RelativeLayout>
     </LinearLayout>
-    <View 
-      android:layout_width="match_parent"
-      android:layout_height="1dp"
-      android:background="@color/divider_grey"  
-      />
-    
-    
-    <LinearLayout 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey"
+        />
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
         android:background="@color/light_grey"
         >
-        <TextView 
+        <TextView
+            android:id="@+id/solid"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:text="已经有35535位聪明伙伴在壹投行理财(元)"
+            android:text=""
             android:gravity="center"
             android:textColor="@color/divider_grey"
             />
-        <TextView 
+        <TextView
+            android:id="@+id/amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:text="1,864,623,745"
+            android:text=""
             android:gravity="center"
             android:textColor="@color/divider_grey"
             />
     </LinearLayout>
-    
-    
-    
+
+
+
 </LinearLayout>

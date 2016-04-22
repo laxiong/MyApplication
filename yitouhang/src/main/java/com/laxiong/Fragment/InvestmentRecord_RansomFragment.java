@@ -17,7 +17,7 @@ import com.laxiong.yitouhang.R;
 @SuppressLint("NewApi")
 public class InvestmentRecord_RansomFragment extends Fragment {
     /***
-     * 投资记录--赎回
+     *
      */
     private View view ;
     private ListView mListView ;

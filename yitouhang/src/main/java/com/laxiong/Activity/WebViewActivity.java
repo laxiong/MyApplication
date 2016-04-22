@@ -9,8 +9,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
-import com.laxiong.Utils.StringUtils;
 import com.laxiong.yitouhang.R;
 
 public class WebViewActivity extends BaseActivity implements View.OnClickListener{
@@ -18,31 +18,31 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
 	 * html 页面  协议 活动 等
 	 */
 	private WebView mWebView ;
-	private FrameLayout back_layout;
-	private String urls ="https://licai.gongshidai.com/wap/public/invite/testtest.html";  //链接
+	private String urls;
+	private String titleStr ;
+	private FrameLayout mBack ;
+	private TextView mTitle ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_webview);
 		initData();
+		setlisten();
+	}
 
-	}
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()){
-			case R.id.back_layout:
-				WebViewActivity.this.finish();
-				break;
-		}
-	}
-	@SuppressLint({ "NewApi", "SetJavaScriptEnabled" })
+	@SuppressLint({ "NewApi", "SetJavaScriptEnabled" }) 
 	private void initData() {
-		back_layout= (FrameLayout) findViewById(R.id.back_layout);
-		back_layout.setOnClickListener(this);
 		mWebView = (WebView)findViewById(R.id.webviews);
-		Intent intent = getIntent();
-		if(intent!=null&& StringUtils.isBlank(intent.getStringExtra("url")))
-			urls=intent.getStringExtra("url");
+
+		mBack = (FrameLayout)findViewById(R.id.back_layout);
+		mTitle =(TextView)findViewById(R.id.title);
+
+		urls = getIntent().getStringExtra("url");
+		titleStr = getIntent().getStringExtra("title");
+
+		if(titleStr!=null)
+			mTitle.setText(titleStr);
+
 //		mWebView.loadUrl(url); //WebView加载web资源
 //		//覆盖WebView默认使用第三方或系统默认浏览器打开网页的行为，使网页用WebView打开
 //		mWebView.setWebViewClient(new WebViewClient(){
@@ -60,16 +60,12 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
 		settings.setJavaScriptEnabled(true);
 		settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
 		settings.setDomStorageEnabled(true);
-		
 		/*
 		 * 4.0-4.2 防范攻击者植入js
 		 */
 		mWebView.removeJavascriptInterface("searchBoxJavaBredge_");
-		
 		mWebView.setWebChromeClient(new WebChromeClient() {
-
 		});
-		
 		mWebView.setWebViewClient(new WebViewClient(){
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -82,11 +78,20 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
 				return true ;
 			}
 		});
-		
 		mWebView.loadUrl(urls);
 		
 	}
-	
-	
 
+	private void setlisten(){
+		mBack.setOnClickListener(this);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()){
+			case R.id.back_layout:
+				this.finish();
+				break;
+		}
+	}
 }

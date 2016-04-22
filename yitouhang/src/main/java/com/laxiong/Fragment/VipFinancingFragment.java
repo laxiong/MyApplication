@@ -241,13 +241,14 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						mViewHonder.mLimitDay.setText(day[0]+"天");
 					}
 
-
 					if(mViewHonder.profit_tv!=null)
 						mViewHonder.profit_tv.setTextColor(Color.parseColor("#FFE2A42A"));
+					mViewHonder.profit_tv.setText(sxt.getPaytype());
 					if(mViewHonder.baifenbi!=null)
 						mViewHonder.baifenbi.setTextColor(Color.parseColor("#FFE2A42A"));
 					if(mViewHonder.mProject!=null)
 						mViewHonder.mProject.setTextColor(Color.parseColor("#FFE2A42A"));
+					mViewHonder.mProject.setText(sxt.getTitle());
 					if(mViewHonder.year_hua!=null)
 						mViewHonder.year_hua.setTextColor(Color.parseColor("#FFE2A42A"));
 
@@ -301,10 +302,12 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 
 					if(mViewHonder.profit_tv!=null)
 						mViewHonder.profit_tv.setTextColor(Color.parseColor("#FFE2A42A"));
+					mViewHonder.profit_tv.setText(gxb.getPaytype());
 					if(mViewHonder.baifenbi!=null)
 						mViewHonder.baifenbi.setTextColor(Color.parseColor("#FFE2A42A"));
 					if(mViewHonder.mProject!=null)
 						mViewHonder.mProject.setTextColor(Color.parseColor("#FFE2A42A"));
+					mViewHonder.mProject.setText(gxb.getTitle());
 					if(mViewHonder.year_hua!=null)
 						mViewHonder.year_hua.setTextColor(Color.parseColor("#FFE2A42A"));
 				}

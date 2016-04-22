@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
-        custom:textsize="10sp"
+        custom:textsize="6sp"
         custom:texts="@string/welfare_explain_title"
         android:layout_height="50dp"></com.laxiong.View.CommonActionBar>
     <LinearLayout

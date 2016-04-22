@@ -245,6 +245,15 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 							mViewHonder.mNewPerson.setVisibility(View.INVISIBLE);
 						}
 					}
+
+					// 标题
+					if(mViewHonder.mProject!=null)
+						mViewHonder.mProject.setText(sxt.getTitle());
+
+					//支付方式
+					if(mViewHonder.profit_tv!=null)
+						mViewHonder.profit_tv.setText(sxt.getPaytype());
+
 					//日期
 					double limit = sxt.getLimit();
 					if(mViewHonder.mLimitDay!=null){
@@ -302,7 +311,13 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						mViewHonder.mLimitDay.setText(day[0]+"天");
 					}
 
+					//标题
+					if(mViewHonder.mProject!=null)
+						mViewHonder.mProject.setText(gxb.getTitle());
 
+					//支付方式
+					if(mViewHonder.profit_tv!=null)
+						mViewHonder.profit_tv.setText(gxb.getPaytype());
 
 					if(view!=null)
 						view.setOnClickListener(new OnClickListener() {

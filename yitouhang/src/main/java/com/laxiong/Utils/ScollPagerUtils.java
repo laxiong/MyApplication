@@ -1,13 +1,8 @@
 package com.laxiong.Utils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
@@ -19,16 +14,24 @@ import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
+import com.laxiong.Activity.WebViewActivity;
 import com.laxiong.View.ChildViewPager;
 import com.laxiong.View.ChildViewPager.OnSingleTouchListener;
+import com.laxiong.entity.Branner;
 import com.laxiong.yitouhang.R;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /****
  */
 public class ScollPagerUtils implements OnPageChangeListener{
-	
-	private String[] urls ;  // URL Array
+
 	private Context mContext ;
+	private ArrayList<Branner> bannerList ;
 	/****
 	 * initView include PagerView and dot
 	 */
@@ -36,17 +39,17 @@ public class ScollPagerUtils implements OnPageChangeListener{
 	private LinearLayout mDotLinearlayout ;
 	List<ImageView> ImagList = new ArrayList<ImageView>();  //ViewPager ImageView Collection
 	List<ImageView> dotList = new ArrayList<ImageView>();  //dot ImageView Collection
-	
+
 	private int prePoint = 300; // 前面的小点的位置
 	private int currentItem; //当前页面
-	 
+
 	private PagerChangeAdapter mPagerChangeAdapter ;
 	private IndicateImageUtilLj mBannerIndicator ;
-	
-	public ScollPagerUtils(String[] urls,Context mContext,ChildViewPager mChildViewPager,
-			LinearLayout mDotLinearlayout ){
+
+	public ScollPagerUtils(ArrayList<Branner> bannerList,Context mContext,ChildViewPager mChildViewPager,
+						   LinearLayout mDotLinearlayout ){
 		this.mContext = mContext ;
-		this.urls = urls ;
+		this.bannerList = bannerList ;
 		this.mChildViewPager = mChildViewPager ;
 		this.mDotLinearlayout = mDotLinearlayout ;
 		mChildViewPager.setOnPageChangeListener(this);
@@ -55,20 +58,20 @@ public class ScollPagerUtils implements OnPageChangeListener{
 		mPagerChangeAdapter = new PagerChangeAdapter();
 		mChildViewPager.setAdapter(mPagerChangeAdapter);
 	}
-	
+
 	/****
 	 * init Linearlayout dot
 	 */
 	private void initDotView(){
-		
+
 		mDotLinearlayout.removeAllViewsInLayout();
-		for (int i = 0; i < urls.length; i++) {
+		for (int i = 0; i < bannerList.size(); i++) {
 			ImageView point = new ImageView(mContext);
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
 					LayoutParams.WRAP_CONTENT);
 			params.setMargins(DensityUtils.dp2px(mContext, 5), 0, 0, 0);
 			point.setLayoutParams(params);
-			if (i == (prePoint % urls.length)) {
+			if (i == (prePoint % bannerList.size())) {
 				point.setBackgroundResource(R.drawable.home_point_icon);
 			} else {
 				point.setBackgroundResource(R.drawable.home_point_normal_icon);
@@ -77,62 +80,63 @@ public class ScollPagerUtils implements OnPageChangeListener{
 			mDotLinearlayout.addView(point);
 		}
 	}
-	
+
 	/****
 	 * init ChildViewPager Images
 	 */
 	private void initChildView(){
-		for (int i = 0; i < urls.length; i++) {
+		for (int i = 0; i < bannerList.size(); i++) {
 			ImageView imgs = new ImageView(mContext);
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
 					LayoutParams.MATCH_PARENT);
 			imgs.setScaleType(ScaleType.FIT_XY);
 			imgs.setLayoutParams(params);
 			//				1			2										3								   4
-			Glide.with(mContext).load(urls[i]).centerCrop().placeholder(R.drawable.downloading).crossFade().into(imgs);
+			Glide.with(mContext).load(bannerList.get(i).getImageurl()).centerCrop().placeholder(R.drawable.downloading).crossFade().into(imgs);
 			ImagList.add(imgs);
 		}
-		
+
 		// 滑动时触发的事件
 		mChildViewPager.setOnSingleTouchListener(new OnSingleTouchListener(){
 			@Override
 			public void onSingleTouch(){
-			// TODO  滑动或点击轮播图时，跳转到的web页面的内容  Example
-				if(urls.length > 0){
-					String uri = urls[mChildViewPager.getCurrentItem() % urls.length];
-					if(uri!=null){
-						String url = urls[mChildViewPager.getCurrentItem() % urls.length] ;
-//					    mContext.startActivity(new Intent(mContext,BannerActivity.class).putExtra("ImagsUrl", url));
-									
+				// TODO  滑动或点击轮播图时，跳转到的web页面的内容  Example
+				if(bannerList.size() > 0){
+					String uri = bannerList.get(mChildViewPager.getCurrentItem() % bannerList.size()).getHref();
+					String title = bannerList.get(mChildViewPager.getCurrentItem() % bannerList.size()).getTitle();
+					if(uri!=null&&title!=null){
+					    mContext.startActivity(new Intent(mContext,WebViewActivity.class).
+								putExtra("url", uri).putExtra("title",title));
+
 					}
 				}
 			}
-		});		
+		});
 	}
 
 	@Override
 	public void onPageScrollStateChanged(int arg0) {
-		
+
 	}
 	@Override
 	public void onPageScrolled(int arg0, float arg1, int arg2) {
-		
+
 	}
 	@Override
 	public void onPageSelected(int position) {
 		setDotBackground(position);
-		
+
 		if(ImagList.size() > 0){
 			if(mPagerChangeAdapter!=null){
 				mPagerChangeAdapter.notifyDataSetChanged();
 			}else{
 				mPagerChangeAdapter = new PagerChangeAdapter();
-				if (urls.length > 1) // 如果广告多于1张，无限循环
-				mChildViewPager.setCurrentItem(300);
-				
+				if (bannerList.size() > 1) // 如果广告多于1张，无限循环
+					mChildViewPager.setCurrentItem(300);
+
 				if(mBannerIndicator==null)
 					mBannerIndicator = new IndicateImageUtilLj((Activity) mContext,mChildViewPager,null);
-				
+
 				mBannerIndicator.initTask();
 				mBannerIndicator.startRepeat();
 			}
@@ -157,7 +161,7 @@ public class ScollPagerUtils implements OnPageChangeListener{
 		}
 		@Override
 		public void destroyItem(View container, int position, Object object) {
-			 ((ChildViewPager)container).removeView(ImagList.get(position % ImagList.size()));  
+			((ChildViewPager)container).removeView(ImagList.get(position % ImagList.size()));
 		}
 		@Override
 		public Object instantiateItem(View container, int position) {
@@ -169,7 +173,7 @@ public class ScollPagerUtils implements OnPageChangeListener{
 	 * set dot Background
 	 */
 	private void setDotBackground(int selectItem){
-		for(int i = 0; i < urls.length; i++){
+		for(int i = 0; i < bannerList.size(); i++){
 			if(i == selectItem){
 				dotList.get(i).setBackgroundResource(R.drawable.home_point_icon);
 				currentItem = i ;
@@ -185,12 +189,11 @@ public class ScollPagerUtils implements OnPageChangeListener{
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
-			currentItem = (currentItem +1) % urls.length;
+			currentItem = (currentItem +1) % bannerList.size();
 			//更新界面
 			handler.obtainMessage().sendToTarget();
 		}
 	}
-	
 	/***
 	 * Start play pic
 	 */
@@ -201,7 +204,6 @@ public class ScollPagerUtils implements OnPageChangeListener{
 			scheduledExecutorService.scheduleWithFixedDelay(new autoPlayImages(), 2, 2, TimeUnit.SECONDS);
 		}
 	}
-	
 	/****
 	 * Handler set 
 	 */
@@ -211,7 +213,7 @@ public class ScollPagerUtils implements OnPageChangeListener{
 			mChildViewPager.setCurrentItem(currentItem);
 		};
 	};
-	
-	
-	
+
+
+
 }
