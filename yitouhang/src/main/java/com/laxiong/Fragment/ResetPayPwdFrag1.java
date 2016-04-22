@@ -13,7 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.laxiong.Activity.ResetPayPwdActivity;
+import com.laxiong.Basic.BasicWatcher;
 import com.laxiong.Utils.StringUtils;
+import com.laxiong.Utils.ValifyUtil;
 import com.laxiong.yitouhang.R;
 
 import java.util.regex.Matcher;
@@ -58,46 +60,21 @@ public class ResetPayPwdFrag1 extends Fragment implements View.OnClickListener {
 
     private void initView() {
         mNextPage = (TextView) layout.findViewById(R.id.nextpage);
-        setEnabled(mNextPage,false);
+        ValifyUtil.setEnabled(mNextPage, false);
         et_identi = (EditText) layout.findViewById(R.id.et_identi);
-        TextWatcher watcher = new PwdWatcher();
+        TextWatcher watcher = new BasicWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!StringUtils.isBlank(et_name.getText().toString()) && ValifyUtil.valifyIdenti(et_identi.getText().toString())) {
+                    ValifyUtil.setEnabled(mNextPage, false);
+                } else {
+                    ValifyUtil.setEnabled(mNextPage, true);
+                }
+            }
+        };
         et_identi.addTextChangedListener(watcher);
         et_name = (EditText) layout.findViewById(R.id.et_name);
         et_name.addTextChangedListener(watcher);
-    }
-
-    class PwdWatcher implements TextWatcher {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            if (valify(et_name.getText().toString(), et_identi.getText().toString())) {
-                setEnabled(mNextPage, false);
-            } else {
-                setEnabled(mNextPage, true);
-            }
-        }
-    }
-
-    public void setEnabled(View view, boolean flag) {
-        view.setEnabled(flag);
-        view.setBackgroundResource(flag ? R.drawable.button_change_bg_border : R.drawable.button_grey_corner_border);
-    }
-
-    public boolean valify(String name, String identi) {
-        Pattern idNumPattern = Pattern.compile("(\\d{14}[0-9a-zA-Z])|(\\d{17}[0-9a-zA-Z])");
-        Matcher pm = idNumPattern.matcher(identi);
-        if (!pm.matches() && !StringUtils.isBlank(name))
-            return true;
-        return false;
     }
 
     @Override

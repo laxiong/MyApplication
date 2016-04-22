@@ -16,7 +16,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Basic.BasicWatcher;
 import com.laxiong.Utils.StringUtils;
+import com.laxiong.Utils.ValifyUtil;
 import com.laxiong.yitouhang.R;
 
 import java.util.regex.Matcher;
@@ -58,10 +60,20 @@ public class ResetPayPwdFrag3 extends Fragment implements View.OnClickListener {
 
     private void initData() {
         Bundle bundle = getArguments();
-        mPswdEd.addTextChangedListener(new PwdWatcher());
+        mPswdEd.addTextChangedListener(new BasicWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                String pwd = mPswdEd.getText().toString();
+                if (!ValifyUtil.valifyPwd(pwd)) {
+                    ValifyUtil.setEnabled(mComplete, false);
+                } else {
+                    ValifyUtil.setEnabled(mComplete, true);
+                }
+            }
+        });
         mComplete.setOnClickListener(this);
         mShowPswd.setOnClickListener(this);
-        setEnabled(mComplete, false);
+        ValifyUtil.setEnabled(mComplete, false);
     }
 
     private void initView() {
@@ -69,46 +81,6 @@ public class ResetPayPwdFrag3 extends Fragment implements View.OnClickListener {
 
         mShowPswd = (ImageView) layout.findViewById(R.id.img_showpswd);
         mPswdEd = (EditText) layout.findViewById(R.id.pswd);
-    }
-
-    public boolean valify(String pwd) {
-        Pattern pat = Pattern.compile("[\\da-zA-Z]{6,20}");
-        Pattern patno = Pattern.compile(".*\\d.*");
-        Pattern paten = Pattern.compile(".*[a-zA-Z].*");
-        Matcher mat = pat.matcher(pwd);
-        Matcher matno = patno.matcher(pwd);
-        Matcher maten = paten.matcher(pwd);
-        if (matno.matches() && maten.matches() && mat.matches()&&!StringUtils.isBlank(pwd)) {
-            return true;
-        }
-        return false;
-    }
-
-    public void setEnabled(View view, boolean flag) {
-        view.setEnabled(flag);
-        view.setBackgroundResource(flag ? R.drawable.button_change_bg_border : R.drawable.button_grey_corner_border);
-    }
-
-    class PwdWatcher implements TextWatcher {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            String pwd = mPswdEd.getText().toString();
-            if (!valify(pwd)) {
-                setEnabled(mComplete, false);
-            } else {
-                setEnabled(mComplete, true);
-            }
-        }
     }
 
     @Override

@@ -44,7 +44,7 @@ public class NameSettingActivity extends BaseActivity implements OnClickListener
 
     @Override
     public void setNickFailure(String msg) {
-        Toast.makeText(this, "设置昵称失败,请重新设置", Toast.LENGTH_LONG).show();
+        Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
         et_nickname.setText("");
         et_nickname.setFocusable(true);
         et_nickname.setFocusableInTouchMode(true);

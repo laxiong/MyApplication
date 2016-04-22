@@ -13,10 +13,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.laxiong.Activity.ResetPayPwdActivity;
+import com.laxiong.Basic.BasicWatcher;
 import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
+import com.laxiong.Utils.ValifyUtil;
 import com.laxiong.yitouhang.R;
 
 /**
@@ -48,27 +50,7 @@ public class ResetPayPwdFrag2 extends Fragment implements View.OnClickListener, 
     public void reqbackFail(String msg) {
         ToastUtil.customAlert(getActivity(), msg);
     }
-    class PwdWatcher implements TextWatcher {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            String vali=et_vali.getText().toString();
-            if(StringUtils.isBlank(vali)){
-                setEnabled(mNextPage,false);
-            }else{
-                setEnabled(mNextPage,true);
-            }
-        }
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         layout = inflater.inflate(R.layout.activity_resetpay_pswd2, null);
@@ -79,19 +61,25 @@ public class ResetPayPwdFrag2 extends Fragment implements View.OnClickListener, 
 
     private void initData() {
         mNextPage.setOnClickListener(this);
-        et_vali.addTextChangedListener(new PwdWatcher());
+        et_vali.addTextChangedListener(new BasicWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                String vali = et_vali.getText().toString();
+                if (StringUtils.isBlank(vali)) {
+                    ValifyUtil.setEnabled(mNextPage, false);
+                } else {
+                    ValifyUtil.setEnabled(mNextPage, true);
+                }
+            }
+        });
         presenter = new Password_Presenter(this);
         presenter.reqPayCode(getActivity());
-        setEnabled(mNextPage,false);
+        ValifyUtil.setEnabled(mNextPage, false);
     }
 
     private void initView() {
         mNextPage = (TextView) layout.findViewById(R.id.nextpage);
         et_vali = (EditText) layout.findViewById(R.id.et_vali);
-    }
-    public void setEnabled(View view, boolean flag) {
-        view.setEnabled(flag);
-        view.setBackgroundResource(flag ? R.drawable.button_change_bg_border : R.drawable.button_grey_corner_border);
     }
 
     @Override
