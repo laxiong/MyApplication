@@ -30,6 +30,7 @@ public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickLis
     private EditText et_phone, et_code;
     private BindPhone_Presenter bindpresenter;
     private Handler_Presenter timepresenter;
+    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,14 @@ public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickLis
         initData();
     }
 
+    @Override
+    public String getToken() {
+        return token;
+    }
+
     private void initData() {
+        Intent intent = getIntent();
+        token = intent.getStringExtra("token");
         bindpresenter = new BindPhone_Presenter(this);
         timepresenter = new Handler_Presenter(this);
         finishBtn.setOnClickListener(this);

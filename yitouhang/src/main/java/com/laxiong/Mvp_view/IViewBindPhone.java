@@ -7,4 +7,5 @@ package com.laxiong.Mvp_view;
 public interface IViewBindPhone extends IViewCommonBack{
     public String getPhone();
     public String getCode();
+    public String getToken();
 }

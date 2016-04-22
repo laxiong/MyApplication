@@ -1,15 +1,10 @@
 package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
-import android.content.Intent;
 
-import com.laxiong.Activity.ChangeCountActivity;
-import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewBindPhone;
-import com.laxiong.Mvp_view.IViewCommonBack;
-import com.laxiong.entity.UserLogin;
 import com.loopj.android.http.RequestParams;
 
 /**
@@ -23,7 +18,7 @@ public class BindPhone_Presenter extends CommonReq_Presenter {
 
     public BindPhone_Presenter(IViewBindPhone iviewbind) {
         super(iviewbind);
-        this.iviewbind=iviewbind;
+        this.iviewbind = iviewbind;
     }
 
     public void sendCode(Context context) {
@@ -34,15 +29,9 @@ public class BindPhone_Presenter extends CommonReq_Presenter {
     }
 
     public void bindOtherPhone(Context context) {
-        UserLogin userLogin = YiTouApplication.getInstance().getUserLogin();
-        if (userLogin == null) {
-            Intent intent = new Intent(context, ChangeCountActivity.class);
-            context.startActivity(intent);
-            return;
-        }
         RequestParams params = new RequestParams();
         params.put("type", Constants.ReqEnum.CPHONE.getVal());
-        params.put("token", userLogin.getToken());
+        params.put("token", iviewbind.getToken());
         params.put("code", iviewbind.getCode());
         params.put("phone", iviewbind.getPhone());
         aureqByPut(InterfaceInfo.USER_URL, context, params, TYPE_BIND);
