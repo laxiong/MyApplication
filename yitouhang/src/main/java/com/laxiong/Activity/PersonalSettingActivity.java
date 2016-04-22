@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,9 +22,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Calender.CustomDate;
 import com.laxiong.Mvp_presenter.Exit_Presenter;
 import com.laxiong.Mvp_view.IViewExit;
 import com.laxiong.Utils.SpUtils;
+import com.laxiong.Utils.ToastUtil;
+import com.laxiong.entity.User;
 import com.laxiong.yitouhang.R;
 
 public class PersonalSettingActivity extends BaseActivity implements OnClickListener, IViewExit {
@@ -67,7 +71,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
     public void logoutsuccess() {
         YiTouApplication.getInstance().setUserLogin(null);
         YiTouApplication.getInstance().setUser(null);
-        SpUtils.saveStrValue(SpUtils.getSp(this),SpUtils.USERLOGIN_KEY,"");
+        SpUtils.saveStrValue(SpUtils.getSp(this), SpUtils.USERLOGIN_KEY, "");
         Toast.makeText(this, "退出登录成功", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
@@ -300,9 +304,14 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         bindphone.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-
-                startActivity(new Intent(PersonalSettingActivity.this,
-                        ChangeBindPhoneActivity1.class));
+                User user = YiTouApplication.getInstance().getUser();
+                if (user != null && user.is_idc() && user.isPay_pwd()) {
+                    startActivity(new Intent(PersonalSettingActivity.this,
+                            ChangeBindPhoneActivity1.class));
+                    finish();
+                } else {
+                    ToastUtil.customAlert(PersonalSettingActivity.this, "请先进行认证");
+                }
 
                 if (bindphoneWindows != null && bindphoneWindows.isShowing()) {
                     bindphoneWindows.dismiss();

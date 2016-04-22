@@ -47,7 +47,7 @@ public class ChangePayPwdActivity extends BaseActivity implements View.OnClickLi
     }
 
     @Override
-    public void reqbackSuc() {
+    public void reqbackSuc(String tag) {
         ToastUtil.customAlert(this, "提交成功");
         Intent intent = new Intent(this, PswdConturalActivity.class);
         startActivity(intent);
@@ -56,7 +56,7 @@ public class ChangePayPwdActivity extends BaseActivity implements View.OnClickLi
     }
 
     @Override
-    public void reqbackFail(String msg) {
+    public void reqbackFail(String msg,String tag) {
         ToastUtil.customAlert(this, msg);
         finish();
         return;

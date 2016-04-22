@@ -1415,7 +1415,7 @@ containing a value of this type.
         public static final int back_layout=0x7f0c003f;
         public static final int back_sure=0x7f0c00eb;
         public static final int backbtn=0x7f0c00b5;
-        public static final int backlayout=0x7f0c006e;
+        public static final int backlayout=0x7f0c006f;
         public static final int backlayout_=0x7f0c0052;
         public static final int baifenbi=0x7f0c0112;
         public static final int bandcard=0x7f0c00de;
@@ -1448,8 +1448,7 @@ containing a value of this type.
         public static final int checkbox=0x7f0c002d;
         public static final int childviewpager=0x7f0c0108;
         public static final int circularscaleview=0x7f0c0045;
-        public static final int code=0x7f0c006c;
-        public static final int code1=0x7f0c0066;
+        public static final int code=0x7f0c006d;
         public static final int collapseActionView=0x7f0c0011;
         public static final int comfit=0x7f0c014c;
         public static final int complete=0x7f0c0063;
@@ -1472,14 +1471,15 @@ containing a value of this type.
         public static final int dropdown=0x7f0c0013;
         public static final int edit_query=0x7f0c0030;
         public static final int end=0x7f0c000c;
-        public static final int et_code=0x7f0c0065;
-        public static final int et_identi=0x7f0c006a;
-        public static final int et_name=0x7f0c0068;
+        public static final int et_code=0x7f0c006c;
+        public static final int et_identi=0x7f0c0069;
+        public static final int et_name=0x7f0c0067;
         public static final int et_nickname=0x7f0c00a6;
         public static final int et_oldpwd=0x7f0c0060;
         public static final int et_pass=0x7f0c00fc;
-        public static final int et_phone=0x7f0c0070;
+        public static final int et_phone=0x7f0c006b;
         public static final int et_phonenum=0x7f0c0093;
+        public static final int et_pwd=0x7f0c0065;
         public static final int et_vali=0x7f0c00c7;
         public static final int et_valicode=0x7f0c0094;
         public static final int expand_activities_button=0x7f0c0026;
@@ -1490,7 +1490,7 @@ containing a value of this type.
         public static final int financingr_tv=0x7f0c00f4;
         public static final int findpswd=0x7f0c0073;
         public static final int fininsh=0x7f0c00e3;
-        public static final int finishBtn=0x7f0c006d;
+        public static final int finishBtn=0x7f0c006e;
         public static final int fl_back=0x7f0c0151;
         public static final int forget_pswd=0x7f0c0169;
         public static final int fristpager=0x7f0c00ef;
@@ -1583,7 +1583,7 @@ containing a value of this type.
         public static final int never=0x7f0c000d;
         public static final int new_biao=0x7f0c010c;
         public static final int new_person=0x7f0c0141;
-        public static final int nextPage=0x7f0c006b;
+        public static final int nextPage=0x7f0c006a;
         public static final int nextbtn=0x7f0c00e9;
         public static final int nextpage=0x7f0c00c6;
         public static final int nextpager=0x7f0c00e1;
@@ -1623,7 +1623,7 @@ containing a value of this type.
         public static final int ransom_text_line=0x7f0c0193;
         public static final int recharge=0x7f0c015c;
         public static final int rechargeBtn=0x7f0c00bf;
-        public static final int registBtn=0x7f0c006f;
+        public static final int registBtn=0x7f0c0070;
         public static final int regist_code=0x7f0c00c1;
         public static final int regist_invite_code=0x7f0c00c3;
         public static final int regist_phone=0x7f0c00c0;
@@ -1733,8 +1733,8 @@ containing a value of this type.
         public static final int tv15=0x7f0c0121;
         public static final int tv16=0x7f0c0123;
         public static final int tv17=0x7f0c0125;
-        public static final int tv2=0x7f0c0067;
-        public static final int tv3=0x7f0c0069;
+        public static final int tv2=0x7f0c0066;
+        public static final int tv3=0x7f0c0068;
         public static final int tv4=0x7f0c0071;
         public static final int tv5=0x7f0c00e2;
         public static final int tv6=0x7f0c0115;

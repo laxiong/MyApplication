@@ -64,23 +64,23 @@ public class Password_Presenter {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
-                            iviewresetpay.reqbackSuc();
+                            iviewresetpay.reqbackSuc(null);
                         } else {
-                            iviewresetpay.reqbackFail(response.getString("msg"));
+                            iviewresetpay.reqbackFail(response.getString("msg"), null);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        iviewresetpay.reqbackFail(e.toString());
+                        iviewresetpay.reqbackFail(e.toString(), null);
                     }
                 } else {
-                    iviewresetpay.reqbackFail("出错,无响应");
+                    iviewresetpay.reqbackFail("出错,无响应", null);
                 }
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
-                iviewresetpay.reqbackFail(responseString);
+                iviewresetpay.reqbackFail(responseString, null);
             }
         }, authori);
     }
@@ -142,23 +142,23 @@ public class Password_Presenter {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
-                            iviewresetpay.reqbackSuc();
+                            iviewresetpay.reqbackSuc(null);
                         } else {
-                            iviewresetpay.reqbackFail(response.getString("msg"));
+                            iviewresetpay.reqbackFail(response.getString("msg"), null);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        iviewresetpay.reqbackFail(e.toString());
+                        iviewresetpay.reqbackFail(e.toString(), null);
                     }
                 } else {
-                    iviewresetpay.reqbackFail("错误,无响应");
+                    iviewresetpay.reqbackFail("错误,无响应", null);
                 }
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
-                iviewresetpay.reqbackFail(responseString);
+                iviewresetpay.reqbackFail(responseString, null);
             }
         }, autori);
     }
@@ -180,23 +180,23 @@ public class Password_Presenter {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
-                            iviewresetpay.reqbackSuc();
+                            iviewresetpay.reqbackSuc(null);
                         } else {
-                            iviewresetpay.reqbackFail(response.getString("msg"));
+                            iviewresetpay.reqbackFail(response.getString("msg"), null);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        iviewresetpay.reqbackFail(e.toString());
+                        iviewresetpay.reqbackFail(e.toString(), null);
                     }
                 } else {
-                    iviewresetpay.reqbackFail("无响应");
+                    iviewresetpay.reqbackFail("无响应", null);
                 }
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
-                iviewresetpay.reqbackFail(responseString);
+                iviewresetpay.reqbackFail(responseString, null);
             }
         }, autori);
 
