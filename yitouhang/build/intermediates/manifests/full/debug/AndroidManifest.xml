@@ -61,8 +61,7 @@
         <activity android:name="com.laxiong.Activity.ChangeLoginPswdActivity" />
 
         <!-- 修改支付密码 -->
-        <activity android:name="com.laxiong.Activity.ChangePayPswdActivity1" />
-        <activity android:name="com.laxiong.Activity.ChangePayPswdActivity2" />
+
 
         <!-- 重置支付密码 -->
 
@@ -227,6 +226,7 @@
         <!-- 投资明细 -->
         <activity android:name="com.laxiong.Activity.InvestmentRecordActivity" />
         <activity android:name="com.laxiong.Activity.ResetPayPwdActivity" />
+        <activity android:name="com.laxiong.Activity.ChangePayPwdActivity" />
     </application>
 
 </manifest>

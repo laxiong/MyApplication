@@ -44,7 +44,7 @@ public class CommonActionBar extends RelativeLayout {
                     textcolor = tary.getColor(R.styleable.CommonActionBar_textcolor, getResources().getColor(defaultTextColor));
                     break;
                 case R.styleable.CommonActionBar_textsize:
-                    textsize = tary.getDimensionPixelSize(R.styleable.CommonActionBar_textsize, DensityUtils.dp2px(context, 17));
+                    textsize = tary.getDimensionPixelSize(R.styleable.CommonActionBar_textsize, DensityUtils.dp2px(context, 14));
                     break;
                 default:
                     break;

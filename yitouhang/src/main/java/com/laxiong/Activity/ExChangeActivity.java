@@ -62,13 +62,13 @@ public class ExChangeActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void exchangeSuc() {
-        Toast.makeText(this, "购买成功", Toast.LENGTH_LONG).show();
+        ToastUtil.customAlert(this,"兑换成功");
         user.setScore(user.getScore() - yuan * 100);
     }
 
     @Override
     public void exchangeFail(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+        ToastUtil.customAlert(this,msg);
     }
 
     private void init() {

@@ -35,4 +35,7 @@
     </string>
     <string name="redpaper_string2">红包一经兑换,不退回壹币,请您兑换前仔细阅读商城规则、使用说明等重要信息;\n通过不正当手段
     获得壹币进行兑换行为者,或不按商品使用规则进行兑换的用户,壹投行有权立即停止服务并追究其法律责任;\n红包兑换最终解释权归壹投行所有</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

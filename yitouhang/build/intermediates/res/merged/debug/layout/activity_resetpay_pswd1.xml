@@ -30,7 +30,8 @@
                  android:textSize="14dp"
                  android:gravity="center"
                  />
-             <EditText 
+             <EditText
+                 android:id="@+id/et_name"
                  android:layout_width="wrap_content"
                  android:layout_height="match_parent"
                  android:layout_toRightOf="@+id/tv"
@@ -62,7 +63,8 @@
                  android:textSize="14dp"
                  android:gravity="center"
                  />
-             <EditText 
+             <EditText
+                 android:id="@+id/et_identi"
                  android:layout_width="wrap_content"
                  android:layout_height="match_parent"
                  android:layout_toRightOf="@+id/tv1"
