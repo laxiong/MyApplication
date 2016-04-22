@@ -7,7 +7,7 @@ import java.util.List;
  * Created by xiejin on 2016/4/18.
  * Types User.java
  */
-public class User implements Serializable{
+public class User implements Serializable {
     private int code;
     private String msg;
     private String time;
@@ -22,7 +22,7 @@ public class User implements Serializable{
     private String named;
     private String email;
     private String phone;
-    private int pay_pwd;
+    private boolean pay_pwd;
     private boolean is_vip;
     private int contacts;
     private float friendsprofit;
@@ -57,7 +57,7 @@ public class User implements Serializable{
     public User() {
     }
 
-    public User(int code, String msg, String time, int id, float available_amount, float block_amount, float total_amount, String nickname, String idc, boolean is_idc, String realname, String named, String email, String phone, int pay_pwd, boolean is_vip, int contacts, float friendsprofit, int experience, int salt, int score, int expire, int notify, int quota, float daishou, boolean is_first, String address, String last_login, int current, int bankcount, int packetcount, int cards, int amount, float profit, Yesterday yesterday, float total_get, float total_pay, float withdraw_amount, String name, String place, String phones, List<Amount> amount_list, List<Profit> profit_list, String security_level, int fee) {
+    public User(int code, String msg, String time, int id, float available_amount, float block_amount, float total_amount, String nickname, String idc, boolean is_idc, String realname, String named, String email, String phone, boolean pay_pwd, boolean is_vip, int contacts, float friendsprofit, int experience, int salt, int score, int expire, int notify, int quota, float daishou, boolean is_first, String address, String last_login, int current, int bankcount, int packetcount, int cards, int amount, float profit, Yesterday yesterday, float total_get, float total_pay, float withdraw_amount, String name, String place, String phones, List<Amount> amount_list, List<Profit> profit_list, String security_level, int fee) {
         this.code = code;
         this.msg = msg;
         this.time = time;
@@ -104,6 +104,39 @@ public class User implements Serializable{
         this.security_level = security_level;
         this.fee = fee;
     }
+
+    public boolean is_idc() {
+        return is_idc;
+    }
+
+    public void setIs_idc(boolean is_idc) {
+        this.is_idc = is_idc;
+    }
+
+    public boolean is_vip() {
+        return is_vip;
+    }
+
+    public void setIs_vip(boolean is_vip) {
+        this.is_vip = is_vip;
+    }
+
+    public boolean is_first() {
+        return is_first;
+    }
+
+    public void setIs_first(boolean is_first) {
+        this.is_first = is_first;
+    }
+
+    public boolean isPay_pwd() {
+        return pay_pwd;
+    }
+
+    public void setPay_pwd(boolean pay_pwd) {
+        this.pay_pwd = pay_pwd;
+    }
+
 
     public int getCode() {
         return code;
@@ -177,13 +210,6 @@ public class User implements Serializable{
         this.idc = idc;
     }
 
-    public boolean is_idc() {
-        return is_idc;
-    }
-
-    public void setIs_idc(boolean is_idc) {
-        this.is_idc = is_idc;
-    }
 
     public String getRealname() {
         return realname;
@@ -217,21 +243,6 @@ public class User implements Serializable{
         this.phone = phone;
     }
 
-    public int getPay_pwd() {
-        return pay_pwd;
-    }
-
-    public void setPay_pwd(int pay_pwd) {
-        this.pay_pwd = pay_pwd;
-    }
-
-    public boolean is_vip() {
-        return is_vip;
-    }
-
-    public void setIs_vip(boolean is_vip) {
-        this.is_vip = is_vip;
-    }
 
     public int getContacts() {
         return contacts;
@@ -305,13 +316,6 @@ public class User implements Serializable{
         this.daishou = daishou;
     }
 
-    public boolean is_first() {
-        return is_first;
-    }
-
-    public void setIs_first(boolean is_first) {
-        this.is_first = is_first;
-    }
 
     public String getAddress() {
         return address;

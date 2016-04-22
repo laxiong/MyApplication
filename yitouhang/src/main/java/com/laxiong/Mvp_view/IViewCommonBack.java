@@ -5,6 +5,6 @@ package com.laxiong.Mvp_view;
  * Types IViewCommonBack.java
  */
 public interface IViewCommonBack {
-    public void reqbackSuc();
-    public void reqbackFail(String msg);
+    public void reqbackSuc(String tag);
+    public void reqbackFail(String msg,String tag);
 }

@@ -25,59 +25,69 @@ public class CommonReq_Presenter {
     }
 
     //以下是无授权
-    public void reqCommonBackByPost(String url, Context context, RequestParams params) {
-        HttpUtil.post(url, params, new MyJSONHttp(), true);
+    public void reqCommonBackByPost(String url, Context context, RequestParams params,String tag) {
+        HttpUtil.post(url, params, new MyJSONHttp(tag), true);
 
     }
 
-    public void reqCommonBackByGet(String url, Context context, RequestParams params) {
-        HttpUtil.get(url, params, new MyJSONHttp(), true);
+    public void reqCommonBackByGet(String url, Context context, RequestParams params,String tag) {
+        HttpUtil.get(url, params, new MyJSONHttp(tag), true);
     }
 
-    public void reqCommonBackByPut(String url, Context context, RequestParams params) {
-        HttpUtil.put(url, params, new MyJSONHttp(), true);
+    public void reqCommonBackByPut(String url, Context context, RequestParams params,String tag) {
+        HttpUtil.put(url, params, new MyJSONHttp(tag), true);
     }
 
     // 以下是有授权
-    public void aureqByPost(String url, Context context, RequestParams params) {
+    public void aureqByPost(String url, Context context, RequestParams params,String tag) {
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
-        HttpUtil.post(url, params, new MyJSONHttp(), authori);
+        HttpUtil.post(url, params, new MyJSONHttp(tag), authori);
     }
 
-    public void aureqByGet(String url, Context context, RequestParams params) {
+    public void aureqByGet(String url, Context context, RequestParams params,String tag) {
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
-        HttpUtil.get(url, params, new MyJSONHttp(), authori);
+        HttpUtil.get(url, params, new MyJSONHttp(tag), authori);
     }
 
-    public void aureqByPut(String url, Context context, RequestParams params) {
+    public void aureqByPut(String url, Context context, RequestParams params,String tag) {
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
-        HttpUtil.put(url, params, new MyJSONHttp(), authori);
+        HttpUtil.put(url, params, new MyJSONHttp(tag), authori);
     }
 
     class MyJSONHttp extends JsonHttpResponseHandler {
+        private String tag;
+        public MyJSONHttp(String tag){
+            this.tag=tag;
+        }
         @Override
         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
             super.onSuccess(statusCode, headers, response);
             if (response != null) {
                 try {
                     if (response.getInt("code") == 0) {
-                        iviewback.reqbackSuc();
+                        iviewback.reqbackSuc(tag);
                     } else {
-                        iviewback.reqbackFail(response.getString("msg"));
+                        iviewback.reqbackFail(response.getString("msg"),tag);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    iviewback.reqbackFail(e.toString());
+                    iviewback.reqbackFail(e.toString(),tag);
                 }
             } else {
-                iviewback.reqbackFail("无响应");
+                iviewback.reqbackFail("无响应",tag);
             }
+        }
+
+        @Override
+        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+            super.onFailure(statusCode, headers, responseString, throwable);
+            iviewback.reqbackFail(responseString,tag);
         }
     }
 

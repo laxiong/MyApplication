@@ -8,7 +8,7 @@ public class Constants {
     public static final String KEY_DATE = "clickdate";
 
     public enum ReqEnum {
-        PWD(0, "pwd"), NICK(1, "nick"), BUY(2, "buy"), RPAY(3, "fddeal"), CPWD(4, "chdeal"),CPHONE(5,"phonev4");
+        PWD(0, "pwd"), NICK(1, "nick"), BUY(2, "buy"), RPAY(3, "fddeal"), CPWD(4, "chdeal"),CPHONE(5,"phone");
         int name;
         String val;
 

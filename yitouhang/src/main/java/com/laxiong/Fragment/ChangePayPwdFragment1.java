@@ -43,12 +43,12 @@ public class ChangePayPwdFragment1 extends Fragment implements View.OnClickListe
     }
 
     @Override
-    public void reqbackSuc() {
+    public void reqbackSuc(String tag) {
         ToastUtil.customAlert(getActivity(), "获取验证码成功");
     }
 
     @Override
-    public void reqbackFail(String msg) {
+    public void reqbackFail(String msg,String tag) {
         ToastUtil.customAlert(getActivity(), msg);
     }
 

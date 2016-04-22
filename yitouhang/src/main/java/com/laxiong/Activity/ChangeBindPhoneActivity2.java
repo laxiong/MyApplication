@@ -1,56 +1,114 @@
 package com.laxiong.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Common.Constants;
+import com.laxiong.Common.InterfaceInfo;
+import com.laxiong.Mvp_presenter.BindPhone_Presenter;
+import com.laxiong.Mvp_presenter.CommonReq_Presenter;
+import com.laxiong.Mvp_presenter.Handler_Presenter;
+import com.laxiong.Mvp_view.IViewBindPhone;
+import com.laxiong.Mvp_view.IViewCommonBack;
+import com.laxiong.Mvp_view.IViewTimerHandler;
+import com.laxiong.Utils.ToastUtil;
 import com.laxiong.yitouhang.R;
+import com.loopj.android.http.RequestParams;
 
-public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickListener{
-	/***
-	 * 修改手机号的第二层
-	 */
-	private TextView finishBtn ,mCode;
-	private FrameLayout mBack ;
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_changebindphone2);
-		initView();
-		initData();
-	}
-	private void initData() {
-		finishBtn.setOnClickListener(this);
-		mCode.setOnClickListener(this);
-		mBack.setOnClickListener(this);
-	}
-	private void initView() {
-		
-		finishBtn = (TextView)findViewById(R.id.finishBtn);
-		mCode = (TextView)findViewById(R.id.code);
-		mBack = (FrameLayout)findViewById(R.id.back_layout);
-		
-		TextView mText = (TextView)findViewById(R.id.title);
-		mText.setText("修改手机");
-	}
-	@Override
-	public void onClick(View v) {
-		switch(v.getId()){
-			case R.id.finishBtn:		/** 完成按钮**/
-				Toast.makeText(ChangeBindPhoneActivity2.this, "成功完成修改手机号码", 3).show();
-				break;
-				
-			case R.id.code:
-				Toast.makeText(this, "获取验证码", 2).show();
-				break;
-				
-			case R.id.back_layout:
-				this.finish();
-				break;
-		}
-	}
-	
+public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickListener, IViewBindPhone, IViewTimerHandler {
+    /***
+     * 修改手机号的第二层
+     */
+    private TextView finishBtn, mCode;
+    private FrameLayout mBack;
+    private EditText et_phone, et_code;
+    private BindPhone_Presenter bindpresenter;
+    private Handler_Presenter timepresenter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_changebindphone2);
+        initView();
+        initData();
+    }
+
+    private void initData() {
+        bindpresenter = new BindPhone_Presenter(this);
+        timepresenter = new Handler_Presenter(this);
+        finishBtn.setOnClickListener(this);
+        mCode.setOnClickListener(this);
+        mBack.setOnClickListener(this);
+    }
+
+    @Override
+    public String getPhone() {
+        return et_phone.getText().toString();
+    }
+
+    @Override
+    public String getCode() {
+        return et_code.getText().toString();
+    }
+
+    @Override
+    public void reqbackSuc(String tag) {
+        if (tag.equals(bindpresenter.TYPE_CODE)) {
+            timepresenter.loadHandlerTimer(1000, 30000);
+        } else if (tag.equals(bindpresenter.TYPE_BIND)) {
+            ToastUtil.customAlert(this, "更换手机号码成功!");
+            Intent intent = new Intent(this, PersonalSettingActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    @Override
+    public void reqbackFail(String msg, String tag) {
+        ToastUtil.customAlert(this, msg);
+    }
+
+    @Override
+    public void handlerViewByTime(int seconds) {
+        if (seconds > 0) {
+            mCode.setEnabled(false);
+            mCode.setText(seconds + "s");
+        } else {
+            mCode.setEnabled(true);
+            mCode.setText("获取验证码");
+        }
+    }
+
+    private void initView() {
+
+        finishBtn = (TextView) findViewById(R.id.finishBtn);
+        mCode = (TextView) findViewById(R.id.code);
+        mBack = (FrameLayout) findViewById(R.id.back_layout);
+        et_code = (EditText) findViewById(R.id.et_code);
+        et_phone = (EditText) findViewById(R.id.et_phone);
+        TextView mText = (TextView) findViewById(R.id.title);
+        mText.setText("修改手机");
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.finishBtn:        /** 完成按钮**/
+                bindpresenter.bindOtherPhone(this);
+                break;
+            case R.id.code:
+                bindpresenter.sendCode(ChangeBindPhoneActivity2.this);
+                break;
+            case R.id.back_layout:
+                this.finish();
+                break;
+        }
+    }
+
 }
