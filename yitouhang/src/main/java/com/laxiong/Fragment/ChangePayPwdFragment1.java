@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.laxiong.Activity.ChangePayPwdActivity;
+import com.laxiong.Basic.BasicWatcher;
 import com.laxiong.Mvp_presenter.Handler_Presenter;
 import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
@@ -58,28 +59,6 @@ public class ChangePayPwdFragment1 extends Fragment implements View.OnClickListe
         initData();
         return layout;
     }
-
-    class CustomWatcher implements TextWatcher {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            if (StringUtils.isBlank(s.toString())) {
-                setEnabled(mNextPage, false);
-            } else {
-                setEnabled(mNextPage, true);
-            }
-        }
-    }
-
     @Override
     public void handlerViewByTime(int seconds) {
         if (seconds > 0) {
@@ -105,7 +84,16 @@ public class ChangePayPwdFragment1 extends Fragment implements View.OnClickListe
         mNextPage.setOnClickListener(this);
         mCode.setOnClickListener(this);
         time_presenter.loadHandlerTimer(1000, 30000);
-        et_code.addTextChangedListener(new CustomWatcher());
+        et_code.addTextChangedListener(new BasicWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (StringUtils.isBlank(s.toString())) {
+                    setEnabled(mNextPage, false);
+                } else {
+                    setEnabled(mNextPage, true);
+                }
+            }
+        });
         setEnabled(mNextPage, false);
     }
 
