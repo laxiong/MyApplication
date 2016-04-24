@@ -26,6 +26,7 @@ import com.laxiong.Calender.CustomDate;
 import com.laxiong.Mvp_presenter.Exit_Presenter;
 import com.laxiong.Mvp_view.IViewExit;
 import com.laxiong.Utils.SpUtils;
+import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.User;
 import com.laxiong.yitouhang.R;
@@ -35,7 +36,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
     /****
      * 个人设置
      */
-    private TextView backBtn;
+    private TextView backBtn,tv_bindphone;
     private RelativeLayout personIcon, nameSetting, addressSetting, trueName, phoneBind;
     private FrameLayout mBack;
     private ImageView mUseFace;
@@ -59,7 +60,11 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         trueName.setOnClickListener(this);
         phoneBind.setOnClickListener(this);
         mBack.setOnClickListener(this);
-
+        String phone=SpUtils.getStrValue(SpUtils.getSp(this),SpUtils.USER_KEY);
+        if(!StringUtils.isBlank(phone))
+            tv_bindphone.setText(StringUtils.getProtectedMobile(phone));
+        else
+            tv_bindphone.setText("请先登录");
     }
 
     @Override
@@ -87,6 +92,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         phoneBind = (RelativeLayout) findViewById(R.id.phoneBind);
         mBack = (FrameLayout) findViewById(R.id.back_layout);
         mUseFace = (ImageView) findViewById(R.id.use_face);
+        tv_bindphone= (TextView) findViewById(R.id.tv_bindphone);
 
         TextView mText = (TextView) findViewById(R.id.title);
         mText.setText("个人设置");

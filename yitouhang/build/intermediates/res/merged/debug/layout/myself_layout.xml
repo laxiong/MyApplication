@@ -191,6 +191,7 @@
             android:background="@color/divider_grey" />
 
         <RelativeLayout
+            android:id="@+id/myredbao"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -218,7 +219,7 @@
             android:background="@color/divider_grey" />
 
         <RelativeLayout
-        android:id="@+id/rl_1t"
+        android:id="@+id/itmall"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

@@ -17,6 +17,7 @@ import com.laxiong.Mvp_presenter.Handler_Presenter;
 import com.laxiong.Mvp_view.IViewBindPhone;
 import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Mvp_view.IViewTimerHandler;
+import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.yitouhang.R;
 import com.loopj.android.http.RequestParams;
@@ -71,6 +72,7 @@ public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickLis
             timepresenter.loadHandlerTimer(1000, 30000);
         } else if (tag.equals(bindpresenter.TYPE_BIND)) {
             ToastUtil.customAlert(this, "更换手机号码成功!");
+            SpUtils.saveStrValue(SpUtils.getSp(this), SpUtils.USER_KEY, getPhone());
             Intent intent = new Intent(this, PersonalSettingActivity.class);
             startActivity(intent);
             finish();

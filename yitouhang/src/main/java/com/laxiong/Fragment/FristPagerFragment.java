@@ -52,8 +52,8 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 
 	private void initData() {
 		
-		ScollPagerUtils mScollPagerUtils = new ScollPagerUtils(str,mContext,mChildViewPager,mLinearDot);
-		mScollPagerUtils.startPlayPic();
+//		ScollPagerUtils mScollPagerUtils = new ScollPagerUtils(str,mContext,mChildViewPager,mLinearDot);
+//		mScollPagerUtils.startPlayPic();
 		
 	}
 
