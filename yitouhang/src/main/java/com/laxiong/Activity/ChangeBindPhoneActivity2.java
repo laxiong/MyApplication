@@ -18,6 +18,7 @@ import com.laxiong.Mvp_view.IViewBindPhone;
 import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.SpUtils;
+import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.yitouhang.R;
 import com.loopj.android.http.RequestParams;
@@ -69,7 +70,7 @@ public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickLis
     @Override
     public void reqbackSuc(String tag) {
         if (tag.equals(bindpresenter.TYPE_CODE)) {
-            timepresenter.loadHandlerTimer(1000, 30000);
+            ToastUtil.customAlert(this,"获取验证码成功!");
         } else if (tag.equals(bindpresenter.TYPE_BIND)) {
             ToastUtil.customAlert(this, "更换手机号码成功!");
             SpUtils.saveStrValue(SpUtils.getSp(this), SpUtils.USER_KEY, getPhone());
@@ -113,7 +114,12 @@ public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickLis
                 bindpresenter.bindOtherPhone(this);
                 break;
             case R.id.code:
-                bindpresenter.sendCode(ChangeBindPhoneActivity2.this);
+                if (StringUtils.isBlank(getCode())) {
+                    ToastUtil.customAlert(ChangeBindPhoneActivity2.this, "请先输入手机号码");
+                } else {
+                    bindpresenter.sendCode(ChangeBindPhoneActivity2.this);
+                    timepresenter.loadHandlerTimer(Constants.INTERVAL, Constants.TIME);
+                }
                 break;
             case R.id.back_layout:
                 this.finish();

@@ -14,8 +14,11 @@ import android.widget.TextView;
 
 import com.laxiong.Activity.ResetPayPwdActivity;
 import com.laxiong.Basic.BasicWatcher;
+import com.laxiong.Common.Constants;
+import com.laxiong.Mvp_presenter.Handler_Presenter;
 import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
+import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
@@ -27,7 +30,7 @@ import com.laxiong.yitouhang.R;
  */
 
 @SuppressLint("NewApi")
-public class ResetPayPwdFrag2 extends Fragment implements View.OnClickListener, IViewCommonBack {
+public class ResetPayPwdFrag2 extends Fragment implements View.OnClickListener, IViewCommonBack,IViewTimerHandler{
     /****
      * 重置支付密码第二层
      */
@@ -36,6 +39,8 @@ public class ResetPayPwdFrag2 extends Fragment implements View.OnClickListener, 
     private InterSecond intersecond;
     private EditText et_vali;
     private Password_Presenter presenter;
+    private Handler_Presenter timepresenter;
+    private TextView tv_getCode;
 
     public interface InterSecond {
         public void recordVali(String vali);
@@ -44,6 +49,17 @@ public class ResetPayPwdFrag2 extends Fragment implements View.OnClickListener, 
     @Override
     public void reqbackSuc(String tag) {
         ToastUtil.customAlert(getActivity(), "获取验证码成功");
+    }
+
+    @Override
+    public void handlerViewByTime(int seconds) {
+        if(seconds>0){
+            tv_getCode.setEnabled(false);
+            tv_getCode.setText(seconds+"s");
+        }else{
+            tv_getCode.setEnabled(true);
+            tv_getCode.setText("获取验证码");
+        }
     }
 
     @Override
@@ -73,13 +89,16 @@ public class ResetPayPwdFrag2 extends Fragment implements View.OnClickListener, 
             }
         });
         presenter = new Password_Presenter(this);
+        timepresenter=new Handler_Presenter(this);
         presenter.reqPayCode(getActivity());
+        timepresenter.loadHandlerTimer(Constants.INTERVAL,Constants.TIME);
         ValifyUtil.setEnabled(mNextPage, false);
     }
 
     private void initView() {
         mNextPage = (TextView) layout.findViewById(R.id.nextpage);
         et_vali = (EditText) layout.findViewById(R.id.et_vali);
+        tv_getCode= (TextView) layout.findViewById(R.id.tv_getCode);
     }
 
     @Override
