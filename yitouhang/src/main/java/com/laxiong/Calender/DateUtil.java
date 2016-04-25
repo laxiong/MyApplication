@@ -47,7 +47,9 @@ public class DateUtil {
 	}
 
 	public static int getCurrentMonthDay() {
-		return Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+		Calendar c=Calendar.getInstance();
+		c.setTime(new Date());
+		return c.get(Calendar.DAY_OF_MONTH);
 	}
 	public static int getCurrentMonthDay(CustomDate date) {
 		Calendar c=Calendar.getInstance();

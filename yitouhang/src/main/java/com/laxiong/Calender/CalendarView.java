@@ -207,8 +207,8 @@ public class CalendarView extends View implements Comparable {
             return;
         if (mClickCell != null) {
             rows[mClickCell.j].cells[mClickCell.i] = mClickCell;
-            if(style==WEEK_STYLE){
-                rows[mClickCell.j].cells[mClickCell.i].state=getState(mShowDate.getDay(),State.CURRENT_MONTH_DAY);
+            if (style == WEEK_STYLE) {
+                rows[mClickCell.j].cells[mClickCell.i].state = getState(mShowDate.getDay(), State.CURRENT_MONTH_DAY);
             }
         }
         if (rows[row] != null) {
@@ -333,10 +333,12 @@ public class CalendarView extends View implements Comparable {
                 day = lastMonthDays;
             }
             CustomDate date = CustomDate.modifiDayForObject(clickdate, day);
-            if(DateUtil.isClickDay(date, mShowDate)){
-                if(DateUtil.isToday(date)){
+            Log.i("kk", "date:" + date.getDay() + ",mShow" + mShowDate.getDay() + ",there" + date.toString() + "==" + mShowDate.toString());
+            if (DateUtil.isClickDay(date, mShowDate)) {
+                Log.i("kk", "date:" + date.getDay() + ",mShow" + mShowDate.getDay() + ",here");
+                if (DateUtil.isToday(date)) {
                     rows[0].cells[i] = new Cell(date, State.TODAY, i, 0);
-                }else {
+                } else {
                     mClickCell = new Cell(date, State.CLICK_DAY, i, 0);
                     rows[0].cells[i] = new Cell(date, State.CLICK_DAY, i, 0);
                 }

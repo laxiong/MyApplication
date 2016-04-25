@@ -67,8 +67,7 @@ public class CalanderCountActivity extends BaseActivity implements OnClickListen
                 } else {       // 周
                     selectColor(2);
                     Bundle bundle = new Bundle();
-                    if (clickdate != null)
-                        bundle.putSerializable(Constants.KEY_DATE, clickdate);
+                    bundle.putSerializable(Constants.KEY_DATE, clickdate==null?new CustomDate():clickdate);
                     if (mWeekFrag == null) {
                         mWeekFrag = new SelectWeekCalenderFragment();
                         mWeekFrag.setArguments(bundle);
