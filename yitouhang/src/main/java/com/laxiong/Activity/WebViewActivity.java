@@ -9,6 +9,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.yitouhang.R;
@@ -19,7 +20,9 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
 	 */
 	private WebView mWebView ;
 	private FrameLayout back_layout;
-	private String urls ="https://licai.gongshidai.com/wap/public/invite/testtest.html";  //链接
+	private String urls ;  //链接
+	private String mTitle ;
+	private TextView mTitleTv ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,9 +43,14 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
 		back_layout= (FrameLayout) findViewById(R.id.back_layout);
 		back_layout.setOnClickListener(this);
 		mWebView = (WebView)findViewById(R.id.webviews);
+		mTitleTv =(TextView)findViewById(R.id.title);
 		Intent intent = getIntent();
-		if(intent!=null&& StringUtils.isBlank(intent.getStringExtra("url")))
+		if(intent!=null&& !StringUtils.isBlank(intent.getStringExtra("url")))
 			urls=intent.getStringExtra("url");
+		if(intent!=null&&!StringUtils.isBlank(intent.getStringExtra("title"))) {
+			mTitle = intent.getStringExtra("title");
+			mTitleTv.setText(mTitle);
+		}
 //		mWebView.loadUrl(url); //WebView加载web资源
 //		//覆盖WebView默认使用第三方或系统默认浏览器打开网页的行为，使网页用WebView打开
 //		mWebView.setWebViewClient(new WebViewClient(){

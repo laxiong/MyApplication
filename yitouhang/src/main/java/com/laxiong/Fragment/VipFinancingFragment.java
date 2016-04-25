@@ -17,12 +17,21 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Json.FinanceJsonBean;
+import com.laxiong.Utils.HttpUtil;
 import com.laxiong.View.CircleProgressBar;
 import com.laxiong.View.FinancingListView;
 import com.laxiong.entity.FinanceInfo;
 import com.laxiong.yitouhang.R;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @SuppressLint("NewApi") 
@@ -31,9 +40,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 	 * VIP理财的碎片
 	 */
 	private View mVipView ;
-//	private PinnedSectionListView mPinnedSectionListView ;
-//	private VipPinnedListViewAdapter mVipAdapter ;
-
+	private FinanceJsonBean  mFinanBean = null;
 	private ImageView mConcel_img ;
 	private LinearLayout mFinancelMessage ; // 提示消息
 
@@ -65,11 +72,9 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		return  mVipView;
 	}
 	private void initData() {
-//		mVipAdapter = new VipPinnedListViewAdapter(getActivity(), Bean.getData());
-//		mPinnedSectionListView.setAdapter(mVipAdapter);
 
-		mListView.setAdapter(new VipAdapter());
 
+		getVipProductInfo();
 		mListView.setOnRefreshListener(new FinancingListView.OnRefreshListener() {
 			@Override
 			public void onPullRefresh() {
@@ -93,7 +98,6 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		mFinancelMessage = (LinearLayout)mVipView.findViewById(R.id.finance_message);
 		mConcel_img.setOnClickListener(this);
 
-//		mPinnedSectionListView = (PinnedSectionListView)mVipView.findViewById(R.id.sectionListview);
 		mListView = (FinancingListView)mVipView.findViewById(R.id.Listview);
 	}
 	
@@ -131,8 +135,8 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		private static final int TYPE_Content = 1;//内容
 		@Override
 		public int getCount() {
-			if(FinanceJsonBean.getInstance().getGxb().size()>0){
-				return FinanceJsonBean.getInstance().getGxb().size()+3;
+			if(mFinanBean!=null){
+				return mFinanBean.getGxb().size()+3;
 			}
 			return 0;
 		}
@@ -196,7 +200,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 			}
 			if(currentType == TYPE_Content){
 				if(i==1){  // 时息通
-					FinanceInfo sxt = FinanceJsonBean.getInstance().getSxt();
+					FinanceInfo sxt = mFinanBean.getSxt();
 					if(mViewHonder.mInterge!=null&&mViewHonder.mPoint!=null) {
 						mViewHonder.mInterge.setTextColor(Color.parseColor("#FFE2A42A"));
 						mViewHonder.mPoint.setTextColor(Color.parseColor("#FFE2A42A"));
@@ -244,16 +248,18 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 
 					if(mViewHonder.profit_tv!=null)
 						mViewHonder.profit_tv.setTextColor(Color.parseColor("#FFE2A42A"));
+					mViewHonder.profit_tv.setText(sxt.getPaytype());
 					if(mViewHonder.baifenbi!=null)
 						mViewHonder.baifenbi.setTextColor(Color.parseColor("#FFE2A42A"));
 					if(mViewHonder.mProject!=null)
 						mViewHonder.mProject.setTextColor(Color.parseColor("#FFE2A42A"));
+					mViewHonder.mProject.setText(sxt.getTitle());
 					if(mViewHonder.year_hua!=null)
 						mViewHonder.year_hua.setTextColor(Color.parseColor("#FFE2A42A"));
 
 
 				}else if (i>=3){ // 固息宝
-					List<FinanceInfo> mList = FinanceJsonBean.getInstance().getGxb();
+					List<FinanceInfo> mList = mFinanBean.getGxb();
 					FinanceInfo gxb = mList.get(i-3);
 					if(mViewHonder.mInterge!=null&&mViewHonder.mPoint!=null) {
 						mViewHonder.mInterge.setTextColor(Color.parseColor("#FFE2A42A"));
@@ -301,10 +307,12 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 
 					if(mViewHonder.profit_tv!=null)
 						mViewHonder.profit_tv.setTextColor(Color.parseColor("#FFE2A42A"));
+					mViewHonder.profit_tv.setText(gxb.getPaytype());
 					if(mViewHonder.baifenbi!=null)
 						mViewHonder.baifenbi.setTextColor(Color.parseColor("#FFE2A42A"));
 					if(mViewHonder.mProject!=null)
 						mViewHonder.mProject.setTextColor(Color.parseColor("#FFE2A42A"));
+					mViewHonder.mProject.setText(gxb.getTitle());
 					if(mViewHonder.year_hua!=null)
 						mViewHonder.year_hua.setTextColor(Color.parseColor("#FFE2A42A"));
 				}
@@ -355,4 +363,102 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 			return false;
 		}
 	}
+
+	// 获取VIP产品的内容
+	private void getVipProductInfo(){
+		RequestParams params = new RequestParams();
+		params.put("p","1");
+		params.put("limit", "10");
+		params.put("type","vip");
+		HttpUtil.get(InterfaceInfo.PRODUCT_URL,params,new JsonHttpResponseHandler(){
+			@Override
+			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+				super.onSuccess(statusCode, headers, response);
+
+				List<FinanceInfo>   mList = null ;
+				if (response!=null){
+					try {
+						if (response.getInt("code")==0){
+							mFinanBean = new FinanceJsonBean();
+
+							JSONObject sxt = response.getJSONObject("sxt");
+							FinanceInfo sxtInfo = setProductInfo(sxt);  // 时息通
+							mFinanBean.setSxt(sxtInfo);
+
+							JSONArray gxb =  response.getJSONArray("gxb"); // 固息宝
+							if(gxb.length()>0){
+								mList = new ArrayList<FinanceInfo>();
+								for (int i=0;i<gxb.length();i++){
+									JSONObject gxb_obj = gxb.getJSONObject(i);
+									FinanceInfo gxbInfo = setProductInfo(gxb_obj);
+									mList.add(gxbInfo);
+								}
+								mFinanBean.setGxb(mList);
+							}
+							mFinanBean.setMsg(response.getString("msg"));
+							mFinanBean.setTime(response.getString("time"));
+							//TODO 成功访问网络后setAdapter
+							mListView.setAdapter(new VipAdapter());
+
+						}else {
+							Toast.makeText(getActivity(),response.getString("msg"),Toast.LENGTH_SHORT).show();
+						}
+					}catch (Exception E){
+					}
+				}
+			}
+			@Override
+			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+				super.onFailure(statusCode, headers, throwable, errorResponse);
+				Toast.makeText(getActivity(),"网络访问失败",Toast.LENGTH_SHORT).show();
+			}
+		},true);
+	}
+
+	// 设置产品的信息
+	private FinanceInfo  setProductInfo(JSONObject obj){
+		if(obj!=null){
+			try {
+				FinanceInfo info = new FinanceInfo();
+				info.setId(obj.getInt("id"));
+				info.setAmount(obj.getInt("amount"));
+				info.setApr(obj.getDouble("apr"));
+				info.setBird(obj.getInt("bird"));
+				info.setBirdapr(obj.getDouble("birdapr"));
+				info.setContent(obj.getString("content"));
+				info.setDate(obj.getString("date"));
+				info.setKey(obj.getString("key"));
+				info.setLimit(obj.getInt("limit"));
+				info.setMax(obj.getInt("max"));
+				info.setTitle(obj.getString("title"));
+				info.setType(obj.getInt("type"));
+				info.setMembers(obj.getInt("members"));
+				info.setPaytype(obj.getString("paytype"));
+				info.setPercent(obj.getDouble("percent"));
+				info.setRemark(obj.getString("remark"));
+				info.setRule(obj.getString("rule"));
+				info.setMin(obj.getString("min"));
+				info.setScore(obj.getInt("score"));
+				info.setVip(obj.getDouble("vip"));
+				info.setUrl(obj.getString("url"));
+				info.setTotal_amount(obj.getInt("total_amount"));
+				info.setTotal_menber(obj.getInt("total_menber"));
+				return info;
+			}catch (Exception e){
+				e.getStackTrace();
+			}
+		}else {
+			Toast.makeText(getActivity(),"FinanceInfo为空",Toast.LENGTH_SHORT).show();
+		}
+		return null ;
+	}
+
+
+
+
+
+
+
+
+
 }

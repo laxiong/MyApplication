@@ -11,13 +11,25 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.laxiong.Activity.GuXiBaoActivity;
 import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.Activity.WebViewActivity;
+import com.laxiong.Common.InterfaceInfo;
+import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.ScollPagerUtils;
 import com.laxiong.View.ChildViewPager;
+import com.laxiong.entity.Branner;
 import com.laxiong.yitouhang.R;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 @SuppressLint("NewApi") 
 public class FristPagerFragment extends Fragment implements OnClickListener{
@@ -30,14 +42,9 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 	private Context mContext = null ;
 	
 	private RelativeLayout mNewBiao , mGuXiBao , mTimeXiTong ;  // 新手标  固息宝  时息通
-	
-	private String[] str ={
-			
-			"http://a.hiphotos.baidu.com/album/w%3D2048/sign=5c4fe8d4a5c27d1ea5263cc42fedac6e/024f78f0f736afc3f1416515b219ebc4b7451274.jpg",
-			"http://c.hiphotos.baidu.com/album/w%3D2048/sign=739d5cd03ac79f3d8fe1e3308e99cc11/7a899e510fb30f24f807f52cc995d143ad4b037b.jpg",
-			"http://d.hiphotos.baidu.com/album/w%3D2048/sign=9644b9d5d0c8a786be2a4d0e5331c83d/d1160924ab18972b675c19e5e7cd7b899e510abe.jpg"
-	};
-	
+	private TextView mNew ,mNew_tv ,mSxt,mSxt_tv,mGxb,mGxb_tv,mAmount,mSolid,mTouTiao,mCental;
+	private String mNewbUrl,mSxtUrl,mGxbUrl,mCentalUrl,mAdTitle;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -51,10 +58,9 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 	}
 
 	private void initData() {
-		
-		ScollPagerUtils mScollPagerUtils = new ScollPagerUtils(str,mContext,mChildViewPager,mLinearDot);
-		mScollPagerUtils.startPlayPic();
-		
+
+		getBanner();
+		getFristPagerData();
 	}
 
 	private void initView() {
@@ -67,32 +73,161 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 		
 		// set Height 
 //		mChildViewPager.getLayoutParams().height = Settings.DISPLAY_WIDTH * 350 / 750 ;
-		
+		mNew =(TextView)FristView.findViewById(R.id.tv1);
+		mNew_tv =(TextView)FristView.findViewById(R.id.new_biao_tv);
+		mSxt =(TextView)FristView.findViewById(R.id.tv2);
+		mSxt_tv =(TextView)FristView.findViewById(R.id.sxt_tv);
+		mGxb =(TextView)FristView.findViewById(R.id.tv3);
+		mGxb_tv =(TextView)FristView.findViewById(R.id.gxb_tv);
+		mAmount = (TextView)FristView.findViewById(R.id.amount);
+		mSolid =(TextView)FristView.findViewById(R.id.solid);
+		mTouTiao = (TextView)FristView.findViewById(R.id.toutiao);
+		mCental =(TextView)FristView.findViewById(R.id.cental);
+
 	}
 
 	private void setListen(){
 		mNewBiao.setOnClickListener(this);
 		mGuXiBao.setOnClickListener(this);
 		mTimeXiTong.setOnClickListener(this);
+		mCental.setOnClickListener(this);
 	}
 	
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
-			case R.id.new_biao:	// TODO  测试WebView功能
-				startActivity(new Intent(getActivity(),
-						WebViewActivity.class));
+			case R.id.new_biao:	//
+
+
 				break;
 			case R.id.gu_xibao:
-				startActivity(new Intent(getActivity(),
-						GuXiBaoActivity.class));
+				if (mGxbUrl!=null) {
+					startActivity(new Intent(getActivity(),
+							GuXiBaoActivity.class).putExtra("url",mGxbUrl));
+				}
 				break;
 			case R.id.time_xitong:
-				startActivity(new Intent(getActivity(),
-						TimeXiTongActivity.class));
+				if (mSxtUrl!=null) {
+					startActivity(new Intent(getActivity(),
+							TimeXiTongActivity.class).putExtra("url",mSxtUrl));
+				}
+				break;
+			case R.id.cental:
+				if(mCentalUrl!=null&&mAdTitle!=null){
+					startActivity(new Intent(getActivity(),
+							WebViewActivity.class).putExtra("url",mCentalUrl).putExtra("title",mAdTitle));
+				}
 				break;
 		}
 	}
-	
-	
+	// Banner轮播图
+	private void getBanner(){
+		HttpUtil.get(InterfaceInfo.BASE_URL+"/banner",new JsonHttpResponseHandler(){
+			@Override
+			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+				super.onSuccess(statusCode, headers, response);
+				if (response!=null){
+					try {
+						if (response.getInt("code")==0){
+							JSONArray arra = response.getJSONArray("list");
+							ArrayList<Branner> banArra = getBannerData(arra);
+
+							//TODO 开始适配器的操作
+							ScollPagerUtils mScollPagerUtils = new ScollPagerUtils(banArra,mContext,mChildViewPager,mLinearDot);
+							mScollPagerUtils.startPlayPic();
+
+						}else {
+							Toast.makeText(getActivity(),response.getString("msg"),Toast.LENGTH_SHORT).show();
+						}
+					}catch (Exception E){
+					}
+				}
+			}
+			@Override
+			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+				super.onFailure(statusCode, headers, throwable, errorResponse);
+				Toast.makeText(getActivity(),"获取Banner页失败",Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
+
+	private ArrayList<Branner> getBannerData(JSONArray array){
+		try{
+			ArrayList<Branner> banArray = new ArrayList<Branner>();
+			if (array!=null){
+				for (int i=0;i<array.length();i++){
+					JSONObject obj = array.getJSONObject(i);
+					Branner ban = new Branner();
+					ban.setImageurl(obj.getString("imageurl"));
+					ban.setHref(obj.getString("href"));
+					ban.setTitle(obj.getString("title"));
+					banArray.add(ban);
+				}
+				return  banArray;
+			}
+		}catch (Exception E){
+		}
+		return  null;
+	}
+
+	//首页的数据
+	private void getFristPagerData(){
+		HttpUtil.get(InterfaceInfo.BASE_URL+"/rental",new JsonHttpResponseHandler(){
+			@Override
+			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+				super.onSuccess(statusCode, headers, response);
+				if (response!=null) {
+					try {
+						if (response.getInt("code")==0){
+							JSONArray ARRA = response.getJSONArray("list");
+							setPagerData(ARRA);
+							int solid = response.getInt("solid");
+							double amount = response.getDouble("amount");
+							mAmount.setText(String.valueOf(amount));
+							mSolid.setText("已经有" + String.valueOf(solid) + "位聪明伙伴在壹投行理财(元)");
+							JSONObject AD = response.getJSONObject("ad");
+							mAdTitle = AD.getString("title");
+							mTouTiao.setText(mAdTitle);
+							mCentalUrl = AD.getString("url");
+
+						}else {
+							Toast.makeText(getActivity(),response.getString("msg"),Toast.LENGTH_SHORT).show();
+						}
+					} catch (Exception E) {
+					}
+				}
+			}
+			@Override
+			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+				super.onFailure(statusCode, headers, throwable, errorResponse);
+				Toast.makeText(getActivity(),"首页数据获取失败",Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
+
+	private void setPagerData(JSONArray ARRA){
+		try{
+			if (ARRA!=null){
+				if (ARRA.length()>0) {
+					JSONObject xinobj = ARRA.getJSONObject(0);
+					mNew.setText(xinobj.getString("name"));
+					mNew_tv.setText(xinobj.getString("title"));
+					mNewbUrl = xinobj.getString("url");
+
+					JSONObject sxtobj = ARRA.getJSONObject(1);
+					mSxt.setText(sxtobj.getString("name"));
+					mSxt_tv.setText(sxtobj.getString("title"));
+					mSxtUrl = sxtobj.getString("url");
+
+					JSONObject gxbobj = ARRA.getJSONObject(2);
+					mGxb.setText(gxbobj.getString("name"));
+					mGxb_tv.setText(gxbobj.getString("title"));
+					mGxbUrl = gxbobj.getString("url");
+				}
+			}
+		}catch (Exception E){
+		}
+	}
+
+
 }

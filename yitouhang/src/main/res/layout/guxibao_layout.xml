@@ -24,15 +24,15 @@
             android:id="@+id/baifenbi" 
             android:layout_below="@id/tv1"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="80dp"
             android:layout_centerHorizontal="true"
             >
             <TextView
                 android:id="@+id/tv2" 
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="80dp"
                 android:text="7.8"
-                android:textSize="28dp"
+                android:textSize="32sp"
                 android:textColor="@color/white"
                 android:gravity="center"
                 />
@@ -41,19 +41,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="%"
+                android:textSize="16sp"
                 android:textColor="@color/white"
                 android:layout_alignBaseline="@id/tv2"
                 />
         </RelativeLayout>
         <!-- 外加的百分比 -->
-        <TextView 
+        <TextView
+            android:id="@+id/addprecent"
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/baifenbi"
             android:text="+1.8%"
             android:textColor="@color/white"
             android:layout_below="@id/tv1"
-            android:textSize="12sp"
+            android:textSize="16sp"
             />
         
     </RelativeLayout>
@@ -79,7 +82,8 @@
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 />
-            <TextView 
+            <TextView
+                android:id="@+id/yesterdayprofit"
                 android:layout_below="@id/tv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -113,7 +117,8 @@
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 />
-            <TextView 
+            <TextView
+                android:id="@+id/getcash"
                 android:layout_below="@id/tv4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -148,6 +153,7 @@
                 android:layout_marginLeft="3dp"
                 >
                 <TextView
+                    android:id="@+id/remark1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="100起投"
@@ -168,6 +174,7 @@
                 android:layout_marginLeft="3dp"
                 >
                 <TextView
+                    android:id="@+id/remark2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="本息还款"
@@ -400,7 +407,7 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_toRightOf="@+id/tv10"
-                android:background="@color/divider_grey"
+                android:src="@drawable/img_calculator"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="5dp"
                 />

@@ -3072,8 +3072,27 @@
                     "startLine": 202,
                     "startColumn": 4,
                     "startOffset": 18008,
+                    "endColumn": 69,
+                    "endOffset": 18073
+                },
+                "from": {
+                    "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 39,
+                        "startColumn": 4,
+                        "startOffset": 1900,
+                        "endColumn": 69,
+                        "endOffset": 1965
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 203,
+                    "startColumn": 4,
+                    "startOffset": 18078,
                     "endColumn": 52,
-                    "endOffset": 18056
+                    "endOffset": 18126
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\strings.xml",
@@ -3088,11 +3107,11 @@
             },
             {
                 "to": {
-                    "startLine": 203,
+                    "startLine": 204,
                     "startColumn": 4,
-                    "startOffset": 18061,
+                    "startOffset": 18131,
                     "endColumn": 54,
-                    "endOffset": 18111
+                    "endOffset": 18181
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\strings.xml",
@@ -3107,11 +3126,11 @@
             },
             {
                 "to": {
-                    "startLine": 204,
+                    "startLine": 205,
                     "startColumn": 4,
-                    "startOffset": 18116,
+                    "startOffset": 18186,
                     "endColumn": 55,
-                    "endOffset": 18167
+                    "endOffset": 18237
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\strings.xml",
@@ -3126,11 +3145,11 @@
             },
             {
                 "to": {
-                    "startLine": 205,
+                    "startLine": 206,
                     "startColumn": 4,
-                    "startOffset": 18172,
+                    "startOffset": 18242,
                     "endColumn": 44,
-                    "endOffset": 18212
+                    "endOffset": 18282
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\strings.xml",
@@ -3145,12 +3164,12 @@
             },
             {
                 "to": {
-                    "startLine": 206,
+                    "startLine": 207,
                     "startColumn": 4,
-                    "startOffset": 18217,
-                    "endLine": 207,
+                    "startOffset": 18287,
+                    "endLine": 208,
                     "endColumn": 13,
-                    "endOffset": 18316
+                    "endOffset": 18386
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\strings.xml",
@@ -3166,12 +3185,12 @@
             },
             {
                 "to": {
-                    "startLine": 208,
+                    "startLine": 209,
                     "startColumn": 4,
-                    "startOffset": 18321,
-                    "endLine": 209,
+                    "startOffset": 18391,
+                    "endLine": 210,
                     "endColumn": 79,
-                    "endOffset": 18479
+                    "endOffset": 18549
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\strings.xml",
@@ -3187,11 +3206,11 @@
             },
             {
                 "to": {
-                    "startLine": 210,
+                    "startLine": 211,
                     "startColumn": 4,
-                    "startOffset": 18484,
+                    "startOffset": 18554,
                     "endColumn": 55,
-                    "endOffset": 18535
+                    "endOffset": 18605
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\strings.xml",
@@ -3206,11 +3225,11 @@
             },
             {
                 "to": {
-                    "startLine": 211,
+                    "startLine": 212,
                     "startColumn": 4,
-                    "startOffset": 18540,
+                    "startOffset": 18610,
                     "endColumn": 48,
-                    "endOffset": 18584
+                    "endOffset": 18654
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\strings.xml",
@@ -3225,11 +3244,11 @@
             },
             {
                 "to": {
-                    "startLine": 212,
+                    "startLine": 213,
                     "startColumn": 4,
-                    "startOffset": 18589,
+                    "startOffset": 18659,
                     "endColumn": 54,
-                    "endOffset": 18639
+                    "endOffset": 18709
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\strings.xml",
@@ -3244,11 +3263,11 @@
             },
             {
                 "to": {
-                    "startLine": 213,
+                    "startLine": 214,
                     "startColumn": 4,
-                    "startOffset": 18644,
+                    "startOffset": 18714,
                     "endColumn": 46,
-                    "endOffset": 18686
+                    "endOffset": 18756
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\strings.xml",
@@ -3263,12 +3282,12 @@
             },
             {
                 "to": {
-                    "startLine": 214,
+                    "startLine": 215,
                     "startColumn": 4,
-                    "startOffset": 18691,
-                    "endLine": 217,
+                    "startOffset": 18761,
+                    "endLine": 218,
                     "endColumn": 26,
-                    "endOffset": 19011
+                    "endOffset": 19081
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\strings.xml",
@@ -3284,12 +3303,12 @@
             },
             {
                 "to": {
-                    "startLine": 218,
+                    "startLine": 219,
                     "startColumn": 4,
-                    "startOffset": 19016,
-                    "endLine": 224,
+                    "startOffset": 19086,
+                    "endLine": 225,
                     "endColumn": 12,
-                    "endOffset": 19304
+                    "endOffset": 19374
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\styles.xml",
@@ -3305,12 +3324,12 @@
             },
             {
                 "to": {
-                    "startLine": 225,
+                    "startLine": 226,
                     "startColumn": 4,
-                    "startOffset": 19309,
-                    "endLine": 227,
+                    "startOffset": 19379,
+                    "endLine": 228,
                     "endColumn": 12,
-                    "endOffset": 19464
+                    "endOffset": 19534
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\styles.xml",
@@ -3326,12 +3345,12 @@
             },
             {
                 "to": {
-                    "startLine": 228,
+                    "startLine": 229,
                     "startColumn": 4,
-                    "startOffset": 19469,
-                    "endLine": 230,
+                    "startOffset": 19539,
+                    "endLine": 231,
                     "endColumn": 12,
-                    "endOffset": 19664
+                    "endOffset": 19734
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3347,12 +3366,12 @@
             },
             {
                 "to": {
-                    "startLine": 231,
+                    "startLine": 232,
                     "startColumn": 4,
-                    "startOffset": 19669,
-                    "endLine": 235,
+                    "startOffset": 19739,
+                    "endLine": 236,
                     "endColumn": 12,
-                    "endOffset": 19947
+                    "endOffset": 20017
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3368,12 +3387,12 @@
             },
             {
                 "to": {
-                    "startLine": 236,
+                    "startLine": 237,
                     "startColumn": 4,
-                    "startOffset": 19952,
-                    "endLine": 239,
+                    "startOffset": 20022,
+                    "endLine": 240,
                     "endColumn": 12,
-                    "endOffset": 20155
+                    "endOffset": 20225
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3389,12 +3408,12 @@
             },
             {
                 "to": {
-                    "startLine": 240,
+                    "startLine": 241,
                     "startColumn": 4,
-                    "startOffset": 20160,
-                    "endLine": 242,
+                    "startOffset": 20230,
+                    "endLine": 243,
                     "endColumn": 12,
-                    "endOffset": 20286
+                    "endOffset": 20356
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3410,12 +3429,12 @@
             },
             {
                 "to": {
-                    "startLine": 243,
+                    "startLine": 244,
                     "startColumn": 4,
-                    "startOffset": 20291,
-                    "endLine": 246,
+                    "startOffset": 20361,
+                    "endLine": 247,
                     "endColumn": 12,
-                    "endOffset": 20548
+                    "endOffset": 20618
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3431,12 +3450,12 @@
             },
             {
                 "to": {
-                    "startLine": 247,
+                    "startLine": 248,
                     "startColumn": 4,
-                    "startOffset": 20553,
-                    "endLine": 250,
+                    "startOffset": 20623,
+                    "endLine": 251,
                     "endColumn": 12,
-                    "endOffset": 20810
+                    "endOffset": 20880
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3452,12 +3471,12 @@
             },
             {
                 "to": {
-                    "startLine": 251,
+                    "startLine": 252,
                     "startColumn": 4,
-                    "startOffset": 20815,
-                    "endLine": 254,
+                    "startOffset": 20885,
+                    "endLine": 255,
                     "endColumn": 12,
-                    "endOffset": 21088
+                    "endOffset": 21158
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3473,12 +3492,12 @@
             },
             {
                 "to": {
-                    "startLine": 255,
+                    "startLine": 256,
                     "startColumn": 4,
-                    "startOffset": 21093,
-                    "endLine": 258,
+                    "startOffset": 21163,
+                    "endLine": 259,
                     "endColumn": 12,
-                    "endOffset": 21302
+                    "endOffset": 21372
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3494,12 +3513,12 @@
             },
             {
                 "to": {
-                    "startLine": 259,
+                    "startLine": 260,
                     "startColumn": 4,
-                    "startOffset": 21307,
-                    "endLine": 261,
+                    "startOffset": 21377,
+                    "endLine": 262,
                     "endColumn": 12,
-                    "endOffset": 21439
+                    "endOffset": 21509
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3515,11 +3534,11 @@
             },
             {
                 "to": {
-                    "startLine": 262,
+                    "startLine": 263,
                     "startColumn": 4,
-                    "startOffset": 21444,
+                    "startOffset": 21514,
                     "endColumn": 140,
-                    "endOffset": 21580
+                    "endOffset": 21650
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3534,11 +3553,11 @@
             },
             {
                 "to": {
-                    "startLine": 263,
+                    "startLine": 264,
                     "startColumn": 4,
-                    "startOffset": 21585,
+                    "startOffset": 21655,
                     "endColumn": 140,
-                    "endOffset": 21721
+                    "endOffset": 21791
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3553,11 +3572,11 @@
             },
             {
                 "to": {
-                    "startLine": 264,
+                    "startLine": 265,
                     "startColumn": 4,
-                    "startOffset": 21726,
+                    "startOffset": 21796,
                     "endColumn": 139,
-                    "endOffset": 21861
+                    "endOffset": 21931
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3572,11 +3591,11 @@
             },
             {
                 "to": {
-                    "startLine": 265,
+                    "startLine": 266,
                     "startColumn": 4,
-                    "startOffset": 21866,
+                    "startOffset": 21936,
                     "endColumn": 133,
-                    "endOffset": 21995
+                    "endOffset": 22065
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3591,11 +3610,11 @@
             },
             {
                 "to": {
-                    "startLine": 266,
+                    "startLine": 267,
                     "startColumn": 4,
-                    "startOffset": 22000,
+                    "startOffset": 22070,
                     "endColumn": 141,
-                    "endOffset": 22137
+                    "endOffset": 22207
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3610,11 +3629,11 @@
             },
             {
                 "to": {
-                    "startLine": 267,
+                    "startLine": 268,
                     "startColumn": 4,
-                    "startOffset": 22142,
+                    "startOffset": 22212,
                     "endColumn": 141,
-                    "endOffset": 22279
+                    "endOffset": 22349
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3629,11 +3648,11 @@
             },
             {
                 "to": {
-                    "startLine": 268,
+                    "startLine": 269,
                     "startColumn": 4,
-                    "startOffset": 22284,
+                    "startOffset": 22354,
                     "endColumn": 127,
-                    "endOffset": 22407
+                    "endOffset": 22477
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3648,11 +3667,11 @@
             },
             {
                 "to": {
-                    "startLine": 269,
+                    "startLine": 270,
                     "startColumn": 4,
-                    "startOffset": 22412,
+                    "startOffset": 22482,
                     "endColumn": 121,
-                    "endOffset": 22529
+                    "endOffset": 22599
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3667,11 +3686,11 @@
             },
             {
                 "to": {
-                    "startLine": 270,
+                    "startLine": 271,
                     "startColumn": 4,
-                    "startOffset": 22534,
+                    "startOffset": 22604,
                     "endColumn": 127,
-                    "endOffset": 22657
+                    "endOffset": 22727
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3686,11 +3705,11 @@
             },
             {
                 "to": {
-                    "startLine": 271,
+                    "startLine": 272,
                     "startColumn": 4,
-                    "startOffset": 22662,
+                    "startOffset": 22732,
                     "endColumn": 135,
-                    "endOffset": 22793
+                    "endOffset": 22863
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3705,11 +3724,11 @@
             },
             {
                 "to": {
-                    "startLine": 272,
+                    "startLine": 273,
                     "startColumn": 4,
-                    "startOffset": 22798,
+                    "startOffset": 22868,
                     "endColumn": 151,
-                    "endOffset": 22945
+                    "endOffset": 23015
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3724,11 +3743,11 @@
             },
             {
                 "to": {
-                    "startLine": 273,
+                    "startLine": 274,
                     "startColumn": 4,
-                    "startOffset": 22950,
+                    "startOffset": 23020,
                     "endColumn": 129,
-                    "endOffset": 23075
+                    "endOffset": 23145
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3743,11 +3762,11 @@
             },
             {
                 "to": {
-                    "startLine": 274,
+                    "startLine": 275,
                     "startColumn": 4,
-                    "startOffset": 23080,
+                    "startOffset": 23150,
                     "endColumn": 145,
-                    "endOffset": 23221
+                    "endOffset": 23291
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3762,11 +3781,11 @@
             },
             {
                 "to": {
-                    "startLine": 275,
+                    "startLine": 276,
                     "startColumn": 4,
-                    "startOffset": 23226,
+                    "startOffset": 23296,
                     "endColumn": 137,
-                    "endOffset": 23359
+                    "endOffset": 23429
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3781,11 +3800,11 @@
             },
             {
                 "to": {
-                    "startLine": 276,
+                    "startLine": 277,
                     "startColumn": 4,
-                    "startOffset": 23364,
+                    "startOffset": 23434,
                     "endColumn": 153,
-                    "endOffset": 23513
+                    "endOffset": 23583
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3800,11 +3819,11 @@
             },
             {
                 "to": {
-                    "startLine": 277,
+                    "startLine": 278,
                     "startColumn": 4,
-                    "startOffset": 23518,
+                    "startOffset": 23588,
                     "endColumn": 131,
-                    "endOffset": 23645
+                    "endOffset": 23715
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3819,11 +3838,11 @@
             },
             {
                 "to": {
-                    "startLine": 278,
+                    "startLine": 279,
                     "startColumn": 4,
-                    "startOffset": 23650,
+                    "startOffset": 23720,
                     "endColumn": 147,
-                    "endOffset": 23793
+                    "endOffset": 23863
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3838,12 +3857,12 @@
             },
             {
                 "to": {
-                    "startLine": 279,
+                    "startLine": 280,
                     "startColumn": 4,
-                    "startOffset": 23798,
-                    "endLine": 283,
+                    "startOffset": 23868,
+                    "endLine": 284,
                     "endColumn": 12,
-                    "endOffset": 24088
+                    "endOffset": 24158
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3859,12 +3878,12 @@
             },
             {
                 "to": {
-                    "startLine": 284,
+                    "startLine": 285,
                     "startColumn": 4,
-                    "startOffset": 24093,
-                    "endLine": 286,
+                    "startOffset": 24163,
+                    "endLine": 287,
                     "endColumn": 12,
-                    "endOffset": 24300
+                    "endOffset": 24370
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3880,12 +3899,12 @@
             },
             {
                 "to": {
-                    "startLine": 287,
+                    "startLine": 288,
                     "startColumn": 4,
-                    "startOffset": 24305,
-                    "endLine": 289,
+                    "startOffset": 24375,
+                    "endLine": 290,
                     "endColumn": 12,
-                    "endOffset": 24528
+                    "endOffset": 24598
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3901,12 +3920,12 @@
             },
             {
                 "to": {
-                    "startLine": 290,
+                    "startLine": 291,
                     "startColumn": 4,
-                    "startOffset": 24533,
-                    "endLine": 292,
+                    "startOffset": 24603,
+                    "endLine": 293,
                     "endColumn": 12,
-                    "endOffset": 24735
+                    "endOffset": 24805
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3922,12 +3941,12 @@
             },
             {
                 "to": {
-                    "startLine": 293,
+                    "startLine": 294,
                     "startColumn": 4,
-                    "startOffset": 24740,
-                    "endLine": 295,
+                    "startOffset": 24810,
+                    "endLine": 296,
                     "endColumn": 12,
-                    "endOffset": 24958
+                    "endOffset": 25028
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3943,12 +3962,12 @@
             },
             {
                 "to": {
-                    "startLine": 296,
+                    "startLine": 297,
                     "startColumn": 4,
-                    "startOffset": 24963,
-                    "endLine": 298,
+                    "startOffset": 25033,
+                    "endLine": 299,
                     "endColumn": 12,
-                    "endOffset": 25164
+                    "endOffset": 25234
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3964,12 +3983,12 @@
             },
             {
                 "to": {
-                    "startLine": 299,
+                    "startLine": 300,
                     "startColumn": 4,
-                    "startOffset": 25169,
-                    "endLine": 301,
+                    "startOffset": 25239,
+                    "endLine": 302,
                     "endColumn": 12,
-                    "endOffset": 25393
+                    "endOffset": 25463
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -3985,11 +4004,11 @@
             },
             {
                 "to": {
-                    "startLine": 302,
+                    "startLine": 303,
                     "startColumn": 4,
-                    "startOffset": 25398,
+                    "startOffset": 25468,
                     "endColumn": 112,
-                    "endOffset": 25506
+                    "endOffset": 25576
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4004,11 +4023,11 @@
             },
             {
                 "to": {
-                    "startLine": 303,
+                    "startLine": 304,
                     "startColumn": 4,
-                    "startOffset": 25511,
+                    "startOffset": 25581,
                     "endColumn": 128,
-                    "endOffset": 25635
+                    "endOffset": 25705
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4023,12 +4042,12 @@
             },
             {
                 "to": {
-                    "startLine": 304,
+                    "startLine": 305,
                     "startColumn": 4,
-                    "startOffset": 25640,
-                    "endLine": 306,
+                    "startOffset": 25710,
+                    "endLine": 307,
                     "endColumn": 12,
-                    "endOffset": 25843
+                    "endOffset": 25913
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4044,11 +4063,11 @@
             },
             {
                 "to": {
-                    "startLine": 307,
+                    "startLine": 308,
                     "startColumn": 4,
-                    "startOffset": 25848,
+                    "startOffset": 25918,
                     "endColumn": 123,
-                    "endOffset": 25967
+                    "endOffset": 26037
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4063,11 +4082,11 @@
             },
             {
                 "to": {
-                    "startLine": 308,
+                    "startLine": 309,
                     "startColumn": 4,
-                    "startOffset": 25972,
+                    "startOffset": 26042,
                     "endColumn": 129,
-                    "endOffset": 26097
+                    "endOffset": 26167
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4082,11 +4101,11 @@
             },
             {
                 "to": {
-                    "startLine": 309,
+                    "startLine": 310,
                     "startColumn": 4,
-                    "startOffset": 26102,
+                    "startOffset": 26172,
                     "endColumn": 129,
-                    "endOffset": 26227
+                    "endOffset": 26297
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4101,12 +4120,12 @@
             },
             {
                 "to": {
-                    "startLine": 310,
+                    "startLine": 311,
                     "startColumn": 4,
-                    "startOffset": 26232,
-                    "endLine": 312,
+                    "startOffset": 26302,
+                    "endLine": 313,
                     "endColumn": 12,
-                    "endOffset": 26441
+                    "endOffset": 26511
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4122,11 +4141,11 @@
             },
             {
                 "to": {
-                    "startLine": 313,
+                    "startLine": 314,
                     "startColumn": 4,
-                    "startOffset": 26446,
+                    "startOffset": 26516,
                     "endColumn": 133,
-                    "endOffset": 26575
+                    "endOffset": 26645
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4141,12 +4160,12 @@
             },
             {
                 "to": {
-                    "startLine": 314,
+                    "startLine": 315,
                     "startColumn": 4,
-                    "startOffset": 26580,
-                    "endLine": 347,
+                    "startOffset": 26650,
+                    "endLine": 348,
                     "endColumn": 12,
-                    "endOffset": 29064
+                    "endOffset": 29134
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4162,12 +4181,12 @@
             },
             {
                 "to": {
-                    "startLine": 348,
+                    "startLine": 349,
                     "startColumn": 4,
-                    "startOffset": 29069,
-                    "endLine": 351,
+                    "startOffset": 29139,
+                    "endLine": 352,
                     "endColumn": 12,
-                    "endOffset": 29351
+                    "endOffset": 29421
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4183,12 +4202,12 @@
             },
             {
                 "to": {
-                    "startLine": 352,
+                    "startLine": 353,
                     "startColumn": 4,
-                    "startOffset": 29356,
-                    "endLine": 355,
+                    "startOffset": 29426,
+                    "endLine": 356,
                     "endColumn": 12,
-                    "endOffset": 29642
+                    "endOffset": 29712
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4204,11 +4223,11 @@
             },
             {
                 "to": {
-                    "startLine": 356,
+                    "startLine": 357,
                     "startColumn": 4,
-                    "startOffset": 29647,
+                    "startOffset": 29717,
                     "endColumn": 89,
-                    "endOffset": 29732
+                    "endOffset": 29802
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4223,11 +4242,11 @@
             },
             {
                 "to": {
-                    "startLine": 357,
+                    "startLine": 358,
                     "startColumn": 4,
-                    "startOffset": 29737,
+                    "startOffset": 29807,
                     "endColumn": 103,
-                    "endOffset": 29836
+                    "endOffset": 29906
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4242,11 +4261,11 @@
             },
             {
                 "to": {
-                    "startLine": 358,
+                    "startLine": 359,
                     "startColumn": 4,
-                    "startOffset": 29841,
+                    "startOffset": 29911,
                     "endColumn": 97,
-                    "endOffset": 29934
+                    "endOffset": 30004
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4261,12 +4280,12 @@
             },
             {
                 "to": {
-                    "startLine": 359,
+                    "startLine": 360,
                     "startColumn": 4,
-                    "startOffset": 29939,
-                    "endLine": 392,
+                    "startOffset": 30009,
+                    "endLine": 393,
                     "endColumn": 12,
-                    "endOffset": 32562
+                    "endOffset": 32632
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4282,12 +4301,12 @@
             },
             {
                 "to": {
-                    "startLine": 393,
+                    "startLine": 394,
                     "startColumn": 4,
-                    "startOffset": 32567,
-                    "endLine": 426,
+                    "startOffset": 32637,
+                    "endLine": 427,
                     "endColumn": 12,
-                    "endOffset": 35114
+                    "endOffset": 35184
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4303,11 +4322,11 @@
             },
             {
                 "to": {
-                    "startLine": 427,
+                    "startLine": 428,
                     "startColumn": 4,
-                    "startOffset": 35119,
+                    "startOffset": 35189,
                     "endColumn": 109,
-                    "endOffset": 35224
+                    "endOffset": 35294
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4322,11 +4341,11 @@
             },
             {
                 "to": {
-                    "startLine": 428,
+                    "startLine": 429,
                     "startColumn": 4,
-                    "startOffset": 35229,
+                    "startOffset": 35299,
                     "endColumn": 53,
-                    "endOffset": 35278
+                    "endOffset": 35348
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4341,12 +4360,12 @@
             },
             {
                 "to": {
-                    "startLine": 429,
+                    "startLine": 430,
                     "startColumn": 4,
-                    "startOffset": 35283,
-                    "endLine": 475,
+                    "startOffset": 35353,
+                    "endLine": 476,
                     "endColumn": 12,
-                    "endOffset": 38652
+                    "endOffset": 38722
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4362,12 +4381,12 @@
             },
             {
                 "to": {
-                    "startLine": 476,
+                    "startLine": 477,
                     "startColumn": 4,
-                    "startOffset": 38657,
-                    "endLine": 509,
+                    "startOffset": 38727,
+                    "endLine": 510,
                     "endColumn": 12,
-                    "endOffset": 41067
+                    "endOffset": 41137
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4383,11 +4402,11 @@
             },
             {
                 "to": {
-                    "startLine": 510,
+                    "startLine": 511,
                     "startColumn": 4,
-                    "startOffset": 41072,
+                    "startOffset": 41142,
                     "endColumn": 110,
-                    "endOffset": 41178
+                    "endOffset": 41248
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4402,11 +4421,11 @@
             },
             {
                 "to": {
-                    "startLine": 511,
+                    "startLine": 512,
                     "startColumn": 4,
-                    "startOffset": 41183,
+                    "startOffset": 41253,
                     "endColumn": 86,
-                    "endOffset": 41265
+                    "endOffset": 41335
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4421,12 +4440,12 @@
             },
             {
                 "to": {
-                    "startLine": 512,
+                    "startLine": 513,
                     "startColumn": 4,
-                    "startOffset": 41270,
-                    "endLine": 560,
+                    "startOffset": 41340,
+                    "endLine": 561,
                     "endColumn": 12,
-                    "endOffset": 44768
+                    "endOffset": 44838
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4442,12 +4461,12 @@
             },
             {
                 "to": {
-                    "startLine": 561,
+                    "startLine": 562,
                     "startColumn": 4,
-                    "startOffset": 44773,
-                    "endLine": 586,
+                    "startOffset": 44843,
+                    "endLine": 587,
                     "endColumn": 12,
-                    "endOffset": 46686
+                    "endOffset": 46756
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4463,11 +4482,11 @@
             },
             {
                 "to": {
-                    "startLine": 587,
+                    "startLine": 588,
                     "startColumn": 4,
-                    "startOffset": 46691,
+                    "startOffset": 46761,
                     "endColumn": 98,
-                    "endOffset": 46785
+                    "endOffset": 46855
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4482,11 +4501,11 @@
             },
             {
                 "to": {
-                    "startLine": 588,
+                    "startLine": 589,
                     "startColumn": 4,
-                    "startOffset": 46790,
+                    "startOffset": 46860,
                     "endColumn": 65,
-                    "endOffset": 46851
+                    "endOffset": 46921
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4501,11 +4520,11 @@
             },
             {
                 "to": {
-                    "startLine": 589,
+                    "startLine": 590,
                     "startColumn": 4,
-                    "startOffset": 46856,
+                    "startOffset": 46926,
                     "endColumn": 87,
-                    "endOffset": 46939
+                    "endOffset": 47009
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4520,11 +4539,11 @@
             },
             {
                 "to": {
-                    "startLine": 590,
+                    "startLine": 591,
                     "startColumn": 4,
-                    "startOffset": 46944,
+                    "startOffset": 47014,
                     "endColumn": 99,
-                    "endOffset": 47039
+                    "endOffset": 47109
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4539,11 +4558,11 @@
             },
             {
                 "to": {
-                    "startLine": 591,
+                    "startLine": 592,
                     "startColumn": 4,
-                    "startOffset": 47044,
+                    "startOffset": 47114,
                     "endColumn": 101,
-                    "endOffset": 47141
+                    "endOffset": 47211
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4558,11 +4577,11 @@
             },
             {
                 "to": {
-                    "startLine": 592,
+                    "startLine": 593,
                     "startColumn": 4,
-                    "startOffset": 47146,
+                    "startOffset": 47216,
                     "endColumn": 103,
-                    "endOffset": 47245
+                    "endOffset": 47315
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4577,11 +4596,11 @@
             },
             {
                 "to": {
-                    "startLine": 593,
+                    "startLine": 594,
                     "startColumn": 4,
-                    "startOffset": 47250,
+                    "startOffset": 47320,
                     "endColumn": 103,
-                    "endOffset": 47349
+                    "endOffset": 47419
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4596,11 +4615,11 @@
             },
             {
                 "to": {
-                    "startLine": 594,
+                    "startLine": 595,
                     "startColumn": 4,
-                    "startOffset": 47354,
+                    "startOffset": 47424,
                     "endColumn": 93,
-                    "endOffset": 47443
+                    "endOffset": 47513
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4615,11 +4634,11 @@
             },
             {
                 "to": {
-                    "startLine": 595,
+                    "startLine": 596,
                     "startColumn": 4,
-                    "startOffset": 47448,
+                    "startOffset": 47518,
                     "endColumn": 113,
-                    "endOffset": 47557
+                    "endOffset": 47627
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4634,11 +4653,11 @@
             },
             {
                 "to": {
-                    "startLine": 596,
+                    "startLine": 597,
                     "startColumn": 4,
-                    "startOffset": 47562,
+                    "startOffset": 47632,
                     "endColumn": 111,
-                    "endOffset": 47669
+                    "endOffset": 47739
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4653,11 +4672,11 @@
             },
             {
                 "to": {
-                    "startLine": 597,
+                    "startLine": 598,
                     "startColumn": 4,
-                    "startOffset": 47674,
+                    "startOffset": 47744,
                     "endColumn": 89,
-                    "endOffset": 47759
+                    "endOffset": 47829
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4672,11 +4691,11 @@
             },
             {
                 "to": {
-                    "startLine": 598,
+                    "startLine": 599,
                     "startColumn": 4,
-                    "startOffset": 47764,
+                    "startOffset": 47834,
                     "endColumn": 107,
-                    "endOffset": 47867
+                    "endOffset": 47937
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4691,11 +4710,11 @@
             },
             {
                 "to": {
-                    "startLine": 599,
+                    "startLine": 600,
                     "startColumn": 4,
-                    "startOffset": 47872,
+                    "startOffset": 47942,
                     "endColumn": 109,
-                    "endOffset": 47977
+                    "endOffset": 48047
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4710,12 +4729,12 @@
             },
             {
                 "to": {
-                    "startLine": 600,
+                    "startLine": 601,
                     "startColumn": 4,
-                    "startOffset": 47982,
-                    "endLine": 614,
+                    "startOffset": 48052,
+                    "endLine": 615,
                     "endColumn": 12,
-                    "endOffset": 49130
+                    "endOffset": 49200
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4731,12 +4750,12 @@
             },
             {
                 "to": {
-                    "startLine": 615,
+                    "startLine": 616,
                     "startColumn": 4,
-                    "startOffset": 49135,
-                    "endLine": 619,
+                    "startOffset": 49205,
+                    "endLine": 620,
                     "endColumn": 12,
-                    "endOffset": 49484
+                    "endOffset": 49554
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4752,12 +4771,12 @@
             },
             {
                 "to": {
-                    "startLine": 620,
+                    "startLine": 621,
                     "startColumn": 4,
-                    "startOffset": 49489,
-                    "endLine": 624,
+                    "startOffset": 49559,
+                    "endLine": 625,
                     "endColumn": 12,
-                    "endOffset": 49721
+                    "endOffset": 49791
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4773,12 +4792,12 @@
             },
             {
                 "to": {
-                    "startLine": 625,
+                    "startLine": 626,
                     "startColumn": 4,
-                    "startOffset": 49726,
-                    "endLine": 633,
+                    "startOffset": 49796,
+                    "endLine": 634,
                     "endColumn": 12,
-                    "endOffset": 50195
+                    "endOffset": 50265
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4794,12 +4813,12 @@
             },
             {
                 "to": {
-                    "startLine": 634,
+                    "startLine": 635,
                     "startColumn": 4,
-                    "startOffset": 50200,
-                    "endLine": 640,
+                    "startOffset": 50270,
+                    "endLine": 641,
                     "endColumn": 12,
-                    "endOffset": 50582
+                    "endOffset": 50652
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4815,12 +4834,12 @@
             },
             {
                 "to": {
-                    "startLine": 641,
+                    "startLine": 642,
                     "startColumn": 4,
-                    "startOffset": 50587,
-                    "endLine": 650,
+                    "startOffset": 50657,
+                    "endLine": 651,
                     "endColumn": 12,
-                    "endOffset": 51168
+                    "endOffset": 51238
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4836,11 +4855,11 @@
             },
             {
                 "to": {
-                    "startLine": 651,
+                    "startLine": 652,
                     "startColumn": 4,
-                    "startOffset": 51173,
+                    "startOffset": 51243,
                     "endColumn": 108,
-                    "endOffset": 51277
+                    "endOffset": 51347
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4855,12 +4874,12 @@
             },
             {
                 "to": {
-                    "startLine": 652,
+                    "startLine": 653,
                     "startColumn": 4,
-                    "startOffset": 51282,
-                    "endLine": 654,
+                    "startOffset": 51352,
+                    "endLine": 655,
                     "endColumn": 12,
-                    "endOffset": 51489
+                    "endOffset": 51559
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4876,12 +4895,12 @@
             },
             {
                 "to": {
-                    "startLine": 655,
+                    "startLine": 656,
                     "startColumn": 4,
-                    "startOffset": 51494,
-                    "endLine": 661,
+                    "startOffset": 51564,
+                    "endLine": 662,
                     "endColumn": 12,
-                    "endOffset": 51965
+                    "endOffset": 52035
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4897,12 +4916,12 @@
             },
             {
                 "to": {
-                    "startLine": 662,
+                    "startLine": 663,
                     "startColumn": 4,
-                    "startOffset": 51970,
-                    "endLine": 668,
+                    "startOffset": 52040,
+                    "endLine": 669,
                     "endColumn": 12,
-                    "endOffset": 52339
+                    "endOffset": 52409
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4918,12 +4937,12 @@
             },
             {
                 "to": {
-                    "startLine": 669,
+                    "startLine": 670,
                     "startColumn": 4,
-                    "startOffset": 52344,
-                    "endLine": 673,
+                    "startOffset": 52414,
+                    "endLine": 674,
                     "endColumn": 12,
-                    "endOffset": 52718
+                    "endOffset": 52788
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4939,12 +4958,12 @@
             },
             {
                 "to": {
-                    "startLine": 674,
+                    "startLine": 675,
                     "startColumn": 4,
-                    "startOffset": 52723,
-                    "endLine": 679,
+                    "startOffset": 52793,
+                    "endLine": 680,
                     "endColumn": 12,
-                    "endOffset": 53071
+                    "endOffset": 53141
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4960,12 +4979,12 @@
             },
             {
                 "to": {
-                    "startLine": 680,
+                    "startLine": 681,
                     "startColumn": 4,
-                    "startOffset": 53076,
-                    "endLine": 686,
+                    "startOffset": 53146,
+                    "endLine": 687,
                     "endColumn": 12,
-                    "endOffset": 53531
+                    "endOffset": 53601
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -4981,12 +5000,12 @@
             },
             {
                 "to": {
-                    "startLine": 687,
+                    "startLine": 688,
                     "startColumn": 4,
-                    "startOffset": 53536,
-                    "endLine": 689,
+                    "startOffset": 53606,
+                    "endLine": 690,
                     "endColumn": 12,
-                    "endOffset": 53723
+                    "endOffset": 53793
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5002,12 +5021,12 @@
             },
             {
                 "to": {
-                    "startLine": 690,
+                    "startLine": 691,
                     "startColumn": 4,
-                    "startOffset": 53728,
-                    "endLine": 693,
+                    "startOffset": 53798,
+                    "endLine": 694,
                     "endColumn": 12,
-                    "endOffset": 53982
+                    "endOffset": 54052
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5023,11 +5042,11 @@
             },
             {
                 "to": {
-                    "startLine": 694,
+                    "startLine": 695,
                     "startColumn": 4,
-                    "startOffset": 53987,
+                    "startOffset": 54057,
                     "endColumn": 105,
-                    "endOffset": 54088
+                    "endOffset": 54158
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5042,12 +5061,12 @@
             },
             {
                 "to": {
-                    "startLine": 695,
+                    "startLine": 696,
                     "startColumn": 4,
-                    "startOffset": 54093,
-                    "endLine": 700,
+                    "startOffset": 54163,
+                    "endLine": 701,
                     "endColumn": 12,
-                    "endOffset": 54532
+                    "endOffset": 54602
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5063,11 +5082,11 @@
             },
             {
                 "to": {
-                    "startLine": 701,
+                    "startLine": 702,
                     "startColumn": 4,
-                    "startOffset": 54537,
+                    "startOffset": 54607,
                     "endColumn": 111,
-                    "endOffset": 54644
+                    "endOffset": 54714
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5082,12 +5101,12 @@
             },
             {
                 "to": {
-                    "startLine": 702,
+                    "startLine": 703,
                     "startColumn": 4,
-                    "startOffset": 54649,
-                    "endLine": 712,
+                    "startOffset": 54719,
+                    "endLine": 713,
                     "endColumn": 12,
-                    "endOffset": 55343
+                    "endOffset": 55413
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5103,11 +5122,11 @@
             },
             {
                 "to": {
-                    "startLine": 713,
+                    "startLine": 714,
                     "startColumn": 4,
-                    "startOffset": 55348,
+                    "startOffset": 55418,
                     "endColumn": 109,
-                    "endOffset": 55453
+                    "endOffset": 55523
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5122,11 +5141,11 @@
             },
             {
                 "to": {
-                    "startLine": 714,
+                    "startLine": 715,
                     "startColumn": 4,
-                    "startOffset": 55458,
+                    "startOffset": 55528,
                     "endColumn": 99,
-                    "endOffset": 55553
+                    "endOffset": 55623
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5141,11 +5160,11 @@
             },
             {
                 "to": {
-                    "startLine": 715,
+                    "startLine": 716,
                     "startColumn": 4,
-                    "startOffset": 55558,
+                    "startOffset": 55628,
                     "endColumn": 111,
-                    "endOffset": 55665
+                    "endOffset": 55735
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5160,11 +5179,11 @@
             },
             {
                 "to": {
-                    "startLine": 716,
+                    "startLine": 717,
                     "startColumn": 4,
-                    "startOffset": 55670,
+                    "startOffset": 55740,
                     "endColumn": 127,
-                    "endOffset": 55793
+                    "endOffset": 55863
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5179,11 +5198,11 @@
             },
             {
                 "to": {
-                    "startLine": 717,
+                    "startLine": 718,
                     "startColumn": 4,
-                    "startOffset": 55798,
+                    "startOffset": 55868,
                     "endColumn": 113,
-                    "endOffset": 55907
+                    "endOffset": 55977
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5198,11 +5217,11 @@
             },
             {
                 "to": {
-                    "startLine": 718,
+                    "startLine": 719,
                     "startColumn": 4,
-                    "startOffset": 55912,
+                    "startOffset": 55982,
                     "endColumn": 129,
-                    "endOffset": 56037
+                    "endOffset": 56107
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5217,11 +5236,11 @@
             },
             {
                 "to": {
-                    "startLine": 719,
+                    "startLine": 720,
                     "startColumn": 4,
-                    "startOffset": 56042,
+                    "startOffset": 56112,
                     "endColumn": 115,
-                    "endOffset": 56153
+                    "endOffset": 56223
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5236,11 +5255,11 @@
             },
             {
                 "to": {
-                    "startLine": 720,
+                    "startLine": 721,
                     "startColumn": 4,
-                    "startOffset": 56158,
+                    "startOffset": 56228,
                     "endColumn": 131,
-                    "endOffset": 56285
+                    "endOffset": 56355
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5255,11 +5274,11 @@
             },
             {
                 "to": {
-                    "startLine": 721,
+                    "startLine": 722,
                     "startColumn": 4,
-                    "startOffset": 56290,
+                    "startOffset": 56360,
                     "endColumn": 115,
-                    "endOffset": 56401
+                    "endOffset": 56471
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5274,11 +5293,11 @@
             },
             {
                 "to": {
-                    "startLine": 722,
+                    "startLine": 723,
                     "startColumn": 4,
-                    "startOffset": 56406,
+                    "startOffset": 56476,
                     "endColumn": 131,
-                    "endOffset": 56533
+                    "endOffset": 56603
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5293,11 +5312,11 @@
             },
             {
                 "to": {
-                    "startLine": 723,
+                    "startLine": 724,
                     "startColumn": 4,
-                    "startOffset": 56538,
+                    "startOffset": 56608,
                     "endColumn": 105,
-                    "endOffset": 56639
+                    "endOffset": 56709
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5312,11 +5331,11 @@
             },
             {
                 "to": {
-                    "startLine": 724,
+                    "startLine": 725,
                     "startColumn": 4,
-                    "startOffset": 56644,
+                    "startOffset": 56714,
                     "endColumn": 125,
-                    "endOffset": 56765
+                    "endOffset": 56835
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5331,11 +5350,11 @@
             },
             {
                 "to": {
-                    "startLine": 725,
+                    "startLine": 726,
                     "startColumn": 4,
-                    "startOffset": 56770,
+                    "startOffset": 56840,
                     "endColumn": 123,
-                    "endOffset": 56889
+                    "endOffset": 56959
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5350,11 +5369,11 @@
             },
             {
                 "to": {
-                    "startLine": 726,
+                    "startLine": 727,
                     "startColumn": 4,
-                    "startOffset": 56894,
+                    "startOffset": 56964,
                     "endColumn": 117,
-                    "endOffset": 57007
+                    "endOffset": 57077
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5369,11 +5388,11 @@
             },
             {
                 "to": {
-                    "startLine": 727,
+                    "startLine": 728,
                     "startColumn": 4,
-                    "startOffset": 57012,
+                    "startOffset": 57082,
                     "endColumn": 119,
-                    "endOffset": 57127
+                    "endOffset": 57197
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5388,11 +5407,11 @@
             },
             {
                 "to": {
-                    "startLine": 728,
+                    "startLine": 729,
                     "startColumn": 4,
-                    "startOffset": 57132,
+                    "startOffset": 57202,
                     "endColumn": 121,
-                    "endOffset": 57249
+                    "endOffset": 57319
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5407,12 +5426,12 @@
             },
             {
                 "to": {
-                    "startLine": 729,
+                    "startLine": 730,
                     "startColumn": 4,
-                    "startOffset": 57254,
-                    "endLine": 737,
+                    "startOffset": 57324,
+                    "endLine": 738,
                     "endColumn": 12,
-                    "endOffset": 58002
+                    "endOffset": 58072
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5428,12 +5447,12 @@
             },
             {
                 "to": {
-                    "startLine": 738,
+                    "startLine": 739,
                     "startColumn": 4,
-                    "startOffset": 58007,
-                    "endLine": 742,
+                    "startOffset": 58077,
+                    "endLine": 743,
                     "endColumn": 12,
-                    "endOffset": 58371
+                    "endOffset": 58441
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5449,12 +5468,12 @@
             },
             {
                 "to": {
-                    "startLine": 743,
+                    "startLine": 744,
                     "startColumn": 4,
-                    "startOffset": 58376,
-                    "endLine": 748,
+                    "startOffset": 58446,
+                    "endLine": 749,
                     "endColumn": 12,
-                    "endOffset": 58927
+                    "endOffset": 58997
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5470,11 +5489,11 @@
             },
             {
                 "to": {
-                    "startLine": 749,
+                    "startLine": 750,
                     "startColumn": 4,
-                    "startOffset": 58932,
+                    "startOffset": 59002,
                     "endColumn": 112,
-                    "endOffset": 59040
+                    "endOffset": 59110
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5489,11 +5508,11 @@
             },
             {
                 "to": {
-                    "startLine": 750,
+                    "startLine": 751,
                     "startColumn": 4,
-                    "startOffset": 59045,
+                    "startOffset": 59115,
                     "endColumn": 126,
-                    "endOffset": 59167
+                    "endOffset": 59237
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5508,11 +5527,11 @@
             },
             {
                 "to": {
-                    "startLine": 751,
+                    "startLine": 752,
                     "startColumn": 4,
-                    "startOffset": 59172,
+                    "startOffset": 59242,
                     "endColumn": 114,
-                    "endOffset": 59282
+                    "endOffset": 59352
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5527,12 +5546,12 @@
             },
             {
                 "to": {
-                    "startLine": 752,
+                    "startLine": 753,
                     "startColumn": 4,
-                    "startOffset": 59287,
-                    "endLine": 754,
+                    "startOffset": 59357,
+                    "endLine": 755,
                     "endColumn": 12,
-                    "endOffset": 59518
+                    "endOffset": 59588
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5548,11 +5567,11 @@
             },
             {
                 "to": {
-                    "startLine": 755,
+                    "startLine": 756,
                     "startColumn": 4,
-                    "startOffset": 59523,
+                    "startOffset": 59593,
                     "endColumn": 114,
-                    "endOffset": 59633
+                    "endOffset": 59703
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5567,11 +5586,11 @@
             },
             {
                 "to": {
-                    "startLine": 756,
+                    "startLine": 757,
                     "startColumn": 4,
-                    "startOffset": 59638,
+                    "startOffset": 59708,
                     "endColumn": 128,
-                    "endOffset": 59762
+                    "endOffset": 59832
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5586,11 +5605,11 @@
             },
             {
                 "to": {
-                    "startLine": 757,
+                    "startLine": 758,
                     "startColumn": 4,
-                    "startOffset": 59767,
+                    "startOffset": 59837,
                     "endColumn": 104,
-                    "endOffset": 59867
+                    "endOffset": 59937
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5605,11 +5624,11 @@
             },
             {
                 "to": {
-                    "startLine": 758,
+                    "startLine": 759,
                     "startColumn": 4,
-                    "startOffset": 59872,
+                    "startOffset": 59942,
                     "endColumn": 120,
-                    "endOffset": 59988
+                    "endOffset": 60058
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5624,12 +5643,12 @@
             },
             {
                 "to": {
-                    "startLine": 759,
+                    "startLine": 760,
                     "startColumn": 4,
-                    "startOffset": 59993,
-                    "endLine": 761,
+                    "startOffset": 60063,
+                    "endLine": 762,
                     "endColumn": 12,
-                    "endOffset": 60213
+                    "endOffset": 60283
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5645,12 +5664,12 @@
             },
             {
                 "to": {
-                    "startLine": 762,
+                    "startLine": 763,
                     "startColumn": 4,
-                    "startOffset": 60218,
-                    "endLine": 765,
+                    "startOffset": 60288,
+                    "endLine": 766,
                     "endColumn": 12,
-                    "endOffset": 60578
+                    "endOffset": 60648
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5666,12 +5685,12 @@
             },
             {
                 "to": {
-                    "startLine": 766,
+                    "startLine": 767,
                     "startColumn": 4,
-                    "startOffset": 60583,
-                    "endLine": 768,
+                    "startOffset": 60653,
+                    "endLine": 769,
                     "endColumn": 12,
-                    "endOffset": 60795
+                    "endOffset": 60865
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5687,12 +5706,12 @@
             },
             {
                 "to": {
-                    "startLine": 769,
+                    "startLine": 770,
                     "startColumn": 4,
-                    "startOffset": 60800,
-                    "endLine": 773,
+                    "startOffset": 60870,
+                    "endLine": 774,
                     "endColumn": 12,
-                    "endOffset": 61182
+                    "endOffset": 61252
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5708,11 +5727,11 @@
             },
             {
                 "to": {
-                    "startLine": 774,
+                    "startLine": 775,
                     "startColumn": 4,
-                    "startOffset": 61187,
+                    "startOffset": 61257,
                     "endColumn": 120,
-                    "endOffset": 61303
+                    "endOffset": 61373
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5727,12 +5746,12 @@
             },
             {
                 "to": {
-                    "startLine": 775,
+                    "startLine": 776,
                     "startColumn": 4,
-                    "startOffset": 61308,
-                    "endLine": 781,
+                    "startOffset": 61378,
+                    "endLine": 782,
                     "endColumn": 12,
-                    "endOffset": 61771
+                    "endOffset": 61841
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5748,12 +5767,12 @@
             },
             {
                 "to": {
-                    "startLine": 782,
+                    "startLine": 783,
                     "startColumn": 4,
-                    "startOffset": 61776,
-                    "endLine": 784,
+                    "startOffset": 61846,
+                    "endLine": 785,
                     "endColumn": 12,
-                    "endOffset": 61970
+                    "endOffset": 62040
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5769,11 +5788,11 @@
             },
             {
                 "to": {
-                    "startLine": 785,
+                    "startLine": 786,
                     "startColumn": 4,
-                    "startOffset": 61975,
+                    "startOffset": 62045,
                     "endColumn": 117,
-                    "endOffset": 62088
+                    "endOffset": 62158
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5788,12 +5807,12 @@
             },
             {
                 "to": {
-                    "startLine": 786,
+                    "startLine": 787,
                     "startColumn": 4,
-                    "startOffset": 62093,
-                    "endLine": 790,
+                    "startOffset": 62163,
+                    "endLine": 791,
                     "endColumn": 12,
-                    "endOffset": 62467
+                    "endOffset": 62537
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5809,11 +5828,11 @@
             },
             {
                 "to": {
-                    "startLine": 791,
+                    "startLine": 792,
                     "startColumn": 4,
-                    "startOffset": 62472,
+                    "startOffset": 62542,
                     "endColumn": 121,
-                    "endOffset": 62589
+                    "endOffset": 62659
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5828,11 +5847,11 @@
             },
             {
                 "to": {
-                    "startLine": 792,
+                    "startLine": 793,
                     "startColumn": 4,
-                    "startOffset": 62594,
+                    "startOffset": 62664,
                     "endColumn": 111,
-                    "endOffset": 62701
+                    "endOffset": 62771
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5847,11 +5866,11 @@
             },
             {
                 "to": {
-                    "startLine": 793,
+                    "startLine": 794,
                     "startColumn": 4,
-                    "startOffset": 62706,
+                    "startOffset": 62776,
                     "endColumn": 115,
-                    "endOffset": 62817
+                    "endOffset": 62887
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5866,11 +5885,11 @@
             },
             {
                 "to": {
-                    "startLine": 794,
+                    "startLine": 795,
                     "startColumn": 4,
-                    "startOffset": 62822,
+                    "startOffset": 62892,
                     "endColumn": 99,
-                    "endOffset": 62917
+                    "endOffset": 62987
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5885,11 +5904,11 @@
             },
             {
                 "to": {
-                    "startLine": 795,
+                    "startLine": 796,
                     "startColumn": 4,
-                    "startOffset": 62922,
+                    "startOffset": 62992,
                     "endColumn": 114,
-                    "endOffset": 63032
+                    "endOffset": 63102
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5904,11 +5923,11 @@
             },
             {
                 "to": {
-                    "startLine": 796,
+                    "startLine": 797,
                     "startColumn": 4,
-                    "startOffset": 63037,
+                    "startOffset": 63107,
                     "endColumn": 99,
-                    "endOffset": 63132
+                    "endOffset": 63202
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5923,11 +5942,11 @@
             },
             {
                 "to": {
-                    "startLine": 797,
+                    "startLine": 798,
                     "startColumn": 4,
-                    "startOffset": 63137,
+                    "startOffset": 63207,
                     "endColumn": 103,
-                    "endOffset": 63236
+                    "endOffset": 63306
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5942,11 +5961,11 @@
             },
             {
                 "to": {
-                    "startLine": 798,
+                    "startLine": 799,
                     "startColumn": 4,
-                    "startOffset": 63241,
+                    "startOffset": 63311,
                     "endColumn": 95,
-                    "endOffset": 63332
+                    "endOffset": 63402
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5961,11 +5980,11 @@
             },
             {
                 "to": {
-                    "startLine": 799,
+                    "startLine": 800,
                     "startColumn": 4,
-                    "startOffset": 63337,
+                    "startOffset": 63407,
                     "endColumn": 87,
-                    "endOffset": 63420
+                    "endOffset": 63490
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5980,11 +5999,11 @@
             },
             {
                 "to": {
-                    "startLine": 800,
+                    "startLine": 801,
                     "startColumn": 4,
-                    "startOffset": 63425,
+                    "startOffset": 63495,
                     "endColumn": 91,
-                    "endOffset": 63512
+                    "endOffset": 63582
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -5999,11 +6018,11 @@
             },
             {
                 "to": {
-                    "startLine": 801,
+                    "startLine": 802,
                     "startColumn": 4,
-                    "startOffset": 63517,
+                    "startOffset": 63587,
                     "endColumn": 113,
-                    "endOffset": 63626
+                    "endOffset": 63696
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -6018,11 +6037,11 @@
             },
             {
                 "to": {
-                    "startLine": 802,
+                    "startLine": 803,
                     "startColumn": 4,
-                    "startOffset": 63631,
+                    "startOffset": 63701,
                     "endColumn": 102,
-                    "endOffset": 63729
+                    "endOffset": 63799
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\values\\values.xml",
@@ -6037,12 +6056,12 @@
             },
             {
                 "to": {
-                    "startLine": 803,
+                    "startLine": 804,
                     "startColumn": 4,
-                    "startOffset": 63734,
-                    "endLine": 807,
+                    "startOffset": 63804,
+                    "endLine": 808,
                     "endColumn": 12,
-                    "endOffset": 63947
+                    "endOffset": 64017
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\styles.xml",
@@ -6058,12 +6077,12 @@
             },
             {
                 "to": {
-                    "startLine": 808,
+                    "startLine": 809,
                     "startColumn": 4,
-                    "startOffset": 63952,
-                    "endLine": 817,
+                    "startOffset": 64022,
+                    "endLine": 818,
                     "endColumn": 9,
-                    "endOffset": 64484
+                    "endOffset": 64554
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\pop_window_style.xml",
@@ -6079,12 +6098,12 @@
             },
             {
                 "to": {
-                    "startLine": 818,
+                    "startLine": 819,
                     "startColumn": 4,
-                    "startOffset": 64489,
-                    "endLine": 823,
+                    "startOffset": 64559,
+                    "endLine": 824,
                     "endColumn": 12,
-                    "endOffset": 64760
+                    "endOffset": 64830
                 },
                 "from": {
                     "file": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\values\\styles.xml",

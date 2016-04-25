@@ -13,14 +13,14 @@ public class FinanceJsonBean {
      * 这个是理财产品的JSONBean
      */
 
-    private static FinanceJsonBean instance ;
-    public FinanceJsonBean(){}
-    public synchronized static FinanceJsonBean getInstance(){
-        if (instance == null){
-            instance = new FinanceJsonBean();
-        }
-        return instance;
-    }
+//    private static FinanceJsonBean instance ;
+//    public FinanceJsonBean(){}
+//    public synchronized static FinanceJsonBean getInstance(){
+//        if (instance == null){
+//            instance = new FinanceJsonBean();
+//        }
+//        return instance;
+//    }
 
     private  int code ;
     private String msg ;
@@ -69,11 +69,11 @@ public class FinanceJsonBean {
     }
 
     //为空处理
-    public void setNullFinanceJsonBean(){
-        if(instance!=null){
-            instance = null ;
-        }
-    }
+//    public void setNullFinanceJsonBean(){
+//        if(instance!=null){
+//            instance = null ;
+//        }
+//    }
 
 
 }
