@@ -68,7 +68,8 @@
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 />
-            <TextView 
+            <TextView
+                android:id="@+id/yesdayprofit"
                 android:layout_below="@id/tv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -102,7 +103,8 @@
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 />
-            <TextView 
+            <TextView
+                android:id="@+id/amountprofit"
                 android:layout_below="@id/tv4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -136,7 +138,8 @@
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 />
-            <TextView 
+            <TextView
+                android:id="@+id/getcashprofit"
                 android:layout_below="@id/tv0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -171,6 +174,7 @@
                 android:layout_marginLeft="3dp"
                 >
                 <TextView
+                    android:id="@+id/remark1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="一元起投"
@@ -191,6 +195,7 @@
                 android:layout_marginLeft="3dp"
                 >
                 <TextView
+                    android:id="@+id/remark2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="随存随取"

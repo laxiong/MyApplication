@@ -43,18 +43,20 @@
             android:id="@+id/toutiao"
             android:layout_width="68dp"
             android:layout_height="match_parent"
-            android:text="财经头条"
             android:gravity="center"
             android:textColor="#A6A6A6"
             />
-        <com.laxiong.View.VerticalScrollTextView
-            android:id="@+id/scrollTextView"
+        <TextView
+            android:id="@+id/cental"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_toRightOf="@+id/toutiao"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:gravity="center"
+            android:text="这是一条十分重要的财经头条的消息。"
+            android:singleLine="true"
+            android:textColor="#D8D8D8"
             />
     </RelativeLayout>
     <View
@@ -73,14 +75,14 @@
         />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="243dp"
+        android:layout_height="213dp"
         android:orientation="vertical"
         android:background="@color/white"
         >
         <RelativeLayout
             android:id="@+id/new_biao"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             >
             <View
                 android:id="@+id/imgs1"
@@ -100,7 +102,7 @@
 
                 />
             <TextView
-                android:id="@+id/tv1_define"
+                android:id="@+id/new_biao_tv"
                 android:layout_marginTop="3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
@@ -141,7 +143,7 @@
         <RelativeLayout
             android:id="@+id/time_xitong"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             >
             <View
                 android:id="@+id/imgs2"
@@ -160,7 +162,7 @@
                 android:gravity="center"
                 />
             <TextView
-                android:id="@+id/tv2_define"
+                android:id="@+id/sxt_tv"
                 android:layout_marginLeft="21dp"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
@@ -192,7 +194,7 @@
         <RelativeLayout
             android:id="@+id/gu_xibao"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             >
             <View
                 android:id="@+id/imgs3"
@@ -211,7 +213,7 @@
                 android:gravity="center"
                 />
             <TextView
-                android:id="@+id/tv3_define"
+                android:id="@+id/gxb_tv"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="21dp"
                 android:layout_width="wrap_content"
@@ -261,7 +263,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:text=""
             android:gravity="center"
             android:textColor="@color/divider_grey"
             />
@@ -270,7 +271,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:text=""
             android:gravity="center"
             android:textColor="@color/divider_grey"
             />

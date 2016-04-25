@@ -47,10 +47,8 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 	private View view ;
 	private ImageView mConcel_img ;
 	private LinearLayout mFinancelMessage ; // 提示消息
-	
-//	private PinnedSectionListView mPinnedSectionListView ;
-//	private PinnedListViewAdapter adapter ;
 
+	private FinanceJsonBean  mFinanBean = null;
 	private FinancingListView mListView ;
 	
 	private Handler handler = new Handler() {
@@ -82,27 +80,9 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 	}
 
 	private void initView() {
-		//TODO 做PinnedSection的操作....
-//		mPinnedSectionListView = (PinnedSectionListView)view.findViewById(R.id.sectionListview);
 		mConcel_img = (ImageView)view.findViewById(R.id.concel_img);
 		mFinancelMessage = (LinearLayout)view.findViewById(R.id.finance_message);
 		mConcel_img.setOnClickListener(this);
-//
-//		adapter = new PinnedListViewAdapter(getActivity(),Bean.getData());
-//		mPinnedSectionListView.setAdapter(adapter);
-//		mPinnedSectionListView.setOnRefreshListener(new OnRefreshListener() {
-//			@Override
-//			public void onPullRefresh() {
-//				//请求数据，更新数据
-//				requestDataFromServer(true);
-//				Toast.makeText(getActivity(), "正在刷新", 2).show();
-//			}
-//			@Override
-//			public void onLoadingMore() {
-//				requestDataFromServer(false);
-//				Toast.makeText(getActivity(), "正在加载更多", 2).show();
-//			}
-//		});
 
 		mListView = (FinancingListView)view.findViewById(R.id.Listview);
 		getProductInfo();
@@ -159,8 +139,8 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 
 		@Override
 		public int getCount() {
-			if(FinanceJsonBean.getInstance().getGxb().size()>0){
-				int count = 3+FinanceJsonBean.getInstance().getGxb().size();
+			if(mFinanBean!=null){
+				int count = 3+mFinanBean.getGxb().size();
 				return count ;
 			}
 			return 0;
@@ -216,7 +196,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 			}
 			if(currentType == TYPE_Content){
 				if(i==1){  // 时息通
-					FinanceInfo sxt = FinanceJsonBean.getInstance().getSxt();
+					FinanceInfo sxt = mFinanBean.getSxt();
 					if(mViewHonder.mInterge!=null&&mViewHonder.mPoint!=null) {
 						double apr = sxt.getApr();
 						if(isInterge(apr)){
@@ -272,7 +252,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 					});
 
 				}else if (i>=3){ // 固息宝
-					List<FinanceInfo> mList = FinanceJsonBean.getInstance().getGxb();
+					List<FinanceInfo> mList = mFinanBean.getGxb();
 					FinanceInfo gxb = mList.get(i-3);
 					if(mViewHonder.mInterge!=null&&mViewHonder.mPoint!=null) {
 						double apr = gxb.getApr();
@@ -385,13 +365,13 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 		   @Override
 		   public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 			   super.onSuccess(statusCode, headers, response);
-			   FinanceJsonBean  mFinanBean = null;
+
 			   List<FinanceInfo>   mList = null ;
 			   if(response!=null){
 				   try {
 					   Log.i("URL", "code码：=" + response.getInt("code"));
 					   if (response.getInt("code") == 0) {
-						   mFinanBean = FinanceJsonBean.getInstance();
+						   mFinanBean = new FinanceJsonBean();
 
 						   JSONObject sxt = response.getJSONObject("sxt");
 						   FinanceInfo sxtInfo = setProductInfo(sxt);  // 时息通

@@ -181,7 +181,9 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 				mHead_title.setText("壹投行");
 				mHead_title.setTextColor(Color.parseColor("#ffffff"));
 				mHeadLayout.setBackgroundColor(Color.parseColor("#EE4E42"));  // 红色
-				
+
+				mFristPager_icon.setImageResource(R.drawable.ing_shouye_bottom_select);
+				mFristPager_tv.setTextColor(Color.parseColor("#328AD4"));
 				
 				break;
 			case 1:  // financing
@@ -194,8 +196,10 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 				mHead_title.setTextColor(Color.parseColor("#ffffff"));
 				mHead_left_select_textview.setOnClickListener(listen);
 				mHeadLayout.setBackgroundColor(Color.parseColor("#EE4E42"));  // 红色
-				
-				
+
+				mFinancing_icon.setImageResource(R.drawable.img_licai_bottom_select);
+				mFinancing_tv.setTextColor(Color.parseColor("#328AD4"));
+
 				break;
 			case 2:  // myself
 				mHead_gongshilicai.setVisibility(View.GONE);
@@ -207,25 +211,31 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 				mHead_title.setTextColor(Color.parseColor("#ffffff"));
 				mHead_left_select_textview.setOnClickListener(listen);
 				mHeadLayout.setBackgroundColor(Color.parseColor("#EE4E42"));  // 红色
-				
-				
+
+				mMyself_icon.setImageResource(R.drawable.img_zichan_bottom_select);
+				mMyself_tv.setTextColor(Color.parseColor("#328AD4"));
+
 				break;
 		
 		}
 	}
 	// set to initbackground
 	private void setInitBackground(){
-		//TODO 设置为初始的颜色和图片
-		
-		
+		mFristPager_icon.setImageResource(R.drawable.ing_shouye_bottom);
+		mFristPager_tv.setTextColor(Color.parseColor("#A6A6A6"));
+		mFinancing_icon.setImageResource(R.drawable.img_licai_bottom);
+		mFinancing_tv.setTextColor(Color.parseColor("#A6A6A6"));
+		mMyself_icon.setImageResource(R.drawable.img_zichan_bottom);
+		mMyself_tv.setTextColor(Color.parseColor("#A6A6A6"));
 	}
-	
+
 	@SuppressLint("NewApi") 
 	private void initFristFragment(){
 		FragmentTransaction  mTransaction = mFragmentManager.beginTransaction();
 		mFristPagerFragment = new FristPagerFragment();
 		mTransaction.add(R.id.setContent, mFristPagerFragment);
 		mTransaction.commit();
+		setButtomBackground(0);
 	}
 	
 	OnClickListener listen = new OnClickListener() {

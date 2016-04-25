@@ -25,7 +25,7 @@
             android:id="@+id/concel_img"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:src="@drawable/img_close"
+            android:src="@drawable/img_cricle_close"
             android:layout_gravity="center"
             android:layout_marginRight="25dp"
             />

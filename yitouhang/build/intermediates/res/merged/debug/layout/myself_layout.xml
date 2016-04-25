@@ -104,7 +104,8 @@
                 android:id="@+id/imgs1"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:background="@drawable/corners_border" />
+                android:src="@drawable/img_tixian"
+                />
 
             <TextView
                 android:layout_width="32dp"
@@ -133,7 +134,8 @@
                 android:id="@+id/imgs2"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:background="@drawable/corners_border" />
+                android:src="@drawable/img_chongzhi"
+                />
 
             <TextView
                 android:layout_width="32dp"
@@ -174,7 +176,8 @@
                 android:id="@+id/imgs3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/corners_border" />
+                android:src="@drawable/img_touzimx"
+                />
 
             <TextView
                 android:layout_width="50dp"
@@ -201,7 +204,8 @@
                 android:id="@+id/imgs4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/corners_border" />
+                android:src="@drawable/img_wodehb"
+                />
 
             <TextView
                 android:layout_width="50dp"
@@ -230,7 +234,8 @@
             android:id="@+id/imgs5"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/corners_border" />
+            android:src="@drawable/img_1tshangcheng"
+            />
 
         <TextView
             android:layout_width="50dp"
@@ -263,7 +268,8 @@ android:orientation="horizontal">
         android:id="@+id/imgs6"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/corners_border" />
+        android:src="@drawable/img_huodongdt"
+        />
 
     <TextView
         android:layout_width="50dp"
@@ -289,7 +295,8 @@ android:orientation="horizontal">
         android:id="@+id/imgs7"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/corners_border" />
+        android:src="@drawable/img_renmaisy"
+        />
 
     <TextView
         android:layout_width="50dp"
@@ -316,7 +323,8 @@ android:orientation="horizontal">
         android:id="@+id/imgs8"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/corners_border" />
+        android:src="@drawable/img_yaoqinghy"
+        />
 
     <TextView
         android:layout_width="50dp"
