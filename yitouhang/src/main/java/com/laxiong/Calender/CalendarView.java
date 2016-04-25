@@ -333,11 +333,6 @@ public class CalendarView extends View implements Comparable {
                 day = lastMonthDays;
             }
             CustomDate date = CustomDate.modifiDayForObject(clickdate, day);
-//            if (DateUtil.isToday(date)) {
-//                date.week = i;
-////                mCallBack.clickDate(date, 0, i);
-//                rows[0].cells[i] = new Cell(date, State.TODAY, i, 0);
-//            }
             if(DateUtil.isClickDay(date, mShowDate)){
                 if(DateUtil.isToday(date)){
                     rows[0].cells[i] = new Cell(date, State.TODAY, i, 0);

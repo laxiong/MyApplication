@@ -59,6 +59,7 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
             ToastUtil.customAlert(this, "验证码获取成功!");
         } else if (BankCard_Presenter.TYPE_CARD.equals(tag)) {
             ToastUtil.customAlert(this, "绑定银行卡成功!");
+            showFinishDialog();
         }
     }
 
@@ -121,7 +122,6 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
         switch (v.getId()) {
             case R.id.fininsh:
                 bpresenter.bindCard(this);
-                showFinishDialog();
                 break;
             case R.id.back_layout:
                 startActivity(new Intent(this,
