@@ -47,7 +47,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 	private View view ;
 	private ImageView mConcel_img ;
 	private LinearLayout mFinancelMessage ; // 提示消息
-	
+
 	private FinanceJsonBean  mFinanBean = null;
 	private FinancingListView mListView ;
 	
@@ -80,7 +80,6 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 	}
 
 	private void initView() {
-
 		mConcel_img = (ImageView)view.findViewById(R.id.concel_img);
 		mFinancelMessage = (LinearLayout)view.findViewById(R.id.finance_message);
 		mConcel_img.setOnClickListener(this);
@@ -197,7 +196,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 			}
 			if(currentType == TYPE_Content){
 				if(i==1){  // 时息通
-					final FinanceInfo sxt = mFinanBean.getSxt();
+					FinanceInfo sxt = mFinanBean.getSxt();
 					if(mViewHonder.mInterge!=null&&mViewHonder.mPoint!=null) {
 						double apr = sxt.getApr();
 						if(isInterge(apr)){
@@ -226,6 +225,15 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 							mViewHonder.mNewPerson.setVisibility(View.INVISIBLE);
 						}
 					}
+
+					// 标题
+					if(mViewHonder.mProject!=null)
+						mViewHonder.mProject.setText(sxt.getTitle());
+
+					//支付方式
+					if(mViewHonder.profit_tv!=null)
+						mViewHonder.profit_tv.setText(sxt.getPaytype());
+
 					//日期
 					double limit = sxt.getLimit();
 					if(mViewHonder.mLimitDay!=null){
@@ -234,24 +242,18 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						mViewHonder.mLimitDay.setText(day[0]+"天");
 					}
 
-					if (mViewHonder.mProject!=null)
-						mViewHonder.mProject.setText(sxt.getTitle());
-					if (mViewHonder.profit_tv!=null)
-						mViewHonder.profit_tv.setText(sxt.getPaytype());
-
-
 					if(view!=null)
 					view.setOnClickListener(new OnClickListener() {
 						@Override
 						public void onClick(View view) {
 							getActivity().startActivity(new Intent(getActivity(),
-									TimeXiTongActivity.class).putExtra("id",sxt.getId()));
+									TimeXiTongActivity.class));
 						}
 					});
 
 				}else if (i>=3){ // 固息宝
 					List<FinanceInfo> mList = mFinanBean.getGxb();
-					final FinanceInfo gxb = mList.get(i-3);
+					FinanceInfo gxb = mList.get(i-3);
 					if(mViewHonder.mInterge!=null&&mViewHonder.mPoint!=null) {
 						double apr = gxb.getApr();
 						if(isInterge(apr)){
@@ -289,9 +291,12 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						mViewHonder.mLimitDay.setText(day[0]+"天");
 					}
 
-					if (mViewHonder.mProject!=null)
+					//标题
+					if(mViewHonder.mProject!=null)
 						mViewHonder.mProject.setText(gxb.getTitle());
-					if (mViewHonder.profit_tv!=null)
+
+					//支付方式
+					if(mViewHonder.profit_tv!=null)
 						mViewHonder.profit_tv.setText(gxb.getPaytype());
 
 					if(view!=null)
@@ -299,7 +304,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 							@Override
 							public void onClick(View view) {
 								getActivity().startActivity(new Intent(getActivity(),
-										GuXiBaoActivity.class).putExtra("id",gxb.getId()));
+										GuXiBaoActivity.class));
 							}
 						});
 				}
@@ -366,7 +371,6 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 				   try {
 					   Log.i("URL", "code码：=" + response.getInt("code"));
 					   if (response.getInt("code") == 0) {
-//						   mFinanBean = FinanceJsonBean.getInstance();
 						   mFinanBean = new FinanceJsonBean();
 
 						   JSONObject sxt = response.getJSONObject("sxt");

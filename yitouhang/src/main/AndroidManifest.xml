@@ -9,11 +9,13 @@
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    =======
+=======
     android:versionName="1.0" >
+
     <application
         android:name="com.laxiong.Application.YiTouApplication"
         android:allowBackup="true"
@@ -22,12 +24,13 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.laxiong.Activity.PatternViewActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name="com.laxiong.Activity.BaseActivity" />
 
@@ -111,7 +114,7 @@
 
         <!-- H5页面 -->
         <activity android:name="com.laxiong.Activity.WebViewActivity" />
-        <activity android:name="com.laxiong.Activity.BuyingActivity" />
+        <activity android:name="com.laxiong.Activity.BuyingActivity"></activity>
         <activity android:name="com.laxiong.Activity.BuyingResultActivity" />
 
         <!-- 充值 -->
@@ -120,6 +123,12 @@
         <activity android:name="com.laxiong.Activity.WelCenterActivity" />
         <!-- 红包解释 -->
         <activity android:name="com.laxiong.Activity.RpExplainActivity" />
+        <!--兑换壹币-->
+        <activity android:name="com.laxiong.Activity.ExChangeActivity"></activity>
+        <!--我的壹币-->
+        <activity android:name="com.laxiong.Activity.MyYiBiActivity"></activity>
+        <!--壹币商城-->
+        <activity android:name="com.laxiong.Activity.TMallActivity">
         <!-- 兑换壹币 -->
         <activity android:name="com.laxiong.Activity.ExChangeActivity" />
         <!-- 我的壹币 -->
@@ -129,6 +138,13 @@
         =======
         <activity android:name="com.laxiong.Activity.BaseActivity" />
 
+        </activity>
+=======
+        
+        <activity 
+            android:name="com.laxiong.Activity.BaseActivity"
+        ></activity>
+        
         <!-- 日历账单 -->
         <activity android:name="com.laxiong.Activity.CalanderCountActivity" />
 
@@ -162,10 +178,6 @@
         <activity android:name="com.laxiong.Activity.ChangePayPswdActivity1" />
         <activity android:name="com.laxiong.Activity.ChangePayPswdActivity2" />
 
-        <!-- 重置支付密码 -->
-        <activity android:name="com.laxiong.Activity.ResetPayPswdActivity1" />
-        <activity android:name="com.laxiong.Activity.ResetPayPswdActivity2" />
-        <activity android:name="com.laxiong.Activity.ResetPayPswdActivity3" />
 
         <!-- 注册 -->
         <activity android:name="com.laxiong.Activity.RegistActivity" />
@@ -199,8 +211,10 @@
         <activity android:name="com.laxiong.Activity.WithdrawCashNoticeActivity" />
 
         <!-- 设置手势密码 -->
-        <activity android:name="com.laxiong.Activity.MainActivity" />
-
+        <activity
+            android:name="com.laxiong.Activity.MainActivity"
+        ></activity>
+        
         <!-- 修改手势 -->
         <activity android:name="com.laxiong.Activity.ModifyGestureActivity" />
 

@@ -13,7 +13,7 @@
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
         custom:texts="@string/welfare_title"
-        custom:textsize="10sp" />
+        custom:textsize="6sp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,12 +26,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:text="使用说明"
+            android:textSize="12sp"
             android:textColor="@color/grey_bg_text" />
 
     </RelativeLayout>
     <ListView
         android:id="@+id/lvlist"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -39,7 +39,6 @@
         android:dividerHeight="10dp" />
     <LinearLayout
         android:id="@+id/ll_bottom"
-        android:layout_marginTop="10dp"
         android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="40dp"

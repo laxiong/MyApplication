@@ -1,6 +1,7 @@
 package com.laxiong.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -33,7 +34,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 	private TextView mLoginBtn , mRegistBtn ,mGetCode;
 	private FrameLayout mBack ;
 	private ImageView mToggleBtn ,mShowPswd;
-	private EditText mPhoneEd , mPswdEd , mCodeEd, mInviteCodeEd ;
+	private EditText mPhoneEd , mPswdEd , mCodeEd ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,34 +44,35 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 	}
 
 	private void initData() {
-		
+
 		mLoginBtn.setOnClickListener(this);
 		mRegistBtn.setOnClickListener(this);
 		mBack.setOnClickListener(this);
 		mToggleBtn.setOnClickListener(this);
-		
+
 		mPhoneEd.addTextChangedListener(watcher);
 		mPswdEd.addTextChangedListener(watcher);
 		mCodeEd.addTextChangedListener(watcher);
-		
+
 		mGetCode.setOnClickListener(this);
 		mShowPswd.setOnClickListener(this);
+		readProcotol();
 	}
 
 	private void initView() {
-		
+
 		mLoginBtn = (TextView)findViewById(R.id.loginBtn);
 		mRegistBtn = (TextView)findViewById(R.id.registBtn);
 		mBack = (FrameLayout)findViewById(R.id.backlayout);
 		mToggleBtn = (ImageView)findViewById(R.id.toggle_img);
 		mShowPswd = (ImageView)findViewById(R.id.img_showpswd);
-		
+
 		mCodeEd = (EditText)findViewById(R.id.regist_code);
-		mInviteCodeEd = (EditText)findViewById(R.id.regist_invite_code); // 邀请码
+//		mInviteCodeEd = (EditText)findViewById(R.id.regist_invite_code); // 邀请码
 		mPhoneEd = (EditText)findViewById(R.id.regist_phone);
 		mPswdEd = (EditText)findViewById(R.id.regist_pswd);
 		mGetCode = (TextView)findViewById(R.id.getcode);
-		
+
 	}
 
 	@Override
@@ -87,7 +89,11 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 				if(Common.inputContentNotNull(mobile0)&&Common.inputContentNotNull(pswd)&&Common.inputContentNotNull(code)){
 					if(Common.isMobileNO(mobile0)){
 						if(Common.inputPswdCount(code)){
-							doRegist();
+							if(isRead){
+								doRegist();
+							}else{
+								Toast.makeText(RegistActivity.this, "请选中壹投行注册协议", Toast.LENGTH_SHORT).show();
+							}
 						}else{
 							Toast.makeText(RegistActivity.this, "请输入密码6到20位字母和数字", Toast.LENGTH_SHORT).show();
 						}
@@ -97,7 +103,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 				}else{
 					Toast.makeText(RegistActivity.this, "手机号码或密码,验证码不能为空", Toast.LENGTH_SHORT).show();
 				}
-				
+
 				break;
 			case R.id.backlayout:
 				this.finish();
@@ -106,7 +112,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 				readProcotol();
 				break;
 			case R.id.getcode:   // 验证码
-				
+
 				String mobile = mPhoneEd.getText().toString().replaceAll(" ", "");
 				if(Common.inputContentNotNull(mobile)){
 					if(Common.isMobileNO(mobile)){
@@ -117,7 +123,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 				}else{
 					Toast.makeText(RegistActivity.this, "手机号码不能为空", Toast.LENGTH_SHORT).show();
 				}
-				
+
 				break;
 
 			case R.id.img_showpswd:
@@ -125,15 +131,15 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 				break;
 		}
 	}
-	// 阅读协议
+	// 阅读协议,判断协议按钮是否为选中
 	private boolean isRead = false ;
 	private void readProcotol(){
-		if(isRead){ // 是阅读的
+		if(!isRead){ // 是阅读的
 			mToggleBtn.setImageResource(R.drawable.img_read);
-			isRead = false ;
+			isRead = true ;
 		}else{  // 没有阅读
 			mToggleBtn.setImageResource(R.drawable.img_no_read);
-			isRead = true ;
+			isRead = false ;
 		}
 	}
 
@@ -159,13 +165,13 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 		RequestParams params = new RequestParams();
 		params.put("type", "reg");
 		params.put("phone", mPhoneEd.getText().toString().replaceAll(" ", ""));
-		
+
 		HttpUtil.post(InterfaceInfo.CODE_URL, params, new JsonHttpResponseHandler(){
 			@Override
 			public void onSuccess(int statusCode, Header[] headers,
-					JSONObject response) {
+								  JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
-				
+
 				if(response!=null){
 					try {
 						Log.i("URL", "code码：="+response.getInt("code"));
@@ -184,15 +190,15 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 			}
 			@Override
 			public void onFailure(int statusCode, Header[] headers,
-					String responseString, Throwable throwable) {
+								  String responseString, Throwable throwable) {
 				super.onFailure(statusCode, headers, responseString, throwable);
-				
+
 				stopThread = true;
 				Toast.makeText(RegistActivity.this, "发送失败", Toast.LENGTH_SHORT).show();
 			}
-			
+
 		}, true);
-		
+
 		// 倒计时
 		count = 59;
 		stopThread = false;
@@ -211,7 +217,6 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 					}
 					count--;
 				}
-
 				runOnUiThread(new Runnable() {
 					public void run() {
 						mGetCode.setText("获取验证码");
@@ -221,70 +226,71 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 			}
 		}).start();
 	}
-	
+
 	//注册  Regist
 	private void doRegist(){
-		
+
 		RequestParams params = new RequestParams();
 		params.put("phone", mPhoneEd.getText().toString().replaceAll(" ", ""));
 		params.put("pwd", mPswdEd.getText().toString().replace(" ", ""));
 		params.put("code", Integer.valueOf(mCodeEd.getText().toString().replace(" ", "")));
-		String InviteCode = isInviteCode();
-		params.put("invite_id", InviteCode);
-		
+//		String InviteCode = isInviteCode();
+//		params.put("invite_id", InviteCode);
+
 		HttpUtil.post(InterfaceInfo.USER_URL, params, new JsonHttpResponseHandler(){
 
 			@Override
 			public void onSuccess(int statusCode, Header[] headers,
-					JSONObject response) {
+								  JSONObject response) {
 				if(response!=null){
 					try{
 						if (response.getInt("code") == 0) {
 							Toast.makeText(RegistActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+							savaUseInfo();
 						} else {
 							if (response.getString("msg") != null) {
 								Toast.makeText(RegistActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 							}
 						}
 					}catch (Exception e){
-						
+
 					}
 				}
 			}
 
 			@Override
 			public void onFailure(int statusCode, Header[] headers,
-					Throwable throwable, JSONObject errorResponse) {
+								  Throwable throwable, JSONObject errorResponse) {
 				Toast.makeText(RegistActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
 			}
-			
+
 		}, true);
-		
+
 	}
 	// 邀请码的处理
-	private String isInviteCode(){
-		if(mInviteCodeEd!=null){
-			String InviteCode = mInviteCodeEd.getText().toString().replace(" ", "");
-			if(Common.inputContentNotNull(InviteCode)){
-				return InviteCode;
-			}
-			return null ;
-		}else{
-			return null ;
-		}
-	}
+//	private String isInviteCode(){
+//		if(mInviteCodeEd!=null){
+//			String InviteCode = mInviteCodeEd.getText().toString().replace(" ", "");
+//			if(Common.inputContentNotNull(InviteCode)){
+//				return InviteCode;
+//			}
+//			return null ;
+//		}else{
+//			return null ;
+//		}
+//	}
 	// EditText 是否输入了
-	
+
 	TextWatcher watcher = new TextWatcher() {
 		@Override
 		public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-			
+
 		}
-		
+
 		@Override
 		public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-				int arg3) {
-			
+									  int arg3) {
+
 		}
 		@Override
 		public void afterTextChanged(Editable arg0) {
@@ -293,7 +299,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 				if(Common.inputPswdCount(mCodeEd.getText().toString().trim())){
 					mRegistBtn.setEnabled(true);
 					mRegistBtn.setBackgroundResource(R.drawable.button_change_bg_border);
-				
+
 				}else{
 					mRegistBtn.setEnabled(true);
 					mRegistBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
@@ -303,6 +309,17 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 				mRegistBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
 			}
 		}
-	};	
-	
+	};
+
+	//保存注册用户信息
+	private void savaUseInfo(){
+		SharedPreferences prefer = getSharedPreferences("RegistUseInfo",MODE_PRIVATE);
+		SharedPreferences.Editor editor =prefer.edit();
+		editor.putString("useCount",mPhoneEd.getText().toString().replaceAll(" ", ""));
+		editor.commit();
+		Toast.makeText(RegistActivity.this, mPhoneEd.getText().toString().replaceAll(" ", ""), Toast.LENGTH_SHORT).show();
+	}
+
+
+
 }

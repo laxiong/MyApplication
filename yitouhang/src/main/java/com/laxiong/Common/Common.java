@@ -3,6 +3,7 @@ package com.laxiong.Common;
 import android.widget.ImageView;
 
 import com.laxiong.yitouhang.R;
+import com.loopj.android.http.Base64;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,6 +25,11 @@ public class Common {
 			iv.setImageResource(R.drawable.img_no_read);
 			isChecked = true ;
 		}
+	}
+
+	// 64位编码的加密编码
+	public static String authorizeStr(int id, String token) {
+		return new String(Base64.encode((id + ":" + token).getBytes(), Base64.NO_WRAP));
 	}
 
 	// 验证手机号码

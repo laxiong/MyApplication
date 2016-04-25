@@ -16,6 +16,7 @@ import com.laxiong.Activity.AvailableBalanceActivity;
 import com.laxiong.Activity.InvestmentRecordActivity;
 import com.laxiong.Activity.RechargeActivity;
 import com.laxiong.Activity.TMallActivity;
+import com.laxiong.Activity.WelCenterActivity;
 import com.laxiong.Activity.WithdrawCashActivity;
 import com.laxiong.yitouhang.R;
 
@@ -25,9 +26,9 @@ public class MySelfFragment extends Fragment implements OnClickListener{
 	 *我的碎片
 	 */
 	View view ;
-	private TextView totleMoney;
-	private RelativeLayout rl_1t;
-	private RelativeLayout AvailableBalance ,WithdrawCash , Recharge ,mTouZiLayout;// 投资明细
+	private TextView totleMoney ;
+	private RelativeLayout AvailableBalance ,WithdrawCash , Recharge
+			,mRedBao,mItMall,mTouZiLayout;// 投资明细
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -44,7 +45,8 @@ public class MySelfFragment extends Fragment implements OnClickListener{
 		WithdrawCash.setOnClickListener(this);
 		Recharge.setOnClickListener(this);
 		mTouZiLayout.setOnClickListener(this);
-		rl_1t.setOnClickListener(this);
+		mItMall.setOnClickListener(this);
+		mRedBao.setOnClickListener(this);
 	}
 
 	private void initView() {
@@ -53,7 +55,9 @@ public class MySelfFragment extends Fragment implements OnClickListener{
 		WithdrawCash = (RelativeLayout)view.findViewById(R.id.withdrawcash);
 		Recharge = (RelativeLayout)view.findViewById(R.id.recharge);
 		mTouZiLayout = (RelativeLayout)view.findViewById(R.id.touzi_layout);
-		rl_1t= (RelativeLayout) view.findViewById(R.id.rl_1t);
+
+		mItMall =(RelativeLayout)view.findViewById(R.id.rl_1t);
+		mRedBao =(RelativeLayout)view.findViewById(R.id.myredbao);
 	}
 
 	@Override
@@ -79,9 +83,13 @@ public class MySelfFragment extends Fragment implements OnClickListener{
 			startActivity(new Intent(getActivity(),
 					InvestmentRecordActivity.class));
 			break;
-			case R.id.rl_1t:
+			case R.id.myredbao:  //我的红包
 				startActivity(new Intent(getActivity(),
-					TMallActivity.class));
+						WelCenterActivity.class));
+				break;
+			case R.id.rl_1t: //IT商城
+				startActivity(new Intent(getActivity(),
+						TMallActivity.class));
 				break;
 		}
 	}

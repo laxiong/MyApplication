@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    =======
+=======
     android:versionName="1.0" >
     <application
         android:name="com.laxiong.Application.YiTouApplication"
@@ -126,8 +126,18 @@
         <!-- 我的壹币 -->
         <activity android:name="com.laxiong.Activity.MyYiBiActivity" />
         <!-- 壹币商城 -->
-        <activity android:name="com.laxiong.Activity.TMallActivity" />
+        <activity android:name="com.laxiong.Activity.TMallActivity" >
+
+            <!-- 兑换壹币 -->
+            <activity android:name="com.laxiong.Activity.ExChangeActivity" />
+            <!-- 我的壹币 -->
+            <activity android:name="com.laxiong.Activity.MyYiBiActivity" />
+            <!-- 壹币商城 -->
+            <activity android:name="com.laxiong.Activity.TMallActivity" />
         =======
+            <activity android:name="com.laxiong.Activity.BaseActivity" />
+        </activity>
+=======
         <activity android:name="com.laxiong.Activity.BaseActivity" />
 
         <!-- 日历账单 -->
@@ -162,11 +172,6 @@
         <!-- 修改支付密码 -->
         <activity android:name="com.laxiong.Activity.ChangePayPswdActivity1" />
         <activity android:name="com.laxiong.Activity.ChangePayPswdActivity2" />
-
-        <!-- 重置支付密码 -->
-        <activity android:name="com.laxiong.Activity.ResetPayPswdActivity1" />
-        <activity android:name="com.laxiong.Activity.ResetPayPswdActivity2" />
-        <activity android:name="com.laxiong.Activity.ResetPayPswdActivity3" />
 
         <!-- 注册 -->
         <activity android:name="com.laxiong.Activity.RegistActivity" />

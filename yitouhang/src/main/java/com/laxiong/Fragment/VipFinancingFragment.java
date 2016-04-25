@@ -245,7 +245,6 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						mViewHonder.mLimitDay.setText(day[0]+"天");
 					}
 
-
 					if(mViewHonder.profit_tv!=null)
 						mViewHonder.profit_tv.setTextColor(Color.parseColor("#FFE2A42A"));
 					mViewHonder.profit_tv.setText(sxt.getPaytype());
