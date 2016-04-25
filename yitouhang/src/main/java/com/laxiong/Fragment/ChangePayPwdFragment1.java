@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.laxiong.Activity.ChangePayPwdActivity;
 import com.laxiong.Basic.BasicWatcher;
+import com.laxiong.Common.Constants;
 import com.laxiong.Mvp_presenter.Handler_Presenter;
 import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
@@ -83,7 +84,7 @@ public class ChangePayPwdFragment1 extends Fragment implements View.OnClickListe
         presenter.reqPayCode(getActivity());
         mNextPage.setOnClickListener(this);
         mCode.setOnClickListener(this);
-        time_presenter.loadHandlerTimer(1000, 30000);
+        time_presenter.loadHandlerTimer(Constants.INTERVAL, Constants.TIME);
         et_code.addTextChangedListener(new BasicWatcher() {
             @Override
             public void afterTextChanged(Editable s) {

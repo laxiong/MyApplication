@@ -6,9 +6,11 @@ package com.laxiong.Common;
  */
 public class Constants {
     public static final String KEY_DATE = "clickdate";
+    public static final long INTERVAL=1000;
+    public static final long TIME=30000;
 
     public enum ReqEnum {
-        PWD(0, "pwd"), NICK(1, "nick"), BUY(2, "buy"), RPAY(3, "fddeal"), CPWD(4, "chdeal"),CPHONE(5,"phone");
+        PWD(0, "pwd"), NICK(1, "nick"), BUY(2, "buy"), RPAY(3, "fddeal"), CPWD(4, "chdeal"),CPHONE(5,"phone"),PAYPWD(6,"deals");
         int name;
         String val;
 

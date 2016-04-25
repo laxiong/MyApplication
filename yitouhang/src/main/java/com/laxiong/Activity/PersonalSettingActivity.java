@@ -26,6 +26,7 @@ import com.laxiong.Calender.CustomDate;
 import com.laxiong.Mvp_presenter.Exit_Presenter;
 import com.laxiong.Mvp_view.IViewExit;
 import com.laxiong.Utils.SpUtils;
+import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.User;
 import com.laxiong.yitouhang.R;
@@ -35,11 +36,12 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
     /****
      * 个人设置
      */
-    private TextView backBtn;
+    private TextView backBtn, tv_bindphone, tv_shiming;
     private RelativeLayout personIcon, nameSetting, addressSetting, trueName, phoneBind;
     private FrameLayout mBack;
     private ImageView mUseFace;
     private Exit_Presenter presenter;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +61,25 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         trueName.setOnClickListener(this);
         phoneBind.setOnClickListener(this);
         mBack.setOnClickListener(this);
-
+        user = YiTouApplication.getInstance().getUser();
+        String phone = SpUtils.getStrValue(SpUtils.getSp(this), SpUtils.USER_KEY);
+        Intent intent = null;
+        if (user == null && !StringUtils.isBlank(phone)) {
+            intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            this.finish();
+            return;
+        } else if (user == null && StringUtils.isBlank(phone)) {
+            intent = new Intent(this, ChangeCountActivity.class);
+            startActivity(intent);
+            this.finish();
+            return;
+        }
+        tv_shiming.setText(user.is_idc() ? "已认证" : "未认证");
+        if (!StringUtils.isBlank(phone))
+            tv_bindphone.setText(StringUtils.getProtectedMobile(phone));
+        else
+            tv_bindphone.setText("请先登录");
     }
 
     @Override
@@ -87,7 +107,8 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         phoneBind = (RelativeLayout) findViewById(R.id.phoneBind);
         mBack = (FrameLayout) findViewById(R.id.back_layout);
         mUseFace = (ImageView) findViewById(R.id.use_face);
-
+        tv_bindphone = (TextView) findViewById(R.id.tv_bindphone);
+        tv_shiming = (TextView) findViewById(R.id.tv_shiming);
         TextView mText = (TextView) findViewById(R.id.title);
         mText.setText("个人设置");
     }
@@ -304,7 +325,6 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         bindphone.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                User user = YiTouApplication.getInstance().getUser();
                 if (user != null && user.is_idc() && user.isPay_pwd()) {
                     startActivity(new Intent(PersonalSettingActivity.this,
                             ChangeBindPhoneActivity1.class));
@@ -354,8 +374,16 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
                         AddressSettingActivity.class));
                 break;
             case R.id.true_name:            /**实名认证**/
-                startActivity(new Intent(PersonalSettingActivity.this,
-                        TrueNameActivity1.class));
+                if (!user.is_idc()) {
+                    startActivity(new Intent(PersonalSettingActivity.this,
+                            TrueNameActivity1.class));
+                } else if (!user.isPay_pwd()) {
+                    startActivity(new Intent(PersonalSettingActivity.this, TrueNameActivity2.class));
+                } else if (user.getBankcount() == 0) {
+                    startActivity(new Intent(PersonalSettingActivity.this, TrueNameActivity3.class));
+                }else{
+                    ToastUtil.customAlert(PersonalSettingActivity.this,"无需操作!");
+                }
                 break;
             case R.id.phoneBind:           /**绑手机的**/
                 showBindphone();

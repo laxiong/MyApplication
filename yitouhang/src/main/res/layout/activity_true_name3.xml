@@ -41,7 +41,7 @@
              android:layout_centerHorizontal="true"
              />
          <View
-             android:id="@+id/view2" 
+             android:id="@+id/v2"
              android:layout_marginTop="32dp"
              android:layout_toRightOf="@+id/imgs2"
              android:layout_width="80dp"
@@ -133,6 +133,7 @@
 			            android:text="持卡人"
 			            android:textSize="14dp" />
 			        <EditText
+						android:id="@+id/et_name"
 			            android:layout_width="wrap_content"
 			            android:layout_height="match_parent"
 			            android:layout_marginLeft="10dp"
@@ -168,9 +169,10 @@
 			            android:text="卡   号"
 			            android:textSize="14dp" />
 			        <EditText
-						android:id="@+id/pswd"
+						android:id="@+id/et_card"
 			            android:layout_width="0dp"
 						android:layout_weight="1"
+						android:inputType="number"
 			            android:layout_height="match_parent"
 			            android:layout_marginLeft="10dp"
 						android:password="true"
@@ -230,6 +232,7 @@
 			            android:text="手机号"
 			            android:textSize="14dp" />
 			        <EditText
+						android:id="@+id/et_phone"
 			            android:layout_width="wrap_content"
 			            android:layout_height="match_parent"
 			            android:layout_marginLeft="10dp"
@@ -263,6 +266,7 @@
 			            android:text="验证码"
 			            android:textSize="14dp" />
 			        <EditText
+						android:id="@+id/et_code"
 			            android:layout_width="wrap_content"
 			            android:layout_height="match_parent"
 			            android:layout_marginLeft="10dp"
@@ -274,7 +278,8 @@
 			            <requestFocus />
 			        </EditText>
 			        
-			        <TextView 
+			        <TextView
+						android:id="@+id/tv_getCode"
 			            android:layout_width="90dp"
 			            android:layout_height="match_parent"
 			            android:text="获取验证码"
