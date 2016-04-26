@@ -4,13 +4,13 @@ package com.laxiong.Mvp_model;
  * Created by xiejin on 2016/4/25.
  * Types BankCard.java
  */
-public class BankCard extends BaseCard{
-    private int code;
-    private long time;
+public class BankCard extends BaseCard {
     private String name;
     private int id;
     private boolean is_main;
-    private int number;
+    private String cardnum;
+    private String number;
+    private int leftsub;
     private int snumber;
     private String logo;
     private String type;
@@ -23,29 +23,13 @@ public class BankCard extends BaseCard{
     public BankCard() {
     }
 
-    /**
-     * @param code
-     * @param time
-     * @param name
-     * @param id
-     * @param is_main
-     * @param number
-     * @param snumber
-     * @param logo
-     * @param type        银行卡类型
-     * @param is_modify
-     * @param day_limit   日限制
-     * @param one_limit   一次限制
-     * @param month_limit 月限制
-     * @param logoKey
-     */
-    public BankCard(int code, long time, String name, int id, boolean is_main, int number, int snumber, String logo, String type, boolean is_modify, String day_limit, String one_limit, String month_limit, String logoKey) {
-        this.code = code;
-        this.time = time;
+    public BankCard(String name, int id, boolean is_main, String cardnum, String number, int leftsub, int snumber, String logo, String type, boolean is_modify, String day_limit, String one_limit, String month_limit, String logoKey) {
         this.name = name;
         this.id = id;
         this.is_main = is_main;
+        this.cardnum = cardnum;
         this.number = number;
+        this.leftsub = leftsub;
         this.snumber = snumber;
         this.logo = logo;
         this.type = type;
@@ -54,23 +38,6 @@ public class BankCard extends BaseCard{
         this.one_limit = one_limit;
         this.month_limit = month_limit;
         this.logoKey = logoKey;
-    }
-
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public long getTime() {
-        return time;
-    }
-
-    public void setTime(long time) {
-        this.time = time;
     }
 
     public String getName() {
@@ -97,12 +64,28 @@ public class BankCard extends BaseCard{
         this.is_main = is_main;
     }
 
-    public int getNumber() {
+    public String getCardnum() {
+        return cardnum;
+    }
+
+    public void setCardnum(String cardnum) {
+        this.cardnum = cardnum;
+    }
+
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
+    }
+
+    public int getLeftsub() {
+        return leftsub;
+    }
+
+    public void setLeftsub(int leftsub) {
+        this.leftsub = leftsub;
     }
 
     public int getSnumber() {

@@ -52,12 +52,12 @@ public class User implements Serializable {
     private List<Amount> amount_list;
     private List<Profit> profit_list;
     private String security_level;
-    private int fee;
+    private double fee;
 
     public User() {
     }
 
-    public User(int code, String msg, String time, int id, float available_amount, float block_amount, float total_amount, String nickname, String idc, boolean is_idc, String realname, String named, String email, String phone, boolean pay_pwd, boolean is_vip, int contacts, float friendsprofit, int experience, int salt, int score, int expire, int notify, int quota, float daishou, boolean is_first, String address, String last_login, int current, int bankcount, int packetcount, int cards, int amount, float profit, Yesterday yesterday, float total_get, float total_pay, float withdraw_amount, String name, String place, String phones, List<Amount> amount_list, List<Profit> profit_list, String security_level, int fee) {
+    public User(int code, String msg, String time, int id, float available_amount, float block_amount, float total_amount, String nickname, String idc, boolean is_idc, String realname, String named, String email, String phone, boolean pay_pwd, boolean is_vip, int contacts, float friendsprofit, int experience, int salt, int score, int expire, int notify, int quota, float daishou, boolean is_first, String address, String last_login, int current, int bankcount, int packetcount, int cards, int amount, float profit, Yesterday yesterday, float total_get, float total_pay, float withdraw_amount, String name, String place, String phones, List<Amount> amount_list, List<Profit> profit_list, String security_level, double fee) {
         this.code = code;
         this.msg = msg;
         this.time = time;
@@ -461,11 +461,11 @@ public class User implements Serializable {
         this.security_level = security_level;
     }
 
-    public int getFee() {
+    public double getFee() {
         return fee;
     }
 
-    public void setFee(int fee) {
+    public void setFee(double fee) {
         this.fee = fee;
     }
 }

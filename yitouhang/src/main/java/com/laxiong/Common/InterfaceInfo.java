@@ -32,5 +32,7 @@ public class InterfaceInfo {
 	public final static String MYCARD_URL=BASE_URL+"/bank";
 	//银行卡列表
 	public final static String BANKLIST_URL=BASE_URL+"/banklist";
+	//提现
+	public final static String WITHDRAW_URL=BASE_URL+"/withdraw";
 
 }

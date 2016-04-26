@@ -1,276 +1,268 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:2:1-239:12
-	package
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:3:5-36
-		INJECTED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml
-		INJECTED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml
-	android:versionName
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:5:5-30
-		INJECTED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml
-		INJECTED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml
-	android:versionCode
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:4:5-28
-		INJECTED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml
-		INJECTED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:2:1-142:12
 	xmlns:android
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:2:11-69
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:2:11-69
+	package
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:3:5-36
+		INJECTED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml
+		INJECTED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:5:5-30
+		INJECTED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml
+		INJECTED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml
+	android:versionCode
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml
+		INJECTED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml
 uses-sdk
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:support-v4:23.1.1] D:\gitTools_workspace\clone4\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:19.1.0] D:\gitTools_workspace\clone4\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\AndroidManifest.xml:18:5-42
-MERGED from [com.android.support:support-v4:23.1.1] D:\gitTools_workspace\clone4\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:20:5-43
-MERGED from [io.reactivex:rxandroid:1.1.0] D:\gitTools_workspace\clone4\MyApplication\yitouhang\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.1.0\AndroidManifest.xml:19:5-43
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:23.1.1] D:\work\android_studio\workspace\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:19.1.0] D:\work\android_studio\workspace\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:23.1.1] D:\work\android_studio\workspace\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:20:5-43
+MERGED from [io.reactivex:rxandroid:1.1.0] D:\work\android_studio\workspace\MyApplication\yitouhang\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.1.0\AndroidManifest.xml:19:5-43
 	android:targetSdkVersion
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:9:9-38
-		INJECTED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml
-		INJECTED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:9:9-38
+		INJECTED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml
+		INJECTED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:8:9-34
-		INJECTED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml
-		INJECTED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:8:9-34
+		INJECTED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml
+		INJECTED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:11:5-67
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:11:5-67
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:11:22-64
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:11:22-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:12:5-81
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:12:5-81
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:12:22-78
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:12:22-78
 uses-permission#android.permission.VIBRATE
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:13:5-65
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:13:5-66
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:13:22-63
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:13:22-63
 uses-permission#android.permission.READ_PHONE_STATE
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:14:5-75
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:14:5-75
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:14:22-72
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:14:22-72
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:15:5-80
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:15:5-80
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:15:22-77
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:15:22-77
 application
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:18:5-237:19
-MERGED from [com.android.support:support-v4:23.1.1] D:\gitTools_workspace\clone4\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:appcompat-v7:19.1.0] D:\gitTools_workspace\clone4\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\AndroidManifest.xml:19:5-20
-MERGED from [com.android.support:support-v4:23.1.1] D:\gitTools_workspace\clone4\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:18:5-140:19
+MERGED from [com.android.support:support-v4:23.1.1] D:\work\android_studio\workspace\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:19.1.0] D:\work\android_studio\workspace\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\AndroidManifest.xml:19:5-20
+MERGED from [com.android.support:support-v4:23.1.1] D:\work\android_studio\workspace\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
 	android:label
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:22:9-41
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:22:9-41
 	android:allowBackup
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:20:9-35
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:20:9-35
 	android:icon
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:21:9-45
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:21:9-45
 	android:theme
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:23:9-40
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:23:9-40
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:19:9-64
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:19:9-64
 activity#com.laxiong.Activity.PatternViewActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:24:9-32:20
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:24:9-32:20
 	android:label
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:26:13-45
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:26:13-45
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:25:13-68
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:25:13-68
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:27:13-31:29
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:27:13-31:29
 action#android.intent.action.MAIN
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:28:17-69
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:28:17-69
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:28:25-66
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:28:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:30:17-77
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:30:17-77
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:30:27-74
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:30:27-74
 activity#com.laxiong.Activity.BaseActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:33:9-70
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:33:9-70
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:33:19-67
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:33:19-67
 activity#com.laxiong.Activity.CalanderCountActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:36:9-79
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:36:9-79
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:36:19-76
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:36:19-76
 activity#com.laxiong.Activity.ShowVIPActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:39:9-73
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:39:9-73
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:39:19-70
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:39:19-70
 activity#com.laxiong.Activity.CountSettingActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:42:9-78
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:42:9-78
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:42:19-75
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:42:19-75
 activity#com.laxiong.Activity.PersonalSettingActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:45:9-47:47
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:45:9-47:47
+	android:name
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:46:13-72
 	android:launchMode
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:47:13-44
-	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:46:13-72
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:47:13-44
 activity#com.laxiong.Activity.PswdConturalActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:50:9-78
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:50:9-78
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:50:19-75
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:50:19-75
 activity#com.laxiong.Activity.NameSettingActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:51:9-77
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:51:9-77
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:51:19-74
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:51:19-74
 activity#com.laxiong.Activity.AddressSettingActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:52:9-80
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:52:9-80
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:52:19-77
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:52:19-77
 activity#com.laxiong.Activity.TrueNameActivity1
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:55:9-75
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:55:9-75
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:55:19-72
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:55:19-72
 activity#com.laxiong.Activity.TrueNameActivity2
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:56:9-75
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:56:9-75
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:56:19-72
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:56:19-72
 activity#com.laxiong.Activity.TrueNameActivity3
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:57:9-75
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:57:9-75
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:57:19-72
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:57:19-72
 activity#com.laxiong.Activity.ChangeBindPhoneActivity1
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:60:9-82
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:60:9-82
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:60:19-79
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:60:19-79
 activity#com.laxiong.Activity.ChangeBindPhoneActivity2
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:61:9-82
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:61:9-82
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:61:19-79
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:61:19-79
 activity#com.laxiong.Activity.ChangeLoginPswdActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:62:9-81
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:62:9-81
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:62:19-78
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:62:19-78
 activity#com.laxiong.Activity.RegistActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:71:9-72
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:71:9-72
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:71:19-69
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:71:19-69
 activity#com.laxiong.Activity.LoginActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:74:9-71
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:74:9-71
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:74:19-68
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:74:19-68
 activity#com.laxiong.Activity.FoundPswdActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:77:9-75
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:77:9-75
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:77:19-72
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:77:19-72
 activity#com.laxiong.Activity.ChangeCountActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:80:9-77
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:80:9-77
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:80:19-74
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:80:19-74
 activity#com.laxiong.Activity.TimeXiTongActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:83:9-76
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:83:9-76
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:83:19-73
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:83:19-73
 activity#com.laxiong.Activity.MessageActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:84:9-73
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:84:9-73
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:84:19-70
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:84:19-70
 activity#com.laxiong.Activity.GuXiBaoActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:87:9-73
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:87:9-73
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:87:19-70
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:87:19-70
 activity#com.laxiong.Activity.AssetActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:90:9-71
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:90:9-71
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:90:19-68
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:90:19-68
 activity#com.laxiong.Activity.AvailableBalanceActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:93:9-82
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:93:9-82
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:93:19-79
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:93:19-79
 activity#com.laxiong.Activity.EarningsSayActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:94:9-77
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:94:9-77
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:94:19-74
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:94:19-74
 activity#com.laxiong.Activity.WithdrawCashDetailsActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:95:9-85
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:95:9-85
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:95:19-82
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:95:19-82
 activity#com.laxiong.Activity.WithdrawCashActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:98:9-78
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:98:9-78
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:98:19-75
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:98:19-75
 activity#com.laxiong.Activity.WithdrawCashNoticeActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:99:9-84
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:99:9-84
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:99:19-81
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:99:19-81
 activity#com.laxiong.Activity.MainActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:102:9-70
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:102:9-70
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:102:19-67
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:102:19-67
 activity#com.laxiong.Activity.ModifyGestureActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:105:9-79
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:105:9-79
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:105:19-76
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:105:19-76
 activity#com.laxiong.Activity.TransferInActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:108:9-76
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:108:9-76
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:108:19-73
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:108:19-73
 activity#com.laxiong.Activity.TransferInResultActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:110:9-82
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:110:9-82
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:110:19-79
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:110:19-79
 activity#com.laxiong.Activity.TransferOutActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:112:9-77
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:112:9-77
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:112:19-74
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:112:19-74
 activity#com.laxiong.Activity.WebViewActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:115:9-73
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:115:9-73
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:115:19-70
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:115:19-70
 activity#com.laxiong.Activity.BuyingActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:116:9-72
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:116:9-72
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:116:19-69
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:116:19-69
 activity#com.laxiong.Activity.BuyingResultActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:117:9-78
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:117:9-78
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:117:19-75
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:117:19-75
 activity#com.laxiong.Activity.RechargeActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:120:9-74
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:120:9-74
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:120:19-71
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:120:19-71
 activity#com.laxiong.Activity.WelCenterActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:122:9-75
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:122:9-75
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:122:19-72
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:122:19-72
 activity#com.laxiong.Activity.RpExplainActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:124:9-75
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:124:9-75
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:124:19-72
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:124:19-72
 activity#com.laxiong.Activity.ExChangeActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:126:9-74
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:126:9-74
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:126:19-71
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:126:19-71
 activity#com.laxiong.Activity.MyYiBiActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:128:9-72
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:128:9-72
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:128:19-69
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:128:19-69
 activity#com.laxiong.Activity.TMallActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:130:9-140:20
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:130:9-71
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:130:19-68
-activity#com.laxiong.Activity.ChangePayPswdActivity1
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:174:9-80
-	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:174:19-77
-activity#com.laxiong.Activity.ChangePayPswdActivity2
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:175:9-80
-	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:175:19-77
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:130:19-68
 activity#com.laxiong.Activity.RechargeResultActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:230:9-80
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:133:9-80
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:230:19-77
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:133:19-77
 activity#com.laxiong.Activity.InvestmentRecordActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:233:9-82
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:136:9-82
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:233:19-79
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:136:19-79
 activity#com.laxiong.Activity.ResetPayPwdActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:234:9-77
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:137:9-77
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:234:19-74
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:137:19-74
 activity#com.laxiong.Activity.ChangePayPwdActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:235:9-78
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:138:9-78
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:235:19-75
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:138:19-75
 activity#com.laxiong.Activity.BankListActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:236:9-83
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:139:9-83
 	android:name
-		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:236:19-71
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:139:19-71

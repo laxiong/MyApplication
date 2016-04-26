@@ -52,7 +52,7 @@ public class WelCenter_Presenter implements Model_RedPaper.OnLoadPaperListener {
         if (list.size() == 0) {
             iviewcenter.addList(true, isused, new ArrayList<RedPaper>());
         } else {
-            iviewcenter.setMaxPage((list.size() / PAGECOUNT)+1);
+            iviewcenter.setMaxPage((list.size() / (PAGECOUNT + 1)) + 1);
             iviewcenter.addList(true, isused, list.subList(0, list.size() > 10 ? 10 : list.size()));
         }
     }

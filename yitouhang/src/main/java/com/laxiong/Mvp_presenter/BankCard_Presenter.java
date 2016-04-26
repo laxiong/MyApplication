@@ -2,15 +2,14 @@ package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
 
-import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_model.BankCard;
-import com.laxiong.Mvp_model.BaseCard;
 import com.laxiong.Mvp_model.BindCardItem;
 import com.laxiong.Mvp_model.Model_card;
-import com.laxiong.Mvp_view.IViewBankCard;
 import com.laxiong.Mvp_view.IViewBindCard;
 import com.laxiong.Mvp_view.IViewCardList;
+import com.laxiong.Mvp_view.IViewWithdraw;
+import com.laxiong.Utils.ToastUtil;
 import com.loopj.android.http.RequestParams;
 
 import java.util.List;
@@ -21,7 +20,7 @@ import java.util.List;
  */
 public class BankCard_Presenter extends CommonReq_Presenter implements Model_card.OnLoadBankCardListener {
     private IViewBindCard iviewbank;
-    private IViewBankCard iviewbankcard;
+    private IViewWithdraw iviewbankcard;
     private Model_card mcard;
     public static final String TYPE_CODE = "code";
     public static final String TYPE_CARD = "card";
@@ -32,7 +31,8 @@ public class BankCard_Presenter extends CommonReq_Presenter implements Model_car
         this.iviewbank = iviewbank;
     }
 
-    public BankCard_Presenter(IViewBankCard iviewbankcard) {
+    public BankCard_Presenter(IViewWithdraw iviewbankcard) {
+        super(iviewbankcard);
         this.iviewbankcard = iviewbankcard;
         this.mcard = new Model_card();
     }
@@ -77,6 +77,16 @@ public class BankCard_Presenter extends CommonReq_Presenter implements Model_car
         params.put("name",iviewbank.getName());
         params.put("org_id",iviewbank.getCardId());
         params.put("phone", iviewbank.getPhoneNum());
-        aureqByPost(InterfaceInfo.BINDCARD_URL,context,params,null);
+        aureqByPost(InterfaceInfo.BINDCARD_URL, context, params, TYPE_CARD);
+    }
+    public void loadBankCard(Context context){
+        mcard.loadBankCard(context, this);
+    }
+    public void widthdrawCash(Context context,int id,double cash,String pwd){
+        RequestParams params=new RequestParams();
+        params.put("bank_id",id);
+        params.put("amount",cash);
+        params.put("pay_pwd",pwd);
+        aureqByPost(InterfaceInfo.WITHDRAW_URL,context,params,null);
     }
 }

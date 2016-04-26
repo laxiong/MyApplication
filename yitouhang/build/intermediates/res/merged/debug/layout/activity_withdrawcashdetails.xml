@@ -63,7 +63,8 @@
                 android:textColor="#A6A6A6"
                 android:gravity="center_vertical"
                 />
-            <TextView 
+            <TextView
+                android:id="@+id/tv_cash"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="2,186.85元"
@@ -87,7 +88,8 @@
                 android:textColor="#A6A6A6"
                 android:gravity="center_vertical"
                 />
-            <TextView 
+            <TextView
+                android:id="@+id/tv_fee"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="21.85元"
@@ -111,7 +113,8 @@
                 android:textColor="#A6A6A6"
                 android:gravity="center_vertical"
                 />
-            <TextView 
+            <TextView
+                android:id="@+id/tv_result"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="2,086.85元"
@@ -135,7 +138,8 @@
                 android:textColor="#A6A6A6"
                 android:gravity="center_vertical"
                 />
-            <TextView 
+            <TextView
+                android:id="@+id/tv_bank"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="招商银行(尾号9970)"
@@ -218,7 +222,8 @@
                     android:textColor="#A6A6A6"
                     android:gravity="center_vertical"
                     />
-                <TextView 
+                <TextView
+                    android:id="@+id/tv_time"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="2016-03-20 16:28"

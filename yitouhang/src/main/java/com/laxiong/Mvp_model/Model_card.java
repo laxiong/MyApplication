@@ -2,6 +2,7 @@ package com.laxiong.Mvp_model;
 
 import android.content.Context;
 import android.graphics.YuvImage;
+import android.util.Log;
 
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.CommonReq;
@@ -52,18 +53,19 @@ public class Model_card {
             }
         });
     }
-    public void loadBankCard(Context context, RequestParams params, final OnLoadBankCardListener listener) {
+    public void loadBankCard(Context context,final OnLoadBankCardListener listener) {
         this.listener = listener;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
-        HttpUtil.get(InterfaceInfo.BINDCARD_URL, params, new JsonHttpResponseHandler() {
+        HttpUtil.get(InterfaceInfo.MYCARD_URL, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
+                            Log.i("kk","look card"+response.toString());
                             BankCard card = JSONUtils.parseObject(response.toString(), BankCard.class);
                             listener.onSuccess(card);
                         } else {
