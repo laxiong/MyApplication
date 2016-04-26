@@ -22,6 +22,7 @@ import com.laxiong.Json.FinanceJsonBean;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.View.CircleProgressBar;
 import com.laxiong.View.FinancingListView;
+import com.laxiong.View.PrecentCricleBar;
 import com.laxiong.entity.FinanceInfo;
 import com.laxiong.yitouhang.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -176,6 +177,8 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 
 						mViewHonder.mNewPerson = (RelativeLayout)view.findViewById(R.id.new_person);
 						mViewHonder.mLimitDay = (TextView)view.findViewById(R.id.limit_day);
+
+						mViewHonder.mEnought=(PrecentCricleBar)view.findViewById(R.id.precent_enough);
 						break;
 				}
 				view.setTag(mViewHonder);
@@ -206,7 +209,10 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						mViewHonder.mPoint.setTextColor(Color.parseColor("#FFE2A42A"));
 						double apr = sxt.getApr();
 						if(isInterge(apr)){
-							mViewHonder.mInterge.setText(String.valueOf(apr));
+							String aprStr = String.valueOf(apr);
+							String[] arr = aprStr.split("[.]");
+							String zhengshu = arr[0];
+							mViewHonder.mInterge.setText(zhengshu);
 							mViewHonder.mPoint.setVisibility(View.GONE);
 						}else{
 							mViewHonder.mPoint.setVisibility(View.VISIBLE);
@@ -218,15 +224,29 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 							mViewHonder.mPoint.setText("."+xiaoshu);
 						}
 					}
-					if(mViewHonder.mCircleProgressView!=null)
+					if(mViewHonder.mCircleProgressView!=null&&mViewHonder.mEnought!=null){
+							if (sxt.getPercent()==100.0){
+								mViewHonder.mCircleProgressView.setVisibility(View.INVISIBLE);
+								mViewHonder.mEnought.setVisibility(View.VISIBLE);
+							}else {
+								mViewHonder.mCircleProgressView.setVisibility(View.VISIBLE);
+								mViewHonder.mEnought.setVisibility(View.INVISIBLE);
+							}
+						mViewHonder.mEnought.setPaintColor("#FFE2A42A");
 						mViewHonder.mCircleProgressView.setPaintColor("#FFE2A42A");
 						mViewHonder.mCircleProgressView.setProgress(Float.parseFloat(String.valueOf(sxt.getPercent())),
 								mViewHonder.iv);
+					}
 
-					if(mViewHonder.vip_addbf!=null)
-						mViewHonder.vip_addbf.setVisibility(View.VISIBLE);
-					mViewHonder.vip_addbf.setText("+"+String.valueOf(sxt.getVip()));
-					mViewHonder.vip_addbf.setTextColor(Color.parseColor("#FFE2A42A"));
+					if(mViewHonder.vip_addbf!=null){
+						if (sxt.getVip()==0.0){
+							mViewHonder.vip_addbf.setVisibility(View.INVISIBLE);
+						}else {
+							mViewHonder.vip_addbf.setVisibility(View.VISIBLE);
+							mViewHonder.vip_addbf.setText("+"+String.valueOf(sxt.getVip())+"%");
+							mViewHonder.vip_addbf.setTextColor(Color.parseColor("#FFE2A42A"));
+						}
+					}
 
 					// 新手标
 					double bird = sxt.getBird();
@@ -265,7 +285,10 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						mViewHonder.mPoint.setTextColor(Color.parseColor("#FFE2A42A"));
 						double apr = gxb.getApr();
 						if(isInterge(apr)){
-							mViewHonder.mInterge.setText(String.valueOf(apr));
+							String aprStr = String.valueOf(apr);
+							String[] arr = aprStr.split("[.]");
+							String zhengshu = arr[0];
+							mViewHonder.mInterge.setText(zhengshu);
 							mViewHonder.mPoint.setVisibility(View.GONE);
 						}else{
 							mViewHonder.mPoint.setVisibility(View.VISIBLE);
@@ -277,15 +300,29 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 							mViewHonder.mPoint.setText("."+xiaoshu);
 						}
 					}
-					if(mViewHonder.mCircleProgressView!=null)
+					if(mViewHonder.mCircleProgressView!=null&&mViewHonder.mEnought!=null){
+						if (gxb.getPercent()==100.0){
+							mViewHonder.mCircleProgressView.setVisibility(View.INVISIBLE);
+							mViewHonder.mEnought.setVisibility(View.VISIBLE);
+						}else {
+							mViewHonder.mCircleProgressView.setVisibility(View.VISIBLE);
+							mViewHonder.mEnought.setVisibility(View.INVISIBLE);
+						}
+						mViewHonder.mEnought.setPaintColor("#FFE2A42A");
 						mViewHonder.mCircleProgressView.setPaintColor("#FFE2A42A");
 						mViewHonder.mCircleProgressView.setProgress(Float.parseFloat(String.valueOf(gxb.getPercent())),
 								mViewHonder.iv);
+					}
 //
-					if(mViewHonder.vip_addbf!=null)
-						mViewHonder.vip_addbf.setVisibility(View.VISIBLE);
-					mViewHonder.vip_addbf.setText("+" + String.valueOf(gxb.getVip()));
-					mViewHonder.vip_addbf.setTextColor(Color.parseColor("#FFE2A42A"));
+					if(mViewHonder.vip_addbf!=null){
+						if (gxb.getVip()==0.0){
+							mViewHonder.vip_addbf.setVisibility(View.INVISIBLE);
+						}else {
+							mViewHonder.vip_addbf.setVisibility(View.VISIBLE);
+							mViewHonder.vip_addbf.setText("+"+String.valueOf(gxb.getVip())+"%");
+							mViewHonder.vip_addbf.setTextColor(Color.parseColor("#FFE2A42A"));
+						}
+					}
 
 					// 新手标
 					double bird = gxb.getBird();
@@ -339,6 +376,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		TextView mText_section;
 		//CircleProgressView mCircleProgressView ;    // 没有百分比的
 		CircleProgressBar mCircleProgressView;
+		PrecentCricleBar mEnought ;  // 100%售完的显示图片
 		TextView baifenbi;
 		TextView mInterge;
 		TextView mPoint;

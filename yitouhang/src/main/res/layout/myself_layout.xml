@@ -223,7 +223,7 @@
             android:background="@color/divider_grey" />
 
         <RelativeLayout
-        android:id="@+id/itmall"
+        android:id="@+id/rl_1t"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

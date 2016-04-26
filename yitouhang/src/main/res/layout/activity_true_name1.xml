@@ -20,7 +20,7 @@
             android:id="@+id/imgs1"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:background="@drawable/corners_border"
+            android:src="@drawable/img_yanzheng_xz"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="18dp"
             />
@@ -36,8 +36,8 @@
             android:id="@+id/imgs2"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:background="@drawable/corners_border"
             android:layout_marginTop="18dp"
+            android:src="@drawable/img_shezhimm_mr"
             android:layout_centerHorizontal="true"
             />
         <View
@@ -52,7 +52,7 @@
             android:id="@+id/imgs3"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:background="@drawable/corners_border"
+            android:src="@drawable/img_yinhangka_mr"
             android:layout_marginTop="18dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="60dp"
@@ -66,7 +66,7 @@
             android:layout_below="@+id/imgs1"
             android:layout_toLeftOf="@+id/setpassword"
             android:layout_marginRight="40dp"
-            android:text="完善个人信息"
+            android:text="验证个人信息"
             android:textSize="11dp" />
 
         <TextView
@@ -251,6 +251,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:text="获取验证码"
+                android:textColor="@color/money_org"
                 android:gravity="center"
                 android:layout_marginRight="22dp"
                 android:textSize="13dp"

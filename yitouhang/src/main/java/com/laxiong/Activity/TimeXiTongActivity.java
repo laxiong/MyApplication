@@ -56,34 +56,25 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 				if (str == null || str.equals("") || str.length() == 0) {
 					Toast.makeText(TimeXiTongActivity.this, "输入整数", Toast.LENGTH_SHORT).show();
 				}
-
 			}
-
 			@Override
 			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
 										  int arg3) {
-
 			}
-
 			@Override
 			public void afterTextChanged(Editable arg0) {
 				String day = mJiDay.getText().toString().trim();
-
 				//TODO  TextView 的计算结果显示
 				if (mJiMoney != null && mJiMoney.getText().toString().trim().length() != 0 && !mJiMoney.getText().toString().trim().equals("")) {
 					if (day != null && day.length() != 0 && !day.equals("")) {
-
 						int tD = Integer.parseInt(day);
 						int tM = Integer.parseInt(mJiMoney.getText().toString().trim());
 						double lu = 0.072;
-
 						// 保留小数点三位
 						NumberFormat mFormat = NumberFormat.getNumberInstance();
 						mFormat.setMaximumFractionDigits(3);
 						String comfixNum = mFormat.format(backComfix(tM, tD, lu));
-
 						mJiGetMoney.setText(comfixNum);
-
 					}
 				}
 			}
@@ -97,36 +88,28 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 					Toast.makeText(TimeXiTongActivity.this, "输入整数", Toast.LENGTH_SHORT).show();
 				}
 			}
-
 			@Override
 			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
 										  int arg3) {
-
 			}
-
 			@Override
 			public void afterTextChanged(Editable arg0) {
 				String money = mJiMoney.getText().toString().trim();
-
 				//TODO  TextView 的计算结果显示
 				if (mJiDay != null && mJiDay.getText().toString().trim().length() != 0 && !mJiDay.getText().toString().trim().equals("")) {
 					if (money != null && money.length() != 0 && !money.equals("")) {
-
 						int tM = Integer.parseInt(money);
 						int tD = Integer.parseInt(mJiDay.getText().toString().trim());
 						double lu = 0.72;
-
 						// 保留小数点三位
 						NumberFormat mFormat = NumberFormat.getNumberInstance();
 						mFormat.setMaximumFractionDigits(3);
 						String comfixNum = mFormat.format(backComfix(tM, tD, lu));
-
 						mJiGetMoney.setText(comfixNum);
 					}
 				}
 			}
 		});
-		
 	}
 
 	private void initView() {
@@ -149,7 +132,6 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 		mId = getIntent().getIntExtra("id",-1);
 	}
 
-	
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
@@ -178,7 +160,6 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 	 */
 	private double backComfix(float money,float day, double lu){
 		double backMoney = money*lu*(day/365)+money;
-		
 		return backMoney ;
 	}
 
@@ -193,9 +174,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 				if (response!=null){
 					try {
 						if (response.getInt("code")==0){
-
 							updataUi(response);
-
 						}else {
 							Toast.makeText(TimeXiTongActivity.this,response.getString("msg"),Toast.LENGTH_SHORT).show();
 						}
@@ -227,6 +206,4 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 		}
 	}
 
-
-	
 }

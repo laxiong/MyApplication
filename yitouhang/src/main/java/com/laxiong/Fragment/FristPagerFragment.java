@@ -43,7 +43,8 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 	
 	private RelativeLayout mNewBiao , mGuXiBao , mTimeXiTong ;  // 新手标  固息宝  时息通
 	private TextView mNew ,mNew_tv ,mSxt,mSxt_tv,mGxb,mGxb_tv,mAmount,mSolid,mTouTiao,mCental;
-	private String mNewbUrl,mSxtUrl,mGxbUrl,mCentalUrl,mAdTitle;
+	private String mCentalUrl,mAdTitle;
+	private int mGxbId,mSxtId,mNewbId ;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -97,21 +98,21 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 	public void onClick(View v) {
 		switch(v.getId()){
 			case R.id.new_biao:	//
-
+				startActivity(new Intent(getActivity(),
+						GuXiBaoActivity.class).putExtra("id",mNewbId));
 
 				break;
+
 			case R.id.gu_xibao:
-				if (mGxbUrl!=null) {
 					startActivity(new Intent(getActivity(),
-							GuXiBaoActivity.class).putExtra("url",mGxbUrl));
-				}
+							GuXiBaoActivity.class).putExtra("id",mGxbId));
 				break;
+
 			case R.id.time_xitong:
-				if (mSxtUrl!=null) {
 					startActivity(new Intent(getActivity(),
-							TimeXiTongActivity.class).putExtra("url",mSxtUrl));
-				}
+							TimeXiTongActivity.class).putExtra("id",mSxtId));
 				break;
+
 			case R.id.cental:
 				if(mCentalUrl!=null&&mAdTitle!=null){
 					startActivity(new Intent(getActivity(),
@@ -212,17 +213,17 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 					JSONObject xinobj = ARRA.getJSONObject(0);
 					mNew.setText(xinobj.getString("name"));
 					mNew_tv.setText(xinobj.getString("title"));
-					mNewbUrl = xinobj.getString("url");
+					mNewbId = xinobj.getInt("product");
 
 					JSONObject sxtobj = ARRA.getJSONObject(1);
 					mSxt.setText(sxtobj.getString("name"));
 					mSxt_tv.setText(sxtobj.getString("title"));
-					mSxtUrl = sxtobj.getString("url");
+					mSxtId = sxtobj.getInt("product");
 
 					JSONObject gxbobj = ARRA.getJSONObject(2);
 					mGxb.setText(gxbobj.getString("name"));
 					mGxb_tv.setText(gxbobj.getString("title"));
-					mGxbUrl = gxbobj.getString("url");
+					mGxbId = gxbobj.getInt("product");
 				}
 			}
 		}catch (Exception E){

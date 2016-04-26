@@ -26,6 +26,7 @@ import com.laxiong.Json.FinanceJsonBean;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.View.CircleProgressBar;
 import com.laxiong.View.FinancingListView;
+import com.laxiong.View.PrecentCricleBar;
 import com.laxiong.entity.FinanceInfo;
 import com.laxiong.yitouhang.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -50,22 +51,21 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 
 	private FinanceJsonBean  mFinanBean = null;
 	private FinancingListView mListView ;
+
+	private  List<FinanceInfo>  mList = new ArrayList<FinanceInfo>() ;// 全是固息宝的
+	private int listNum ;  // 刷新加载更多所有的个数
 	
 	private Handler handler = new Handler() {
 	      @Override
 	      public void handleMessage(Message msg) {
 	           super.handleMessage(msg);
 	           switch (msg.what){
-	               case 1:
-	            	    Toast.makeText(getActivity(), "完成刷新", Toast.LENGTH_SHORT).show();
-//	            	    mPinnedSectionListView.completeRefresh();
-					   	mListView.completeRefresh();
-	                    break;
-	               case 2:
-	            	    Toast.makeText(getActivity(), "完成加载更多", Toast.LENGTH_SHORT).show();
-//	            	    mPinnedSectionListView.completeRefresh();
-					   	mListView.completeRefresh();
-	                    break;
+				   case 1:
+					   mListView.completeRefresh();
+					   break;
+				   case 2:
+					   mListView.completeRefresh();
+					   break;
 	           }
 	       }
 	  };
@@ -86,22 +86,31 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 
 		mListView = (FinancingListView)view.findViewById(R.id.Listview);
 		getProductInfo();
-		mListView.setOnRefreshListener(new FinancingListView.OnRefreshListener() {
-			@Override
-			public void onPullRefresh() {
-				//请求数据，更新数据
-				requestDataFromServer(true);
-				Toast.makeText(getActivity(), "正在刷新", Toast.LENGTH_SHORT).show();
-			}
-			@Override
-			public void onLoadingMore() {
-				requestDataFromServer(false);
-				Toast.makeText(getActivity(), "正在加载更多", Toast.LENGTH_SHORT).show();
-			}
-		});
+		mListView.setOnRefreshListener(mRefresh);
 
 	}
-	
+
+	FinancingListView.OnRefreshListener mRefresh = new FinancingListView.OnRefreshListener(){
+		// 刷新
+		@Override
+		public void onPullRefresh() {
+			requestDataFromServer(true);
+			pager = 1;
+			getProductInfo();
+		}
+		//加载更多
+		@Override
+		public void onLoadingMore() {
+			requestDataFromServer(false);
+			if (listNum >= mList.size()+1) {
+				pager = pager + 1;
+				getProductInfo();
+			}else {
+				Toast.makeText(getActivity(),"全部加载完毕",Toast.LENGTH_SHORT).show();
+			}
+		}
+	};
+
 	private void requestDataFromServer(final boolean isLoading){
 		new Thread(){
 			public void run() {
@@ -116,7 +125,6 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 				handler.sendMessage(msg);
 			};
 		}.start();
-		
 	}
 
 	@Override
@@ -131,16 +139,14 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 
 	//Financing Adapter
 	class mFinanceAdapter extends BaseAdapter{
-
 		private int currentType;  //当前item类型
 		private static final int TYPE_COUNT = 2;//item类型的总数
 		private static final int TYPE_Title = 0;// 标题
 		private static final int TYPE_Content = 1;//内容
-
 		@Override
 		public int getCount() {
 			if(mFinanBean!=null){
-				int count = 3+mFinanBean.getGxb().size();
+				int count = 3+mList.size();
 				return count ;
 			}
 			return 0;
@@ -164,8 +170,8 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 					case TYPE_Title:
 						view = LayoutInflater.from(getActivity()).inflate(R.layout.item_section,null);
 						mViewHonder.mText_section = (TextView)view.findViewById(R.id.section);
-
 						break;
+
 					case  TYPE_Content:
 						view = LayoutInflater.from(getActivity()).inflate(R.layout.item_items,null);
 						mViewHonder.mText_vip = (TextView)view.findViewById(R.id.vip_baifenbi);
@@ -178,6 +184,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 
 						mViewHonder.mNewPerson = (RelativeLayout)view.findViewById(R.id.new_person);
 						mViewHonder.mLimitDay = (TextView)view.findViewById(R.id.limit_day);
+						mViewHonder.mEnought=(PrecentCricleBar)view.findViewById(R.id.precent_enough);
 						break;
 				}
 				view.setTag(mViewHonder);
@@ -196,11 +203,14 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 			}
 			if(currentType == TYPE_Content){
 				if(i==1){  // 时息通
-					FinanceInfo sxt = mFinanBean.getSxt();
+					final FinanceInfo sxt = mFinanBean.getSxt();
 					if(mViewHonder.mInterge!=null&&mViewHonder.mPoint!=null) {
 						double apr = sxt.getApr();
 						if(isInterge(apr)){
-							mViewHonder.mInterge.setText(String.valueOf(apr));
+							String aprStr = String.valueOf(apr);
+							String[] arr = aprStr.split("[.]");
+							String zhengshu = arr[0];
+							mViewHonder.mInterge.setText(zhengshu);
 							mViewHonder.mPoint.setVisibility(View.GONE);
 						}else{
 							mViewHonder.mPoint.setVisibility(View.VISIBLE);
@@ -212,10 +222,32 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 							mViewHonder.mPoint.setText("."+xiaoshu);
 						}
 					}
-					if(mViewHonder.mCircleProgressView!=null)
-						mViewHonder.mCircleProgressView.setPaintColor("#FFEE4E42");
-						mViewHonder.mCircleProgressView.setProgress(Float.parseFloat(String.valueOf(sxt.getPercent())),
-								mViewHonder.iv);
+					if(mViewHonder.mCircleProgressView!=null&&mViewHonder.mEnought!=null){
+						mViewHonder.mEnought.setPaintColor("#D8D8D8");
+						if (sxt.getPercent()==100.0){
+							mViewHonder.mCircleProgressView.setVisibility(View.INVISIBLE);
+							mViewHonder.mCircleProgressView.setPaintColor("#FFEE4E42");
+							mViewHonder.mCircleProgressView.setProgress(Float.parseFloat(String.valueOf(sxt.getPercent())),
+									mViewHonder.iv);
+							mViewHonder.mEnought.setVisibility(View.VISIBLE);
+						}else {
+							mViewHonder.mEnought.setVisibility(View.INVISIBLE);
+							mViewHonder.mCircleProgressView.setVisibility(View.VISIBLE);
+							mViewHonder.mCircleProgressView.setPaintColor("#FFEE4E42");
+							mViewHonder.mCircleProgressView.setProgress(Float.parseFloat(String.valueOf(sxt.getPercent())),
+									mViewHonder.iv);
+						}
+					}
+
+					if(mViewHonder.mText_vip!=null){
+						if (sxt.getVip()==0.0){
+							mViewHonder.mText_vip.setVisibility(View.INVISIBLE);
+						}else {
+							mViewHonder.mText_vip.setVisibility(View.VISIBLE);
+							mViewHonder.mText_vip.setText("+" + String.valueOf(sxt.getVip())+"%");
+						}
+					}
+
 					// 新手标
 					double bird = sxt.getBird();
 					if(mViewHonder.mNewPerson!=null){
@@ -247,17 +279,20 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						@Override
 						public void onClick(View view) {
 							getActivity().startActivity(new Intent(getActivity(),
-									TimeXiTongActivity.class));
+									TimeXiTongActivity.class).putExtra("id", sxt.getId()));
 						}
 					});
 
 				}else if (i>=3){ // 固息宝
-					List<FinanceInfo> mList = mFinanBean.getGxb();
-					FinanceInfo gxb = mList.get(i-3);
+//					List<FinanceInfo> mListGXB = mFinanBean.getGxb();
+					final FinanceInfo gxb = mList.get(i-3);
 					if(mViewHonder.mInterge!=null&&mViewHonder.mPoint!=null) {
 						double apr = gxb.getApr();
 						if(isInterge(apr)){
-							mViewHonder.mInterge.setText(String.valueOf(apr));
+							String aprStr = String.valueOf(apr);
+							String[] arr = aprStr.split("[.]");
+							String zhengshu = arr[0];
+							mViewHonder.mInterge.setText(zhengshu);
 							mViewHonder.mPoint.setVisibility(View.GONE);
 						}else{
 							mViewHonder.mPoint.setVisibility(View.VISIBLE);
@@ -269,10 +304,32 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 							mViewHonder.mPoint.setText("."+xiaoshu);
 						}
 					}
-					if(mViewHonder.mCircleProgressView!=null)
-						mViewHonder.mCircleProgressView.setPaintColor("#FFEE4E42");
-						mViewHonder.mCircleProgressView.setProgress(Float.parseFloat(String.valueOf(gxb.getPercent())),
-								mViewHonder.iv);
+					if(mViewHonder.mCircleProgressView!=null&&mViewHonder.mEnought!=null){
+						mViewHonder.mEnought.setPaintColor("#D8D8D8");
+						if (gxb.getPercent()==100.0){
+							mViewHonder.mCircleProgressView.setVisibility(View.INVISIBLE);
+							mViewHonder.mCircleProgressView.setPaintColor("#FFEE4E42");
+							mViewHonder.mCircleProgressView.setProgress(Float.parseFloat(String.valueOf(gxb.getPercent())),
+									mViewHonder.iv);
+							mViewHonder.mEnought.setVisibility(View.VISIBLE);
+
+						}else {
+							mViewHonder.mEnought.setVisibility(View.INVISIBLE);
+							mViewHonder.mCircleProgressView.setVisibility(View.VISIBLE);
+							mViewHonder.mCircleProgressView.setPaintColor("#FFEE4E42");
+							mViewHonder.mCircleProgressView.setProgress(Float.parseFloat(String.valueOf(gxb.getPercent())),
+									mViewHonder.iv);
+						}
+					}
+
+					if(mViewHonder.mText_vip!=null){
+						if (gxb.getVip()==0.0){
+							mViewHonder.mText_vip.setVisibility(View.INVISIBLE);
+						}else {
+							mViewHonder.mText_vip.setVisibility(View.VISIBLE);
+							mViewHonder.mText_vip.setText("+" + String.valueOf(gxb.getVip())+"%");
+						}
+					}
 
 					// 新手标
 					double bird = gxb.getBird();
@@ -303,8 +360,9 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						view.setOnClickListener(new OnClickListener() {
 							@Override
 							public void onClick(View view) {
+								Log.i("GXB","股息宝的Id参数"+(i-3)+" ==========："+gxb.getId());
 								getActivity().startActivity(new Intent(getActivity(),
-										GuXiBaoActivity.class));
+										GuXiBaoActivity.class).putExtra("id", gxb.getId()));
 							}
 						});
 				}
@@ -320,7 +378,6 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 				return TYPE_Content ;
 			}
 		}
-
 		@Override
 		public int getViewTypeCount() {
 			return TYPE_COUNT;
@@ -331,16 +388,14 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 	 */
 	class ViewHonder {
 		TextView mText_section;
-		//CircleProgressView mCircleProgressView ;    // 没有百分比的
-		CircleProgressBar mCircleProgressView;
+		CircleProgressBar mCircleProgressView;//正常的情况下显示的
+		PrecentCricleBar mEnought ;  //100%时显示的
 		TextView mText_vip;
 		TextView mInterge; //整位数
 		TextView mPoint; // 小数点后的数
 		ImageView iv; //放cricleprogressbar的节点
-
 		TextView mProject ;
 		TextView profit_tv ;
-
 		RelativeLayout mNewPerson ; //新手标
 		TextView mLimitDay ; // 日期
 	}
@@ -356,30 +411,28 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 
 
 	// 获取产品信息
+	private int pager = 1;
    private void getProductInfo(){
 	   RequestParams params = new RequestParams();
-	   params.put("p","1");
+	   params.put("p",pager);
 	   params.put("limit", "10");
-
 	   HttpUtil.get(InterfaceInfo.PRODUCT_URL,params,new JsonHttpResponseHandler(){
 		   @Override
 		   public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 			   super.onSuccess(statusCode, headers, response);
-
-			   List<FinanceInfo>   mList = null ;
 			   if(response!=null){
 				   try {
-					   Log.i("URL", "code码：=" + response.getInt("code"));
 					   if (response.getInt("code") == 0) {
-						   mFinanBean = new FinanceJsonBean();
-
-						   JSONObject sxt = response.getJSONObject("sxt");
-						   FinanceInfo sxtInfo = setProductInfo(sxt);  // 时息通
-						   mFinanBean.setSxt(sxtInfo);
-
-						  JSONArray gxb =  response.getJSONArray("gxb"); // 固息宝
+						   // 时息通
+						   if (pager == 1) {
+							   mFinanBean = new FinanceJsonBean();
+							   JSONObject sxt = response.getJSONObject("sxt");
+							   FinanceInfo sxtInfo = setProductInfo(sxt);
+							   mFinanBean.setSxt(sxtInfo);
+						   }
+						   // 固息宝
+						   JSONArray gxb =  response.getJSONArray("gxb");
 						   if(gxb.length()>0){
-							   mList = new ArrayList<FinanceInfo>();
 							   for (int i=0;i<gxb.length();i++){
 								   JSONObject gxb_obj = gxb.getJSONObject(i);
 								   FinanceInfo gxbInfo = setProductInfo(gxb_obj);
@@ -389,15 +442,18 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						   }
 						   mFinanBean.setMsg(response.getString("msg"));
 						   mFinanBean.setTime(response.getString("time"));
-						   //TODO 成功访问网络后setAdapter
-						   mListView.setAdapter(new mFinanceAdapter());
+						   listNum = response.getInt("ttnum");
 
+						   if(pager == 1){
+							   mListView.setAdapter(new mFinanceAdapter());
+						   }else {
+							   mListView.invalidate();
+						   }
 
 					   } else {
 						   Toast.makeText(getActivity(),response.getString("msg"),Toast.LENGTH_SHORT).show();
 					   }
 				   } catch (Exception e) {
-
 				   }
 			   }
 		   }
@@ -408,6 +464,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 		   }
 	   },true);
    }
+
 	// 设置产品的信息
 	private FinanceInfo  setProductInfo(JSONObject obj){
 		if(obj!=null){
@@ -445,4 +502,19 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 		}
 		return null ;
 	}
+
+//	// 显示正在加载的提示框
+//	private PopupWindow mShowDialog ;
+//	private View loadView ;
+//	public void showLoadingDialog(){
+//		loadView = LayoutInflater.from(getActivity()).inflate(R.layout.show_loading_popwindow,null);
+//		mShowDialog = new PopupWindow(loadView, ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT,true);
+//		mShowDialog.setTouchable(true);
+//		mShowDialog.setOutsideTouchable(true);
+//		// 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
+//		// 我觉得这里是API的一个bug
+//		mShowDialog.setBackgroundDrawable(getResources().getDrawable(R.drawable.kefu_bg)); //设置半透明
+//		mShowDialog.showAtLocation(loadView, Gravity.BOTTOM, 0, 0);
+//	}
+
 }

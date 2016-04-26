@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,6 +59,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 		mBuyBtn.setOnClickListener(this);
 
 		mId = getIntent().getIntExtra("id",-1);
+		Log.i("GXB","获取的Id："+mId);
 
 
 	}
@@ -241,10 +243,11 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 				if (response!=null){
 					try {
 						if (response.getInt("code")==0){
+							Log.i("WK","所有的对象："+response);
+							Log.i("WK","Title的值是："+response.getString("title"));
 							updataUi(response);
 							double percent = response.getDouble("percent");
 							setProgressNumHeight((float)percent);
-
 						}else {
 							Toast.makeText(GuXiBaoActivity.this,response.getString("msg"),Toast.LENGTH_SHORT).show();
 						}
@@ -263,9 +266,10 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 	private void updataUi(JSONObject response){
 		if (response!=null){
 			try{
+				Log.i("WK","APR的值是："+response.getDouble("apr"));
 				mPrecent.setText(String.valueOf(response.getDouble("apr")));
 				if (response.getInt("bird")==0) { // 不是新手
-					if(response.getDouble("vip")==0.0f){ //不是vip
+					if(response.getDouble("vip")==0.0){ //不是vip
 						mAddPrecent.setText("+"+String.valueOf(response.getDouble("present"))+"%");
 					}else {
 						mAddPrecent.setText("+"+String.valueOf(response.getDouble("accum"))+"%");
@@ -276,6 +280,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 					mAddOther.setText("+"+String.valueOf(response.getDouble("birdapr"))+"%");
 				}
 				mLastEran.setText(String.valueOf(response.getInt("members")));
+
 
 				JSONArray details = response.getJSONArray("details");
 				if (details.length()>0){

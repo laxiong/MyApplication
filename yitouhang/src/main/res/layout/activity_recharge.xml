@@ -177,8 +177,8 @@
 
         <ImageView
             android:id="@+id/toggle_img"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:src="@drawable/img_read"
             android:layout_centerVertical="true"
             />

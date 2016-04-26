@@ -28,6 +28,16 @@ public class FinanceJsonBean {
     private FinanceInfo sxt ;
     private List<FinanceInfo> gxb ;
 
+    public int getTtnum() {
+        return ttnum;
+    }
+
+    public void setTtnum(int ttnum) {
+        this.ttnum = ttnum;
+    }
+
+    private int ttnum ;
+
     public int getCode() {
         return code;
     }

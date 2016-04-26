@@ -85,14 +85,11 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener{
 				String code = mCode.getText().toString().trim();
 				String name = mName.getText().toString().trim();
 				String idcard = mIDcard.getText().toString().trim();
-//				String phone = mPhone.getText().toString().trim();
 
 				if (Common.inputContentNotNull(code)&&Common.inputContentNotNull(name)&&Common.inputContentNotNull(idcard)
 						){
 					if (isRead){
 						getNet();
-						startActivity(new Intent(TrueNameActivity1.this,
-								TrueNameActivity2.class));
 					}else {
 						Toast.makeText(TrueNameActivity1.this,"请选中以下协议",Toast.LENGTH_SHORT).show();
 					}
@@ -129,11 +126,9 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener{
 	TextWatcher watcher = new TextWatcher() {
 		@Override
 		public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
 		}
 		@Override
 		public void onTextChanged(CharSequence s, int start, int before, int count) {
-
 		}
 		@Override
 		public void afterTextChanged(Editable s) {
@@ -159,7 +154,6 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener{
 			public void onSuccess(int statusCode, Header[] headers,
 								  JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
-
 				if (response != null) {
 					try {
 						Log.i("URL", "code码：=" + response.getInt("code"));
@@ -172,7 +166,6 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener{
 							}
 						}
 					} catch (Exception e) {
-
 					}
 				}
 			}
@@ -181,7 +174,6 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener{
 			public void onFailure(int statusCode, Header[] headers,
 								  String responseString, Throwable throwable) {
 				super.onFailure(statusCode, headers, responseString, throwable);
-
 				stopThread = true;
 				Toast.makeText(TrueNameActivity1.this, "发送失败", Toast.LENGTH_SHORT).show();
 			}
@@ -215,7 +207,6 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener{
 				});
 			}
 		}).start();
-
 	}
 
 	// 点击下一步的反回数据到后台
@@ -234,6 +225,8 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener{
 					try{
 						if(response.getInt("code")==0){
 							Toast.makeText(TrueNameActivity1.this, "认证第一步成功", Toast.LENGTH_SHORT).show();
+							startActivity(new Intent(TrueNameActivity1.this,
+									TrueNameActivity2.class));
 						}else{
 							Toast.makeText(TrueNameActivity1.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 						}
@@ -244,11 +237,10 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener{
 			@Override
 			public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
 				super.onFailure(statusCode, headers, responseString, throwable);
-
+				Toast.makeText(TrueNameActivity1.this, "获取数据失败", Toast.LENGTH_SHORT).show();
 			}
 		},Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
 				YiTouApplication.getInstance().getUserLogin().getToken()));// 授权
-
 	}
 
 
