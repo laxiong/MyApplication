@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-=======
+    =======
     android:versionName="1.0" >
     <application
         android:name="com.laxiong.Application.YiTouApplication"
@@ -134,10 +134,10 @@
             <activity android:name="com.laxiong.Activity.MyYiBiActivity" />
             <!-- 壹币商城 -->
             <activity android:name="com.laxiong.Activity.TMallActivity" />
-        =======
+            =======
             <activity android:name="com.laxiong.Activity.BaseActivity" />
         </activity>
-=======
+        =======
         <activity android:name="com.laxiong.Activity.BaseActivity" />
 
         <!-- 日历账单 -->
@@ -232,6 +232,7 @@
         <activity android:name="com.laxiong.Activity.InvestmentRecordActivity" />
         <activity android:name="com.laxiong.Activity.ResetPayPwdActivity" />
         <activity android:name="com.laxiong.Activity.ChangePayPwdActivity" />
+        <activity android:name="com.laxiong.Activity.BankListActivity" />
     </application>
 
 </manifest>

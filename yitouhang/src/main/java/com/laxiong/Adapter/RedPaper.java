@@ -13,9 +13,10 @@ public class RedPaper implements Parcelable {
          * @param USED 已经用过的红包
          * @param UNUSED 没用过的红包
          */
-        USED(0, "已用过"), UNUSED(1, "没用过");
+        USED(3, "已用过"), UNUSED(0, "没用过");
         private int val;
         private String name;
+
         private UsetypeEnum(int val, String name) {
             this.val = val;
             this.name = name;
@@ -35,12 +36,14 @@ public class RedPaper implements Parcelable {
     private static final Creator CREATOR = new Creator() {
         @Override
         public Object createFromParcel(Parcel source) {
+            int in1 = source.readInt();
+            int in2 = source.readInt();
             String str1 = source.readString();
             String str2 = source.readString();
             String str3 = source.readString();
-            Integer in1 = source.readInt();
-            Integer in2 = source.readInt();
-            return new RedPaper(str1, str2, str3, in1, in2);
+            Integer in3 = source.readInt();
+            Integer in4 = source.readInt();
+            return new RedPaper(in1, in2, str1, str2, str3, in3, in4);
         }
 
         @Override
@@ -52,11 +55,13 @@ public class RedPaper implements Parcelable {
     public RedPaper() {
     }
 
-    private String papername;
-    private String expire;
-    private String explain;
-    private Integer type;
-    private Integer yuan;
+    private int id;
+    private int min;
+    private String redtype;
+    private String date;
+    private String rule;
+    private Integer is_used;
+    private Integer amount;
     private boolean selected;
 
     @Override
@@ -74,63 +79,78 @@ public class RedPaper implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.papername);
-        dest.writeString(this.expire);
-        dest.writeString(this.explain);
-        dest.writeInt(this.type);
-        dest.writeInt(this.yuan);
+        dest.writeInt(this.id);
+        dest.writeInt(this.min);
+        dest.writeString(this.redtype);
+        dest.writeString(this.date);
+        dest.writeString(this.rule);
+        dest.writeInt(this.is_used);
+        dest.writeInt(this.amount);
     }
 
-    public RedPaper(String papername, String expire, String explain, Integer type, Integer yuan) {
-        this.papername = papername;
-        this.expire = expire;
-        this.explain = explain;
-        this.type = type;
-        this.yuan = yuan;
+    public RedPaper(int id, int min, String redtype, String date, String rule, Integer is_used, Integer amount) {
+        this.id = id;
+        this.min = min;
+        this.redtype = redtype;
+        this.date = date;
+        this.rule = rule;
+        this.is_used = is_used;
+        this.amount = amount;
     }
 
-    @Override
-    public String toString() {
-        return "type="+this.type;
+    public int getId() {
+        return id;
     }
 
-    public String getPapername() {
-        return papername;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setPapername(String papername) {
-        this.papername = papername;
+    public int getMin() {
+        return min;
     }
 
-    public String getExpire() {
-        return expire;
+    public void setMin(int min) {
+        this.min = min;
     }
 
-    public void setExpire(String expire) {
-        this.expire = expire;
+    public String getRedtype() {
+        return redtype;
     }
 
-    public String getExplain() {
-        return explain;
+    public void setRedtype(String redtype) {
+        this.redtype = redtype;
     }
 
-    public void setExplain(String explain) {
-        this.explain = explain;
+    public String getDate() {
+        return date;
     }
 
-    public Integer getType() {
-        return type;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public String getRule() {
+        return rule;
     }
 
-    public Integer getYuan() {
-        return yuan;
+    public void setRule(String rule) {
+        this.rule = rule;
     }
 
-    public void setYuan(Integer yuan) {
-        this.yuan = yuan;
+    public Integer getIs_used() {
+        return is_used;
+    }
+
+    public void setIs_used(Integer is_used) {
+        this.is_used = is_used;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 }

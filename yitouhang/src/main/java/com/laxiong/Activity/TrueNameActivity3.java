@@ -15,30 +15,33 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.laxiong.Basic.BasicWatcher;
 import com.laxiong.Common.Constants;
 import com.laxiong.Mvp_presenter.BankCard_Presenter;
 import com.laxiong.Mvp_presenter.Handler_Presenter;
-import com.laxiong.Mvp_view.IViewBankCard;
+import com.laxiong.Mvp_view.IViewBindCard;
 import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 import com.laxiong.yitouhang.R;
 
-public class TrueNameActivity3 extends BaseActivity implements OnClickListener, IViewTimerHandler, IViewBankCard {
+public class TrueNameActivity3 extends BaseActivity implements OnClickListener, IViewBindCard {
     /****
      * 实名认证第三步
      */
-    private TextView mFinish;
+    private TextView mFinish,tv_bank;
+    private RelativeLayout rl_bank;
     private FrameLayout mBack;
     private ImageView toggleRead, mShowPswd;
-    private EditText et_card, et_phone, et_name, et_code;
-    private TextView tv_getCode;
-    private Handler_Presenter timepresenter;
+    private EditText et_card, et_phone, et_name;
     private BankCard_Presenter bpresenter;
+    private static final int REQUEST_CODE = 1;
+    private boolean bselected = false;
+    private String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,15 +52,28 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
     }
 
     @Override
-    public String getPhone() {
+    public String getName() {
+        return et_name.getText().toString();
+    }
+
+    @Override
+    public String getCardNum() {
+        return et_card.getText().toString();
+    }
+
+    @Override
+    public String getCardId() {
+        return id;
+    }
+
+    @Override
+    public String getPhoneNum() {
         return et_phone.getText().toString();
     }
 
     @Override
     public void reqbackSuc(String tag) {
-        if (BankCard_Presenter.TYPE_CODE.equals(tag)) {
-            ToastUtil.customAlert(this, "验证码获取成功!");
-        } else if (BankCard_Presenter.TYPE_CARD.equals(tag)) {
+        if (BankCard_Presenter.TYPE_CARD.equals(tag)) {
             ToastUtil.customAlert(this, "绑定银行卡成功!");
             showFinishDialog();
         }
@@ -68,28 +84,20 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
         ToastUtil.customAlert(this, msg);
     }
 
-    @Override
-    public void handlerViewByTime(int seconds) {
-        if (seconds > 0) {
-            tv_getCode.setText(seconds + "s");
-        } else {
-            tv_getCode.setText("获取验证码");
-        }
-    }
 
     private void initData() {
-        timepresenter = new Handler_Presenter(this);
         bpresenter = new BankCard_Presenter(this);
         mFinish.setOnClickListener(this);
         mBack.setOnClickListener(this);
         toggleRead.setOnClickListener(this);
         mShowPswd.setOnClickListener(this);
+        rl_bank.setOnClickListener(this);
         ValifyUtil.setEnabled(mFinish, false);
         TextWatcher tw = new BasicWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (!StringUtils.testBlankAll(et_name.getText().toString(), et_card.getText().toString()
-                        , et_code.getText().toString()) && ValifyUtil.valifyPhoneNum(et_phone.getText().toString())) {
+                if (!StringUtils.testBlankAll(et_name.getText().toString(), et_card.getText().toString())
+                        && ValifyUtil.valifyPhoneNum(et_phone.getText().toString()) && bselected&&!StringUtils.isBlank(id)) {
                     ValifyUtil.setEnabled(mFinish, true);
                 } else {
                     ValifyUtil.setEnabled(mFinish, false);
@@ -97,7 +105,6 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
             }
         };
         et_card.addTextChangedListener(tw);
-        et_code.addTextChangedListener(tw);
         et_name.addTextChangedListener(tw);
         et_phone.addTextChangedListener(tw);
     }
@@ -107,10 +114,10 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
         mBack = (FrameLayout) findViewById(R.id.back_layout);
         toggleRead = (ImageView) findViewById(R.id.toggle);
         TextView mTitle = (TextView) findViewById(R.id.title);
-        tv_getCode = (TextView) findViewById(R.id.tv_getCode);
         et_phone = (EditText) findViewById(R.id.et_phone);
         et_name = (EditText) findViewById(R.id.et_name);
-        et_code = (EditText) findViewById(R.id.et_code);
+        rl_bank= (RelativeLayout) findViewById(R.id.rl_bank);
+        tv_bank= (TextView) findViewById(R.id.tv_bank);
         mTitle.setText("实名认证");
 
         et_card = (EditText) findViewById(R.id.et_card);
@@ -134,14 +141,22 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
             case R.id.img_showpswd:
                 showPassWord();
                 break;
-            case R.id.tv_getCode:
-                if (ValifyUtil.valifyPhoneNum(et_phone.getText().toString())) {
-                    bpresenter.sendCode(TrueNameActivity3.this);
-                    timepresenter.loadHandlerTimer(Constants.INTERVAL, Constants.TIME);
-                } else {
-                    ToastUtil.customAlert(TrueNameActivity3.this, "手机号格式不对");
-                }
+            case R.id.rl_bank:
+                startActivityForResult(new Intent(this, BankListActivity.class), REQUEST_CODE);
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data != null && resultCode == RESULT_OK) {
+            String name = data.getStringExtra("bankname");
+            if (!StringUtils.isBlank(name)) {
+                tv_bank.setText(name);
+                bselected = true;
+                id=data.getStringExtra("id");
+            }
         }
     }
 

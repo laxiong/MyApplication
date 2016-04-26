@@ -24,5 +24,13 @@ public class InterfaceInfo {
 	public final static String SHOP_URL=BASE_URL+"/shoplist";
 	//购买
 	public final static String SHOPORDER_URL=BASE_URL+"/shoporder";
+	//用户红包
+	public final static String REDPAPER_URL=BASE_URL+"/luck";
+	//添加银行卡
+	public final static String BINDCARD_URL=BASE_URL+"/bankcard";
+	//我的银行卡
+	public final static String MYCARD_URL=BASE_URL+"/bank";
+	//银行卡列表
+	public final static String BANKLIST_URL=BASE_URL+"/banklist";
 
 }

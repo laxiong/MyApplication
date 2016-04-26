@@ -56,7 +56,7 @@ public class MySelfFragment extends Fragment implements OnClickListener{
 		Recharge = (RelativeLayout)view.findViewById(R.id.recharge);
 		mTouZiLayout = (RelativeLayout)view.findViewById(R.id.touzi_layout);
 
-		mItMall =(RelativeLayout)view.findViewById(R.id.rl_1t);
+		mItMall =(RelativeLayout)view.findViewById(R.id.itmall);
 		mRedBao =(RelativeLayout)view.findViewById(R.id.myredbao);
 	}
 
@@ -87,7 +87,7 @@ public class MySelfFragment extends Fragment implements OnClickListener{
 				startActivity(new Intent(getActivity(),
 						WelCenterActivity.class));
 				break;
-			case R.id.rl_1t: //IT商城
+			case R.id.itmall: //IT商城
 				startActivity(new Intent(getActivity(),
 						TMallActivity.class));
 				break;

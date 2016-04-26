@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,10 +23,12 @@ import com.laxiong.Adapter.RedPaperAdapter;
 import com.laxiong.Basic.BackListener;
 import com.laxiong.Mvp_presenter.WelCenter_Presenter;
 import com.laxiong.Mvp_view.IViewWelcenter;
+import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
 import com.laxiong.yitouhang.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by win7 on 2016/4/6.
@@ -44,6 +47,7 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
     private int totalpage = -1, pagenow = -1;
     private LinearLayout ll_bottom;
     private boolean isbottom;
+    private boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,11 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
         initView();
         initData();
         initListener();
+    }
+
+    @Override
+    public void setPageNow(int pagenow) {
+        this.pagenow = pagenow;
     }
 
     private void initView() {
@@ -82,23 +91,34 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
     private void initData() {
         intent_select = getIntent();
         actionbar.setTitle("福利中心");
-        boolean flag=getIntent()!=null&&getIntent().getBooleanExtra("used",false);
+        flag = getIntent() != null && getIntent().getBooleanExtra("used", false);
         listselect = new ArrayList<RedPaper>();
         listdata = new ArrayList<RedPaper>();
-        listdata = presenter.reqRedPaperList(pagenow = 1,flag);
-        adapter = new RedPaperAdapter(this, listdata);
-        lvlist.setAdapter(adapter);
-        if(!flag)
-        presenter.initUnusedFootView(this);
-        else
-            presenter.initUsedFootView(this);
+        presenter.loadListData(pagenow = 1, flag, this);
     }
 
     @Override
-    public void addList(boolean init, boolean isused) {
+    public void reqListFailure(String msg) {
+        ToastUtil.customAlert(this, msg);
+    }
+
+    @Override
+    public void addList(boolean init, boolean isused, List<RedPaper> list) {
+        if (adapter == null) {
+            listdata = new ArrayList<RedPaper>();
+            listdata.addAll(list);
+            adapter = new RedPaperAdapter(this, listdata);
+            lvlist.setAdapter(adapter);
+            if (!flag)
+                presenter.initUnusedFootView(this);
+            else
+                presenter.initUsedFootView(this);
+            return;
+        }
         if (init)
             listdata.clear();
-        listdata.addAll(presenter.reqRedPaperList(init ? (pagenow = 1) : ++pagenow, isused));
+//        listdata.addAll(presenter.reqRedPaperList(init ? (pagenow = 1) : ++pagenow, isused));
+        listdata.addAll(list);
         adapter.setList(listdata);
         if (isused)
             presenter.initUsedFootView(this);
@@ -128,7 +148,7 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
 
     @Override
     public void setBottomTipVisibily(boolean flag) {
-        ll_bottom.setVisibility(flag?View.VISIBLE:View.INVISIBLE);
+        ll_bottom.setVisibility(flag ? View.VISIBLE : View.INVISIBLE);
     }
 
     private void initListener() {
@@ -145,7 +165,7 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position != -1) {
                     RedPaper item = listdata.get(position);
-                    if (item.getType() == RedPaper.UsetypeEnum.UNUSED.getVal()) {
+                    if (item.getIs_used() == RedPaper.UsetypeEnum.UNUSED.getVal()) {
                         ImageView iv_select = (ImageView) view.findViewById(R.id.iv_select);
                         listselect.add(item);
                         item.setSelected(!item.isSelected());

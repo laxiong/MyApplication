@@ -64,7 +64,7 @@ public class RedPaperAdapter extends BaseAdapter {
             viewholder = (ViewHolder) convertView.getTag();
         }
         RedPaper paper = list.get(position);
-        if (paper.getType() == RedPaper.UsetypeEnum.UNUSED.getVal()) {
+        if (paper.getIs_used() == RedPaper.UsetypeEnum.UNUSED.getVal()) {
             viewholder.tvname.setTextColor(mContext.getResources().getColor(R.color.yellow_paper));
             viewholder.tvexpire.setTextColor(mContext.getResources().getColor(R.color.yellow_paper));
             viewholder.tvexplain.setTextColor(mContext.getResources().getColor(R.color.grey_bg_text));
@@ -81,10 +81,10 @@ public class RedPaperAdapter extends BaseAdapter {
             viewholder.tv.setTextColor(mContext.getResources().getColor(R.color.grey_bg_text));
             viewholder.rlbg.setBackgroundResource(R.drawable.hongbao_gray);//设置黄色背景
         }
-        viewholder.tvname.setText(paper.getPapername());
-        viewholder.tvexpire.setText("有效期至" + paper.getExpire());
-        viewholder.tvexplain.setText(paper.getExplain());
-        viewholder.tvyuan.setText(paper.getYuan() + "");
+        viewholder.tvname.setText(paper.getRedtype());
+        viewholder.tvexpire.setText("有效期至" + paper.getDate());
+        viewholder.tvexplain.setText(paper.getRule());
+        viewholder.tvyuan.setText(paper.getAmount() + "");
         return convertView;
     }
 

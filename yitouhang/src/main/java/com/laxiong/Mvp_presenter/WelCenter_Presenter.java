@@ -2,6 +2,7 @@ package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,32 +12,54 @@ import android.widget.TextView;
 
 import com.laxiong.Activity.WelCenterActivity;
 import com.laxiong.Adapter.RedPaper;
+import com.laxiong.Mvp_model.Model_RedPaper;
 import com.laxiong.Mvp_view.IViewWelcenter;
 import com.laxiong.yitouhang.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by xiejin on 2016/4/14.
  * Types WelCenter_Presenter.java
  */
-public class WelCenter_Presenter {
+public class WelCenter_Presenter implements Model_RedPaper.OnLoadPaperListener {
     private IViewWelcenter iviewcenter;
     private boolean isbottom;
+    private Model_RedPaper mpaper;
+    private List<RedPaper> list;
+    private static final int PAGECOUNT = 10;
 
     public WelCenter_Presenter(IViewWelcenter iviewcenter) {
         this.iviewcenter = iviewcenter;
+        mpaper = new Model_RedPaper();
     }
 
-    public ArrayList<RedPaper> reqRedPaperList(int pagenum, boolean isused) {
-        ArrayList<RedPaper> listdata = new ArrayList<RedPaper>();
-        listdata.add(new RedPaper("注册红包", "2016-10-30", "没有什么名次", isused ? RedPaper.UsetypeEnum.USED.getVal() : RedPaper.UsetypeEnum.UNUSED.getVal(), 10));
-        listdata.add(new RedPaper("呵呵红包", "2016-10-30", "没有什么名次", isused ? RedPaper.UsetypeEnum.USED.getVal() : RedPaper.UsetypeEnum.UNUSED.getVal(), 50));
-        listdata.add(new RedPaper("注册红包", "2016-10-30", "没有什么名次", isused ? RedPaper.UsetypeEnum.USED.getVal() : RedPaper.UsetypeEnum.UNUSED.getVal(), 100));
-        listdata.add(new RedPaper("注册红包", "2016-10-30", "没有什么名次", isused ? RedPaper.UsetypeEnum.USED.getVal() : RedPaper.UsetypeEnum.UNUSED.getVal(), 200));
-        listdata.addAll(listdata);
-        iviewcenter.setMaxPage(2);
-        return listdata;
+    public void loadListData(int pagenum, boolean isused, Context context) {
+        if (pagenum == 1) {
+            mpaper.loadPaperList(isused, context, this);
+        } else {
+            int start = (pagenum - 1) * 10;
+            int end = iviewcenter.getMaxPage() == pagenum ? list.size() : pagenum * 10;
+            iviewcenter.addList(false, isused, list.subList(start, end));
+        }
+
+    }
+
+    @Override
+    public void onSuccess(List<RedPaper> list, boolean isused) {
+        this.list = list;
+        if (list.size() == 0) {
+            iviewcenter.addList(true, isused, new ArrayList<RedPaper>());
+        } else {
+            iviewcenter.setMaxPage((list.size() / PAGECOUNT)+1);
+            iviewcenter.addList(true, isused, list.subList(0, list.size() > 10 ? 10 : list.size()));
+        }
+    }
+
+    @Override
+    public void onFailure(String msg) {
+        iviewcenter.reqListFailure(msg);
     }
 
     private void loadEmptyView(Context context) {
@@ -112,13 +135,14 @@ public class WelCenter_Presenter {
         iviewcenter.addFootView(footview_nomore_used);
     }
 
-    private void loadmoreview(final boolean isused, Context context) {
+    private void loadmoreview(final boolean isused, final Context context) {
         View footview_more = LayoutInflater.from(context).inflate(R.layout.footview_loadmore, null);
         TextView tv = (TextView) footview_more.findViewById(R.id.tv_loadmore);
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iviewcenter.addList(false, isused);
+                iviewcenter.setPageNow(iviewcenter.getPageNow() + 1);
+                loadListData(iviewcenter.getPageNow(), isused, context);
             }
         });
         iviewcenter.addFootView(footview_more);

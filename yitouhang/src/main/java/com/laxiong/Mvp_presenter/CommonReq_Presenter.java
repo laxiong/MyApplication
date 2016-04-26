@@ -19,7 +19,7 @@ import org.json.JSONObject;
  */
 public class CommonReq_Presenter {
     private IViewCommonBack iviewback;
-
+    public CommonReq_Presenter(){}
     public CommonReq_Presenter(IViewCommonBack iviewback) {
         this.iviewback = iviewback;
     }
