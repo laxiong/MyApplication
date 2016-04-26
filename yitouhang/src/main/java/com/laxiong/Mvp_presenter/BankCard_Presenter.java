@@ -76,7 +76,7 @@ public class BankCard_Presenter extends CommonReq_Presenter implements Model_car
         params.put("number",iviewbank.getCardNum());
         params.put("name",iviewbank.getName());
         params.put("org_id",iviewbank.getCardId());
-        params.put("phone",iviewbank.getPhoneNum());
-        mcard.loadBankCard(context,params,this);
+        params.put("phone", iviewbank.getPhoneNum());
+        aureqByPost(InterfaceInfo.BINDCARD_URL,context,params,null);
     }
 }

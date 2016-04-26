@@ -121,7 +121,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="实名认证" />
+            android:text="账户开通" />
 
         <ImageView
             android:id="@+id/arrows1"
@@ -209,47 +209,14 @@
         android:visibility="gone" />
 
     <LinearLayout
+        android:id="@+id/ll_msg"
         android:layout_width="match_parent"
-        android:layout_height="122dp"
+        android:layout_height="90dp"
         android:background="@color/white"
         android:orientation="vertical"
+        android:visibility="gone"
         android:paddingLeft="20dp"
         >
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="绑定手机" />
-
-            <ImageView
-                android:id="@+id/arrows3"
-                android:layout_width="10dp"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:background="@color/divider_grey" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:layout_toLeftOf="@+id/arrows3"
-                android:gravity="center"
-                android:text="189********2203"
-                android:textSize="9dp" />
-
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/divider_grey" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -262,6 +229,7 @@
                 android:text="真实姓名" />
 
             <TextView
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -284,9 +252,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="省份证" />
+                android:text="身份证" />
 
             <TextView
+                android:id="@+id/tv_identify"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"

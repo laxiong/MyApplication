@@ -52,7 +52,6 @@ public class Model_card {
             }
         });
     }
-
     public void loadBankCard(Context context, RequestParams params, final OnLoadBankCardListener listener) {
         this.listener = listener;
         String authori = CommonReq.getAuthori(context);

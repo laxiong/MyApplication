@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -36,9 +37,10 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
     /****
      * 个人设置
      */
-    private TextView backBtn, tv_bindphone, tv_shiming;
+    private TextView backBtn, tv_bindphone, tv_shiming, tv_name, tv_identify;
     private RelativeLayout personIcon, nameSetting, addressSetting, trueName, phoneBind;
     private FrameLayout mBack;
+    private LinearLayout ll_msg;
     private ImageView mUseFace;
     private Exit_Presenter presenter;
     private User user;
@@ -75,7 +77,11 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
             this.finish();
             return;
         }
-        tv_shiming.setText(user.is_idc() ? "已认证" : "未认证");
+        boolean flag = user.is_idc() && user.isPay_pwd() && user.getBankcount() > 0;
+        tv_shiming.setText(flag ? "已开户" : "未开户");
+        ll_msg.setVisibility(flag ? View.VISIBLE : View.GONE);
+        tv_name.setText(user.getRealname());
+        tv_identify.setText(StringUtils.getProtectedMobile(user.getIdc()));
         if (!StringUtils.isBlank(phone))
             tv_bindphone.setText(StringUtils.getProtectedMobile(phone));
         else
@@ -110,6 +116,9 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         tv_bindphone = (TextView) findViewById(R.id.tv_bindphone);
         tv_shiming = (TextView) findViewById(R.id.tv_shiming);
         TextView mText = (TextView) findViewById(R.id.title);
+        ll_msg = (LinearLayout) findViewById(R.id.ll_msg);
+        tv_name = (TextView) findViewById(R.id.tv_name);
+        tv_identify = (TextView) findViewById(R.id.tv_identify);
         mText.setText("个人设置");
     }
 
@@ -381,8 +390,8 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
                     startActivity(new Intent(PersonalSettingActivity.this, TrueNameActivity2.class));
                 } else if (user.getBankcount() == 0) {
                     startActivity(new Intent(PersonalSettingActivity.this, TrueNameActivity3.class));
-                }else{
-                    ToastUtil.customAlert(PersonalSettingActivity.this,"无需操作!");
+                } else {
+                    ToastUtil.customAlert(PersonalSettingActivity.this, "无需操作!");
                 }
                 break;
             case R.id.phoneBind:           /**绑手机的**/

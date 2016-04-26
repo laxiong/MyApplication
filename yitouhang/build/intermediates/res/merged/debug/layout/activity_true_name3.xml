@@ -264,6 +264,7 @@
 			            android:textSize="14dp" />
 			        <EditText
 						android:id="@+id/et_phone"
+						android:inputType="number"
 			            android:layout_width="wrap_content"
 			            android:layout_height="match_parent"
 			            android:layout_marginLeft="10dp"
