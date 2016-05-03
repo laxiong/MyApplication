@@ -8,11 +8,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.entity.User;
 import com.laxiong.yitouhang.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -31,6 +34,8 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 	private TextView mJiGetMoney , mShareBtn ,mScrollIn , mScrollOut;
 	private EditText mJiMoney , mJiDay ;
 	private TextView mYesDayProfit,mAmountProfit,mGetCashProfit,mPrecent,mRemark1,mRemark2,mLastCash,SxtTitle;
+	private RelativeLayout mRemarkLayout ;
+	private View mRemarkLine ;
 	private int mId ;
 
 	@Override
@@ -57,10 +62,12 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 					Toast.makeText(TimeXiTongActivity.this, "输入整数", Toast.LENGTH_SHORT).show();
 				}
 			}
+
 			@Override
 			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
 										  int arg3) {
 			}
+
 			@Override
 			public void afterTextChanged(Editable arg0) {
 				String day = mJiDay.getText().toString().trim();
@@ -88,10 +95,12 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 					Toast.makeText(TimeXiTongActivity.this, "输入整数", Toast.LENGTH_SHORT).show();
 				}
 			}
+
 			@Override
 			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
 										  int arg3) {
 			}
+
 			@Override
 			public void afterTextChanged(Editable arg0) {
 				String money = mJiMoney.getText().toString().trim();
@@ -110,6 +119,20 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 				}
 			}
 		});
+		User mUser = YiTouApplication.getInstance().getUser();
+		if (mUser!=null) {
+			double yesSxt = mUser.getYesterday().getSxt();
+			double profitSxt = mUser.getProfit_list().getSxt();
+			int currentSxt = mUser.getCurrent();
+			mYesDayProfit.setText(String.valueOf(yesSxt));
+			mAmountProfit.setText(String.valueOf(profitSxt));
+			mGetCashProfit.setText(String.valueOf(currentSxt));
+		}else {
+			mYesDayProfit.setText("0.0");
+			mAmountProfit.setText("0.0");
+			mGetCashProfit.setText("0.0");
+		}
+
 	}
 
 	private void initView() {
@@ -129,6 +152,8 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 		mGetCashProfit =(TextView)findViewById(R.id.getcashprofit);
 		mLastCash=(TextView)findViewById(R.id.text2);
 		SxtTitle =(TextView)findViewById(R.id.sxt_title);
+		mRemarkLayout =(RelativeLayout)findViewById(R.id.remark_layout);
+		mRemarkLine =findViewById(R.id.ramark_line);
 		mId = getIntent().getIntExtra("id",-1);
 	}
 
@@ -137,7 +162,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 		switch(v.getId()){
 			case R.id.scroll_in:  // 转入
 				startActivity(new Intent(TimeXiTongActivity.this,
-						TransferInActivity.class));
+						TransferInActivity.class).putExtra("id",mId));
 				break;
 			case R.id.backlayout:
 				this.finish();
@@ -197,8 +222,13 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 				mLastCash.setText(String.valueOf(response.getInt("members")));
 				JSONArray ARRA = response.getJSONArray("details");
 				if (ARRA.length()>0){
+					mRemarkLayout.setVisibility(View.VISIBLE);
+					mRemarkLine.setVisibility(View.VISIBLE);
 					mRemark1.setText(ARRA.getString(0));
 					mRemark2.setText(ARRA.getString(1));
+				}else {
+					mRemarkLayout.setVisibility(View.GONE);
+					mRemarkLine.setVisibility(View.GONE);
 				}
 				SxtTitle.setText(response.getString("title"));
 			}catch (Exception E){

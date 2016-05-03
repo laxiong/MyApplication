@@ -180,7 +180,7 @@
               android:layout_marginTop="20dp"
               android:layout_width="6dp"
               android:layout_height="6dp"
-              android:background="@drawable/button_red_corner_border"  
+              android:background="@drawable/img_result_piont_xz"
               />
             <RelativeLayout 
               android:layout_width="6dp"
@@ -198,7 +198,7 @@
               android:layout_marginBottom="20dp"
               android:layout_width="6dp"
               android:layout_height="6dp"
-              android:background="@color/light_grey"  
+              android:background="@drawable/img_result_piont_mr"
               />
         </LinearLayout>
         

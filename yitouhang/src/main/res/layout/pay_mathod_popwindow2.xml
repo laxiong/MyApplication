@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/kefu_bg"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="263dp"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="203dp"
+            android:background="@drawable/popwindow_bg"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="选择付款方式"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:textSize="14sp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_grey"
+                />
+            <include
+                android:id="@+id/bank1"
+                layout="@layout/bank_pay_meyhod_select"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_grey"
+                />
+            <include
+                android:id="@+id/bank2"
+                layout="@layout/bank_pay_meyhod_select"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_grey"
+                />
+            <include
+                android:id="@+id/bank3"
+                layout="@layout/bank_pay_meyhod_select"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/concel"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/popwindow_bg"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="取消"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>

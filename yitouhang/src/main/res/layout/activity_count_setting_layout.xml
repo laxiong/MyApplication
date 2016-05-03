@@ -66,7 +66,8 @@
 	            android:layout_marginRight="3dp"
 	            />
 	        
-	        <RelativeLayout 
+	        <RelativeLayout
+				android:id="@+id/mybankcard"
 	            android:layout_width="match_parent"
 	            android:layout_height="0dp"
 	            android:layout_weight="1"
@@ -393,13 +394,14 @@
             android:background="@color/divider_grey"
          />
         
-        <RelativeLayout 
+        <RelativeLayout
+			android:id="@+id/version_manage"
         	android:layout_width="match_parent"
        	 	android:layout_height="40dp">
         	<TextView 
         	    android:layout_width="wrap_content"
         	    android:layout_height="match_parent"
-        	    android:text="版本更新"
+        	    android:text="版本管理"
         	    android:gravity="center"
         	    />
         	<ImageView 
@@ -416,7 +418,7 @@
         	    android:layout_width="wrap_content"
         	    android:layout_height="match_parent"
         	    android:layout_toLeftOf="@+id/arrows3"
-        	    android:text="V-2.7.2"
+        	    android:text="V 2.0.1"
         	    android:layout_marginRight="5dp"
         	    android:gravity="center"
         	    android:textSize="12sp"

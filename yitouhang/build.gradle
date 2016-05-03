@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 19
     buildToolsVersion "19.1.0"
+
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES.txt'
         exclude 'META-INF/NOTICE'
@@ -10,6 +11,7 @@ android {
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE.txt'
     }
+
     defaultConfig {
         applicationId "com.laxiong.yitouhang"
         minSdkVersion 9
@@ -28,9 +30,11 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('libs/glide-3.6.1.jar')
     compile files('libs/fastjson-1.2.2.jar')
+    compile files('libs/securepay_stand_2.4.6.jar')
+    compile 'com.android.support:support-v4:23.1.1'
     compile 'com.android.support:appcompat-v7:19.1.0'
     compile 'io.reactivex:rxjava:1.0.14'
     compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
     compile project(':social_sdk_library_project')
-    compile files('libs/umeng-analytics-v5.5.3.jar')
 }

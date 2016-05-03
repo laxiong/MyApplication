@@ -2,35 +2,30 @@ package com.laxiong.Fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
-import android.graphics.LinearGradient;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.laxiong.Calender.CalendarView;
+import com.laxiong.Calender.CalendarViewVer;
 import com.laxiong.Calender.CustomDate;
 import com.laxiong.Common.Constants;
-import com.laxiong.Common.Settings;
 import com.laxiong.Mvp_presenter.WeekCal_Presenter;
 import com.laxiong.Mvp_view.IWeekCalendar;
 import com.laxiong.yitouhang.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @SuppressLint("NewApi")
-public class SelectWeekCalenderFragment extends Fragment implements CalendarView.CallBack, IWeekCalendar {
+public class SelectWeekCalenderFragment extends Fragment implements CalendarViewVer.CallBack, IWeekCalendar {
     private View layout;
     private LinearLayout llwrap;
     private ListView lv_things;
-    private CalendarView view;
+    private CalendarViewVer view;
     private ArrayList<String> list;
     private ArrayAdapter<String> adapter;
     private WeekCal_Presenter presenter;
@@ -62,7 +57,7 @@ public class SelectWeekCalenderFragment extends Fragment implements CalendarView
         CustomDate date = (CustomDate) bundle.getSerializable(Constants.KEY_DATE);
         if (date != null) {
             if (view == null) {
-                view = new CalendarView(getActivity(), CalendarView.WEEK_STYLE, this, date);
+                view = new CalendarViewVer(getActivity(), CalendarViewVer.WEEK_STYLE, this, date);
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
                 view.setLayoutParams(lp);
                 llwrap.addView(view, 0);
@@ -73,7 +68,7 @@ public class SelectWeekCalenderFragment extends Fragment implements CalendarView
                 }
             } else {
                 view.resetCustomDate(date);
-                view.setStyle(CalendarView.WEEK_STYLE);
+                view.setStyle(CalendarViewVer.WEEK_STYLE);
                 view.update();
             }
         }
@@ -109,7 +104,6 @@ public class SelectWeekCalenderFragment extends Fragment implements CalendarView
     public void onMesureCellHeight(int cellSpace) {
 
     }
-
     @Override
     public void changeDate(CustomDate date) {
 

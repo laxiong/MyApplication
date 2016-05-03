@@ -223,7 +223,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						}
 					}
 					if(mViewHonder.mCircleProgressView!=null&&mViewHonder.mEnought!=null){
-						mViewHonder.mEnought.setPaintColor("#D8D8D8");
+						mViewHonder.mEnought.setPaintColor("#FFEE4E42");
 						if (sxt.getPercent()==100.0){
 							mViewHonder.mCircleProgressView.setVisibility(View.INVISIBLE);
 							mViewHonder.mCircleProgressView.setPaintColor("#FFEE4E42");
@@ -305,7 +305,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						}
 					}
 					if(mViewHonder.mCircleProgressView!=null&&mViewHonder.mEnought!=null){
-						mViewHonder.mEnought.setPaintColor("#D8D8D8");
+						mViewHonder.mEnought.setPaintColor("#FFEE4E42");
 						if (gxb.getPercent()==100.0){
 							mViewHonder.mCircleProgressView.setVisibility(View.INVISIBLE);
 							mViewHonder.mCircleProgressView.setPaintColor("#FFEE4E42");
@@ -362,7 +362,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 							public void onClick(View view) {
 								Log.i("GXB","股息宝的Id参数"+(i-3)+" ==========："+gxb.getId());
 								getActivity().startActivity(new Intent(getActivity(),
-										GuXiBaoActivity.class).putExtra("id", gxb.getId()));
+										GuXiBaoActivity.class).putExtra("id", gxb.getId()).putExtra("ttnum",listNum));
 							}
 						});
 				}
@@ -413,7 +413,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 	// 获取产品信息
 	private int pager = 1;
    private void getProductInfo(){
-	   RequestParams params = new RequestParams();
+	   final RequestParams params = new RequestParams();
 	   params.put("p",pager);
 	   params.put("limit", "10");
 	   HttpUtil.get(InterfaceInfo.PRODUCT_URL,params,new JsonHttpResponseHandler(){
@@ -462,7 +462,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 			   super.onFailure(statusCode, headers, throwable, errorResponse);
 			   Toast.makeText(getActivity(),"网络访问失败",Toast.LENGTH_SHORT).show();
 		   }
-	   },true);
+	   },null);
    }
 
 	// 设置产品的信息

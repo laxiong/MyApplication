@@ -265,8 +265,10 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 						
 					}else if(mHead_left_select_textview.getText().toString().equals("日历账单")){
 						startActivity(new Intent(MainActivity.this,
-								CalanderCountActivity.class));
+//								CalanderCountActivity.class));
+								CalanderHorizontalActivity.class));
 					}else{
+
 						return ;
 					}
 					break;

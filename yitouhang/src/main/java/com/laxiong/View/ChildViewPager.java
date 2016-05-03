@@ -15,12 +15,12 @@ public class ChildViewPager extends ViewPager {
 	OnSingleTouchListener onSingleTouchListener;
 	OnBtnClickListener onBtnClickListener;
 	Context mContext;
-	
+
 	/**
 	 * 屏幕宽度
 	 */
 	public static int DISPLAY_WIDTH;
-	
+
 	public ChildViewPager(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		mContext = context;
@@ -96,7 +96,7 @@ public class ChildViewPager extends ViewPager {
 	public void setOnSingleTouchListener(OnSingleTouchListener onSingleTouchListener) {
 		this.onSingleTouchListener = onSingleTouchListener;
 	}
-	
+
 	public void onBtnClick() {
 		if (onBtnClickListener != null) {
 			onBtnClickListener.onBtnClick();
@@ -110,21 +110,21 @@ public class ChildViewPager extends ViewPager {
 	public void setOnBtnClickListener(OnBtnClickListener onBtnClickListener) {
 		this.onBtnClickListener = onBtnClickListener;
 	}
-	
+
 	/**
 	 *  dp-->px
 	 */
-    private  int dp2px( float dpValue) {
-        float density = mContext.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * density + 0.5f);
-    }
-    /**
+	private  int dp2px( float dpValue) {
+		float density = mContext.getResources().getDisplayMetrics().density;
+		return (int) (dpValue * density + 0.5f);
+	}
+	/**
 	 *  px-->dp
 	 */
-    @SuppressWarnings("unused")
+	@SuppressWarnings("unused")
 	private  int px2dp( float pxValue) {
-        float density = mContext.getResources().getDisplayMetrics().density;
-        return (int) (pxValue / density + 0.5f);
-    }
-	
+		float density = mContext.getResources().getDisplayMetrics().density;
+		return (int) (pxValue / density + 0.5f);
+	}
+
 }

@@ -3,11 +3,8 @@ package com.laxiong.Adapter;
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.laxiong.Calender.CalendarView;
-import com.laxiong.Calender.CalendarView.CallBack;
-import com.laxiong.Calender.CalendarViewBuilder;
+import com.laxiong.Calender.CalendarViewVer;
 import com.laxiong.Calender.CustomDate;
 
 
@@ -23,10 +20,10 @@ public class CalenderBean {
 //	public final CalendarView[] mCalendarView;
 	private static String[] datas={"一月份","二月份","三月份","四月份","五月份",
 "六月份","七月份","八月份","九月份","十月份","十一月份","十二月份"};
-	public final ArrayList<CalendarView> mCalendarView;
+	public final ArrayList<CalendarViewVer> mCalendarView;
 	public final  Context mContext ;
 	private  CustomDate currentDate;
-	public CalenderBean(int type, String text,ArrayList<CalendarView> mCalendarView,Context mContext,CustomDate date) {
+	public CalenderBean(int type, String text,ArrayList<CalendarViewVer> mCalendarView,Context mContext,CustomDate date) {
 		this.type = type;
 		this.text = text;
 		this.mCalendarView = mCalendarView ;
@@ -42,7 +39,7 @@ public class CalenderBean {
 		this.currentDate = currentDate;
 	}
 
-	public static ArrayList<CalenderBean> getData(Context context,ArrayList<CalendarView> views,int year){
+	public static ArrayList<CalenderBean> getData(Context context,ArrayList<CalendarViewVer> views,int year){
 		ArrayList<CalenderBean>  list=new ArrayList<CalenderBean>();
 		for(int i=0;i<views.size();i++){
 			list.add(new CalenderBean(SECTION,datas[i],views,context,new CustomDate(year,i+1,1)));

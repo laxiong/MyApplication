@@ -19,11 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.laxiong.Basic.BasicWatcher;
-import com.laxiong.Common.Constants;
 import com.laxiong.Mvp_presenter.BankCard_Presenter;
-import com.laxiong.Mvp_presenter.Handler_Presenter;
 import com.laxiong.Mvp_view.IViewBindCard;
-import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
@@ -164,7 +161,6 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
      * 阅读协议
      */
     boolean isRead = true;
-
     private void readProtocol() {
         if (isRead) {
             toggleRead.setImageResource(R.drawable.img_no_read);
