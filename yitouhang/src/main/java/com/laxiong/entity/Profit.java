@@ -5,71 +5,70 @@ package com.laxiong.entity;
  * Types Profit.java
  */
 public class Profit {
-    private float sxt;
-    private float licaijin;
-    private float xianjin;
-    private float tiyanjin;
-    private float gxb;
+    private double sxt;
+    private double renmai;
+    private double licaijin;
+    private double xianjin;
+    private double tiyanjin;
+    private double gxb;
 
     public Profit() {
     }
 
-    public Profit(float sxt, float licaijin, float xianjin, float tiyanjin, float gxb) {
+    public Profit(double sxt, double renmai, double licaijin, double xianjin, double tiyanjin, double gxb) {
         this.sxt = sxt;
+        this.renmai = renmai;
         this.licaijin = licaijin;
         this.xianjin = xianjin;
         this.tiyanjin = tiyanjin;
         this.gxb = gxb;
     }
 
-    public float getSxt() {
+    public double getSxt() {
         return sxt;
     }
 
-    public void setSxt(float sxt) {
+    public void setSxt(double sxt) {
         this.sxt = sxt;
     }
 
-    public float getLicaijin() {
+    public double getRenmai() {
+        return renmai;
+    }
+
+    public void setRenmai(double renmai) {
+        this.renmai = renmai;
+    }
+
+    public double getLicaijin() {
         return licaijin;
     }
 
-    public void setLicaijin(float licaijin) {
+    public void setLicaijin(double licaijin) {
         this.licaijin = licaijin;
     }
 
-    public float getXianjin() {
+    public double getXianjin() {
         return xianjin;
     }
 
-    public void setXianjin(float xianjin) {
+    public void setXianjin(double xianjin) {
         this.xianjin = xianjin;
     }
 
-    public float getTiyanjin() {
+    public double getTiyanjin() {
         return tiyanjin;
     }
 
-    public void setTiyanjin(float tiyanjin) {
+    public void setTiyanjin(double tiyanjin) {
         this.tiyanjin = tiyanjin;
     }
 
-    public float getGxb() {
+    public double getGxb() {
         return gxb;
     }
 
-    public void setGxb(float gxb) {
+    public void setGxb(double gxb) {
         this.gxb = gxb;
-    }
-
-    @Override
-    public String toString() {
-        return "Profit{" +
-                "sxt=" + sxt +
-                ", licaijin=" + licaijin +
-                ", xianjin=" + xianjin +
-                ", tiyanjin=" + tiyanjin +
-                ", gxb=" + gxb +
-                '}';
     }
 }

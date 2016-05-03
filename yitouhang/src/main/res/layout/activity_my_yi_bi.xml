@@ -14,7 +14,7 @@
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
         custom:texts="@string/owner_title"
-        custom:textsize="17sp"></com.laxiong.View.CommonActionBar>
+        custom:textsize="6sp"></com.laxiong.View.CommonActionBar>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/jinbi" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -42,6 +42,7 @@
                 android:text="壹币" />
 
             <TextView
+                android:id="@+id/tv_yibi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="100"
@@ -57,6 +58,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/rl_shouru"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -80,11 +82,12 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1dp"
             android:layout_marginLeft="20dp"
             android:background="@color/grey_bg" />
 
         <RelativeLayout
+            android:id="@+id/rl_zhichu"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">

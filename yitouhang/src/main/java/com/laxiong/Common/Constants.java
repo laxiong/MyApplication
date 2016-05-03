@@ -10,7 +10,7 @@ public class Constants {
     public static final long TIME=30000;
 
     public enum ReqEnum {
-        PWD(0, "pwd"), NICK(1, "nick"), BUY(2, "buy"), RPAY(3, "fddeal"), CPWD(4, "chdeal"),CPHONE(5,"phone"),PAYPWD(6,"deals");
+        PWD(0, "pwd"), NICK(1, "nick"), BUY(2, "buy"), RPAY(3, "fddeal"), CPWD(4, "chdeal"),CPHONE(5,"phone"),PAYPWD(6,"deals"),ORDER(7,"order");
         int name;
         String val;
 

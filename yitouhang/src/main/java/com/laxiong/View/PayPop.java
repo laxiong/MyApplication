@@ -57,6 +57,18 @@ public class PayPop extends PopupWindow {
     public String getExcTextPwd() {
         return ((TextView)view.findViewById(R.id.et_pass)).getText().toString();
     }
+    public PayPop(View v,final Activity context){
+        DisplayMetrics metric = new DisplayMetrics();
+        context.getWindowManager().getDefaultDisplay().getMetrics(metric);
+        int width = LinearLayout.LayoutParams.MATCH_PARENT;
+        int height =  LinearLayout.LayoutParams.WRAP_CONTENT;
+        this.setContentView(v);
+        this.setWidth(width);
+        this.setHeight(height);
+        this.setFocusable(true);
+        this.setBackgroundDrawable(null);
+        this.setOutsideTouchable(false);
+    }
     public View getViewById(View v,int id){
         return v.findViewById(id);
     }

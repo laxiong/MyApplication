@@ -11,76 +11,93 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.laxiong.Adapter.ReuseAdapter;
+import com.laxiong.Adapter.ViewHolder;
+import com.laxiong.Mvp_model.InvestItem;
+import com.laxiong.Mvp_presenter.InvestDetail_Presenter;
+import com.laxiong.Mvp_view.IViewInvest;
+import com.laxiong.Utils.ToastUtil;
+import com.laxiong.View.FinancingListView;
 import com.laxiong.yitouhang.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by admin on 2016/4/7.
  */
 @SuppressLint("NewApi")
-public class ProfitRecord_GuXiBaoFragment extends Fragment {
+public class ProfitRecord_GuXiBaoFragment extends Fragment implements IViewInvest {
     /**
      * 收益记录--固息宝
      */
     private View mView ;
-    private ListView mListView ;
+    private FinancingListView lvlist;
+    private InvestDetail_Presenter presenter;
+    private List<InvestItem> list;
+    private ReuseAdapter<InvestItem> adapter;
+    public static final int LIMIT = 10;
+    public int pagenow = 1;
+    public boolean flag = true;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         mView =inflater.inflate(R.layout.withdraw_listview,null);
         initView();
+        initData();
         return mView;
     }
-
-    private void initView(){
-        mListView = (ListView)mView.findViewById(R.id.listview);
-        mListView.setAdapter(adapter);
+    public void initData() {
+        list = new ArrayList<InvestItem>();
+        adapter = new ReuseAdapter<InvestItem>(getActivity(), list, R.layout.investmentrecord_buying_item) {
+            @Override
+            public void convert(ViewHolder viewholder, InvestItem item) {
+                viewholder.setText(R.id.name, item.getTitle());
+                viewholder.setText(R.id.time, item.getAdd_time());
+                viewholder.setText(R.id.money_type, item.getAmount());
+                viewholder.setText(R.id.notif_msg, item.getMark());
+            }
+        };
+        lvlist.setAdapter(adapter);
+        presenter = new InvestDetail_Presenter(this);
+        presenter.loadInvestView(LIMIT, ++pagenow, "gxb", getActivity());
     }
-
-    BaseAdapter adapter = new BaseAdapter() {
-        @Override
-        public int getCount() {
-            return 8;
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            ViewHolder mhonder ;
-            if(view==null){
-                mhonder = new ViewHolder();
-                view = LayoutInflater.from(getActivity()).inflate(R.layout.investmentrecord_buying_item,null);
-                mhonder.mProject = (TextView)view.findViewById(R.id.name);
-                mhonder.mTime = (TextView) view.findViewById(R.id.time);
-                mhonder.mRechargeMoney = (TextView)view.findViewById(R.id.money_type);
-                mhonder.mNotif = (TextView)view.findViewById(R.id.notif_msg);
-                view.setTag(mhonder);
-            }else{
-                mhonder = (ViewHolder)view.getTag();
+    public void initListener() {
+        lvlist.setOnRefreshListener(new FinancingListView.OnRefreshListener() {
+            @Override
+            public void onPullRefresh() {
+                if (lvlist != null) lvlist.completeRefresh();
             }
 
-            mhonder.mProject.setText("碳银宝3期");
-            mhonder.mTime.setText("2016-03-15");
-            mhonder.mRechargeMoney.setText("+34元");
-            mhonder.mRechargeMoney.setTextColor(Color.parseColor("#FFEE7737"));
-            mhonder.mNotif.setText("已回款至账户余额");
-            return view;
+            @Override
+            public void onLoadingMore() {
+                if (!flag) {
+                    ToastUtil.customAlert(getActivity(), "没数据了");
+                    return;
+                }
+                presenter.loadInvestView(LIMIT, ++pagenow, "buy", getActivity());
+            }
+        });
+    }
+    @Override
+    public void loadListInvest(List<InvestItem> listdata) {
+        if(lvlist!=null)lvlist.completeRefresh();
+        if (list != null&&listdata!=null) {
+            this.list.addAll(listdata);
+            adapter.setList(list);
+        } else {
+            flag = false;
+            ToastUtil.customAlert(getActivity(),"没数据了");
         }
-    };
+    }
 
-    class ViewHolder{
-        TextView mProject ;
-        TextView mTime ;
-        TextView mRechargeMoney ;
-        TextView mNotif ;
+    @Override
+    public void loadListFailure(String msg) {
+        ToastUtil.customAlert(getActivity(), msg);
+    }
+    private void initView(){
+        lvlist = (FinancingListView)mView.findViewById(R.id.listview);
+        lvlist.setAdapter(adapter);
     }
 
 

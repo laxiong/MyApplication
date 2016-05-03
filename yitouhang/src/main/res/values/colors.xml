@@ -41,4 +41,8 @@
     <color name="red_btn_text">#EE4E42</color>
     <color name="goodname">#555555</color>
     <color name="yellow_paper">#FA8C1A</color>
+    <!--消息未读-->
+    <color name="unread_msg">#328AD4</color>
+    <!--消息已读 -->
+    <color name="readed_msg">#D6D6D6</color>
 </resources>

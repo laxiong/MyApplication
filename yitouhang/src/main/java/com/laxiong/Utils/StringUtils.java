@@ -33,7 +33,7 @@ public class StringUtils {
     }
 
     public static String getFactor(double fee, double num) {
-        if (num <= 100)
+        if (num <= 100&&num>0)
             return "1";
         else {
             if (fee >= 100)

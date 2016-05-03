@@ -126,17 +126,12 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
         et_input.addTextChangedListener(new BasicWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                double cash = Double.valueOf(money.getText().toString());
-                double tixian = Double.valueOf(s.toString());
-                if (StringUtils.isBlank(s.toString())) {
+                if ("".equals(s.toString()) || s.toString().startsWith("00"))
+                    et_input.setText("0");
+                if (StringUtils.isBlank(s.toString()) || "0".equals(s.toString())) {
                     ValifyUtil.setEnabled(mNextBtn, false);
                 } else {
-                    if (cash > 100 && tixian < 100) {
-                        ToastUtil.customAlert(WithdrawCashActivity.this,"提现不能少于100");
-                        ValifyUtil.setEnabled(mNextBtn, false);
-                    } else {
-                        ValifyUtil.setEnabled(mNextBtn, true);
-                    }
+                    ValifyUtil.setEnabled(mNextBtn,true);
                 }
             }
 
@@ -145,10 +140,6 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
                 super.onTextChanged(s, start, before, count);
                 String input = et_input.getText().toString();
                 double num = Double.valueOf(StringUtils.isBlank(input) ? "0" : input);
-//                if (num > Double.valueOf(tv_edu.getText().toString())) {
-//                    et_input.setText("");
-//                    return;
-//                }
                 double kouchu = Double.valueOf(StringUtils.getFactor(fee, num));
                 tv_factor.setText(kouchu + "");
                 tv_daozhang.setText((num - kouchu) + "");
@@ -195,7 +186,12 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
     private View mPayView;
 
     private void payPswdMethod() {
-
+        double cash = Double.valueOf(money.getText().toString());
+        double tixian = Double.valueOf(et_input.getText().toString());
+        if (cash > 100 && tixian < 100) {
+            ToastUtil.customAlert(WithdrawCashActivity.this, "提现不能少于100");
+            return;
+        }
         mPayView = LayoutInflater.from(WithdrawCashActivity.this).inflate(R.layout.paypassword_popupwindow, null);
         TextView mSureBtn = (TextView) mPayView.findViewById(R.id.surebtm);
         TextView mConcelBtn = (TextView) mPayView.findViewById(R.id.concelbtn);

@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.laxiong.Adapter.PaperYuan;
 import com.laxiong.Adapter.ReuseAdapter;
+import com.laxiong.Adapter.ViewHolder;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Mvp_presenter.TMall_Presenter;
 import com.laxiong.Mvp_presenter.UserCount_Presenter;
@@ -38,7 +39,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
     private ScrollView sl;
     private TMall_Presenter presenter;
     private UserCount_Presenter presenterCount;
-    private RelativeLayout rl_yibi, rl_rule;
+    private RelativeLayout rl_yibi, rl_rule, rl_order;
     private ViewPager vp_ad;
     private List<Product> plist;
     private List<ImageView> alist;
@@ -80,10 +81,11 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
         ll_dot = (LinearLayout) findViewById(R.id.ll_dot);
         gv_list = (CustomGridView) findViewById(R.id.gv_list);
         tv_yibi = (TextView) findViewById(R.id.tv_yibi);
+        rl_order = (RelativeLayout) findViewById(R.id.rl_order);
     }
 
     private void initData() {
-        presenterCount=new UserCount_Presenter(this);
+        presenterCount = new UserCount_Presenter(this);
         User user = YiTouApplication.getInstance().getUser();
         if (user == null) {
             presenterCount.reqUserCountMsg(this);
@@ -113,18 +115,18 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
         gv_list.setAdapter(new ReuseAdapter<Product>(TMallActivity.this, plist, R.layout.item_execrdpaper) {
             @Override
             public void convert(ViewHolder viewholder, final Product item) {
-                viewholder.setTextView(R.id.tv_price, item.getTitle());
-                viewholder.setTextView(R.id.tv_num, (int) (item.getPay()) + "");
+                viewholder.setText(R.id.tv_price, item.getTitle());
+                viewholder.setText(R.id.tv_num, (int) (item.getPay()) + "");
                 presenter.reqLoadImageView(item.getImg(), ((ImageView) viewholder.getView(R.id.ivpic)));
                 TextView tv_btn_exc = viewholder.getView(R.id.tv_btn_exc);
                 tv_btn_exc.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(TMallActivity.this, ExChangeActivity.class);
-                        int num= (int)(item.getPay() / 100);
-                        intent.putExtra("type",num);
-                        intent.putExtra("id",item.getId());
-                        intent.putExtra("url",item.getImg());
+                        int num = (int) (item.getPay() / 100);
+                        intent.putExtra("type", num);
+                        intent.putExtra("id", item.getId());
+                        intent.putExtra("url", item.getImg());
                         TMallActivity.this.startActivity(intent);
                     }
                 });
@@ -188,6 +190,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
         actionbar.setBackListener(this);
         rl_yibi.setOnClickListener(this);
         rl_rule.setOnClickListener(this);
+        rl_order.setOnClickListener(this);
         vp_ad.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -219,6 +222,8 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
             case R.id.rl_rule:
                 intent = new Intent(TMallActivity.this, RpExplainActivity.class);
                 break;
+            case R.id.rl_order:
+                intent = new Intent(TMallActivity.this, MyOrderActivity.class);
         }
         TMallActivity.this.startActivity(intent);
     }

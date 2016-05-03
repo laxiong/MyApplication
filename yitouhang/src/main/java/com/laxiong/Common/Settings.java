@@ -9,7 +9,7 @@ public class Settings {
 	public static String TEMP_PATH = ""; // 临时保存路径
 
 	public static String PIC_PATH = "";	 //图片缓存路径
-	
+
 	/**
 	 * 屏幕高度
 	 */
@@ -31,6 +31,9 @@ public class Settings {
 	 */
 	public static float RATIO_WIDTH;
 	
-	
+	//微信appid
+	public static final String WX_APP_ID="wxca3c8abe28def933";
+	public static final String WX_SECRET="8283af8f91e1ed82e69d94ea18a93dd6";
+
 	
 }

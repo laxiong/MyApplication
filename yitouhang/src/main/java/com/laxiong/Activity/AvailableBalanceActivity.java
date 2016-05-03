@@ -10,8 +10,10 @@ import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Fragment.AccumulatedEarningsFragment;
 import com.laxiong.Fragment.AvailableBalanaceFragment;
+import com.laxiong.entity.User;
 import com.laxiong.yitouhang.R;
 
 public class AvailableBalanceActivity extends BaseActivity implements OnClickListener{
@@ -21,11 +23,11 @@ public class AvailableBalanceActivity extends BaseActivity implements OnClickLis
 	private AvailableBalanaceFragment mAvailableFragment ;  // 可用余额
 	private AccumulatedEarningsFragment mAccumulatedFragment ;// 累计收益
 	private TextView mYesterdayBalanceTv , mAvailablebanlanceTv ;  // 昨日收益 和 累计收益的  按钮
-	
+
 	private FragmentManager mFragmentManager = null ;
 	private FrameLayout mBack ;
 	private TextView mTakeCare ;   // 说明
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,26 +36,27 @@ public class AvailableBalanceActivity extends BaseActivity implements OnClickLis
 		initData();
 		initFristFrag();
 	}
-	@SuppressLint("NewApi") 
+	@SuppressLint("NewApi")
 	private void initData() {
 		mFragmentManager = this.getFragmentManager();
-		
+
 		mYesterdayBalanceTv.setOnClickListener(this);
 		mAvailablebanlanceTv.setOnClickListener(this);
-		
+
 		mBack.setOnClickListener(this);
 		mTakeCare.setOnClickListener(this);
 	}
-	
+
 	private void initView() {
 		mYesterdayBalanceTv = (TextView)findViewById(R.id.yesterdaybalance);
 		mAvailablebanlanceTv = (TextView)findViewById(R.id.availablebanlance);
-		
+
 		mBack = (FrameLayout)findViewById(R.id.back_layout);
 		mTakeCare = (TextView)findViewById(R.id.talkcarefor);
-		
+
 	}
-	@SuppressLint("NewApi") @Override
+	@SuppressLint("NewApi")
+	@Override
 	public void onClick(View V) {
 		FragmentTransaction  mTransaction = mFragmentManager.beginTransaction();
 		hideFragment(mTransaction);
@@ -86,10 +89,10 @@ public class AvailableBalanceActivity extends BaseActivity implements OnClickLis
 						EarningsSayActivity.class));
 				break;
 		}
-		
+
 	}
-	
-	@SuppressLint("NewApi") 
+
+	@SuppressLint("NewApi")
 	private void hideFragment(FragmentTransaction  mTransaction){
 		if(mAvailableFragment!=null){
 			mTransaction.hide(mAvailableFragment);
@@ -98,7 +101,7 @@ public class AvailableBalanceActivity extends BaseActivity implements OnClickLis
 			mTransaction.hide(mAccumulatedFragment);
 		}
 	}
-	
+
 	private void foundChange(int index){
 		switch(index){
 			case 1:			 // 昨日收益   按钮
@@ -111,8 +114,8 @@ public class AvailableBalanceActivity extends BaseActivity implements OnClickLis
 				break;
 		}
 	}
-	
-	@SuppressLint("NewApi") 
+
+	@SuppressLint("NewApi")
 	private void initFristFrag(){
 		FragmentTransaction  mTransaction = mFragmentManager.beginTransaction();
 		mAvailableFragment = new AvailableBalanaceFragment();
@@ -120,6 +123,6 @@ public class AvailableBalanceActivity extends BaseActivity implements OnClickLis
 		mTransaction.commit();
 		foundChange(1);
 	}
-	
-	
+
+
 }

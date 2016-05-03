@@ -13,8 +13,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    =======
-    android:versionName="1.0" >
+
     <application
         android:name="com.laxiong.Application.YiTouApplication"
         android:allowBackup="true"
@@ -31,7 +30,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.laxiong.Activity.BaseActivity" />
-
         <!-- 日历账单 -->
         <activity android:name="com.laxiong.Activity.CalanderCountActivity" />
 
@@ -137,6 +135,13 @@
         <activity android:name="com.laxiong.Activity.ResetPayPwdActivity" />
         <activity android:name="com.laxiong.Activity.ChangePayPwdActivity" />
         <activity android:name="com.laxiong.Activity.BankListActivity" />
+        <activity android:name="com.laxiong.Activity.MyOrderActivity" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="55cbf02e67e58e5b890019af" />
+
+        <activity android:name="com.laxiong.Activity.YibiDetailActivity" />
     </application>
 
 </manifest>

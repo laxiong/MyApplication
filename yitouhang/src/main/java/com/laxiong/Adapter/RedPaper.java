@@ -88,6 +88,39 @@ public class RedPaper implements Parcelable {
         dest.writeInt(this.amount);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        RedPaper redPaper = (RedPaper) o;
+
+        if (id != redPaper.id) return false;
+        if (min != redPaper.min) return false;
+        if (selected != redPaper.selected) return false;
+        if (redtype != null ? !redtype.equals(redPaper.redtype) : redPaper.redtype != null)
+            return false;
+        if (date != null ? !date.equals(redPaper.date) : redPaper.date != null) return false;
+        if (rule != null ? !rule.equals(redPaper.rule) : redPaper.rule != null) return false;
+        if (is_used != null ? !is_used.equals(redPaper.is_used) : redPaper.is_used != null)
+            return false;
+        return !(amount != null ? !amount.equals(redPaper.amount) : redPaper.amount != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + min;
+        result = 31 * result + (redtype != null ? redtype.hashCode() : 0);
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        result = 31 * result + (rule != null ? rule.hashCode() : 0);
+        result = 31 * result + (is_used != null ? is_used.hashCode() : 0);
+        result = 31 * result + (amount != null ? amount.hashCode() : 0);
+        result = 31 * result + (selected ? 1 : 0);
+        return result;
+    }
+
     public RedPaper(int id, int min, String redtype, String date, String rule, Integer is_used, Integer amount) {
         this.id = id;
         this.min = min;

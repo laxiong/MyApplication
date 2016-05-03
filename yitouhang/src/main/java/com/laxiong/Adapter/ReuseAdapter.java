@@ -16,90 +16,59 @@ import android.widget.TextView;
  * Types ReuseAdapter.java
  */
 public abstract class ReuseAdapter<T> extends BaseAdapter {
-    private Context context;
-    private List<T> list;
-    private int layoutid;
-
-    public ReuseAdapter() {
-
-    }
     public void setList(List<T> list){
         this.list=list;
-        if(list.size()>0)
+        if(list!=null&&list.size()>0)
             this.notifyDataSetChanged();
     }
-    public ReuseAdapter(Context context, List<T> list, int layoutid) {
-        this.context = context;
-        this.list = list;
-        this.layoutid = layoutid;
+    private List<T> list;
+    protected LayoutInflater mInflater;
+    protected Context mContext;
+    protected List<T> mDatas;
+    protected final int mItemLayoutId;
+
+    public ReuseAdapter(Context context, List<T> mDatas, int itemLayoutId)
+    {
+        this.mContext = context;
+        this.mInflater = LayoutInflater.from(mContext);
+        this.mDatas = mDatas;
+        this.mItemLayoutId = itemLayoutId;
     }
 
     @Override
-    public int getCount() {
-        return list.size();
+    public int getCount()
+    {
+        return mDatas.size();
     }
 
     @Override
-    public Object getItem(int position) {
-        return list.get(position);
+    public T getItem(int position)
+    {
+        return mDatas.get(position);
     }
 
     @Override
-    public long getItemId(int position) {
+    public long getItemId(int position)
+    {
         return position;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewholder = ViewHolder.getHolder(context, layoutid, convertView, parent);
-        convert(viewholder, list.get(position));
-        return viewholder.getConvertView();
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
+        final ViewHolder viewHolder = getViewHolder(position, convertView,
+                parent);
+        convert(viewHolder, getItem(position));
+        return viewHolder.getConvertView();
+
     }
 
-    public abstract void convert(ViewHolder viewholder, T item);
+    public abstract void convert(ViewHolder helper, T item);
 
-    public static class ViewHolder {
-        private static View mconvertView;
-        private SparseArray<View> sparseview;
-
-        private ViewHolder(Context context, int layoutid, ViewGroup parent) {
-            mconvertView = LayoutInflater.from(context).inflate(layoutid, parent, false);
-            mconvertView.setTag(this);
-            sparseview = new SparseArray<View>();
-        }
-
-        public static ViewHolder getHolder(Context context, int layoutid, View convertView, ViewGroup parent) {
-            if (convertView == null)
-                return new ViewHolder(context, layoutid, parent);
-            return (ViewHolder) mconvertView.getTag();
-        }
-
-        public View getConvertView() {
-            return mconvertView;
-        }
-
-        public <T extends View> T getView(int vid) {
-            View view = sparseview.get(vid);
-            if (view == null) {
-                view = mconvertView.findViewById(vid);
-                sparseview.put(vid, view);
-            }
-            return (T) view;
-        }
-
-        public void setTextView(int vid, String content) {
-            TextView view = getView(vid);
-            view.setText(content);
-        }
-
-        public void setImageBitmap(int vid, Bitmap bm) {
-            ImageView view = getView(vid);
-            view.setImageBitmap(bm);
-        }
-
-        public void setImageSource(int vid, int sourceid) {
-            ImageView view = getView(vid);
-            view.setImageResource(sourceid);
-        }
+    private ViewHolder getViewHolder(int position, View convertView,
+                                     ViewGroup parent)
+    {
+        return ViewHolder.get(mContext, convertView, parent, mItemLayoutId,
+                position);
     }
 }

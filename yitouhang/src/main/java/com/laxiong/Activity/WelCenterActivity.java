@@ -117,7 +117,6 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
         }
         if (init)
             listdata.clear();
-//        listdata.addAll(presenter.reqRedPaperList(init ? (pagenow = 1) : ++pagenow, isused));
         listdata.addAll(list);
         adapter.setList(listdata);
         if (isused)
@@ -167,8 +166,11 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
                     RedPaper item = listdata.get(position);
                     if (item.getIs_used() == RedPaper.UsetypeEnum.UNUSED.getVal()) {
                         ImageView iv_select = (ImageView) view.findViewById(R.id.iv_select);
-                        listselect.add(item);
                         item.setSelected(!item.isSelected());
+                        if(item.isSelected())
+                            listselect.add(item);
+                        else
+                            listselect.remove(item);
                         iv_select.setImageResource(item.isSelected() ? R.drawable.choose : 0);
                     }
                 }

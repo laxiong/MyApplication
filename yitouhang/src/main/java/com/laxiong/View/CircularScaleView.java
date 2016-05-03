@@ -88,7 +88,7 @@ public class CircularScaleView extends View{
 		paint.setColor(Color.BLACK);
 		paint.setStrokeWidth(5);
 		paint.setTextSize(textHeight*2);
-		int MoneyWidth = (int) paint.measureText(totalMoney, 0, text.length());
+		int MoneyWidth = (int) paint.measureText(totalMoney, 0, totalMoney.length());
 		paint.setStyle(Style.FILL);
 		canvas.drawText(totalMoney, width / 2 - MoneyWidth / 2, height / 2
 				+ textHeight , paint);
@@ -123,6 +123,7 @@ public class CircularScaleView extends View{
 
 	public void setTotalMoney(String totalMoney) {
 		this.totalMoney = totalMoney;
+		invalidate();
 	}
 
 

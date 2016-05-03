@@ -34,5 +34,11 @@ public class InterfaceInfo {
 	public final static String BANKLIST_URL=BASE_URL+"/banklist";
 	//提现
 	public final static String WITHDRAW_URL=BASE_URL+"/withdraw";
+	//资金流水
+	public final static String FUND_URL=BASE_URL+"/fund/";
+	//消息
+	public final static String NOTICE_URL=BASE_URL+"/notice";
+	//积分
+	public final static String SCORE_URL=BASE_URL+"/score/";
 
 }

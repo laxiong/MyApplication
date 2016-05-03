@@ -16,18 +16,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Adapter.RedPaper;
 import com.laxiong.yitouhang.R;
+
+import java.util.List;
 
 public class BuyingActivity extends BaseActivity implements OnClickListener{
 /***
  * 立即购买页面
  */
-	
+
 	private static final int REQUEST_CODE=1;
 	private LinearLayout mChangeBankTpye,ll_redpaper;
 	private FrameLayout mBack ;
-	private TextView mBuyBtn ;
+	private TextView mBuyBtn,tv_paper;
 	private ImageView mToggleBtn;
+	private List<RedPaper> listpaper;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -50,6 +54,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		mBack = (FrameLayout)findViewById(R.id.backlayout_);
 		mBuyBtn = (TextView)findViewById(R.id.buyingbtn);
 		mToggleBtn = (ImageView)findViewById(R.id.img_toggle);
+		tv_paper= (TextView) findViewById(R.id.tv_paper);
 	}
 
 	@Override
@@ -78,6 +83,16 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
+		if(data!=null&&resultCode==RESULT_OK){
+			listpaper=data.getParcelableArrayListExtra("data");
+			if(listpaper!=null&&listpaper.size()>0){
+				int total=0;
+				for(RedPaper paper:listpaper){
+					total+=paper.getAmount();
+				}
+				tv_paper.setText(total+"");
+			}
+		}
 	}
 	// 阅读协议
 	private boolean isRead = false ;
@@ -92,28 +107,28 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 	}
 
 			// pay Menthod
-	
+
 			private PopupWindow mPayMathodWindow ;
 			private View PayView ;
 			private ImageView newCard_img,lateMoney_img,constranceBank_img ;
 			private void payMenthodType(){
-				
+
 				PayView = LayoutInflater.from(BuyingActivity.this).inflate(R.layout.pay_mathod_popwindow, null);
-				
+
 				RelativeLayout newCard = (RelativeLayout)PayView.findViewById(R.id.addnewcard);
 				RelativeLayout lateMoney = (RelativeLayout)PayView.findViewById(R.id.latemoney);
 				RelativeLayout constranceBank = (RelativeLayout)PayView.findViewById(R.id.concreatebank);
 				TextView mConcel = (TextView)PayView.findViewById(R.id.concel);
-				
+
 				newCard_img = (ImageView)PayView.findViewById(R.id.change_img_addnewcard);
 				lateMoney_img = (ImageView)PayView.findViewById(R.id.change_img_latemoney);
 				constranceBank_img = (ImageView)PayView.findViewById(R.id.change_img_concreatebank);
-				
+
 				newCard.setOnClickListener(listenner);
 				lateMoney.setOnClickListener(listenner);
 				constranceBank.setOnClickListener(listenner);
 				mConcel.setOnClickListener(listenner);
-				
+
 				mPayMathodWindow = new PopupWindow(PayView,LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT,true);
 				mPayMathodWindow.setTouchable(true);
 				mPayMathodWindow.setOutsideTouchable(true);
@@ -122,7 +137,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 				mPayMathodWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.kefu_bg)); //设置半透明
 				mPayMathodWindow.showAtLocation(PayView, Gravity.BOTTOM, 0, 0);
 			}
-			
+
 			OnClickListener listenner = new OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -151,20 +166,20 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 					}
 				}
 			};
-	
-			
+
+
 			// 转入按钮  输入密码
 			private PopupWindow mInputPswdWindow ;
 			private View mInputView ;
 			private void inputOverToPswd(){
-				
+
 				mInputView = LayoutInflater.from(BuyingActivity.this).inflate(R.layout.overtopswd_popwindow, null);
-				
+
 				ImageView comcelImags = (ImageView)mInputView.findViewById(R.id.imgs_concel);
 				TextView  mForgetPswd = (TextView)mInputView.findViewById(R.id.forget_pswd);
 				TextView concelBtn = (TextView)mInputView.findViewById(R.id.concel_btn);
 				TextView sureBtn = (TextView)mInputView.findViewById(R.id.sure_btn);
-				
+
 				comcelImags.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View arg0) {
@@ -174,7 +189,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 						}
 					}
 				});
-				
+
 				concelBtn.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View arg0) {
@@ -184,28 +199,28 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 						}
 					}
 				});
-				
+
 				sureBtn.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View arg0) {
 						startActivity(new Intent(BuyingActivity.this,
 								BuyingResultActivity.class));
-						
+
 						if(mInputPswdWindow!=null&&mInputPswdWindow.isShowing()){
 							mInputPswdWindow.dismiss();
 							mInputPswdWindow = null ;
 						}
-						
+
 					}
 				});
-				
+
 				mForgetPswd.setOnClickListener(new OnClickListener() {
 					@SuppressLint("InlinedApi") @Override
 					public void onClick(View arg0) {
 						Toast.makeText(BuyingActivity.this, "忘记密码的操作",Toast.LENGTH_LONG).show();
 					}
 				});
-				
+
 				mInputPswdWindow = new PopupWindow(mInputView,  LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT,true);
 				mInputPswdWindow.setTouchable(true);
 				mInputPswdWindow.setOutsideTouchable(true);
@@ -214,7 +229,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 				mInputPswdWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.kefu_bg)); //设置半透明
 				mInputPswdWindow.showAtLocation(mInputView, Gravity.BOTTOM, 0, 0);
 			}
-					
-			
+
+
 
 }

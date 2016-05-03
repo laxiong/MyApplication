@@ -20,8 +20,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.laxiong.Common.InterfaceInfo;
+import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.View.VerticalNumberProgressBar;
+import com.laxiong.entity.ShareInfo;
 import com.laxiong.yitouhang.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -59,8 +61,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 		mBuyBtn.setOnClickListener(this);
 
 		mId = getIntent().getIntExtra("id",-1);
-		Log.i("GXB","获取的Id："+mId);
-
+		Log.i("GXB", "获取的Id：" + mId);
 
 	}
 	private void initView() {
@@ -69,10 +70,8 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 		mProgressBar =(VerticalNumberProgressBar)findViewById(R.id.numberbar);
 		mJiSuanQi = (ImageView)findViewById(R.id.jisuanqi);
 		mBuyBtn = (TextView)findViewById(R.id.buying);
-		
 		mBack = (FrameLayout)findViewById(R.id.backlayout);
 		mShareBtn = (TextView)findViewById(R.id.share);
-
 
 		mPrecent =(TextView)findViewById(R.id.tv2);
 		mAddPrecent =(TextView)findViewById(R.id.addprecent);
@@ -88,7 +87,8 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 	public void onClick(View v) {
 		switch(v.getId()){
 			case R.id.share:
-				Toast.makeText(this, "分享", Toast.LENGTH_SHORT).show();
+				DialogUtils.getInstance(GuXiBaoActivity.this).alertShareDialog(new ShareInfo("第一次","看看有用吗","","http://www.baidu.com"),v);
+//				Toast.makeText(this, "分享", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.backlayout:
 				this.finish();
@@ -102,7 +102,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 				break;
 		}
 	}
-	
 	// set progress textview height
 	private void setProgressNumHeight(float f){
 		int widthMeasureSpec = MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);

@@ -211,7 +211,7 @@
     <LinearLayout
         android:id="@+id/ll_msg"
         android:layout_width="match_parent"
-        android:layout_height="83dp"
+        android:layout_height="82dp"
         android:background="@color/white"
         android:orientation="vertical"
         android:visibility="gone"
@@ -219,6 +219,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:paddingLeft="20dp"
             android:layout_height="40dp">
 
             <TextView
@@ -245,6 +246,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:paddingLeft="20dp"
             android:layout_height="40dp">
 
             <TextView

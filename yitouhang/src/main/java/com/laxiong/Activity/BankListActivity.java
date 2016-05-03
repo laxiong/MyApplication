@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.laxiong.Adapter.ReuseAdapter;
+import com.laxiong.Adapter.ViewHolder;
 import com.laxiong.Mvp_model.BindCardItem;
 import com.laxiong.Mvp_presenter.BankCard_Presenter;
 import com.laxiong.Mvp_view.IViewCardList;
@@ -65,8 +66,8 @@ public class BankListActivity extends BaseActivity implements IViewCardList {
         adapter = new ReuseAdapter<BindCardItem>(BankListActivity.this, listitem, R.layout.item_bankcard) {
             @Override
             public void convert(ViewHolder viewholder, BindCardItem item) {
-                viewholder.setImageSource(R.id.iv_mark, getResources().getIdentifier("logo_" + item.getLogoKey(), "drawable", getPackageName()));
-                viewholder.setTextView(R.id.tv_name, item.getName());
+                viewholder.setImageResource(R.id.iv_mark, getResources().getIdentifier("logo_" + item.getLogoKey(), "drawable", getPackageName()));
+                viewholder.setText(R.id.tv_name, item.getName());
             }
         };
         lvlist.setAdapter(adapter);

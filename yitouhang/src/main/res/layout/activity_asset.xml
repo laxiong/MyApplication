@@ -87,7 +87,8 @@
             android:textSize="12sp"
             />
         
-        <TextView 
+        <TextView
+            android:id="@+id/tv_sxttouru"
             android:layout_toLeftOf="@+id/see_more"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -136,7 +137,8 @@
             android:textSize="12sp"
             />
         
-        <TextView 
+        <TextView
+            android:id="@+id/tv_sxtshouyi"
             android:layout_toLeftOf="@+id/see_more1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -188,7 +190,8 @@
             android:textSize="12sp"
             />
         
-        <TextView 
+        <TextView
+            android:id="@+id/tv_gxbtouru"
             android:layout_toLeftOf="@+id/see_more3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -226,7 +229,8 @@
          android:layout_height="6dp"
          android:layout_centerVertical="true"
          />
-        <TextView 
+        <TextView
+            android:id="@+id/tv_gxbshouyi"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="累计收益"
