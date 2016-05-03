@@ -22,13 +22,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.laxiong.Activity.PatternViewActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="@string/app_name"></activity>
         <activity android:name="com.laxiong.Activity.BaseActivity" />
         <!-- 日历账单 -->
         <activity android:name="com.laxiong.Activity.CalanderCountActivity" />
@@ -139,9 +133,18 @@
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="55cbf02e67e58e5b890019af"></meta-data>
+            android:value="55cbf02e67e58e5b890019af" />
 
-        <activity android:name="com.laxiong.Activity.YibiDetailActivity"></activity>
+        <activity android:name="com.laxiong.Activity.YibiDetailActivity" />
+        <activity android:name="com.laxiong.Activity.GuideActivity">
+        </activity>
+        <activity android:name="com.laxiong.Activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

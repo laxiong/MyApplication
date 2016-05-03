@@ -58,8 +58,10 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
         updateButton(false);
         mPswd.addTextChangedListener(presenter.getTextWatcher());
         if (StringUtils.isBlank(getInputPhoneNum())) {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, ChangeCountActivity.class);
             startActivity(intent);
+            finish();
+            return;
         } else
             tv_phonenum.setText(StringUtils.getProtectedMobile(getInputPhoneNum()));
     }

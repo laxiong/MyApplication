@@ -54,6 +54,10 @@ public class MySelfFragment extends Fragment implements OnClickListener {
         mItMall.setOnClickListener(this);
         mRedBao.setOnClickListener(this);
         User user = YiTouApplication.getInstance().getUser();
+        if (user == null) {
+            startActivity(new Intent(getActivity(), LoginActivity.class));
+            return;
+        }
         iv_yesterprofit.setText(user.getYesterday().getTotal() + "元");
         textView1.setText(user.getAvailable_amount() + "元");
         togetche_tv.setText(user.getAmount() + "元");
