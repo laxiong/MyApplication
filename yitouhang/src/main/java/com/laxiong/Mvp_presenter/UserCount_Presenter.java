@@ -23,6 +23,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -56,9 +57,18 @@ public class UserCount_Presenter {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 if (response != null) {
-                    User user = JSONUtils.parseObject(response.toString(), User.class);
-                    YiTouApplication.getInstance().setUser(user);
-                    iviewcount.getCountMsgSuc();
+                    try {
+                        if(response.getInt("code")==0) {
+                            Log.i("kk",response.toString());
+                            User user = JSONUtils.parseObject(response.toString(), User.class);
+                            YiTouApplication.getInstance().setUser(user);
+                            iviewcount.getCountMsgSuc();
+                        }else{
+                            iviewcount.getCountMsgFai();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
 
