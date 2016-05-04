@@ -1,9 +1,11 @@
 package com.laxiong.Activity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.SlidingDrawer;
 import android.widget.TextView;
 
@@ -13,7 +15,6 @@ import com.laxiong.Calender.CalendarViewPagerLisenter;
 import com.laxiong.Calender.CalendarViewVer;
 import com.laxiong.Calender.CustomDate;
 import com.laxiong.Calender.CustomViewPagerAdapter;
-import com.laxiong.Calender.DateUtil;
 import com.laxiong.yitouhang.R;
 
 /**
@@ -25,15 +26,16 @@ public class CalanderHorizontalActivity extends BaseActivity implements View.OnC
      */
     private ViewPager viewPager;
     private CalendarView[] views;
-    private TextView showYearView;
-    private TextView showMonthView;
-    private TextView showWeekView;
-    private TextView monthCalendarView;
-    private TextView weekCalendarView;
+    private TextView showYearView;  // 显示年
+    private TextView showMonthView; //月
+    private RelativeLayout mCalenderSelect ; // 选择周或月的
     private CalendarViewBuilder builder = new CalendarViewBuilder();
     private SlidingDrawer mSlidingDrawer;
     private View mContentPager;
     private CustomDate mClickDate;
+    private FrameLayout mBack ;
+    private TextView mBackToday ;
+    private ImageView mYearImg , mMonthImg ;
     public static final String MAIN_ACTIVITY_CLICK_DATE = "main_click_date";
 
     @Override
@@ -41,20 +43,26 @@ public class CalanderHorizontalActivity extends BaseActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calander_horizonal);
         findViewbyId();
+        selectWeekAndMonth();
     }
 
     private void findViewbyId() {
+
+        mYearImg =(ImageView)findViewById(R.id.img1);
+        mMonthImg =(ImageView)findViewById(R.id.img2);
+        mBackToday =(TextView)findViewById(R.id.now_circle_view);
+
         viewPager = (ViewPager) this.findViewById(R.id.viewpager);
         showMonthView = (TextView) this.findViewById(R.id.show_month_view);
         showYearView = (TextView) this.findViewById(R.id.show_year_view);
-        showWeekView = (TextView) this.findViewById(R.id.show_week_view);
+        mBack =(FrameLayout) this.findViewById(R.id.back_layout);
+        mCalenderSelect =(RelativeLayout)this.findViewById(R.id.clendar_select);
         views = builder.createMassCalendarViews(this, 5, this);
-        monthCalendarView = (TextView) this.findViewById(R.id.month_calendar_button);
-        weekCalendarView = (TextView) this.findViewById(R.id.week_calendar_button);
         mContentPager = this.findViewById(R.id.contentPager);
         mSlidingDrawer = (SlidingDrawer) this.findViewById(R.id.sildingDrawer);
-        monthCalendarView.setOnClickListener(this);
-        weekCalendarView.setOnClickListener(this);
+        mCalenderSelect.setOnClickListener(this);
+        mBack.setOnClickListener(this);
+        mBackToday.setOnClickListener(this);
         setViewPager();
         setOnDrawListener();
     }
@@ -93,34 +101,44 @@ public class CalanderHorizontalActivity extends BaseActivity implements View.OnC
 
     public void setShowDateViewText(int year ,int month){
         showYearView.setText(year+"");
-        showMonthView.setText(month+"月份");
-        showWeekView.setText(DateUtil.weekName[DateUtil.getWeekDay()-1]);
+        showMonthView.setText("."+month);
+//        showWeekView.setText(DateUtil.weekName[DateUtil.getWeekDay() - 1]);
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.month_calendar_button:   // 月的按钮
-                swtichBackgroundForButton(true);
-                builder.swtichCalendarViewsStyle(CalendarViewVer.MONTH_STYLE);
-                mSlidingDrawer.close();
+            case R.id.clendar_select:   // 选择的周月
+                selectWeekAndMonth();
                 break;
-            case R.id.week_calendar_button:   // 周的按钮
-                swtichBackgroundForButton(false);
-                mSlidingDrawer.open();
+            case R.id.back_layout:   // 返回
+                this.finish();
                 break;
+            case R.id.now_circle_view: // 返回今天
+                builder.backTodayCalendarViews();
+                break;
+        }
+    }
+    // 周或月的选择   默认是月的
+    private boolean isSelect = true ;
+    private void selectWeekAndMonth(){
+        initKongPiontImg();
+        if (isSelect){
+            builder.swtichCalendarViewsStyle(CalendarViewVer.MONTH_STYLE);
+            mSlidingDrawer.close();
+            isSelect = false ;
+            mYearImg.setImageResource(R.drawable.img_result_piont_mr);
+        }else {
+            mSlidingDrawer.open();
+            isSelect = true ;
+            mMonthImg.setImageResource(R.drawable.img_result_piont_mr);
         }
     }
 
-    private void swtichBackgroundForButton(boolean isMonth){
-        if(isMonth){
-            monthCalendarView.setBackgroundResource(R.drawable.press_left_text_bg);
-            weekCalendarView.setBackgroundColor(Color.TRANSPARENT);
-        }else{
-            weekCalendarView.setBackgroundResource(R.drawable.press_right_text_bg);
-            monthCalendarView.setBackgroundColor(Color.TRANSPARENT);
-        }
+    private void initKongPiontImg(){
+        mYearImg.setImageResource(R.drawable.img_kong_point);
+        mMonthImg.setImageResource(R.drawable.img_kong_point);
     }
+
     @Override
     public void clickDate(CustomDate date) {
         mClickDate = date;
