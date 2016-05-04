@@ -9,9 +9,11 @@ import android.content.SharedPreferences;
  */
 public class SpUtils {
     private static SharedPreferences sp;
+    public static final String GESTURE_KEY="patternstring";
     private static final String SP_NAME="yitouhang";
     public static final String USER_KEY="username";
     public static final String USERLOGIN_KEY="userlogin";
+    public static final String FIRST_CONFIRM="isfirst";
     public static SharedPreferences getSp(Context context){
         if(sp==null){
             sp=context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);

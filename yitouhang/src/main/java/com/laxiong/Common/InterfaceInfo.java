@@ -1,5 +1,7 @@
 package com.laxiong.Common;
 
+import com.loopj.android.http.Base64;
+
 public class InterfaceInfo {
 	/***
 	 * 接口信息
@@ -40,5 +42,7 @@ public class InterfaceInfo {
 	public final static String NOTICE_URL=BASE_URL+"/notice";
 	//积分
 	public final static String SCORE_URL=BASE_URL+"/score/";
+	//欢迎
+	public final static String WELCOME_URL=BASE_URL+"/start";
 
 }

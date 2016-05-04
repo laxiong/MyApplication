@@ -30,22 +30,23 @@ import com.umeng.socialize.media.UMusic;
  */
 public class DialogUtils {
     private static DialogUtils dutil;
-    private Activity context;
     private PayPop dialog;
+    private static Activity context;
 
     private DialogUtils(Activity context) {
         this.context = context;
     }
 
-    public static DialogUtils getInstance(Activity context) {
-        if (dutil == null)
-            dutil = new DialogUtils(context);
+    public static DialogUtils getInstance(Activity contexts) {
+        if (dutil == null || contexts != context)
+            dutil = new DialogUtils(contexts);
         return dutil;
     }
 
     public void alertShareDialog(final ShareInfo shareInfo, View parent) {
         DialogUtils.bgalpha(context, 0.3f);
         if (dialog != null) {
+            DialogUtils.bgalpha(context, 0.3f);
             dialog.showAtLocation(parent, Gravity.BOTTOM, 0, 0);
             return;
         }
