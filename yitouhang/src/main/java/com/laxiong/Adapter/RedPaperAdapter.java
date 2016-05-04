@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -25,11 +26,13 @@ public class RedPaperAdapter extends BaseAdapter {
         this.mContext = context;
         this.list = list;
     }
-    public void setList(ArrayList<RedPaper> list){
-        this.list=list;
-        if(list.size()>0)
+
+    public void setList(ArrayList<RedPaper> list) {
+        this.list = list;
+        if (list.size() > 0)
             this.notifyDataSetChanged();
     }
+
     @Override
     public int getCount() {
         return list.size();
@@ -42,6 +45,7 @@ public class RedPaperAdapter extends BaseAdapter {
         else
             return null;
     }
+
     @Override
     public long getItemId(int position) {
         return position;
@@ -58,7 +62,8 @@ public class RedPaperAdapter extends BaseAdapter {
             viewholder.tvexplain = (TextView) convertView.findViewById(R.id.tv_content);
             viewholder.tvyuan = (TextView) convertView.findViewById(R.id.tv_yuan);
             viewholder.tv = (TextView) convertView.findViewById(R.id.tv);
-            viewholder.rlbg= (RelativeLayout) convertView.findViewById(R.id.rl_bg);
+            viewholder.rlbg = (RelativeLayout) convertView.findViewById(R.id.rl_bg);
+            viewholder.iv_select = (ImageView) convertView.findViewById(R.id.iv_select);
             convertView.setTag(viewholder);
         } else {
             viewholder = (ViewHolder) convertView.getTag();
@@ -85,6 +90,7 @@ public class RedPaperAdapter extends BaseAdapter {
         viewholder.tvexpire.setText("有效期至" + paper.getDate());
         viewholder.tvexplain.setText(paper.getRule());
         viewholder.tvyuan.setText(paper.getAmount() + "");
+        viewholder.iv_select.setImageResource(paper.isSelected() ? R.drawable.choose : 0);
         return convertView;
     }
 
@@ -95,5 +101,6 @@ public class RedPaperAdapter extends BaseAdapter {
         TextView tvexplain;
         TextView tvyuan;
         TextView tv;
+        ImageView iv_select;
     }
 }

@@ -63,7 +63,7 @@ MERGED from [MyApplication:social_sdk_library_project:unspecified] D:\work\andro
 	android:name
 		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:18:9-64
 activity#com.laxiong.Activity.PatternViewActivity
-ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:23:9-25:57
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:23:9-25:48
 	android:label
 		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:25:13-45
 	android:name
@@ -269,20 +269,24 @@ ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\And
 	android:name
 		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:138:19-73
 activity#com.laxiong.Activity.GuideActivity
-ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:139:9-140:20
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:139:9-80
 	android:name
 		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:139:19-68
 activity#com.laxiong.Activity.SplashActivity
-ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:141:9-147:20
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:140:9-146:20
 	android:name
-		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:141:19-69
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:140:19-69
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:142:13-146:29
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:141:13-145:29
 action#android.intent.action.MAIN
-ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:143:17-69
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:142:17-69
 	android:name
-		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:143:25-66
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:142:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:145:17-77
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:144:17-77
 	android:name
-		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:145:27-74
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:144:27-74
+activity#com.laxiong.Activity.AtHallActivity
+ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:147:9-81
+	android:name
+		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:147:19-69

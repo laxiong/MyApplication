@@ -303,27 +303,27 @@ public final class R {
 		public static final int webView = 0x7f0c01fb;
 	}
 	public static final class layout {
-		public static final int com_facebook_activity_layout = 0x7f030055;
-		public static final int com_facebook_login_fragment = 0x7f030056;
-		public static final int com_facebook_tooltip_bubble = 0x7f030057;
-		public static final int messenger_button_send_blue_large = 0x7f030073;
-		public static final int messenger_button_send_blue_round = 0x7f030074;
-		public static final int messenger_button_send_blue_small = 0x7f030075;
-		public static final int messenger_button_send_white_large = 0x7f030076;
-		public static final int messenger_button_send_white_round = 0x7f030077;
-		public static final int messenger_button_send_white_small = 0x7f030078;
-		public static final int umeng_socialize_base_alert_dialog = 0x7f030088;
-		public static final int umeng_socialize_base_alert_dialog_button = 0x7f030089;
-		public static final int umeng_socialize_facebook_login_activity_layout = 0x7f03008a;
-		public static final int umeng_socialize_failed_load_page = 0x7f03008b;
-		public static final int umeng_socialize_full_alert_dialog = 0x7f03008c;
-		public static final int umeng_socialize_full_alert_dialog_item = 0x7f03008d;
-		public static final int umeng_socialize_full_curtain = 0x7f03008e;
-		public static final int umeng_socialize_oauth_dialog = 0x7f03008f;
-		public static final int umeng_socialize_post_share = 0x7f030090;
-		public static final int umeng_socialize_shareboard_item = 0x7f030091;
-		public static final int umeng_socialize_simple_spinner_item = 0x7f030092;
-		public static final int umeng_socialize_titile_bar = 0x7f030093;
+		public static final int com_facebook_activity_layout = 0x7f030056;
+		public static final int com_facebook_login_fragment = 0x7f030057;
+		public static final int com_facebook_tooltip_bubble = 0x7f030058;
+		public static final int messenger_button_send_blue_large = 0x7f030075;
+		public static final int messenger_button_send_blue_round = 0x7f030076;
+		public static final int messenger_button_send_blue_small = 0x7f030077;
+		public static final int messenger_button_send_white_large = 0x7f030078;
+		public static final int messenger_button_send_white_round = 0x7f030079;
+		public static final int messenger_button_send_white_small = 0x7f03007a;
+		public static final int umeng_socialize_base_alert_dialog = 0x7f03008a;
+		public static final int umeng_socialize_base_alert_dialog_button = 0x7f03008b;
+		public static final int umeng_socialize_facebook_login_activity_layout = 0x7f03008c;
+		public static final int umeng_socialize_failed_load_page = 0x7f03008d;
+		public static final int umeng_socialize_full_alert_dialog = 0x7f03008e;
+		public static final int umeng_socialize_full_alert_dialog_item = 0x7f03008f;
+		public static final int umeng_socialize_full_curtain = 0x7f030090;
+		public static final int umeng_socialize_oauth_dialog = 0x7f030091;
+		public static final int umeng_socialize_post_share = 0x7f030092;
+		public static final int umeng_socialize_shareboard_item = 0x7f030093;
+		public static final int umeng_socialize_simple_spinner_item = 0x7f030094;
+		public static final int umeng_socialize_titile_bar = 0x7f030095;
 	}
 	public static final class string {
 		public static final int com_facebook_dialogloginactivity_ok_button = 0x7f05000f;
