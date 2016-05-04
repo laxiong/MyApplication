@@ -72,9 +72,9 @@ public class ScollPagerUtils implements OnPageChangeListener{
 			params.setMargins(DensityUtils.dp2px(mContext, 5), 0, 0, 0);
 			point.setLayoutParams(params);
 			if (i == (prePoint % bannerList.size())) {
-				point.setBackgroundResource(R.drawable.img_point_lang);
+				point.setBackgroundResource(R.drawable.home_point_icon);
 			} else {
-				point.setBackgroundResource(R.drawable.img_point_short);
+				point.setBackgroundResource(R.drawable.home_point_normal_icon);
 			}
 			dotList.add(point);
 			mDotLinearlayout.addView(point);
@@ -175,10 +175,10 @@ public class ScollPagerUtils implements OnPageChangeListener{
 	private void setDotBackground(int selectItem){
 		for(int i = 0; i < bannerList.size(); i++){
 			if(i == selectItem){
-				dotList.get(i).setBackgroundResource(R.drawable.img_point_lang);
+				dotList.get(i).setBackgroundResource(R.drawable.home_point_icon);
 				currentItem = i ;
 			}else{
-				dotList.get(i).setBackgroundResource(R.drawable.img_point_short);
+				dotList.get(i).setBackgroundResource(R.drawable.home_point_normal_icon);
 			}
 		}
 	}

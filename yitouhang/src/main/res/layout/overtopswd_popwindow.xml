@@ -30,7 +30,7 @@
                 android:layout_toRightOf="@+id/tv"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:src="@drawable/img_cricle_close"
+                android:background="@color/divider_grey"
                 android:layout_centerVertical="true"
                 />
         </RelativeLayout>
@@ -45,14 +45,13 @@
             android:layout_height="74dp"
             >
             <TextView
-                android:id="@+id/topaymoney"
+                android:id="@+id/topaymoney" 
                 android:text="从我的余额-转入  时息通"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:gravity="center"
                 />
-            <TextView
-                android:id="@+id/zhuang_money"
+            <TextView 
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:gravity="center"
@@ -72,9 +71,7 @@
             android:background="@drawable/grey_border"
             android:orientation="horizontal"
             >
-            <!--
             <com.laxiong.InputMethod.LPTextField
-                android:id="@+id/inputpswd"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="40dp"
@@ -84,18 +81,6 @@
                 android:textSize="14sp"
                 android:gravity="center"
                 />
-                -->
-            <EditText
-                android:id="@+id/inputpswd"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="40dp"
-                android:background="@null"
-                android:hint="输入支付密码"
-                android:paddingLeft="5dp"
-                android:textSize="14sp"
-                android:gravity="center" />
-
             <TextView
                 android:id="@+id/forget_pswd" 
                 android:layout_width="40dp"

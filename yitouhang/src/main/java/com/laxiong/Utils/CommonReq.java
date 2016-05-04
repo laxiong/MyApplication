@@ -44,7 +44,7 @@ public class CommonReq {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                setImageFailure(R.drawable.ic_launcher, iv);
+                setImageFailure(R.drawable.gongshi_mr, iv);
             }
         });
     }

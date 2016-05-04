@@ -86,16 +86,6 @@ public class Password_Presenter {
     }
 
     public void reqValidation() {
-        if (startmiles == -1) {
-            startmiles = System.currentTimeMillis();
-        } else {
-            long inteval = System.currentTimeMillis() - startmiles;
-            if (inteval <= INTER_TIME) {
-                iviewback.showTimeOut((int) (inteval / 1000) + 1);
-                return;
-            } else
-                startmiles = System.currentTimeMillis();
-        }
         String phonenum = iviewback.getTextPhone();
         RequestParams params = new RequestParams();
         params.put("type", Constants.ReqEnum.PWD.getVal());

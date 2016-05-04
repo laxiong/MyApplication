@@ -42,10 +42,10 @@
 		                android:id="@+id/icon1"
 		                android:layout_width="26dp"
 		                android:layout_height="26dp"
+		                android:background="@drawable/corners_border"
 		                android:layout_centerVertical="true"
 		                />
-		            <TextView
-						android:id="@+id/bankname"
+		            <TextView 
 		                android:layout_marginLeft="5dp"
 		                android:layout_width="wrap_content"
 		                android:layout_height="match_parent"
@@ -83,8 +83,7 @@
 		                android:background="@drawable/corners_border"
 		                android:layout_centerVertical="true"
 		                />
-		            <TextView
-						android:id="@+id/myyue"
+		            <TextView 
 		                android:layout_marginLeft="5dp"
 		                android:layout_width="wrap_content"
 		                android:layout_height="match_parent"
@@ -98,7 +97,7 @@
 		                android:id="@+id/change_img_latemoney" 
 		                android:layout_width="16dp"
 		                android:layout_height="16dp"
-		                 android:src="@drawable/img_no_read"
+		                 android:src="@drawable/img_read"
 		                android:layout_centerVertical="true"
 		                android:layout_alignParentRight="true"
 		                />
@@ -122,8 +121,7 @@
 		                android:background="@drawable/corners_border"
 		                android:layout_centerVertical="true"
 		                />
-		            <TextView
-						android:id="@+id/newcard"
+		            <TextView 
 		                android:layout_marginLeft="5dp"
 		                android:layout_width="wrap_content"
 		                android:layout_height="match_parent"

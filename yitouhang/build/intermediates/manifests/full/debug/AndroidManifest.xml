@@ -13,14 +13,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    =======
-    android:versionName="1.0" >
+
     <application
         android:name="com.laxiong.Application.YiTouApplication"
         android:allowBackup="true"
@@ -29,32 +22,10 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.laxiong.Activity.PatternViewActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <!-- =============================LLYT SDK START=================================== -->
-        <activity
-            android:name="com.yintong.secure.activity.BaseActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
-
-        <service android:name="com.yintong.secure.service.PayService" >
-        </service>
-        <!-- =================================LLYT SDK END ====================================== -->
-
+            android:label="@string/app_name" />
         <activity android:name="com.laxiong.Activity.BaseActivity" />
-
         <!-- 日历账单 -->
         <activity android:name="com.laxiong.Activity.CalanderCountActivity" />
-        <activity android:name="com.laxiong.Activity.CalanderHorizontalActivity" />
 
         <!-- VIP -->
         <activity android:name="com.laxiong.Activity.ShowVIPActivity" />
@@ -82,11 +53,12 @@
         <activity android:name="com.laxiong.Activity.ChangeBindPhoneActivity2" />
         <activity android:name="com.laxiong.Activity.ChangeLoginPswdActivity" />
 
-        <!-- 我的银行卡 -->
-        <activity android:name="com.laxiong.Activity.MyBandBankCardActivity" />
-
         <!-- 修改支付密码 -->
+
+
         <!-- 重置支付密码 -->
+
+
         <!-- 注册 -->
         <activity android:name="com.laxiong.Activity.RegistActivity" />
 
@@ -149,16 +121,6 @@
         <!-- 壹币商城 -->
         <activity android:name="com.laxiong.Activity.TMallActivity" />
 
-        <!-- 版本管理 -->
-        <activity android:name="com.laxiong.Activity.VersionManageActivity" />
-
-        <!--
-        修改支付密码
-        <activity android:name="com.laxiong.Activity.ChangePayPswdActivity1" />
-        <activity android:name="com.laxiong.Activity.ChangePayPswdActivity2" />
-        -->
-
-
         <!-- 充值结果 -->
         <activity android:name="com.laxiong.Activity.RechargeResultActivity" />
 
@@ -174,10 +136,15 @@
             android:value="55cbf02e67e58e5b890019af" />
 
         <activity android:name="com.laxiong.Activity.YibiDetailActivity" />
+        <activity android:name="com.laxiong.Activity.GuideActivity" />
+        <activity android:name="com.laxiong.Activity.SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.laxiong.Activity.AtHallActivity" />
     </application>
 
 </manifest>

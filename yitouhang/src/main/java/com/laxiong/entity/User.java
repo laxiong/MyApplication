@@ -23,7 +23,7 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private boolean pay_pwd;
-    private boolean is_vip; // 是否为Vip用户
+    private boolean is_vip;
     private int contacts;
     private float friendsprofit;
     private int experience;

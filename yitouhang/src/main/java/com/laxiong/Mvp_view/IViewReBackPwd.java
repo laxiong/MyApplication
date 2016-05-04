@@ -12,5 +12,4 @@ public interface IViewReBackPwd {
     public void getCodeFailure(String msg);
     public void reBackSuccess();
     public void reBackFailure(String msg);
-    public void showTimeOut(int seconds);
 }

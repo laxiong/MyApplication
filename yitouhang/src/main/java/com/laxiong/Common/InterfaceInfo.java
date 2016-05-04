@@ -44,5 +44,7 @@ public class InterfaceInfo {
 	public final static String SCORE_URL=BASE_URL+"/score/";
 	//欢迎
 	public final static String WELCOME_URL=BASE_URL+"/start";
+	//活动大厅
+	public final static String ACTIVITY_URL=BASE_URL+"/activity";
 
 }

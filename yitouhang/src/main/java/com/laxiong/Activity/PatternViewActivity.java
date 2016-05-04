@@ -28,7 +28,7 @@ import com.laxiong.fund.widget.GestureContentView;
 import com.laxiong.fund.widget.GestureDrawline.GestureCallBack;
 import com.laxiong.yitouhang.R;
 
-public class PatternViewActivity extends BaseActivity implements OnClickListener, IViewCount {
+public class PatternViewActivity extends BaseActivity implements OnClickListener {
     /***
      * 设置手势密码
      */
@@ -56,7 +56,6 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
     private long mExitTime = 0;
     private int mParamIntentCode;
     private String gestruepswd;  // 手势密码
-    private UserCount_Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,29 +66,14 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
         setUpListeners();
     }
 
-    @Override
-    public void getCountMsgSuc() {
-        startActivity(new Intent(PatternViewActivity.this,
-                MainActivity.class));
-        PatternViewActivity.this.finish();
-    }
-
-    @Override
-    public void getCountMsgFai() {
-        Intent intent = new Intent(this, ChangeCountActivity.class);
-        startActivity(intent);
-        PatternViewActivity.this.finish();
-    }
-
     private void initData() {
-        presenter = new UserCount_Presenter(this);
         // 初始化一个显示各个点的viewGroup
 
         // TODO 获取登录的手势密码,在启动页里  第一次打开app进入ModifyGestrueActivity这个类，设置初始手势密码   之后的在这里校验
-        gestruepswd = getSharedPreferences(Common.sharedPrefName, Context.MODE_PRIVATE).getString("patternstring", "");
+//        gestruepswd = getSharedPreferences(Common.sharedPrefName, Context.MODE_PRIVATE).getString("patternstring", "");
 
-
-        mGestureContentView = new GestureContentView(this, true, "12369",
+        gestruepswd = SpUtils.getSp(this).getString(SpUtils.GESTURE_KEY, "");
+        mGestureContentView = new GestureContentView(this, true, gestruepswd,
                 new GestureCallBack() {
                     @Override
                     public void onGestureCodeInput(String inputCode) {
@@ -101,7 +85,9 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
                     public void checkedSuccess() {
                         mGestureContentView.clearDrawlineState(0L);
                         Toast.makeText(PatternViewActivity.this, "密码正确", Toast.LENGTH_LONG).show();
-                        presenter.reqUserCountMsg(PatternViewActivity.this);
+                        startActivity(new Intent(PatternViewActivity.this,
+                                MainActivity.class));
+                        PatternViewActivity.this.finish();
                     }
 
                     @Override

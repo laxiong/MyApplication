@@ -1,7 +1,15 @@
 package com.laxiong.Utils;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.View;
 
+import com.laxiong.Activity.LoginActivity;
+import com.laxiong.Activity.MainActivity;
+import com.laxiong.Application.YiTouApplication;
+import com.laxiong.entity.User;
+import com.laxiong.entity.UserLogin;
 import com.laxiong.yitouhang.R;
 
 import java.util.regex.Matcher;
@@ -32,7 +40,13 @@ public class ValifyUtil {
         }
         return false;
     }
-
+    public static boolean judgeLogin(){
+        User user = YiTouApplication.getInstance().getUser();
+        if (user == null) {
+            return false;
+        }else
+            return true;
+    }
     public static void setEnabled(View view, boolean flag) {
         view.setEnabled(flag);
         view.setBackgroundResource(flag ? R.drawable.button_change_bg_border : R.drawable.button_grey_corner_border);
@@ -42,5 +56,21 @@ public class ValifyUtil {
         Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
         Matcher m = p.matcher(phone);
         return !StringUtils.isBlank(phone)&&m.matches();
+    }
+    public static boolean judgeInit(Context context){
+        SharedPreferences sp = SpUtils.getSp(context);
+        String userlogin = SpUtils.getStrValue(sp, SpUtils.USERLOGIN_KEY);
+        if (!StringUtils.isBlank(userlogin)) {
+            UserLogin user = JSONUtils.parseObject(userlogin, UserLogin.class);
+            YiTouApplication.getInstance().setUserLogin(user);
+        }
+        String phonenum = SpUtils.getStrValue(sp, SpUtils.USER_KEY);
+        String pwd = SpUtils.getStrValue(sp,
+                SpUtils.GESTURE_KEY);
+        if (StringUtils.isBlank(pwd) || StringUtils.isBlank(phonenum)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

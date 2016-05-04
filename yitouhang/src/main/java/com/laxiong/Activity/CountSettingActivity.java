@@ -24,7 +24,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
     /****
      * 账户设置
      */
-    private RelativeLayout mCount, mPswdControl, mConnectKefu, mMessage,mVersionManage,mMyBankCard;
+    private RelativeLayout mCount, mPswdControl, mConnectKefu, mMessage;
     private FrameLayout mBack;
     private UserCount_Presenter presenter;
     private TextView tv_username;
@@ -45,8 +45,6 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         mConnectKefu.setOnClickListener(this);
         mBack.setOnClickListener(this);
         mMessage.setOnClickListener(this);
-        mVersionManage.setOnClickListener(this);
-        mMyBankCard.setOnClickListener(this);
     }
 
     //获取成功 设置用户信息
@@ -66,13 +64,11 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         mCount = (RelativeLayout) findViewById(R.id.count_setting);
         mPswdControl = (RelativeLayout) findViewById(R.id.pswdControl);
         mConnectKefu = (RelativeLayout) findViewById(R.id.connectKefu);
-        mVersionManage =(RelativeLayout) findViewById(R.id.version_manage);
         mBack = (FrameLayout) findViewById(R.id.back_layout);
         mMessage = (RelativeLayout) findViewById(R.id.message);
         tv_username = (TextView) findViewById(R.id.tv_username);
         TextView mText = (TextView) findViewById(R.id.title);
         mText.setText("账户");
-        mMyBankCard =(RelativeLayout)findViewById(R.id.mybankcard);
     }
 
     @Override
@@ -96,14 +92,6 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
             case R.id.message:
                 startActivity(new Intent(this,
                         MessageActivity.class));
-                break;
-            case R.id.version_manage :
-                startActivity(new Intent(this,
-                        VersionManageActivity.class));
-                break;
-            case R.id.mybankcard:
-                startActivity(new Intent(this,
-                        MyBandBankCardActivity.class));
                 break;
         }
 

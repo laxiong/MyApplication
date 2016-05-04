@@ -1,5 +1,8 @@
 package com.laxiong.Fragment;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -12,18 +15,15 @@ import android.widget.TextView;
 import com.laxiong.Activity.CalanderCountActivity;
 import com.laxiong.Adapter.CalenderBean;
 import com.laxiong.Adapter.SelectCalenderAdapter;
+import com.laxiong.Calender.CalendarView;
+import com.laxiong.Calender.CalendarView.CallBack;
 import com.laxiong.Calender.CalendarViewBuilder;
-import com.laxiong.Calender.CalendarViewVer;
-import com.laxiong.Calender.CalendarViewVer.CallBack;
 import com.laxiong.Calender.CustomDate;
 import com.laxiong.Calender.ListViewCalenderUtil;
 import com.laxiong.Mvp_presenter.MonthCal_Presenter;
 import com.laxiong.Mvp_view.IViewMonthCal;
 import com.laxiong.View.PinnedSectionListView;
 import com.laxiong.yitouhang.R;
-
-import java.util.ArrayList;
-import java.util.Calendar;
 
 @SuppressLint("NewApi")
 public class SelectMonthCalenderFragment extends Fragment implements CallBack, IViewMonthCal, PinnedSectionListView.IViewFragUpdate {
@@ -33,11 +33,11 @@ public class SelectMonthCalenderFragment extends Fragment implements CallBack, I
     private PinnedSectionListView mSelectCalender;
     private View calendarview;
     private CalendarViewBuilder builder = new CalendarViewBuilder();
-    private static CalendarViewVer[] views;
+    private static CalendarView[] views;
     private SelectCalenderAdapter adapter;
     private CustomDate date;
     private int prenowyear, lastnowyear;
-    private ArrayList<CalendarViewVer> allMonth;
+    private ArrayList<CalendarView> allMonth;
     private ArrayList<CalenderBean> addList;
     private int clickrow, clickcol;
     private TextView tv_year;
@@ -76,13 +76,13 @@ public class SelectMonthCalenderFragment extends Fragment implements CallBack, I
         tv_month = (TextView) getActivity().findViewById(R.id.month_change);
         mSelectCalender = (PinnedSectionListView) calendarview.findViewById(R.id.sectionListviewCalender);
         mSelectCalender.setIViewListener(this);
-//        views = builder.createMassCalendarViews(getActivity(), 12, this);
+        views = builder.createMassCalendarViews(getActivity(), 12, this);
         allMonth = ListViewCalenderUtil.getInstance().allMonthCalenderView(date, views);
     }
     //根据是上拉还是下拉加载相应list
     @Override
     public void refreshOrLoadList(boolean isrefresh) {
-//        views = builder.createMassCalendarViews(getActivity(), 12, SelectMonthCalenderFragment.this);
+        views = builder.createMassCalendarViews(getActivity(), 12, SelectMonthCalenderFragment.this);
         allMonth = ListViewCalenderUtil.getInstance().allMonthCalenderView(date, views);
         int data = isrefresh ? --prenowyear : ++lastnowyear;
         addList = CalenderBean.getData(getActivity(), allMonth, data);

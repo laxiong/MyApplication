@@ -37,10 +37,13 @@ public class UserCount_Presenter {
         this.iviewcount = iviewcount;
     }
     public void reqUserCountMsg(Context context) {
-        UserLogin userlogin = YiTouApplication.getInstance().getUserLogin();
-        if (userlogin == null || StringUtils.isBlank(userlogin.getToken_id() + "") || StringUtils.isBlank(userlogin.getToken())) {
-            Intent intent = new Intent(context, LoginActivity.class);
-            context.startActivity(intent);
+        SharedPreferences sp = SpUtils.getSp(context);
+        String userlogins = SpUtils.getStrValue(sp, SpUtils.USERLOGIN_KEY);
+        UserLogin userlogin=null;
+        if (!StringUtils.isBlank(userlogins)) {
+            userlogin = JSONUtils.parseObject(userlogins, UserLogin.class);
+            YiTouApplication.getInstance().setUserLogin(userlogin);
+        }else{
             return;
         }
         int tokenid = userlogin.getToken_id();
@@ -59,7 +62,6 @@ public class UserCount_Presenter {
                 if (response != null) {
                     try {
                         if(response.getInt("code")==0) {
-                            Log.i("kk",response.toString());
                             User user = JSONUtils.parseObject(response.toString(), User.class);
                             YiTouApplication.getInstance().setUser(user);
                             iviewcount.getCountMsgSuc();

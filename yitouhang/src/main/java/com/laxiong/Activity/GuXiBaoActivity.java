@@ -19,7 +19,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.HttpUtil;
@@ -39,16 +38,14 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 	/****
 	 * 固息宝
 	 */
-	private RelativeLayout mLayout_progressbar ,mRemarkLayout;
-	private View mRemarkLine ;
+	private RelativeLayout mLayout_progressbar ;
 	private TextView mProgressNum ,mShareBtn , mBuyBtn;
 	private VerticalNumberProgressBar mProgressBar ;
 	private FrameLayout mBack ;
 	private ImageView mJiSuanQi ;
 	private int mId;
-	private int ttnum ;
 	// 百分比 等加载的内容
-	private TextView mPrecent ,mAddPrecent,mRemark1,mRemark2,mLastEran,mAddOther,mGxbTitle,mMinTou,mFinanceLimit;
+	private TextView mPrecent ,mAddPrecent,mRemark1,mRemark2,mLastEran,mAddOther,mGxbTitle,mYdProfit,mGetCash;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -64,9 +61,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 		mBuyBtn.setOnClickListener(this);
 
 		mId = getIntent().getIntExtra("id",-1);
-		ttnum = getIntent().getIntExtra("ttnum",-1);
-		Log.i("GXB","获取的Id："+mId);
-
+		Log.i("GXB", "获取的Id：" + mId);
 
 	}
 	private void initView() {
@@ -75,26 +70,19 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 		mProgressBar =(VerticalNumberProgressBar)findViewById(R.id.numberbar);
 		mJiSuanQi = (ImageView)findViewById(R.id.jisuanqi);
 		mBuyBtn = (TextView)findViewById(R.id.buying);
-		
 		mBack = (FrameLayout)findViewById(R.id.backlayout);
 		mShareBtn = (TextView)findViewById(R.id.share);
 
-		mRemarkLine =findViewById(R.id.remark_line);
-		mRemarkLayout =(RelativeLayout)findViewById(R.id.remark_layout);
-
 		mPrecent =(TextView)findViewById(R.id.tv2);
 		mAddPrecent =(TextView)findViewById(R.id.addprecent);
-		mFinanceLimit =(TextView)findViewById(R.id.getcash);			//理财周期
-		mMinTou =(TextView)findViewById(R.id.yesterdayprofit); //起投金额
+		mGetCash =(TextView)findViewById(R.id.getcash);
+		mYdProfit =(TextView)findViewById(R.id.yesterdayprofit);
 		mRemark1 =(TextView)findViewById(R.id.remark1);
 		mRemark2 =(TextView)findViewById(R.id.remark2);
 		mLastEran =(TextView)findViewById(R.id.text1);
 		mAddOther =(TextView)findViewById(R.id.add_profit);
 		mGxbTitle =(TextView)findViewById(R.id.gxb_title);
 	}
-
-	private String mProjectName ;
-	private String mAmountMoney ;
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
@@ -110,11 +98,10 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 				break;
 			case R.id.buying:
 				startActivity(new Intent(GuXiBaoActivity.this,
-						BuyingActivity.class).putExtra("projectStr",mProjectName).putExtra("amountStr",mAmountMoney).putExtra("id",mId));
+						BuyingActivity.class));
 				break;
 		}
 	}
-	
 	// set progress textview height
 	private void setProgressNumHeight(float f){
 		int widthMeasureSpec = MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
@@ -246,9 +233,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 	// 设置数据
 	private void getNetWork(){
 		RequestParams params = new RequestParams();
-		params.put("p",1);
-		if (ttnum!=-1)
-			params.put("limit",ttnum);
 		if (mId!=-1)
 			params.put("id",mId);
 		HttpUtil.get(InterfaceInfo.PRODUCT_URL,params,new JsonHttpResponseHandler(){
@@ -281,61 +265,31 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener{
 	private void updataUi(JSONObject response){
 		if (response!=null){
 			try{
-				double num = response.getDouble("apr");
-				if (isInterge(num)){
-					String aprStr = String.valueOf(num);
-					String[] arr = aprStr.split("[.]");
-					String zhengshu = arr[0];
-					mPrecent.setText(zhengshu);
-				}else {
-					mPrecent.setText(String.valueOf(num));
-				}
-
+				Log.i("WK","APR的值是："+response.getDouble("apr"));
+				mPrecent.setText(String.valueOf(response.getDouble("apr")));
 				if (response.getInt("bird")==0) { // 不是新手
-					// 用户是不是VIP
-					boolean isVip = YiTouApplication.getInstance().getUser().is_vip();
-					if(isVip){ //  是vip
-						mAddPrecent.setText("+"+String.valueOf(response.getDouble("accum"))+"%");
-						mAddOther.setText(String.valueOf(response.getDouble("accum"))+"%");
-					}else {
+					if(response.getDouble("vip")==0.0){ //不是vip
 						mAddPrecent.setText("+"+String.valueOf(response.getDouble("present"))+"%");
-						mAddOther.setText(String.valueOf(response.getDouble("present"))+"%");
+					}else {
+						mAddPrecent.setText("+"+String.valueOf(response.getDouble("accum"))+"%");
+						mAddOther.setText("+"+String.valueOf(response.getDouble("vip"))+"%");
 					}
-
 				}else {
 					mAddPrecent.setText("+"+String.valueOf(response.getDouble("birdapr"))+"%");
-					mAddOther.setText(String.valueOf(response.getDouble("birdapr"))+"%");
+					mAddOther.setText("+"+String.valueOf(response.getDouble("birdapr"))+"%");
 				}
+				mLastEran.setText(String.valueOf(response.getInt("members")));
 
-				mAmountMoney = String.valueOf(response.getInt("members"));
-				mLastEran.setText(mAmountMoney);
-
-				mMinTou.setText(String.valueOf(response.getInt("min")));
-				mFinanceLimit.setText(String.valueOf(response.getInt("limit")));
 
 				JSONArray details = response.getJSONArray("details");
 				if (details.length()>0){
-					mRemarkLine.setVisibility(View.VISIBLE);
-					mRemarkLayout.setVisibility(View.VISIBLE);
 					mRemark1.setText(details.getString(0));
 					mRemark2.setText(details.getString(1));
-				}else {
-					mRemarkLine.setVisibility(View.GONE);
-					mRemarkLayout.setVisibility(View.GONE);
 				}
-				mProjectName = response.getString("title");
-				mGxbTitle.setText(mProjectName);
+				mGxbTitle.setText(response.getString("title"));
 
 			}catch (Exception E){
 			}
-		}
-	}
-	//判断是否为整数
-	private boolean isInterge(double num){
-		if(num%1==0){
-			return  true;
-		}else{
-			return false;
 		}
 	}
 

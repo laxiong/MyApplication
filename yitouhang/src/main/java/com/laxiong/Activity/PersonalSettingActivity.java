@@ -98,8 +98,9 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         YiTouApplication.getInstance().setUserLogin(null);
         YiTouApplication.getInstance().setUser(null);
         SpUtils.saveStrValue(SpUtils.getSp(this), SpUtils.USERLOGIN_KEY, "");
+        SpUtils.saveStrValue(SpUtils.getSp(this), SpUtils.USER_KEY, "");
         Toast.makeText(this, "退出登录成功", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, ChangeCountActivity.class);
         startActivity(intent);
     }
 

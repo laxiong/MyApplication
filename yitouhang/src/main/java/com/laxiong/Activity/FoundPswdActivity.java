@@ -12,12 +12,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Common.Constants;
+import com.laxiong.Mvp_presenter.Handler_Presenter;
 import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewReBackPwd;
+import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.yitouhang.R;
 
-public class FoundPswdActivity extends BaseActivity implements OnClickListener, IViewReBackPwd {
+public class FoundPswdActivity extends BaseActivity implements OnClickListener, IViewReBackPwd,IViewTimerHandler{
     /****
      * 找回密码
      */
@@ -26,6 +29,7 @@ public class FoundPswdActivity extends BaseActivity implements OnClickListener, 
     private EditText mPswd, et_phonenum, et_valicode;
     private ImageView mShowPswd;
     private Password_Presenter presenter;
+    private Handler_Presenter timepresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,18 @@ public class FoundPswdActivity extends BaseActivity implements OnClickListener, 
         mShowPswd.setOnClickListener(this);
         mGetValidation.setOnClickListener(this);
         presenter = new Password_Presenter(this);
+        timepresenter=new Handler_Presenter(this);
+    }
+
+    @Override
+    public void handlerViewByTime(int seconds) {
+        if(seconds>0){
+            mGetValidation.setEnabled(false);
+            mGetValidation.setText(seconds+"s");
+        }else{
+            mGetValidation.setEnabled(true);
+            mGetValidation.setText("获取验证码");
+        }
     }
 
     @Override
@@ -102,12 +118,6 @@ public class FoundPswdActivity extends BaseActivity implements OnClickListener, 
         }
         return true;
     }
-    //获取验证码超时
-    @Override
-    public void showTimeOut(int seconds) {
-        Toast.makeText(this,"获取验证码超时,请在"+seconds+"秒后发",Toast.LENGTH_SHORT).show();
-    }
-
     //校验所有
     public boolean validateAll() {
         boolean flag=StringUtils.testBlankAll(et_phonenum.getText().toString(),
@@ -131,8 +141,10 @@ public class FoundPswdActivity extends BaseActivity implements OnClickListener, 
                 showPassWord();
                 break;
             case R.id.tv_getVali:
-                if (validatePhone())
+                if (validatePhone()) {
                     presenter.reqValidation();
+                    timepresenter.loadHandlerTimer(Constants.INTERVAL,Constants.TIME);
+                }
                 break;
         }
     }

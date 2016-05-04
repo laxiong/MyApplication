@@ -8,10 +8,12 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.PorterDuff;
 import android.os.Handler;
+import android.util.Log;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.laxiong.Utils.ToastUtil;
 import com.laxiong.fund.common.AppUtil;
 import com.laxiong.fund.common.Constants;
 import com.laxiong.fund.entity.GesturePoint;
@@ -195,6 +197,7 @@ public class GestureDrawline extends View {
 			if (isVerify) {
 				// 手势密码校验
 				// 清掉屏幕上所有的线，只画上集合里面保存的线
+				Log.i("kk","sp:"+passWord+"划的:"+passWordSb.toString());
 				if (passWord.equals(passWordSb.toString())) {
 					// 代表用户绘制的密码手势与传入的密码相同
 					callBack.checkedSuccess();

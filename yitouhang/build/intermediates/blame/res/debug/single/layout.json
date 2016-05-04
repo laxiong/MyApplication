@@ -1,179 +1,139 @@
 [
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_rp_explain.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_rp_explain.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_transferout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_transferout.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\bottom.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\bottom.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_ex_change.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_ex_change.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\select_type_popupwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\select_type_popupwindow.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_base_alert_dialog_button.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_base_alert_dialog_button.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_ex_change.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_ex_change.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_bankcard.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_bankcard.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_oauth_dialog.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_oauth_dialog.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_resetpay_pswd2.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_resetpay_pswd2.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_name_setting.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_name_setting.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_checkbox.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\select_type_popupwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\select_type_popupwindow.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_execrdpaper.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_execrdpaper.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_oauth_dialog.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_oauth_dialog.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_mode_bar.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_name_setting.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_name_setting.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_tranferin_result.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_tranferin_result.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_share.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\dialog_share.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\bindphone_popwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\bindphone_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\show_loading_popwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\show_loading_popwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\footview_nomore.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\footview_nomore.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_changebindphone2.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_changebindphone2.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\personicon_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\personicon_popwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\waterdroplistview_footer.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\waterdroplistview_footer.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_investmentrecord.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_investmentrecord.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_failed_load_page.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_failed_load_page.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_splash.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_splash.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_withdrawcashdetails.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_withdrawcashdetails.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_title_item.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_inputpass.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\dialog_inputpass.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_recharge_result.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_recharge_result.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_small.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_white_small.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_count_setting_layout.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_count_setting_layout.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_items.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_items.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\investmentrecord_buying_item.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\investmentrecord_buying_item.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_withdrawcash.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_withdrawcash.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\backout_popwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\backout_popwindow.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_full_alert_dialog.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_full_alert_dialog.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_set_shixitong_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_set_shixitong_layout.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_shareboard_item.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_shareboard_item.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\waterdroplistview_header.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\waterdroplistview_header.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_name_setting.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_name_setting.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\backout_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\backout_popwindow.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\personicon_popwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\personicon_popwindow.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_transferout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_transferout.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_bank_list.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_bank_list.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_true_name1.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_true_name1.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_address_setting.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_address_setting.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\overtopswd_popwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\overtopswd_popwindow.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\select_month_calender_frag.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\select_month_calender_frag.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\financing_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\financing_layout.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_base_alert_dialog.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_base_alert_dialog.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_section.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_section.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\jisuanqi_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\jisuanqi_popwindow.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_resetpay_pswd3.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_resetpay_pswd3.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_withdrawcash.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_withdrawcash.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\show_loading_popwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\show_loading_popwindow.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_modify_gesture.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_modify_gesture.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_redpaper.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_redpaper.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_asset.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_asset.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_full_alert_dialog_item.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_full_alert_dialog_item.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pswd_contural.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_pswd_contural.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\paypassword_popupwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\paypassword_popupwindow.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_welcenter.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_welcenter.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\changepaypswd_popwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\changepaypswd_popwindow.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_change_pay_pwd_fragment1.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\fragment_change_pay_pwd_fragment1.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_oauth_dialog.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_oauth_dialog.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\message_listview_item.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\message_listview_item.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_calender.xml",
@@ -184,1087 +144,479 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\myself_layout.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_message_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_message_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_full_alert_dialog.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_full_alert_dialog.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\notification_msg_dialog.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\notification_msg_dialog.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_change_pay_pwd_fragment2.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\fragment_change_pay_pwd_fragment2.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_personal_setting.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_personal_setting.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\support_simple_spinner_dropdown_item.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\success_modifygestrue_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\success_modifygestrue_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor_overlay.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_decor_overlay.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\backout_popwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\backout_popwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\select_month_calender_frag.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\select_month_calender_frag.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_guide.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_guide.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\kefu_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\kefu_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_true_name3.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_true_name3.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_small.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_blue_small.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_changecount_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_changecount_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor_include.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_decor_include.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\buttom_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\buttom_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_full_alert_dialog_item.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_full_alert_dialog_item.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_items.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_items.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_full_curtain.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_full_curtain.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\investmentrecord_buying_item.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\investmentrecord_buying_item.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\bottom.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\bottom.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_include.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_activity_chooser_view_include.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_home.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_home.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_large.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_white_large.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_resetpay_pswd2.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_resetpay_pswd2.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_calander_count_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_calander_count_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\financing_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\financing_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\availablebalanace_frag.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\availablebalanace_frag.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\pay_recharge_mathod_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\pay_recharge_mathod_popwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_bankcard.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_bankcard.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_post_share.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_post_share.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_version_manage.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_version_manage.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_simple_decor.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_simple_decor.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_tmall.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_tmall.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_band_bankcard.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_band_bankcard.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_home.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_home.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\footview_nomoreused.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\footview_nomoreused.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_true_name1.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_true_name1.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_webview.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_webview.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_activity_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\com_facebook_activity_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_full_curtain.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_full_curtain.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_show_vip_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_show_vip_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\assettishi_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\assettishi_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_athall.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_athall.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_tranferout_result.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_tranferout_result.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\profitrecord_fragment.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\profitrecord_fragment.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_decor.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_recharge.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_recharge.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_post_share.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_post_share.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_order.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_my_order.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_change_pay_pwd.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_change_pay_pwd.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_activity_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\com_facebook_activity_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_login_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\touzirecord_fragment.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\touzirecord_fragment.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\waterdroplistview_footer.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\waterdroplistview_footer.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\financing_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\financing_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_execrdpaper.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_execrdpaper.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_rp_explain.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_rp_explain.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_round.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_blue_round.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\true_namefinish_popwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\true_namefinish_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_menu_item_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_menu_item_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\shixitong_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\shixitong_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\select_type_popupwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\select_type_popupwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_search_view.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_menu_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_transferin.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_transferin.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_guide.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_guide.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_tranferin_result.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_tranferin_result.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_true_name2.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_true_name2.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\success_modifygestrue_popwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\success_modifygestrue_popwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\guxibao_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\guxibao_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_titile_bar.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_titile_bar.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_recharge.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_recharge.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_resetpay_pswd3.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_resetpay_pswd3.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\fristpager_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\fristpager_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\footview_nomoreused.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\footview_nomoreused.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_yi_bi.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_my_yi_bi.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_base_alert_dialog.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_base_alert_dialog.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_small.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_blue_small.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\kefu_popwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\kefu_popwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_share.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\dialog_share.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\buttom_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\buttom_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_redpaper.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_redpaper.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_foundpswd_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_foundpswd_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\bindphone_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\bindphone_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_large.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_white_large.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_login_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_shareboard_item.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_shareboard_item.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_week.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_week.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_withdrawcashdetails.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_withdrawcashdetails.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_simple_decor.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_simple_decor.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_activity_chooser_view.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_include.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_activity_chooser_view_include.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_radio.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\pay_mathod_popwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\pay_mathod_popwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\profitrecord_fragment.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\profitrecord_fragment.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_availablebalance.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_availablebalance.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\overtopswd_popwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\overtopswd_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\fristpager_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\fristpager_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_round.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_blue_round.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_patternview.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_patternview.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_mode_close_item.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_search_view.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_login_fragment.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\com_facebook_login_fragment.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\shixitong_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\shixitong_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_popup_menu_item_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_facebook_login_activity_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_facebook_login_activity_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_changecount_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_changecount_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_menu_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_changebindphone1.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_changebindphone1.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_calander_count_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_calander_count_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_personal_setting.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_personal_setting.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_titile_bar.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_titile_bar.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_mode_close_item.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_order.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_order.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_order.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_order.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_resetpay_pswd3.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_resetpay_pswd3.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_yi_bi.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_my_yi_bi.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\head_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\head_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_redpaper.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_redpaper.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_toast.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_toast.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_buying_result.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_buying_result.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_tooltip_bubble.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\com_facebook_tooltip_bubble.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pswd_contural.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_pswd_contural.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\footview_nomore.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\footview_nomore.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_webview.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_webview.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\personicon_popwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\personicon_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\paypassword_popupwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\paypassword_popupwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_toast.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_toast.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\withdrawrecord_fragment.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\withdrawrecord_fragment.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_investmentrecord.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_investmentrecord.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\availablebalanace_frag.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\availablebalanace_frag.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\touzirecord_fragment.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\touzirecord_fragment.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_regist_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_regist_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_yibi_detail.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_yibi_detail.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_bankcard.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_bankcard.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_reset_pay_pwd.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_reset_pay_pwd.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_withdrawcashnotice.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_withdrawcashnotice.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\waterdroplistview_header.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\waterdroplistview_header.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_earnings.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_earnings.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\head_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\head_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\accumlatedearnings_frag.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\accumlatedearnings_frag.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_decor.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\pay_mathod_popwindow2.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\pay_mathod_popwindow2.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_bank_list.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_bank_list.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_checkbox.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_expanded_menu_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\paypassword_popupwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\paypassword_popupwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_inputpass.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\dialog_inputpass.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_change_pay_pwd.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_change_pay_pwd.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\changepaypswd_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\changepaypswd_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_transferout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_transferout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_title_item.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_popup_menu_item_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_change_pay_pwd_fragment1.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\fragment_change_pay_pwd_fragment1.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_simple_spinner_item.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_simple_spinner_item.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_show_vip_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_show_vip_layout.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_change_login_pswd.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_change_login_pswd.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_calender.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_calender.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\white_title_head_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\white_title_head_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_set_guxibao.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_set_guxibao.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\head.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\head.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_resetpay_pswd1.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_resetpay_pswd1.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_order.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_my_order.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_splash.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_splash.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_true_name2.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_true_name2.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_commoninputdialog.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_commoninputdialog.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_login_fragment.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\com_facebook_login_fragment.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_count_setting_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_count_setting_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_commoninputdialog.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_commoninputdialog.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_commonactionbar.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_commonactionbar.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_modify_gesture.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_modify_gesture.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_buying.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_buying.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_withdrawcashnotice.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_withdrawcashnotice.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\withdraw_listview.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\withdraw_listview.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\buttom_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\buttom_layout.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_expanded_menu_layout.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\withdrawrecord_fragment.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\withdrawrecord_fragment.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pswd_contural.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_pswd_contural.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\overtopswd_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\overtopswd_popwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\investmentrecord_buying_item.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\investmentrecord_buying_item.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\accumlatedearnings_frag.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\accumlatedearnings_frag.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_bank_list.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_bank_list.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_recharge_result.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_recharge_result.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_section.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_section.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_welcenter.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_welcenter.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_earnings.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_earnings.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_transferin.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_transferin.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_regist_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_regist_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\message_listview_item.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\message_listview_item.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_tabbar.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_tabbar.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_set_shixitong_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_set_shixitong_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\support_simple_spinner_dropdown_item.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_section.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_section.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_yibi_detail.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_yibi_detail.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\changepaypswd_popwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\changepaypswd_popwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\footview_loadmore.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\footview_loadmore.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_set_guxibao.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_set_guxibao.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_mode_bar.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_commonactionbar.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_commonactionbar.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_buying_result.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_buying_result.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\head.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\head.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\assettishi_popwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\assettishi_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_tabbar.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_tabbar.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_resetpay_pswd1.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_resetpay_pswd1.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_week.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_week.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\show_loading_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\show_loading_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\notification_msg_dialog.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\notification_msg_dialog.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\guxibao_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\guxibao_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\jisuanqi_popwindow.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\jisuanqi_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_changebindphone2.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_changebindphone2.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor_include.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_decor_include.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_small.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_white_small.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\white_title_head_layout.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\white_title_head_layout.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_change_login_pswd.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_change_login_pswd.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\select_month_calender_frag.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\select_month_calender_frag.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\bank_pay_meyhod_select.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\bank_pay_meyhod_select.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\pay_mathod_popwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\pay_mathod_popwindow.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_shareboard_item.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_shareboard_item.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_large.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_blue_large.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_rp_explain.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_rp_explain.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_welcenter.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_welcenter.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_full_alert_dialog.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_full_alert_dialog.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\withdraw_listview.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\withdraw_listview.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_modify_gesture.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_modify_gesture.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_tab.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_tab.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\true_namefinish_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\true_namefinish_popwindow.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_round.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_white_round.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_facebook_login_activity_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_facebook_login_activity_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_at_hall.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_at_hall.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_base_alert_dialog_button.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_base_alert_dialog_button.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_availablebalance.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_availablebalance.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_address_setting.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_address_setting.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_radio.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_base_alert_dialog_button.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_base_alert_dialog_button.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_reset_pay_pwd.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_reset_pay_pwd.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_tooltip_bubble.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\com_facebook_tooltip_bubble.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_message_layout.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_message_layout.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_at_hall.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_at_hall.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_round.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_white_round.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_true_name3.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_true_name3.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_patternview.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_patternview.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_simple_spinner_item.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_simple_spinner_item.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_activity_chooser_view.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\footview_loadmore.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\footview_loadmore.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor_overlay.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_decor_overlay.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\pay_mathod_popwindow.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\pay_mathod_popwindow.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_tab.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_tab.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\message_listview_item.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\message_listview_item.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_asset.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_asset.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_changebindphone1.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_changebindphone1.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_athall.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_athall.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_change_pay_pwd_fragment1.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\fragment_change_pay_pwd_fragment1.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_full_alert_dialog_item.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_full_alert_dialog_item.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_large.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_blue_large.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_foundpswd_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_foundpswd_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\myself_layout.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\myself_layout.xml"
-    },
-    {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_calander_horizonal.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_calander_horizonal.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_week.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_week.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_failed_load_page.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_failed_load_page.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_tmall.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_tmall.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_webview.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_webview.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_change_pay_pwd_fragment2.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\fragment_change_pay_pwd_fragment2.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_changebindphone2.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_changebindphone2.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_small.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_white_small.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_withdrawcashnotice.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_withdrawcashnotice.xml"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_buying.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_buying.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_buying.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_buying.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_ex_change.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_ex_change.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_commonactionbar.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_commonactionbar.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\true_namefinish_popwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\true_namefinish_popwindow.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_toast.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_toast.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_resetpay_pswd2.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_resetpay_pswd2.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_simple_spinner_item.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_simple_spinner_item.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\availablebalanace_frag.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\availablebalanace_frag.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_commoninputdialog.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_commoninputdialog.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_earnings.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_earnings.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_inputpass.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\dialog_inputpass.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\waterdroplistview_header.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\waterdroplistview_header.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\head.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\head.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_titile_bar.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_titile_bar.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\touzirecord_fragment.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\touzirecord_fragment.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\success_modifygestrue_popwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\success_modifygestrue_popwindow.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\bottom.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\bottom.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_athall.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_athall.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_login_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_order.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_order.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_reset_pay_pwd.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_reset_pay_pwd.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_tranferin_result.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_tranferin_result.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_recharge_result.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_recharge_result.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\notification_msg_dialog.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\notification_msg_dialog.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_at_hall.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_at_hall.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\accumlatedearnings_frag.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\accumlatedearnings_frag.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_set_guxibao.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_set_guxibao.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_show_vip_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_show_vip_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_order.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_my_order.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\assettishi_popwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\assettishi_popwindow.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\bindphone_popwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\bindphone_popwindow.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_change_pay_pwd_fragment2.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\fragment_change_pay_pwd_fragment2.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_calander_count_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_calander_count_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_round.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_white_round.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_true_name3.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_true_name3.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\head_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\head_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor_overlay.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_decor_overlay.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_home.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_home.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_withdrawcash.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_withdrawcash.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_message_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_message_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_transferin.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_transferin.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_resetpay_pswd1.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_resetpay_pswd1.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_large.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_blue_large.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_personal_setting.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_personal_setting.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_tmall.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_tmall.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_small.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_blue_small.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_investmentrecord.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_investmentrecord.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\jisuanqi_popwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\jisuanqi_popwindow.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_facebook_login_activity_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_facebook_login_activity_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_yibi_detail.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_yibi_detail.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_changebindphone1.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_changebindphone1.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_decor.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\fristpager_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\fristpager_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\withdrawrecord_fragment.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\withdrawrecord_fragment.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\waterdroplistview_footer.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\waterdroplistview_footer.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\footview_loadmore.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\footview_loadmore.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_buying_result.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_buying_result.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_withdrawcashdetails.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_withdrawcashdetails.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_true_name1.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_true_name1.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_patternview.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_patternview.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_set_shixitong_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_set_shixitong_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_post_share.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_post_share.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_full_curtain.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_full_curtain.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\profitrecord_fragment.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\profitrecord_fragment.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_simple_decor.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_simple_decor.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_round.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_blue_round.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_share.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\dialog_share.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_regist_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_regist_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_change_pay_pwd.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_change_pay_pwd.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_availablebalance.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_availablebalance.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_true_name2.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_true_name2.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_base_alert_dialog.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\umeng_socialize_base_alert_dialog.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_tabbar.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_tabbar.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_guide.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_guide.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_include.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_activity_chooser_view_include.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_large.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\messenger_button_send_white_large.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_mode_close_item.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_asset.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_asset.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\item_items.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\item_items.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\guxibao_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\guxibao_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_login_fragment.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\com_facebook_login_fragment.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_tab.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_tab.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_tooltip_bubble.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\com_facebook_tooltip_bubble.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_activity_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\layout\\com_facebook_activity_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_changecount_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_changecount_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_yi_bi.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_my_yi_bi.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_recharge.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_recharge.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\shixitong_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\shixitong_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\kefu_popwindow.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\kefu_popwindow.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\footview_nomore.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\footview_nomore.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor_include.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_decor_include.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_address_setting.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_address_setting.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_foundpswd_layout.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_foundpswd_layout.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_splash.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\footview_nomoreused.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\footview_nomoreused.xml"
     }
 ]

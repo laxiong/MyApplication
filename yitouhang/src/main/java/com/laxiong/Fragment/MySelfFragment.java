@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.laxiong.Activity.AssetActivity;
+import com.laxiong.Activity.AtHallActivity;
 import com.laxiong.Activity.AvailableBalanceActivity;
 import com.laxiong.Activity.InvestmentRecordActivity;
 import com.laxiong.Activity.LoginActivity;
@@ -30,7 +31,7 @@ public class MySelfFragment extends Fragment implements OnClickListener {
      */
     View view;
     private TextView totleMoney;
-    private RelativeLayout AvailableBalance, WithdrawCash, Recharge, mRedBao, mItMall, mTouZiLayout;// 投资明细
+    private RelativeLayout AvailableBalance, rl_hall, WithdrawCash, Recharge, mRedBao, mItMall, mTouZiLayout;// 投资明细
     private TextView iv_yesterprofit;//昨日收益
     private TextView textView1;//账户余额
     private TextView togetche_tv;//在投资产
@@ -53,6 +54,7 @@ public class MySelfFragment extends Fragment implements OnClickListener {
         mTouZiLayout.setOnClickListener(this);
         mItMall.setOnClickListener(this);
         mRedBao.setOnClickListener(this);
+        rl_hall.setOnClickListener(this);
         User user = YiTouApplication.getInstance().getUser();
         if (user == null) {
             startActivity(new Intent(getActivity(), LoginActivity.class));
@@ -69,7 +71,7 @@ public class MySelfFragment extends Fragment implements OnClickListener {
         WithdrawCash = (RelativeLayout) view.findViewById(R.id.withdrawcash);
         Recharge = (RelativeLayout) view.findViewById(R.id.recharge);
         mTouZiLayout = (RelativeLayout) view.findViewById(R.id.touzi_layout);
-
+        rl_hall = (RelativeLayout) view.findViewById(R.id.rl_hall);
         mItMall = (RelativeLayout) view.findViewById(R.id.rl_1t);
         mRedBao = (RelativeLayout) view.findViewById(R.id.myredbao);
         iv_yesterprofit = (TextView) view.findViewById(R.id.iv_yesterprofit);
@@ -87,6 +89,9 @@ public class MySelfFragment extends Fragment implements OnClickListener {
             case R.id.availablebalance:  // 可用余额
                 startActivity(new Intent(getActivity(),
                         AvailableBalanceActivity.class));
+                break;
+            case R.id.rl_hall://活动大厅
+                startActivity(new Intent(getActivity(), AtHallActivity.class));
                 break;
             case R.id.withdrawcash:  // 提现
                 startActivity(new Intent(getActivity(),
