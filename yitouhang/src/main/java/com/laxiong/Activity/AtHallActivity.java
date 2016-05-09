@@ -1,7 +1,6 @@
 package com.laxiong.Activity;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -71,8 +70,11 @@ public class AtHallActivity extends BaseActivity implements IViewBasic<AtHall> {
 
     @Override
     public void loadListSuc(List<AtHall> listdata) {
-        if (listdata == null || listdata.size() == 0)
+        if (listdata == null || listdata.size() == 0) {
+            if(list==null||list.size()==0)
+                lvlist.setEmptyView(findViewById(R.id.ll_empty));
             return;
+        }
         this.list.addAll(listdata);
         adapter.setList(list);
     }

@@ -63,6 +63,8 @@ public class MessageActivity extends BaseActivity implements OnClickListener, IV
         if (listdata != null && listdata.size() > 0) {
             this.list.addAll(listdata);
             adapter.setList(list);
+        }else{
+            lvlist.setEmptyView(findViewById(R.id.ll_empty));
         }
     }
 

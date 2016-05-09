@@ -87,8 +87,9 @@ public class ProfitRecord_GuXiBaoFragment extends Fragment implements IViewInves
             adapter.setList(list);
         } else {
             flag = false;
-            lvlist.setEmptyView(mView.findViewById(R.id.ll_empty));
         }
+        if(list==null||list.size()==0)
+            lvlist.setEmptyView(mView.findViewById(R.id.ll_empty));
     }
 
     @Override

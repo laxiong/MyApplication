@@ -86,8 +86,9 @@ public class ProfitRecord_TimeXiTongFragment extends Fragment implements IViewIn
             adapter.setList(list);
         } else {
             flag = false;
-            lvlist.setEmptyView(mView.findViewById(R.id.ll_empty));
         }
+        if(list==null||list.size()==0)
+            lvlist.setEmptyView(mView.findViewById(R.id.ll_empty));
     }
 
     @Override

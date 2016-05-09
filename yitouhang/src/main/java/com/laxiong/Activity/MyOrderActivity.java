@@ -39,7 +39,7 @@ public class MyOrderActivity extends BaseActivity implements IViewOrder {
 
     public void initData() {
         actionbar.setBackListener(this);
-        List<Order> list = new ArrayList<Order>();
+        list = new ArrayList<Order>();
         adapter = new ReuseAdapter<Order>(this, list, R.layout.item_order) {
             @Override
             public void convert(ViewHolder viewholder, Order item) {
@@ -55,12 +55,14 @@ public class MyOrderActivity extends BaseActivity implements IViewOrder {
     }
 
     @Override
-    public void loadListOrder(List<Order> list) {
-        this.list = list;
-        if (list == null || list.size() == 0) {
-            ToastUtil.customAlert(this, "暂无数据");
-        } else
+    public void loadListOrder(List<Order> listdata) {
+        if (listdata == null || listdata.size() == 0) {
+            if (list == null || list.size() == 0)
+                lvlist.setEmptyView(findViewById(R.id.ll_empty));
+        } else {
+            list.addAll(listdata);
             adapter.setList(list);
+        }
     }
 
     @Override
