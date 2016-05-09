@@ -449,7 +449,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 				super.onFailure(statusCode, headers, throwable, errorResponse);
 				Toast.makeText(getActivity(),"网络访问失败",Toast.LENGTH_SHORT).show();
 			}
-		},true);
+		},null);
 	}
 
 	// 设置产品的信息

@@ -1,7 +1,11 @@
 package com.laxiong.Activity;
 
 import android.app.ActionBar.LayoutParams;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.Uri;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -12,14 +16,17 @@ import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.appkefu.lib.interfaces.KFAPIs;
+import com.appkefu.lib.service.KFMainService;
+import com.appkefu.lib.service.KFXmppManager;
+import com.appkefu.lib.utils.KFLog;
+import com.appkefu.smack.util.StringUtils;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.UserCount_Presenter;
 import com.laxiong.Mvp_view.IViewCount;
-import com.laxiong.Utils.StringUtils;
 import com.laxiong.entity.User;
 import com.laxiong.yitouhang.R;
 
@@ -27,7 +34,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
     /****
      * 账户设置
      */
-    private RelativeLayout mCount, mPswdControl, mConnectKefu, mMessage, rl_version;
+    private RelativeLayout mCount, mPswdControl, mConnectKefu, mMessage, rl_version ,mMyBankCard;
     private FrameLayout mBack;
     private View v_read;
     private UserCount_Presenter presenter;
@@ -39,6 +46,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         setContentView(R.layout.activity_count_setting_layout);
         initView();
         initData();
+        KFAPIs.visitorLogin(this); //微客服平台的事件
     }
 
     private void initData() {
@@ -50,6 +58,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         mBack.setOnClickListener(this);
         mMessage.setOnClickListener(this);
         rl_version.setOnClickListener(this);
+        mMyBankCard.setOnClickListener(this);
         try {
             tv_version.setText("V-" + getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
         } catch (PackageManager.NameNotFoundException e) {
@@ -74,7 +83,13 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
     public void getCountMsgSuc() {
         User user = YiTouApplication.getInstance().getUser();
         if (user != null)
-            tv_username.setText(StringUtils.isBlank(user.getNickname()) ? user.getNamed() : user.getNickname());
+            tv_username.setText(isBlank(user.getNickname()) ? user.getNamed() : user.getNickname());
+    }
+
+    public  boolean isBlank(String msg) {
+        if (msg.trim() == null || "".equals(msg.trim()))
+            return true;
+        return false;
     }
 
     @Override
@@ -93,6 +108,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         tv_version = (TextView) findViewById(R.id.tv_version);
         rl_version = (RelativeLayout) findViewById(R.id.rl_version);
         tv_unread = (TextView) findViewById(R.id.tv_unread);
+        mMyBankCard =(RelativeLayout)findViewById(R.id.mybankcard);
         v_read = findViewById(R.id.v_read);
         mText.setText("账户");
     }
@@ -128,13 +144,17 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
                 intent.putExtra("url", InterfaceInfo.UPDATE_URL);
                 startActivity(intent);
                 break;
+            case R.id.mybankcard:
+                startActivity(new Intent(this,
+                        MyBandBankCardActivity.class));
+                break;
         }
 
     }
 
+    //显示联系客服的方法
     private PopupWindow mPopWindows;
     private View KefuSelectView;
-
     private void showConnectKefuSelectType() {
 
         KefuSelectView = LayoutInflater.from(this).inflate(R.layout.kefu_popwindow, null);
@@ -146,14 +166,24 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         onLineBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(CountSettingActivity.this, "在线客服", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CountSettingActivity.this, "在线客服", Toast.LENGTH_SHORT).show();
+                connectKeFu();
+                if (mPopWindows != null && mPopWindows.isShowing()) {
+                    mPopWindows.dismiss();
+                    mPopWindows = null;
+                }
             }
         });
 
         kefuTelBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(CountSettingActivity.this, "客服电话：400-0888-888", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CountSettingActivity.this, "客服电话：400-0888-888", Toast.LENGTH_SHORT).show();
+                takePhoneNum();
+                if (mPopWindows != null && mPopWindows.isShowing()) {
+                    mPopWindows.dismiss();
+                    mPopWindows = null;
+                }
             }
         });
 
@@ -175,8 +205,119 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         // 我觉得这里是API的一个bug
         mPopWindows.setBackgroundDrawable(getResources().getDrawable(R.drawable.kefu_bg)); //设置半透明
         mPopWindows.showAtLocation(KefuSelectView, Gravity.BOTTOM, 0, 0);
+    }
+    // 打客服电话的
+    private void takePhoneNum(){
+        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:10086"));
+        this.startActivity(intent);
+    }
+
+    // ConnectWithKefu
+    // 联系客服
+    private void connectKeFu(){
+        startChat();
+    }
+    /**
+     * 监听：连接状态、即时通讯消息、客服在线状态 (微客服)
+     */
+    private BroadcastReceiver mXmppreceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            // 监听：连接状态
+            if (action.equals(KFMainService.ACTION_XMPP_CONNECTION_CHANGED)) // 监听链接状态
+            {
+                updateStatus(intent.getIntExtra("new_state", 0));
+            }
+            // 监听：即时通讯消息
+            else if (action.equals(KFMainService.ACTION_XMPP_MESSAGE_RECEIVED)) // 监听消息
+            {
+                // 消息内容
+                String body = intent.getStringExtra("body");
+                // 消息来自于
+                String from = StringUtils.parseName(intent.getStringExtra("from"));
+                KFLog.d("消息来自于:" + from + " 消息内容:" + body);
+            }
+            // 客服工作组在线状态
+            else if (action.equals(KFMainService.ACTION_XMPP_WORKGROUP_ONLINESTATUS)) {
+                String fromWorkgroupName = intent.getStringExtra("from");
+
+                String onlineStatus = intent.getStringExtra("onlinestatus");
+
+                KFLog.d("客服工作组:" + fromWorkgroupName + " 在线状态:" + onlineStatus);// online：在线；offline:
+            }
+
+        }
+    };
+    // 根据监听到的连接变化情况更新界面显示
+    private void updateStatus(int status) {
+
+        switch (status) {
+            case KFXmppManager.CONNECTED:    //连接成功
+                // mTitle.setText("微客服");
+                // 查询客服工作组在线状态，返回结果在BroadcastReceiver中返回
+                KFAPIs.checkKeFuIsOnlineAsync("YTHang"  //注意：此处应该填写 工作组 名称，具体参见第一步
+                        , this);
+
+                break;
+            case KFXmppManager.DISCONNECTED:  //连接失败
+                // mTitle.setText("微客服(未连接)");
+                break;
+            case KFXmppManager.CONNECTING:   //正在连接中...
+                // mTitle.setText("微客服(登录中...)");
+                break;
+            case KFXmppManager.DISCONNECTING:
+                // mTitle.setText("微客服(登出中...)");
+                break;
+            case KFXmppManager.WAITING_TO_CONNECT:
+            case KFXmppManager.WAITING_FOR_NETWORK:
+                // mTitle.setText("微客服(等待中)");
+                break;
+            default:
+                throw new IllegalStateException();
+        }
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        IntentFilter intentFilter = new IntentFilter();
+        //监听网络连接变化情况
+        intentFilter.addAction(KFMainService.ACTION_XMPP_CONNECTION_CHANGED);
+        //监听消息
+        intentFilter.addAction(KFMainService.ACTION_XMPP_MESSAGE_RECEIVED);
+        //工作组在线状态
+        intentFilter.addAction(KFMainService.ACTION_XMPP_WORKGROUP_ONLINESTATUS);
+        registerReceiver(mXmppreceiver, intentFilter);
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(mXmppreceiver);
+    }
+
+    /**
+     * 1.咨询人工客服 (在线 微客服)
+     */
+    private void startChat() {
+        // Bitmap kefuAvatarBitmap =
+        // BitmapFactory.decodeResource(getResources(), R.drawable.kefu);
+        // Bitmap userAvatarBitmap =
+        // BitmapFactory.decodeResource(getResources(), R.drawable.user);
+        KFAPIs.startChat(CountSettingActivity.this, "wangkingyitouhang", // 1.
+                // 客服工作组ID(请务必保证大小写一致)，请在管理后台分配
+                "客服妹妹", // 2. 会话界面标题，可自定义
+                null, // 3. 附加信息，在成功对接客服之后，会自动将此信息发送给客服;
+                // 如果不想发送此信息，可以将此信息设置为""或者null
+                false, // 4. 是否显示自定义菜单,如果设置为显示,请务必首先在管理后台设置自定义菜单,
+                // 请务必至少分配三个且只分配三个自定义菜单,多于三个的暂时将不予显示
+                // 显示:true, 不显示:false
+                5, // 5. 默认显示消息数量
+                null, // 6. 修改默认客服头像，如果不想修改默认头像，设置此参数为null
+                null, // 7. 修改默认用户头像, 如果不想修改默认头像，设置此参数为null
+                false, // 8. 默认机器人应答
+                false, // 9. 是否强制用户在关闭会话的时候 进行“满意度”评价， true:是， false:否
+                null);
+    }
 }

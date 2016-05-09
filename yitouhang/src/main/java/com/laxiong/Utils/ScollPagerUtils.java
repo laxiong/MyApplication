@@ -72,9 +72,9 @@ public class ScollPagerUtils implements OnPageChangeListener{
 			params.setMargins(DensityUtils.dp2px(mContext, 5), 0, 0, 0);
 			point.setLayoutParams(params);
 			if (i == (prePoint % bannerList.size())) {
-				point.setBackgroundResource(R.drawable.home_point_icon);
+				point.setBackgroundResource(R.drawable.img_point_lang);
 			} else {
-				point.setBackgroundResource(R.drawable.home_point_normal_icon);
+				point.setBackgroundResource(R.drawable.img_point_short);
 			}
 			dotList.add(point);
 			mDotLinearlayout.addView(point);
@@ -105,7 +105,7 @@ public class ScollPagerUtils implements OnPageChangeListener{
 					String uri = bannerList.get(mChildViewPager.getCurrentItem() % bannerList.size()).getHref();
 					String title = bannerList.get(mChildViewPager.getCurrentItem() % bannerList.size()).getTitle();
 					if(uri!=null&&title!=null){
-					    mContext.startActivity(new Intent(mContext,WebViewActivity.class).
+						mContext.startActivity(new Intent(mContext,WebViewActivity.class).
 								putExtra("url", uri).putExtra("title",title));
 
 					}
@@ -175,10 +175,10 @@ public class ScollPagerUtils implements OnPageChangeListener{
 	private void setDotBackground(int selectItem){
 		for(int i = 0; i < bannerList.size(); i++){
 			if(i == selectItem){
-				dotList.get(i).setBackgroundResource(R.drawable.home_point_icon);
+				dotList.get(i).setBackgroundResource(R.drawable.img_point_lang);
 				currentItem = i ;
 			}else{
-				dotList.get(i).setBackgroundResource(R.drawable.home_point_normal_icon);
+				dotList.get(i).setBackgroundResource(R.drawable.img_point_short);
 			}
 		}
 	}

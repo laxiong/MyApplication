@@ -223,7 +223,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						}
 					}
 					if(mViewHonder.mCircleProgressView!=null&&mViewHonder.mEnought!=null){
-						mViewHonder.mEnought.setPaintColor("#D8D8D8");
+						mViewHonder.mEnought.setPaintColor("#FFEE4E42");
 						if (sxt.getPercent()==100.0){
 							mViewHonder.mCircleProgressView.setVisibility(View.INVISIBLE);
 							mViewHonder.mCircleProgressView.setPaintColor("#FFEE4E42");
@@ -305,7 +305,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						}
 					}
 					if(mViewHonder.mCircleProgressView!=null&&mViewHonder.mEnought!=null){
-						mViewHonder.mEnought.setPaintColor("#D8D8D8");
+						mViewHonder.mEnought.setPaintColor("#FFEE4E42");
 						if (gxb.getPercent()==100.0){
 							mViewHonder.mCircleProgressView.setVisibility(View.INVISIBLE);
 							mViewHonder.mCircleProgressView.setPaintColor("#FFEE4E42");
@@ -462,7 +462,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 			   super.onFailure(statusCode, headers, throwable, errorResponse);
 			   Toast.makeText(getActivity(),"网络访问失败",Toast.LENGTH_SHORT).show();
 		   }
-	   },true);
+	   },null);
    }
 
 	// 设置产品的信息

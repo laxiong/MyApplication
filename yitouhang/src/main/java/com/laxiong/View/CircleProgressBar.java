@@ -89,7 +89,7 @@ public class CircleProgressBar extends View {
 
 	/**
 	 *  设置进度数据
-	 * 
+	 *
 	 * @param progress
 	 *             进度百分比例
 	 * @param view
@@ -114,7 +114,6 @@ public class CircleProgressBar extends View {
 
 	/**
 	 * 进度标注点的动画
-	 * 
 	 * @param fromDegrees
 	 * @param toDegrees
 	 * @return

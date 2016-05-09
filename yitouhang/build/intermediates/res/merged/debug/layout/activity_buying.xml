@@ -64,10 +64,11 @@
                 android:textSize="12sp"
                 android:textColor="#A6A6A6"
                 />
-            <TextView 
+            <TextView
+                android:id="@+id/project_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="碳银宝3期"
+                android:text="***"
                  android:textSize="12sp"
                 android:textColor="#A6A6A6"
                 android:layout_marginLeft="10dp"
@@ -86,10 +87,11 @@
                  android:textSize="12sp"
                 android:textColor="#A6A6A6"
                 />
-            <TextView 
+            <TextView
+                android:id="@+id/project_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="223,450,600 "
+                android:text="0000000 "
                  android:textSize="12sp"
                 android:textColor="#EE4E42"
                 />
@@ -123,7 +125,8 @@
             android:text="金额"
             android:gravity="center_vertical"
             />
-        <EditText 
+        <EditText
+            android:id="@+id/buyamount"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -169,11 +172,12 @@
             android:gravity="center_vertical"
             />
         
-        <TextView 
+        <TextView
+            android:id="@+id/showBankname"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="招商银行(尾号9970)"
+            android:text="*******"
             android:gravity="center_vertical"
             android:layout_marginLeft="10dp"
             />
@@ -207,7 +211,8 @@
             android:textSize="12sp"
             android:textColor="#A6A6A6"
             />
-        <TextView 
+        <TextView
+            android:id="@+id/one_limit"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="50,000"
@@ -232,7 +237,7 @@
       />
     <LinearLayout 
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="40dp"
         android:paddingLeft="20dp"
         android:orientation="vertical"
 	    android:background="@color/white"
@@ -268,14 +273,14 @@
                 android:layout_gravity="center_vertical"
                 />
         </LinearLayout>
-        
-        <View 
+
+        <!--
+        <View
           android:layout_width="match_parent"
           android:layout_height="1dp"
-          android:background="@color/divider_grey"  
+          android:background="@color/divider_grey"
           />
-        
-        <LinearLayout 
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -304,6 +309,7 @@
                 android:layout_gravity="center_vertical"
                 />
         </LinearLayout>
+        -->
     </LinearLayout>
     <View 
       android:layout_width="match_parent"
@@ -407,7 +413,7 @@
             android:text="立即购买"
             android:gravity="center"
             android:textColor="@color/white"
-            android:background="@drawable/button_red_corner_border"
+            android:background="@drawable/button_grey_corner_border"
             />
         <TextView 
             android:layout_width="match_parent"

@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textColor="@color/grey_bg_text"
-            android:text="暂无人脉记录"/>
+            android:text="暂无红包记录"/>
     </LinearLayout>
 
 </LinearLayout>

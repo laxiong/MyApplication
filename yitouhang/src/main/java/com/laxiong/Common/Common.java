@@ -52,11 +52,8 @@ public class Common {
 	
 	// 判断输入的密码是不是  至少是6位的
 	public static boolean inputPswdCount(String pswd){
-
-		Pattern pp = Pattern.compile("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,24}$");
-		Matcher m = pp.matcher(pswd);
-		return m.matches();
+//		return ValifyUtil.valifyPwd(pswd);
+		return true ;
 	}
-	
-	
+
 }

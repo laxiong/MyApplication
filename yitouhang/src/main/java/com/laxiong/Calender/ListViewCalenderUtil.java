@@ -1,9 +1,6 @@
 package com.laxiong.Calender;
 
 import java.util.ArrayList;
-import java.util.Collections;
-
-import android.util.Log;
 
 
 public class ListViewCalenderUtil {
@@ -23,10 +20,10 @@ public class ListViewCalenderUtil {
     }
 
 
-    private ArrayList<CalendarView> allMonth;   //排序好的12个月
+    private ArrayList<CalendarViewVer> allMonth;   //排序好的12个月
 
-    public ArrayList<CalendarView> allMonthCalenderView(CustomDate date, CalendarView[] calendarViews) {
-        allMonth = new ArrayList<CalendarView>();
+    public ArrayList<CalendarViewVer> allMonthCalenderView(CustomDate date, CalendarViewVer[] calendarViews) {
+        allMonth = new ArrayList<CalendarViewVer>();
 //        int currentMonth = date.getMonth();
 //        Log.i("Calender", "====日历的当月====：" + currentMonth);
 //        //   当月以下的

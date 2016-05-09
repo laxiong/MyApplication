@@ -1,11 +1,11 @@
 package com.laxiong.Utils;
 
-import java.net.SocketException;
-
 import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo.State;
+
+import java.net.SocketException;
 
 public class CommonUtils {
 
@@ -24,6 +24,6 @@ public class CommonUtils {
 
 		return true;
 	}
-	
-	
+
+
 }
