@@ -39,12 +39,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressLint("NewApi") 
+@SuppressLint("NewApi")
 public class FinancingFragment extends Fragment implements OnClickListener{
 	/****
 	 * 理财的碎片
 	 */
-	
+
 	private View view ;
 	private ImageView mConcel_img ;
 	private LinearLayout mFinancelMessage ; // 提示消息
@@ -54,26 +54,26 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 
 	private  List<FinanceInfo>  mList = new ArrayList<FinanceInfo>() ;// 全是固息宝的
 	private int listNum ;  // 刷新加载更多所有的个数
-	
+
 	private Handler handler = new Handler() {
-	      @Override
-	      public void handleMessage(Message msg) {
-	           super.handleMessage(msg);
-	           switch (msg.what){
-				   case 1:
-					   mListView.completeRefresh();
-					   break;
-				   case 2:
-					   mListView.completeRefresh();
-					   break;
-	           }
-	       }
-	  };
-	
+		@Override
+		public void handleMessage(Message msg) {
+			super.handleMessage(msg);
+			switch (msg.what){
+				case 1:
+					mListView.completeRefresh();
+					break;
+				case 2:
+					mListView.completeRefresh();
+					break;
+			}
+		}
+	};
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		
+							 Bundle savedInstanceState) {
+
 		view = inflater.inflate(R.layout.financing_layout, null);
 		initView();
 		return view;
@@ -275,13 +275,13 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 					}
 
 					if(view!=null)
-					view.setOnClickListener(new OnClickListener() {
-						@Override
-						public void onClick(View view) {
-							getActivity().startActivity(new Intent(getActivity(),
-									TimeXiTongActivity.class).putExtra("id", sxt.getId()));
-						}
-					});
+						view.setOnClickListener(new OnClickListener() {
+							@Override
+							public void onClick(View view) {
+								getActivity().startActivity(new Intent(getActivity(),
+										TimeXiTongActivity.class).putExtra("id", sxt.getId()));
+							}
+						});
 
 				}else if (i>=3){ // 固息宝
 //					List<FinanceInfo> mListGXB = mFinanBean.getGxb();
@@ -362,7 +362,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 							public void onClick(View view) {
 								Log.i("GXB","股息宝的Id参数"+(i-3)+" ==========："+gxb.getId());
 								getActivity().startActivity(new Intent(getActivity(),
-										GuXiBaoActivity.class).putExtra("id", gxb.getId()));
+										GuXiBaoActivity.class).putExtra("id", gxb.getId()).putExtra("ttnum", listNum));
 							}
 						});
 				}
@@ -412,58 +412,58 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 
 	// 获取产品信息
 	private int pager = 1;
-   private void getProductInfo(){
-	   RequestParams params = new RequestParams();
-	   params.put("p",pager);
-	   params.put("limit", "10");
-	   HttpUtil.get(InterfaceInfo.PRODUCT_URL,params,new JsonHttpResponseHandler(){
-		   @Override
-		   public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-			   super.onSuccess(statusCode, headers, response);
-			   if(response!=null){
-				   try {
-					   if (response.getInt("code") == 0) {
-						   // 时息通
-						   if (pager == 1) {
-							   mFinanBean = new FinanceJsonBean();
-							   JSONObject sxt = response.getJSONObject("sxt");
-							   FinanceInfo sxtInfo = setProductInfo(sxt);
-							   mFinanBean.setSxt(sxtInfo);
-						   }
-						   // 固息宝
-						   JSONArray gxb =  response.getJSONArray("gxb");
-						   if(gxb.length()>0){
-							   for (int i=0;i<gxb.length();i++){
-								   JSONObject gxb_obj = gxb.getJSONObject(i);
-								   FinanceInfo gxbInfo = setProductInfo(gxb_obj);
-								   mList.add(gxbInfo);
-							   }
-							   mFinanBean.setGxb(mList);
-						   }
-						   mFinanBean.setMsg(response.getString("msg"));
-						   mFinanBean.setTime(response.getString("time"));
-						   listNum = response.getInt("ttnum");
+	private void getProductInfo(){
+		final RequestParams params = new RequestParams();
+		params.put("p",pager);
+		params.put("limit", "10");
+		HttpUtil.get(InterfaceInfo.PRODUCT_URL,params,new JsonHttpResponseHandler(){
+			@Override
+			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+				super.onSuccess(statusCode, headers, response);
+				if(response!=null){
+					try {
+						if (response.getInt("code") == 0) {
+							// 时息通
+							if (pager == 1) {
+								mFinanBean = new FinanceJsonBean();
+								JSONObject sxt = response.getJSONObject("sxt");
+								FinanceInfo sxtInfo = setProductInfo(sxt);
+								mFinanBean.setSxt(sxtInfo);
+							}
+							// 固息宝
+							JSONArray gxb =  response.getJSONArray("gxb");
+							if(gxb.length()>0){
+								for (int i=0;i<gxb.length();i++){
+									JSONObject gxb_obj = gxb.getJSONObject(i);
+									FinanceInfo gxbInfo = setProductInfo(gxb_obj);
+									mList.add(gxbInfo);
+								}
+								mFinanBean.setGxb(mList);
+							}
+							mFinanBean.setMsg(response.getString("msg"));
+							mFinanBean.setTime(response.getString("time"));
+							listNum = response.getInt("ttnum");
 
-						   if(pager == 1){
-							   mListView.setAdapter(new mFinanceAdapter());
-						   }else {
-							   mListView.invalidate();
-						   }
+							if(pager == 1){
+								mListView.setAdapter(new mFinanceAdapter());
+							}else {
+								mListView.invalidate();
+							}
 
-					   } else {
-						   Toast.makeText(getActivity(),response.getString("msg"),Toast.LENGTH_SHORT).show();
-					   }
-				   } catch (Exception e) {
-				   }
-			   }
-		   }
-		   @Override
-		   public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-			   super.onFailure(statusCode, headers, throwable, errorResponse);
-			   Toast.makeText(getActivity(),"网络访问失败",Toast.LENGTH_SHORT).show();
-		   }
-	   },null);
-   }
+						} else {
+							Toast.makeText(getActivity(),response.getString("msg"),Toast.LENGTH_SHORT).show();
+						}
+					} catch (Exception e) {
+					}
+				}
+			}
+			@Override
+			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+				super.onFailure(statusCode, headers, throwable, errorResponse);
+				Toast.makeText(getActivity(),"网络访问失败",Toast.LENGTH_SHORT).show();
+			}
+		},null);
+	}
 
 	// 设置产品的信息
 	private FinanceInfo  setProductInfo(JSONObject obj){

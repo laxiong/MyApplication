@@ -138,7 +138,8 @@
         android:paddingLeft="26dp"
         android:background="@color/white"
         >
-        <RelativeLayout 
+        <RelativeLayout
+            android:id="@+id/remark_layout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             >
@@ -185,7 +186,8 @@
             </RelativeLayout>
         </RelativeLayout>
         
-        <View 
+        <View
+            android:id="@+id/remark_line"
           android:layout_width="match_parent"
           android:layout_height="1dp"
           android:background="@color/divider_grey"  

@@ -256,7 +256,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		mNoticeTopayMoney =(TextView)mInputView.findViewById(R.id.topaymoney);
 		mTranInMoney =(TextView)mInputView.findViewById(R.id.zhuang_money);
 
-		mNoticeTopayMoney.setText("从"+mBankName.getText().toString().trim()+"-转入-"+mProjectStr);
+		mNoticeTopayMoney.setText("从"+bankname+"-转入-"+mProjectStr);
 		mTranInMoney.setText(mBuyAmount.getText().toString().trim()+"元");
 
 		comcelImags.setOnClickListener(new OnClickListener() {
