@@ -80,12 +80,14 @@ public class RmFragment extends ListFragment implements IViewBasic<Renmai> {
     public void loadListSuc(List<Renmai> listdata) {
         if (listdata == null || listdata.size() == 0) {
             flag = false;
-            getListView().setEmptyView(layout.findViewById(R.id.ll_empty));
+            if (list == null || list.size() == 0)
+                getListView().setEmptyView(layout.findViewById(R.id.ll_empty));
             return;
         }
         list.addAll(listdata);
         adapter.setList(list);
     }
+
     @Override
     public void loadListFail(String msg) {
         ToastUtil.customAlert(getActivity(), msg);

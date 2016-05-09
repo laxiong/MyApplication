@@ -92,8 +92,9 @@ public class InvestmentRecord_BuyingFragment extends Fragment implements IViewIn
                     adapter.setList(list);
                 } else {
                     flag = false;
-                    lvlist.setEmptyView(view.findViewById(R.id.ll_empty));
                 }
+                if(list==null||list.size()==0)
+                    lvlist.setEmptyView(view.findViewById(R.id.ll_empty));
             }
 
             @Override
