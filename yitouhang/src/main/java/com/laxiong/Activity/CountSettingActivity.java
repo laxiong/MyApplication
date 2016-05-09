@@ -2,6 +2,7 @@ package com.laxiong.Activity;
 
 import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Common.Constants;
+import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.UserCount_Presenter;
 import com.laxiong.Mvp_view.IViewCount;
 import com.laxiong.Utils.StringUtils;
@@ -24,10 +27,11 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
     /****
      * 账户设置
      */
-    private RelativeLayout mCount, mPswdControl, mConnectKefu, mMessage;
+    private RelativeLayout mCount, mPswdControl, mConnectKefu, mMessage, rl_version;
     private FrameLayout mBack;
+    private View v_read;
     private UserCount_Presenter presenter;
-    private TextView tv_username;
+    private TextView tv_username, tv_version, tv_unread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,24 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         mConnectKefu.setOnClickListener(this);
         mBack.setOnClickListener(this);
         mMessage.setOnClickListener(this);
+        rl_version.setOnClickListener(this);
+        try {
+            tv_version.setText("V-" + getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        resetMsgState();
+
+    }
+
+    private void resetMsgState() {
+        if (Constants.isRead) {
+            v_read.setVisibility(View.GONE);
+            tv_unread.setText("消息已读");
+        } else {
+            v_read.setVisibility(View.VISIBLE);
+            tv_unread.setText("有消息未读");
+        }
     }
 
     //获取成功 设置用户信息
@@ -68,6 +90,10 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         mMessage = (RelativeLayout) findViewById(R.id.message);
         tv_username = (TextView) findViewById(R.id.tv_username);
         TextView mText = (TextView) findViewById(R.id.title);
+        tv_version = (TextView) findViewById(R.id.tv_version);
+        rl_version = (RelativeLayout) findViewById(R.id.rl_version);
+        tv_unread = (TextView) findViewById(R.id.tv_unread);
+        v_read = findViewById(R.id.v_read);
         mText.setText("账户");
     }
 
@@ -90,8 +116,17 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
                 break;
 
             case R.id.message:
+                if (!Constants.isRead) {
+                    Constants.isRead = true;
+                    resetMsgState();
+                }
                 startActivity(new Intent(this,
                         MessageActivity.class));
+                break;
+            case R.id.rl_version:
+                Intent intent = new Intent(CountSettingActivity.this, WebViewActivity.class);
+                intent.putExtra("url", InterfaceInfo.UPDATE_URL);
+                startActivity(intent);
                 break;
         }
 

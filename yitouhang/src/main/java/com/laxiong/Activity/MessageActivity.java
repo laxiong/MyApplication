@@ -53,7 +53,6 @@ public class MessageActivity extends BaseActivity implements OnClickListener, IV
                     Intent intent = new Intent(MessageActivity.this, WebViewActivity.class);
                     intent.putExtra("url", msg.getUrl());
                     startActivity(intent);
-                    finish();
                 }
             }
         });
@@ -61,9 +60,10 @@ public class MessageActivity extends BaseActivity implements OnClickListener, IV
 
     @Override
     public void loadMsgSuc(List<Message> listdata) {
-        this.list.addAll(listdata);
-        if (listdata != null && listdata.size() > 0)
+        if (listdata != null && listdata.size() > 0) {
+            this.list.addAll(listdata);
             adapter.setList(list);
+        }
     }
 
     @Override

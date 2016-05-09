@@ -3,19 +3,25 @@ package com.laxiong.Application;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.util.Set;
 
 import com.laxiong.Common.Settings;
 import com.laxiong.entity.User;
 import com.laxiong.entity.UserLogin;
+import com.umeng.socialize.PlatformConfig;
 
 import android.app.Application;
 import android.os.Environment;
+
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 
 public class YiTouApplication extends Application {
 
     private static YiTouApplication instance = null;
     private UserLogin userLogin;
     private User user;
+    private boolean flag = true;
 
     public UserLogin getUserLogin() {
         return userLogin;
@@ -27,6 +33,17 @@ public class YiTouApplication extends Application {
 
     public void setUser(User user) {
         this.user = user;
+        JPushInterface.setAlias(this, "userid", new TagAliasCallback() {
+            @Override
+            public void gotResult(int i, String s, Set<String> set) {
+            }
+        });
+    }
+
+    public void initPush() {
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
+        flag=false;
     }
 
     public void setUserLogin(UserLogin userLogin) {
@@ -76,8 +93,9 @@ public class YiTouApplication extends Application {
         Settings.APK_SAVE = parentPath + "/upd";
 
         //TODO 创建各自的目录
-
-
+        if (flag)
+            initPush();
+        PlatformConfig.setWeixin(Settings.WX_APP_ID, Settings.WX_SECRET);
     }
 
     /**

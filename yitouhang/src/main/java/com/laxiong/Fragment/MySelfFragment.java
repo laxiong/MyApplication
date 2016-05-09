@@ -16,11 +16,16 @@ import com.laxiong.Activity.AtHallActivity;
 import com.laxiong.Activity.AvailableBalanceActivity;
 import com.laxiong.Activity.InvestmentRecordActivity;
 import com.laxiong.Activity.LoginActivity;
+import com.laxiong.Activity.Profit_Activity;
 import com.laxiong.Activity.RechargeActivity;
 import com.laxiong.Activity.TMallActivity;
+import com.laxiong.Activity.WebViewActivity;
 import com.laxiong.Activity.WelCenterActivity;
 import com.laxiong.Activity.WithdrawCashActivity;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Common.InterfaceInfo;
+import com.laxiong.Utils.SpUtils;
+import com.laxiong.Utils.StringUtils;
 import com.laxiong.entity.User;
 import com.laxiong.yitouhang.R;
 
@@ -31,10 +36,11 @@ public class MySelfFragment extends Fragment implements OnClickListener {
      */
     View view;
     private TextView totleMoney;
-    private RelativeLayout AvailableBalance, rl_hall, WithdrawCash, Recharge, mRedBao, mItMall, mTouZiLayout;// 投资明细
+    private RelativeLayout AvailableBalance, rl_invite, rl_rm, rl_hall, WithdrawCash, Recharge, mRedBao, mItMall, mTouZiLayout;// 投资明细
     private TextView iv_yesterprofit;//昨日收益
     private TextView textView1;//账户余额
     private TextView togetche_tv;//在投资产
+    private User user;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,7 +61,9 @@ public class MySelfFragment extends Fragment implements OnClickListener {
         mItMall.setOnClickListener(this);
         mRedBao.setOnClickListener(this);
         rl_hall.setOnClickListener(this);
-        User user = YiTouApplication.getInstance().getUser();
+        rl_rm.setOnClickListener(this);
+        rl_invite.setOnClickListener(this);
+        user = YiTouApplication.getInstance().getUser();
         if (user == null) {
             startActivity(new Intent(getActivity(), LoginActivity.class));
             return;
@@ -77,6 +85,8 @@ public class MySelfFragment extends Fragment implements OnClickListener {
         iv_yesterprofit = (TextView) view.findViewById(R.id.iv_yesterprofit);
         textView1 = (TextView) view.findViewById(R.id.textView1);
         togetche_tv = (TextView) view.findViewById(R.id.togetche_tv);
+        rl_invite = (RelativeLayout) view.findViewById(R.id.rl_invite);
+        rl_rm = (RelativeLayout) view.findViewById(R.id.rl_rm);
     }
 
     @Override
@@ -113,6 +123,19 @@ public class MySelfFragment extends Fragment implements OnClickListener {
                 startActivity(new Intent(getActivity(),
                         TMallActivity.class));
                 break;
+            case R.id.rl_invite:
+                String phonnum = SpUtils.getStrValue(SpUtils.getSp(getActivity()), SpUtils.USER_KEY);
+                if (user != null && !StringUtils.isBlank(phonnum)) {
+                    String url = InterfaceInfo.INVITE_URL + "userId=" + user.getId() + "&mobile=" + phonnum;
+                    Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                    intent.putExtra("url", url);
+                    startActivity(intent);
+                }
+                break;
+            case R.id.rl_rm:
+                startActivity(new Intent(getActivity(), Profit_Activity.class));
+                break;
+
         }
     }
 }

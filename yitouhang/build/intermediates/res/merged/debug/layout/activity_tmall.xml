@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@color/white">
-        <!--壹币-->
+        <!--积分-->
         <RelativeLayout
             android:id="@+id/rl_yibi"
             android:layout_width="0dp"
@@ -39,6 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ivpic1"
+                android:layout_marginTop="5dp"
                 android:layout_centerHorizontal="true"
                 android:orientation="horizontal">
 
@@ -47,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:text="壹币"
+                    android:text="积分"
                     android:textColor="@color/goodname" />
 
                 <TextView
@@ -78,6 +79,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ivpic2"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/goodname"
                 android:layout_centerHorizontal="true"
                 android:text="我的订单" />
         </RelativeLayout>
@@ -99,7 +102,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:layout_below="@id/iv_rule"
+                android:textColor="@color/goodname"
                 android:layout_centerHorizontal="true"
                 android:text="关于规则" />
         </RelativeLayout>

@@ -22,9 +22,14 @@ import java.util.List;
  */
 public class Model_Basic<T> {
     private OnLoadBasicListener<T> listener;
+    private OnLoadBcObjListener<T> listener2;
 
     public void setListener(OnLoadBasicListener<T> listener) {
         this.listener = listener;
+    }
+
+    public void setListenerObj(OnLoadBcObjListener<T> listener2) {
+        this.listener2 = listener2;
     }
 
     //以下是无授权
@@ -56,6 +61,13 @@ public class Model_Basic<T> {
         HttpUtil.get(url, params, new MyJSONHttp(tag, clazz), authori);
     }
 
+    public void aureqByGetObj(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
+        String authori = CommonReq.getAuthori(context);
+        if (StringUtils.isBlank(authori))
+            return;
+        HttpUtil.get(url, params, new MyJSONHttp2(tag, clazz), authori);
+    }
+
     public void aureqByPut(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
@@ -78,7 +90,6 @@ public class Model_Basic<T> {
             if (response != null) {
                 try {
                     if (response.getInt("code") == 0) {
-                        Log.i("kk",response.toString());
                         List<T> list = null;
                         if (StringUtils.isBlank(tag))
                             list = JSONUtils.parseArray(response.toString(), clazz);
@@ -101,6 +112,46 @@ public class Model_Basic<T> {
         public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
             super.onFailure(statusCode, headers, responseString, throwable);
             listener.loadOnFailure(responseString);
+        }
+    }
+
+    class MyJSONHttp2 extends JsonHttpResponseHandler {
+        private String tag;
+        private Class<T> clazz;
+
+        public MyJSONHttp2(String tag, Class<T> clazz) {
+            this.tag = tag;
+            this.clazz = clazz;
+        }
+
+        @Override
+        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+            super.onSuccess(statusCode, headers, response);
+            if (response != null) {
+                try {
+                    if (response.getInt("code") == 0) {
+                        T obj = null;
+                        if (StringUtils.isBlank(tag))
+                            obj = JSONUtils.parseObject(response.toString(), clazz);
+                        else
+                            obj = JSONUtils.parseObject(response.getJSONObject(tag).toString(), clazz);
+                        listener2.onSuccss(obj);
+                    } else {
+                        listener2.onFailure(response.getString("msg"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    listener2.onFailure(e.toString());
+                }
+            } else {
+                listener2.onFailure("无响应");
+            }
+        }
+
+        @Override
+        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+            super.onFailure(statusCode, headers, responseString, throwable);
+            listener2.onFailure(responseString);
         }
     }
 }

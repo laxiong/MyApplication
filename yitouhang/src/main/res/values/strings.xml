@@ -14,8 +14,8 @@
     <string name="welfare_exchange_title">兑换详情</string>
     <!--兑换 -->
     <string name="exchange_btn_im">立即兑换</string>
-    <string name="exchange_btn_noenum">壹币不足</string>
-    <string name="owner_title">我的壹币</string>
+    <string name="exchange_btn_noenum">积分不足</string>
+    <string name="owner_title">我的积分</string>
     <!--输入密码dialog-->
     <string name="dialog_input_tip">请输入壹投行支付密码</string>
     <!-- 收益说明 -->

@@ -38,7 +38,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
      * 个人设置
      */
     private TextView backBtn, tv_bindphone, tv_shiming, tv_name, tv_identify;
-    private RelativeLayout personIcon, nameSetting, addressSetting, trueName, phoneBind;
+    private RelativeLayout personIcon, nameSetting,trueName, phoneBind;
     private FrameLayout mBack;
     private LinearLayout ll_msg;
     private ImageView mUseFace;
@@ -59,7 +59,6 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         backBtn.setOnClickListener(this);
         personIcon.setOnClickListener(this);
         nameSetting.setOnClickListener(this);
-        addressSetting.setOnClickListener(this);
         trueName.setOnClickListener(this);
         phoneBind.setOnClickListener(this);
         mBack.setOnClickListener(this);
@@ -81,7 +80,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         tv_shiming.setText(flag ? "已开户" : "未开户");
         ll_msg.setVisibility(flag ? View.VISIBLE : View.GONE);
         tv_name.setText(user.getRealname());
-        tv_identify.setText(StringUtils.getProtectedMobile(user.getIdc()));
+        tv_identify.setText(user.getIdc() + "");
         if (!StringUtils.isBlank(phone))
             tv_bindphone.setText(StringUtils.getProtectedMobile(phone));
         else
@@ -109,7 +108,6 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         backBtn = (TextView) findViewById(R.id.backbtn);
         personIcon = (RelativeLayout) findViewById(R.id.personIcon);
         nameSetting = (RelativeLayout) findViewById(R.id.nameSetting);
-        addressSetting = (RelativeLayout) findViewById(R.id.addressSetting);
         trueName = (RelativeLayout) findViewById(R.id.true_name);
         phoneBind = (RelativeLayout) findViewById(R.id.phoneBind);
         mBack = (FrameLayout) findViewById(R.id.back_layout);
@@ -378,10 +376,6 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
                 break;
             case R.id.personIcon:            /**头像设置,时显示的PopupWindow**/
                 showPhotoIconTpye();
-                break;
-            case R.id.addressSetting:    /**地址设置**/
-                startActivity(new Intent(PersonalSettingActivity.this,
-                        AddressSettingActivity.class));
                 break;
             case R.id.true_name:            /**实名认证**/
                 if (!user.is_idc()) {

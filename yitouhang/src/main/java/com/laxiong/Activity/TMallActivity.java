@@ -2,6 +2,7 @@ package com.laxiong.Activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;

@@ -77,9 +77,7 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
     public void setEmptyView(View emptyview) {
         if (lvlist == null)
             return;
-        ViewGroup parent = (ViewGroup) lvlist.getParent();
-        parent.addView(emptyview, 2);
-        lvlist.setEmptyView(emptyview);
+        lvlist.setEmptyView(findViewById(R.id.ll_empty));
     }
 
     @Override

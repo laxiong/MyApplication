@@ -44,4 +44,24 @@
         android:layout_height="40dp"
         android:gravity="center"
         android:orientation="horizontal"></LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="90dp"
+            android:src="@drawable/paper"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/grey_bg_text"
+            android:text="暂无人脉记录"/>
+    </LinearLayout>
+
 </LinearLayout>

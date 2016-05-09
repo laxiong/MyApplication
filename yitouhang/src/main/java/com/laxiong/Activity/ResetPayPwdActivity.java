@@ -1,16 +1,12 @@
 package com.laxiong.Activity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 

@@ -4,12 +4,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-hdpi\\gesture_node_normal.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_cab_done_holo_light.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_cab_done_holo_light.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_button_send_round_shadow.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\messenger_button_send_round_shadow.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_cab_done_holo_light.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_cab_done_holo_light.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_holo_light.9.png",
@@ -20,28 +20,40 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_pressed_holo_light.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_large_blue.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\messenger_bubble_large_blue.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_selected_pressed_holo.9.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_tab_selected_pressed_holo.9.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_large_blue.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\messenger_bubble_large_blue.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_clear_search_api_disabled_holo_light.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_clear_search_api_disabled_holo_light.png"
     },
     {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\jpush_notification_icon.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-hdpi\\jpush_notification_icon.png"
+    },
+    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_cab_background_top_holo_dark.9.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_cab_background_top_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\richpush_btn_selector.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-hdpi\\richpush_btn_selector.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_small_white.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\messenger_bubble_small_white.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_selected_holo_dark.9.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_textfield_search_selected_holo_dark.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_small_white.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\messenger_bubble_small_white.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_richpush_actionbar_divider.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-hdpi\\ic_richpush_actionbar_divider.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_holo_dark.9.png",
@@ -72,20 +84,20 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_cab_background_bottom_holo_dark.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_divider_holo_dark.9.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_divider_holo_dark.9.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_xout.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_xout.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_search_api_holo_light.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_search_api_holo_light.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_divider_holo_dark.9.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_divider_holo_dark.9.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\downloading.gif",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-hdpi\\downloading.gif"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_search_api_holo_light.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_search_api_holo_light.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_ab_default_holo_light.9.png",
@@ -116,20 +128,20 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_pressed_holo_dark.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_bottom_transparent_light_holo.9.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_bottom_transparent_light_holo.9.png"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_socialize_oauth_check_on.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\umeng_socialize_oauth_check_on.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_stacked_solid_dark_holo.9.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_stacked_solid_dark_holo.9.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\home_point_normal_icon.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-hdpi\\home_point_normal_icon.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_stacked_solid_dark_holo.9.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_stacked_solid_dark_holo.9.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_socialize_oauth_check_on.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\umeng_socialize_oauth_check_on.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_bottom_transparent_light_holo.9.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_bottom_transparent_light_holo.9.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_topnub.png",
@@ -148,12 +160,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\com_facebook_button_send_icon.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_ab_disabled_holo_dark.9.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_disabled_holo_dark.9.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_share_pack_holo_light.9.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_share_pack_holo_light.9.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_ab_disabled_holo_dark.9.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_disabled_holo_dark.9.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_commit_search_api_holo_dark.png",
@@ -232,12 +244,16 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_bottom_transparent_dark_holo.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_stacked_transparent_light_holo.9.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_stacked_transparent_light_holo.9.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_richpush_actionbar_back.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-hdpi\\ic_richpush_actionbar_back.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_stacked_transparent_light_holo.9.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_stacked_transparent_light_holo.9.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_divider_holo_light.9.png",
@@ -276,16 +292,16 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_normal_holo_light.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_back_pressed.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-hdpi\\btn_back_pressed.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_bottomnub.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_bottomnub.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_ab_back_holo_dark.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_ab_back_holo_dark.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_bottomnub.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\com_facebook_tooltip_black_bottomnub.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_back_pressed.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-hdpi\\btn_back_pressed.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_ab_disabled_holo_light.9.png",
@@ -312,40 +328,40 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-hdpi\\gesture_node_wrong.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_right_selected_holo_dark.9.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_textfield_search_right_selected_holo_dark.9.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_selected_focused_holo.9.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_tab_selected_focused_holo.9.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\lock_pattern_node_normal.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-hdpi\\lock_pattern_node_normal.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_selected_focused_holo.9.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_tab_selected_focused_holo.9.png"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_bottomnub.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_bottomnub.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_right_selected_holo_dark.9.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_textfield_search_right_selected_holo_dark.9.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\lock_pattern_node_pressed.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-hdpi\\lock_pattern_node_pressed.png"
     },
     {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_bottomnub.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\com_facebook_tooltip_blue_bottomnub.png"
+    },
+    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_dropdown_panel_holo_dark.9.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_menu_dropdown_panel_holo_dark.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_share_holo_light.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_menu_share_holo_light.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_share_holo_dark.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_menu_share_holo_dark.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_cab_background_bottom_holo_light.9.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_cab_background_bottom_holo_light.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_share_holo_dark.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_menu_share_holo_dark.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_share_holo_light.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_menu_share_holo_light.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png",
@@ -360,16 +376,16 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_focused_holo_dark.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_commit_search_api_holo_light.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_commit_search_api_holo_light.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_socialize_oauth_check_off.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\umeng_socialize_oauth_check_off.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_transparent_light_holo.9.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_transparent_light_holo.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_socialize_oauth_check_off.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\umeng_socialize_oauth_check_off.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_commit_search_api_holo_light.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_commit_search_api_holo_light.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_go_search_api_holo_light.png",
@@ -380,24 +396,24 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_search.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_share_pack_holo_dark.9.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_share_pack_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_right_default_holo_light.9.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_textfield_search_right_default_holo_light.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_voice_search.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_voice_search.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_logo.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\ic_logo.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_voice_search.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_voice_search.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_topnub.png",
@@ -408,15 +424,15 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_bottom_solid_light_holo.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_small_blue.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\messenger_bubble_small_blue.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_moreoverflow_normal_holo_dark.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_normal_holo_dark.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_solid_light_holo.9.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_solid_light_holo.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_moreoverflow_normal_holo_dark.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_normal_holo_dark.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_small_blue.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-hdpi-v4\\messenger_bubble_small_blue.png"
     }
 ]

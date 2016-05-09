@@ -40,11 +40,13 @@
                 android:text="投资记录"/>
 
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:id="@+id/iv_arrow"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:scaleType="fitXY"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="3dp"
-                android:background="@color/white"/>
+                />
 
 
         </LinearLayout>

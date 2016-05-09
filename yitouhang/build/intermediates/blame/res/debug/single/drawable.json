@@ -1,15 +1,15 @@
 [
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_redborder_blank.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_redborder_blank.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_flickr.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_flickr.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_show_window_left.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_show_window_left.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_flickr.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_flickr.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_redborder_blank.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_redborder_blank.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_qzone_off.png",
@@ -88,24 +88,24 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_laiwang_gray.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_ok_up.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_ok_up.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_search_dropdown_light.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_search_dropdown_light.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_wxcircle.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_wxcircle.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_search_dropdown_light.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_search_dropdown_light.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_evernote_gray.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_evernote_gray.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_ok_up.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_ok_up.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\corners_border.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\corners_border.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_evernote_gray.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_evernote_gray.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_follow_on.png",
@@ -116,12 +116,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_location_ic.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_tab_button_left.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_title_tab_button_left.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_refersh.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_refersh.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_tab_button_left.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_title_tab_button_left.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\corners_border_finish.xml",
@@ -156,12 +156,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_button_grey.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_holo_light.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_ic_clear_holo_light.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_greybtn_border.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_greybtn_border.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_holo_light.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_ic_clear_holo_light.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_white_enter.png",
@@ -180,12 +180,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\corners_border_days.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_follow_check.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_follow_check.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_right_bt.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_title_right_bt.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_follow_check.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_follow_check.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_right_bt_selected.png",
@@ -204,12 +204,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_gmail_on.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_douban_on.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_douban_on.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_at_selected.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_at_selected.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_douban_on.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_douban_on.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_yixin_gray.png",
@@ -232,24 +232,24 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\press_wxcircle.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_white_bg_round.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\messenger_button_white_bg_round.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\button_grey_corner_border.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\button_grey_corner_border.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_white_bg_round.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\messenger_button_white_bg_round.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_white_bg_selector.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\messenger_button_white_bg_selector.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_ic_clear.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_ic_clear.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\button_red_corner_border.xml",
@@ -280,20 +280,20 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_title_back_bt_normal.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_share_to_button.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_share_to_button.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_shift_normal.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_shift_normal.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_redmark.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_redmark.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_num_downdel.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_num_downdel.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_redmark.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_redmark.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_shift_normal.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_shift_normal.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_share_to_button.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_share_to_button.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_ab_holo_light.xml",
@@ -320,24 +320,24 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_pocket_gray.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sidebar_normal.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_sidebar_normal.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_google.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_google.png"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_linkedin.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_linkedin.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_pocket.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_pocket.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_pocket.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_pocket.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_linkedin.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_linkedin.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_google.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_google.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sidebar_normal.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_sidebar_normal.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_num.png",
@@ -352,12 +352,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_button_white.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_shape_solid_grey.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_shape_solid_grey.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_edittext_normal.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\bg_edittext_normal.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_shape_solid_grey.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_shape_solid_grey.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_yixin.png",
@@ -376,12 +376,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_sms_on.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_tumblr_gray.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_tumblr_gray.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_at_normal.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_at_normal.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_tumblr_gray.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_tumblr_gray.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\button_change_noradius.xml",
@@ -392,12 +392,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_evernote.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_num_del.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_num_del.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_wechat_gray.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_wechat_gray.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_num_del.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_num_del.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_whatsapp.png",
@@ -412,12 +412,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_title_tab_left_normal.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_douban_off.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_douban_off.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_button_grey_blue.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_button_grey_blue.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_douban_off.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_douban_off.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_edittext_focused.xml",
@@ -432,28 +432,28 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_search_dropdown_dark.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_list_selector_holo_dark.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_oauth_check_off.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_oauth_check_off.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_location_on.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_location_on.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_oauth_check.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_oauth_check.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_right_holo_light.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_textfield_searchview_right_holo_light.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_gray_enter.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_gray_enter.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_right_holo_light.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_textfield_searchview_right_holo_light.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_oauth_check.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_oauth_check.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_window_shadow_pad.xml",
@@ -472,32 +472,32 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\transfer_bg.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\rotate.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\rotate.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_instagram_on.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_instagram_on.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_holo_dark.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_textfield_searchview_holo_dark.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\rotate.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\rotate.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_shareboard_item_background.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_shareboard_item_background.xml"
     },
     {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_holo_dark.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_textfield_searchview_holo_dark.xml"
+    },
+    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_nav_bar_bg.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_nav_bar_bg.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_button_login_normal.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_button_login_normal.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_button_red.9.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_button_red.9.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_button_login_normal.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_button_login_normal.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_gray_del.png",
@@ -508,12 +508,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_kakao_gray.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_fetch_image.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_fetch_image.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_renren_off.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_renren_off.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_fetch_image.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_fetch_image.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_yixin_circle.png",
@@ -532,72 +532,72 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_qq_on.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_qzone_on.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_qzone_on.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_action_back_normal.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_action_back_normal.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sidebar_selected.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_sidebar_selected.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_ab_holo.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_tab_indicator_ab_holo.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\changepaypswd_edittext_bg.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\changepaypswd_edittext_bg.xml"
-    },
-    {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_show_window_right.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_show_window_right.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_qzone_on.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_qzone_on.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_kakao.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_kakao.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_bg.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_bg.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_show_window_right.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_show_window_right.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\changepaypswd_edittext_bg.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\changepaypswd_edittext_bg.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_ab_holo.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_tab_indicator_ab_holo.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sidebar_selected.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_sidebar_selected.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_laiwang.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_laiwang.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_at_button.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_at_button.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_bg.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_bg.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\corners_border_new_person.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\corners_border_new_person.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sina_off.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_sina_off.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_at_button.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_at_button.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_redbtn_border.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_redbtn_border.xml"
     },
     {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sina_off.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_sina_off.png"
+    },
+    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_abc_down.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_abc_down.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_pinterest_gray.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_pinterest_gray.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_instagram_off.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_instagram_off.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_tab_right_pressed.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_title_tab_right_pressed.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_instagram_off.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_instagram_off.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_pinterest_gray.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_pinterest_gray.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\press_wx.xml",
@@ -608,12 +608,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_location_off.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_foursquare_gray.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_foursquare_gray.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_share_video.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_share_video.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_foursquare_gray.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_foursquare_gray.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_border.xml",
@@ -640,32 +640,32 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_button_blue.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_line_gray.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_line_gray.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_shift_down.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_shift_down.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_line.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_line.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_line_gray.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_line_gray.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_twitter.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_twitter.png"
     },
     {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_line.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_line.png"
+    },
+    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_shape_solid_black.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_shape_solid_black.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_tumblr.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_tumblr.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_gray_del_down.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_gray_del_down.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_tumblr.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_tumblr.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_tx_on.png",
@@ -680,40 +680,40 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_wechat.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_holo_light.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_textfield_searchview_holo_light.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_linkedin_gray.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_linkedin_gray.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_holo_light.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_textfield_searchview_holo_light.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\count_setting_border.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\count_setting_border.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_edittext.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\bg_edittext.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_linkedin_gray.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_linkedin_gray.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_tab_left_pressed.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_title_tab_left_pressed.png"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_edittext.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\bg_edittext.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_pinterest.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_pinterest.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_back_bt.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_title_back_bt.xml"
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_tab_left_pressed.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_title_tab_left_pressed.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_facebook_off.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_facebook_off.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_back_bt.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_title_back_bt.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_send_background.xml",
@@ -732,12 +732,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_light_bar_bg.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_search_icon.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_search_icon.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_blue_bg_selector.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\messenger_button_blue_bg_selector.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_search_icon.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_search_icon.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_facebook.png",

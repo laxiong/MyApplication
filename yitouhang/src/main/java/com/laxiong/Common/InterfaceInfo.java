@@ -46,5 +46,17 @@ public class InterfaceInfo {
 	public final static String WELCOME_URL=BASE_URL+"/start";
 	//活动大厅
 	public final static String ACTIVITY_URL=BASE_URL+"/activity";
+	//邀请好友
+	public final static String INVITE_URL="https://licai.gongshidai.com/wap/public/desc/my.invite.html?";
+	//人脉规则说明
+	public final static String RENMAIEXP_URL="https://licai.gongshidai.com/wap/public/desc/reward.rule.html";
+	//人脉数量
+	public final static String RMNUM_URL=BASE_URL+"/friendsnum";
+	//人脉详情
+	public final static String FRIENDS_URL=BASE_URL+"/friends";
+	//分享
+	public final static String SHARE_URL=BASE_URL+"/share";
+	//版本更新
+	public final static String UPDATE_URL="http://a.app.qq.com/o/simple.jsp?pkgname=com.gongshidai.mistGSD";
 
 }

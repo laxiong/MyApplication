@@ -10,3 +10,4 @@ public interface OnLoadBasicListener<T>{
     public void loadOnSuccess(List<T> list);
     public void loadOnFailure(String msg);
 }
+

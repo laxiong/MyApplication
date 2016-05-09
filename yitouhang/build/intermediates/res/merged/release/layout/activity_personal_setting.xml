@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/titlelayout"
+        layout="@layout/white_title_head_layout"
+        android:layout_width="match_parent"
+        android:layout_height="44dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/divider_grey" />
+
+    <LinearLayout
+        android:id="@+id/linea1"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="20dp">
+
+        <RelativeLayout
+            android:id="@+id/personIcon"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="头像" />
+
+            <ImageView
+                android:id="@+id/use_face"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/img_person_logon" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_grey" />
+
+        <RelativeLayout
+            android:id="@+id/nameSetting"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="昵称" />
+
+            <ImageView
+                android:layout_width="6dp"
+                android:layout_height="12dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/img_refresh_arrow" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_grey" />
+
+        <RelativeLayout
+            android:id="@+id/addressSetting"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="常用地址" />
+
+            <ImageView
+                android:layout_width="6dp"
+                android:layout_height="12dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/img_refresh_arrow" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey" />
+
+
+    <!-- 认证的 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/divider_grey" />
+
+    <RelativeLayout
+        android:id="@+id/true_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="账户开通" />
+
+        <ImageView
+            android:id="@+id/arrows1"
+            android:layout_width="6dp"
+            android:layout_height="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/img_refresh_arrow" />
+
+        <TextView
+            android:id="@+id/tv_shiming"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/arrows1"
+            android:gravity="center"
+            android:text="未认证"
+            android:textColor="@color/divider_grey"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey" />
+
+
+    <!-- 未认证时的，绑定手机 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/divider_grey" />
+
+    <RelativeLayout
+        android:id="@+id/phoneBind"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="20dp"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="绑定手机" />
+
+        <ImageView
+            android:id="@+id/arrows2"
+            android:layout_width="6dp"
+            android:layout_height="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/img_refresh_arrow" />
+
+        <TextView
+            android:id="@+id/tv_bindphone"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/arrows2"
+            android:gravity="center"
+            android:text="189********2203"
+            android:textColor="@color/divider_grey"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey" />
+
+
+    <!-- 认证成功的，绑定手机号 -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/divider_grey"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_msg"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:paddingLeft="20dp"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="真实姓名" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:text="WangKing"
+                android:textSize="9dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_grey" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:paddingLeft="20dp"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="身份证" />
+
+            <TextView
+                android:id="@+id/tv_identify"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:text="340827**********4575"
+                android:textSize="9dp" />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_grey" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey"
+        android:visibility="gone" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/backbtn"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_red_corner_border"
+            android:gravity="center"
+            android:text="退出"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+</LinearLayout>

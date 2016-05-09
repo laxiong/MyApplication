@@ -109,7 +109,7 @@ public class ExChangeActivity extends BaseActivity implements View.OnClickListen
             yinum = user.getScore();
         }
         boolean flag = yuan * 100 <= yinum;
-        tv_value.setText(yuan + "元");
+        tv_value.setText(type + "元");
         tv_total.setText(yuan * 100 + "");
         tv_jiesuannum.setText(yuan * 100 + "");
         tv_exchange.setEnabled(flag ? true : false);

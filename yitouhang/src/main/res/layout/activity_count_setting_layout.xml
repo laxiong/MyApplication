@@ -252,6 +252,7 @@
         	    android:gravity="center"
         	    />
 			<View
+				android:id="@+id/v_read"
 				android:layout_marginTop="10dp"
 				android:layout_toRightOf="@+id/notif_message"
 				android:layout_width="6dp"
@@ -270,7 +271,8 @@
         	    android:layout_marginRight="20dp"
         	    />
         	
-        	<TextView 
+        	<TextView
+				android:id="@+id/tv_unread"
         	    android:layout_width="wrap_content"
         	    android:layout_height="match_parent"
         	    android:layout_toLeftOf="@+id/arrows1"
@@ -393,7 +395,8 @@
             android:background="@color/divider_grey"
          />
         
-        <RelativeLayout 
+        <RelativeLayout
+			android:id="@+id/rl_version"
         	android:layout_width="match_parent"
        	 	android:layout_height="40dp">
         	<TextView 
@@ -412,7 +415,8 @@
         	    android:layout_marginRight="20dp"
         	    />
         	
-        	<TextView 
+        	<TextView
+				android:id="@+id/tv_version"
         	    android:layout_width="wrap_content"
         	    android:layout_height="match_parent"
         	    android:layout_toLeftOf="@+id/arrows3"

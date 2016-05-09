@@ -36,7 +36,7 @@
             android:id="@+id/tv_yibi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="壹币"
+            android:text="积分"
             android:textColor="@color/goodname" />
 
         <TextView

@@ -288,6 +288,7 @@ android:orientation="horizontal">
     android:background="@color/divider_grey" />
 
 <RelativeLayout
+    android:id="@+id/rl_rm"
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:layout_weight="1"
@@ -316,6 +317,7 @@ android:orientation="horizontal">
     android:background="@color/divider_grey" />
 
 <RelativeLayout
+    android:id="@+id/rl_invite"
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:layout_weight="1"

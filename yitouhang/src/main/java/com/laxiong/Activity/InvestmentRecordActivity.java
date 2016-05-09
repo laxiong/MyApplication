@@ -3,6 +3,8 @@ package com.laxiong.Activity;
 import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -10,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -19,6 +22,7 @@ import com.laxiong.Fragment.InvestmentRecordFragment;
 import com.laxiong.Fragment.ProfitRecordFragment;
 import com.laxiong.Fragment.WithdrawRecordFragment;
 import com.laxiong.Fragment.YuMoneyRecordFragment;
+import com.laxiong.Utils.ImageUtil;
 import com.laxiong.yitouhang.R;
 
 /**
@@ -30,21 +34,30 @@ public class InvestmentRecordActivity extends BaseActivity implements View.OnCli
     private TextView mSelectText ;
     private FrameLayout mSelectContent ,mBackBtn;
     private FragmentManager mFragmentManager ;
+    private ImageView iv_arrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_investmentrecord);
         initView();
+        initData();
         setListener();
     }
 
+    private void initData() {
+        reverse(90);
+    }
+    private void reverse(float degree){
+        Bitmap bm= BitmapFactory.decodeResource(getResources(),R.drawable.back3);
+        iv_arrow.setImageBitmap(ImageUtil.reverse(bm,degree));
+    }
     @SuppressLint("NewApi")
     private void initView(){
         mSelectContent=(FrameLayout) findViewById(R.id.select_content);
         mSelectType=(LinearLayout) findViewById(R.id.select_type);
         mSelectText=(TextView) findViewById(R.id.select_text);
-
+        iv_arrow= (ImageView) findViewById(R.id.iv_arrow);
         mBackBtn = (FrameLayout)findViewById(R.id.back_layout);
 
         mFragmentManager = this.getFragmentManager();
@@ -73,11 +86,18 @@ public class InvestmentRecordActivity extends BaseActivity implements View.OnCli
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        reverse(90);
+    }
+
     // show popupwindow
     private PopupWindow mSelectWindow ;
     private View mSelectView ;
     private  TextView mYuTag,mTiTag,mTouTag,mShouTag ; // ��� ���� Ͷ�� ���� ��¼
     private void showSelectTypePopupWindow(){
+        reverse(-90);
         mSelectView = LayoutInflater.from(this).inflate(R.layout.select_type_popupwindow,null);
         mYuTag = (TextView) mSelectView.findViewById(R.id.yu_tag);
         mTiTag = (TextView) mSelectView.findViewById(R.id.ti_tag);
@@ -106,6 +126,7 @@ public class InvestmentRecordActivity extends BaseActivity implements View.OnCli
     View.OnClickListener listener = new View.OnClickListener(){
         @Override@SuppressLint("NewApi")
         public void onClick(View view) {
+            reverse(90);
             FragmentTransaction mTransaction = mFragmentManager.beginTransaction();
             hideFragment(mTransaction);
             switch (view.getId()){

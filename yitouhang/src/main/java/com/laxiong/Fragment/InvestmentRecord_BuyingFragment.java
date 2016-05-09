@@ -87,12 +87,12 @@ public class InvestmentRecord_BuyingFragment extends Fragment implements IViewIn
             @Override
             public void loadListInvest(List<InvestItem> listdata) {
                 if (lvlist != null) lvlist.completeRefresh();
-                if (list != null && listdata != null) {
+                if (list != null && listdata != null&&listdata.size()!=0) {
                     this.list.addAll(listdata);
                     adapter.setList(list);
                 } else {
                     flag = false;
-                    ToastUtil.customAlert(getActivity(), "没数据了");
+                    lvlist.setEmptyView(view.findViewById(R.id.ll_empty));
                 }
             }
 

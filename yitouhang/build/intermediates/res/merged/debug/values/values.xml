@@ -271,7 +271,7 @@
     <string name="earning_string">这个区域是对昨日收益和累积收益的说明，这个区域是对昨日收益和累积收益的说明，这个区域是对昨日收益和累积收益的说明。
     这个区域是对昨日收益和累积收益的说明，这个区域是对昨日收益和累积收益的说明，这个区域是对昨日收益和累积收益的说明，这个区域是对昨日收益和累积收益的说明。</string>
     <string name="exchange_btn_im">立即兑换</string>
-    <string name="exchange_btn_noenum">壹币不足</string>
+    <string name="exchange_btn_noenum">积分不足</string>
     <string name="exchange_string">这个区域是一个带有一元字样的红包图片\n这个区域是一个带有一元字样的红包图片\n这个区域是一个带有一元字样的红包图片</string>
     <string name="flickr_content">Flickr只支持图片分享</string>
     <string name="flickr_no_client">未安装Flickr客户端</string>
@@ -296,7 +296,7 @@
     <string name="listfooterview_normal">查看更多</string>
     <string name="listfooterview_ready">松开载入更多</string>
     <string name="messenger_send_button_text">Send</string>
-    <string name="owner_title">我的壹币</string>
+    <string name="owner_title">我的积分</string>
     <string name="pocket_content">pocket只支持网页链接分享</string>
     <string name="pocket_no_client">未安装pocket客户端</string>
     <string name="pocket_showword">Pocket</string>
@@ -484,6 +484,16 @@
     <style name="MessengerButtonText.White.Small">
     <item name="android:drawableLeft">@drawable/messenger_bubble_small_blue</item>
   </style>
+    <style name="MyDialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
     <style name="TextAppearance.AppCompat.Base.CompactMenu.Dialog" parent="android:TextAppearance.Medium">
         <item name="android:textColor">@android:color/primary_text_light</item>
     </style>

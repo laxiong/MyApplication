@@ -9,6 +9,7 @@ import java.util.List;
  */
 public class User implements Serializable {
     private int code;
+    private String assess;
     private String msg;
     private String time;
     private int id;
@@ -57,7 +58,8 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(int code, String msg, String time, int id, float available_amount, float block_amount, float total_amount, String nickname, String idc, boolean is_idc, String realname, String named, String email, String phone, boolean pay_pwd, boolean is_vip, int contacts, float friendsprofit, int experience, int salt, int score, int expire, int notify, int quota, float daishou, boolean is_first, String address, String last_login, int current, int bankcount, int packetcount, int cards, int amount, float profit, Yesterday yesterday, float total_get, float total_pay, float withdraw_amount, String name, String place, String phones, List<Amount> amount_list, Profit profit_list, String security_level, double fee) {
+    public User(String assess,int code, String msg, String time, int id, float available_amount, float block_amount, float total_amount, String nickname, String idc, boolean is_idc, String realname, String named, String email, String phone, boolean pay_pwd, boolean is_vip, int contacts, float friendsprofit, int experience, int salt, int score, int expire, int notify, int quota, float daishou, boolean is_first, String address, String last_login, int current, int bankcount, int packetcount, int cards, int amount, float profit, Yesterday yesterday, float total_get, float total_pay, float withdraw_amount, String name, String place, String phones, List<Amount> amount_list, Profit profit_list, String security_level, double fee) {
+        this.assess=assess;
         this.code = code;
         this.msg = msg;
         this.time = time;
@@ -103,6 +105,14 @@ public class User implements Serializable {
         this.profit_list = profit_list;
         this.security_level = security_level;
         this.fee = fee;
+    }
+
+    public String getAssess() {
+        return assess;
+    }
+
+    public void setAssess(String assess) {
+        this.assess = assess;
     }
 
     public boolean is_idc() {

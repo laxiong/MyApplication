@@ -76,6 +76,7 @@ public class CommonActionBar extends RelativeLayout {
         TextView tv = new TextView(context);
         tv.setText(msg);
         tv.setTextColor(getResources().getColor(R.color.white));
+        tv.setOnClickListener(listener);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.CENTER_VERTICAL);
         params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);

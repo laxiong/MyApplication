@@ -50,7 +50,6 @@ public class DialogUtils {
             dialog.showAtLocation(parent, Gravity.BOTTOM, 0, 0);
             return;
         }
-        PlatformConfig.setWeixin(Settings.WX_APP_ID, Settings.WX_SECRET);
         View v = LayoutInflater.from(context).inflate(R.layout.dialog_share, null);
         ImageView iv_wx = (ImageView) v.findViewById(R.id.iv_wx);
         ImageView iv_wxcircle = (ImageView) v.findViewById(R.id.iv_wxcircle);
@@ -65,7 +64,7 @@ public class DialogUtils {
         iv_wx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new ShareAction(context).setPlatform(SHARE_MEDIA.WEIXIN).setCallback(umShareListener)
+                new ShareAction(context).setPlatform(SHARE_MEDIA.QQ).setCallback(umShareListener)
                         .withMedia(new UMImage(context, "http://banbao.chazidian.com/uploadfile/2016-01-25/s145368924044608.jpg"))
                         .withText(shareInfo.getContent())
                         .withTargetUrl(shareInfo.getUrl())
@@ -79,7 +78,7 @@ public class DialogUtils {
             @Override
             public void onClick(View v) {
                 new ShareAction(context).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE).setCallback(umShareListener)
-                        .withMedia(new UMImage(context, shareInfo.getImgurl()))
+                        .withMedia(new UMImage(context, shareInfo.getImg()))
                         .withText(shareInfo.getContent())
                         .withTargetUrl(shareInfo.getUrl())
                         .withTitle(shareInfo.getTitle())

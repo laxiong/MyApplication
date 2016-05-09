@@ -7,13 +7,13 @@ package com.laxiong.entity;
 public class ShareInfo {
     private String title;
     private String content;
-    private String imgurl;
+    private String img;
     private String url;
 
-    public ShareInfo(String title, String content, String imgurl, String url) {
+    public ShareInfo(String title, String content, String img, String url) {
         this.title = title;
         this.content = content;
-        this.imgurl = imgurl;
+        this.img = img;
         this.url = url;
     }
 
@@ -37,12 +37,12 @@ public class ShareInfo {
         this.content = content;
     }
 
-    public String getImgurl() {
-        return imgurl;
+    public String getImg() {
+        return img;
     }
 
-    public void setImgurl(String imgurl) {
-        this.imgurl = imgurl;
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public String getUrl() {
