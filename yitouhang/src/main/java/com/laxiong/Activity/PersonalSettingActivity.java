@@ -4,6 +4,7 @@ import java.io.File;
 
 import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -96,11 +97,14 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
     public void logoutsuccess() {
         YiTouApplication.getInstance().setUserLogin(null);
         YiTouApplication.getInstance().setUser(null);
-        SpUtils.saveStrValue(SpUtils.getSp(this), SpUtils.USERLOGIN_KEY, "");
-        SpUtils.saveStrValue(SpUtils.getSp(this), SpUtils.USER_KEY, "");
+        SharedPreferences sp=SpUtils.getSp(this);
+        SpUtils.saveStrValue(sp, SpUtils.USERLOGIN_KEY, "");
+        SpUtils.saveStrValue(sp, SpUtils.USER_KEY, "");
+        SpUtils.saveStrValue(sp,SpUtils.GESTURE_KEY,"");
         Toast.makeText(this, "退出登录成功", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, ChangeCountActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void initView() {

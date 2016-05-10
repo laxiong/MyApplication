@@ -58,5 +58,8 @@ public class InterfaceInfo {
 	public final static String SHARE_URL=BASE_URL+"/share";
 	//版本更新
 	public final static String UPDATE_URL="http://a.app.qq.com/o/simple.jsp?pkgname=com.gongshidai.mistGSD";
-
+	//统计登录
+	public final static String RECORDLOGIN_URL=BASE_URL+"/appLogin";
+	//风险评估
+	public final static String EVALUATE_URL="https://licai.gongshidai.com/wap/public/ytbank/yt.assess.html";
 }

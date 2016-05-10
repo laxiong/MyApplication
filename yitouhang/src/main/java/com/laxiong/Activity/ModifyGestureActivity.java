@@ -96,8 +96,13 @@ public class ModifyGestureActivity extends BaseActivity implements OnClickListen
                         SpUtils.getSp(ModifyGestureActivity.this).edit().putString(SpUtils
                                 .GESTURE_KEY, mFirstPassword).commit();
                         mGestureContentView.clearDrawlineState(0L);
-
-                        setResult(1001);
+                        Intent intent = getIntent();
+                        if (intent.getBooleanExtra("setting", false))
+                            setResult(1001);
+                        else {
+                            Intent go = new Intent(ModifyGestureActivity.this, MainActivity.class);
+                            startActivity(go);
+                        }
 
                         ModifyGestureActivity.this.finish();
 

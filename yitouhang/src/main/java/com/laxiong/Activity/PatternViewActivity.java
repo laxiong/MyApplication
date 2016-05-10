@@ -20,6 +20,7 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Mvp_presenter.UserCount_Presenter;
 import com.laxiong.Mvp_view.IViewCount;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
@@ -85,6 +86,7 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
                     public void checkedSuccess() {
                         mGestureContentView.clearDrawlineState(0L);
                         Toast.makeText(PatternViewActivity.this, "密码正确", Toast.LENGTH_LONG).show();
+                        CommonReq.recordLogin(PatternViewActivity.this);
                         startActivity(new Intent(PatternViewActivity.this,
                                 MainActivity.class));
                         PatternViewActivity.this.finish();

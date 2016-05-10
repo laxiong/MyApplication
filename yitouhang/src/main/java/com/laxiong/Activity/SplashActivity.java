@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.laxiong.Common.InterfaceInfo;
@@ -29,6 +30,7 @@ import java.util.List;
 public class SplashActivity extends BaseActivity implements IViewWelcome, IViewCount {
     private Welcome_Presenter presenter;
     private ImageView iv_bg;
+    private TextView tv_jump;
     private UserCount_Presenter lgpresenter;
 
     @Override
@@ -86,6 +88,7 @@ public class SplashActivity extends BaseActivity implements IViewWelcome, IViewC
         lgpresenter = new UserCount_Presenter(this);
         SharedPreferences sp = SpUtils.getSp(this);
         iv_bg = (ImageView) findViewById(R.id.iv_bg);
+        tv_jump = (TextView) findViewById(R.id.tv_jump);
         if (!sp.getBoolean(SpUtils.FIRST_CONFIRM, false)) {
             sp.edit().putBoolean(SpUtils.FIRST_CONFIRM, true).commit();
             startActivity(new Intent(this, GuideActivity.class));
@@ -93,5 +96,17 @@ public class SplashActivity extends BaseActivity implements IViewWelcome, IViewC
         } else {
             presenter.loadWelcomeData(this);
         }
+        tv_jump.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean flag = ValifyUtil.judgeInit(SplashActivity.this);
+                if (flag) {
+                    startActivity(new Intent(SplashActivity.this, PatternViewActivity.class));
+                } else {
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                }
+                finish();
+            }
+        });
     }
 }

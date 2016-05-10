@@ -80,6 +80,7 @@ public class PswdConturalActivity extends BaseActivity implements OnClickListene
 
                 Intent intent = new Intent(PswdConturalActivity.this,
                         ModifyGestureActivity.class);
+                intent.putExtra("setting",true);
                 startActivityForResult(intent, 1001);
 
                 break;

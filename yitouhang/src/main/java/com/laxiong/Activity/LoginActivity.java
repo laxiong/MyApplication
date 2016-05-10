@@ -69,10 +69,12 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
     @Override
     public void loginsuccess() {
         Toast.makeText(this, "登录成功", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, MainActivity.class);
-        this.startActivity(intent);
+//        Intent intent = new Intent(this, MainActivity.class);
+//        this.startActivity(intent);
+        Intent intent=new Intent(this,ModifyGestureActivity.class);
+        startActivity(intent);
+        finish();
     }
-
     @Override
     public void updateButton(boolean isabled) {
         if (!isabled) {

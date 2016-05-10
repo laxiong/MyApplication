@@ -5,15 +5,19 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
 
+import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_model.Model_Welcome;
 import com.laxiong.Mvp_model.WelcImg;
 import com.laxiong.Mvp_view.IViewMessage;
 import com.laxiong.Mvp_view.IViewWelcome;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.yitouhang.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -29,7 +33,6 @@ public class Welcome_Presenter implements Model_Welcome.OnLoadWelcomeListener {
         this.iviewwel = iviewwel;
         mWel = new Model_Welcome();
     }
-
     public void loadImage(String url, Context context, final ImageView iv) {
         HttpUtil.get(url, new AsyncHttpResponseHandler() {
             @Override

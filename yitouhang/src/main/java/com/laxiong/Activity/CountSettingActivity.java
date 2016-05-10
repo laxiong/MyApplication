@@ -34,7 +34,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
     /****
      * 账户设置
      */
-    private RelativeLayout mCount, mPswdControl, mConnectKefu, mMessage, rl_version ,mMyBankCard;
+    private RelativeLayout mCount, rl_test, mPswdControl, mConnectKefu, mMessage, rl_version, mMyBankCard;
     private FrameLayout mBack;
     private View v_read;
     private UserCount_Presenter presenter;
@@ -59,6 +59,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         mMessage.setOnClickListener(this);
         rl_version.setOnClickListener(this);
         mMyBankCard.setOnClickListener(this);
+        rl_test.setOnClickListener(this);
         try {
             tv_version.setText("V-" + getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
         } catch (PackageManager.NameNotFoundException e) {
@@ -86,7 +87,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
             tv_username.setText(isBlank(user.getNickname()) ? user.getNamed() : user.getNickname());
     }
 
-    public  boolean isBlank(String msg) {
+    public boolean isBlank(String msg) {
         if (msg.trim() == null || "".equals(msg.trim()))
             return true;
         return false;
@@ -108,7 +109,8 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         tv_version = (TextView) findViewById(R.id.tv_version);
         rl_version = (RelativeLayout) findViewById(R.id.rl_version);
         tv_unread = (TextView) findViewById(R.id.tv_unread);
-        mMyBankCard =(RelativeLayout)findViewById(R.id.mybankcard);
+        mMyBankCard = (RelativeLayout) findViewById(R.id.mybankcard);
+        rl_test = (RelativeLayout) findViewById(R.id.rl_test);
         v_read = findViewById(R.id.v_read);
         mText.setText("账户");
     }
@@ -148,6 +150,13 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
                 startActivity(new Intent(this,
                         MyBandBankCardActivity.class));
                 break;
+            case R.id.rl_test:
+                User user = YiTouApplication.getInstance().getUser();
+                Intent intent2 = new Intent(this, WebViewActivity.class);
+                intent2.putExtra("url", InterfaceInfo.EVALUATE_URL + "?id=" + user.getId());
+                intent2.putExtra("title", "风险评估");
+                startActivity(intent2);
+                break;
         }
 
     }
@@ -155,6 +164,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
     //显示联系客服的方法
     private PopupWindow mPopWindows;
     private View KefuSelectView;
+
     private void showConnectKefuSelectType() {
 
         KefuSelectView = LayoutInflater.from(this).inflate(R.layout.kefu_popwindow, null);
@@ -206,17 +216,19 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         mPopWindows.setBackgroundDrawable(getResources().getDrawable(R.drawable.kefu_bg)); //设置半透明
         mPopWindows.showAtLocation(KefuSelectView, Gravity.BOTTOM, 0, 0);
     }
+
     // 打客服电话的
-    private void takePhoneNum(){
+    private void takePhoneNum() {
         Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:10086"));
         this.startActivity(intent);
     }
 
     // ConnectWithKefu
     // 联系客服
-    private void connectKeFu(){
+    private void connectKeFu() {
         startChat();
     }
+
     /**
      * 监听：连接状态、即时通讯消息、客服在线状态 (微客服)
      */
@@ -248,6 +260,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
 
         }
     };
+
     // 根据监听到的连接变化情况更新界面显示
     private void updateStatus(int status) {
 
