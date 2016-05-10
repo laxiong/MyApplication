@@ -134,12 +134,12 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
                 break;
 
             case R.id.message:
+                startActivity(new Intent(this,
+                        MessageActivity.class));
                 if (!Constants.isRead) {
                     Constants.isRead = true;
                     resetMsgState();
                 }
-                startActivity(new Intent(this,
-                        MessageActivity.class));
                 break;
             case R.id.rl_version:
                 Intent intent = new Intent(CountSettingActivity.this, WebViewActivity.class);

@@ -124,12 +124,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
                 <!--广告栏 -->
+                <!--
                 <android.support.v4.view.ViewPager
                     android:id="@+id/vp_ad"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/grey_bg" />
+                    android:background="@color/grey_bg" /> -->
 
+                <com.laxiong.View.CustomFlipper
+                    android:id="@+id/vf_ad"
+                    android:background="@color/grey_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></com.laxiong.View.CustomFlipper>
                 <LinearLayout
                     android:id="@+id/ll_dot"
                     android:layout_width="wrap_content"
@@ -161,6 +167,7 @@
                 android:layout_height="wrap_content"
                 android:horizontalSpacing="20dp"
                 android:numColumns="2"
+                android:layout_marginTop="20dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:verticalSpacing="5dp" />

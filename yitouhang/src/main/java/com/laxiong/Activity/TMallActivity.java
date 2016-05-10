@@ -8,13 +8,19 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.laxiong.Adapter.PaperYuan;
 import com.laxiong.Adapter.ReuseAdapter;
@@ -26,6 +32,7 @@ import com.laxiong.Mvp_view.IViewCount;
 import com.laxiong.Mvp_view.IViewTMall;
 import com.laxiong.Utils.DensityUtils;
 import com.laxiong.View.CommonActionBar;
+import com.laxiong.View.CustomFlipper;
 import com.laxiong.View.CustomGridView;
 import com.laxiong.entity.Product;
 import com.laxiong.entity.TMall_Ad;
@@ -35,22 +42,23 @@ import com.laxiong.yitouhang.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TMallActivity extends BaseActivity implements View.OnClickListener, IViewTMall, IViewCount {
+public class TMallActivity extends BaseActivity implements View.OnClickListener,
+        IViewTMall, IViewCount{
     private CustomGridView gv_list;
     private ScrollView sl;
     private TMall_Presenter presenter;
     private UserCount_Presenter presenterCount;
     private RelativeLayout rl_yibi, rl_rule, rl_order;
-    private ViewPager vp_ad;
+    //    private ViewPager vp_ad;
     private List<Product> plist;
+    private List<TMall_Ad> adlist;
     private List<ImageView> alist;
     private CommonActionBar actionbar;
     private LinearLayout ll_dot;
-    private int lastposition = 0;
-    private int nowposition = 0;
-    private PagerAdapter adapter;
-    private Handler handler = new Handler();
     private TextView tv_yibi;
+    private CustomFlipper vf_ad;
+    private GestureDetector mygesture;
+    private static final int AD_INTERVAL = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +67,32 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
         initView();
         initData();
         initListener();
+        initFlipper();
     }
 
+    private void initFlipper() {
+        mygesture = vf_ad.getDector();
+        vf_ad.setFlipInterval(AD_INTERVAL);
+        vf_ad.startFlipping();
+        vf_ad.setListener(new CustomFlipper.InterFlipperAd() {
+            @Override
+            public void changePoint(int position, boolean flag) {
+                setAdItem((TextView) ll_dot.getChildAt(position), flag);
+            }
+            @Override
+            public int getListSize() {
+                return alist.size();
+            }
+
+            @Override
+            public void onItemClick(int position) {
+                TMall_Ad item=adlist.get(position);
+                Intent intent = new Intent(TMallActivity.this, WebViewActivity.class);
+                    intent.putExtra("url", item.getHref());
+                    startActivity(intent);
+            }
+        });
+    }
     @Override
     public void getCountMsgSuc() {
         User user = YiTouApplication.getInstance().getUser();
@@ -74,7 +106,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
     }
 
     private void initView() {
-        vp_ad = (ViewPager) findViewById(R.id.vp_ad);
+        vf_ad = (CustomFlipper) findViewById(R.id.vf_ad);
         sl = (ScrollView) findViewById(R.id.sl);
         rl_yibi = (RelativeLayout) findViewById(R.id.rl_yibi);
         rl_rule = (RelativeLayout) findViewById(R.id.rl_rule);
@@ -98,17 +130,6 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
         sl.smoothScrollTo(0, 0);
         presenter.reqLoadPageData(this);
     }
-
-    private void showDelayed() {
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                vp_ad.setCurrentItem((++nowposition) % alist.size());
-                showDelayed();
-            }
-        }, 2000);
-    }
-
     //填充产品列表(壹币兑换列表)
     @Override
     public void fillPListData(List<Product> plist) {
@@ -146,15 +167,15 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
     public void fillVPData(List<TMall_Ad> list) {
         alist = initImageList(list);
         if (alist != null && alist.size() > 0) {
-            adapter = presenter.getPageAdapter(alist);
-            if (adapter != null)
-                vp_ad.setAdapter(adapter);
+            for (ImageView iv : alist) {
+                vf_ad.addView(iv);
+            }
         }
-        showDelayed();
     }
 
     //赋值imagelist数据并填充dot
     public List<ImageView> initImageList(List<TMall_Ad> list) {
+        this.adlist=list;
         if (list.size() == 0)
             return null;
         for (int i = 0; i < list.size(); i++) {
@@ -164,14 +185,6 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
             iv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             presenter.reqLoadImageView(item.getImageurl(), iv);
             alist.add(iv);
-            iv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(TMallActivity.this, WebViewActivity.class);
-                    intent.putExtra("url", item.getHref());
-                    startActivity(intent);
-                }
-            });
             TextView tv = new TextView(this);
             setAdItem(tv, i == 0 ? true : false);
             ll_dot.addView(tv);
@@ -181,7 +194,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
 
     //设置dot状态
     private void setAdItem(TextView tv, boolean isSelect) {
-        tv.setBackgroundResource(R.drawable.shape_rec_border);
+        tv.setBackgroundResource(R.drawable.shape_point);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(DensityUtils.dp2px(this, isSelect ? 20 : 10), DensityUtils.dp2px(this, 5));
         params.setMargins(5, 0, 0, 0);
         tv.setLayoutParams(params);
@@ -192,25 +205,6 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
         rl_yibi.setOnClickListener(this);
         rl_rule.setOnClickListener(this);
         rl_order.setOnClickListener(this);
-        vp_ad.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (lastposition != position)
-                    setAdItem((TextView) ll_dot.getChildAt(lastposition), false);
-                setAdItem((TextView) ll_dot.getChildAt(position), true);
-                lastposition = position;
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
     }
 
     @Override
