@@ -1,6 +1,7 @@
 package com.laxiong.Calender;
 
 import android.content.Context;
+
 import com.laxiong.Calender.CalendarView.CallBack;
 
 /**
@@ -10,15 +11,19 @@ import com.laxiong.Calender.CalendarView.CallBack;
  */
 public class CalendarViewBuilder {
 	private CalendarView[] calendarViews;
+	private Context context ;
+	private CallBack callBack ;
+	public CalendarViewBuilder(Context context,CallBack callBack){
+		this.context = context ;
+		this.callBack = callBack ;
+	}
 	/**
 	 生产多个CalendarView
-	 * @param context
 	 * @param count
 	 * @param style
-	 * @param callBack
 	 * @return
 	 */
-	public  CalendarView[] createMassCalendarViews(Context context,int count,int style,CallBack callBack){
+	public  CalendarView[] createMassCalendarViews(int count,int style){
 		calendarViews = new CalendarView[count];
 		for(int i = 0; i < count;i++){
 			calendarViews[i] = new CalendarView(context, style,callBack);
@@ -26,16 +31,15 @@ public class CalendarViewBuilder {
 		return calendarViews;
 	}
 
-	public  CalendarView[] createMassCalendarViews(Context context,int count,CallBack callBack){
-
-		return createMassCalendarViews(context, count, CalendarView.MONTH_STYLE,callBack);
+	public  CalendarView[] createMassCalendarViews(int count){
+		return createMassCalendarViews(count, CalendarView.MONTH_STYLE);
 	}
 	/**
 	 * 切换CandlendarView的样式
 	 * @param style
 	 */
 	public void swtichCalendarViewsStyle(int style){
-		if(calendarViews != null)
+		if (calendarViews != null)
 			for(int i = 0 ;i < calendarViews.length;i++){
 				calendarViews[i].switchStyle(style);
 			}
@@ -43,11 +47,11 @@ public class CalendarViewBuilder {
 	/**
 	 *  CandlendarView回到当前日期
 	 */
-
 	public void backTodayCalendarViews(){
 		if(calendarViews != null)
 			for(int i = 0 ;i < calendarViews.length;i++){
 				calendarViews[i].backToday();
 			}
 	}
+
 }

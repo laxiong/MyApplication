@@ -135,6 +135,7 @@
 
         <!-- 固息宝 -->
         <activity android:name="com.laxiong.Activity.GuXiBaoActivity" />
+        <activity android:name="com.laxiong.Activity.FeedBackActivity" />
 
         <!-- 资产 -->
         <activity android:name="com.laxiong.Activity.AssetActivity" />
@@ -430,7 +431,6 @@
         </receiver>
         <!-- *****************************************************app kefu******************************************************* -->
 
-        <activity android:name="com.laxiong.Activity.FeedBackActivity" />
     </application>
 
 </manifest>

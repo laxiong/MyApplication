@@ -30,7 +30,6 @@ public class VersionManageActivity extends BaseActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_version_manage);
         initView();
-
     }
 
     @Override

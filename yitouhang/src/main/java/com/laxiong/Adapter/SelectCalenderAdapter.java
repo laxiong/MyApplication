@@ -9,7 +9,7 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.laxiong.Calender.CalendarViewVer;
+import com.laxiong.Calender.CalendarView;
 import com.laxiong.Calender.CustomDate;
 import com.laxiong.Common.Settings;
 import com.laxiong.View.PinnedSectionListView.PinnedSectionListAdapter;
@@ -88,7 +88,7 @@ public class SelectCalenderAdapter extends BaseAdapter implements PinnedSectionL
         }
         // TODO 操作
         if (bean.type == CalenderBean.ITEM) {
-            CalendarViewVer view = (CalendarViewVer) converView;
+            CalendarView view = (CalendarView) converView;
             view.resetCustomDate(bean.getCurrentDate());
             view.update();
 //            if (bean.getCurrentDate().getMonth() != Calendar.MONTH + 1 && clickdate != null
@@ -122,7 +122,7 @@ public class SelectCalenderAdapter extends BaseAdapter implements PinnedSectionL
     // 复用的方法
     class ViewHonder {
         TextView mMonth;
-        CalendarViewVer mCalender;
+        CalendarView mCalender;
     }
 
 

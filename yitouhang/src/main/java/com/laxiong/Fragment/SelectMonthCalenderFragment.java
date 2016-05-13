@@ -9,16 +9,16 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.TextView;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Adapter.CalenderBean;
 import com.laxiong.Adapter.SelectCalenderAdapter;
 import com.laxiong.Calender.CalendarView;
 import com.laxiong.Calender.CalendarView.CallBack;
-import com.laxiong.Calender.CalendarViewBuilder;
 import com.laxiong.Calender.CustomDate;
 import com.laxiong.Mvp_presenter.MonthCal_Presenter;
 import com.laxiong.Mvp_view.IViewMonthCal;
 import com.laxiong.View.PinnedSectionListView;
-import com.gongshidai.mistGSD.R;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -29,7 +29,7 @@ public class SelectMonthCalenderFragment extends Fragment implements CallBack, I
      */
     private PinnedSectionListView mSelectCalender;
     private View calendarview;
-    private CalendarViewBuilder builder = new CalendarViewBuilder();
+//    private CalendarViewBuilder builder = new CalendarViewBuilder();
     private static CalendarView[] views;
     private SelectCalenderAdapter adapter;
     private CustomDate date;
@@ -71,9 +71,9 @@ public class SelectMonthCalenderFragment extends Fragment implements CallBack, I
     private void initView() {
         tv_year = (TextView) getActivity().findViewById(R.id.year_btn);
         tv_month = (TextView) getActivity().findViewById(R.id.month_change);
-        mSelectCalender = (PinnedSectionListView) calendarview.findViewById(R.id.sectionListviewCalender);
+//        mSelectCalender = (PinnedSectionListView) calendarview.findViewById(R.id.sectionListviewCalender);
         mSelectCalender.setIViewListener(this);
-        views = builder.createMassCalendarViews(getActivity(), 12, this);
+//        views = builder.createMassCalendarViews(getActivity(), 12);
 //        allMonth = ListViewCalenderUtil.getInstance().allMonthCalenderView(date, views);
     }
     //根据是上拉还是下拉加载相应list

@@ -5,7 +5,9 @@ import android.app.ActionBar;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -70,6 +72,7 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 		mPayMethod.setOnClickListener(this);
 		mRechargeBtn.setOnClickListener(this);
 		mToggleBtn.setOnClickListener(this);
+		mInputRecharge.addTextChangedListener(watcher);
 	}
 
 	@Override
@@ -103,8 +106,26 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 		}
 	}
 
-	// pay Menthod
+	TextWatcher watcher = new TextWatcher() {
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+		}
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {
+		}
+		@Override
+		public void afterTextChanged(Editable s) {
+			if (!TextUtils.isEmpty(mInputRecharge.getText().toString().trim())){
+				mRechargeBtn.setEnabled(true);
+				mRechargeBtn.setBackgroundResource(R.drawable.button_change_bg_border);
+			}else {
+				mRechargeBtn.setEnabled(false);
+				mRechargeBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
+			}
+		}
+	};
 
+	// pay Menthod
 	private PopupWindow mPayMathodWindow;
 	private View PayView;
 	private ImageView newCard_img, constranceBank_img ,BankIconPop , NewCardIconPop;
@@ -117,9 +138,8 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 		RelativeLayout newCard = (RelativeLayout) PayView.findViewById(R.id.addnewcard);
 		RelativeLayout constranceBank = (RelativeLayout) PayView.findViewById(R.id.concreatebank);
 		TextView mConcel = (TextView) PayView.findViewById(R.id.concel);
-		TextView bankname = (TextView) PayView.findViewById(R.id.bankname);
-
-		bankname.setText(getmBankName());
+//		TextView bankname = (TextView) PayView.findViewById(R.id.bankname);
+//		bankname.setText(getmBankName()+"(尾号"+bankLastNum+")");
 
 		newCard_img = (ImageView) PayView.findViewById(R.id.change_img_addnewcard);
 		constranceBank_img = (ImageView) PayView.findViewById(R.id.change_img_concreatebank);
@@ -136,7 +156,7 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 		NewCardIconPop =(ImageView)PayView.findViewById(R.id.icon3);
 
 		String nameStr = getmBankName();
-		mBankNamePop.setText(nameStr);
+		mBankNamePop.setText(nameStr+"(尾号"+bankLastNum+")");
 
 		if (logokey!=null)
 			BankIconPop.setImageResource(getResources().getIdentifier("logo_" + logokey, "drawable", getPackageName()));
@@ -229,6 +249,7 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 
 	}
 	private String logokey ;
+	private int bankLastNum ;
 	// 获取银行卡id
 	private void getBankId() {
 		Log.i("WKKKKK", "权限：" + Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
@@ -245,7 +266,8 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 							setmBankName(response.getString("name"));
 							setmCardNum(response.getString("number"));
 							logokey = response.getString("logoKey");
-							mPayBank.setText(response.getString("name"));
+							mPayBank.setText(response.getString("name")+"(尾号"+response.getInt("snumber")+")");
+							bankLastNum = response.getInt("snumber");
 						} else {
 							Toast.makeText(RechargeActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 						}

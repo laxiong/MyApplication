@@ -56,43 +56,54 @@
 	                android:textColor="@color/white"
 	                android:layout_marginLeft="5dp"
 	                />
+				<ImageView
+					android:id="@+id/vip_logo"
+					android:layout_width="wrap_content"
+					android:layout_height="40dp"
+					android:src="@drawable/img_user_vip_icon"
+					android:paddingLeft="3dp"
+					android:layout_toRightOf="@+id/tv_username"/>
 	        </RelativeLayout>
 	        
-	        <View 
+	        <View
+				android:id="@+id/lines"
 	            android:layout_width="match_parent"
 	            android:layout_height="1dp"
 	            android:background="@color/white"
 	            android:layout_marginLeft="3dp"
 	            android:layout_marginRight="3dp"
 	            />
-	        
+
+			<!--已经帮过卡了-->
 	        <RelativeLayout
 				android:id="@+id/mybankcard"
 	            android:layout_width="match_parent"
 	            android:layout_height="0dp"
 	            android:layout_weight="1"
+				android:visibility="gone"
 	            >
 	            <TextView 
 	                android:layout_marginTop="10dp"
-	                android:id="@+id/tv"
+	                android:id="@+id/tv_bankname"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:text="工商银行"
+	                android:text="1TBank"
 	                android:layout_marginLeft="20dp"
 	                android:textColor="@color/white"
 	                />
-	            <TextView 
+	            <TextView
+					android:id="@+id/tv_banknum"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:layout_below="@id/tv"
-	                android:text="8738*************6776"
+	                android:layout_below="@id/tv_bankname"
+	                android:text="卡号*****"
 	                android:gravity="center"
 	                android:layout_marginLeft="20dp"
 	                android:textColor="@color/white"
 	                />
 	            <!-- 小箭头 -->
-				
 				    <ImageView
+						android:id="@+id/bank_arrow"
 	                	android:layout_width="6dp"
 	                	android:layout_height="12dp"
 	                	android:layout_alignParentRight="true"
@@ -102,6 +113,22 @@
 	                	/>
 	            
 	        </RelativeLayout>
+
+			<!--还没有绑卡-->
+			<RelativeLayout
+				android:id="@+id/no_bandcard"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1">
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:text="尚未绑卡，请去帮卡吧"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="20dp"
+					android:textColor="@color/white"
+					/>
+			</RelativeLayout>
 	    </LinearLayout>
     </RelativeLayout>
     <!-- 四个按钮 -->
@@ -114,6 +141,7 @@
         >
 
         <RelativeLayout
+			android:id="@+id/guandata"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -138,7 +166,8 @@
                 android:textSize="11dp" />
         </RelativeLayout>
         
-        <RelativeLayout 
+        <RelativeLayout
+			android:id="@+id/rel_safeprotect"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -192,7 +221,8 @@
 
         </RelativeLayout>
         
-        <RelativeLayout 
+        <RelativeLayout
+			android:id="@+id/rel_aboutus"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"

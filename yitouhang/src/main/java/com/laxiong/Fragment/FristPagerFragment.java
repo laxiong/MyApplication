@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -58,9 +59,9 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 	}
 
 	private void initData() {
-
 		getBanner();
 		getFristPagerData();
+		getTitleContentInfo();
 	}
 
 	private void initView() {
@@ -230,6 +231,33 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 		}catch (Exception E){
 		}
 	}
-
-
+	// 获取财经头条的内容
+	private void getTitleContentInfo(){
+		HttpUtil.get("https://caijing.gongshidai.com/tuijian?act=back&p=1&pageSize=1", new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+				super.onSuccess(statusCode, headers, response);
+				if (response != null) {
+					try {
+						if (response.getInt("code") == 0) {
+							Log.i("WK","	这是财经头条的内容	"+response);
+							JSONArray listArray = response.getJSONArray("list");
+							if (listArray!=null&&listArray.length()>0) {
+								JSONObject titConObj = listArray.getJSONObject(0);
+								if (mCental!=null){
+									mCental.setText(titConObj.getString("title"));
+								}
+							}
+						} else {
+						}
+					} catch (Exception E) {
+					}
+				}
+			}
+			@Override
+			public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+				super.onFailure(statusCode, headers, responseString, throwable);
+			}
+		});
+	}
 }

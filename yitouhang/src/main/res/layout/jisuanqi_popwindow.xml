@@ -29,7 +29,7 @@
                 android:layout_toRightOf="@+id/tv"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:background="@color/divider_grey"
+                android:src="@drawable/img_cricle_close"
                 android:layout_centerVertical="true"
                 />
         </RelativeLayout>
@@ -75,7 +75,7 @@
 			                android:layout_height="match_parent"
 			                android:text="元"
 			                android:gravity="center"
-			                android:paddingRight="5dp"
+			                android:paddingRight="10dp"
 			                />
 		            </LinearLayout>
 		            
@@ -103,7 +103,7 @@
 			                android:layout_height="match_parent"
 			                android:text="天"
 			                android:gravity="center"
-			                android:paddingRight="5dp"
+			                android:paddingRight="10dp"
 			                />
 		            </LinearLayout>
 		             
@@ -115,22 +115,35 @@
         	android:layout_height="match_parent"
         	android:layout_marginLeft="10dp"
         	android:layout_marginRight="10dp"
+            android:gravity="center"
         	>
-            <TextView 
+            <TextView
+                android:id="@+id/text"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="预估收益（元）"
-                android:gravity="center_vertical"
+                android:text="预期收益"
+                android:textColor="@color/grey_bg_text"
+                android:gravity="center"
                 />
             <TextView 
                 android:id="@+id/comfit"
+                android:layout_toRightOf="@+id/text"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0.0"
                 android:textSize="17dp"
-                android:layout_alignParentRight="true"
                 android:gravity="center_vertical"
-                android:textColor="#FF0000"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_toRightOf="@+id/comfit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="元"
+                android:textColor="@color/grey_bg_text"
+                android:gravity="center"
                 />
             
         </RelativeLayout>

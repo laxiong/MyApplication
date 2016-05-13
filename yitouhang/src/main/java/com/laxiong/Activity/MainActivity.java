@@ -1,6 +1,7 @@
 package com.laxiong.Activity;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -15,10 +16,13 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Settings;
 import com.laxiong.Fragment.FinancingFragment;
@@ -30,7 +34,6 @@ import com.laxiong.Mvp_view.IViewBasic;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.gongshidai.mistGSD.R;
 import com.laxiong.View.PayPop;
 import com.laxiong.entity.Banner;
 import com.laxiong.entity.ShareInfo;
@@ -327,12 +330,17 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                     if (mHead_left_select_textview == null)
                         return;
                     if (mHead_left_select_textview.getText().toString().equals("VIP")) {
-
-                        vipAndFinance(2);
-                        financingToVipEachOther(2);
-//						TODO 原本是跳转到 VIP的页面的
-//						startActivity(new Intent(MainActivity.this,
-//								ShowVIPActivity.class));
+                       User mUser = YiTouApplication.getInstance().getUser();
+                        if (mUser!=null){
+                            if (mUser.is_vip()){   // 是VIP
+                                vipAndFinance(2);
+                                financingToVipEachOther(2);
+                            }else { // 显示怎么成为VIP
+                                showToBeVipMenthod();
+                            }
+                        }else {
+                            Toast.makeText(MainActivity.this,"请完成登录",Toast.LENGTH_SHORT).show();
+                        }
 
                     } else if (mHead_left_select_textview.getText().toString().equals("理财")) {
 
@@ -394,5 +402,20 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         }
         mTransaction.commit();
     }
+
+    //显示怎么变成VIP的方法
+    PopupWindow mVipWinds ;
+    View mshowV ;
+    private void showToBeVipMenthod(){
+        mshowV = LayoutInflater.from(this).inflate(R.layout.notice_show_vip_popwindow,null);
+        mVipWinds = new PopupWindow(mshowV,  ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT,true);
+        mVipWinds.setTouchable(true);
+        mVipWinds.setOutsideTouchable(true);
+        // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
+        // 我觉得这里是API的一个bug
+        mVipWinds.setBackgroundDrawable(getResources().getDrawable(R.drawable.kefu_bg)); //设置半透明
+        mVipWinds.showAtLocation(mshowV, Gravity.BOTTOM, 0, 0);
+    }
+
 
 }

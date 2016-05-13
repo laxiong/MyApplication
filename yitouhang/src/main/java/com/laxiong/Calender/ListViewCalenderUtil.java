@@ -20,10 +20,10 @@ public class ListViewCalenderUtil {
     }
 
 
-    private ArrayList<CalendarViewVer> allMonth;   //排序好的12个月
+    private ArrayList<CalendarView> allMonth;   //排序好的12个月
 
-    public ArrayList<CalendarViewVer> allMonthCalenderView(CustomDate date, CalendarViewVer[] calendarViews) {
-        allMonth = new ArrayList<CalendarViewVer>();
+    public ArrayList<CalendarView> allMonthCalenderView(CustomDate date, CalendarView[] calendarViews) {
+        allMonth = new ArrayList<CalendarView>();
 //        int currentMonth = date.getMonth();
 //        Log.i("Calender", "====日历的当月====：" + currentMonth);
 //        //   当月以下的

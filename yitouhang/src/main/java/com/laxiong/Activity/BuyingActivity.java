@@ -181,7 +181,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		NewCardIcon =(ImageView)PayView.findViewById(R.id.icon3);
 
 		if (bankname!=null) {
-			mBankName.setText(bankname);
+			mBankName.setText(bankname+"(尾号"+bankLastNum+")");
 			constranceBank_img.setImageResource(R.drawable.img_read);
 		}
 		if (logokey!=null)
@@ -232,6 +232,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 
 	private String logokey ;
 	private String bankname ;
+	private  int bankLastNum ;
 //	private void payMenthodType(){
 //		PayMethodSelectPop mPay = new PayMethodSelectPop(this);
 //		mPay.setBanklogokey(logokey);
@@ -321,9 +322,10 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 						Log.i("WKKKKKK", "购买页面：" + response);
 						if (response.getInt("code") == 0) {
 							bankname = response.getString("name");
-							mShowBankName.setText(bankname);
+							mShowBankName.setText(bankname+"(尾号"+response.getInt("snumber")+")");
 							mMoneyLimit.setText(response.getString("one_limit"));
 							logokey = response.getString("logoKey");
+							bankLastNum = response.getInt("snumber");
 						} else {
 							Toast.makeText(BuyingActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 						}

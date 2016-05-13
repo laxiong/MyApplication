@@ -217,7 +217,7 @@
             android:layout_height="50dp"
             android:text="立即充值"
             android:textColor="@color/white"
-            android:background="@drawable/button_red_corner_border"
+            android:background="@drawable/button_grey_corner_border"
             android:gravity="center"
             />
     </RelativeLayout>

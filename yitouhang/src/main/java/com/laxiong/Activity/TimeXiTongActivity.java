@@ -8,11 +8,16 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.entity.Profit;
+import com.laxiong.entity.User;
+import com.laxiong.entity.Yesterday;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.gongshidai.mistGSD.R;
@@ -30,7 +35,9 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 	private TextView mJiGetMoney , mShareBtn ,mScrollIn , mScrollOut;
 	private EditText mJiMoney , mJiDay ;
 	private TextView mYesDayProfit,mAmountProfit,mGetCashProfit,mPrecent,mRemark1,mRemark2,mLastCash,SxtTitle;
+	private RelativeLayout mSafeProtect ;
 	private int mId ;
+	private Double lu = 0.0; // 计算器的计算利率
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +46,15 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 		initView();
 		initData();
 		getNetWork();
+		setAmountData();
 	}
 
 	private void initData() {
-		
 		mBack.setOnClickListener(this);
 		mShareBtn.setOnClickListener(this);
 		mScrollIn.setOnClickListener(this);
 		mScrollOut.setOnClickListener(this);
+		mSafeProtect.setOnClickListener(this);
 		
 		mJiDay.addTextChangedListener(new TextWatcher() {
 			@Override
@@ -120,6 +128,8 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 		mScrollIn = (TextView)findViewById(R.id.scroll_in);
 		mScrollOut = (TextView)findViewById(R.id.scroll_out);
 
+		mSafeProtect =(RelativeLayout)findViewById(R.id.safeprotect);//安全保障
+
 		mRemark1 =(TextView)findViewById(R.id.remark1);
 		mRemark2 =(TextView)findViewById(R.id.remark2);
 		mPrecent =(TextView)findViewById(R.id.tv2);
@@ -148,6 +158,11 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 			case R.id.scroll_out:  // 转出
 				startActivity(new Intent(TimeXiTongActivity.this,
 						TransferOutActivity.class));
+				break;
+			case R.id.safeprotect :
+				startActivity(new Intent(TimeXiTongActivity.this,WebViewActivity.class).
+						putExtra("url", "https://licai.gongshidai.com/wap/public/ytbank/yt.safe.html").
+						putExtra("title","安全保障"));
 				break;
 		}
 	}
@@ -192,7 +207,10 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 	private void updataUi(JSONObject response){
 		if (response!=null){
 			try{
-				mPrecent.setText(String.valueOf(response.getDouble("apr")));
+				Double apr = response.getDouble("apr");
+				Double data = apr / 100;
+				lu = data ;
+				mPrecent.setText(String.valueOf(apr));
 				mLastCash.setText(String.valueOf(response.getInt("members")));
 				JSONArray ARRA = response.getJSONArray("details");
 				if (ARRA.length()>0){
@@ -204,5 +222,34 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener{
 			}
 		}
 	}
+
+	// 更新 昨日收益，累计收益，持有金额的
+	private void setAmountData(){
+		User AppUser = YiTouApplication.getInstance().getUser();
+		if (mGetCashProfit!=null&&mAmountProfit!=null&&mYesDayProfit!=null) {
+			if (AppUser != null) {
+				// 活期份额
+				int mCur = AppUser.getCurrent();
+				mGetCashProfit.setText(String.valueOf(mCur));
+				// 累计收益
+				Profit mProfit = AppUser.getProfit_list();
+				double mSxtProfit = mProfit.getSxt();
+				mAmountProfit.setText(String.valueOf(mSxtProfit));
+				// 昨日收益
+				Yesterday mYesterday = AppUser.getYesterday();
+				float mSxtYester = mYesterday.getSxt();
+				mYesDayProfit.setText(String.valueOf(mSxtYester));
+			} else {
+				mGetCashProfit.setText("0.0");
+				mAmountProfit.setText("0.0");
+				mYesDayProfit.setText("0.0");
+			}
+		}
+	}
+
+
+
+
+
 
 }

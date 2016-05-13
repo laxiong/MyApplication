@@ -228,9 +228,10 @@ public class DateUtil {
 				date.month == DateUtil.getMonth());
 	}
 
-
-
-
-
+	public static boolean isClickDay(CustomDate date,CustomDate clickdate){
+		if(date==null||clickdate==null)
+			return false;
+		return date.equals(clickdate);
+	}
 
 }

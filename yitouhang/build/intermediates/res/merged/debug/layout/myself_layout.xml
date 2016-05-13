@@ -175,13 +175,13 @@
 
             <ImageView
                 android:id="@+id/imgs3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/img_touzimx"
                 />
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgs3"
                 android:gravity="center"
@@ -203,13 +203,13 @@
 
             <ImageView
                 android:id="@+id/imgs4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/img_wodehb"
                 />
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgs4"
                 android:gravity="center"
@@ -233,13 +233,13 @@
 
         <ImageView
             android:id="@+id/imgs5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/img_1tshangcheng"
             />
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/imgs5"
             android:gravity="center"
@@ -268,13 +268,13 @@ android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/imgs6"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@drawable/img_huodongdt"
         />
 
     <TextView
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="活动大厅"
         android:textSize="11dp"
@@ -296,13 +296,13 @@ android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/imgs7"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@drawable/img_renmaisy"
         />
 
     <TextView
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="人脉收益"
         android:textSize="11dp"
@@ -325,13 +325,13 @@ android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/imgs8"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@drawable/img_yaoqinghy"
         />
 
     <TextView
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="邀请好友"
         android:textSize="11dp"

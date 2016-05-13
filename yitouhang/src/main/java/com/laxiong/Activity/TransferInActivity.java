@@ -40,6 +40,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 	private TextView mTransferinBtn ,mAmountLimit ,mTransferInProduct,mShowBankName;
 	private ImageView mToggleBtn ;
 	private String logokey ;
+	private int bankLastNum ;
 	private String bankname ;
 	private EditText mBuyAmount ;
 	private int productId ;
@@ -144,7 +145,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 		NewCardIcon =(ImageView)PayView.findViewById(R.id.icon3);
 
 		if (bankname!=null) {
-			mBankName.setText(bankname);
+			mBankName.setText(bankname+"(尾号"+bankLastNum+")");
 			constranceBank_img.setImageResource(R.drawable.img_read);
 		}
 		if (logokey!=null)
@@ -273,9 +274,10 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 					try {
 						if (response.getInt("code") == 0) {
 							bankname = response.getString("name");
-							mShowBankName.setText(bankname);
+							mShowBankName.setText(bankname+"(尾号"+response.getInt("snumber")+")");
 							mAmountLimit.setText(response.getString("one_limit"));
 							logokey = response.getString("logoKey");
+							bankLastNum = response.getInt("snumber");
 						} else {
 							Toast.makeText(TransferInActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 						}

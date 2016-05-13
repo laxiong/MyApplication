@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Activity.AssetActivity;
 import com.laxiong.Activity.AtHallActivity;
 import com.laxiong.Activity.AvailableBalanceActivity;
@@ -23,11 +25,23 @@ import com.laxiong.Activity.WebViewActivity;
 import com.laxiong.Activity.WelCenterActivity;
 import com.laxiong.Activity.WithdrawCashActivity;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
+import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
+import com.laxiong.entity.CalendarMonthTrade;
 import com.laxiong.entity.User;
-import com.gongshidai.mistGSD.R;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 @SuppressLint("NewApi")
 public class MySelfFragment extends Fragment implements OnClickListener {
     /****
@@ -48,6 +62,7 @@ public class MySelfFragment extends Fragment implements OnClickListener {
         view = inflater.inflate(R.layout.myself_layout, null);
         initView();
         initData();
+        getCalenderInfo();
         return view;
     }
 
@@ -71,7 +86,6 @@ public class MySelfFragment extends Fragment implements OnClickListener {
         textView1.setText(user.getAvailable_amount() + "元");
         togetche_tv.setText(user.getAmount() + "元");
     }
-
     private void initView() {
         totleMoney = (TextView) view.findViewById(R.id.togetche_tv);
         AvailableBalance = (RelativeLayout) view.findViewById(R.id.availablebalance);
@@ -138,4 +152,53 @@ public class MySelfFragment extends Fragment implements OnClickListener {
 
         }
     }
+    /***
+     * 预获取日历的信息
+     */
+    private List<String> keys = new ArrayList<String>(); // date list
+    private List<Integer> values = new ArrayList<Integer>(); // 1,2,3  {1.收益的  2.有操作的  3.有股息的}
+    private void getCalenderInfo(){
+        RequestParams params = new RequestParams();
+        int mId = YiTouApplication.getInstance().getUser().getId();
+        if (mId!=0)
+            params.put("id",mId);
+        HttpUtil.get(InterfaceInfo.BASE_URL + "/monthtrade/" + mId, params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                if (response != null) {
+                    try {
+                        if (response.getInt("code") == 0) {
+                            keys.clear();
+                            values.clear();
+                            Log.i("WK", "=====返回的结果=======：" + response);
+                            try {
+                                JSONObject object = response.getJSONObject("list"); // 返回null的
+                                Iterator<String> keysIter = object.keys();
+                                while (keysIter.hasNext()) {
+                                    String keyName = keysIter.next().toString();
+                                    keys.add(keyName);
+                                    values.add(object.getInt(keyName));  // TODO
+                                }
+
+                                CalendarMonthTrade.getInstance().setKeys(keys);
+                                CalendarMonthTrade.getInstance().setValues(values);
+
+                            } catch (Exception e) {
+                            }
+                        } else {
+                        }
+                    } catch (Exception E) {
+                    }
+                }
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+            }
+
+        }, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
+                YiTouApplication.getInstance().getUserLogin().getToken()));
+    }
+
 }
