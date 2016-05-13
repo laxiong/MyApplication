@@ -3,8 +3,7 @@ package com.laxiong.Fragment;
 import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.entity.User;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Intent;

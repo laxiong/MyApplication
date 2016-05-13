@@ -23,8 +23,7 @@ import com.laxiong.Mvp_view.IViewWelcome;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import java.util.List;
 
 public class SplashActivity extends BaseActivity implements IViewWelcome, IViewCount {

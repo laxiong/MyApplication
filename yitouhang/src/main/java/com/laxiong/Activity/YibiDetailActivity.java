@@ -16,8 +16,7 @@ import com.laxiong.Mvp_view.IViewYibi;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
 import com.laxiong.View.FinancingListView;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import java.util.ArrayList;
 import java.util.List;
 

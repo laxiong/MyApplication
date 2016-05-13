@@ -9,13 +9,13 @@ import android.widget.RelativeLayout;
 import android.widget.SlidingDrawer;
 import android.widget.TextView;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Calender.CalendarView;
 import com.laxiong.Calender.CalendarViewBuilder;
 import com.laxiong.Calender.CalendarViewPagerLisenter;
 import com.laxiong.Calender.CalendarViewVer;
 import com.laxiong.Calender.CustomDate;
 import com.laxiong.Calender.CustomViewPagerAdapter;
-import com.laxiong.yitouhang.R;
 
 /**
  * Created by admin on 2016/5/3.

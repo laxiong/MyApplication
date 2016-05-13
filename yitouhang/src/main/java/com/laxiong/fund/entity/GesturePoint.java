@@ -4,8 +4,7 @@ package com.laxiong.fund.entity;
 import android.widget.ImageView;
 
 import com.laxiong.fund.common.Constants;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class GesturePoint {
 	/**
 	 * 左边x的值

@@ -17,8 +17,7 @@ import com.laxiong.Mvp_presenter.Login_Presenter;
 import com.laxiong.Mvp_view.IViewLogin;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class LoginActivity extends BaseActivity implements OnClickListener, IViewLogin {
     /***
      * 登录
@@ -71,9 +70,14 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
         Toast.makeText(this, "登录成功", Toast.LENGTH_LONG).show();
 //        Intent intent = new Intent(this, MainActivity.class);
 //        this.startActivity(intent);
+        boolean isBack=getIntent().getBooleanExtra("isBack",false);
         Intent intent=new Intent(this,ModifyGestureActivity.class);
-        startActivity(intent);
-        finish();
+        if(isBack)
+            setResult(RESULT_OK);
+        else {
+            startActivity(intent);
+            finish();
+        }
     }
     @Override
     public void updateButton(boolean isabled) {

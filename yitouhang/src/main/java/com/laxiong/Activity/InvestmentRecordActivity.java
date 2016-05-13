@@ -23,8 +23,7 @@ import com.laxiong.Fragment.ProfitRecordFragment;
 import com.laxiong.Fragment.WithdrawRecordFragment;
 import com.laxiong.Fragment.YuMoneyRecordFragment;
 import com.laxiong.Utils.ImageUtil;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 /**
  *投资明细
  */

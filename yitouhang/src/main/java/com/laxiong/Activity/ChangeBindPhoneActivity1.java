@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Basic.BasicWatcher;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
@@ -24,7 +25,6 @@ import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.laxiong.yitouhang.R;
 import com.loopj.android.http.RequestParams;
 
 import org.w3c.dom.Text;

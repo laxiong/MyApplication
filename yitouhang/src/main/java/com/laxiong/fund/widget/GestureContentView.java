@@ -8,8 +8,7 @@ import android.widget.ImageView;
 import com.laxiong.fund.common.AppUtil;
 import com.laxiong.fund.entity.GesturePoint;
 import com.laxiong.fund.widget.GestureDrawline.GestureCallBack;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import java.util.ArrayList;
 import java.util.List;
 

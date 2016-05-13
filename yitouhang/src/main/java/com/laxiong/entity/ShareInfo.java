@@ -1,10 +1,12 @@
 package com.laxiong.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by xiejin on 2016/4/29.
  * Types ShareInfo.java
  */
-public class ShareInfo {
+public class ShareInfo implements Serializable{
     private String title;
     private String content;
     private String img;

@@ -33,7 +33,9 @@ public class YiTouApplication extends Application {
 
     public void setUser(User user) {
         this.user = user;
-        JPushInterface.setAlias(this, "userid", new TagAliasCallback() {
+        if(user==null)
+            return;
+        JPushInterface.setAlias(this,user.getId()+"", new TagAliasCallback() {
             @Override
             public void gotResult(int i, String s, Set<String> set) {
             }

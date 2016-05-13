@@ -10,11 +10,11 @@ import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Fragment.AccumulatedEarningsFragment;
 import com.laxiong.Fragment.AvailableBalanaceFragment;
 import com.laxiong.entity.User;
-import com.laxiong.yitouhang.R;
 
 public class AvailableBalanceActivity extends BaseActivity implements OnClickListener{
 	/***

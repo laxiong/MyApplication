@@ -33,7 +33,7 @@
 
         <EditText
             android:id="@+id/et_pass"
-            android:inputType="numberPassword"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/shape_rec_border" />

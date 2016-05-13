@@ -17,8 +17,7 @@ import com.laxiong.Mvp_view.IView_Renmai;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.FinancingListView;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,6 +77,7 @@ public class RmFragment extends ListFragment implements IViewBasic<Renmai> {
 
     @Override
     public void loadListSuc(List<Renmai> listdata) {
+        ((FinancingListView)getListView()).completeRefresh();
         if (listdata == null || listdata.size() == 0) {
             flag = false;
             if (list == null || list.size() == 0)

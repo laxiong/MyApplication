@@ -27,8 +27,7 @@ import com.laxiong.Utils.StringUtils;
 import com.laxiong.entity.UserLogin;
 import com.laxiong.fund.widget.GestureContentView;
 import com.laxiong.fund.widget.GestureDrawline.GestureCallBack;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class PatternViewActivity extends BaseActivity implements OnClickListener {
     /***
      * 设置手势密码

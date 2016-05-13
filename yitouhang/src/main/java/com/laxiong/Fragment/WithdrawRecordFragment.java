@@ -12,8 +12,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 /**
  * Created by admin on 2016/4/6.
  */

@@ -11,7 +11,7 @@ android {
         exclude 'META-INF/LICENSE.txt'
     }
     defaultConfig {
-        applicationId "com.laxiong.yitouhang"
+        applicationId "com.gongshidai.mistGSD"
         minSdkVersion 9
         targetSdkVersion 19
         versionCode 1

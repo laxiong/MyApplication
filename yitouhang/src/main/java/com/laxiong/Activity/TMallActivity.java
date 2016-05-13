@@ -35,21 +35,20 @@ import com.laxiong.View.CommonActionBar;
 import com.laxiong.View.CustomFlipper;
 import com.laxiong.View.CustomGridView;
 import com.laxiong.entity.Product;
+import com.laxiong.entity.ShareInfo;
 import com.laxiong.entity.TMall_Ad;
 import com.laxiong.entity.User;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TMallActivity extends BaseActivity implements View.OnClickListener,
-        IViewTMall, IViewCount{
+        IViewTMall, IViewCount {
     private CustomGridView gv_list;
     private ScrollView sl;
     private TMall_Presenter presenter;
     private UserCount_Presenter presenterCount;
     private RelativeLayout rl_yibi, rl_rule, rl_order;
-    //    private ViewPager vp_ad;
     private List<Product> plist;
     private List<TMall_Ad> adlist;
     private List<ImageView> alist;
@@ -57,7 +56,6 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
     private LinearLayout ll_dot;
     private TextView tv_yibi;
     private CustomFlipper vf_ad;
-    private GestureDetector mygesture;
     private static final int AD_INTERVAL = 3000;
 
     @Override
@@ -71,7 +69,6 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
     }
 
     private void initFlipper() {
-        mygesture = vf_ad.getDector();
         vf_ad.setFlipInterval(AD_INTERVAL);
         vf_ad.startFlipping();
         vf_ad.setListener(new CustomFlipper.InterFlipperAd() {
@@ -79,6 +76,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
             public void changePoint(int position, boolean flag) {
                 setAdItem((TextView) ll_dot.getChildAt(position), flag);
             }
+
             @Override
             public int getListSize() {
                 return alist.size();
@@ -86,13 +84,20 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
 
             @Override
             public void onItemClick(int position) {
-                TMall_Ad item=adlist.get(position);
+                TMall_Ad item = adlist.get(position);
                 Intent intent = new Intent(TMallActivity.this, WebViewActivity.class);
-                    intent.putExtra("url", item.getHref());
-                    startActivity(intent);
+                Bundle bundle=new Bundle();
+                User user=YiTouApplication.getInstance().getUser();
+                String id=item.getHref()+"?user_id="+(user==null?"":user.getId());
+                intent.putExtra("url",item.getHref()+"?id="+(user==null?"":user.getId()));
+                bundle.putSerializable("banner",new ShareInfo(item.getTitle(),item.getContent(),item.getShareimageurl(),id));
+                intent.putExtra("needshare",true);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
     }
+
     @Override
     public void getCountMsgSuc() {
         User user = YiTouApplication.getInstance().getUser();
@@ -130,6 +135,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
         sl.smoothScrollTo(0, 0);
         presenter.reqLoadPageData(this);
     }
+
     //填充产品列表(壹币兑换列表)
     @Override
     public void fillPListData(List<Product> plist) {
@@ -175,7 +181,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
 
     //赋值imagelist数据并填充dot
     public List<ImageView> initImageList(List<TMall_Ad> list) {
-        this.adlist=list;
+        this.adlist = list;
         if (list.size() == 0)
             return null;
         for (int i = 0; i < list.size(); i++) {
@@ -195,7 +201,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
     //设置dot状态
     private void setAdItem(TextView tv, boolean isSelect) {
         tv.setBackgroundResource(R.drawable.shape_point);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(DensityUtils.dp2px(this, isSelect ? 20 : 10), DensityUtils.dp2px(this, 5));
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(DensityUtils.dp2px(this, isSelect ? 15 : 5), DensityUtils.dp2px(this, 5));
         params.setMargins(5, 0, 0, 0);
         tv.setLayoutParams(params);
     }

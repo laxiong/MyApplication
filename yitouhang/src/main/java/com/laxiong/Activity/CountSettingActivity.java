@@ -28,8 +28,7 @@ import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.UserCount_Presenter;
 import com.laxiong.Mvp_view.IViewCount;
 import com.laxiong.entity.User;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class CountSettingActivity extends BaseActivity implements OnClickListener, IViewCount {
     /****
      * 账户设置
@@ -38,7 +37,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
     private FrameLayout mBack;
     private View v_read;
     private UserCount_Presenter presenter;
-    private TextView tv_username, tv_version, tv_unread;
+    private TextView tv_username, tv_version, tv_unread,tv_dstatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +64,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
+        judgeAccess();
         resetMsgState();
 
     }
@@ -79,7 +79,22 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         }
     }
 
-    //获取成功 设置用户信息
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        judgeAccess();
+    }
+    private void judgeAccess(){
+        User user=YiTouApplication.getInstance().getUser();
+        if(user!=null){
+            tv_dstatus.setText(user.getAssess());
+            rl_test.setEnabled("未评估".equals(user.getAssess())?true:false);
+        }else{
+            startActivity(new Intent(this,LoginActivity.class));
+            finish();
+        }
+    }
+        //获取成功 设置用户信息
     @Override
     public void getCountMsgSuc() {
         User user = YiTouApplication.getInstance().getUser();
@@ -111,6 +126,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         tv_unread = (TextView) findViewById(R.id.tv_unread);
         mMyBankCard = (RelativeLayout) findViewById(R.id.mybankcard);
         rl_test = (RelativeLayout) findViewById(R.id.rl_test);
+        tv_dstatus= (TextView) findViewById(R.id.tv_dstatus);
         v_read = findViewById(R.id.v_read);
         mText.setText("账户");
     }
@@ -142,8 +158,9 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
                 }
                 break;
             case R.id.rl_version:
-                Intent intent = new Intent(CountSettingActivity.this, WebViewActivity.class);
-                intent.putExtra("url", InterfaceInfo.UPDATE_URL);
+                Intent intent=new Intent(CountSettingActivity.this,VersionManageActivity.class);
+//                Intent intent = new Intent(CountSettingActivity.this, WebViewActivity.class);
+//                intent.putExtra("url", InterfaceInfo.UPDATE_URL);
                 startActivity(intent);
                 break;
             case R.id.mybankcard:

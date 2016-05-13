@@ -22,10 +22,9 @@ import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.entity.User;
-import com.laxiong.yitouhang.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-
+import com.gongshidai.mistGSD.R;
 import org.apache.http.Header;
 import org.json.JSONObject;
 

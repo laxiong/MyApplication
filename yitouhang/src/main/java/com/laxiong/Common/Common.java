@@ -2,9 +2,8 @@ package com.laxiong.Common;
 
 import android.widget.ImageView;
 
-import com.laxiong.yitouhang.R;
 import com.loopj.android.http.Base64;
-
+import com.gongshidai.mistGSD.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

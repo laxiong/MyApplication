@@ -54,7 +54,8 @@
     </RelativeLayout>
 
     <!-- 手机号码 -->
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="10dp">
@@ -69,15 +70,14 @@
 
         <EditText
             android:id="@+id/et_phone"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@+id/tv1"
             android:background="@null"
-            android:gravity="center"
             android:hint="请输入手机号"
             android:textSize="12dp" />
-    </RelativeLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"

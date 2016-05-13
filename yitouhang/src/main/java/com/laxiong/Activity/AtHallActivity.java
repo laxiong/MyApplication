@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.bumptech.glide.Glide;
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Adapter.ReuseAdapter;
 import com.laxiong.Adapter.ViewHolder;
 import com.laxiong.Mvp_model.AtHall;
@@ -15,7 +16,6 @@ import com.laxiong.Mvp_presenter.AtHall_Presenter;
 import com.laxiong.Mvp_view.IViewBasic;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
-import com.laxiong.yitouhang.R;
 
 import java.util.ArrayList;
 import java.util.List;

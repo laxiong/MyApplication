@@ -12,11 +12,10 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.entity.User;
 import com.laxiong.entity.UserLogin;
-import com.laxiong.yitouhang.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.Base64;
 import com.loopj.android.http.JsonHttpResponseHandler;
-
+import com.gongshidai.mistGSD.R;
 import org.apache.http.Header;
 import org.json.JSONObject;
 

@@ -17,8 +17,7 @@ import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
 import com.laxiong.entity.User;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class Profit_Activity extends BaseActivity implements IView_Renmai, View.OnClickListener {
     private CommonActionBar actionbar;
     private TextView tv_rmshouyi, tv_num1, tv_num2;
@@ -54,6 +53,7 @@ public class Profit_Activity extends BaseActivity implements IView_Renmai, View.
                     String url = InterfaceInfo.INVITE_URL + "userId=" + user.getId() + "&mobile=" + phonnum;
                     intent = new Intent(this, WebViewActivity.class);
                     intent.putExtra("url", url);
+                    intent.putExtra("needshare",true);
                     startActivity(intent);
                 }else{
                     intent=new Intent(this, LoginActivity.class);

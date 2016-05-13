@@ -62,4 +62,10 @@ public class InterfaceInfo {
 	public final static String RECORDLOGIN_URL=BASE_URL+"/appLogin";
 	//风险评估
 	public final static String EVALUATE_URL="https://licai.gongshidai.com/wap/public/ytbank/yt.assess.html";
+	//软件开关
+	public final static String VERSION_URL=BASE_URL+"/switch";
+	//用户反馈
+	public final static  String ADVICE_URL=BASE_URL+"/advice";
+	//首页广告(非banner)
+	public final static String FIRSTAD_URL=BASE_URL+"/adlist";
 }

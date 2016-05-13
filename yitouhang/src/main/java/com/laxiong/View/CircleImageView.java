@@ -16,8 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class CircleImageView extends ImageView {
 	/***
 	 * CricleImageView

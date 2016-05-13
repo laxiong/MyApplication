@@ -18,8 +18,7 @@ import com.laxiong.Mvp_presenter.InvestDetail_Presenter;
 import com.laxiong.Mvp_view.IViewInvest;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.FinancingListView;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import java.util.ArrayList;
 import java.util.List;
 

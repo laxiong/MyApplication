@@ -16,8 +16,7 @@ import android.widget.Toast;
 import com.laxiong.Mvp_presenter.Login_Presenter;
 import com.laxiong.Mvp_view.IViewLogin;
 import com.laxiong.Utils.StringUtils;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class ChangeCountActivity extends BaseActivity implements OnClickListener, IViewLogin {
     /***
      * 切换账号

@@ -20,7 +20,7 @@ import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
-import com.laxiong.yitouhang.R;
+import com.gongshidai.mistGSD.R;
 import com.loopj.android.http.RequestParams;
 
 public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickListener, IViewBindPhone, IViewTimerHandler {

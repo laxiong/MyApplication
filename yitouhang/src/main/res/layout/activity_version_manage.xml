@@ -17,7 +17,7 @@
             android:layout_centerInParent="true"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/corners_border"/>
+            android:background="@drawable/layer_version"/>
         <TextView
             android:layout_marginTop="5dp"
             android:id="@+id/tv"
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/version_icon"
             android:gravity="center_horizontal"
-            android:text="壹投行"/>
+            android:text="共时理财"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,13 +39,18 @@
         android:layout_height="122dp"
         android:background="@color/white"
         android:orientation="vertical">
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_grey" />
         <RelativeLayout
+            android:id="@+id/rl_update"
             android:layout_width="match_parent"
             android:paddingLeft="23dp"
             android:paddingRight="22dp"
             android:layout_height="40dp">
             <TextView
+                android:id="@+id/tv_judge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -66,6 +71,7 @@
             android:background="@color/grey_bg"/>
 
         <RelativeLayout
+            android:id="@+id/rl_wel"
             android:layout_width="match_parent"
             android:paddingLeft="23dp"
             android:paddingRight="22dp"
@@ -91,6 +97,7 @@
             android:background="@color/grey_bg"/>
 
         <RelativeLayout
+            android:id="@+id/rl_feedback"
             android:layout_width="match_parent"
             android:paddingLeft="23dp"
             android:paddingRight="22dp"
@@ -109,7 +116,10 @@
                 android:src="@drawable/img_refresh_arrow"/>
         </RelativeLayout>
     </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_grey" />
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -118,6 +128,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"

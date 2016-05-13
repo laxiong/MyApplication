@@ -15,7 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
-import com.laxiong.yitouhang.R;
+import com.gongshidai.mistGSD.R;
 /**
  * Created by xiayong on 2015/6/23.
  *  下拉头中间的“水滴”

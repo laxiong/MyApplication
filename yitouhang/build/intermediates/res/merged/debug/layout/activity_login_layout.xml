@@ -71,8 +71,10 @@
     
      <!-- 密码 -->
      
-     <RelativeLayout
+     <LinearLayout
         android:layout_width="match_parent"
+         android:orientation="horizontal"
+         android:gravity="center_vertical"
         android:layout_height="40dp"
         >
         <TextView 
@@ -85,11 +87,10 @@
             />
         <EditText
             android:id="@+id/password"
-           android:layout_toRightOf="@+id/tv4" 
-           android:layout_width="200dp"
+           android:layout_width="0dp"
+            android:layout_weight="1"
            android:layout_height="match_parent"
            android:hint="请输入密码" 
-           android:gravity="center"
            android:background="@null"
             android:password="true"
            android:textSize="12dp"
@@ -99,13 +100,11 @@
             android:id="@+id/img_showpswd"
            android:layout_width="16dp"
            android:layout_height="16dp"
-           android:layout_alignParentRight="true"
            android:layout_marginRight="20dp"
            android:src="@drawable/img_eye_close"
-           android:layout_centerVertical="true"
            />
 
-    </RelativeLayout>
+    </LinearLayout>
      
      <View 
       android:layout_width="match_parent"

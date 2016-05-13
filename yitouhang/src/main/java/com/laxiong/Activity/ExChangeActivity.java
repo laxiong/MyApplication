@@ -29,8 +29,7 @@ import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
 import com.laxiong.View.PayPop;
 import com.laxiong.entity.User;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 /**
  * @params tv_ecnum - +之间的数字
  * @params tv_value 1元 兑换的红包

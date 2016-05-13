@@ -27,8 +27,7 @@ import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.entity.User;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 @SuppressLint("NewApi")
 public class MySelfFragment extends Fragment implements OnClickListener {
     /****
@@ -129,6 +128,7 @@ public class MySelfFragment extends Fragment implements OnClickListener {
                     String url = InterfaceInfo.INVITE_URL + "userId=" + user.getId() + "&mobile=" + phonnum;
                     Intent intent = new Intent(getActivity(), WebViewActivity.class);
                     intent.putExtra("url", url);
+                    intent.putExtra("needshare",true);
                     startActivity(intent);
                 }
                 break;

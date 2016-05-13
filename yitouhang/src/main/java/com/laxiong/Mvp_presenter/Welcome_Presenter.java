@@ -12,7 +12,7 @@ import com.laxiong.Mvp_view.IViewMessage;
 import com.laxiong.Mvp_view.IViewWelcome;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
-import com.laxiong.yitouhang.R;
+import com.gongshidai.mistGSD.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 

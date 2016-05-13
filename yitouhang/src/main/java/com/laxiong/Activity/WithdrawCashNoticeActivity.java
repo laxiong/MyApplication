@@ -1,7 +1,6 @@
 package com.laxiong.Activity;
 
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;

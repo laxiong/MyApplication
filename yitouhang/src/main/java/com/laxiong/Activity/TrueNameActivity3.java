@@ -27,13 +27,13 @@ import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.laxiong.yitouhang.R;
+import com.gongshidai.mistGSD.R;
 
 public class TrueNameActivity3 extends BaseActivity implements OnClickListener, IViewBindCard {
     /****
      * 实名认证第三步
      */
-    private TextView mFinish,tv_bank;
+    private TextView mFinish, tv_bank;
     private RelativeLayout rl_bank;
     private FrameLayout mBack;
     private ImageView toggleRead, mShowPswd;
@@ -97,7 +97,7 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
             @Override
             public void afterTextChanged(Editable s) {
                 if (!StringUtils.testBlankAll(et_name.getText().toString(), et_card.getText().toString())
-                        && ValifyUtil.valifyPhoneNum(et_phone.getText().toString()) && bselected&&!StringUtils.isBlank(id)) {
+                        && ValifyUtil.valifyPhoneNum(et_phone.getText().toString()) && bselected && !StringUtils.isBlank(id)) {
                     ValifyUtil.setEnabled(mFinish, true);
                 } else {
                     ValifyUtil.setEnabled(mFinish, false);
@@ -116,8 +116,8 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
         TextView mTitle = (TextView) findViewById(R.id.title);
         et_phone = (EditText) findViewById(R.id.et_phone);
         et_name = (EditText) findViewById(R.id.et_name);
-        rl_bank= (RelativeLayout) findViewById(R.id.rl_bank);
-        tv_bank= (TextView) findViewById(R.id.tv_bank);
+        rl_bank = (RelativeLayout) findViewById(R.id.rl_bank);
+        tv_bank = (TextView) findViewById(R.id.tv_bank);
         mTitle.setText("实名认证");
 
         et_card = (EditText) findViewById(R.id.et_card);
@@ -155,7 +155,7 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
             if (!StringUtils.isBlank(name)) {
                 tv_bank.setText(name);
                 bselected = true;
-                id=data.getStringExtra("id");
+                id = data.getStringExtra("id");
             }
         }
     }
@@ -200,7 +200,7 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
 
         showView = LayoutInflater.from(this).inflate(R.layout.true_namefinish_popwindow, null);
         TextView kown = (TextView) showView.findViewById(R.id.kown);
-
+        TextView invest = (TextView) showView.findViewById(R.id.tv_go);
         kown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -208,6 +208,15 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
                     mWindows.dismiss();
                     mWindows = null;
                 }
+            }
+        });
+        invest.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mWindows.dismiss();
+                mWindows = null;
+                startActivity(new Intent(TrueNameActivity3.this, MainActivity.class).putExtra("jumptoinvest", true));
+                finish();
             }
         });
 

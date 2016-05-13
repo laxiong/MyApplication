@@ -19,11 +19,10 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.entity.Product;
 import com.laxiong.entity.TMall_Ad;
-import com.laxiong.yitouhang.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-
+import com.gongshidai.mistGSD.R;
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;

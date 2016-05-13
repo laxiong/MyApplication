@@ -30,8 +30,7 @@ import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 import com.laxiong.entity.User;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class WithdrawCashActivity extends BaseActivity implements OnClickListener, IViewWithdraw {
     /***
      * 提现

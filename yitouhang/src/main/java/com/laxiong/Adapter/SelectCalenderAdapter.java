@@ -13,8 +13,7 @@ import com.laxiong.Calender.CalendarViewVer;
 import com.laxiong.Calender.CustomDate;
 import com.laxiong.Common.Settings;
 import com.laxiong.View.PinnedSectionListView.PinnedSectionListAdapter;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import java.util.ArrayList;
 
 public class SelectCalenderAdapter extends BaseAdapter implements PinnedSectionListAdapter {

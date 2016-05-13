@@ -21,10 +21,9 @@ import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.ScollPagerUtils;
 import com.laxiong.View.ChildViewPager;
-import com.laxiong.entity.Branner;
-import com.laxiong.yitouhang.R;
+import com.laxiong.entity.Banner;
 import com.loopj.android.http.JsonHttpResponseHandler;
-
+import com.gongshidai.mistGSD.R;
 import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -116,7 +115,7 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 			case R.id.cental:
 				if(mCentalUrl!=null&&mAdTitle!=null){
 					startActivity(new Intent(getActivity(),
-							WebViewActivity.class).putExtra("url",mCentalUrl).putExtra("title",mAdTitle));
+							WebViewActivity.class).putExtra("url", mCentalUrl).putExtra("title", mAdTitle));
 				}
 				break;
 		}
@@ -131,7 +130,7 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 					try {
 						if (response.getInt("code")==0){
 							JSONArray arra = response.getJSONArray("list");
-							ArrayList<Branner> banArra = getBannerData(arra);
+							ArrayList<Banner> banArra = getBannerData(arra);
 
 							//TODO 开始适配器的操作
 							ScollPagerUtils mScollPagerUtils = new ScollPagerUtils(banArra,mContext,mChildViewPager,mLinearDot);
@@ -152,16 +151,18 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 		});
 	}
 
-	private ArrayList<Branner> getBannerData(JSONArray array){
+	private ArrayList<Banner> getBannerData(JSONArray array){
 		try{
-			ArrayList<Branner> banArray = new ArrayList<Branner>();
+			ArrayList<Banner> banArray = new ArrayList<Banner>();
 			if (array!=null){
 				for (int i=0;i<array.length();i++){
 					JSONObject obj = array.getJSONObject(i);
-					Branner ban = new Branner();
+					Banner ban = new Banner();
 					ban.setImageurl(obj.getString("imageurl"));
 					ban.setHref(obj.getString("href"));
 					ban.setTitle(obj.getString("title"));
+					ban.setContent(obj.getString("content"));
+					ban.setShareimageurl(obj.getString("shareimageurl"));
 					banArray.add(ban);
 				}
 				return  banArray;

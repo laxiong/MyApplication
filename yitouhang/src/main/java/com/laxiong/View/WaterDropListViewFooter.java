@@ -13,8 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.laxiong.yitouhang.R;
+import com.gongshidai.mistGSD.R;
 public class WaterDropListViewFooter extends LinearLayout {
 	private Context mContext;
 

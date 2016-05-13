@@ -19,8 +19,10 @@ public class Model_Invest<T> extends Model_Basic {
     public void loadInvestList(String tag, Context context, RequestParams params, OnLoadBasicListener<T> listener, Class<T> clazz) {
         setListener(listener);
         User user = YiTouApplication.getInstance().getUser();
-        if (user == null)
+        if (user == null) {
             context.startActivity(new Intent(context, LoginActivity.class));
+            return;
+        }
         aureqByPost(InterfaceInfo.FUND_URL + user.getId(), context, params, tag, clazz);
     }
 }

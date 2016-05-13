@@ -22,8 +22,7 @@ import android.widget.Toast;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.View.PasswordInputView;
 import com.laxiong.View.PayPop;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import java.util.jar.Attributes;
 
 public class PswdConturalActivity extends BaseActivity implements OnClickListener {

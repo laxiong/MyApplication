@@ -19,7 +19,7 @@ package com.loopj.android.http;
 
 import java.io.UnsupportedEncodingException;
 
-import com.laxiong.yitouhang.BuildConfig;
+import com.gongshidai.mistGSD.BuildConfig;
 
 
 

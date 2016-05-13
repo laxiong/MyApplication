@@ -11,8 +11,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 /**
  * Desc:
  * UserLogin: tiansj

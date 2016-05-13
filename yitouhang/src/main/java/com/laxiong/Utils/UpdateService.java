@@ -21,8 +21,7 @@ import android.os.Message;
 import android.widget.RemoteViews;
 
 import com.laxiong.Common.Settings;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 @SuppressLint("NewApi") public class UpdateService extends Service {
 	private final String TAG = "UpdateService";
 	/** 超时 */

@@ -18,8 +18,7 @@ import com.laxiong.Utils.SpUtils;
 import com.laxiong.fund.widget.GestureContentView;
 import com.laxiong.fund.widget.GestureDrawline.GestureCallBack;
 import com.laxiong.fund.widget.LockIndicator;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class ModifyGestureActivity extends BaseActivity implements OnClickListener {
     /***
      * 修改手势密码

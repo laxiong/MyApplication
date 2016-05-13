@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.laxiong.Common.Settings;
 import com.laxiong.View.PayPop;
 import com.laxiong.entity.ShareInfo;
-import com.laxiong.yitouhang.R;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
@@ -23,7 +22,7 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMVideo;
 import com.umeng.socialize.media.UMusic;
-
+import com.gongshidai.mistGSD.R;
 /**
  * Created by xiejin on 2016/4/7.
  * Types DialogUtils.java
@@ -64,12 +63,12 @@ public class DialogUtils {
         iv_wx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new ShareAction(context).setPlatform(SHARE_MEDIA.QQ).setCallback(umShareListener)
-                        .withMedia(new UMImage(context, "http://banbao.chazidian.com/uploadfile/2016-01-25/s145368924044608.jpg"))
-                        .withText(shareInfo.getContent())
-                        .withTargetUrl(shareInfo.getUrl())
-                        .withTitle(shareInfo.getTitle())
-                        .share();
+                new ShareAction(context).setPlatform(SHARE_MEDIA.WEIXIN).setCallback(umShareListener)
+                        .withMedia(new UMImage(context,shareInfo.getImg()))
+                                .withText(shareInfo.getContent())
+                                .withTargetUrl(shareInfo.getUrl())
+                                .withTitle(shareInfo.getTitle())
+                                .share();
                 DialogUtils.bgalpha(context, 1.0f);
                 dialog.dismiss();
             }
@@ -94,7 +93,6 @@ public class DialogUtils {
     private UMShareListener umShareListener = new UMShareListener() {
         @Override
         public void onResult(SHARE_MEDIA platform) {
-            Log.d("plat", "platform" + platform);
             Toast.makeText(context, platform + " 分享成功啦", Toast.LENGTH_SHORT).show();
         }
 

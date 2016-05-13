@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Adapter.ReuseAdapter;
 import com.laxiong.Adapter.ViewHolder;
 import com.laxiong.Mvp_model.BindCardItem;
@@ -18,7 +19,6 @@ import com.laxiong.Mvp_view.IViewCardList;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
-import com.laxiong.yitouhang.R;
 
 import java.util.List;
 

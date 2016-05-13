@@ -18,8 +18,7 @@ import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewReBackPwd;
 import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class FoundPswdActivity extends BaseActivity implements OnClickListener, IViewReBackPwd,IViewTimerHandler{
     /****
      * 找回密码

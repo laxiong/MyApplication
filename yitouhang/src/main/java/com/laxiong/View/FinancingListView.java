@@ -12,8 +12,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

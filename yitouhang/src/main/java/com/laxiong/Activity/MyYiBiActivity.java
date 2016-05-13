@@ -10,8 +10,7 @@ import android.widget.TextView;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.View.CommonActionBar;
 import com.laxiong.entity.User;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class MyYiBiActivity extends BaseActivity implements View.OnClickListener {
     private CommonActionBar actionbar;
     private RelativeLayout rl_shouru, rl_zhichu;

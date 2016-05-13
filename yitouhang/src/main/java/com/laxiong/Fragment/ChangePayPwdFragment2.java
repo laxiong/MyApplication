@@ -20,8 +20,7 @@ import com.laxiong.Activity.ChangePayPwdActivity;
 import com.laxiong.Basic.BasicWatcher;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ValifyUtil;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

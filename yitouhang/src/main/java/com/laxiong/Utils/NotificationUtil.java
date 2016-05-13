@@ -8,8 +8,7 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 
 import com.laxiong.Activity.MainActivity;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 /**
  * Created by xiejin on 2016/5/6.
  * Types NotificationUtil.java

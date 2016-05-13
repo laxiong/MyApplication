@@ -10,8 +10,7 @@ import com.laxiong.Activity.MainActivity;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.entity.User;
 import com.laxiong.entity.UserLogin;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

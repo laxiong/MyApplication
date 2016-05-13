@@ -11,11 +11,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Calender.CustomDate;
 import com.laxiong.Common.Constants;
 import com.laxiong.Fragment.SelectMonthCalenderFragment;
 import com.laxiong.Fragment.SelectWeekCalenderFragment;
-import com.laxiong.yitouhang.R;
 
 public class CalanderCountActivity extends BaseActivity implements OnClickListener {
     /****

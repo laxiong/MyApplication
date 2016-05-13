@@ -22,8 +22,7 @@ import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import org.w3c.dom.Text;
 
 /**

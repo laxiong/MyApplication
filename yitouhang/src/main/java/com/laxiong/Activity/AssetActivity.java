@@ -14,11 +14,11 @@ import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.View.CircularScaleView;
 import com.laxiong.entity.Profit;
 import com.laxiong.entity.User;
-import com.laxiong.yitouhang.R;
 
 public class AssetActivity extends BaseActivity implements OnClickListener {
     /***
@@ -46,8 +46,11 @@ public class AssetActivity extends BaseActivity implements OnClickListener {
             startActivity(new Intent(this, LoginActivity.class));
         } else {
             mCircularView.setTotalMoney(user.getAmount() + "");
-            tv_sxttouru.setText(user.getCurrent() + "");
-            tv_gxbtouru.setText(user.getAmount() - user.getCurrent() + "");
+            float sxttouru=user.getCurrent();
+            float gxbtouru=user.getAmount() - user.getCurrent();
+            tv_sxttouru.setText(sxttouru + "");
+            tv_gxbtouru.setText(gxbtouru + "");
+            mCircularView.setDegree(sxttouru,gxbtouru);
             Profit profit = user.getProfit_list();
             if (profit != null) {
                 tv_sxtshouyi.setText(profit.getSxt() + "");

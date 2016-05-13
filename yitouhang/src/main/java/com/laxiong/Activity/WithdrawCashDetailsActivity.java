@@ -8,8 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.laxiong.Utils.StringUtils;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

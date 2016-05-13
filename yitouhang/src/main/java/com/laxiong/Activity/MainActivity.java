@@ -6,31 +6,48 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Settings;
 import com.laxiong.Fragment.FinancingFragment;
 import com.laxiong.Fragment.FristPagerFragment;
 import com.laxiong.Fragment.MySelfFragment;
 import com.laxiong.Fragment.VipFinancingFragment;
+import com.laxiong.Mvp_presenter.MainPage_Presenter;
+import com.laxiong.Mvp_view.IViewBasic;
+import com.laxiong.Utils.DialogUtils;
+import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.laxiong.yitouhang.R;
+import com.gongshidai.mistGSD.R;
+import com.laxiong.View.PayPop;
+import com.laxiong.entity.Banner;
+import com.laxiong.entity.ShareInfo;
+import com.laxiong.entity.User;
 
-public class MainActivity extends BaseActivity implements OnClickListener {
+import java.util.List;
+
+public class MainActivity extends BaseActivity implements OnClickListener, IViewBasic<Banner> {
     /****
      * 主页
      */
     private RelativeLayout mFristPager, mFinancing, mMyself;  // Bottom three Button Layout
-
+    private MainPage_Presenter presenter;
+    private LinearLayout ll_wrap;
     private TextView mFristPager_tv, mFinancing_tv, mMyself_tv;
     private ImageView mFristPager_icon, mFinancing_icon, mMyself_icon;
-
+    private PayPop dialog;
     private FristPagerFragment mFristPagerFragment = null;
     private FinancingFragment mFinancingFragment = null;
     private MySelfFragment mMySelfFragment = null;
@@ -58,9 +75,52 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         initData();
     }
 
+    @Override
+    public void loadListSuc(List<Banner> list) {
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_firstpage, null);
+        ImageView iv_ad = (ImageView) view.findViewById(R.id.iv_ad);
+        ImageView iv_close = (ImageView) view.findViewById(R.id.iv_close);
+        final Banner item = list.get(0);
+        DialogUtils.bgalpha(MainActivity.this, 0.3f);
+        iv_ad.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User user=YiTouApplication.getInstance().getUser();
+                String id=user==null?"":user.getId()+"";
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("banner",new ShareInfo(item.getTitle(),item.getContent(),item.getShareimageurl(),item.getHref()+"?user_id="+id));
+                startActivity(new Intent(MainActivity.this, WebViewActivity.class)
+                        .putExtras(bundle).putExtra("needshare",true).putExtra("url",
+                                item.getHref()+"?id="+id));
+            }
+        });
+        iv_close.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogUtils.bgalpha(MainActivity.this, 1.0f);
+                dialog.dismiss();
+                dialog = null;
+            }
+        });
+        if (list == null || list.size() == 0)
+            return;
+        Glide.with(this).load(item.getImageurl()).placeholder(getResources().getDrawable(R.drawable.gongshi_mr)).into(iv_ad);
+        DisplayMetrics metrix = new DisplayMetrics();
+        getWindow().getWindowManager().getDefaultDisplay().getMetrics(metrix);
+        int width = 3 * metrix.widthPixels / 4;
+        int height =  2 * metrix.heightPixels/3;
+        dialog = new PayPop(view, width, height, this);
+        dialog.showAtLocation(ll_wrap, Gravity.CENTER, 0, 0);
+    }
+
+    @Override
+    public void loadListFail(String msg) {
+        ToastUtil.customAlert(this, msg);
+    }
+
     @SuppressLint("NewApi")
     private void initData() {
-
+        presenter = new MainPage_Presenter(this);
         mFragmentManager = this.getFragmentManager();
 //		FragmentTransaction  mTransaction = mFragmentManager.beginTransaction();
 
@@ -69,6 +129,11 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         mMyself.setOnClickListener(this);
 
         initFristFragment();  //初始化第一张碎片
+        boolean flag = getIntent().getBooleanExtra("jumptoinvest", false);
+        if (flag) {
+            mFinancing.performClick();
+        }
+        presenter.loadPageAd(this);
     }
 
     private void initView() {
@@ -88,6 +153,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         mFinancing_tv = (TextView) findViewById(R.id.financingr_tv);
         mMyself_icon = (ImageView) findViewById(R.id.myself_icon);
         mMyself_tv = (TextView) findViewById(R.id.myself_tv);
+        ll_wrap = (LinearLayout) findViewById(R.id.ll_wrap);
 
         // head
         mHeadLayout = (RelativeLayout) findViewById(R.id.main_head_layout);

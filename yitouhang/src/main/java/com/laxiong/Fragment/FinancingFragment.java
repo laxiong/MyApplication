@@ -28,10 +28,9 @@ import com.laxiong.View.CircleProgressBar;
 import com.laxiong.View.FinancingListView;
 import com.laxiong.View.PrecentCricleBar;
 import com.laxiong.entity.FinanceInfo;
-import com.laxiong.yitouhang.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-
+import com.gongshidai.mistGSD.R;
 import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;

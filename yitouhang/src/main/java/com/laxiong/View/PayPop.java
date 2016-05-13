@@ -11,8 +11,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.laxiong.Utils.DialogUtils;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 import org.w3c.dom.Text;
 
 /**
@@ -91,6 +90,14 @@ public class PayPop extends PopupWindow {
         context.getWindowManager().getDefaultDisplay().getMetrics(metric);
         int width = Math.round(3 * (float) metric.widthPixels / 4);
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        this.setContentView(v);
+        this.setWidth(width);
+        this.setHeight(height);
+        this.setFocusable(true);
+        this.setBackgroundDrawable(null);
+        this.setOutsideTouchable(false);
+    }
+    public PayPop(View v,int width,int height,Activity context){
         this.setContentView(v);
         this.setWidth(width);
         this.setHeight(height);

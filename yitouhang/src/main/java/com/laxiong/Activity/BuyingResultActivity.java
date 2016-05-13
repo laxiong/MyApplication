@@ -3,7 +3,8 @@ package com.laxiong.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.laxiong.yitouhang.R;
+import com.gongshidai.mistGSD.R;
+
 
 public class BuyingResultActivity extends BaseActivity {
 	/***

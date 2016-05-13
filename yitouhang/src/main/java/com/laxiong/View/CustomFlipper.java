@@ -6,9 +6,10 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.ViewFlipper;
 
-import com.laxiong.yitouhang.R;
+import com.gongshidai.mistGSD.R;
 
 /**
  * Created by xiejin on 2016/5/10.
@@ -19,7 +20,7 @@ public class CustomFlipper extends ViewFlipper implements GestureDetector.OnGest
     private GestureDetector mydector;
     private int lastposition = 0, nowposition = 0;
     private InterFlipperAd interflipper;
-    private static final int MIN_DISTANCE=20;
+    private static final int MIN_DISTANCE = 20;
 
     public interface InterFlipperAd {
         void changePoint(int position, boolean flag);
@@ -57,6 +58,8 @@ public class CustomFlipper extends ViewFlipper implements GestureDetector.OnGest
     }
 
     public void changePoint() {
+        if (interflipper == null)
+            return;
         if (lastposition != nowposition)
             interflipper.changePoint(lastposition, false);
         interflipper.changePoint(nowposition, true);
@@ -80,12 +83,7 @@ public class CustomFlipper extends ViewFlipper implements GestureDetector.OnGest
         super(context, attrs);
         init(context);
     }
-        @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        mydector.onTouchEvent(ev);
-        super.dispatchTouchEvent(ev);
-        return true;
-    }
+
     public void init(Context context) {
         leftInAnimation = AnimationUtils.loadAnimation(context, R.anim.left_in);
         leftOutAnimation = AnimationUtils.loadAnimation(context, R.anim.left_out);

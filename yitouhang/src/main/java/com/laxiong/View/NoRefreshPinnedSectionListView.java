@@ -47,9 +47,8 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 import android.widget.AbsListView.OnScrollListener;
 
-import com.laxiong.yitouhang.BuildConfig;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.BuildConfig;
+import com.gongshidai.mistGSD.R;
 public class NoRefreshPinnedSectionListView extends ListView {
 
 	 //-- inner classes

@@ -30,10 +30,9 @@ import com.laxiong.Utils.MobileSecurePayer;
 import com.laxiong.entity.EnvConstants;
 import com.laxiong.entity.LlOrderInfo;
 import com.laxiong.entity.PayOrder;
-import com.laxiong.yitouhang.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-
+import com.gongshidai.mistGSD.R;
 import org.apache.http.Header;
 import org.json.JSONObject;
 

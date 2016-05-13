@@ -42,4 +42,11 @@ public class StringUtils {
                 return (num * 3 / 1000) + "";
         }
     }
+    public static String choose(String... strs){
+        for(String str:strs){
+            if(!isBlank(str))
+                return str;
+        }
+        return null;
+    }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.laxiong.yitouhang"
+    package="com.gongshidai.mistGSD"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -17,11 +17,11 @@
     <!-- 以下是极光推送需要的权限 -->
     <!-- Required -->
     <permission
-        android:name="com.laxiong.yitouhang.permission.JPUSH_MESSAGE"
+        android:name="com.gongshidai.mistGSD.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
 
     <!-- Required -->
-    <uses-permission android:name="com.laxiong.yitouhang.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="com.gongshidai.mistGSD.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -62,20 +62,22 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.laxiong.Activity.PatternViewActivity"
-            android:label="@string/app_name" >
-        </activity>
-
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.laxiong.Activity.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!-- =============================LLYT SDK START=================================== -->
         <activity
             android:name="com.yintong.secure.activity.BaseActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
 
-        <service android:name="com.yintong.secure.service.PayService" >
-        </service>
+        <service android:name="com.yintong.secure.service.PayService" />
         <!-- =================================LLYT SDK END ====================================== -->
 
         <activity android:name="com.laxiong.Activity.BaseActivity" />
@@ -227,7 +229,7 @@
                 <action android:name="cn.jpush.android.ui.PushActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.laxiong.yitouhang" />
+                <category android:name="com.gongshidai.mistGSD" />
             </intent-filter>
         </activity>
 
@@ -260,7 +262,7 @@
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.DaemonService" />
 
-                <category android:name="com.laxiong.yitouhang" />
+                <category android:name="com.gongshidai.mistGSD" />
             </intent-filter>
         </service>
 
@@ -272,7 +274,7 @@
             <intent-filter android:priority="1000" >
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
                 <!-- Required 显示通知栏 -->
-                <category android:name="com.laxiong.yitouhang" />
+                <category android:name="com.gongshidai.mistGSD" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT" />
@@ -307,7 +309,7 @@
                 <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
                 <action android:name="cn.jpush.android.intent.CONNECTION" />
                 <!-- 接收网络变化 连接/断开 since 1.6.3 -->
-                <category android:name="com.laxiong.yitouhang" />
+                <category android:name="com.gongshidai.mistGSD" />
             </intent-filter>
         </receiver>
 
@@ -317,7 +319,7 @@
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="add6a0ff2b2ebd4bc11d91d1" />
+            android:value="08a46b6f6d6341908dbdd8d2" />
         <!-- </>值来自开发者平台取得的AppKey -->
         <receiver android:name="com.laxiong.Receiver.BroadBootReceiver" >
             <intent-filter>
@@ -428,6 +430,7 @@
         </receiver>
         <!-- *****************************************************app kefu******************************************************* -->
 
+        <activity android:name="com.laxiong.Activity.FeedBackActivity" />
     </application>
 
 </manifest>

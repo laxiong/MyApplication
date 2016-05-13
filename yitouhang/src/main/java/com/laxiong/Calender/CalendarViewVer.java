@@ -11,8 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class CalendarViewVer extends View implements Comparable {
     @Override
     public int compareTo(Object another) {

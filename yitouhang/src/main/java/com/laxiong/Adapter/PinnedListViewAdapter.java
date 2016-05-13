@@ -16,8 +16,7 @@ import com.laxiong.Activity.GuXiBaoActivity;
 import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.View.CircleProgressBar;
 import com.laxiong.View.PinnedSectionListView.PinnedSectionListAdapter;
-import com.laxiong.yitouhang.R;
-
+import com.gongshidai.mistGSD.R;
 public class PinnedListViewAdapter extends BaseAdapter implements PinnedSectionListAdapter{
 	/****
 	 * this is common Adapter for PinnedSectionListView
