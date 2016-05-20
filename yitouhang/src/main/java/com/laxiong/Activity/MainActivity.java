@@ -170,7 +170,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         }else if(info.getStatus()==2){//建议更新
             presenter.showRecDialog(this,info,ll_wrap);
         }else{
-            presenter.loadPageAd(this);
+            presenter.loadPageAd(this);//广告
         }
 
     }

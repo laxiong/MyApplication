@@ -30,6 +30,7 @@ public class SplashActivity extends BaseActivity implements IViewWelcome, IViewC
     private Welcome_Presenter presenter;
     private ImageView iv_bg;
     private TextView tv_jump;
+    private boolean isClick=false;
     private UserCount_Presenter lgpresenter;
 
     @Override
@@ -64,15 +65,11 @@ public class SplashActivity extends BaseActivity implements IViewWelcome, IViewC
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if (flag) {
-                        startActivity(new Intent(SplashActivity.this, PatternViewActivity.class));
-                    } else {
-                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                    }
-                    finish();
+                    if(isClick)
+                        return;
+                    go(flag);
                 }
             }, time * 1000);
-//            presenter.loadImage(imgurl, this, iv_bg);
             Glide.with(SplashActivity.this).load(imgurl).into(iv_bg);
             lgpresenter.reqUserCountMsg(this);
         }
@@ -100,13 +97,17 @@ public class SplashActivity extends BaseActivity implements IViewWelcome, IViewC
             @Override
             public void onClick(View v) {
                 boolean flag = ValifyUtil.judgeInit(SplashActivity.this);
-                if (flag) {
-                    startActivity(new Intent(SplashActivity.this, PatternViewActivity.class));
-                } else {
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                }
-                finish();
+                isClick = true;
+                go(flag);
             }
         });
+    }
+    private void go(boolean flag){
+        if (flag) {
+            startActivity(new Intent(SplashActivity.this, PatternViewActivity.class));
+        } else {
+            startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        }
+        finish();
     }
 }
