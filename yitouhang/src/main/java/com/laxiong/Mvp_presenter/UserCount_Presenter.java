@@ -3,15 +3,20 @@ package com.laxiong.Mvp_presenter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.laxiong.Activity.ChangeCountActivity;
 import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
+import com.laxiong.Mvp_model.Model_Basic;
+import com.laxiong.Mvp_model.UpdateInfo;
 import com.laxiong.Mvp_view.IViewCount;
 import com.laxiong.Utils.CommonReq;
+import com.laxiong.Utils.CommonUtils;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.SpUtils;
@@ -32,7 +37,6 @@ import org.json.JSONObject;
  */
 public class UserCount_Presenter {
     private IViewCount iviewcount;
-
     public UserCount_Presenter(IViewCount iviewcount) {
         this.iviewcount = iviewcount;
     }

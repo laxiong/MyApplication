@@ -1,0 +1,347 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!--注释
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/action_bar_bg"
+        android:visibility="gone"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/show_month_view"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="10dip"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:text="7月"
+            android:textColor="#fffffe"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/show_month_view"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/show_week_view"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="bottom|left"
+                android:paddingBottom="1dip"
+                android:text="周三"
+                android:textColor="#80ffffff"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/show_year_view"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="top|left"
+                android:paddingTop="1dip"
+                android:text="2014"
+                android:textColor="#80ffffff"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="80dip"
+            android:layout_height="25dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/select_view_bg"
+            android:layout_marginRight="20dip"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/month_calendar_button"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="月"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:clickable="@drawable/press_left_text_bg"
+                />
+            <View
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="#80ffffff"
+                android:textColor="#ffffff"
+                />
+            <TextView
+                android:id="@+id/week_calendar_button"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="周"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:clickable="@drawable/press_right_text_bg"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+    -->
+    <!--加上我自己的自定义的头-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/title_grey"
+        >
+        <FrameLayout
+            android:id="@+id/back_layout"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            >
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/img_back"
+                android:layout_gravity="center"
+                />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:id="@+id/touch_tag"
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <ImageView
+                        android:id="@+id/img1"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:src="@drawable/img_kong_point"
+                        android:layout_centerVertical="true"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <ImageView
+                        android:id="@+id/img2"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:src="@drawable/img_kong_point"
+                        android:layout_centerVertical="true"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/clendar_select"
+                android:paddingRight="5dp"
+                android:layout_toRightOf="@+id/touch_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/show_year_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="2016"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:paddingRight="3dp"
+                    />
+                <TextView
+                    android:id="@+id/show_month_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/show_year_view"
+                    android:text=".03"
+                    android:textSize="16sp"
+                    android:paddingLeft="3dp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/calender_point"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="▪ ▪ ▪"
+            android:layout_alignParentRight="true"
+            android:textSize="8sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/now_circle_view"
+            android:layout_toLeftOf="@+id/calender_point"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="  今天  "
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            />
+
+    </RelativeLayout>
+
+    <!--*****************************************************-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:background="#fffffe"
+        android:orientation="vertical" >
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_alignParentTop="true"
+            android:background="#20000000" >
+        </View>
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="20dip"
+            android:layout_marginBottom="2dip"
+            android:layout_marginTop="2dip" >
+
+            <TableRow>
+
+                <TextView
+                    style="@style/dateStyle"
+                    android:text="日"
+                    android:textColor="@color/date_1" />
+
+                <TextView
+                    style="@style/dateStyle"
+                    android:text="一"
+                    android:textColor="@color/date_2" />
+
+                <TextView
+                    style="@style/dateStyle"
+                    android:text="二"
+                    android:textColor="@color/date_2" />
+
+                <TextView
+                    style="@style/dateStyle"
+                    android:text="三"
+                    android:textColor="@color/date_2" />
+
+                <TextView
+                    style="@style/dateStyle"
+                    android:text="四"
+                    android:textColor="@color/date_2" />
+
+                <TextView
+                    style="@style/dateStyle"
+                    android:text="五"
+                    android:textColor="@color/date_2" />
+
+                <TextView
+                    style="@style/dateStyle"
+                    android:text="六"
+                    android:textColor="@color/date_1" />
+            </TableRow>
+        </TableLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_alignParentTop="true"
+            android:background="#20000000" >
+        </View>
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/contentPager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="#fffffe"
+        >
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="15dip"
+            android:paddingRight="10dip"
+            android:background="#F7F7F7" >
+        </android.support.v4.view.ViewPager>
+        <SlidingDrawer
+            android:id="@+id/sildingDrawer"
+            android:layout_width="fill_parent"
+            android:layout_height="200dip"
+            android:orientation="vertical"
+            android:layout_alignBottom="@+id/viewpager"
+            android:handle="@+id/handlerText"
+            android:content="@+id/contentText"
+            >
+            <LinearLayout
+                android:id="@+id/handlerText"
+                android:layout_height="wrap_content"
+                android:minHeight="300dip"
+                android:background="#fffffe"
+                android:layout_width="fill_parent"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="#30000000" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:id="@+id/null_pager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_null_pager"/>
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@id/null_pager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/readed_msg"
+                        android:text="暂无投资记录"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+            <View
+                android:id="@+id/contentText"
+                android:background="#fffffe"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            </View>
+        </SlidingDrawer>
+    </RelativeLayout>
+
+
+</LinearLayout>

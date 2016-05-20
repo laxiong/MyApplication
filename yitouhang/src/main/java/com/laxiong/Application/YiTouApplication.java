@@ -6,11 +6,13 @@ import java.lang.reflect.Field;
 import java.util.Set;
 
 import com.laxiong.Common.Settings;
+import com.laxiong.Utils.SpUtils;
 import com.laxiong.entity.User;
 import com.laxiong.entity.UserLogin;
 import com.umeng.socialize.PlatformConfig;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.os.Environment;
 
 import cn.jpush.android.api.JPushInterface;
@@ -35,11 +37,8 @@ public class YiTouApplication extends Application {
         this.user = user;
         if(user==null)
             return;
-        JPushInterface.setAlias(this,user.getId()+"", new TagAliasCallback() {
-            @Override
-            public void gotResult(int i, String s, Set<String> set) {
-            }
-        });
+        SpUtils.getSp(this).edit().putString(SpUtils.ID_KEY,user.getId()+"").commit();
+        initAlias();
     }
 
     public void initPush() {
@@ -98,8 +97,17 @@ public class YiTouApplication extends Application {
         if (flag)
             initPush();
         PlatformConfig.setWeixin(Settings.WX_APP_ID, Settings.WX_SECRET);
+        initAlias();
     }
-
+    private void initAlias(){
+        SharedPreferences sp= SpUtils.getSp(this);
+        String id=sp.getString(SpUtils.ID_KEY,"");
+        JPushInterface.setAlias(this,id+"", new TagAliasCallback() {
+            @Override
+            public void gotResult(int i, String s, Set<String> set) {
+            }
+        });
+    }
     /**
      * 本身实例
      */

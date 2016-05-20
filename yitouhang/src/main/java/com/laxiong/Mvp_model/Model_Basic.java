@@ -37,7 +37,9 @@ public class Model_Basic<T> {
         HttpUtil.post(url, params, new MyJSONHttp(tag, clazz), true);
 
     }
-
+    public void reqCommonGetObj(String url, RequestParams params, String tag, Class<T> clazz) {
+        HttpUtil.get(url, params, new MyJSONHttp2(tag, clazz));
+    }
     public void reqCommonBackByGet(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
         HttpUtil.get(url, params, new MyJSONHttp(tag, clazz), true);
     }
@@ -60,7 +62,12 @@ public class Model_Basic<T> {
             return;
         HttpUtil.get(url, params, new MyJSONHttp(tag, clazz), authori);
     }
-
+    public void aureqByPostObj(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
+        String authori = CommonReq.getAuthori(context);
+        if (StringUtils.isBlank(authori))
+            return;
+        HttpUtil.post(url, params, new MyJSONHttp2(tag, clazz), authori);
+    }
     public void aureqByGetObj(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
@@ -131,7 +138,7 @@ public class Model_Basic<T> {
                 try {
                     if (response.getInt("code") == 0) {
                         T obj = null;
-                        if (StringUtils.isBlank(tag))
+                        if (tag==null||StringUtils.isBlank(tag))
                             obj = JSONUtils.parseObject(response.toString(), clazz);
                         else
                             obj = JSONUtils.parseObject(response.getJSONObject(tag).toString(), clazz);

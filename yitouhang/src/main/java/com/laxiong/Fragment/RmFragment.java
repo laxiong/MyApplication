@@ -18,6 +18,8 @@ import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.FinancingListView;
 import com.gongshidai.mistGSD.R;
+import com.laxiong.View.WaitPgView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +37,8 @@ public class RmFragment extends ListFragment implements IViewBasic<Renmai> {
     private boolean flag = true;
     private static final int PAGESIZE = 10;
     private String type;
+    private WaitPgView wp;
+    private FinancingListView lvlist;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,7 +53,10 @@ public class RmFragment extends ListFragment implements IViewBasic<Renmai> {
         initData();
         return layout;
     }
-
+    public void showLoadView(boolean flag) {
+        wp= (WaitPgView)layout.findViewById(R.id.wp_load);
+        wp.setVisibility(flag ? View.VISIBLE : View.GONE);
+    }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -57,17 +64,17 @@ public class RmFragment extends ListFragment implements IViewBasic<Renmai> {
     }
 
     private void initListener() {
-        final FinancingListView lvlist = (FinancingListView) getListView();
+        lvlist = (FinancingListView) getListView();
         lvlist.setOnRefreshListener(new FinancingListView.OnRefreshListener() {
             @Override
             public void onPullRefresh() {
-                lvlist.completeRefresh();
+                presenter.loadRmDetail(page = 1, PAGESIZE, type, getActivity());
+                lvlist.setLoadMoreEnabled(true);
             }
 
             @Override
             public void onLoadingMore() {
                 if (!flag) {
-                    ToastUtil.customAlert(getActivity(), "没数据了");
                     return;
                 }
                 presenter.loadRmDetail(++page, PAGESIZE, type, getActivity());
@@ -77,19 +84,23 @@ public class RmFragment extends ListFragment implements IViewBasic<Renmai> {
 
     @Override
     public void loadListSuc(List<Renmai> listdata) {
-        ((FinancingListView)getListView()).completeRefresh();
+        showLoadView(false);
+        lvlist.completeRefresh();
         if (listdata == null || listdata.size() == 0) {
             flag = false;
+            lvlist.setLoadMoreEnabled(false);
             if (list == null || list.size() == 0)
-                getListView().setEmptyView(layout.findViewById(R.id.ll_empty));
+                lvlist.setEmptyView(layout.findViewById(R.id.ll_empty));
             return;
         }
+        if(page==1)this.list.clear();
         list.addAll(listdata);
         adapter.setList(list);
     }
 
     @Override
     public void loadListFail(String msg) {
+        showLoadView(false);
         ToastUtil.customAlert(getActivity(), msg);
     }
 
@@ -106,6 +117,7 @@ public class RmFragment extends ListFragment implements IViewBasic<Renmai> {
             }
         };
         setListAdapter(adapter);
+        showLoadView(true);
         Bundle bundle = this.getArguments();
         type = bundle.getString("type");
         if (!StringUtils.isBlank(type))

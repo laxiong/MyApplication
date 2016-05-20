@@ -15,7 +15,7 @@ import java.util.List;
  * Created by xiejin on 2016/4/28.
  * Types Model_Invest.java
  */
-public class Model_Invest<T> extends Model_Basic {
+public class Model_Invest<T,X> extends Model_Basic {
     public void loadInvestList(String tag, Context context, RequestParams params, OnLoadBasicListener<T> listener, Class<T> clazz) {
         setListener(listener);
         User user = YiTouApplication.getInstance().getUser();
@@ -24,5 +24,9 @@ public class Model_Invest<T> extends Model_Basic {
             return;
         }
         aureqByPost(InterfaceInfo.FUND_URL + user.getId(), context, params, tag, clazz);
+    }
+    public void loadDetaiil(int id,String tag,Context context,RequestParams params,OnLoadBcObjListener<X> listener,Class<X> clazz){
+        setListenerObj(listener);
+        aureqByPostObj(InterfaceInfo.RDETAIL_URL + "/" + id, context, params, tag, clazz);
     }
 }

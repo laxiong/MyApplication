@@ -4,7 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -17,6 +20,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,13 +29,17 @@ import com.bumptech.glide.Glide;
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Settings;
+import com.laxiong.service.DownService;
 import com.laxiong.Fragment.FinancingFragment;
 import com.laxiong.Fragment.FristPagerFragment;
 import com.laxiong.Fragment.MySelfFragment;
 import com.laxiong.Fragment.VipFinancingFragment;
+import com.laxiong.Mvp_model.UpdateInfo;
 import com.laxiong.Mvp_presenter.MainPage_Presenter;
-import com.laxiong.Mvp_view.IViewBasic;
+import com.laxiong.Mvp_view.IViewMain;
+import com.laxiong.Utils.CommonUtils;
 import com.laxiong.Utils.DialogUtils;
+import com.laxiong.Utils.NotificationUtil;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 import com.laxiong.View.PayPop;
@@ -41,7 +49,7 @@ import com.laxiong.entity.User;
 
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements OnClickListener, IViewBasic<Banner> {
+public class MainActivity extends BaseActivity implements OnClickListener, IViewMain {
     /****
      * 主页
      */
@@ -60,6 +68,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     private TextView mHead_title, mHead_left_select_textview, mHead_gongshilicai;  // head Title TextView
     private FrameLayout mPersonSetting;
     private RelativeLayout mHeadLayout;
+    private UpdateReceiver receiver;
 
     private boolean isLogin = false; // 判断是否登录了
 
@@ -71,13 +80,48 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         WindowManager wm = this.getWindowManager();
         Settings.DISPLAY_HEIGHT = wm.getDefaultDisplay().getHeight();
         Settings.DISPLAY_WIDTH = wm.getDefaultDisplay().getWidth();
-
-
         setContentView(R.layout.activity_main);
         initView();
         initData();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(receiver!=null){
+            unregisterReceiver(receiver);
+        }
+        if(CommonUtils.isServiceRunning(this,"DownService")){
+            stopService(new Intent(this, DownService.class));
+            NotificationUtil.cancelNoti(this, 100);
+        }
+    }
+
+    @Override
+    public void registerUpdateReceiver(View dialog) {
+        receiver=new UpdateReceiver(dialog);
+        registerReceiver(receiver,new IntentFilter("com.update.action"));
+    }
+    class UpdateReceiver extends BroadcastReceiver {
+        private View v;
+        public UpdateReceiver(View v){
+            this.v=v;
+        }
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(v==null)
+                return;
+            int progress =intent.getIntExtra("progress", 0);
+            String ns=intent.getStringExtra("nowsize");
+            String ts=intent.getStringExtra("totalsize");
+            TextView nowsize = (TextView) v.findViewById(R.id.loadingTask_progress);
+            TextView totalsize = (TextView) v.findViewById(R.id.loadingTask_dimen);
+            ProgressBar pgbar = (ProgressBar) v.findViewById(R.id.loadingTask_progressBar);
+            nowsize.setText(ns);
+            totalsize.setText(ts);
+            pgbar.setProgress(progress);
+        }
+    }
     @Override
     public void loadListSuc(List<Banner> list) {
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_firstpage, null);
@@ -117,13 +161,29 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     }
 
     @Override
+    public void loadUpdateInfo(UpdateInfo info) {
+        if(info==null)
+            return;
+        if(info.getStatus()==3){//强制更新
+            presenter.showForceDialog(this,info,ll_wrap);
+        }else if(info.getStatus()==2){//建议更新
+            presenter.showRecDialog(this,info,ll_wrap);
+        }else{
+            presenter.loadPageAd(this);
+        }
+
+    }
+
+    @Override
     public void loadListFail(String msg) {
         ToastUtil.customAlert(this, msg);
+        presenter.loadPageAd(this);
     }
 
     @SuppressLint("NewApi")
     private void initData() {
         presenter = new MainPage_Presenter(this);
+        presenter.checkUpdate(this);
         mFragmentManager = this.getFragmentManager();
 //		FragmentTransaction  mTransaction = mFragmentManager.beginTransaction();
 
@@ -136,7 +196,6 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         if (flag) {
             mFinancing.performClick();
         }
-        presenter.loadPageAd(this);
     }
 
     private void initView() {

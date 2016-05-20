@@ -2,6 +2,7 @@ package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.util.Log;
 
 import com.laxiong.Activity.LoginActivity;
@@ -23,6 +24,7 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 /**
@@ -33,6 +35,9 @@ public class Renmai_Presenter implements OnLoadBasicListener<Renmai> {
     private IView_Renmai iviewrm;
     private IViewBasic<Renmai> iviewbasic;
     private Model_adapter<Renmai> madapter;
+    private long start, end;
+    private WeakReference<Handler> weak;
+    private Handler handler;
 
     public Renmai_Presenter(IView_Renmai iviewrm) {
         this.iviewrm = iviewrm;
@@ -41,19 +46,38 @@ public class Renmai_Presenter implements OnLoadBasicListener<Renmai> {
     public Renmai_Presenter(IViewBasic<Renmai> iviewbasic) {
         this.iviewbasic = iviewbasic;
         this.madapter = new Model_adapter<Renmai>();
+        handler = new Handler();
+        weak = new WeakReference<Handler>(handler);
     }
 
     @Override
-    public void loadOnSuccess(List<Renmai> list) {
-        iviewbasic.loadListSuc(list);
+    public void loadOnSuccess(final List<Renmai> list) {
+        delayShow(new Runnable() {
+            @Override
+            public void run() {
+                iviewbasic.loadListSuc(list);
+            }
+        });
     }
-
+    private void delayShow(Runnable r) {
+        if (r == null)
+            return;
+        end = System.currentTimeMillis();
+        long interval = end - start > 2000 ? 0 : 2000 - (end - start);
+        handler.postDelayed(r, interval);
+    }
     @Override
-    public void loadOnFailure(String msg) {
-        iviewbasic.loadListFail(msg);
+    public void loadOnFailure(final String msg) {
+        delayShow(new Runnable() {
+            @Override
+            public void run() {
+                iviewbasic.loadListFail(msg);
+            }
+        });
     }
 
     public void loadRmDetail(int page, int pagesize, String type, Context context) {
+        start = System.currentTimeMillis();
         User user = YiTouApplication.getInstance().getUser();
         if (user == null) {
             context.startActivity(new Intent(context, LoginActivity.class));

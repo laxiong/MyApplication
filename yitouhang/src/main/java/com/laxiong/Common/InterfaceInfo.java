@@ -8,6 +8,7 @@ public class InterfaceInfo {
 	 */
 //	public final static String BASE_URL = "http://licai.gongshidai.com:88/v4_1"; // test  目前不能用
 	public final static String BASE_URL = "http://licai.gongshidai.com:88/v4_1";
+	public final static String XIANSHAGN_URL="http://licai.gongshidai.com/v4_1";
 	
 	public final static String USER_URL =BASE_URL + "/user";
 	
@@ -68,4 +69,9 @@ public class InterfaceInfo {
 	public final static  String ADVICE_URL=BASE_URL+"/advice";
 	//首页广告(非banner)
 	public final static String FIRSTAD_URL=BASE_URL+"/adlist";
+	//检查更新
+	public final static String CKUPDATE_URL=XIANSHAGN_URL+"/checkUp";
+	//订单
+	public final static String RDETAIL_URL=BASE_URL+"/receipts";
+
 }

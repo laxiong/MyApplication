@@ -49,6 +49,11 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
             finish();
         }
     }
+    //h5回调分享
+    public void onShare() {
+        ShareInfo obj = null;
+        DialogUtils.getInstance(this).alertShareDialog(obj, mWebView);
+    }
 
     @Override
     public void loadObjSuc(ShareInfo obj) {
