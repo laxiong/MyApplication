@@ -72,7 +72,8 @@ public class SplashActivity extends BaseActivity implements IViewWelcome, IViewC
                     finish();
                 }
             }, time * 1000);
-            presenter.loadImage(imgurl, this, iv_bg);
+//            presenter.loadImage(imgurl, this, iv_bg);
+            Glide.with(SplashActivity.this).load(imgurl).into(iv_bg);
             lgpresenter.reqUserCountMsg(this);
         }
     }

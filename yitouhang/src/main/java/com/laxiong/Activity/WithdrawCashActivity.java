@@ -31,6 +31,9 @@ import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 import com.laxiong.entity.User;
 import com.gongshidai.mistGSD.R;
+
+import java.text.DecimalFormat;
+
 public class WithdrawCashActivity extends BaseActivity implements OnClickListener, IViewWithdraw {
     /***
      * 提现
@@ -83,17 +86,27 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
         if (card == null || user == null) {
             startActivity(new Intent(this, LoginActivity.class));
         } else {
-            money.setText(user.getAvailable_amount() + "");
-            tv_edu.setText((user.getAvailable_amount() - user.getFee()) + "");
+            money.setText(keepDecimal2(user.getAvailable_amount()) + "");
+            tv_edu.setText(keepDecimal2((user.getAvailable_amount() - user.getFee())) + "");
             tv_bank.setText(card.getName() + "(" + card.getSnumber() + ")");
             fee = user.getFee();
             id = card.getId();
             if (user.getAvailable_amount() <= 100) {
-                et_input.setText(user.getAvailable_amount() + "");
+                et_input.setText(keepDecimal2(user.getAvailable_amount()) + "");
                 et_input.setEnabled(false);
             }
         }
 
+    }
+
+    private String keepDecimal2(float num) {
+        DecimalFormat df = new DecimalFormat("0.00");
+        return df.format(num);
+    }
+
+    private String keepDecimal2(double num) {
+        DecimalFormat df = new DecimalFormat("0.00");
+        return df.format(num);
     }
 
     @Override
@@ -130,7 +143,7 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
                 if (StringUtils.isBlank(s.toString()) || "0".equals(s.toString())) {
                     ValifyUtil.setEnabled(mNextBtn, false);
                 } else {
-                    ValifyUtil.setEnabled(mNextBtn,true);
+                    ValifyUtil.setEnabled(mNextBtn, true);
                 }
             }
 
