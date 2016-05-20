@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Basic.BackListener;
 import com.laxiong.Mvp_presenter.Exchange_Presenter;
@@ -30,6 +31,7 @@ import com.laxiong.View.CommonActionBar;
 import com.laxiong.View.PayPop;
 import com.laxiong.entity.User;
 import com.gongshidai.mistGSD.R;
+
 /**
  * @params tv_ecnum - +之间的数字
  * @params tv_value 1元 兑换的红包
@@ -61,13 +63,13 @@ public class ExChangeActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void exchangeSuc() {
-        ToastUtil.customAlert(this,"兑换成功");
+        ToastUtil.customAlert(this, "兑换成功");
         user.setScore(user.getScore() - yuan * 100);
     }
 
     @Override
     public void exchangeFail(String msg) {
-        ToastUtil.customAlert(this,msg);
+        ToastUtil.customAlert(this, msg);
     }
 
     private void init() {
@@ -99,7 +101,7 @@ public class ExChangeActivity extends BaseActivity implements View.OnClickListen
     private void initValue() {
         presenter = new Exchange_Presenter(this);
         if (!StringUtils.isBlank(url))
-            CommonReq.reqLoadImageView(url, ivpic);
+            Glide.with(this).load(url).placeholder(R.drawable.gongshi_banner_mr).into(ivpic);
         user = YiTouApplication.getInstance().getUser();
         if (user == null) {
             Intent intent = new Intent(this, LoginActivity.class);
