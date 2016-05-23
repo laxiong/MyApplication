@@ -57,7 +57,7 @@
     <application
         android:name="com.laxiong.Application.YiTouApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/gongshi_licon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -150,7 +150,9 @@
         <activity android:name="com.laxiong.Activity.WithdrawCashNoticeActivity" />
 
         <!-- 设置手势密码 -->
-        <activity android:name="com.laxiong.Activity.MainActivity" />
+        <activity
+            android:name="com.laxiong.Activity.MainActivity"
+            android:launchMode="singleTask" />
 
         <!-- 修改手势 -->
         <activity android:name="com.laxiong.Activity.ModifyGestureActivity" />
@@ -431,6 +433,13 @@
         </receiver>
         <!-- *****************************************************app kefu******************************************************* -->
 
+        <activity android:name="com.laxiong.Activity.RecordDetailActivity" />
+
+        <service android:name="com.laxiong.service.DownService" >
+            <intent-filter>
+                <action android:name="com.download.action" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

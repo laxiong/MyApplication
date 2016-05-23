@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-    
-    <include 
+    <include
         android:layout_width="match_parent"
         android:layout_height="44dp"
 		layout="@layout/head_layout"
@@ -18,8 +17,7 @@
        android:layout_weight="1"
        android:id="@+id/setContent"
        />
-    
-    <View 
+    <View
       android:layout_width="match_parent"
       android:layout_height="1dp"
       android:background="@color/divider_grey"  
