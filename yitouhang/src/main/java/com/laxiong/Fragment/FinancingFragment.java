@@ -27,6 +27,7 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.View.CircleProgressBar;
 import com.laxiong.View.FinancingListView;
 import com.laxiong.View.PrecentCricleBar;
+import com.laxiong.View.WaitPgView;
 import com.laxiong.entity.FinanceInfo;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -45,6 +46,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 	 */
 
 	private View view ;
+	private WaitPgView wp;
 	private ImageView mConcel_img ;
 	private LinearLayout mFinancelMessage ; // 提示消息
 
@@ -77,13 +79,17 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 		initView();
 		return view;
 	}
-
+	public void showLoadView(boolean flag) {
+		wp = (WaitPgView)view.findViewById(R.id.wp_load);
+		wp.setVisibility(flag ? View.VISIBLE : View.GONE);
+	}
 	private void initView() {
 		mConcel_img = (ImageView)view.findViewById(R.id.concel_img);
 		mFinancelMessage = (LinearLayout)view.findViewById(R.id.finance_message);
 		mConcel_img.setOnClickListener(this);
 
 		mListView = (FinancingListView)view.findViewById(R.id.Listview);
+		showLoadView(true);
 		getProductInfo();
 		mListView.setOnRefreshListener(mRefresh);
 
@@ -419,6 +425,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
+				showLoadView(false);
 				if(response!=null){
 					try {
 						if (response.getInt("code") == 0) {
@@ -459,6 +466,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
 				super.onFailure(statusCode, headers, throwable, errorResponse);
+				showLoadView(false);
 				Toast.makeText(getActivity(),"网络访问失败",Toast.LENGTH_SHORT).show();
 			}
 		},null);

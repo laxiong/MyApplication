@@ -31,8 +31,45 @@ import java.util.List;
  */
 public class Model_RedPaper {
     private OnLoadPaperListener listener;
+    public void loadAllList(Context context,OnLoadPaperListener fuck){
+        this.listener = fuck;
+        String authori = CommonReq.getAuthori(context);
+        if (StringUtils.isBlank(authori) || listener == null)
+            return;
+        UserLogin login=YiTouApplication.getInstance().getUserLogin();
+        RequestParams params = new RequestParams();
+        params.put("id",login.getToken_id());
+        params.put("type","all");
+        HttpUtil.get(InterfaceInfo.REDPAPER_URL, params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                if (response != null) {
+                    try {
+                        if (response.getInt("code") == 0) {
+                            String jsonstr = response.getJSONArray("list").toString();
+                            List<RedPaper> list = JSONUtils.parseArray(jsonstr, RedPaper.class);
+                            listener.onSuccess(list,false,true);
+                        } else {
+                            listener.onFailure(response.getString("msg"));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        listener.onFailure(e.toString());
+                    }
+                } else {
+                    listener.onFailure("出错无响应");
+                }
+            }
 
-    public void loadPaperList(final boolean isused, Context context, OnLoadPaperListener fuck) {
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                listener.onFailure(responseString);
+            }
+        }, authori);
+    }
+    public void loadPaperList(final boolean isused,Context context, OnLoadPaperListener fuck) {
         this.listener = fuck;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori) || listener == null)
@@ -48,10 +85,9 @@ public class Model_RedPaper {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
-                            Log.i("kk",response.toString());
                             String jsonstr = response.getJSONArray("list").toString();
                             List<RedPaper> list = JSONUtils.parseArray(jsonstr, RedPaper.class);
-                            listener.onSuccess(list, isused);
+                            listener.onSuccess(list, isused,false);
                         } else {
                             listener.onFailure(response.getString("msg"));
                         }
@@ -73,7 +109,7 @@ public class Model_RedPaper {
     }
 
     public interface OnLoadPaperListener {
-        public void onSuccess(List<RedPaper> list,boolean isused);
+        public void onSuccess(List<RedPaper> list,boolean isused,boolean isAll);
 
         public void onFailure(String msg);
     }

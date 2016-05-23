@@ -15,6 +15,7 @@ import com.laxiong.Adapter.RedPaper;
 import com.laxiong.Mvp_model.Model_RedPaper;
 import com.laxiong.Mvp_view.IViewWelcenter;
 import com.gongshidai.mistGSD.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class WelCenter_Presenter implements Model_RedPaper.OnLoadPaperListener {
     private boolean isbottom;
     private Model_RedPaper mpaper;
     private List<RedPaper> list;
+    private Context context;
     private static final int PAGECOUNT = 10;
 
     public WelCenter_Presenter(IViewWelcenter iviewcenter) {
@@ -45,8 +47,21 @@ public class WelCenter_Presenter implements Model_RedPaper.OnLoadPaperListener {
 
     }
 
+    public void loadAll(Context context) {
+        this.context = context;
+        mpaper.loadAllList(context, this);
+    }
+
     @Override
-    public void onSuccess(List<RedPaper> list, boolean isused) {
+    public void onSuccess(List<RedPaper> list, boolean isused, boolean isAll) {
+        if (isAll) {
+            if (list != null && list.size() > 0) {
+                iviewcenter.loadAll(list);
+            } else {
+                loadEmptyView();
+            }
+            return;
+        }
         this.list = list;
         if (list.size() == 0) {
             iviewcenter.addList(true, isused, new ArrayList<RedPaper>());
@@ -61,18 +76,13 @@ public class WelCenter_Presenter implements Model_RedPaper.OnLoadPaperListener {
         iviewcenter.reqListFailure(msg);
     }
 
-    private void loadEmptyView(Context context) {
-        TextView emptyview = new TextView(context);
-        emptyview.setGravity(Gravity.CENTER);
-        emptyview.setText("暂时没有数据");
-        AbsListView.LayoutParams params = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
-        emptyview.setLayoutParams(params);
-        iviewcenter.setEmptyView(emptyview);
+    private void loadEmptyView() {
+        iviewcenter.setEmptyView();
     }
 
     public void initUnusedFootView(Context context) {
         if (iviewcenter.getMaxPage() == 0) {
-            loadEmptyView(context);
+            loadEmptyView();
             return;
         }
         if (iviewcenter.getMaxPage() > iviewcenter.getPageNow()) {
@@ -105,7 +115,7 @@ public class WelCenter_Presenter implements Model_RedPaper.OnLoadPaperListener {
 
     public void initUsedFootView(Context context) {
         if (iviewcenter.getMaxPage() == 0) {
-            loadEmptyView(context);
+            loadEmptyView();
             return;
         }
         if (iviewcenter.getMaxPage() > iviewcenter.getPageNow()) {

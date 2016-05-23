@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.gongshidai.mistGSD.R;
@@ -28,6 +29,11 @@ public class WaitPgView extends View{
     private float textsize;
     public WaitPgView(Context context) {
         super(context);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return false;
     }
 
     public WaitPgView(Context context, AttributeSet attrs) {

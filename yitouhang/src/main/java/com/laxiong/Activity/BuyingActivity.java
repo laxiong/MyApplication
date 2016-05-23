@@ -27,6 +27,8 @@ import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Adapter.RedPaper;
+import com.laxiong.Utils.StringUtils;
+import com.laxiong.Utils.ToastUtil;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -112,8 +114,15 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 				break;
 			case R.id.ll_redpaper:
 				Intent intent=new Intent(BuyingActivity.this,WelCenterActivity.class);
-				intent.putExtra("isBuying", true);
-				BuyingActivity.this.startActivityForResult(intent,REQUEST_CODE);
+				String money=mBuyAmount.getText().toString();
+				if(StringUtils.isBlank(money)){
+					ToastUtil.customAlert(this,"购买金额不能为空");
+				}else {
+					intent.putExtra("money", Double.valueOf(money));
+					intent.putExtra("isBuying", true);
+					intent.putExtra("isAll", false);
+					BuyingActivity.this.startActivityForResult(intent, REQUEST_CODE);
+				}
 			break;
 			case R.id.img_toggle:
 				readProcotol();

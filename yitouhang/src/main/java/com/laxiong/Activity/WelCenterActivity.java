@@ -26,6 +26,8 @@ import com.laxiong.Mvp_view.IViewWelcenter;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
 import com.gongshidai.mistGSD.R;
+import com.laxiong.View.WaitPgView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +49,9 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
     private LinearLayout ll_bottom;
     private boolean isbottom;
     private boolean flag;
+    private WaitPgView wp;
+    private boolean isall;
+    private double money;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +60,11 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
         initView();
         initData();
         initListener();
+    }
+
+    public void showLoadView(boolean flag) {
+        wp = (WaitPgView) findViewById(R.id.wp_load);
+        wp.setVisibility(flag ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -73,7 +83,8 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
     }
 
     @Override
-    public void setEmptyView(View emptyview) {
+    public void setEmptyView() {
+        showLoadView(false);
         if (lvlist == null)
             return;
         lvlist.setEmptyView(findViewById(R.id.ll_empty));
@@ -88,10 +99,30 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
     private void initData() {
         intent_select = getIntent();
         actionbar.setTitle("福利中心");
-        flag = getIntent() != null && getIntent().getBooleanExtra("used", false);
-        listselect = new ArrayList<RedPaper>();
-        listdata = new ArrayList<RedPaper>();
-        presenter.loadListData(pagenow = 1, flag, this);
+        isall = getIntent() == null || getIntent().getBooleanExtra("isAll", true);
+        showLoadView(true);
+        if (isall) presenter.loadAll(this);
+        else {
+            money = getIntent().getDoubleExtra("money", 0.0);
+            flag = getIntent() != null && getIntent().getBooleanExtra("used", false);
+            listselect = new ArrayList<RedPaper>();
+            listdata = new ArrayList<RedPaper>();
+            presenter.loadListData(pagenow = 1, flag, this);
+        }
+    }
+
+    @Override
+    public void loadAll(List<RedPaper> list) {
+        showLoadView(false);
+        if (adapter == null) {
+            listdata = new ArrayList<RedPaper>();
+            listdata.addAll(list);
+            adapter = new RedPaperAdapter(this, listdata);
+            lvlist.setAdapter(adapter);
+            return;
+        }
+        listdata.addAll(list);
+        adapter.setList(listdata);
     }
 
     @Override
@@ -99,8 +130,23 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
         ToastUtil.customAlert(this, msg);
     }
 
+    public void reUpdateUsed(boolean isused, List<RedPaper> list) {
+        if (!isused) {
+            for (RedPaper paper : list) {
+                if (money < paper.getMin()) {
+                    if (!paper.isSelected())
+                        paper.setIs_used(RedPaper.UsetypeEnum.USED.getVal());
+                } else {
+                    paper.setIs_used(RedPaper.UsetypeEnum.UNUSED.getVal());
+                }
+            }
+        }
+    }
+
     @Override
     public void addList(boolean init, boolean isused, List<RedPaper> list) {
+        showLoadView(false);
+        reUpdateUsed(isused, list);
         if (adapter == null) {
             listdata = new ArrayList<RedPaper>();
             listdata.addAll(list);
@@ -159,15 +205,24 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
         lvlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (isall)
+                    return;
                 if (position != -1) {
                     RedPaper item = listdata.get(position);
                     if (item.getIs_used() == RedPaper.UsetypeEnum.UNUSED.getVal()) {
                         ImageView iv_select = (ImageView) view.findViewById(R.id.iv_select);
                         item.setSelected(!item.isSelected());
-                        if(item.isSelected())
+                        if (item.isSelected()) {
                             listselect.add(item);
-                        else
+                            money -= item.getMin();
+                            reUpdateUsed(false, listdata);
+                            adapter.notifyDataSetChanged();
+                        } else {
                             listselect.remove(item);
+                            money += item.getMin();
+                            reUpdateUsed(false, listdata);
+                            adapter.notifyDataSetChanged();
+                        }
                         iv_select.setImageResource(item.isSelected() ? R.drawable.choose : 0);
                     }
                 }
@@ -181,7 +236,8 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
                         Toast.makeText(WelCenterActivity.this, "请先选择", Toast.LENGTH_SHORT).show();
                     else {
                         intent_select.putParcelableArrayListExtra("data", listselect);
-                        WelCenterActivity.this.setResult(RESULT_OK);
+                        WelCenterActivity.this.setResult(RESULT_OK, intent_select);
+                        finish();
                     }
                 }
             });
