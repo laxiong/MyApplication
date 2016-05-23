@@ -60,7 +60,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1px"
         android:layout_marginLeft="23dp"
         android:background="@color/divider_grey" />
     <!-- 验证码 -->
@@ -101,7 +101,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1px"
         android:layout_marginLeft="23dp"
         android:background="@color/divider_grey" />
 
@@ -141,7 +141,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1px"
         android:layout_marginLeft="23dp"
         android:background="@color/divider_grey" />
     <!-- 按钮 -->

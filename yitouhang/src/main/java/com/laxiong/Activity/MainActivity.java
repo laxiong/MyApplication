@@ -11,7 +11,6 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +29,6 @@ import com.bumptech.glide.Glide;
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Settings;
-import com.laxiong.service.DownService;
 import com.laxiong.Fragment.FinancingFragment;
 import com.laxiong.Fragment.FristPagerFragment;
 import com.laxiong.Fragment.MySelfFragment;
@@ -47,6 +45,7 @@ import com.laxiong.View.PayPop;
 import com.laxiong.entity.Banner;
 import com.laxiong.entity.ShareInfo;
 import com.laxiong.entity.User;
+import com.laxiong.service.DownService;
 
 import java.util.List;
 
@@ -317,7 +316,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                 mHeadLayout.setBackgroundColor(Color.parseColor("#EE4E42"));  // 红色
 
                 mFristPager_icon.setImageResource(R.drawable.ing_shouye_bottom_select);
-                mFristPager_tv.setTextColor(Color.parseColor("#328AD4"));
+                mFristPager_tv.setTextColor(Color.parseColor("#FFEE4E42"));
 
                 break;
             case 1:  // financing
@@ -332,7 +331,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                 mHeadLayout.setBackgroundColor(Color.parseColor("#EE4E42"));  // 红色
 
                 mFinancing_icon.setImageResource(R.drawable.img_licai_bottom_select);
-                mFinancing_tv.setTextColor(Color.parseColor("#328AD4"));
+                mFinancing_tv.setTextColor(Color.parseColor("#FFEE4E42"));
 
                 break;
             case 2:  // myself
@@ -347,7 +346,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                 mHeadLayout.setBackgroundColor(Color.parseColor("#EE4E42"));  // 红色
 
                 mMyself_icon.setImageResource(R.drawable.img_zichan_bottom_select);
-                mMyself_tv.setTextColor(Color.parseColor("#328AD4"));
+                mMyself_tv.setTextColor(Color.parseColor("#FFEE4E42"));
 
                 break;
 
@@ -390,14 +389,14 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                     if (mHead_left_select_textview == null)
                         return;
                     if (mHead_left_select_textview.getText().toString().equals("VIP")) {
-                       User mUser = YiTouApplication.getInstance().getUser();
+                        User mUser = YiTouApplication.getInstance().getUser();
                         if (mUser!=null){
-                            if (mUser.is_vip()){   // 是VIP
+//                            if (mUser.is_vip()){   // 是VIP
                                 vipAndFinance(2);
                                 financingToVipEachOther(2);
-                            }else { // 显示怎么成为VIP
-                                showToBeVipMenthod();
-                            }
+//                            }else { // 显示怎么成为VIP
+//                                showToBeVipMenthod();
+//                            }
                         }else {
                             Toast.makeText(MainActivity.this,"请完成登录",Toast.LENGTH_SHORT).show();
                         }

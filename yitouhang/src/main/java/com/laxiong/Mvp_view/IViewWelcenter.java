@@ -16,7 +16,7 @@ public interface IViewWelcenter {
     public int getPageNow();
     public void setPageNow(int pagenow);
     public void addFootView(View view);
-    public void addList(boolean init,boolean isused,List<RedPaper> list);
+    public void addList(boolean init, boolean isused, List<RedPaper> list);
     public void setEmptyView();
     public void setBottomTipVisibily(boolean flag);
     public void reqListFailure(String msg);

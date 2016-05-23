@@ -216,6 +216,10 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_buying.xml"
     },
     {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\calendar_day_listview_item.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\calendar_day_listview_item.xml"
+    },
+    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\layout_commonactionbar.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\layout\\layout_commonactionbar.xml"
     },

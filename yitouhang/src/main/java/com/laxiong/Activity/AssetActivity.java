@@ -1,8 +1,9 @@
 package com.laxiong.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +11,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
-import android.widget.ShareActionProvider;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
@@ -27,6 +26,7 @@ public class AssetActivity extends BaseActivity implements OnClickListener {
     private CircularScaleView mCircularView;
     private FrameLayout mBack;
     private TextView mNotice, tv_sxttouru, tv_sxtshouyi, tv_gxbtouru, tv_gxbshouyi;
+    private TextView mSeeMoreSxt ,mSeeMoreGxb ; //时息通 股息宝 的查看更多
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,11 @@ public class AssetActivity extends BaseActivity implements OnClickListener {
         mCircularView.setProgressSecond(15.0f);
         mBack.setOnClickListener(this);
         mNotice.setOnClickListener(this);
+
+        // 在投资产的点击跳转问题
+        mSeeMoreSxt.setOnClickListener(this);
+        mSeeMoreGxb.setOnClickListener(this);
+
         User user = YiTouApplication.getInstance().getUser();
         if (user == null) {
             startActivity(new Intent(this, LoginActivity.class));
@@ -68,6 +73,8 @@ public class AssetActivity extends BaseActivity implements OnClickListener {
         tv_sxttouru = (TextView) findViewById(R.id.tv_sxttouru);
         tv_gxbshouyi = (TextView) findViewById(R.id.tv_gxbshouyi);
         tv_gxbtouru = (TextView) findViewById(R.id.tv_gxbtouru);
+        mSeeMoreSxt =(TextView)findViewById(R.id.see_more_sxt);
+        mSeeMoreGxb = (TextView)findViewById(R.id.see_more_gxb);
     }
 
     @Override
@@ -78,6 +85,16 @@ public class AssetActivity extends BaseActivity implements OnClickListener {
                 break;
             case R.id.said:
                 mTishi();
+                break;
+            case R.id.see_more_sxt:
+                SharedPreferences ssf = getSharedPreferences("SXT_ID", Context.MODE_PRIVATE);
+                int id = ssf.getInt("sxt_id",-1);
+                startActivity(new Intent(AssetActivity.this,TimeXiTongActivity.class).
+                        putExtra("id", id));
+                break;
+            case R.id.see_more_gxb:
+                startActivity(new Intent(AssetActivity.this,
+                        InvestmentRecordActivity.class));
                 break;
         }
     }
