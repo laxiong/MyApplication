@@ -162,7 +162,7 @@
                     android:id="@+id/show_year_view"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="2016"
+                    android:text="2016年"
                     android:textSize="16sp"
                     android:textColor="@color/white"
                     android:gravity="center"
@@ -173,9 +173,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/show_year_view"
-                    android:text=".03"
+                    android:text="3月"
                     android:textSize="16sp"
-                    android:paddingLeft="3dp"
                     android:textColor="@color/white"
                     android:gravity="center"
                     />
@@ -277,6 +276,7 @@
         </View>
     </LinearLayout>
     <RelativeLayout
+        android:orientation="vertical"
         android:id="@+id/contentPager"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -292,56 +292,98 @@
             android:paddingRight="10dip"
             android:background="#F7F7F7" >
         </android.support.v4.view.ViewPager>
-        <SlidingDrawer
-            android:id="@+id/sildingDrawer"
-            android:layout_width="fill_parent"
-            android:layout_height="200dip"
-            android:orientation="vertical"
+
+        <!--月-->
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/handlerText"
+            android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/viewpager"
-            android:handle="@+id/handlerText"
-            android:content="@+id/contentText"
-            >
-            <LinearLayout
-                android:id="@+id/handlerText"
-                android:layout_height="wrap_content"
-                android:minHeight="300dip"
-                android:background="#fffffe"
-                android:layout_width="fill_parent"
-                android:orientation="vertical">
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="1px"
-                    android:background="#30000000" />
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:id="@+id/null_pager"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/img_null_pager"/>
-                    <TextView
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="5dp"
-                        android:layout_below="@id/null_pager"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/readed_msg"
-                        android:text="暂无投资记录"/>
-                </RelativeLayout>
-
-            </LinearLayout>
+            android:background="#fffffe"
+            android:minHeight="250dp"
+            android:layout_width="fill_parent"
+            android:orientation="vertical">
             <View
-                android:id="@+id/contentText"
-                android:background="#fffffe"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-            </View>
-        </SlidingDrawer>
+                android:layout_height="1px"
+                android:background="#30000000" />
+
+            <RelativeLayout
+                android:id="@+id/calender_bg"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:id="@+id/null_pager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_null_pager"/>
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/null_pager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/readed_msg"
+                    android:text="暂无投资记录"/>
+            </RelativeLayout>
+            <ListView
+                android:visibility="gone"
+                android:id="@+id/calender_listview"
+                android:layout_width="match_parent"
+                android:divider="@color/red"
+                android:dividerHeight="1px"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!--周-->
+        <LinearLayout
+            android:visibility="visible"
+            android:id="@+id/handlerText_Week"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/viewpager"
+            android:background="#fffffe"
+            android:minHeight="240dp"
+            android:layout_width="fill_parent"
+            android:orientation="vertical">
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="#30000000" />
+
+            <RelativeLayout
+                android:id="@+id/calender_bg_Week"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:id="@+id/null_pager_Week"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_null_pager"/>
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/null_pager_Week"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/readed_msg"
+                    android:text="暂无投资记录"/>
+            </RelativeLayout>
+            <ListView
+                android:visibility="gone"
+                android:id="@+id/calender_listview_Week"
+                android:layout_width="match_parent"
+                android:divider="@color/red"
+                android:dividerHeight="1px"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
     </RelativeLayout>
-
-
 </LinearLayout>

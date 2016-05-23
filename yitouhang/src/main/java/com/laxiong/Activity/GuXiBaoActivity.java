@@ -1,6 +1,7 @@
 package com.laxiong.Activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,6 +31,7 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.VerticalNumberProgressBar;
 import com.laxiong.entity.ShareInfo;
+import com.laxiong.entity.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.umeng.socialize.UMShareAPI;
@@ -48,14 +50,19 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
     private LinearLayout ll_wrap;
     private RelativeLayout mLayout_progressbar ,mRemarkLayout ,mSafeProtect;
     private View mRemarkLine ;
-    private TextView mProgressNum ,mShareBtn , mBuyBtn ,mFinanceLimit,mMinTou;
+    private TextView mProgressNum ,mShareBtn , mBuyBtn ,mFinanceLimit,mMinTou ,mTextDes,mPrecentTg;
     private VerticalNumberProgressBar mProgressBar ;
     private FrameLayout mBack ;
     private ImageView mJiSuanQi ;
     private int mId;
     private int ttnum ;
+    private double limitDay ;
+    private View V_line ;
     // 百分比 等加载的内容
-    private TextView mPrecent, mAddPrecent, mRemark1, mRemark2, mLastEran, mAddOther, mGxbTitle, mYdProfit, mGetCash;
+    private TextView mPrecent, mAddPrecent,
+            mRemark1, mRemark2, mLastEran,
+            mAddOther, mGxbTitle, mYdDec,
+            mGetCashDec,mAprDec , mLastDate ,mFirstDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +70,15 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         setContentView(R.layout.activity_set_guxibao);
         initView();
         initData();
+        User mUser = YiTouApplication.getInstance().getUser();
+        if (mUser!= null){
+            boolean isVip = mUser.is_vip();
+            if (isVip){
+                setVipTextColor();
+            }else {
+                setTextColor();
+            }
+        }
         getNetWork();
     }
 
@@ -75,6 +91,8 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
 
         mId = getIntent().getIntExtra("id", -1);
         ttnum = getIntent().getIntExtra("ttnum", -1);
+        limitDay = getIntent().getDoubleExtra("limitday", -1);
+        Log.i("WKKKKKK","limitday是多少："+limitDay);
         presenter = new Share_Presenter(this);
     }
 
@@ -106,6 +124,9 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mBuyBtn = (TextView) findViewById(R.id.buying);
         mBack = (FrameLayout) findViewById(R.id.backlayout);
         mShareBtn = (TextView) findViewById(R.id.share);
+        mTextDes =(TextView)findViewById(R.id.text2);
+        mLastDate =(TextView)findViewById(R.id.last_date); //赎回时间
+        mFirstDate = (TextView)findViewById(R.id.first_date); // 起息时间
 
         mBack = (FrameLayout)findViewById(R.id.backlayout);
         mShareBtn = (TextView)findViewById(R.id.share);
@@ -113,7 +134,8 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mRemarkLine =findViewById(R.id.remark_line);
         mRemarkLayout =(RelativeLayout)findViewById(R.id.remark_layout);
 
-        mPrecent =(TextView)findViewById(R.id.tv2);
+        mPrecent =(TextView)findViewById(R.id.tv2);  // 年化
+        mPrecentTg =(TextView)findViewById(R.id.precent_tg);// %
         mAddPrecent =(TextView)findViewById(R.id.addprecent);
         mFinanceLimit =(TextView)findViewById(R.id.getcash);			//理财周期
         mMinTou =(TextView)findViewById(R.id.yesterdayprofit); //起投金额
@@ -124,10 +146,17 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mGxbTitle =(TextView)findViewById(R.id.gxb_title);
         mSafeProtect =(RelativeLayout)findViewById(R.id.safeprotect); //安全保障
         ll_wrap = (LinearLayout) findViewById(R.id.ll_wrap);
+
+        mYdDec = (TextView)findViewById(R.id.tv3);
+        mGetCashDec =(TextView)findViewById(R.id.tv4);
+        V_line= findViewById(R.id.v_line);
+        mAprDec = (TextView)findViewById(R.id.tv1);
+
     }
 
     private String mProjectName ="固息宝";
     private String mAmountMoney ;
+    private double mBuyPrecent ;  // 总年化收益率
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -142,7 +171,12 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                 break;
             case R.id.buying:
                 startActivity(new Intent(GuXiBaoActivity.this,
-                        BuyingActivity.class).putExtra("projectStr",mProjectName).putExtra("amountStr",mAmountMoney).putExtra("id",mId));
+                        BuyingActivity.class).
+                        putExtra("projectStr", mProjectName).
+                        putExtra("amountStr",mAmountMoney).
+                        putExtra("id",mId).
+                        putExtra("mBuyPrecent", mBuyPrecent).
+                        putExtra("limitday", limitDay));
                 break;
         }
     }
@@ -332,24 +366,37 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                     mPrecent.setText(String.valueOf(num));
                 }
 
-                if (response.getInt("bird")==0) { // 不是新手
-                    // 用户是不是VIP
-                    boolean isVip = YiTouApplication.getInstance().getUser().is_vip();
-                    if(isVip){ //  是vip
-                        mAddPrecent.setText("+"+String.valueOf(response.getDouble("accum"))+"%");
-                        mAddOther.setText(String.valueOf(response.getDouble("accum"))+"%");
-                    }else {
-                        mAddPrecent.setText("+"+String.valueOf(response.getDouble("present"))+"%");
-                        mAddOther.setText(String.valueOf(response.getDouble("present"))+"%");
-                    }
+                boolean isVip = YiTouApplication.getInstance().getUser().is_vip();
+                if (isVip){
+                    mAddPrecent.setText("+"+String.valueOf(response.getDouble("accum"))+"%");
+                    mAddOther.setText(String.valueOf(response.getDouble("accum"))+"%");
+                    // vip
+                    mTextDes.setText("VIP用户，平台奖励");
 
-                }else {
+                    mBuyPrecent = num+response.getDouble("accum");  //VIP的年化总收益利率
+
+                }else if (response.getInt("bird")==1){
                     mAddPrecent.setText("+"+String.valueOf(response.getDouble("birdapr"))+"%");
                     mAddOther.setText(String.valueOf(response.getDouble("birdapr"))+"%");
+                    //新手标
+                    mTextDes.setText("新客专享，平台奖励");
+
+                    mBuyPrecent = num+response.getDouble("birdapr");  //新手标的年化总收益利率
+
+                }else if (response.getDouble("present")!=0.0){
+                    mAddPrecent.setText("+"+String.valueOf(response.getDouble("present"))+"%");
+                    mAddOther.setText(String.valueOf(response.getDouble("present"))+"%");
+                    //平台赠送
+                    mTextDes.setText("，平台奖励");
+
+                    mBuyPrecent = num+response.getDouble("present");  //平台奖励的年化总收益利率
                 }
 
                 mAmountMoney = String.valueOf(response.getInt("members"));
                 mLastEran.setText(mAmountMoney);
+
+                mLastDate.setText(response.getString("date"));
+                mFirstDate.setText(response.getString("rule"));
 
                 mMinTou.setText(String.valueOf(response.getInt("min")));
                 mFinanceLimit.setText(String.valueOf(response.getInt("limit")));
@@ -381,6 +428,31 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
             return false;
         }
     }
+    //mPrecentTg mPrecent  mAddPrecent mMinTou mFinanceLimit mYdDec mGetCashDec V_line mAprDec
+    // vip用户的金色字体
+    private void setVipTextColor(){
+        mPrecent.setTextColor(Color.parseColor("#FFE2A42A"));
+        mPrecentTg.setTextColor(Color.parseColor("#FFE2A42A"));
+        mAddPrecent.setTextColor(Color.parseColor("#FFE2A42A"));
+        mMinTou.setTextColor(Color.parseColor("#FFE2A42A"));
+        mFinanceLimit.setTextColor(Color.parseColor("#FFE2A42A"));
+        mYdDec.setTextColor(Color.parseColor("#FFE2A42A"));
+        mGetCashDec.setTextColor(Color.parseColor("#FFE2A42A"));
+        mAprDec.setTextColor(Color.parseColor("#FFE2A42A"));
+        V_line.setBackgroundColor(Color.parseColor("#FFE2A42A"));
+    }
 
+    // 普通用户的普通字体
+    private void  setTextColor(){
+        mPrecent.setTextColor(Color.parseColor("#ffffff"));
+        mPrecentTg.setTextColor(Color.parseColor("#ffffff"));
+        mAddPrecent.setTextColor(Color.parseColor("#ffffff"));
+        mMinTou.setTextColor(Color.parseColor("#ffffff"));
+        mFinanceLimit.setTextColor(Color.parseColor("#ffffff"));
+        mYdDec.setTextColor(Color.parseColor("#ffffff"));
+        mGetCashDec.setTextColor(Color.parseColor("#ffffff"));
+        mAprDec.setTextColor(Color.parseColor("#ffffff"));
+        V_line.setBackgroundColor(Color.parseColor("#ffffff"));
+    }
 
 }

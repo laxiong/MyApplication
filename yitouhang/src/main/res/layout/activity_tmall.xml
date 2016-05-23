@@ -109,6 +109,10 @@
                 android:text="关于规则" />
         </RelativeLayout>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/divider_grey"/>
 
     <ScrollView
         android:id="@+id/sl"
@@ -145,6 +149,10 @@
                     android:layout_marginBottom="20dp"
                     android:orientation="horizontal"></LinearLayout>
             </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/divider_grey"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -160,6 +168,11 @@
                     android:drawablePadding="5dp"
                     android:text="折扣红包" />
             </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/divider_grey"/>
 
             <com.laxiong.View.CustomGridView
                 android:id="@+id/gv_list"

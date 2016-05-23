@@ -2,7 +2,9 @@ package com.laxiong.Fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -19,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Activity.GuXiBaoActivity;
 import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.Common.InterfaceInfo;
@@ -31,7 +34,7 @@ import com.laxiong.View.WaitPgView;
 import com.laxiong.entity.FinanceInfo;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.gongshidai.mistGSD.R;
+
 import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -46,14 +49,14 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 	 */
 
 	private View view ;
-	private WaitPgView wp;
 	private ImageView mConcel_img ;
 	private LinearLayout mFinancelMessage ; // 提示消息
 
 	private FinanceJsonBean  mFinanBean = null;
 	private FinancingListView mListView ;
+	private WaitPgView wp;
 
-	private  List<FinanceInfo>  mList = new ArrayList<FinanceInfo>() ;// 全是固息宝的
+	private  List<FinanceInfo>  mList = new ArrayList<FinanceInfo>() ; ;// 全是固息宝的
 	private int listNum ;  // 刷新加载更多所有的个数
 
 	private Handler handler = new Handler() {
@@ -79,10 +82,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 		initView();
 		return view;
 	}
-	public void showLoadView(boolean flag) {
-		wp = (WaitPgView)view.findViewById(R.id.wp_load);
-		wp.setVisibility(flag ? View.VISIBLE : View.GONE);
-	}
+
 	private void initView() {
 		mConcel_img = (ImageView)view.findViewById(R.id.concel_img);
 		mFinancelMessage = (LinearLayout)view.findViewById(R.id.finance_message);
@@ -95,19 +95,28 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 
 	}
 
+	public void showLoadView(boolean flag) {
+		wp = (WaitPgView)view.findViewById(R.id.wp_load);
+		wp.setVisibility(flag ? View.VISIBLE : View.GONE);
+	}
+
 	FinancingListView.OnRefreshListener mRefresh = new FinancingListView.OnRefreshListener(){
 		// 刷新
 		@Override
 		public void onPullRefresh() {
 			requestDataFromServer(true);
 			pager = 1;
+			if (mList!=null&&mFinanBean!=null) {
+				mList.removeAll(mFinanBean.getGxb());
+				mList.remove(mFinanBean.getSxt());
+			}
 			getProductInfo();
 		}
 		//加载更多
 		@Override
 		public void onLoadingMore() {
 			requestDataFromServer(false);
-			if (listNum >= mList.size()+1) {
+			if (listNum > mList.size()+1) {
 				pager = pager + 1;
 				getProductInfo();
 			}else {
@@ -186,10 +195,13 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 
 						mViewHonder.profit_tv = (TextView)view.findViewById(R.id.profit_tv);
 						mViewHonder.mProject = (TextView)view.findViewById(R.id.rel_tv1);
+						mViewHonder.showRel = (RelativeLayout)view.findViewById(R.id.rel_tv2);
 
 						mViewHonder.mNewPerson = (RelativeLayout)view.findViewById(R.id.new_person);
+						mViewHonder.rl_days =(RelativeLayout)view.findViewById(R.id.days);
 						mViewHonder.mLimitDay = (TextView)view.findViewById(R.id.limit_day);
 						mViewHonder.mEnought=(PrecentCricleBar)view.findViewById(R.id.precent_enough);
+
 						break;
 				}
 				view.setTag(mViewHonder);
@@ -253,13 +265,24 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						}
 					}
 
-					// 新手标
+					// 新手标 //日期
 					double bird = sxt.getBird();
-					if(mViewHonder.mNewPerson!=null){
-						if(bird == 1){
-							mViewHonder.mNewPerson.setVisibility(View.VISIBLE);
-						}else{
+					double limit = sxt.getLimit();
+					if (hideTextDay(limit)&&hideTextPerson(bird)&&mViewHonder.rl_days!=null&&mViewHonder.mLimitDay!=null&&
+							mViewHonder.mNewPerson!=null&&mViewHonder.showRel!=null){
+						mViewHonder.showRel.setVisibility(View.GONE);
+					}else {
+						if (hideTextDay(limit)){
+							mViewHonder.rl_days.setVisibility(View.GONE);
+						}else {
+							String limit_day = String.valueOf(limit);
+							String[] day = limit_day.split("[.]");
+							mViewHonder.mLimitDay.setText(day[0]+"天");
+						}
+						if (hideTextPerson(bird)){
 							mViewHonder.mNewPerson.setVisibility(View.INVISIBLE);
+						}else {
+							mViewHonder.mNewPerson.setVisibility(View.VISIBLE);
 						}
 					}
 
@@ -271,18 +294,16 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 					if(mViewHonder.profit_tv!=null)
 						mViewHonder.profit_tv.setText(sxt.getPaytype());
 
-					//日期
-					double limit = sxt.getLimit();
-					if(mViewHonder.mLimitDay!=null){
-						String limit_day = String.valueOf(limit);
-						String[] day = limit_day.split("[.]");
-						mViewHonder.mLimitDay.setText(day[0]+"天");
-					}
-
 					if(view!=null)
 						view.setOnClickListener(new OnClickListener() {
 							@Override
 							public void onClick(View view) {
+
+								SharedPreferences sfsxt = getActivity().getSharedPreferences("SXT_ID", Context.MODE_PRIVATE);
+								SharedPreferences.Editor editor = sfsxt.edit();
+								editor.putInt("sxt_id",sxt.getId());
+								editor.commit();
+
 								getActivity().startActivity(new Intent(getActivity(),
 										TimeXiTongActivity.class).putExtra("id", sxt.getId()));
 							}
@@ -346,11 +367,14 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						}
 					}
 					//日期
-					double limit = gxb.getLimit();
-					if(mViewHonder.mLimitDay!=null){
+					final double limit = gxb.getLimit();
+					if(mViewHonder.mLimitDay!=null&&limit!=0.0&&mViewHonder.rl_days!=null){
 						String limit_day = String.valueOf(limit);
 						String[] day = limit_day.split("[.]");
 						mViewHonder.mLimitDay.setText(day[0]+"天");
+
+					}else {
+						mViewHonder.rl_days.setVisibility(View.GONE);
 					}
 
 					//标题
@@ -367,7 +391,10 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 							public void onClick(View view) {
 								Log.i("GXB","股息宝的Id参数"+(i-3)+" ==========："+gxb.getId());
 								getActivity().startActivity(new Intent(getActivity(),
-										GuXiBaoActivity.class).putExtra("id", gxb.getId()).putExtra("ttnum", listNum));
+										GuXiBaoActivity.class).
+										putExtra("id", gxb.getId()).
+										putExtra("ttnum", listNum).
+										putExtra("limitday", limit));
 							}
 						});
 				}
@@ -402,6 +429,8 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 		TextView mProject ;
 		TextView profit_tv ;
 		RelativeLayout mNewPerson ; //新手标
+		RelativeLayout rl_days ;
+		RelativeLayout showRel ;
 		TextView mLimitDay ; // 日期
 	}
 
@@ -523,5 +552,20 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 //		mShowDialog.setBackgroundDrawable(getResources().getDrawable(R.drawable.kefu_bg)); //设置半透明
 //		mShowDialog.showAtLocation(loadView, Gravity.BOTTOM, 0, 0);
 //	}
+
+	// 用于隐藏天数
+	private boolean hideTextDay(double day){
+		if (day==0.0){
+			return true ;
+		}
+		return false ;
+	}
+	// 用于隐藏 新手标
+	private boolean hideTextPerson(double strs){
+		if (strs==1){
+			return false ;
+		}
+		return true ;
+	}
 
 }

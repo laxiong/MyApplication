@@ -1,7 +1,6 @@
 package com.laxiong.Activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.Gravity;
@@ -17,8 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Basic.BasicWatcher;
 import com.laxiong.Common.Settings;
@@ -30,7 +29,6 @@ import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 import com.laxiong.entity.User;
-import com.gongshidai.mistGSD.R;
 
 import java.text.DecimalFormat;
 

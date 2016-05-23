@@ -1,36 +1,24 @@
 package com.laxiong.Activity;
 
-import android.app.ActionBar;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.net.nsd.NsdManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
-import com.laxiong.Basic.BackListener;
 import com.laxiong.Mvp_presenter.Exchange_Presenter;
 import com.laxiong.Mvp_view.IViewExchange;
-import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
 import com.laxiong.View.PayPop;
 import com.laxiong.entity.User;
-import com.gongshidai.mistGSD.R;
 
 /**
  * @params tv_ecnum - +之间的数字

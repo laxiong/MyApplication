@@ -317,37 +317,38 @@ public class CalendarView extends View implements Comparable{
     /**
      *  填充星期模式下的数据 默认通过当前日期得到所在星期天的日期，然后依次填充日期
      */
+
     private void fillWeekDate() {
-        int lastMonthDays = DateUtil.getMonthDays(mShowDate.year, mShowDate.month - 1);
-        rows[0] = new Row(0);
-        int day = mShowDate.day;
-        for (int i = TOTAL_COL -1; i >= 0 ; i--) {
-            day -= 1;
-            if (day < 1) {
-                day = lastMonthDays;
-            }
-            CustomDate date = CustomDate.modifiDayForObject(mShowDate, day);
-//            if (DateUtil.isToday(date)) {
-//                mClickCell = new Cell(date, State.TODAY, i, 0);
-//                date.week = i;
-//                mCallBack.clickDate(date);
-//                rows[0].cells[i] =  new Cell(date, State.CLICK_DAY, i, 0);
-//                continue;
-//            }
-            if(DateUtil.isClickDay(date, mShowDate)){
-                if(DateUtil.isToday(date)){
-                    rows[0].cells[i] = new Cell(date, State.TODAY, i, 0);
-                }else {
-                    mClickCell = new Cell(date, State.CLICK_DAY, i, 0);
-                    rows[0].cells[i] = new Cell(date, State.CLICK_DAY, i, 0);
+        if (mShowDate!=null) {
+            Log.i("Calender", "==========周【1】星期模式mShowDate==========：" + mShowDate);
+            int lastMonthDays = DateUtil.getMonthDays(mShowDate.year, mShowDate.month - 1);
+            rows[0] = new Row(0);
+            int day = mShowDate.day;
+            for (int i = TOTAL_COL - 1; i >= 0; i--) {
+                day -= 1;
+                if (day < 1) {
+                    day = lastMonthDays;
                 }
-                continue;
+                CustomDate dateS = CustomDate.modifiDayForObject(mShowDate, day);
+
+                if (DateUtil.isToday(dateS)) {
+//                    mClickCell = new Cell(dateS, State.TODAY, i, 0);
+//                    dateS.week = i;
+                    rows[0].cells[i] =  new Cell(dateS, State.CLICK_DAY, i, 0);
+                    continue;
+                }
+                if (setDateInvestAryColor(dateS)){
+                    rows[0].cells[i] = new Cell(dateS,State.INVEST_DAY,i,0);
+                }else if (setDateBackAryColor(dateS)){
+                    rows[0].cells[i] = new Cell(dateS,State.BACK_DAY,i,0);
+                }else if (setDateGxCollectAry(dateS)){
+                    rows[0].cells[i] = new Cell(dateS,State.BOTH_DAY,i,0);
+                }else {
+                    rows[0].cells[i] = new Cell(dateS,State.CURRENT_MONTH_DAY,i,0);
+                }
             }
-            rows[0].cells[i] = new Cell(date, State.CURRENT_MONTH_DAY,i, 0);
+            Log.i("Calender", "==========周【4】星期模式mShowDate.day==========：" + day);
         }
-        Log.i("Calender","==========星期模式mShowDate.day==========："+day);
-        Log.i("Calender","==========星期模式lastMonthDays==========："+lastMonthDays);
-        Log.i("Calender","==========星期模式mShowDate==========："+mShowDate);
     }
 
     /**
@@ -395,9 +396,6 @@ public class CalendarView extends View implements Comparable{
                     }else {
                         rows[j].cells[i] = new Cell(dateS,State.CURRENT_MONTH_DAY,i,j);
                     }
-
-
-
 //                  根据key的值来判断  所得日期的颜色变化设置
 //                    String dateStr = String.valueOf(dateS);
 //                    String Caldate =spriltDateStr(dateStr);

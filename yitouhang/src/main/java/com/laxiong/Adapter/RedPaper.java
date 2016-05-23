@@ -33,9 +33,9 @@ public class RedPaper implements Parcelable {
 
     }
 
-    public static final Parcelable.Creator<RedPaper> CREATOR = new Parcelable.Creator<RedPaper>() {
+    private static final Creator CREATOR = new Creator() {
         @Override
-        public RedPaper createFromParcel(Parcel source) {
+        public Object createFromParcel(Parcel source) {
             int in1 = source.readInt();
             int in2 = source.readInt();
             String str1 = source.readString();
@@ -47,8 +47,8 @@ public class RedPaper implements Parcelable {
         }
 
         @Override
-        public RedPaper[] newArray(int size) {
-            return new RedPaper[0];
+        public Object[] newArray(int size) {
+            return new Object[0];
         }
     };
 

@@ -97,7 +97,7 @@
             </RelativeLayout>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="1px"
                 android:layout_marginLeft="20dp"
                 android:background="@color/grey_bg" />
             <RelativeLayout
@@ -173,7 +173,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:layout_below="@id/tv_discrible"
                     android:background="@color/grey_bg" />
 
@@ -187,7 +187,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:layout_below="@id/tv_discrible"
                     android:layout_marginTop="9dp"
                     android:background="@color/grey_bg" />

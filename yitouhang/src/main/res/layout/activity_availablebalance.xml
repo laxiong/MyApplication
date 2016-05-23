@@ -75,7 +75,7 @@
     <FrameLayout
         android:id="@+id/setContent" 
         android:layout_width="match_parent"
-        android:layout_height="294dp"
+        android:layout_height="244dp"
         />
     
     <RelativeLayout

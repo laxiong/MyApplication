@@ -94,7 +94,7 @@
 	</RelativeLayout>
 	<View
 		android:layout_width="match_parent"
-		android:layout_height="1dp"
+		android:layout_height="1px"
 		android:background="@color/divider_grey"
 		/>
 
@@ -112,7 +112,7 @@
 	<!-- 持卡人和卡号 -->
 	<View
 		android:layout_width="match_parent"
-		android:layout_height="1dp"
+		android:layout_height="1px"
 		android:background="@color/divider_grey"
 		/>
 	<LinearLayout
@@ -151,7 +151,7 @@
 			android:id="@+id/view2"
 			android:layout_toRightOf="@+id/imgs2"
 			android:layout_width="match_parent"
-			android:layout_height="1dp"
+			android:layout_height="1px"
 			android:layout_marginLeft="23dp"
 			android:background="@color/divider_grey"
 			/>
@@ -182,7 +182,7 @@
 			android:id="@+id/view4"
 			android:layout_toRightOf="@+id/imgs2"
 			android:layout_width="match_parent"
-			android:layout_height="1dp"
+			android:layout_height="1px"
 			android:layout_marginLeft="23dp"
 			android:background="@color/divider_grey"
 			/>
@@ -225,7 +225,7 @@
 	</LinearLayout>
 	<View
 		android:layout_width="match_parent"
-		android:layout_height="1dp"
+		android:layout_height="1px"
 		android:background="@color/divider_grey"
 		/>
 
@@ -241,7 +241,7 @@
 	<!-- 手机号和验证码 -->
 	<View
 		android:layout_width="match_parent"
-		android:layout_height="1dp"
+		android:layout_height="1px"
 		android:background="@color/divider_grey"
 		/>
 
@@ -281,7 +281,7 @@
 	</LinearLayout>
 	<View
 		android:layout_width="match_parent"
-		android:layout_height="1dp"
+		android:layout_height="1px"
 		android:background="@color/divider_grey"
 		/>
 

@@ -2,29 +2,22 @@ package com.laxiong.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.laxiong.Common.InterfaceInfo;
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Mvp_model.WelcImg;
-import com.laxiong.Mvp_presenter.Login_Presenter;
 import com.laxiong.Mvp_presenter.UserCount_Presenter;
-import com.laxiong.Mvp_presenter.WelCenter_Presenter;
 import com.laxiong.Mvp_presenter.Welcome_Presenter;
 import com.laxiong.Mvp_view.IViewCount;
 import com.laxiong.Mvp_view.IViewWelcome;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.gongshidai.mistGSD.R;
-import java.util.List;
 
 public class SplashActivity extends BaseActivity implements IViewWelcome, IViewCount {
     private Welcome_Presenter presenter;

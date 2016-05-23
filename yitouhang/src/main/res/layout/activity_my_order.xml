@@ -21,7 +21,6 @@
         android:layout_height="fill_parent"
         android:paddingLeft="20dp"></ListView>
     <LinearLayout
-        android:layout_below="@id/lvlist"
         android:id="@+id/ll_empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -15,7 +15,6 @@ public class SpUtils {
     public static final String USERLOGIN_KEY="userlogin";//登录信息(不是User)
     public static final String FIRST_CONFIRM="isfirst";
     public static final String LOGIN_KEY="logindate";//登录的年月日20160513这样的格式
-    public static final String ID_KEY="userid";
     public static SharedPreferences getSp(Context context){
         if(sp==null){
             sp=context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);

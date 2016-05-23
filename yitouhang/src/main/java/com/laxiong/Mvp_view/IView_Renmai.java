@@ -5,6 +5,6 @@ package com.laxiong.Mvp_view;
  * Types IView_Renmai.java
  */
 public interface IView_Renmai {
-    public void loadRmNumSuc(int yidu,int erdu);
+    public void loadRmNumSuc(int yidu, int erdu);
     public void loadRmNumFail(String msg);
 }

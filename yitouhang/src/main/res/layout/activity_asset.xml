@@ -89,7 +89,7 @@
         
         <TextView
             android:id="@+id/tv_sxttouru"
-            android:layout_toLeftOf="@+id/see_more"
+            android:layout_toLeftOf="@+id/see_more_sxt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="20,000元"
@@ -99,7 +99,7 @@
         
         <TextView 
             android:layout_marginLeft="10dp"
-            android:id="@+id/see_more"
+            android:id="@+id/see_more_sxt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="查看"
@@ -108,8 +108,8 @@
             android:textSize="12sp"
             android:background="@drawable/grey_border"
             android:layout_alignParentRight="true"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             />
     </RelativeLayout>
     
@@ -158,8 +158,8 @@
             android:textColor="#A6A6A6"
             android:textSize="12sp"
             android:layout_alignParentRight="true"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             />
     </RelativeLayout>
     
@@ -192,7 +192,7 @@
         
         <TextView
             android:id="@+id/tv_gxbtouru"
-            android:layout_toLeftOf="@+id/see_more3"
+            android:layout_toLeftOf="@+id/see_more_gxb"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="375,000元"
@@ -202,7 +202,7 @@
         
         <TextView 
             android:layout_marginLeft="10dp"
-            android:id="@+id/see_more3"
+            android:id="@+id/see_more_gxb"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="查看"
@@ -211,8 +211,8 @@
             android:textSize="12sp"
             android:background="@drawable/grey_border"
             android:layout_alignParentRight="true"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             />
     </RelativeLayout>
     
@@ -230,7 +230,6 @@
          android:layout_centerVertical="true"
          />
         <TextView
-            android:id="@+id/tv_gxbshouyi"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="累计收益"
@@ -241,7 +240,8 @@
             android:textSize="12sp"
             />
         
-        <TextView 
+        <TextView
+            android:id="@+id/tv_gxbshouyi"
             android:layout_toLeftOf="@+id/see_more4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -261,8 +261,8 @@
             android:textColor="#A6A6A6"
             android:textSize="12sp"
             android:layout_alignParentRight="true"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             />
     </RelativeLayout>
     

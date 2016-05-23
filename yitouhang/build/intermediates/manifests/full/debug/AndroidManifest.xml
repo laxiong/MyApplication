@@ -114,6 +114,7 @@
 
         <!-- 我的银行卡 -->
         <activity android:name="com.laxiong.Activity.MyBandBankCardActivity" />
+        <activity android:name="com.laxiong.Activity.RecordDetailActivity" />
 
         <!-- 修改支付密码 -->
         <!-- 重置支付密码 -->
@@ -149,7 +150,7 @@
         <activity android:name="com.laxiong.Activity.WithdrawCashActivity" />
         <activity android:name="com.laxiong.Activity.WithdrawCashNoticeActivity" />
 
-        <!-- 设置手势密码 -->
+        <!-- 主页面 -->
         <activity
             android:name="com.laxiong.Activity.MainActivity"
             android:launchMode="singleTask" />
@@ -210,11 +211,23 @@
 
         <activity android:name="com.laxiong.Activity.YibiDetailActivity" />
         <activity android:name="com.laxiong.Activity.GuideActivity" />
+
+        <!-- 启动页面 -->
         <activity android:name="com.laxiong.Activity.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- ======================================H5直接打开app的部分========================================== -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="gongshi1" />
             </intent-filter>
         </activity>
         <activity android:name="com.laxiong.Activity.AtHallActivity" />
@@ -432,9 +445,6 @@
             </intent-filter>
         </receiver>
         <!-- *****************************************************app kefu******************************************************* -->
-
-        <activity android:name="com.laxiong.Activity.RecordDetailActivity" />
-
         <service android:name="com.laxiong.service.DownService" >
             <intent-filter>
                 <action android:name="com.download.action" />
