@@ -27,6 +27,7 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.View.CircleProgressBar;
 import com.laxiong.View.FinancingListView;
 import com.laxiong.View.PrecentCricleBar;
+import com.laxiong.View.WaitPgView;
 import com.laxiong.entity.FinanceInfo;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -51,7 +52,8 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 	private FinancingListView mListView ;
 	private  List<FinanceInfo>  mList = new ArrayList<FinanceInfo>() ;// 全是固息宝的
 	private int listNum ;  // 刷新加载更多所有的个数
-	
+	private WaitPgView wp;
+
 	private Handler handler = new Handler() {
 	      @Override
 	      public void handleMessage(Message msg) {
@@ -66,7 +68,10 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 	           }
 	       }
 	  };
-	
+	public void showLoadView(boolean flag) {
+		wp = (WaitPgView)mVipView.findViewById(R.id.wp_load);
+		wp.setVisibility(flag ? View.VISIBLE : View.GONE);
+	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -81,6 +86,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		mConcel_img.setOnClickListener(this);
 
 		mListView = (FinancingListView)mVipView.findViewById(R.id.Listview);
+		showLoadView(true);
 		getVipProductInfo();
 		mListView.setOnRefreshListener(mRefresh);
 	}
@@ -439,7 +445,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
-
+				showLoadView(false);
 				if (response!=null){
 					try {
 						if (response.getInt("code")==0){
@@ -479,6 +485,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
 				super.onFailure(statusCode, headers, throwable, errorResponse);
+				showLoadView(false);
 				Toast.makeText(getActivity(),"网络访问失败",Toast.LENGTH_SHORT).show();
 			}
 		},null);

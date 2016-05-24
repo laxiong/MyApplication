@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
+import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.HttpUtil;
@@ -47,6 +48,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 	private int mId ;
 	private Double lu = 0.0; // 计算器的计算利率
 	private LinearLayout ll_wrap;
+	private Share_Presenter presenter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 	}
 
 	private void initData() {
+		presenter=new Share_Presenter(this);
 		mBack.setOnClickListener(this);
 		mShareBtn.setOnClickListener(this);
 		mScrollIn.setOnClickListener(this);
@@ -166,7 +169,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 				this.finish();
 				break;
 			case R.id.share:
-				Toast.makeText(this, "分享", Toast.LENGTH_SHORT).show();
+				presenter.loadShareData(this);
 				break;
 				
 			case R.id.scroll_out:  // 转出
