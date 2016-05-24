@@ -96,19 +96,21 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
         TextWatcher tw = new BasicWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (!StringUtils.testBlankAll(et_name.getText().toString(), et_card.getText().toString())
-                        && ValifyUtil.valifyPhoneNum(et_phone.getText().toString()) && bselected && !StringUtils.isBlank(id)) {
-                    ValifyUtil.setEnabled(mFinish, true);
-                } else {
-                    ValifyUtil.setEnabled(mFinish, false);
-                }
+                valify();
             }
         };
         et_card.addTextChangedListener(tw);
         et_name.addTextChangedListener(tw);
         et_phone.addTextChangedListener(tw);
     }
-
+    private void valify(){
+        if (!StringUtils.testBlankAll(et_name.getText().toString(), et_card.getText().toString())
+                && ValifyUtil.valifyPhoneNum(et_phone.getText().toString()) && bselected && !StringUtils.isBlank(id)&&isRead) {
+            ValifyUtil.setEnabled(mFinish, true);
+        } else {
+            ValifyUtil.setEnabled(mFinish, false);
+        }
+    }
     private void initView() {
         mFinish = (TextView) findViewById(R.id.fininsh);
         mBack = (FrameLayout) findViewById(R.id.back_layout);
@@ -173,6 +175,7 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
             toggleRead.setImageResource(R.drawable.img_read);
             isRead = true;
         }
+        valify();
     }
 
     // show password

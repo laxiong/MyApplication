@@ -178,6 +178,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 			mToggleBtn.setImageResource(R.drawable.img_no_read);
 			isRead = true ;
 		}
+		valify();
 	}
 	// 余额不足的情况
 	private boolean isEnough(){
@@ -299,7 +300,16 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 			}
 		}
 	};
-
+	public void valify(){
+		if (!TextUtils.isEmpty(mBuyAmount.getText().toString().trim())&&!isRead){
+			setMathData(Integer.valueOf(mBuyAmount.getText().toString().trim()));
+			mBuyBtn.setClickable(true);
+			mBuyBtn.setBackgroundResource(R.drawable.button_red_corner_border);
+		}else {
+			mBuyBtn.setClickable(false);
+			mBuyBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
+		}
+	}
 	private void initNoSelect(){
 		if (lateMoney_img!=null&&constranceBank_img!=null) {
 			lateMoney_img.setImageResource(R.drawable.img_no_read);
@@ -434,14 +444,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		}
 		@Override
 		public void afterTextChanged(Editable s) {
-			if (!TextUtils.isEmpty(mBuyAmount.getText().toString().trim())){
-				setMathData(Integer.valueOf(mBuyAmount.getText().toString().trim()));
-				mBuyBtn.setClickable(true);
-				mBuyBtn.setBackgroundResource(R.drawable.button_red_corner_border);
-			}else {
-				mBuyBtn.setClickable(false);
-				mBuyBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
-			}
+			valify();
 		}
 	};
 

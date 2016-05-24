@@ -121,6 +121,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 			mToggleBtn.setImageResource(R.drawable.img_no_read);
 			isRead = true ;
 		}
+		valify();
 	}
 
 	// pay Menthod
@@ -375,15 +376,18 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 		}
 		@Override
 		public void afterTextChanged(Editable s) {
-			if (!TextUtils.isEmpty(mBuyAmount.getText().toString().trim())){
-				mTransferinBtn.setClickable(true);
-				mTransferinBtn.setBackgroundResource(R.drawable.button_red_corner_border);
-			}else {
-				mTransferinBtn.setClickable(false);
-				mTransferinBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
-			}
+			valify();
 		}
 	};
+	private void valify(){
+		if (!TextUtils.isEmpty(mBuyAmount.getText().toString().trim())&&isRead){
+			mTransferinBtn.setClickable(true);
+			mTransferinBtn.setBackgroundResource(R.drawable.button_red_corner_border);
+		}else {
+			mTransferinBtn.setClickable(false);
+			mTransferinBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
+		}
+	}
 
 
 

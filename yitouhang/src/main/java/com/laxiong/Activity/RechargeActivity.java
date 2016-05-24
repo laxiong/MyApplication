@@ -107,6 +107,7 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 			mToggleBtn.setImageResource(R.drawable.img_no_read);
 			isRead = true;
 		}
+		valify();
 	}
 
 	TextWatcher watcher = new TextWatcher() {
@@ -118,16 +119,18 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 		}
 		@Override
 		public void afterTextChanged(Editable s) {
-			if (!TextUtils.isEmpty(mInputRecharge.getText().toString().trim())){
-				mRechargeBtn.setEnabled(true);
-				mRechargeBtn.setBackgroundResource(R.drawable.button_change_bg_border);
-			}else {
-				mRechargeBtn.setEnabled(false);
-				mRechargeBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
-			}
+			valify();
 		}
 	};
-
+	private void valify(){
+		if (!TextUtils.isEmpty(mInputRecharge.getText().toString().trim())&&!isRead){
+			mRechargeBtn.setEnabled(true);
+			mRechargeBtn.setBackgroundResource(R.drawable.button_change_bg_border);
+		}else {
+			mRechargeBtn.setEnabled(false);
+			mRechargeBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
+		}
+	}
 	// pay Menthod
 	private PopupWindow mPayMathodWindow;
 	private View PayView;
