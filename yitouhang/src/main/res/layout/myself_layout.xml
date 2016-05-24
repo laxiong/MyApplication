@@ -209,10 +209,10 @@
                 />
 
             <TextView
+                android:id="@+id/tv_pnum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgs4"
-                android:gravity="center"
                 android:text="我的红包"
                 android:textSize="11dp" />
         </RelativeLayout>
