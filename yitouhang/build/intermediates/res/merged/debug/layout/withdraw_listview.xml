@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:background="#F1F2F3"
     android:layout_height="match_parent">
 
@@ -13,8 +14,20 @@
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:layout_height="fill_parent"/>
+    <com.laxiong.View.WaitPgView
+        android:id="@+id/wp_load"
+        android:visibility="gone"
+        custom:circletext="正在加载..."
+        custom:tsize="12sp"
+        custom:firstColor="@color/grey_bg_text"
+        custom:secondColor="@color/grey_bg"
+        custom:strokewidth="10dp"
+        android:layout_centerInParent="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
     <LinearLayout
         android:id="@+id/ll_empty"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -32,4 +45,4 @@
             android:textColor="@color/grey_bg_text"
             android:text="暂无购买记录"/>
         </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

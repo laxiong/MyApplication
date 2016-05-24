@@ -13,8 +13,8 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <!-- 以下是极光推送需要的权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <!--以下是极光推送需要的权限 -->
     <!-- Required -->
     <permission
         android:name="com.gongshidai.mistGSD.permission.JPUSH_MESSAGE"
@@ -40,9 +40,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <!-- 结束 -->
+    <!--结束-->
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <!-- 聊天界面拍照发送图片*************************************app kefu ********************************************************* -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
@@ -51,18 +51,17 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- 可选：监听手机重启自动重连服务器 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <!-- 可选：webview上传文件 -->
     <!-- ************************************************************app kefu*************************************************************** -->
     <application
         android:name="com.laxiong.Application.YiTouApplication"
         android:allowBackup="true"
-        android:icon="@drawable/gongshi_licon"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
             android:name="com.laxiong.Activity.PatternViewActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"></activity>
         <activity
             android:name="com.laxiong.Activity.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -75,16 +74,17 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"></activity>
 
-        <service android:name="com.yintong.secure.service.PayService" />
+        <service android:name="com.yintong.secure.service.PayService"></service>
         <!-- =================================LLYT SDK END ====================================== -->
+
 
         <activity android:name="com.laxiong.Activity.BaseActivity" />
 
         <!-- 日历账单 -->
         <activity android:name="com.laxiong.Activity.CalanderCountActivity" />
-        <activity android:name="com.laxiong.Activity.CalanderHorizontalActivity" />
+        <activity android:name="com.laxiong.Activity.CalanderHorizontalActivity"/>
 
         <!-- VIP -->
         <activity android:name="com.laxiong.Activity.ShowVIPActivity" />
@@ -112,8 +112,10 @@
         <activity android:name="com.laxiong.Activity.ChangeBindPhoneActivity2" />
         <activity android:name="com.laxiong.Activity.ChangeLoginPswdActivity" />
 
-        <!-- 我的银行卡 -->
-        <activity android:name="com.laxiong.Activity.MyBandBankCardActivity" />
+        <!--我的银行卡-->
+        <activity android:name="com.laxiong.Activity.MyBandBankCardActivity"/>
+
+        <activity android:name="com.laxiong.Activity.RecordDetailActivity"/>
 
         <!-- 修改支付密码 -->
         <!-- 重置支付密码 -->
@@ -135,7 +137,8 @@
 
         <!-- 固息宝 -->
         <activity android:name="com.laxiong.Activity.GuXiBaoActivity" />
-        <activity android:name="com.laxiong.Activity.FeedBackActivity" />
+
+        <activity android:name="com.laxiong.Activity.FeedBackActivity"></activity>
 
         <!-- 资产 -->
         <activity android:name="com.laxiong.Activity.AssetActivity" />
@@ -149,7 +152,7 @@
         <activity android:name="com.laxiong.Activity.WithdrawCashActivity" />
         <activity android:name="com.laxiong.Activity.WithdrawCashNoticeActivity" />
 
-        <!-- 设置手势密码 -->
+        <!-- 主页面 -->
         <activity android:name="com.laxiong.Activity.MainActivity"
             android:launchMode="singleTask"/>
 
@@ -179,17 +182,17 @@
         <!-- 我的壹币 -->
         <activity android:name="com.laxiong.Activity.MyYiBiActivity" />
         <!-- 壹币商城 -->
-        <activity android:name="com.laxiong.Activity.TMallActivity" />
+        <activity android:name="com.laxiong.Activity.TMallActivity"/>
 
-        <!-- 版本管理 -->
-        <activity android:name="com.laxiong.Activity.VersionManageActivity" />
+        <!--版本管理-->
+        <activity
+            android:name="com.laxiong.Activity.VersionManageActivity"
+            ></activity>
 
-        <!--
-        修改支付密码
+        <!-- 修改支付密码
         <activity android:name="com.laxiong.Activity.ChangePayPswdActivity1" />
         <activity android:name="com.laxiong.Activity.ChangePayPswdActivity2" />
         -->
-
 
         <!-- 充值结果 -->
         <activity android:name="com.laxiong.Activity.RechargeResultActivity" />
@@ -201,27 +204,39 @@
         <activity android:name="com.laxiong.Activity.BankListActivity" />
         <activity android:name="com.laxiong.Activity.MyOrderActivity" />
 
-        <!-- *****************************************************UMENG_APPKEY******************************************************* -->
+        <!--*****************************************************UMENG_APPKEY*******************************************************-->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="55cbf02e67e58e5b890019af" />
-        <!-- *****************************************************UMENG_APPKEY******************************************************* -->
+            android:value="55cbf02e67e58e5b890019af"/>
+        <!--*****************************************************UMENG_APPKEY*******************************************************-->
 
         <activity android:name="com.laxiong.Activity.YibiDetailActivity" />
         <activity android:name="com.laxiong.Activity.GuideActivity" />
+
+
+        <!--启动页面-->
         <activity android:name="com.laxiong.Activity.SplashActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <!--======================================H5直接打开app的部分==========================================-->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="gongshi1"/>
+            </intent-filter>
+
         </activity>
         <activity android:name="com.laxiong.Activity.AtHallActivity" />
         <activity android:name="com.laxiong.Activity.Profit_Activity" />
-        <activity android:name="com.laxiong.Activity.RmDetailActivity" />
+        <activity android:name="com.laxiong.Activity.RmDetailActivity"></activity>
 
-        <!-- 以下是极光推送其他的配置 包括service receiver activity mata-data 等 -->
-        <!-- Required SDK核心功能 -->
+        <!--以下是极光推送其他的配置 包括service receiver activity mata-data 等-->
+        <!-- Required SDK核心功能-->
         <activity
             android:name="cn.jpush.android.ui.PushActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -235,13 +250,13 @@
             </intent-filter>
         </activity>
 
-        <!-- Required SDK核心功能 -->
+        <!-- Required SDK核心功能-->
         <service
             android:name="cn.jpush.android.service.DownloadService"
             android:enabled="true"
-            android:exported="false" />
+            android:exported="false"></service>
 
-        <!-- Required SDK 核心功能 -->
+        <!-- Required SDK 核心功能-->
         <!-- option since 2.0.5 可配置PushService，DaemonService,PushReceiver,AlarmReceiver的android:process参数 将JPush相关组件设置为一个独立进程 -->
         <!-- 如：android:process=":remote" -->
         <service
@@ -263,19 +278,18 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.DaemonService" />
-
                 <category android:name="${applicationId}" />
             </intent-filter>
         </service>
 
-        <!-- Required SDK核心功能 -->
+        <!-- Required SDK核心功能-->
         <receiver
             android:name="cn.jpush.android.service.PushReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter android:priority="1000">
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
-                <!-- Required 显示通知栏 -->
+                <!--Required 显示通知栏 -->
                 <category android:name="${applicationId}" />
             </intent-filter>
             <intent-filter>
@@ -291,24 +305,24 @@
             </intent-filter>
         </receiver>
 
-        <!-- Required SDK核心功能 -->
+        <!-- Required SDK核心功能-->
         <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
 
-        <!-- User defined. 用户自定义的广播接收器 -->
+        <!-- User defined. 用户自定义的广播接收器-->
         <receiver
             android:name="com.laxiong.Receiver.PushCustomReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.REGISTRATION" />
-                <!-- Required 用户注册SDK的intent -->
+                <!--Required 用户注册SDK的intent-->
                 <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
-                <!-- Required 用户接收SDK消息的intent -->
+                <!--Required 用户接收SDK消息的intent-->
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
-                <!-- Required 用户接收SDK通知栏信息的intent -->
+                <!--Required 用户接收SDK通知栏信息的intent-->
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
-                <!-- Required 用户打开自定义通知栏的intent -->
+                <!--Required 用户打开自定义通知栏的intent-->
                 <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
-                <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <!--Optional 用户接受Rich Push Javascript 回调函数的intent-->
                 <action android:name="cn.jpush.android.intent.CONNECTION" />
                 <!-- 接收网络变化 连接/断开 since 1.6.3 -->
                 <category android:name="${applicationId}" />
@@ -325,63 +339,55 @@
         <!-- </>值来自开发者平台取得的AppKey -->
         <receiver android:name="com.laxiong.Receiver.BroadBootReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+        </intent-filter>
         </receiver>
 
-        <!-- *****************************************************app kefu******************************************************* -->
+        <!--*****************************************************app kefu*******************************************************-->
         <!-- 请到 http://appkefu.com/AppKeFu/admin/ 申请appkey -->
         <meta-data
             android:name="com.appkefu.lib.appkey"
             android:value="e4e811e131cfe42b10df4ff6ad622f51" />
 
         <!-- 聊天窗口, 可通过修改layout文件appkefu_activity_kfvip_chat.xml自定义窗口UI -->
-        <activity
-            android:name="com.appkefu.lib.ui.activity.KFChatActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/appkefu_theme_no_titlebar" />
+        <activity android:name="com.appkefu.lib.ui.activity.KFChatActivity"
+            android:theme="@style/appkefu_theme_no_titlebar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
         <!-- 设置页面，点击聊天窗口右上角按钮进入，可清空聊天记录 -->
-        <activity
-            android:name="com.appkefu.lib.ui.activity.KFSettingsActivity"
+        <activity android:name="com.appkefu.lib.ui.activity.KFSettingsActivity"
             android:theme="@style/appkefu_theme_no_titlebar" />
         <!-- 常见问题类别页面，点击聊天页面输入框下方扩展面板:常见问题按钮进入 -->
-        <activity
-            android:name="com.appkefu.lib.ui.activity.KFFAQActivity"
-            android:theme="@style/appkefu_theme_no_titlebar" />
+        <activity android:name="com.appkefu.lib.ui.activity.KFFAQActivity"
+            android:theme="@style/appkefu_theme_no_titlebar"/>
         <!-- 常见问题详情页面， -->
-        <activity
-            android:name="com.appkefu.lib.ui.activity.KFFAQDetailActivity"
-            android:theme="@style/appkefu_theme_no_titlebar" />
+        <activity android:name="com.appkefu.lib.ui.activity.KFFAQDetailActivity"
+            android:theme="@style/appkefu_theme_no_titlebar"/>
         <!-- 满意度评价页面 -->
-        <activity
-            android:name="com.appkefu.lib.ui.activity.KFRateActivity"
-            android:theme="@style/appkefu_theme_no_titlebar" />
+        <activity android:name="com.appkefu.lib.ui.activity.KFRateActivity"
+            android:theme="@style/appkefu_theme_no_titlebar"/>
         <!-- 内嵌浏览器页面，打开网址 -->
-        <activity
-            android:name="com.appkefu.lib.ui.activity.KFWebBrowserActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/appkefu_theme_no_titlebar">
+        <activity android:name="com.appkefu.lib.ui.activity.KFWebBrowserActivity"
+            android:theme="@style/appkefu_theme_no_titlebar"
+            android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <!-- 此处data的android:scheme请填写您App的包名,保持android:host, 如下所示： -->
-                <data
-                    android:host="appkefu_url"
-                    android:scheme="com.appkefu.demo2" />
+                <data android:scheme="com.appkefu.demo2" android:host="appkefu_url" />
             </intent-filter>
         </activity>
 
         <!-- 发送语音辅助service -->
-        <service android:name="com.appkefu.lib.soundrecorder.KFRecorderService" />
+        <service
+            android:name="com.appkefu.lib.soundrecorder.KFRecorderService"/>
 
         <!-- im长连接 主service -->
-        <service android:name="com.appkefu.lib.service.KFMainService">
+        <service
+            android:name="com.appkefu.lib.service.KFMainService">
             <intent-filter android:priority="1000">
-
                 <!-- 可选 android:priority = "1000"这个属性设置最高优先级，1000是最高值，如果数字越小则优先级越低 -->
-                <action android:name="com.appkefu.lib.action.kefu.LOGIN_WITH_OPENUDID" />
+                <action android:name="com.appkefu.lib.action.kefu.LOGIN_WITH_OPENUDID"/>
                 <action android:name="com.appkefu.lib.action.DISCONNECT" />
                 <action android:name="com.appkefu.lib.action.TOGGLE" />
                 <action android:name="com.appkefu.lib.action.SEND" />
@@ -391,28 +397,27 @@
         </service>
 
         <!-- 获取OpenUDID, 用于唯一标示用户 -->
-        <service android:name="com.appkefu.OpenUDID.OpenUDID_service">
+        <service android:name="com.appkefu.OpenUDID.OpenUDID_service" >
             <intent-filter>
                 <action android:name="org.openudid.GETUDID" />
             </intent-filter>
         </service>
 
         <!-- 可选：监听网络变化 -->
-        <receiver android:name="com.appkefu.lib.receivers.KFNetworkConnectivityReceiver">
+        <receiver android:name="com.appkefu.lib.receivers.KFNetworkConnectivityReceiver" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
-        <!-- 可选：监听手机重启，方便重连im服务器, 需要配合权限RECEIVE_BOOT_COMPLETED使用 -->
-        <receiver android:name="com.appkefu.lib.receivers.KFBootReceiver">
+        <!-- 可选：监听手机重启，方便重连im服务器, 需要配合权限RECEIVE_BOOT_COMPLETED使用-->
+        <receiver android:name="com.appkefu.lib.receivers.KFBootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-
                 <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
         <!-- 可选：监听手机连接电源状态,如果已经连接电源自动尝试重连 -->
-        <receiver android:name="com.appkefu.lib.receivers.KFPowerReceiver">
+        <receiver android:name="com.appkefu.lib.receivers.KFPowerReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
@@ -430,14 +435,13 @@
                 <action android:name="com.appkefu.lib.action.LOGIN_ALARM" />
             </intent-filter>
         </receiver>
-        <!-- *****************************************************app kefu******************************************************* -->
-
-        <activity android:name="com.laxiong.Activity.RecordDetailActivity"></activity>
+        <!--*****************************************************app kefu*******************************************************-->
         <service android:name="com.laxiong.service.DownService">
-            <intent-filter>
-                <action android:name="com.download.action"></action>
-            </intent-filter>
+        <intent-filter>
+            <action android:name="com.download.action"></action>
+        </intent-filter>
         </service>
+
     </application>
 
 </manifest>

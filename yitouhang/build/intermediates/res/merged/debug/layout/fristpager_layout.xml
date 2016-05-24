@@ -61,7 +61,7 @@
     </RelativeLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1px"
         android:background="@color/divider_grey"
         />
 
@@ -70,19 +70,20 @@
     <View
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1px"
         android:background="@color/divider_grey"
         />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="213dp"
+        android:layout_height="210dp"
         android:orientation="vertical"
         android:background="@color/white"
         >
         <RelativeLayout
             android:id="@+id/new_biao"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             >
             <View
                 android:id="@+id/imgs1"
@@ -135,15 +136,15 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="1px"
             android:background="@color/divider_grey"
-            android:layout_marginLeft="20dp"
             />
 
         <RelativeLayout
             android:id="@+id/time_xitong"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             >
             <View
                 android:id="@+id/imgs2"
@@ -186,15 +187,15 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="1px"
             android:background="@color/divider_grey"
-            android:layout_marginLeft="20dp"
             />
 
         <RelativeLayout
             android:id="@+id/gu_xibao"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             >
             <View
                 android:id="@+id/imgs3"
@@ -242,13 +243,12 @@
                 android:layout_marginRight="22dp"
                 />
         </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider_grey"
+            />
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/divider_grey"
-        />
-
 
     <LinearLayout
         android:layout_width="match_parent"

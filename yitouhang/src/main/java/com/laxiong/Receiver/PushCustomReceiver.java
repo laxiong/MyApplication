@@ -23,12 +23,17 @@ public class PushCustomReceiver extends BroadcastReceiver{
     public void onReceive(Context context, Intent intent) {
         //普通的通知
         if(intent.getAction().equals("cn.jpush.android.intent.NOTIFICATION_RECEIVED")){
+            Bundle bundle=intent.getExtras();
+            String title= bundle.getString(JPushInterface.EXTRA_NOTIFICATION_TITLE);
+            String content= bundle.getString(JPushInterface.EXTRA_ALERT);
+            int id = bundle.getInt(JPushInterface.EXTRA_NOTIFICATION_ID);
+            NotificationUtil.sendNotiToMain(context,title,content,id);
         }//自定义消息
         else if(intent.getAction().equals("cn.jpush.android.intent.MESSAGE_RECEIVED")){
             Bundle bundle=intent.getExtras();
             String title= bundle.getString(JPushInterface.EXTRA_TITLE);
             String content= bundle.getString(JPushInterface.EXTRA_MESSAGE);
-            NotificationUtil.sendNotiToMain(context,title,content);
+            NotificationUtil.sendNotiToMain(context,title,content,-1);
         }
     }
 }

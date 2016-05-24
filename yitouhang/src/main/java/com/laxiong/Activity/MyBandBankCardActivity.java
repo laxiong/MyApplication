@@ -8,12 +8,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
 import com.loopj.android.http.JsonHttpResponseHandler;
-import com.gongshidai.mistGSD.R;
+
 import org.apache.http.Header;
 import org.json.JSONObject;
 
@@ -27,6 +28,7 @@ public class MyBandBankCardActivity extends BaseActivity implements View.OnClick
     private TextView mTitle ,mBankName;
     private FrameLayout mBack ;
     private ImageView mBankImg ;
+//    private CircleImageView mBankImg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,7 @@ public class MyBandBankCardActivity extends BaseActivity implements View.OnClick
         mBack.setOnClickListener(this);
         mBankName =(TextView)findViewById(R.id.bankname);
         mBankImg =(ImageView)findViewById(R.id.bankicon);
+//        mBankImg =(CircleImageView)findViewById(R.id.bankicon);
     }
     @Override
     public void onClick(View v) {

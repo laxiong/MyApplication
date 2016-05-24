@@ -72,11 +72,11 @@ public class TMall_Presenter {
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (responseBody != null) {
                     if (responseBody == null) {
-                        setImageFailure(R.drawable.ic_launcher, iv);
+                        setImageFailure(R.drawable.gongshi_banner_mr, iv);
                     } else {
                         Bitmap bm = BitmapFactory.decodeByteArray(responseBody, 0, responseBody.length);
                         if (bm == null)
-                            setImageFailure(R.drawable.ic_launcher, iv);
+                            setImageFailure(R.drawable.gongshi_banner_mr, iv);
                         else
                             setImageSuccess(bm, iv);
                     }
@@ -85,7 +85,7 @@ public class TMall_Presenter {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                setImageFailure(R.drawable.ic_launcher, iv);
+                setImageFailure(R.drawable.gongshi_banner_mr, iv);
             }
         });
     }

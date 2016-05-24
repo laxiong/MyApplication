@@ -241,13 +241,13 @@ public class FristPagerFragment extends Fragment implements OnClickListener{
 					try {
 						if (response.getInt("code") == 0) {
 							Log.i("WK","	这是财经头条的内容	"+response);
-							JSONArray listArray = response.getJSONArray("list");
-							if (listArray!=null&&listArray.length()>0) {
-								JSONObject titConObj = listArray.getJSONObject(0);
-								if (mCental!=null){
-									mCental.setText(titConObj.getString("title"));
-								}
-							}
+//							JSONArray listArray = response.getJSONArray("list");
+//							if (listArray!=null&&listArray.length()>0) {
+//								JSONObject titConObj = listArray.getJSONObject(0);
+//								if (mCental!=null){
+//									mCental.setText(titConObj.getString("title"));
+//								}
+//							}
 						} else {
 						}
 					} catch (Exception E) {

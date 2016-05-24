@@ -21,6 +21,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
+import com.google.gson.GsonBuilder;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
@@ -32,9 +34,10 @@ import com.laxiong.Utils.MobileSecurePayer;
 import com.laxiong.entity.EnvConstants;
 import com.laxiong.entity.LlOrderInfo;
 import com.laxiong.entity.PayOrder;
+import com.laxiong.entity.PaySignParam;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.gongshidai.mistGSD.R;
+
 import org.apache.http.Header;
 import org.json.JSONObject;
 
@@ -214,12 +217,11 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 					try {
 
 						if (response.getInt("code") == 0) {
-
-							PayOrder order = parseLLOrderInfo(response);
-							String content4Pay = BaseHelper.toJSONString(order);
-
-							Log.i("WKKKKKKKKKKK=====","boolean" + order);
-
+							Log.i("WK", "连连支付" + response);
+							LlOrderInfo mInfo  = new GsonBuilder().create().fromJson(response.toString(),
+									LlOrderInfo.class);
+							PayOrder mPayOrder = constructPreCardPayOrder(mInfo);
+							String content4Pay = BaseHelper.toJSONString(mPayOrder);
 							// 关键 content4Pay
 							// 用于提交到支付SDK的订单支付串，如遇到签名错误的情况，请将该信息帖给我们的技术支持
 							MobileSecurePayer msp = new MobileSecurePayer();
@@ -309,77 +311,68 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 	public void setmBankName(String mBankName) {
 		this.mBankName = mBankName;
 	}
+	//构造订单类
+	private PayOrder constructPreCardPayOrder(LlOrderInfo mInfo) {
 
-	// 解析订单的Method
-	private PayOrder parseLLOrderInfo(JSONObject response) {
-		if (response != null) {
-			try {
-				PayOrder order = new PayOrder();
-				LlOrderInfo info = new LlOrderInfo();
-				info.setBusi_partner(response.getString("busi_partner"));
-				info.setNo_order(response.getString("no_order"));
-				info.setDt_order(response.getString("dt_order"));
-				info.setName_goods(response.getString("name_goods"));
-				info.setNotify_url(response.getString("notify_url"));
-				info.setSign_type(PayOrder.SIGN_TYPE_MD5);
-				info.setValid_order(response.getString("valid_order"));
-				info.setInfo_order(response.getString("info_order"));
-				info.setMoney_order(response.getString("money_order"));
-				// 银行卡历次支付时填写，可以查询得到，协议号匹配会进入SDK，
-				// order.setNo_agree();
-				// 风险控制参数
-				info.setRisk_item(response.getString("risk_item"));
-				info.setOid_partner(EnvConstants.PARTNER);
-				String sign = "";
-				String content = BaseHelper.sortParam(info);
-				// MD5 签名方式
-				sign = Md5Algorithm.getInstance().sign(content, EnvConstants.MD5_KEY);
+		PayOrder order = new PayOrder();
+		PaySignParam signParam = new PaySignParam();
+		signParam.setBusi_partner(mInfo.getBusi_partner());
+		signParam.setNo_order(mInfo.getNo_order());
+		signParam.setDt_order(mInfo.getDt_order());
+		signParam.setName_goods(mInfo.getName_goods());
+		signParam.setNotify_url(mInfo.getNotify_url());
+		signParam.setSign_type(PayOrder.SIGN_TYPE_MD5);
+		signParam.setValid_order(mInfo.getValid_order());
+		signParam.setInfo_order(mInfo.getInfo_order());
+		signParam.setMoney_order(mInfo.getMoney_order());
+		// 银行卡历次支付时填写，可以查询得到，协议号匹配会进入SDK，
+		// order.setNo_agree();
+		// 风险控制参数
+		signParam.setRisk_item(mInfo.getRisk_item());
+		signParam.setOid_partner(EnvConstants.PARTNER);
+		String sign = "";
+		String content = BaseHelper.sortParam(signParam);
+		// MD5 签名方式
+		sign = Md5Algorithm.getInstance().sign(content, EnvConstants.MD5_KEY);
 
-				order.setSign(sign);
+		order.setSign(sign);
 
-				order.setBusi_partner(response.getString("busi_partner"));
-				order.setNo_order(response.getString("no_order"));
-				order.setDt_order(response.getString("dt_order"));
-				order.setName_goods(response.getString("name_goods"));
-				order.setNotify_url(response.getString("notify_url"));
-				order.setSign_type(PayOrder.SIGN_TYPE_MD5);
-				order.setValid_order(response.getString("valid_order"));
+		order.setBusi_partner(mInfo.getBusi_partner());
+		order.setNo_order(mInfo.getNo_order());
+		order.setDt_order(mInfo.getDt_order());
+		order.setName_goods(mInfo.getName_goods());
+		order.setNotify_url(mInfo.getNotify_url());
+		order.setSign_type(PayOrder.SIGN_TYPE_MD5);
+		order.setValid_order(mInfo.getValid_order());
 
-				order.setUser_id(response.getString("user_id"));
-				order.setId_no(response.getString("id_no"));
-				order.setInfo_order(response.getString("info_order"));
+		order.setUser_id(mInfo.getUser_id());
+		order.setId_no(mInfo.getId_no());
+		order.setInfo_order(mInfo.getInfo_order());
 
-				order.setAcct_name(response.getString("acct_name"));
-				order.setMoney_order(response.getString("money_order"));
-//				order.setNo_goods(response.getString("no_goods"));
+		order.setAcct_name(mInfo.getAcct_name());
+		order.setMoney_order(mInfo.getMoney_order());
+		order.setNo_goods(mInfo.getNo_goods());
 
-				// 银行卡卡号，该卡首次支付时必填
-				order.setCard_no(response.getString("card_no"));
-				// 银行卡历次支付时填写，可以查询得到，协议号匹配会进入SDK，
-				// order.setNo_agree();
+		// 银行卡卡号，该卡首次支付时必填
+		order.setCard_no(mInfo.getCard_no());
+		// 银行卡历次支付时填写，可以查询得到，协议号匹配会进入SDK，
+		// order.setNo_agree();
 
-				// int id = ((RadioGroup)
-				// findViewById(R.id.flag_modify_group)).getCheckedRadioButtonId();
-				// if (id == R.id.flag_modify_0) {
-				// order.setFlag_modify("0");
-				// } else if (id == R.id.flag_modify_1) {
-				// order.setFlag_modify("1");
-				// }
+		// int id = ((RadioGroup)
+		// findViewById(R.id.flag_modify_group)).getCheckedRadioButtonId();
+		// if (id == R.id.flag_modify_0) {
+		// order.setFlag_modify("0");
+		// } else if (id == R.id.flag_modify_1) {
+		// order.setFlag_modify("1");
+		// }
+		// 风险控制参数
+		order.setRisk_item(mInfo.getRisk_item());
+		order.setOid_partner(EnvConstants.PARTNER);
 
-				// 风险控制参数
-				order.setRisk_item(response.getString("risk_item"));
-				order.setOid_partner(EnvConstants.PARTNER);
-
-				return order;
-
-			} catch (Exception E) {
-			}
-		}
-		return null;
+		return order;
 	}
 
 	private Handler mHandler = createHandler();
-
 	@SuppressLint("HandlerLeak")
 	private Handler createHandler() {
 		return new Handler() {

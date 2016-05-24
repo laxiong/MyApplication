@@ -81,7 +81,7 @@
         </RelativeLayout>
         
         <View 
-          android:layout_width="1dp"
+          android:layout_width="1px"
           android:layout_height="match_parent" 
           android:background="@color/white"
           android:layout_marginTop="12dp"
@@ -116,7 +116,7 @@
         </RelativeLayout>
         
         <View 
-          android:layout_width="1dp"
+          android:layout_width="1px"
           android:layout_height="match_parent" 
           android:background="@color/white"
           android:layout_marginTop="12dp"
@@ -209,7 +209,7 @@
         
         <View 
           android:layout_width="match_parent"
-          android:layout_height="1dp"
+          android:layout_height="1px"
           android:background="@color/divider_grey"  
           />
         <!-- 剩余份额  等-->
@@ -309,7 +309,7 @@
     </LinearLayout>
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     
@@ -317,7 +317,7 @@
     <View 
       android:layout_marginTop="10dp"
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     <!-- 计算收益 -->
@@ -439,7 +439,7 @@
     </LinearLayout>
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     
@@ -448,7 +448,7 @@
     <View 
       android:layout_marginTop="10dp"
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     <!-- 理财周期 -->
@@ -482,7 +482,7 @@
     </LinearLayout>
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     
@@ -491,7 +491,7 @@
     <View 
       android:layout_marginTop="10dp"
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     <!-- 转账说明 -->
@@ -619,7 +619,7 @@
     </LinearLayout>
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     
@@ -628,7 +628,7 @@
     <View 
       android:layout_marginTop="10dp"
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     <!-- 产品介绍，保障 -->
@@ -662,7 +662,7 @@
         
         <View 
            android:layout_width="match_parent"
-           android:layout_height="1dp"
+           android:layout_height="1px"
            android:background="@color/divider_grey" 
            />
           
@@ -690,7 +690,7 @@
         
         <View 
            android:layout_width="match_parent"
-           android:layout_height="1dp"
+           android:layout_height="1px"
            android:background="@color/divider_grey" 
            />
           
@@ -718,7 +718,7 @@
     </LinearLayout>
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     

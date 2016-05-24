@@ -2,11 +2,13 @@ package com.laxiong.Fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Activity.GuXiBaoActivity;
+import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Json.FinanceJsonBean;
 import com.laxiong.Utils.HttpUtil;
@@ -45,20 +49,20 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 	private LinearLayout mFinancelMessage ; // 提示消息
 
 	private FinancingListView mListView ;
+	private  List<FinanceInfo>  mList = new ArrayList<FinanceInfo>() ;// 全是固息宝的
+	private int listNum ;  // 刷新加载更多所有的个数
 	
 	private Handler handler = new Handler() {
 	      @Override
 	      public void handleMessage(Message msg) {
 	           super.handleMessage(msg);
 	           switch (msg.what){
-	               case 1:
-	            	    Toast.makeText(getActivity(), "完成刷新", Toast.LENGTH_SHORT).show();
+				   case 1:
 					   mListView.completeRefresh();
-	                    break;
-	               case 2:
-	            	    Toast.makeText(getActivity(), "完成加载更多", Toast.LENGTH_SHORT).show();
+					   break;
+				   case 2:
 					   mListView.completeRefresh();
-	                    break;
+					   break;
 	           }
 	       }
 	  };
@@ -68,29 +72,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 			Bundle savedInstanceState) {
 		mVipView = inflater.inflate(R.layout.financing_layout, null);
 		initView();
-		initData();
 		return  mVipView;
-	}
-	private void initData() {
-
-
-		getVipProductInfo();
-		mListView.setOnRefreshListener(new FinancingListView.OnRefreshListener() {
-			@Override
-			public void onPullRefresh() {
-				//请求数据，更新数据
-				requestDataFromServer(true);
-				Toast.makeText(getActivity(), "正在刷新", Toast.LENGTH_SHORT).show();
-				
-			}
-
-			@Override
-			public void onLoadingMore() {
-				requestDataFromServer(false);
-				Toast.makeText(getActivity(), "正在加载更多", Toast.LENGTH_SHORT).show();
-			}
-		});		
-		
 	}
 	private void initView() {
 
@@ -99,8 +81,35 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		mConcel_img.setOnClickListener(this);
 
 		mListView = (FinancingListView)mVipView.findViewById(R.id.Listview);
+		getVipProductInfo();
+		mListView.setOnRefreshListener(mRefresh);
 	}
-	
+
+	FinancingListView.OnRefreshListener mRefresh = new FinancingListView.OnRefreshListener(){
+		// 刷新
+		@Override
+		public void onPullRefresh() {
+			requestDataFromServer(true);
+			pager = 1;
+			if (mList!=null&&mFinanBean!=null) {
+				mList.removeAll(mFinanBean.getGxb());
+				mList.remove(mFinanBean.getSxt());
+			}
+			getVipProductInfo();
+		}
+		//加载更多
+		@Override
+		public void onLoadingMore() {
+			requestDataFromServer(false);
+			if (listNum >= mList.size()+1) {
+				pager = pager + 1;
+				getVipProductInfo();
+			}else {
+				Toast.makeText(getActivity(),"全部加载完毕",Toast.LENGTH_SHORT).show();
+			}
+		}
+	};
+
 	private void requestDataFromServer(final boolean isLoading){
 		new Thread(){
 			public void run() {
@@ -136,7 +145,8 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		@Override
 		public int getCount() {
 			if(mFinanBean!=null){
-				return mFinanBean.getGxb().size()+3;
+				int count = 3+mList.size();
+				return count ;
 			}
 			return 0;
 		}
@@ -189,12 +199,12 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 				if(i==0){
 					if(mViewHonder.mText_section!=null) {
 						mViewHonder.mText_section.setText("时息通");
-						mViewHonder.mText_section.setTextColor(Color.parseColor("#FFE2A42A"));
+						mViewHonder.mText_section.setTextColor(Color.parseColor("#FF785603"));
 					}
 				}else if(i==2){
 					if(mViewHonder.mText_section!=null) {
 						mViewHonder.mText_section.setText("固息宝");
-						mViewHonder.mText_section.setTextColor(Color.parseColor("#FFE2A42A"));
+						mViewHonder.mText_section.setTextColor(Color.parseColor("#FF785603"));
 					}
 				}
 				if(mViewHonder.line!=null)
@@ -202,10 +212,10 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 			}
 			if(currentType == TYPE_Content){
 				if(i==1){  // 时息通
-					FinanceInfo sxt = mFinanBean.getSxt();
-					if(mViewHonder.mInterge!=null&&mViewHonder.mPoint!=null) {
-						mViewHonder.mInterge.setTextColor(Color.parseColor("#FFE2A42A"));
-						mViewHonder.mPoint.setTextColor(Color.parseColor("#FFE2A42A"));
+					final FinanceInfo sxt = mFinanBean.getSxt();
+					if(mViewHonder.mInterge!=null&&mViewHonder.mPoint!=null&&sxt!=null) {
+						mViewHonder.mInterge.setTextColor(Color.parseColor("#FF785603"));
+						mViewHonder.mPoint.setTextColor(Color.parseColor("#FF785603"));
 						double apr = sxt.getApr();
 						if(isInterge(apr)){
 							String aprStr = String.valueOf(apr);
@@ -223,7 +233,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 							mViewHonder.mPoint.setText("."+xiaoshu);
 						}
 					}
-					if(mViewHonder.mCircleProgressView!=null&&mViewHonder.mEnought!=null){
+					if(mViewHonder.mCircleProgressView!=null&&mViewHonder.mEnought!=null&&sxt!=null){
 							if (sxt.getPercent()==100.0){
 								mViewHonder.mCircleProgressView.setVisibility(View.INVISIBLE);
 								mViewHonder.mEnought.setVisibility(View.VISIBLE);
@@ -237,19 +247,19 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 								mViewHonder.iv);
 					}
 
-					if(mViewHonder.vip_addbf!=null){
+					if(mViewHonder.vip_addbf!=null&&sxt!=null){
 						if (sxt.getVip()==0.0){
 							mViewHonder.vip_addbf.setVisibility(View.INVISIBLE);
 						}else {
 							mViewHonder.vip_addbf.setVisibility(View.VISIBLE);
 							mViewHonder.vip_addbf.setText("+"+String.valueOf(sxt.getVip())+"%");
-							mViewHonder.vip_addbf.setTextColor(Color.parseColor("#FFE2A42A"));
+							mViewHonder.vip_addbf.setTextColor(Color.parseColor("#FF785603"));
 						}
 					}
 
 					// 新手标
-					double bird = sxt.getBird();
-					if(mViewHonder.mNewPerson!=null){
+					if(mViewHonder.mNewPerson!=null&&sxt!=null){
+						double bird = sxt.getBird();
 						if(bird == 1){
 							mViewHonder.mNewPerson.setVisibility(View.VISIBLE);
 						}else{
@@ -257,31 +267,39 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						}
 					}
 					//日期
-					double limit = sxt.getLimit();
-					if(mViewHonder.mLimitDay!=null){
+					if(mViewHonder.mLimitDay!=null&&sxt!=null){
+						double limit = sxt.getLimit();
 						String limit_day = String.valueOf(limit);
 						String[] day = limit_day.split("[.]");
 						mViewHonder.mLimitDay.setText(day[0]+"天");
 					}
 
-					if(mViewHonder.profit_tv!=null)
+					if(mViewHonder.profit_tv!=null&&sxt!=null&&mViewHonder.baifenbi!=null&&mViewHonder.mProject!=null&&
+							mViewHonder.year_hua!=null) {
 						mViewHonder.profit_tv.setTextColor(Color.parseColor("#FFE2A42A"));
-					mViewHonder.profit_tv.setText(sxt.getPaytype());
-					if(mViewHonder.baifenbi!=null)
-						mViewHonder.baifenbi.setTextColor(Color.parseColor("#FFE2A42A"));
-					if(mViewHonder.mProject!=null)
-						mViewHonder.mProject.setTextColor(Color.parseColor("#FFE2A42A"));
-					mViewHonder.mProject.setText(sxt.getTitle());
-					if(mViewHonder.year_hua!=null)
+						mViewHonder.profit_tv.setText(sxt.getPaytype());
+						mViewHonder.baifenbi.setTextColor(Color.parseColor("#FF785603"));
+						mViewHonder.mProject.setTextColor(Color.parseColor("#FF785603"));
+						mViewHonder.mProject.setText(sxt.getTitle());
 						mViewHonder.year_hua.setTextColor(Color.parseColor("#FFE2A42A"));
+					}
+
+					if(view!=null&&sxt!=null)
+						view.setOnClickListener(new View.OnClickListener() {
+							@Override
+							public void onClick(View view) {
+								getActivity().startActivity(new Intent(getActivity(),
+										TimeXiTongActivity.class).putExtra("id", sxt.getId()));
+							}
+						});
 
 
 				}else if (i>=3){ // 固息宝
-					List<FinanceInfo> mList = mFinanBean.getGxb();
-					FinanceInfo gxb = mList.get(i-3);
+//					List<FinanceInfo> mList = mFinanBean.getGxb();
+					final FinanceInfo gxb = mList.get(i-3);
 					if(mViewHonder.mInterge!=null&&mViewHonder.mPoint!=null) {
-						mViewHonder.mInterge.setTextColor(Color.parseColor("#FFE2A42A"));
-						mViewHonder.mPoint.setTextColor(Color.parseColor("#FFE2A42A"));
+						mViewHonder.mInterge.setTextColor(Color.parseColor("#FF785603"));
+						mViewHonder.mPoint.setTextColor(Color.parseColor("#FF785603"));
 						double apr = gxb.getApr();
 						if(isInterge(apr)){
 							String aprStr = String.valueOf(apr);
@@ -319,7 +337,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						}else {
 							mViewHonder.vip_addbf.setVisibility(View.VISIBLE);
 							mViewHonder.vip_addbf.setText("+"+String.valueOf(gxb.getVip())+"%");
-							mViewHonder.vip_addbf.setTextColor(Color.parseColor("#FFE2A42A"));
+							mViewHonder.vip_addbf.setTextColor(Color.parseColor("#FF785603"));
 						}
 					}
 
@@ -344,12 +362,22 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						mViewHonder.profit_tv.setTextColor(Color.parseColor("#FFE2A42A"));
 					mViewHonder.profit_tv.setText(gxb.getPaytype());
 					if(mViewHonder.baifenbi!=null)
-						mViewHonder.baifenbi.setTextColor(Color.parseColor("#FFE2A42A"));
+						mViewHonder.baifenbi.setTextColor(Color.parseColor("#FF785603"));
 					if(mViewHonder.mProject!=null)
-						mViewHonder.mProject.setTextColor(Color.parseColor("#FFE2A42A"));
+						mViewHonder.mProject.setTextColor(Color.parseColor("#FF785603"));
 					mViewHonder.mProject.setText(gxb.getTitle());
 					if(mViewHonder.year_hua!=null)
 						mViewHonder.year_hua.setTextColor(Color.parseColor("#FFE2A42A"));
+
+					if(view!=null)
+						view.setOnClickListener(new View.OnClickListener() {
+							@Override
+							public void onClick(View view) {
+								Log.i("GXB", "股息宝的Id参数" + (i - 3) + " ==========：" + gxb.getId());
+								getActivity().startActivity(new Intent(getActivity(),
+										GuXiBaoActivity.class).putExtra("id", gxb.getId()).putExtra("ttnum", listNum));
+							}
+						});
 				}
 			}
 			return view;
@@ -401,9 +429,10 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 	}
 
 	// 获取VIP产品的内容
+	private int pager = 1;
 	private void getVipProductInfo(){
 		RequestParams params = new RequestParams();
-		params.put("p","1");
+		params.put("p",pager);
 		params.put("limit", "10");
 		params.put("type","vip");
 		HttpUtil.get(InterfaceInfo.PRODUCT_URL,params,new JsonHttpResponseHandler(){
@@ -411,19 +440,19 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
 
-				List<FinanceInfo>   mList = null ;
 				if (response!=null){
 					try {
 						if (response.getInt("code")==0){
-							mFinanBean = new FinanceJsonBean();
-
-							JSONObject sxt = response.getJSONObject("sxt");
-							FinanceInfo sxtInfo = setProductInfo(sxt);  // 时息通
-							mFinanBean.setSxt(sxtInfo);
-
-							JSONArray gxb =  response.getJSONArray("gxb"); // 固息宝
+							// 时息通
+							if (pager == 1) {
+								mFinanBean = new FinanceJsonBean();
+								JSONObject sxt = response.getJSONObject("sxt");
+								FinanceInfo sxtInfo = setProductInfo(sxt);
+								mFinanBean.setSxt(sxtInfo);
+							}
+							// 固息宝
+							JSONArray gxb =  response.getJSONArray("gxb");
 							if(gxb.length()>0){
-								mList = new ArrayList<FinanceInfo>();
 								for (int i=0;i<gxb.length();i++){
 									JSONObject gxb_obj = gxb.getJSONObject(i);
 									FinanceInfo gxbInfo = setProductInfo(gxb_obj);
@@ -433,9 +462,13 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 							}
 							mFinanBean.setMsg(response.getString("msg"));
 							mFinanBean.setTime(response.getString("time"));
-							//TODO 成功访问网络后setAdapter
-							mListView.setAdapter(new VipAdapter());
+							listNum = response.getInt("ttnum");
 
+							if(pager == 1){
+								mListView.setAdapter(new VipAdapter());
+							}else {
+								mListView.invalidate();
+							}
 						}else {
 							Toast.makeText(getActivity(),response.getString("msg"),Toast.LENGTH_SHORT).show();
 						}
@@ -488,13 +521,6 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		}
 		return null ;
 	}
-
-
-
-
-
-
-
 
 
 }

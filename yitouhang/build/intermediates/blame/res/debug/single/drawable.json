@@ -192,6 +192,10 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\appkefu_messageitem_tocontent.xml"
     },
     {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_circle_image_bg.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_circle_image_bg.xml"
+    },
+    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_whatsapp.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_whatsapp.png"
     },
@@ -328,12 +332,12 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_laiwang_dynamic.png"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_gmail_on.png",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_gmail_on.png"
-    },
-    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_default_avatar.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_default_avatar.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_gmail_on.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_gmail_on.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_share_video.png",
@@ -370,6 +374,10 @@
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_facebook.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_facebook.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\progressbar.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\progressbar.xml"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_action_back_normal.png",
@@ -804,12 +812,12 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_pinterest_gray.png"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_bgradius.xml",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_bgradius.xml"
-    },
-    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_facebook_off.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_facebook_off.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_bgradius.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_bgradius.xml"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\appkefu_faq_itembg.xml",

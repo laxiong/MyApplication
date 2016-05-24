@@ -90,7 +90,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1px"
         android:background="@color/divider_grey"
         />
 
@@ -122,7 +122,7 @@
     <!-- 提现金额 -->
     <View
        android:layout_width="match_parent"
-       android:layout_height="1dp"
+       android:layout_height="1px"
        android:background="@color/divider_grey"
        />
     <LinearLayout
@@ -160,14 +160,14 @@
     </LinearLayout>
     <View 
        android:layout_width="match_parent"
-       android:layout_height="1dp"
+       android:layout_height="1px"
        android:background="@color/divider_grey"  
        />
     
     <View 
        android:layout_marginTop="10dp"
        android:layout_width="match_parent"
-       android:layout_height="1dp"
+       android:layout_height="1px"
        android:background="@color/divider_grey"  
        />
     <LinearLayout
@@ -249,7 +249,7 @@
     </LinearLayout>
     <View 
        android:layout_width="match_parent"
-       android:layout_height="1dp"
+       android:layout_height="1px"
        android:background="@color/divider_grey"  
        />
     

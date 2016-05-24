@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.gongshidai.mistGSD.R;
+import com.laxiong.Utils.ToastUtil;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -34,6 +36,8 @@ public class FinancingListView extends ListView implements AbsListView.OnScrollL
     private ImageView iv_arrow;
     private ProgressBar bar_rotate;
     private TextView tv_time,tv_state;
+    //设置是否可以加载更多
+    private boolean canload=true;
 
     //定义旋转动画
     private RotateAnimation up,down;
@@ -92,30 +96,33 @@ public class FinancingListView extends ListView implements AbsListView.OnScrollL
 
         headView.measure(0, 0);
         height = headView.getMeasuredHeight();
-        headView.setPadding(0, -height,0,0);
+        headView.setPadding(0, -height, 0, 0);
         addHeaderView(headView);
     }
-
+    public void setLoadMoreEnabled(boolean flag){
+        this.canload=flag;
+    }
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                downY=(int) ev.getY();
+                downY = (int) ev.getY();
+                getParent().requestDisallowInterceptTouchEvent(true);
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                int deltaY=(int) (ev.getY()-downY);
-                int paddingTop=-height+deltaY;
+                int deltaY = (int) (ev.getY() - downY);
+                int paddingTop = -height + deltaY;
                 //当课件条目是0的时候才可以下拉刷新
-                if(paddingTop>-height&&getFirstVisiblePosition()==0){
-                    headView.setPadding(0,paddingTop,0,0);
-                    if(paddingTop>=0&&currentState==PULL_REFRESH){
+                if (paddingTop > -height && getFirstVisiblePosition() == 0) {
+                    headView.setPadding(0, paddingTop, 0, 0);
+                    if (paddingTop >= 0 && currentState == PULL_REFRESH) {
                         //从下拉刷新进入松开刷新状态
-                        currentState=REALEASE_REFRESH;
+                        currentState = REALEASE_REFRESH;
                         refreshHeadView();
-                    }else if(paddingTop<=0&&currentState==REALEASE_REFRESH){
+                    } else if (paddingTop <= 0 && currentState == REALEASE_REFRESH) {
                         //进入下拉刷新状态
-                        currentState=PULL_REFRESH;
+                        currentState = PULL_REFRESH;
                         refreshHeadView();
                     }
 
@@ -123,15 +130,15 @@ public class FinancingListView extends ListView implements AbsListView.OnScrollL
                 }
                 break;
             case MotionEvent.ACTION_UP:
-                if(currentState==PULL_REFRESH){
-                    headView.setPadding(0, -height,0,0);
-                }else if(currentState==REALEASE_REFRESH){
+                if (currentState == PULL_REFRESH) {
+                    headView.setPadding(0, -height, 0, 0);
+                } else if (currentState == REALEASE_REFRESH) {
                     //headView完全显示
-                    headView.setPadding(0,0,0,0);
-                    currentState=REFRESHING;
+                    headView.setPadding(0, 0, 0, 0);
+                    currentState = REFRESHING;
                     refreshHeadView();
 
-                    if(listener!=null){
+                    if (listener != null) {
                         listener.onPullRefresh();
                     }
                 }
@@ -207,6 +214,10 @@ public class FinancingListView extends ListView implements AbsListView.OnScrollL
         // TODO 刷新
         if(scrollState==OnScrollListener.SCROLL_STATE_IDLE&&getLastVisiblePosition()==(getCount()-1)){
 //					Log.e("onScrollStateChanged","此时需要显示footView");
+            if(!canload) {
+                ToastUtil.customAlert(getContext(),"没有更多数据了");
+                return;
+            }
             isLoading=true;
             footView.setPadding(0, 0, 0, 0);
             setSelection(getCount());//显示ListView最后一条

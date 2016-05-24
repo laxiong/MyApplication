@@ -4,24 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
+
     <LinearLayout
-        android:id="@+id/finance_message" 
+        android:id="@+id/finance_message"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="#FFFFF9E0"
         android:orientation="horizontal"
         >
-        <TextView 
-	        android:layout_width="0dp"
-	        android:layout_weight="1"
-	        android:layout_height="30dp"
-	        android:text="银行存管、活活期次提现，资金安全有保障"
-	        android:singleLine="true"
-	        android:textSize="12sp"
-	        android:gravity="center_vertical"
-	        android:paddingLeft="25dp"
-	        />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:text="银行存管、活活期次提现，资金安全有保障"
+            android:singleLine="true"
+            android:textSize="12sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp"
+            />
         <ImageView
             android:id="@+id/concel_img"
             android:layout_width="15dp"
@@ -31,7 +31,7 @@
             android:layout_marginRight="25dp"
             />
     </LinearLayout>
-    
+
     <!-- 水滴效果的
     <com.laxiong.View.WaterDropListView
         android:layout_width="match_parent"

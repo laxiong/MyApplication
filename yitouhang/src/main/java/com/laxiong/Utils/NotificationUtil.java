@@ -3,20 +3,13 @@ package com.laxiong.Utils;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
-import android.view.View;
 import android.widget.RemoteViews;
 
-import com.laxiong.Activity.MainActivity;
 import com.gongshidai.mistGSD.R;
-import com.laxiong.Common.*;
-import com.laxiong.Common.Constants;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import com.laxiong.Activity.MainActivity;
 
 /**
  * Created by xiejin on 2016/5/6.

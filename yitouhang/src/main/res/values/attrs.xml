@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <declare-styleable name="WaitPgView">
+        <attr name="firstColor" format="color"></attr>
+        <attr name="secondColor" format="color"></attr>
+        <attr name="circletext" format="string"></attr>
+        <attr name="strokewidth" format="dimension"></attr>
+        <attr name="tsize" format="dimension"></attr>
+    </declare-styleable>
+
     <declare-styleable name="WaterDropView">
         <attr name="max_circle_radius" format="dimension"/>
         <attr name="min_circle_radius" format="dimension"/>

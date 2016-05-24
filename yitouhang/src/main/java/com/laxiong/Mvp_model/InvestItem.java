@@ -5,6 +5,8 @@ package com.laxiong.Mvp_model;
  * Types InvestItem.java
  */
 public class InvestItem {
+    private int id;
+    private String types;
     private String title;
     private String amount;
     private String add_time;
@@ -13,11 +15,29 @@ public class InvestItem {
     public InvestItem() {
     }
 
-    public InvestItem(String title, String amount, String add_time, String mark) {
+    public InvestItem(int id,String types,String title, String amount, String add_time, String mark) {
+        this.id=id;
+        this.types=types;
         this.title = title;
         this.amount = amount;
         this.add_time = add_time;
         this.mark = mark;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTypes() {
+        return types;
+    }
+
+    public void setTypes(String types) {
+        this.types = types;
     }
 
     public String getTitle() {

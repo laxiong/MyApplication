@@ -41,7 +41,7 @@
         android:orientation="vertical">
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="1px"
             android:background="@color/divider_grey" />
         <RelativeLayout
             android:id="@+id/rl_update"
@@ -67,7 +67,7 @@
         <View
             android:layout_marginLeft="23dp"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="1px"
             android:background="@color/grey_bg"/>
 
         <RelativeLayout
@@ -93,7 +93,7 @@
         <View
             android:layout_marginLeft="23dp"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="1px"
             android:background="@color/grey_bg"/>
 
         <RelativeLayout
@@ -118,7 +118,7 @@
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1px"
         android:background="@color/divider_grey" />
     <View
         android:layout_width="match_parent"

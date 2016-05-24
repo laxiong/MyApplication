@@ -1,28 +1,17 @@
 package com.laxiong.Activity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.media.Image;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.ViewFlipper;
 
-import com.laxiong.Adapter.PaperYuan;
+import com.bumptech.glide.Glide;
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Adapter.ReuseAdapter;
 import com.laxiong.Adapter.ViewHolder;
 import com.laxiong.Application.YiTouApplication;
@@ -38,7 +27,7 @@ import com.laxiong.entity.Product;
 import com.laxiong.entity.ShareInfo;
 import com.laxiong.entity.TMall_Ad;
 import com.laxiong.entity.User;
-import com.gongshidai.mistGSD.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -145,7 +134,9 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
             public void convert(ViewHolder viewholder, final Product item) {
                 viewholder.setText(R.id.tv_price, item.getTitle());
                 viewholder.setText(R.id.tv_num, (int) (item.getPay()) + "");
-                presenter.reqLoadImageView(item.getImg(), ((ImageView) viewholder.getView(R.id.ivpic)));
+                viewholder.setImageResource(R.id.ivpic,R.drawable.gongshi_mr);
+//                presenter.reqLoadImageView(item.getImg(), ((ImageView) viewholder.getView(R.id.ivpic)));
+                Glide.with(TMallActivity.this).load(item.getImg()).placeholder(R.drawable.gongshi_mr).into((ImageView) viewholder.getView(R.id.ivpic));
                 TextView tv_btn_exc = viewholder.getView(R.id.tv_btn_exc);
                 tv_btn_exc.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -187,9 +178,11 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
         for (int i = 0; i < list.size(); i++) {
             final TMall_Ad item = list.get(i);
             ImageView iv = new ImageView(this);
+            iv.setImageResource(R.drawable.gongshi_banner_mr);
             iv.setScaleType(ImageView.ScaleType.FIT_XY);
             iv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-            presenter.reqLoadImageView(item.getImageurl(), iv);
+//            presenter.reqLoadImageView(item.getImageurl(), iv);
+            Glide.with(TMallActivity.this).load(item.getImageurl()).placeholder(R.drawable.gongshi_banner_mr).into(iv);
             alist.add(iv);
             TextView tv = new TextView(this);
             setAdItem(tv, i == 0 ? true : false);

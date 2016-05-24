@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:id="@+id/info_listview"
         android:layout_marginLeft="20dp"
-        android:dividerHeight="1dp"
+        android:dividerHeight="1px"
         android:divider="@color/divider_grey"
         />
     <LinearLayout

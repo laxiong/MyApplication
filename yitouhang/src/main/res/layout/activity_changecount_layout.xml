@@ -81,7 +81,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1px"
         android:layout_marginLeft="23dp"
         android:background="@color/divider_grey" />
     <!-- 密码 -->
@@ -121,7 +121,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1px"
         android:layout_marginLeft="23dp"
         android:background="@color/divider_grey" />
 

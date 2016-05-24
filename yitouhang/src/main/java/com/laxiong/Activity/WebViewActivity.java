@@ -8,7 +8,9 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
@@ -18,7 +20,6 @@ import com.laxiong.View.CommonActionBar;
 import com.laxiong.entity.ShareInfo;
 import com.laxiong.entity.User;
 import com.umeng.socialize.UMShareAPI;
-import com.gongshidai.mistGSD.R;
 
 public class WebViewActivity extends BaseActivity implements IViewBasicObj<ShareInfo> {
     /****
@@ -48,11 +49,6 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         }
-    }
-    //h5回调分享
-    public void onShare() {
-        ShareInfo obj = null;
-        DialogUtils.getInstance(this).alertShareDialog(obj, mWebView);
     }
 
     @Override
@@ -122,8 +118,14 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (url.startsWith("gongshi2://")) {
-                    WebViewActivity.this.finish();
+//                if (url.startsWith("gongshi2://")) {
+//                    WebViewActivity.this.finish();
+//                }
+                String str = "gongshi1://" ;
+                if (url.startsWith(str)){
+                    String host = url.substring(url.length()-1, url.length());
+                    int index = Integer.valueOf(host);
+                    jumpActivity(index);
                 }
                 mWebView.loadUrl(url);
                 return true;
@@ -147,6 +149,66 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
                 }
             }
         });
+    }
+    //  根据Host不同跳转的页面不同
+    private void jumpActivity(int index){
+        switch (index){
+            case 0:         //关闭当前页面
+                this.finish();
+
+                break;
+            case 1:          //首页
+                startActivity(new Intent(this,
+                        MainActivity.class));// 启动到SingTask模式
+                this.finish();
+
+                break;
+            case 2:          // 理财产品页
+                Toast.makeText(this,"理财产品页",Toast.LENGTH_SHORT).show();
+
+                break;
+            case 3:          //个人账户页
+                startActivity(new Intent(this,
+                        PersonalSettingActivity.class));
+                this.finish();
+
+                break;
+            case 4:         //活动页
+                Toast.makeText(this,"活动页",Toast.LENGTH_SHORT).show();
+
+                break;
+            case 5:         //红包页
+                startActivity(new Intent(this,
+                        WelCenterActivity.class));
+                this.finish();
+
+                break;
+            case 6:         //人脉邀请页
+                Toast.makeText(this,"人脉邀请页",Toast.LENGTH_SHORT).show();
+
+                break;
+            case 7:         //积分商城页
+                startActivity(new Intent(this,
+                        TMallActivity.class));
+                this.finish();
+
+                break;
+            case 8:         //调用分享按钮
+                Bundle bundle = getIntent().getExtras();
+                ShareInfo banner = (ShareInfo) bundle.getSerializable("banner");
+                if (banner != null) {
+                    loadObjSuc(banner);
+                } else {
+                    presenter.loadShareData(WebViewActivity.this);
+                }
+
+                break;
+            case 9:          //注册页面
+                startActivity(new Intent(this,
+                        RegistActivity.class));
+
+                break;
+        }
     }
 
 }

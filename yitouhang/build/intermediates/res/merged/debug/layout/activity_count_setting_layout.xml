@@ -68,10 +68,10 @@
 	        <View
 				android:id="@+id/lines"
 	            android:layout_width="match_parent"
-	            android:layout_height="1dp"
+	            android:layout_height="1px"
 	            android:background="@color/white"
-	            android:layout_marginLeft="3dp"
-	            android:layout_marginRight="3dp"
+	            android:layout_marginLeft="10dp"
+	            android:layout_marginRight="10dp"
 	            />
 
 			<!--已经帮过卡了-->
@@ -252,7 +252,7 @@
     
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     
@@ -260,7 +260,7 @@
     <View 
       android:layout_marginTop="20dp"
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     <!-- 消息等 -->
@@ -317,7 +317,7 @@
         
         <View 
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="1px"
             android:background="@color/divider_grey"
          />
         
@@ -356,7 +356,7 @@
     </LinearLayout>
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     
@@ -364,7 +364,7 @@
     <View 
       android:layout_marginTop="20dp"
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     <!-- 密码管理的 -->
@@ -397,7 +397,7 @@
         
         <View 
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="1px"
             android:background="@color/divider_grey"
          />
         
@@ -424,7 +424,7 @@
     	
         <View 
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="1px"
             android:background="@color/divider_grey"
          />
         
@@ -463,7 +463,7 @@
     </LinearLayout>
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     

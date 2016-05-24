@@ -1,15 +1,8 @@
 package com.laxiong.Activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -18,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Adapter.RedPaper;
 import com.laxiong.Adapter.RedPaperAdapter;
 import com.laxiong.Basic.BackListener;
@@ -25,7 +19,6 @@ import com.laxiong.Mvp_presenter.WelCenter_Presenter;
 import com.laxiong.Mvp_view.IViewWelcenter;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
-import com.gongshidai.mistGSD.R;
 import com.laxiong.View.WaitPgView;
 
 import java.util.ArrayList;

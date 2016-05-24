@@ -68,7 +68,7 @@
                 android:id="@+id/project_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="***"
+                android:text="产品"
                  android:textSize="12sp"
                 android:textColor="#A6A6A6"
                 android:layout_marginLeft="10dp"
@@ -108,7 +108,7 @@
     
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     <LinearLayout
@@ -145,7 +145,7 @@
     </LinearLayout>
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     
@@ -153,7 +153,7 @@
     <View 
       android:layout_marginTop="10dp"
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     <LinearLayout 
@@ -177,7 +177,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="*******"
+            android:text="支付方式"
             android:gravity="center_vertical"
             android:layout_marginLeft="10dp"
             />
@@ -191,7 +191,7 @@
     </LinearLayout>
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     
@@ -215,7 +215,7 @@
             android:id="@+id/one_limit"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="50,000"
+            android:text="00.00"
             android:textSize="12sp"
             android:gravity="center_vertical"
             android:textColor="#EE4E42"
@@ -232,7 +232,7 @@
     
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     <LinearLayout 
@@ -262,7 +262,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="50"
+                android:text="无可用红包"
                 android:gravity="center_vertical"
                 />
             
@@ -313,7 +313,7 @@
     </LinearLayout>
     <View 
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="1px"
       android:background="@color/divider_grey"  
       />
     
@@ -333,10 +333,11 @@
             android:textSize="12sp"
             android:gravity="center_vertical"
             />
-        <TextView 
+        <TextView
+            android:id="@+id/trueAmount"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="49,950 "
+            android:text="00.00 "
             android:textColor="#EE4E42"
             android:textSize="12sp"
             android:gravity="center_vertical"
@@ -349,10 +350,11 @@
             android:textSize="12sp"
             android:gravity="center_vertical"
             />
-        <TextView 
+        <TextView
+            android:id="@+id/profitAmount"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="1.285 "
+            android:text="00.00 "
             android:textColor="#EE4E42"
             android:textSize="12sp"
             android:gravity="center_vertical"

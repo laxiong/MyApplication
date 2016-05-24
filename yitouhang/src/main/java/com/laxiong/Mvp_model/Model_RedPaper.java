@@ -109,7 +109,7 @@ public class Model_RedPaper {
     }
 
     public interface OnLoadPaperListener {
-        public void onSuccess(List<RedPaper> list,boolean isused,boolean isAll);
+        public void onSuccess(List<RedPaper> list, boolean isused, boolean isAll);
 
         public void onFailure(String msg);
     }

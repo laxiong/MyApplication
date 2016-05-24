@@ -2,15 +2,12 @@ package com.laxiong.Fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Adapter.ReuseAdapter;
 import com.laxiong.Adapter.ViewHolder;
 import com.laxiong.Mvp_model.InvestItem;
@@ -18,7 +15,8 @@ import com.laxiong.Mvp_presenter.InvestDetail_Presenter;
 import com.laxiong.Mvp_view.IViewInvest;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.FinancingListView;
-import com.gongshidai.mistGSD.R;
+import com.laxiong.View.WaitPgView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,12 +36,18 @@ public class ProfitRecord_TimeXiTongFragment extends Fragment implements IViewIn
     public static final int LIMIT = 10;
     public int pagenow = 1;
     public boolean flag = true;
+    private WaitPgView wp;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView =inflater.inflate(R.layout.withdraw_listview,null);
         initView();
         initData();
+        initListener();
         return mView;
+    }
+    public void showLoadView(boolean flag) {
+        wp= (WaitPgView)mView.findViewById(R.id.wp_load);
+        wp.setVisibility(flag ? View.VISIBLE : View.GONE);
     }
     public void initData() {
         list = new ArrayList<InvestItem>();
@@ -57,6 +61,7 @@ public class ProfitRecord_TimeXiTongFragment extends Fragment implements IViewIn
             }
         };
         lvlist.setAdapter(adapter);
+        showLoadView(true);
         presenter = new InvestDetail_Presenter(this);
         presenter.loadInvestView(LIMIT, ++pagenow, "sxt", getActivity());
     }
@@ -64,13 +69,16 @@ public class ProfitRecord_TimeXiTongFragment extends Fragment implements IViewIn
         lvlist.setOnRefreshListener(new FinancingListView.OnRefreshListener() {
             @Override
             public void onPullRefresh() {
-                if (lvlist != null) lvlist.completeRefresh();
+                if (lvlist != null) {
+                    presenter.loadInvestView(LIMIT,pagenow=1, "sxt", getActivity());
+                    lvlist.setLoadMoreEnabled(true);
+                }
             }
 
             @Override
             public void onLoadingMore() {
                 if (!flag) {
-                    ToastUtil.customAlert(getActivity(), "没数据了");
+                    return;
                 } else {
                     presenter.loadInvestView(LIMIT, ++pagenow, "sxt", getActivity());
                 }
@@ -79,12 +87,15 @@ public class ProfitRecord_TimeXiTongFragment extends Fragment implements IViewIn
     }
     @Override
     public void loadListInvest(List<InvestItem> listdata) {
+        showLoadView(false);
         if (lvlist != null) lvlist.completeRefresh();
         if (list != null&&listdata!=null&&listdata.size()!=0) {
+            if(pagenow==1)this.list.clear();
             this.list.addAll(listdata);
             adapter.setList(list);
         } else {
             flag = false;
+            lvlist.setLoadMoreEnabled(false);
         }
         if(list==null||list.size()==0)
             lvlist.setEmptyView(mView.findViewById(R.id.ll_empty));
@@ -92,6 +103,8 @@ public class ProfitRecord_TimeXiTongFragment extends Fragment implements IViewIn
 
     @Override
     public void loadListFailure(String msg) {
+        showLoadView(false);
+        if (lvlist != null) lvlist.completeRefresh();
         ToastUtil.customAlert(getActivity(), msg);
     }
     private void initView(){
