@@ -452,6 +452,10 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_regist_layout.xml"
     },
     {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_transferoutresult.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_transferoutresult.xml"
+    },
+    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\layout\\activity_reset_pay_pwd.xml",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\layout\\activity_reset_pay_pwd.xml"
     },

@@ -36,7 +36,7 @@
             android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="银行限额"
+            android:text=" "
             android:gravity="center_vertical"
              android:textColor="@color/white"
             android:textSize="14sp"
@@ -46,14 +46,45 @@
     
     <TextView
         android:id="@+id/transferin_product"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:text="转入到时息通"
         android:textColor="#A6A6A6"
         android:gravity="center_vertical"
         android:layout_marginLeft="20dp"
         />
-    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="15dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="剩余可购金额 "
+            android:textSize="12sp"
+            android:textColor="#A6A6A6"
+            />
+        <TextView
+            android:id="@+id/project_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00.00"
+            android:textSize="12sp"
+            android:textColor="#EE4E42"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="元 "
+            android:textSize="12sp"
+            android:textColor="#A6A6A6"
+            />
+    </LinearLayout>
+
     <View 
        android:layout_width="match_parent"
        android:layout_height="1px"
@@ -83,6 +114,7 @@
             android:textSize="14sp"
             android:background="@null"
             android:paddingLeft="10dp"
+            android:inputType="numberSigned"
             />
         <TextView 
             android:layout_width="wrap_content"
@@ -101,7 +133,7 @@
     
     <RelativeLayout 
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         >
@@ -122,21 +154,16 @@
                     android:text="预期收益到账时间"
                     android:textColor="#A6A6A6"
                     />
-                <TextView 
+                <TextView
+                    android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="03-05(星期八)"
+                    android:layout_marginLeft="5dp"
+                    android:text="2015/04/05"
                     android:textColor="#EE7737"
                     />
             </LinearLayout>
-            
-            <TextView 
-                android:text="今日还可以转入时息通3次"
-                android:textColor="#A6A6A6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+
         </LinearLayout>
     </RelativeLayout>
     
@@ -164,7 +191,7 @@
             android:id="@+id/showbankname"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="招商银行(尾号9970)"
+            android:text="银行卡号"
             android:gravity="center_vertical"
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
@@ -194,7 +221,7 @@
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="该卡本次最多可转入"
+            android:text="该卡本次转入金额上限为"
             android:textColor="#A6A6A6"
             android:gravity="center_vertical"
             />
@@ -202,7 +229,7 @@
             android:id="@+id/transferin_limit"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="5,000"
+            android:text="00.00"
             android:textColor="#EE7737"
             android:gravity="center_vertical"
             />

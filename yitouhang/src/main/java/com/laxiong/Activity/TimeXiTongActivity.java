@@ -1,6 +1,9 @@
 package com.laxiong.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
+import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.HttpUtil;
@@ -39,6 +43,8 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 	 /***
 	  * 时息通
 	  */
+
+	 private Share_Presenter presenter;
 	private FrameLayout mBack ;
 	private TextView mJiGetMoney , mShareBtn ,mScrollIn , mScrollOut;
 	private EditText mJiMoney , mJiDay ;
@@ -56,6 +62,12 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		initData();
 		getNetWork();
 		setAmountData();
+		boolean isVip = getIntent().getBooleanExtra("isVip",false);
+		if (isVip){
+			setVipColor();
+		}else {
+			setColors();
+		}
 	}
 
 	private void initData() {
@@ -64,6 +76,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		mScrollIn.setOnClickListener(this);
 		mScrollOut.setOnClickListener(this);
 		mSafeProtect.setOnClickListener(this);
+		presenter = new Share_Presenter(this);
 		
 		mJiDay.addTextChangedListener(new TextWatcher() {
 			@Override
@@ -132,6 +145,9 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		});
 	}
 
+	// setColor的 mPrecent	mYesDayProfit	mGetCashProfit	mAmountProfit
+	private TextView mPrecentTitle,mYesDayTitle,mAmountTitle,mGetCashTitle,mMathPrecent;
+	private View mline1,mline2 ;
 	private void initView() {
 		ll_wrap = (LinearLayout) findViewById(R.id.ll_wrap);
 		mJiDay = (EditText)findViewById(R.id.payday);
@@ -153,20 +169,37 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		mLastCash=(TextView)findViewById(R.id.text2);
 		SxtTitle =(TextView)findViewById(R.id.sxt_title);
 		mId = getIntent().getIntExtra("id",-1);
+
+		mMathPrecent = (TextView)findViewById(R.id.math_precent);
+		mYesDayTitle = (TextView)findViewById(R.id.tv3);
+		mAmountTitle = (TextView)findViewById(R.id.tv4);
+		mGetCashTitle = (TextView)findViewById(R.id.tv0);
+		mPrecentTitle = (TextView)findViewById(R.id.tv1);
+		mline1 = findViewById(R.id.line_1);
+		mline2 = findViewById(R.id.line_2);
+
+
 	}
 
+	// 可购买金额
+	private String mAmountMoney ;
+	private String dates ;
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
 			case R.id.scroll_in:  // 转入
 				startActivity(new Intent(TimeXiTongActivity.this,
-						TransferInActivity.class));
+						TransferInActivity.class).
+						putExtra("mAmountMoney", mAmountMoney).
+						putExtra("date", dates));
+
 				break;
 			case R.id.backlayout:
 				this.finish();
 				break;
 			case R.id.share:
-				Toast.makeText(this, "分享", Toast.LENGTH_SHORT).show();
+				presenter.loadShareData(this);
+
 				break;
 				
 			case R.id.scroll_out:  // 转出
@@ -217,7 +250,6 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 			}
 		});
 	}
-
 	private void updataUi(JSONObject response){
 		if (response!=null){
 			try{
@@ -225,7 +257,15 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 				Double data = apr / 100;
 				lu = data ;
 				mPrecent.setText(String.valueOf(apr));
-				mLastCash.setText(String.valueOf(response.getInt("members")));
+				mAmountMoney = String.valueOf(response.getInt("amount")) ;
+				dates = response.getString("date");
+				//保存日期的时间
+				SharedPreferences gxb_date = getSharedPreferences("SXT_DATE", Context.MODE_PRIVATE);
+				SharedPreferences.Editor editor = gxb_date.edit();
+				editor.putString("sxt_date",response.getString("date"));
+				editor.commit();
+
+				mLastCash.setText(mAmountMoney);
 				JSONArray ARRA = response.getJSONArray("details");
 				if (ARRA.length()>0){
 					mRemark1.setText(ARRA.getString(0));
@@ -278,4 +318,38 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 	public void loadObjFail(String msg) {
 		ToastUtil.customAlert(this, msg);
 	}
+
+	//setColor的 mPrecent	mYesDayProfit	mGetCashProfit	mAmountProfit
+	//mPrecentTitle,mYesDayTitle,mAmountTitle,mGetCashTitle,mMathPrecent;mline1,mline2
+
+	// 设置Vip的颜色
+	private void setVipColor(){
+		mPrecent.setTextColor(Color.parseColor("#FFFFDFAA"));
+		mYesDayProfit.setTextColor(Color.parseColor("#FFFFDFAA"));
+		mGetCashProfit.setTextColor(Color.parseColor("#FFFFDFAA"));
+		mAmountProfit.setTextColor(Color.parseColor("#FFFFDFAA"));
+		mPrecentTitle.setTextColor(Color.parseColor("#FFFFDFAA"));
+		mYesDayTitle.setTextColor(Color.parseColor("#FFFFDFAA"));
+		mAmountTitle.setTextColor(Color.parseColor("#FFFFDFAA"));
+		mGetCashTitle.setTextColor(Color.parseColor("#FFFFDFAA"));
+		mMathPrecent.setTextColor(Color.parseColor("#FFFFDFAA"));
+		mline1.setBackgroundColor(Color.parseColor("#FFFFDFAA"));
+		mline2.setBackgroundColor(Color.parseColor("#FFFFDFAA"));
+	}
+	//设置一般的白色
+	private void setColors(){
+		mPrecent.setTextColor(Color.parseColor("#FFFFFFFF"));
+		mYesDayProfit.setTextColor(Color.parseColor("#FFFFFFFF"));
+		mGetCashProfit.setTextColor(Color.parseColor("#FFFFFFFF"));
+		mAmountProfit.setTextColor(Color.parseColor("#FFFFFFFF"));
+		mPrecentTitle.setTextColor(Color.parseColor("#FFFFFFFF"));
+		mYesDayTitle.setTextColor(Color.parseColor("#FFFFFFFF"));
+		mAmountTitle.setTextColor(Color.parseColor("#FFFFFFFF"));
+		mGetCashTitle.setTextColor(Color.parseColor("#FFFFFFFF"));
+		mMathPrecent.setTextColor(Color.parseColor("#FFFFFFFF"));
+		mline1.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+		mline2.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+	}
+
+
 }

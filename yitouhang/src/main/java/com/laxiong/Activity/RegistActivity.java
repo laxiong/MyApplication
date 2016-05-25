@@ -140,6 +140,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 			mToggleBtn.setImageResource(R.drawable.img_no_read);
 			isRead = false ;
 		}
+
 	}
 
 	// show password
@@ -154,6 +155,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 			mPswdEd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 			isShowed = true;
 		}
+		valify();
 	}
 
 	// 获取验证码  code 
@@ -291,22 +293,25 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 		}
 		@Override
 		public void afterTextChanged(Editable arg0) {
-			if(!TextUtils.isEmpty(mPhoneEd.getText().toString())&&!TextUtils.isEmpty(mPswdEd.getText().toString())
-					&&!TextUtils.isEmpty(mCodeEd.getText().toString())){
-				if(Common.inputPswdCount(mCodeEd.getText().toString().trim())){
-					mRegistBtn.setEnabled(true);
-					mRegistBtn.setBackgroundResource(R.drawable.button_change_bg_border);
+			valify();
+		}
+	};
+	private void valify(){
+		if(!TextUtils.isEmpty(mPhoneEd.getText().toString())&&!TextUtils.isEmpty(mPswdEd.getText().toString())
+				&&!TextUtils.isEmpty(mCodeEd.getText().toString())&&!isRead){
+			if(Common.inputPswdCount(mCodeEd.getText().toString().trim())){
+				mRegistBtn.setEnabled(true);
+				mRegistBtn.setBackgroundResource(R.drawable.button_change_bg_border);
 
-				}else{
-					mRegistBtn.setEnabled(true);
-					mRegistBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
-				}
 			}else{
 				mRegistBtn.setEnabled(false);
 				mRegistBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
 			}
+		}else{
+			mRegistBtn.setEnabled(false);
+			mRegistBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
 		}
-	};
+	}
 
 	//保存注册用户信息
 	private void savaUseInfo(){

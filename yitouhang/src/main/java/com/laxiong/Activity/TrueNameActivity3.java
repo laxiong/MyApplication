@@ -18,16 +18,13 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Basic.BasicWatcher;
-import com.laxiong.Common.Constants;
 import com.laxiong.Mvp_presenter.BankCard_Presenter;
-import com.laxiong.Mvp_presenter.Handler_Presenter;
 import com.laxiong.Mvp_view.IViewBindCard;
-import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.gongshidai.mistGSD.R;
 
 public class TrueNameActivity3 extends BaseActivity implements OnClickListener, IViewBindCard {
     /****
@@ -96,19 +93,21 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
         TextWatcher tw = new BasicWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (!StringUtils.testBlankAll(et_name.getText().toString(), et_card.getText().toString())
-                        && ValifyUtil.valifyPhoneNum(et_phone.getText().toString()) && bselected && !StringUtils.isBlank(id)) {
-                    ValifyUtil.setEnabled(mFinish, true);
-                } else {
-                    ValifyUtil.setEnabled(mFinish, false);
-                }
+                valify();
             }
         };
         et_card.addTextChangedListener(tw);
         et_name.addTextChangedListener(tw);
         et_phone.addTextChangedListener(tw);
     }
-
+    private void valify(){
+        if (!StringUtils.testBlankAll(et_name.getText().toString(), et_card.getText().toString())
+                && ValifyUtil.valifyPhoneNum(et_phone.getText().toString()) && bselected && !StringUtils.isBlank(id)&&!isRead) {
+            ValifyUtil.setEnabled(mFinish, true);
+        } else {
+            ValifyUtil.setEnabled(mFinish, false);
+        }
+    }
     private void initView() {
         mFinish = (TextView) findViewById(R.id.fininsh);
         mBack = (FrameLayout) findViewById(R.id.back_layout);
@@ -173,6 +172,7 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
             toggleRead.setImageResource(R.drawable.img_read);
             isRead = true;
         }
+        valify();
     }
 
     // show password

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -49,10 +50,12 @@ public class MySelfFragment extends Fragment implements OnClickListener {
      */
     View view;
     private TextView totleMoney;
-    private RelativeLayout AvailableBalance, rl_invite, rl_rm, rl_hall, WithdrawCash, Recharge, mRedBao, mItMall, mTouZiLayout;// 投资明细
+    private RelativeLayout AvailableBalance,WithdrawCash,Recharge;
+    private LinearLayout  rl_invite,mRedBao,rl_rm, rl_hall, mItMall, mTouZiLayout;// 投资明细
     private TextView iv_yesterprofit;//昨日收益
     private TextView textView1;//账户余额
     private TextView togetche_tv;//在投资产
+    private TextView tv_pnum;//红包数量
     private User user;
 
     @Override
@@ -85,21 +88,23 @@ public class MySelfFragment extends Fragment implements OnClickListener {
         iv_yesterprofit.setText(user.getYesterday().getTotal() + "元");
         textView1.setText(user.getAvailable_amount() + "元");
         togetche_tv.setText(user.getAmount() + "元");
+        tv_pnum.setText("可用红包:"+user.getPacketcount());
     }
     private void initView() {
         totleMoney = (TextView) view.findViewById(R.id.togetche_tv);
         AvailableBalance = (RelativeLayout) view.findViewById(R.id.availablebalance);
         WithdrawCash = (RelativeLayout) view.findViewById(R.id.withdrawcash);
         Recharge = (RelativeLayout) view.findViewById(R.id.recharge);
-        mTouZiLayout = (RelativeLayout) view.findViewById(R.id.touzi_layout);
-        rl_hall = (RelativeLayout) view.findViewById(R.id.rl_hall);
-        mItMall = (RelativeLayout) view.findViewById(R.id.rl_1t);
-        mRedBao = (RelativeLayout) view.findViewById(R.id.myredbao);
+        mTouZiLayout = (LinearLayout) view.findViewById(R.id.touzi_layout);
+        rl_hall = (LinearLayout) view.findViewById(R.id.rl_hall);
+        mItMall = (LinearLayout) view.findViewById(R.id.rl_1t);
+        mRedBao = (LinearLayout) view.findViewById(R.id.myredbao);
         iv_yesterprofit = (TextView) view.findViewById(R.id.iv_yesterprofit);
         textView1 = (TextView) view.findViewById(R.id.textView1);
         togetche_tv = (TextView) view.findViewById(R.id.togetche_tv);
-        rl_invite = (RelativeLayout) view.findViewById(R.id.rl_invite);
-        rl_rm = (RelativeLayout) view.findViewById(R.id.rl_rm);
+        rl_invite = (LinearLayout) view.findViewById(R.id.rl_invite);
+        rl_rm = (LinearLayout) view.findViewById(R.id.rl_rm);
+        tv_pnum= (TextView) view.findViewById(R.id.tv_pnum);
     }
 
     @Override

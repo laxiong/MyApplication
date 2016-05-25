@@ -34,6 +34,7 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 	 */
 	private TextView mSureTransferOut ,mTransferOutMoney;
 	private EditText mBuyAmount;
+	private String mAmountMoney ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,10 +58,11 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 		User mUser =YiTouApplication.getInstance().getUser();
 		if (mUser!=null) {
 			int CurMoney = mUser.getCurrent();
-			mTransferOutMoney.setText(String.valueOf(CurMoney));
+			mAmountMoney = String.valueOf(CurMoney);
 		}else {
-			mTransferOutMoney.setText("0.0");
+			mAmountMoney = "0.0";
 		}
+		mTransferOutMoney.setText(mAmountMoney);
 	}
 
 	@Override
@@ -98,34 +100,19 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 		comcelImags.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				if(mInputPswdWindow!=null&&mInputPswdWindow.isShowing()){
-					mInputPswdWindow.dismiss();
-					mInputPswdWindow = null ;
-				}
+				dismissWindows();
 			}
 		});
-
 		concelBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				if(mInputPswdWindow!=null&&mInputPswdWindow.isShowing()){
-					mInputPswdWindow.dismiss();
-					mInputPswdWindow = null ;
-				}
+				dismissWindows();
 			}
 		});
-
 		sureBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-
 				payBuyProduct();
-
-				if(mInputPswdWindow!=null&&mInputPswdWindow.isShowing()){
-					mInputPswdWindow.dismiss();
-					mInputPswdWindow = null ;
-				}
-
 			}
 		});
 
@@ -145,6 +132,13 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 		mInputPswdWindow.showAtLocation(mInputView, Gravity.BOTTOM, 0, 0);
 	}
 
+	private void dismissWindows(){
+		if(mInputPswdWindow!=null&&mInputPswdWindow.isShowing()){
+			mInputPswdWindow.dismiss();
+			mInputPswdWindow = null ;
+		}
+	}
+
 	//购买产品
 	private void payBuyProduct(){
 		RequestParams params = new RequestParams();
@@ -159,7 +153,9 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 					try {
 						if (response.getInt("code") == 0) {
 							startActivity(new Intent(TransferOutActivity.this,
-									TransferInResultActivity.class));
+									TransferOutResultActivity.class).
+									putExtra("money", mBuyAmount.getText().toString().trim()));
+							dismissWindows();
 						} else {
 							Toast.makeText(TransferOutActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 						}
@@ -186,13 +182,24 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 		}
 		@Override
 		public void afterTextChanged(Editable s) {
-			if (!TextUtils.isEmpty(mBuyAmount.getText().toString().trim())){
+			String amountMoney = mBuyAmount.getText().toString().trim();
+			if (!TextUtils.isEmpty(amountMoney)){
 				mSureTransferOut.setClickable(true);
 				mSureTransferOut.setBackgroundResource(R.drawable.button_red_corner_border);
 			}else {
 				mSureTransferOut.setClickable(false);
 				mSureTransferOut.setBackgroundResource(R.drawable.button_grey_corner_border);
 			}
+
+			//最多可转出的数值
+			if (!amountMoney.equals("")&&amountMoney.length()!=0){
+				if (Integer.valueOf(amountMoney)>Integer.valueOf(mAmountMoney)){
+					mBuyAmount.setText(mAmountMoney);
+					mBuyAmount.setSelection(mAmountMoney.length()); // 设置光标的位置
+				}
+			}
+
+
 		}
 	};
 

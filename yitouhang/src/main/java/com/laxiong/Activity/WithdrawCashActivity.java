@@ -136,13 +136,7 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
         et_input.addTextChangedListener(new BasicWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                if ("".equals(s.toString()) || s.toString().startsWith("00"))
-                    et_input.setText("0");
-                if (StringUtils.isBlank(s.toString()) || "0".equals(s.toString())) {
-                    ValifyUtil.setEnabled(mNextBtn, false);
-                } else {
-                    ValifyUtil.setEnabled(mNextBtn, true);
-                }
+                valify();
             }
 
             @Override
@@ -156,7 +150,16 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
             }
         });
     }
-
+    private void valify(){
+        String s=et_input.getText().toString();
+        if ("".equals(s) ||s.startsWith("00"))
+            et_input.setText("0");
+        if (StringUtils.isBlank(s.toString()) || "0".equals(s)||isRead) {
+            ValifyUtil.setEnabled(mNextBtn, false);
+        } else {
+            ValifyUtil.setEnabled(mNextBtn, true);
+        }
+    }
     @Override
     public void onClick(View V) {
         switch (V.getId()) {
@@ -187,6 +190,7 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
             mToggleBtn.setImageResource(R.drawable.img_no_read);
             isRead = true;
         }
+        valify();
     }
 
     /***

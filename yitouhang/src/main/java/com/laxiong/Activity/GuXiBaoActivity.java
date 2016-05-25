@@ -1,6 +1,8 @@
 package com.laxiong.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -22,7 +24,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gongshidai.mistGSD.R;
-import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
@@ -31,7 +32,6 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.VerticalNumberProgressBar;
 import com.laxiong.entity.ShareInfo;
-import com.laxiong.entity.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.umeng.socialize.UMShareAPI;
@@ -64,21 +64,25 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
             mAddOther, mGxbTitle, mYdDec,
             mGetCashDec,mAprDec , mLastDate ,mFirstDate;
 
+    private boolean isVip ; // 是从VIP理财点击过来的否
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_guxibao);
         initView();
         initData();
-        User mUser = YiTouApplication.getInstance().getUser();
-        if (mUser!= null){
-            boolean isVip = mUser.is_vip();
+//        User mUser = YiTouApplication.getInstance().getUser();
+
+//        if (mUser!= null){
+//            boolean isVip = mUser.is_vip();
+        isVip = getIntent().getBooleanExtra("isVip",false);
             if (isVip){
                 setVipTextColor();
             }else {
                 setTextColor();
             }
-        }
+//        }
         getNetWork();
     }
 
@@ -127,9 +131,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mTextDes =(TextView)findViewById(R.id.text2);
         mLastDate =(TextView)findViewById(R.id.last_date); //赎回时间
         mFirstDate = (TextView)findViewById(R.id.first_date); // 起息时间
-
-        mBack = (FrameLayout)findViewById(R.id.backlayout);
-        mShareBtn = (TextView)findViewById(R.id.share);
 
         mRemarkLine =findViewById(R.id.remark_line);
         mRemarkLayout =(RelativeLayout)findViewById(R.id.remark_layout);
@@ -218,18 +219,16 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mMoney.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable arg0) {
-                //TODO 假设是20000
                 String str = mMoney.getText().toString().trim();
                 //TODO  TextView 的计算结果显示
                 if(mDays!=null&&!mDays.getText().toString().trim().equals("")&&mDays.getText().toString().length()!=0){
                     if (str!=null&&!str.equals("")&&str.length()!=0) {
                         int tM = Integer.parseInt(str);
                         int tD = Integer.parseInt(mDays.getText().toString().trim());
-                        double lu = 0.72;
                         // 保留小数点三位
                         NumberFormat mFormat = NumberFormat.getNumberInstance();
                         mFormat.setMaximumFractionDigits(3);
-                        String comfixNum = mFormat.format(backComfix(tM, tD, lu));
+                        String comfixNum = mFormat.format(backComfix(tM, tD, mBuyPrecent));
 
                         mComfix.setText(comfixNum);
                     }
@@ -275,11 +274,10 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                     if (str!=null&&!str.equals("")&&str.length()!=0) {
                         int tD = Integer.parseInt(str);
                         int tM = Integer.parseInt(mMoney.getText().toString().trim());
-                        double lu = 0.072;
                         // 保留小数点三位
                         NumberFormat mFormat = NumberFormat.getNumberInstance();
                         mFormat.setMaximumFractionDigits(3);
-                        String comfixNum = mFormat.format(backComfix(tM, tD, lu));
+                        String comfixNum = mFormat.format(backComfix(tM, tD, mBuyPrecent));
 
                         mComfix.setText(comfixNum);
                     }
@@ -312,7 +310,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
      * lu：利率  7.2%
      */
     private double backComfix(float money,float day, double lu){
-        double backMoney = money*lu*(day/365)+money;
+        double backMoney = money*(lu/100)*(day/365)+money;
         return backMoney ;
     }
 
@@ -366,7 +364,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                     mPrecent.setText(String.valueOf(num));
                 }
 
-                boolean isVip = YiTouApplication.getInstance().getUser().is_vip();
                 if (isVip){
                     mAddPrecent.setText("+"+String.valueOf(response.getDouble("accum"))+"%");
                     mAddOther.setText(String.valueOf(response.getDouble("accum"))+"%");
@@ -392,10 +389,16 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                     mBuyPrecent = num+response.getDouble("present");  //平台奖励的年化总收益利率
                 }
 
-                mAmountMoney = String.valueOf(response.getInt("members"));
+                mAmountMoney = String.valueOf(response.getInt("amount"));
                 mLastEran.setText(mAmountMoney);
 
                 mLastDate.setText(response.getString("date"));
+                //保存日期的时间
+                SharedPreferences gxb_date = getSharedPreferences("GXB_DATE", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = gxb_date.edit();
+                editor.putString("gxb_date",response.getString("date"));
+                editor.commit();
+
                 mFirstDate.setText(response.getString("rule"));
 
                 mMinTou.setText(String.valueOf(response.getInt("min")));
@@ -431,15 +434,17 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
     //mPrecentTg mPrecent  mAddPrecent mMinTou mFinanceLimit mYdDec mGetCashDec V_line mAprDec
     // vip用户的金色字体
     private void setVipTextColor(){
-        mPrecent.setTextColor(Color.parseColor("#FFE2A42A"));
-        mPrecentTg.setTextColor(Color.parseColor("#FFE2A42A"));
-        mAddPrecent.setTextColor(Color.parseColor("#FFE2A42A"));
-        mMinTou.setTextColor(Color.parseColor("#FFE2A42A"));
-        mFinanceLimit.setTextColor(Color.parseColor("#FFE2A42A"));
-        mYdDec.setTextColor(Color.parseColor("#FFE2A42A"));
-        mGetCashDec.setTextColor(Color.parseColor("#FFE2A42A"));
-        mAprDec.setTextColor(Color.parseColor("#FFE2A42A"));
-        V_line.setBackgroundColor(Color.parseColor("#FFE2A42A"));
+        mPrecent.setTextColor(Color.parseColor("#FFFFDFAA"));
+        mPrecentTg.setTextColor(Color.parseColor("#FFFFDFAA"));
+        mAddPrecent.setTextColor(Color.parseColor("#FFFFDFAA"));
+        mMinTou.setTextColor(Color.parseColor("#FFFFDFAA"));
+        mFinanceLimit.setTextColor(Color.parseColor("#FFFFDFAA"));
+        mYdDec.setTextColor(Color.parseColor("#FFFFDFAA"));
+        mGetCashDec.setTextColor(Color.parseColor("#FFFFDFAA"));
+        mAprDec.setTextColor(Color.parseColor("#FFFFDFAA"));
+        V_line.setBackgroundColor(Color.parseColor("#FFFFDFAA"));
+//        mShareBtn.setTextColor(Color.parseColor("#FFE2A42A"));
+//        mGxbTitle.setTextColor(Color.parseColor("#FFE2A42A"));
     }
 
     // 普通用户的普通字体
@@ -453,6 +458,8 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mGetCashDec.setTextColor(Color.parseColor("#ffffff"));
         mAprDec.setTextColor(Color.parseColor("#ffffff"));
         V_line.setBackgroundColor(Color.parseColor("#ffffff"));
+//        mShareBtn.setTextColor(Color.parseColor("#ffffff"));
+//        mGxbTitle.setTextColor(Color.parseColor("#ffffff"));
     }
 
 }

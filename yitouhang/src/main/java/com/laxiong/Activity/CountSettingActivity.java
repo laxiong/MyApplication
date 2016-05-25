@@ -119,10 +119,10 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         if (isVip){
             mNameLine.setImageResource(R.drawable.img_countseting_icon_vip_line);
             mBankAssow.setImageResource(R.drawable.img_bank_vip_arrow);
-            tv_username.setTextColor(Color.parseColor("#FFE2A42A"));
-            mBankNum.setTextColor(Color.parseColor("#FFE2A42A"));
-            mBankName.setTextColor(Color.parseColor("#FFE2A42A"));
-            mLine.setBackgroundColor(Color.parseColor("#FFE2A42A"));
+            tv_username.setTextColor(Color.parseColor("#FFFFDFAA"));
+            mBankNum.setTextColor(Color.parseColor("#FFFFDFAA"));
+            mBankName.setTextColor(Color.parseColor("#FFFFDFAA"));
+            mLine.setBackgroundColor(Color.parseColor("#FFFFDFAA"));
             mImgLogo.setVisibility(View.VISIBLE);
         }else {
             mNameLine.setImageResource(R.drawable.img_countseting_icon_line);

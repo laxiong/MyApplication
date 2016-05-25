@@ -117,7 +117,9 @@
 
         <activity android:name="com.laxiong.Activity.RecordDetailActivity"/>
 
-        <!-- 修改支付密码 -->
+        <!-- 转出结果 -->
+        <activity android:name="com.laxiong.Activity.TransferOutResultActivity"/>
+
         <!-- 重置支付密码 -->
         <!-- 注册 -->
         <activity android:name="com.laxiong.Activity.RegistActivity" />

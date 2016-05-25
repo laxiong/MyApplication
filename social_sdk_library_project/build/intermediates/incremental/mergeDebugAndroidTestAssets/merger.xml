@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="debug"><source path="D:\work\android_studio\workspace\MyApplication\social_sdk_library_project\build\intermediates\bundles\debug\assets"/></dataSet><dataSet config="main"><source path="D:\work\android_studio\workspace\MyApplication\social_sdk_library_project\src\androidTest\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="debug"><source path="D:\gitTools_workspace\clone4\MyApplication\social_sdk_library_project\build\intermediates\bundles\debug\assets"/></dataSet><dataSet config="main"><source path="D:\gitTools_workspace\clone4\MyApplication\social_sdk_library_project\src\androidTest\assets"/></dataSet></merger>

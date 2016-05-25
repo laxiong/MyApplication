@@ -107,6 +107,7 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 			mToggleBtn.setImageResource(R.drawable.img_no_read);
 			isRead = true;
 		}
+		valify();
 	}
 
 	TextWatcher watcher = new TextWatcher() {
@@ -118,16 +119,18 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 		}
 		@Override
 		public void afterTextChanged(Editable s) {
-			if (!TextUtils.isEmpty(mInputRecharge.getText().toString().trim())){
-				mRechargeBtn.setEnabled(true);
-				mRechargeBtn.setBackgroundResource(R.drawable.button_change_bg_border);
-			}else {
-				mRechargeBtn.setEnabled(false);
-				mRechargeBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
-			}
+			valify();
 		}
 	};
-
+	private void valify(){
+		if (!TextUtils.isEmpty(mInputRecharge.getText().toString().trim())&&!isRead){
+			mRechargeBtn.setEnabled(true);
+			mRechargeBtn.setBackgroundResource(R.drawable.button_change_bg_border);
+		}else {
+			mRechargeBtn.setEnabled(false);
+			mRechargeBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
+		}
+	}
 	// pay Menthod
 	private PopupWindow mPayMathodWindow;
 	private View PayView;
@@ -206,16 +209,12 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 		params.put("amount", mInputRecharge.getText().toString().trim());
 		params.put("bank_id", bankId);
 
-		Log.i("WKKKKK", "连连支付的权限：" + Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
-				.getUserLogin().getToken()));
-
 		HttpUtil.get(InterfaceInfo.BASE_URL + "/llpay", params, new JsonHttpResponseHandler() {
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
 				if (response != null) {
 					try {
-
 						if (response.getInt("code") == 0) {
 							Log.i("WK", "连连支付" + response);
 							LlOrderInfo mInfo  = new GsonBuilder().create().fromJson(response.toString(),
@@ -339,6 +338,7 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 
 		order.setBusi_partner(mInfo.getBusi_partner());
 		order.setNo_order(mInfo.getNo_order());
+		Log.i("WK","连连支付的订单号："+mInfo.getNo_order());
 		order.setDt_order(mInfo.getDt_order());
 		order.setName_goods(mInfo.getName_goods());
 		order.setNotify_url(mInfo.getNotify_url());

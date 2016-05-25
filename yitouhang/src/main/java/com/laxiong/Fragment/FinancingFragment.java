@@ -305,7 +305,9 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 								editor.commit();
 
 								getActivity().startActivity(new Intent(getActivity(),
-										TimeXiTongActivity.class).putExtra("id", sxt.getId()));
+										TimeXiTongActivity.class).
+										putExtra("id", sxt.getId()).
+										putExtra("isVip",false));
 							}
 						});
 
@@ -394,7 +396,8 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 										GuXiBaoActivity.class).
 										putExtra("id", gxb.getId()).
 										putExtra("ttnum", listNum).
-										putExtra("limitday", limit));
+										putExtra("limitday", limit).
+										putExtra("isVip",false));
 							}
 						});
 				}
@@ -538,21 +541,6 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 		}
 		return null ;
 	}
-
-//	// 显示正在加载的提示框
-//	private PopupWindow mShowDialog ;
-//	private View loadView ;
-//	public void showLoadingDialog(){
-//		loadView = LayoutInflater.from(getActivity()).inflate(R.layout.show_loading_popwindow,null);
-//		mShowDialog = new PopupWindow(loadView, ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT,true);
-//		mShowDialog.setTouchable(true);
-//		mShowDialog.setOutsideTouchable(true);
-//		// 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
-//		// 我觉得这里是API的一个bug
-//		mShowDialog.setBackgroundDrawable(getResources().getDrawable(R.drawable.kefu_bg)); //设置半透明
-//		mShowDialog.showAtLocation(loadView, Gravity.BOTTOM, 0, 0);
-//	}
-
 	// 用于隐藏天数
 	private boolean hideTextDay(double day){
 		if (day==0.0){

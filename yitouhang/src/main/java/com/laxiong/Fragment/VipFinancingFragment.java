@@ -2,7 +2,9 @@ package com.laxiong.Fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,6 +29,7 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.View.CircleProgressBar;
 import com.laxiong.View.FinancingListView;
 import com.laxiong.View.PrecentCricleBar;
+import com.laxiong.View.WaitPgView;
 import com.laxiong.entity.FinanceInfo;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -51,7 +54,8 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 	private FinancingListView mListView ;
 	private  List<FinanceInfo>  mList = new ArrayList<FinanceInfo>() ;// 全是固息宝的
 	private int listNum ;  // 刷新加载更多所有的个数
-	
+	private WaitPgView wp;
+
 	private Handler handler = new Handler() {
 	      @Override
 	      public void handleMessage(Message msg) {
@@ -66,7 +70,10 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 	           }
 	       }
 	  };
-	
+	public void showLoadView(boolean flag) {
+		wp = (WaitPgView)mVipView.findViewById(R.id.wp_load);
+		wp.setVisibility(flag ? View.VISIBLE : View.GONE);
+	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -81,6 +88,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		mConcel_img.setOnClickListener(this);
 
 		mListView = (FinancingListView)mVipView.findViewById(R.id.Listview);
+		showLoadView(true);
 		getVipProductInfo();
 		mListView.setOnRefreshListener(mRefresh);
 	}
@@ -288,8 +296,16 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						view.setOnClickListener(new View.OnClickListener() {
 							@Override
 							public void onClick(View view) {
+
+								SharedPreferences sfsxt = getActivity().getSharedPreferences("SXT_ID", Context.MODE_PRIVATE);
+								SharedPreferences.Editor editor = sfsxt.edit();
+								editor.putInt("sxt_id",sxt.getId());
+								editor.commit();
+
 								getActivity().startActivity(new Intent(getActivity(),
-										TimeXiTongActivity.class).putExtra("id", sxt.getId()));
+										TimeXiTongActivity.class).
+										putExtra("id", sxt.getId()).
+										putExtra("isVip", true));
 							}
 						});
 
@@ -351,7 +367,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						}
 					}
 					//日期
-					double limit = gxb.getLimit();
+					final double limit = gxb.getLimit();
 					if(mViewHonder.mLimitDay!=null){
 						String limit_day = String.valueOf(limit);
 						String[] day = limit_day.split("[.]");
@@ -375,7 +391,11 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 							public void onClick(View view) {
 								Log.i("GXB", "股息宝的Id参数" + (i - 3) + " ==========：" + gxb.getId());
 								getActivity().startActivity(new Intent(getActivity(),
-										GuXiBaoActivity.class).putExtra("id", gxb.getId()).putExtra("ttnum", listNum));
+										GuXiBaoActivity.class).
+										putExtra("id", gxb.getId()).
+										putExtra("ttnum", listNum).
+										putExtra("limitday", limit).
+										putExtra("isVip", true));
 							}
 						});
 				}
@@ -439,7 +459,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
-
+				showLoadView(false);
 				if (response!=null){
 					try {
 						if (response.getInt("code")==0){
@@ -479,6 +499,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
 				super.onFailure(statusCode, headers, throwable, errorResponse);
+				showLoadView(false);
 				Toast.makeText(getActivity(),"网络访问失败",Toast.LENGTH_SHORT).show();
 			}
 		},null);
