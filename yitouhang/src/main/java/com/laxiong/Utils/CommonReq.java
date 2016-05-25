@@ -24,29 +24,6 @@ import org.json.JSONObject;
  * Types CommonReq.java
  */
 public class CommonReq {
-    public static void reqLoadImageView(String url, final ImageView iv) {
-        HttpUtil.get(url, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if (responseBody != null) {
-                    if (responseBody == null) {
-                        setImageFailure(R.drawable.ic_launcher, iv);
-                    } else {
-                        Bitmap bm = BitmapFactory.decodeByteArray(responseBody, 0, responseBody.length);
-                        if (bm == null)
-                            setImageFailure(R.drawable.ic_launcher, iv);
-                        else
-                            setImageSuccess(bm, iv);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                setImageFailure(R.drawable.gongshi_mr, iv);
-            }
-        });
-    }
     public static void recordLogin(Context context){
         String autori= CommonReq.getAuthori(context);
         HttpUtil.post(InterfaceInfo.RECORDLOGIN_URL,null,new JsonHttpResponseHandler(){
@@ -61,14 +38,6 @@ public class CommonReq {
             }
         },autori);
     }
-    public static void setImageFailure(int id, ImageView iv) {
-        iv.setImageResource(id);
-    }
-
-    public static void setImageSuccess(Bitmap bm, ImageView iv) {
-        iv.setImageBitmap(bm);
-    }
-
     public static void reqUserMsg(Context context) {
         UserLogin userlogin = YiTouApplication.getInstance().getUserLogin();
         if (userlogin == null || StringUtils.isBlank(userlogin.getToken_id() + "") || StringUtils.isBlank(userlogin.getToken())) {
