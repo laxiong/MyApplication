@@ -65,9 +65,6 @@ public class Login_Presenter implements OnLoadBcObjListener<User>{
             return;
         }
         int tokenid = userlogin.getToken_id();
-        String autho=CommonReq.getAuthori(context);
-        if(TextUtils.isEmpty(autho))
-            return;
         mbc.setListenerObj(this);
         mbc.aureqByGetObj(InterfaceInfo.GETCOUNT_URL + tokenid,context,null,"",User.class);
     }
