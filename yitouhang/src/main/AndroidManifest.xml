@@ -80,17 +80,22 @@
         <!-- =================================LLYT SDK END ====================================== -->
 
 
-        <activity android:name="com.laxiong.Activity.BaseActivity" />
+        <activity android:name="com.laxiong.Activity.BaseActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 日历账单 -->
-        <activity android:name="com.laxiong.Activity.CalanderCountActivity" />
-        <activity android:name="com.laxiong.Activity.CalanderHorizontalActivity"/>
+        <activity android:name="com.laxiong.Activity.CalanderCountActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.CalanderHorizontalActivity"
+            android:launchMode="singleTask"/>
 
         <!-- VIP -->
-        <activity android:name="com.laxiong.Activity.ShowVIPActivity" />
+        <activity android:name="com.laxiong.Activity.ShowVIPActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 账户设置 -->
-        <activity android:name="com.laxiong.Activity.CountSettingActivity" />
+        <activity android:name="com.laxiong.Activity.CountSettingActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 个人设置 -->
         <activity
@@ -98,95 +103,135 @@
             android:launchMode="singleTask" />
 
         <!-- 密码管理 -->
-        <activity android:name="com.laxiong.Activity.PswdConturalActivity" />
-        <activity android:name="com.laxiong.Activity.NameSettingActivity" />
-        <activity android:name="com.laxiong.Activity.AddressSettingActivity" />
+        <activity android:name="com.laxiong.Activity.PswdConturalActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.NameSettingActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.AddressSettingActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 实名认证 -->
-        <activity android:name="com.laxiong.Activity.TrueNameActivity1" />
-        <activity android:name="com.laxiong.Activity.TrueNameActivity2" />
-        <activity android:name="com.laxiong.Activity.TrueNameActivity3" />
+        <activity android:name="com.laxiong.Activity.TrueNameActivity1"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.TrueNameActivity2"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.TrueNameActivity3"
+            android:launchMode="singleTask"/>
 
         <!-- 修改手机号 -->
-        <activity android:name="com.laxiong.Activity.ChangeBindPhoneActivity1" />
-        <activity android:name="com.laxiong.Activity.ChangeBindPhoneActivity2" />
-        <activity android:name="com.laxiong.Activity.ChangeLoginPswdActivity" />
+        <activity android:name="com.laxiong.Activity.ChangeBindPhoneActivity1"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.ChangeBindPhoneActivity2"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.ChangeLoginPswdActivity"
+            android:launchMode="singleTask"/>
 
         <!--我的银行卡-->
-        <activity android:name="com.laxiong.Activity.MyBandBankCardActivity"/>
+        <activity android:name="com.laxiong.Activity.MyBandBankCardActivity"
+            android:launchMode="singleTask"/>
 
-        <activity android:name="com.laxiong.Activity.RecordDetailActivity"/>
+        <activity android:name="com.laxiong.Activity.RecordDetailActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 修改支付密码 -->
         <!-- 重置支付密码 -->
         <!-- 注册 -->
-        <activity android:name="com.laxiong.Activity.RegistActivity" />
+        <activity android:name="com.laxiong.Activity.RegistActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 登录 -->
-        <activity android:name="com.laxiong.Activity.LoginActivity" />
+        <activity android:name="com.laxiong.Activity.LoginActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 找回密码 -->
-        <activity android:name="com.laxiong.Activity.FoundPswdActivity" />
+        <activity android:name="com.laxiong.Activity.FoundPswdActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 切换账号 -->
-        <activity android:name="com.laxiong.Activity.ChangeCountActivity" />
+        <activity android:name="com.laxiong.Activity.ChangeCountActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 时息通 -->
-        <activity android:name="com.laxiong.Activity.TimeXiTongActivity" />
-        <activity android:name="com.laxiong.Activity.MessageActivity" />
+        <activity android:name="com.laxiong.Activity.TimeXiTongActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.MessageActivity"
+            android:launchMode="singleTask"/>
+
 
         <!-- 固息宝 -->
-        <activity android:name="com.laxiong.Activity.GuXiBaoActivity" />
+        <activity android:name="com.laxiong.Activity.GuXiBaoActivity"
+            android:launchMode="singleTask"/>
 
-        <activity android:name="com.laxiong.Activity.FeedBackActivity"></activity>
+        <activity android:name="com.laxiong.Activity.FeedBackActivity"
+            android:launchMode="singleTask"></activity>
 
         <!-- 资产 -->
-        <activity android:name="com.laxiong.Activity.AssetActivity" />
+        <activity android:name="com.laxiong.Activity.AssetActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 可用余额  累计收益 -->
-        <activity android:name="com.laxiong.Activity.AvailableBalanceActivity" />
-        <activity android:name="com.laxiong.Activity.EarningsSayActivity" />
-        <activity android:name="com.laxiong.Activity.WithdrawCashDetailsActivity" />
+        <activity android:name="com.laxiong.Activity.AvailableBalanceActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.EarningsSayActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.WithdrawCashDetailsActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 提现 -->
-        <activity android:name="com.laxiong.Activity.WithdrawCashActivity" />
-        <activity android:name="com.laxiong.Activity.WithdrawCashNoticeActivity" />
+        <activity android:name="com.laxiong.Activity.WithdrawCashActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.WithdrawCashNoticeActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 主页面 -->
         <activity android:name="com.laxiong.Activity.MainActivity"
             android:launchMode="singleTask"/>
 
         <!-- 修改手势 -->
-        <activity android:name="com.laxiong.Activity.ModifyGestureActivity" />
+        <activity android:name="com.laxiong.Activity.ModifyGestureActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 转入 -->
-        <activity android:name="com.laxiong.Activity.TransferInActivity" />
+        <activity android:name="com.laxiong.Activity.TransferInActivity"
+            android:launchMode="singleTask"/>
         <!-- 转入结果 -->
-        <activity android:name="com.laxiong.Activity.TransferInResultActivity" />
+        <activity android:name="com.laxiong.Activity.TransferInResultActivity"
+            android:launchMode="singleTask"/>
         <!-- 转出 -->
-        <activity android:name="com.laxiong.Activity.TransferOutActivity" />
+        <activity android:name="com.laxiong.Activity.TransferOutActivity"
+            android:launchMode="singleTask"/>
 
         <!-- H5页面 -->
-        <activity android:name="com.laxiong.Activity.WebViewActivity" />
-        <activity android:name="com.laxiong.Activity.BuyingActivity" />
-        <activity android:name="com.laxiong.Activity.BuyingResultActivity" />
+        <activity android:name="com.laxiong.Activity.WebViewActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.BuyingActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.BuyingResultActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 充值 -->
-        <activity android:name="com.laxiong.Activity.RechargeActivity" />
+        <activity android:name="com.laxiong.Activity.RechargeActivity"
+            android:launchMode="singleTask"/>
         <!-- 福利中心 -->
-        <activity android:name="com.laxiong.Activity.WelCenterActivity" />
+        <activity android:name="com.laxiong.Activity.WelCenterActivity"
+            android:launchMode="singleTask"/>
         <!-- 红包解释 -->
-        <activity android:name="com.laxiong.Activity.RpExplainActivity" />
+        <activity android:name="com.laxiong.Activity.RpExplainActivity"
+            android:launchMode="singleTask"/>
         <!-- 兑换壹币 -->
-        <activity android:name="com.laxiong.Activity.ExChangeActivity" />
+        <activity android:name="com.laxiong.Activity.ExChangeActivity"
+            android:launchMode="singleTask"/>
         <!-- 我的壹币 -->
-        <activity android:name="com.laxiong.Activity.MyYiBiActivity" />
+        <activity android:name="com.laxiong.Activity.MyYiBiActivity"
+            android:launchMode="singleTask"/>
         <!-- 壹币商城 -->
-        <activity android:name="com.laxiong.Activity.TMallActivity"/>
+        <activity android:name="com.laxiong.Activity.TMallActivity"
+            android:launchMode="singleTask"/>
 
         <!--版本管理-->
         <activity
             android:name="com.laxiong.Activity.VersionManageActivity"
+            android:launchMode="singleTask"
             ></activity>
 
         <!-- 修改支付密码
@@ -195,14 +240,20 @@
         -->
 
         <!-- 充值结果 -->
-        <activity android:name="com.laxiong.Activity.RechargeResultActivity" />
+        <activity android:name="com.laxiong.Activity.RechargeResultActivity"
+            android:launchMode="singleTask"/>
 
         <!-- 投资明细 -->
-        <activity android:name="com.laxiong.Activity.InvestmentRecordActivity" />
-        <activity android:name="com.laxiong.Activity.ResetPayPwdActivity" />
-        <activity android:name="com.laxiong.Activity.ChangePayPwdActivity" />
-        <activity android:name="com.laxiong.Activity.BankListActivity" />
-        <activity android:name="com.laxiong.Activity.MyOrderActivity" />
+        <activity android:name="com.laxiong.Activity.InvestmentRecordActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.ResetPayPwdActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.ChangePayPwdActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.BankListActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.MyOrderActivity"
+            android:launchMode="singleTask"/>
 
         <!--*****************************************************UMENG_APPKEY*******************************************************-->
         <meta-data
@@ -210,8 +261,10 @@
             android:value="55cbf02e67e58e5b890019af"/>
         <!--*****************************************************UMENG_APPKEY*******************************************************-->
 
-        <activity android:name="com.laxiong.Activity.YibiDetailActivity" />
-        <activity android:name="com.laxiong.Activity.GuideActivity" />
+        <activity android:name="com.laxiong.Activity.YibiDetailActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.GuideActivity"
+            android:launchMode="singleTask"/>
 
 
         <!--启动页面-->
@@ -231,9 +284,12 @@
             </intent-filter>
 
         </activity>
-        <activity android:name="com.laxiong.Activity.AtHallActivity" />
-        <activity android:name="com.laxiong.Activity.Profit_Activity" />
-        <activity android:name="com.laxiong.Activity.RmDetailActivity"></activity>
+        <activity android:name="com.laxiong.Activity.AtHallActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.Profit_Activity"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.RmDetailActivity"
+            android:launchMode="singleTask"></activity>
 
         <!--以下是极光推送其他的配置 包括service receiver activity mata-data 等-->
         <!-- Required SDK核心功能-->

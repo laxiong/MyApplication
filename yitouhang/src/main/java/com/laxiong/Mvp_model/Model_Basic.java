@@ -19,6 +19,7 @@ import java.util.List;
 /**
  * Created by xiejin on 2016/4/28.
  * Types Model_Basic.java
+ * 这是model的基础类,可以通过继承它完成一些延伸
  */
 public class Model_Basic<T> {
     private OnLoadBasicListener<T> listener;
@@ -33,10 +34,27 @@ public class Model_Basic<T> {
     }
 
     //以下是无授权
+
+    /**
+     * 以req开头的是不需要授权的
+     * @param url 地址
+     * @param context
+     * @param params 参数
+     * @param tag  JSON数组的对象名称如果为null的话默认以整个response作为parse对象 解析list对象
+     * @param clazz 类的Class对象
+     */
     public void reqCommonBackByPost(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
         HttpUtil.post(url, params, new MyJSONHttp(tag, clazz), true);
 
     }
+
+    /**
+     * 以obj结尾的是解析出一个实体类对象 而不是一个list,其他同上
+     * @param url
+     * @param params
+     * @param tag
+     * @param clazz
+     */
     public void reqCommonGetObj(String url, RequestParams params, String tag, Class<T> clazz) {
         HttpUtil.get(url, params, new MyJSONHttp2(tag, clazz));
     }

@@ -19,10 +19,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Utils.DialogUtils;
+import com.laxiong.Utils.SpUtils;
+import com.laxiong.Utils.StringUtils;
+import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.PasswordInputView;
 import com.laxiong.View.PayPop;
 import com.gongshidai.mistGSD.R;
+import com.laxiong.entity.User;
+
 import java.util.jar.Attributes;
 
 public class PswdConturalActivity extends BaseActivity implements OnClickListener {
@@ -124,7 +130,34 @@ public class PswdConturalActivity extends BaseActivity implements OnClickListene
         mAuthentication.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(PswdConturalActivity.this, "去认证", 3).show();
+                User user = YiTouApplication.getInstance().getUser();
+                String phone = SpUtils.getStrValue(SpUtils.getSp(PswdConturalActivity.this), SpUtils.USER_KEY);
+                Intent intent = null;
+                if (user == null && !StringUtils.isBlank(phone)) {
+                    intent = new Intent(PswdConturalActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    PswdConturalActivity.this.finish();
+                    return;
+                } else if (user == null && StringUtils.isBlank(phone)) {
+                    intent = new Intent(PswdConturalActivity.this, ChangeCountActivity.class);
+                    startActivity(intent);
+                    PswdConturalActivity.this.finish();
+                    return;
+                }
+                if (!user.is_idc()) {
+                    startActivity(new Intent(PswdConturalActivity.this,
+                            TrueNameActivity1.class));
+                } else if (!user.isPay_pwd()) {
+                    startActivity(new Intent(PswdConturalActivity.this, TrueNameActivity2.class));
+                } else if (user.getBankcount() == 0) {
+                    startActivity(new Intent(PswdConturalActivity.this, TrueNameActivity3.class));
+                } else {
+                    ToastUtil.customAlert(PswdConturalActivity.this, "已认证!");
+                }
+                if (mSuccessModifyWinds != null && mSuccessModifyWinds.isShowing()) {
+                    mSuccessModifyWinds.dismiss();
+                    mSuccessModifyWinds = null;
+                }
             }
         });
 
