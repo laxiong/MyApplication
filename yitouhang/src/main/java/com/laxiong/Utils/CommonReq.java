@@ -22,8 +22,13 @@ import org.json.JSONObject;
 /**
  * Created by xiejin on 2016/4/20.
  * Types CommonReq.java
+ * 请求的工具类
  */
 public class CommonReq {
+    /**
+     *  用来记录登录
+     * @param context
+     */
     public static void recordLogin(Context context){
         String autori= CommonReq.getAuthori(context);
         HttpUtil.post(InterfaceInfo.RECORDLOGIN_URL,null,new JsonHttpResponseHandler(){
@@ -38,6 +43,11 @@ public class CommonReq {
             }
         },autori);
     }
+
+    /**
+     * 用来获取User信息的请求
+     * @param context
+     */
     public static void reqUserMsg(Context context) {
         UserLogin userlogin = YiTouApplication.getInstance().getUserLogin();
         if (userlogin == null || StringUtils.isBlank(userlogin.getToken_id() + "") || StringUtils.isBlank(userlogin.getToken())) {
@@ -68,6 +78,12 @@ public class CommonReq {
             }
         }, autori);
     }
+
+    /**
+     * 获取授权
+     * @param context
+     * @return
+     */
     public static String getAuthori(Context context){
         UserLogin user = YiTouApplication.getInstance().getUserLogin();
         if (user == null) {
