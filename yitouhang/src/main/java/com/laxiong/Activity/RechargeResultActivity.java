@@ -13,11 +13,17 @@ public class RechargeResultActivity extends BaseActivity {
     /***
      * 充值结果页面
      */
+    private TextView mRechargeMoney,mRechargeCardNum ;
+    private String money , bankNum ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recharge_result);
         initView();
+
+        money = getIntent().getStringExtra("money");
+        bankNum = getIntent().getStringExtra("bankNum");
 
     }
 
@@ -31,6 +37,12 @@ public class RechargeResultActivity extends BaseActivity {
                 RechargeResultActivity.this.finish();
             }
         });
+
+        mRechargeMoney = (TextView)findViewById(R.id.recharge_money);
+        mRechargeCardNum = (TextView)findViewById(R.id.recharge_cardnum);
+
+        mRechargeMoney.setText(money);
+        mRechargeCardNum.setText(bankNum);
 
     }
 }

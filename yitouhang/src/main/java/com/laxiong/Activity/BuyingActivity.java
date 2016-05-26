@@ -157,21 +157,31 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		}
 	}
 	private int total=0;
+	private String redBaoId = "";
+	private int decAmount ; // 最终提交的钱
 	//处理红包选择回调
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
+		String redbao = "";
 		if(data!=null&&resultCode==RESULT_OK){
 			listpaper=data.getParcelableArrayListExtra("data");
 			if(listpaper!=null&&listpaper.size()>0){
-				int total=0;
 				for(RedPaper paper:listpaper){
 					total+=paper.getAmount();
+					redbao=paper.getId()+","+redbao;
 				}
-				tv_paper.setText(total+"");
+				redBaoId = redbao.substring(0,redbao.length()-1);
+
+				tv_paper.setText(total + "	元");
+				decAmount = Integer.valueOf(mBuyAmount.getText().toString().trim())-total;
+				mTrueAmount.setText("" + decAmount);
 			}
 		}
 	}
+
+
+
 	// 阅读协议
 	private boolean isRead = true ;
 	private void readProcotol(){
@@ -198,8 +208,6 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 	private String mYuMoneyStr = "";
 	private void selectPayMethod(){
 		if (mShowBankName!=null){
-			Log.i("WKK","selectPay:"+ selectPay);
-			Log.i("WKK","mYuMoneyStr:"+ mYuMoneyStr);
 			if (selectPay.equals(mYuMoneyStr)){  // 余额的
 				if (isEnough()) {
 					Toast.makeText(BuyingActivity.this, "余额不足", Toast.LENGTH_LONG).show();
@@ -207,7 +215,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 					inputOverToPswd();
 				}
 			}else {
-				payBuyLLProduct();
+				inputOverToPswd();
 			}
 		}
 	}
@@ -313,7 +321,11 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 					break;
 
 				case R.id.sure_btn:	// 支付确定按钮
-					payBuyProduct();
+					if (selectPay.equals(mYuMoneyStr)) {  // 余额的
+						payBuyProduct();
+					}else {
+						payBuyLLProduct();
+					}
 
 					break;
 
@@ -353,8 +365,9 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		mNoticeTopayMoney =(TextView)mInputView.findViewById(R.id.topaymoney);
 		mTranInMoney =(TextView)mInputView.findViewById(R.id.zhuang_money);
 
-		mNoticeTopayMoney.setText("从"+selectPay+"-转入-"+mProjectStr);
-		mTranInMoney.setText(mBuyAmount.getText().toString().trim() + "元");
+		mNoticeTopayMoney.setText("从" + selectPay + "-转入-" + mProjectStr);
+//		int payMoney = Integer.valueOf(mBuyAmount.getText().toString().trim());
+		mTranInMoney.setText(decAmount+ "元");
 
 
 		comcelImags.setOnClickListener(listenner);
@@ -385,6 +398,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
+
 				if (response != null) {
 					try {
 						if (response.getInt("code") == 0) {
@@ -395,6 +409,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 							logokey = response.getString("logoKey");
 							bankLastNum = response.getInt("snumber");
 							bankId = response.getInt("id");
+							banknumber = response.getInt("number");
 						} else {
 							Toast.makeText(BuyingActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 						}
@@ -414,23 +429,25 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 	//购买产品  余额购买
 	private void payBuyProduct(){
 		RequestParams params = new RequestParams();
-		final String money = mBuyAmount.getText().toString().trim();
+
+		int money = Integer.valueOf(mBuyAmount.getText().toString().trim());
 		params.put("amount",money);
 		params.put("product", productId);
 		params.put("pay_pwd",mInputPswdEd.getText().toString().trim());
 		// 抵扣的红包
 		params.put("pamount",total);
-
-		HttpUtil.post(InterfaceInfo.BASE_URL+"/appBuy",params,new JsonHttpResponseHandler(){
+		params.put("pids",redBaoId);
+//		Log.i("WK", "余额购买的红包数据：" + "pamount红包的金额= "+total+" ; "+"pids红包的id= "+redBaoId);
+		HttpUtil.post(InterfaceInfo.BASE_URL + "/appBuy", params, new JsonHttpResponseHandler() {
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
-				if (response!=null){
+				if (response != null) {
 					try {
 						if (response.getInt("code") == 0) {
 							startActivity(new Intent(BuyingActivity.this,
 									BuyingResultActivity.class).
-									putExtra("Money",money).
+									putExtra("Money",String.valueOf(decAmount)).
 									putExtra("ProductName", mProjectStr));
 							disMisInputPay();
 						}else {
@@ -440,16 +457,18 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 								mInputPswdEd.setHint(response.getString("msg"));
 							}
 						}
-					}catch (Exception E){
+
+					} catch (Exception E) {
 					}
 				}
 			}
+
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
 				super.onFailure(statusCode, headers, throwable, errorResponse);
-				Toast.makeText(BuyingActivity.this,"获取数据失败",Toast.LENGTH_SHORT).show();
+				Toast.makeText(BuyingActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
 			}
-		},Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
+		}, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
 				YiTouApplication.getInstance().getUserLogin().getToken()));
 	}
 
@@ -463,6 +482,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		@Override
 		public void afterTextChanged(Editable s) {
 			String amountMoney = mBuyAmount.getText().toString().trim();
+			decAmount = Integer.valueOf(amountMoney)-total;
 			valify();
 			//最多可输入可购买的份额以内的数值
 			if (!amountMoney.equals("")&&amountMoney.length()!=0){
@@ -476,26 +496,19 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 
 	//设置计算后的数据	mTrueAmount ,mProfitAmout  实际支付  预期收益
 	private void setMathData(int amount){
-		if(listpaper!=null&&listpaper.size()>0) {
-			int total2 = 0;
-			for (RedPaper paper : listpaper) {
-				total2 += paper.getAmount();
-			}
-			amount=amount-total2 ;
-			mTrueAmount.setText(""+amount);
-		}else {
-			mTrueAmount.setText(""+amount);
-		}
-
 		if (mBuyPrecent!=-1&&limitDay!=-1){
 			NumberFormat mFormat = NumberFormat.getNumberInstance();
 			mFormat.setMaximumFractionDigits(3);
 			double profit_money = backComfix(amount, limitDay, mBuyPrecent);
 			String result = mFormat.format(profit_money);
-			mProfitAmout.setText(""+result);
+			mProfitAmout.setText("" + result);
 		}else {
 			mProfitAmout.setText("0.0");
 		}
+
+		amount = amount-total ;
+		mTrueAmount.setText(""+amount);
+
 	}
 	/**
 	 * money:本金
@@ -508,21 +521,32 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 	}
 
 	private int bankId ;
-	//转入的连连支付
+	private int banknumber ;
+	//购买的卡支付
 	private void payBuyLLProduct(){
 
 		RequestParams params = new RequestParams();
-		params.put("amount", mBuyAmount.getText().toString().trim());
-		params.put("bank_id", bankId);
 
-		HttpUtil.get(InterfaceInfo.BASE_URL + "/llpay", params, new JsonHttpResponseHandler() {
+		int money = Integer.valueOf(mBuyAmount.getText().toString().trim());
+		params.put("amount", money);
+		params.put("bank_id", bankId);
+		params.put("product", productId);
+		params.put("pay_pwd", mInputPswdEd.getText().toString().trim());
+		params.put("number",banknumber);
+		params.put("recharge",decAmount);
+		// 抵扣的红包
+		params.put("pamount",total);
+		params.put("pids",redBaoId);
+
+		HttpUtil.post(InterfaceInfo.BASE_URL + "/appBuy", params, new JsonHttpResponseHandler() {
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
 				if (response != null) {
 					try {
 						if (response.getInt("code") == 0) {
-							LlOrderInfo mInfo  = new GsonBuilder().create().fromJson(response.toString(),
+
+							LlOrderInfo mInfo = new GsonBuilder().create().fromJson(response.toString(),
 									LlOrderInfo.class);
 							PayOrder mPayOrder = constructPreCardPayOrder(mInfo);
 							String content4Pay = BaseHelper.toJSONString(mPayOrder);
@@ -531,8 +555,8 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 							MobileSecurePayer msp = new MobileSecurePayer();
 							boolean bRet = msp.pay(content4Pay, mHandler, Constants.RQF_PAY,
 									BuyingActivity.this, false);
-
-							Toast.makeText(BuyingActivity.this, "成功", Toast.LENGTH_SHORT).show();
+							if (bRet)
+								disMisInputPay();
 
 						} else {
 							if (!TextUtils.isEmpty(response.getString("msg"))) {
@@ -541,18 +565,22 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 								Toast.makeText(BuyingActivity.this, "获取订单信息失败", Toast.LENGTH_SHORT).show();
 							}
 						}
+
 					} catch (Exception E) {
 					}
 				}
 			}
+
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
 				super.onFailure(statusCode, headers, throwable, errorResponse);
+				Toast.makeText(BuyingActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
 			}
-		}, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
-				.getUserLogin().getToken()));
+		}, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
+				YiTouApplication.getInstance().getUserLogin().getToken()));
 
 	}
+
 	private void valify(){
 		if (!TextUtils.isEmpty(mBuyAmount.getText().toString())&&!isRead){
 			setMathData(Integer.valueOf(mBuyAmount.getText().toString().trim()));
@@ -563,8 +591,10 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 			mBuyBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
 		}
 	}
-	// 获取订单类
+
+	//构造订单类
 	private PayOrder constructPreCardPayOrder(LlOrderInfo mInfo) {
+
 		PayOrder order = new PayOrder();
 		PaySignParam signParam = new PaySignParam();
 		signParam.setBusi_partner(mInfo.getBusi_partner());
@@ -635,32 +665,27 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 						JSONObject objContent = BaseHelper.string2JSON(strRet);
 						String retCode = objContent.optString("ret_code");
 						String retMsg = objContent.optString("ret_msg");
-
 						// 成功
 						if (Constants.RET_CODE_SUCCESS.equals(retCode)) {
 							// TODO 卡前置模式返回的银行卡绑定协议号，用来下次支付时使用，此处仅作为示例使用。正式接入时去掉
-							// if (pay_type_flag == 1) {
-							// TextView tv_agree_no = (TextView)
-							// findViewById(R.id.tv_agree_no);
-							// tv_agree_no.setVisibility(View.VISIBLE);
-							// tv_agree_no.setText(objContent.optString(
-							// "agreementno", ""));
-							// }
-							BaseHelper.showDialog(BuyingActivity.this, "提示", "支付成功",
-									android.R.drawable.ic_dialog_alert);
+//							BaseHelper.showDialog(BuyingActivity.this, "提示", "支付成功",
+//									android.R.drawable.ic_dialog_alert);
+
+							startActivity(new Intent(BuyingActivity.this,
+									BuyingResultActivity.class).
+									putExtra("Money", String.valueOf(decAmount)).
+									putExtra("ProductName", mProjectStr));  // 跳转到购买结果的页面
 
 //							NofifyUserinfoChanged nofifyUserinfoChanged = new NofifyUserinfoChanged() {
-//
 //								@Override
 //								public void onNotifyUserinfoChange() {
-//									CommonUtil.setmNofifyUserinfoChanged(null);
-//									startActivity(new Intent(RechargeActivity.this, HomeActivity.class)
-//											.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra("page", 2));  // 跳转财富
-//									RechargeActivity.this.finish();
+//									CommonUtils.setmNofifyUserinfoChanged(null);
+//
 //								}
 //							};
-//							CommonUtil.setmNofifyUserinfoChanged(nofifyUserinfoChanged);
-//							CommonUtil.getUserInfo(LicaiApplication.getId(), LicaiApplication.getToken(RechargeActivity.this), RechargeActivity.this, false);
+//							CommonUtils.setmNofifyUserinfoChanged(nofifyUserinfoChanged);
+//							CommonUtils.getUserInfo(YiTouApplication.getInstance().getUserLogin().getToken_id(),
+//									YiTouApplication.getInstance().getUserLogin().getToken(),BuyingActivity.this);
 
 						} else if (Constants.RET_CODE_PROCESS.equals(retCode)) {
 							// 处理中，掉单的情形
@@ -670,6 +695,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 										objContent.optString("ret_msg"),
 										android.R.drawable.ic_dialog_alert);
 							}
+
 						} else {
 							// 失败
 							BaseHelper.showDialog(BuyingActivity.this, "提示", retMsg,
@@ -682,7 +708,5 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 			}
 		};
 	}
-
-
 
 }

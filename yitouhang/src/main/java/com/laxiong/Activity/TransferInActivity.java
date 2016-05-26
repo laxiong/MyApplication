@@ -11,6 +11,7 @@ import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -172,7 +173,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 					inputOverToPswd();
 				}
 			}else {
-				payBuyLLProduct();
+				inputOverToPswd();
 			}
 		}
 	}
@@ -279,7 +280,12 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 					break;
 
 				case R.id.sure_btn:	// 输入的Text确定
-					payBuyProduct();
+
+					if (selectPay.equals(mYuMoneyStr)) {  // 余额的
+						payBuyProduct();
+					}else {					// 银行卡的
+						payBuyLLProduct();
+					}
 
 					break;
 
@@ -362,6 +368,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 							logokey = response.getString("logoKey");
 							bankLastNum = response.getInt("snumber");
 							bankId = response.getInt("id");
+							banknumber = response.getInt("number");
 						} else {
 							Toast.makeText(TransferInActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 						}
@@ -392,6 +399,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 				if (response != null) {
 					try {
 						if (response.getInt("code") == 0) {
+							Log.i("WK", "余额支付" + response);
 							startActivity(new Intent(TransferInActivity.this,
 									TransferInResultActivity.class).
 									putExtra("money", mBuyAmount.getText().toString().trim()));
@@ -403,6 +411,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 					}
 				}
 			}
+
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
 				super.onFailure(statusCode, headers, throwable, errorResponse);
@@ -445,32 +454,39 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 			mTransferinBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
 		}
 	}
+
+
 	private int bankId ;
-	//转入的连连支付
+	private int banknumber ;
+	//转入的卡支付
 	private void payBuyLLProduct(){
 
 		RequestParams params = new RequestParams();
 		params.put("amount", mBuyAmount.getText().toString().trim());
 		params.put("bank_id", bankId);
+		params.put("product", productId);
+		params.put("pay_pwd", mInputPswdEd.getText().toString().trim());
+		params.put("number",banknumber);
+		params.put("recharge",Integer.valueOf(mBuyAmount.getText().toString().trim()));
 
-		HttpUtil.get(InterfaceInfo.BASE_URL + "/llpay", params, new JsonHttpResponseHandler() {
+		HttpUtil.post(InterfaceInfo.BASE_URL + "/appBuy", params, new JsonHttpResponseHandler() {
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
 				if (response != null) {
 					try {
 						if (response.getInt("code") == 0) {
-							LlOrderInfo mInfo  = new GsonBuilder().create().fromJson(response.toString(),
+							LlOrderInfo mInfo = new GsonBuilder().create().fromJson(response.toString(),
 									LlOrderInfo.class);
-							PayOrder mPayOrder = constructPreCardPayOrder(mInfo);
-							String content4Pay = BaseHelper.toJSONString(mPayOrder);
-							// 关键 content4Pay
-							// 用于提交到支付SDK的订单支付串，如遇到签名错误的情况，请将该信息帖给我们的技术支持
-							MobileSecurePayer msp = new MobileSecurePayer();
-							boolean bRet = msp.pay(content4Pay, mHandler, Constants.RQF_PAY,
-									TransferInActivity.this, false);
-
-							Toast.makeText(TransferInActivity.this, "成功", Toast.LENGTH_SHORT).show();
+								PayOrder mPayOrder = constructPreCardPayOrder(mInfo);
+								String content4Pay = BaseHelper.toJSONString(mPayOrder);
+								// 关键 content4Pay
+								// 用于提交到支付SDK的订单支付串，如遇到签名错误的情况，请将该信息帖给我们的技术支持
+								MobileSecurePayer msp = new MobileSecurePayer();
+								boolean bRet = msp.pay(content4Pay, mHandler, Constants.RQF_PAY,
+										TransferInActivity.this, false);
+								if (bRet)
+									disMisInputPay();
 
 						} else {
 							if (!TextUtils.isEmpty(response.getString("msg"))) {
@@ -479,6 +495,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 								Toast.makeText(TransferInActivity.this, "获取订单信息失败", Toast.LENGTH_SHORT).show();
 							}
 						}
+
 					} catch (Exception E) {
 					}
 				}
@@ -486,13 +503,16 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
 				super.onFailure(statusCode, headers, throwable, errorResponse);
+				Toast.makeText(TransferInActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
 			}
-		}, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
-				.getUserLogin().getToken()));
+		}, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
+				YiTouApplication.getInstance().getUserLogin().getToken()));
 
 	}
-	// 获取订单类
+
+	//构造订单类
 	private PayOrder constructPreCardPayOrder(LlOrderInfo mInfo) {
+
 		PayOrder order = new PayOrder();
 		PaySignParam signParam = new PaySignParam();
 		signParam.setBusi_partner(mInfo.getBusi_partner());
@@ -562,32 +582,30 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 						JSONObject objContent = BaseHelper.string2JSON(strRet);
 						String retCode = objContent.optString("ret_code");
 						String retMsg = objContent.optString("ret_msg");
-
 						// 成功
 						if (Constants.RET_CODE_SUCCESS.equals(retCode)) {
 							// TODO 卡前置模式返回的银行卡绑定协议号，用来下次支付时使用，此处仅作为示例使用。正式接入时去掉
-							// if (pay_type_flag == 1) {
-							// TextView tv_agree_no = (TextView)
-							// findViewById(R.id.tv_agree_no);
-							// tv_agree_no.setVisibility(View.VISIBLE);
-							// tv_agree_no.setText(objContent.optString(
-							// "agreementno", ""));
-							// }
-							BaseHelper.showDialog(TransferInActivity.this, "提示", "支付成功",
-									android.R.drawable.ic_dialog_alert);
+//							BaseHelper.showDialog(TransferInActivity.this, "提示", "支付成功",
+//									android.R.drawable.ic_dialog_alert);
+
+							startActivity(new Intent(TransferInActivity.this,
+											TransferInResultActivity.class).
+											putExtra("Money", mBuyAmount.getText().toString().trim())
+							);  // 跳转到购买结果的页面
 
 //							NofifyUserinfoChanged nofifyUserinfoChanged = new NofifyUserinfoChanged() {
-//
 //								@Override
 //								public void onNotifyUserinfoChange() {
-//									CommonUtil.setmNofifyUserinfoChanged(null);
-//									startActivity(new Intent(RechargeActivity.this, HomeActivity.class)
-//											.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra("page", 2));  // 跳转财富
-//									RechargeActivity.this.finish();
+//									CommonUtils.setmNofifyUserinfoChanged(null);
+//									startActivity(new Intent(TransferInActivity.this,
+//											BuyingResultActivity.class).
+//											putExtra("Money", mBuyAmount.getText().toString().trim())
+//											);  // 跳转到购买结果的页面
 //								}
 //							};
-//							CommonUtil.setmNofifyUserinfoChanged(nofifyUserinfoChanged);
-//							CommonUtil.getUserInfo(LicaiApplication.getId(), LicaiApplication.getToken(RechargeActivity.this), RechargeActivity.this, false);
+//							CommonUtils.setmNofifyUserinfoChanged(nofifyUserinfoChanged);
+//							CommonUtils.getUserInfo(YiTouApplication.getInstance().getUserLogin().getToken_id(),
+//									YiTouApplication.getInstance().getUserLogin().getToken(),TransferInActivity.this);
 
 						} else if (Constants.RET_CODE_PROCESS.equals(retCode)) {
 							// 处理中，掉单的情形
@@ -597,6 +615,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 										objContent.optString("ret_msg"),
 										android.R.drawable.ic_dialog_alert);
 							}
+
 						} else {
 							// 失败
 							BaseHelper.showDialog(TransferInActivity.this, "提示", retMsg,

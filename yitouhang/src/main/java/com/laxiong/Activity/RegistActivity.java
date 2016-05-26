@@ -111,7 +111,6 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 				readProcotol();
 				break;
 			case R.id.getcode:   // 验证码
-
 				String mobile = mPhoneEd.getText().toString().replaceAll(" ", "");
 				if(Common.inputContentNotNull(mobile)){
 					if(Common.isMobileNO(mobile)){
@@ -193,12 +192,11 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 			public void onFailure(int statusCode, Header[] headers,
 								  String responseString, Throwable throwable) {
 				super.onFailure(statusCode, headers, responseString, throwable);
-
 				stopThread = true;
 				Toast.makeText(RegistActivity.this, "发送失败", Toast.LENGTH_SHORT).show();
 			}
 
-		}, true);
+		}, null);
 
 		// 倒计时
 		count = 59;

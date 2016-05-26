@@ -53,6 +53,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 	private int mId ;
 	private Double lu = 0.0; // 计算器的计算利率
 	private LinearLayout ll_wrap;
+	private  User mUser ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		initData();
 		getNetWork();
 		setAmountData();
+		mUser = YiTouApplication.getInstance().getUser();
 		boolean isVip = getIntent().getBooleanExtra("isVip",false);
 		if (isVip){
 			setVipColor();
@@ -178,7 +180,6 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		mline1 = findViewById(R.id.line_1);
 		mline2 = findViewById(R.id.line_2);
 
-
 	}
 
 	// 可购买金额
@@ -188,10 +189,18 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 	public void onClick(View v) {
 		switch(v.getId()){
 			case R.id.scroll_in:  // 转入
-				startActivity(new Intent(TimeXiTongActivity.this,
-						TransferInActivity.class).
-						putExtra("mAmountMoney", mAmountMoney).
-						putExtra("date", dates));
+				if (mUser!=null){
+					if (mUser.getBankcount() >=1){
+						startActivity(new Intent(TimeXiTongActivity.this,
+								TransferInActivity.class).
+								putExtra("mAmountMoney", mAmountMoney).
+								putExtra("date", dates));
+					}else {
+						Toast.makeText(TimeXiTongActivity.this,"请绑定银行卡",Toast.LENGTH_SHORT).show();
+					}
+				}else {
+					Toast.makeText(TimeXiTongActivity.this,"请完成登录",Toast.LENGTH_SHORT).show();
+				}
 
 				break;
 			case R.id.backlayout:
@@ -203,8 +212,17 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 				break;
 				
 			case R.id.scroll_out:  // 转出
-				startActivity(new Intent(TimeXiTongActivity.this,
-						TransferOutActivity.class));
+				if (mUser!=null){
+					if (mUser.getBankcount() >=1){
+						startActivity(new Intent(TimeXiTongActivity.this,
+								TransferOutActivity.class));
+					}else {
+						Toast.makeText(TimeXiTongActivity.this,"请绑定银行卡",Toast.LENGTH_SHORT).show();
+					}
+				}else {
+					Toast.makeText(TimeXiTongActivity.this,"请完成登录",Toast.LENGTH_SHORT).show();
+				}
+
 				break;
 			case R.id.safeprotect :
 				startActivity(new Intent(TimeXiTongActivity.this,WebViewActivity.class).

@@ -129,8 +129,9 @@
             android:textSize="14sp"
             android:paddingLeft="10dp"
             android:gravity="center_vertical"
-            android:text="招商银行(尾号9970)"/>
+            android:text="充值的银行卡"/>
 
+        <!--
         <ImageView
             android:layout_width="6dp"
             android:layout_height="12dp"
@@ -138,6 +139,7 @@
             android:layout_marginRight="20dp"
             android:layout_gravity="center_vertical"
             />
+        -->
     </LinearLayout>
     <View
         android:layout_width="match_parent"

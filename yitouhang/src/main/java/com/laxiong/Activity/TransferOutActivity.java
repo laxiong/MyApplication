@@ -2,7 +2,9 @@ package com.laxiong.Activity;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -35,6 +37,7 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 	private TextView mSureTransferOut ,mTransferOutMoney;
 	private EditText mBuyAmount;
 	private String mAmountMoney ;
+	private int productId ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -63,6 +66,14 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 			mAmountMoney = "0.0";
 		}
 		mTransferOutMoney.setText(mAmountMoney);
+
+		SharedPreferences sxtId = getSharedPreferences("SXT_ID", Context.MODE_PRIVATE);
+		if (sxtId!=null){
+			productId = sxtId.getInt("sxt_id", 0);
+		}else {
+			productId = 0 ;
+		}
+
 	}
 
 	@Override
@@ -144,6 +155,7 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 		RequestParams params = new RequestParams();
 		params.put("amount", mBuyAmount.getText().toString().trim());
 		params.put("pay_pwd", mInputPswdEd.getText().toString().trim());
+		params.put("product", productId);
 
 		HttpUtil.post(InterfaceInfo.BASE_URL + "/appBuy", params, new JsonHttpResponseHandler() {
 			@Override

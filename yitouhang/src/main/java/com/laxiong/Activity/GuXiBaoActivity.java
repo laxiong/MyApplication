@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gongshidai.mistGSD.R;
+import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
@@ -32,6 +33,7 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.VerticalNumberProgressBar;
 import com.laxiong.entity.ShareInfo;
+import com.laxiong.entity.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.umeng.socialize.UMShareAPI;
@@ -65,6 +67,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
             mGetCashDec,mAprDec , mLastDate ,mFirstDate;
 
     private boolean isVip ; // 是从VIP理财点击过来的否
+    private  User mUser ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +75,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         setContentView(R.layout.activity_set_guxibao);
         initView();
         initData();
-//        User mUser = YiTouApplication.getInstance().getUser();
+        mUser = YiTouApplication.getInstance().getUser();
 
 //        if (mUser!= null){
 //            boolean isVip = mUser.is_vip();
@@ -171,13 +174,21 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                 showJiSuanQi();
                 break;
             case R.id.buying:
-                startActivity(new Intent(GuXiBaoActivity.this,
-                        BuyingActivity.class).
-                        putExtra("projectStr", mProjectName).
-                        putExtra("amountStr",mAmountMoney).
-                        putExtra("id",mId).
-                        putExtra("mBuyPrecent", mBuyPrecent).
-                        putExtra("limitday", limitDay));
+                if (mUser!=null){
+                    if (mUser.getBankcount() >=1){
+                        startActivity(new Intent(GuXiBaoActivity.this,
+                                BuyingActivity.class).
+                                putExtra("projectStr", mProjectName).
+                                putExtra("amountStr",mAmountMoney).
+                                putExtra("id",mId).
+                                putExtra("mBuyPrecent", mBuyPrecent).
+                                putExtra("limitday", limitDay));
+                    }else {
+                        Toast.makeText(GuXiBaoActivity.this,"请绑定银行卡",Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(GuXiBaoActivity.this,"请完成登录",Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }

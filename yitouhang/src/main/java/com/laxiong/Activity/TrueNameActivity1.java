@@ -15,15 +15,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
-import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.SpUtils;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.gongshidai.mistGSD.R;
 
 import org.apache.http.Header;
 import org.json.JSONObject;
@@ -133,6 +132,7 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener {
             toggleRead.setImageResource(R.drawable.img_no_read);
             isRead = false;
         }
+        valify();
     }
 
     TextWatcher watcher = new TextWatcher() {
@@ -146,17 +146,19 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener {
 
         @Override
         public void afterTextChanged(Editable s) {
-            if (!TextUtils.isEmpty(mCode.getText().toString()) && !TextUtils.isEmpty(mIDcard.getText().toString())
-                    && !TextUtils.isEmpty(mName.getText().toString())) {
-                mNextPage.setEnabled(true);
-                mNextPage.setBackgroundResource(R.drawable.button_change_bg_border);
-            } else {
-                mNextPage.setEnabled(false);
-                mNextPage.setBackgroundResource(R.drawable.button_grey_corner_border);
-            }
+            valify();
         }
     };
-
+    private void valify(){
+        if (!TextUtils.isEmpty(mCode.getText().toString()) && !TextUtils.isEmpty(mIDcard.getText().toString())
+                && !TextUtils.isEmpty(mName.getText().toString())&&isRead) {
+            mNextPage.setEnabled(true);
+            mNextPage.setBackgroundResource(R.drawable.button_change_bg_border);
+        } else {
+            mNextPage.setEnabled(false);
+            mNextPage.setBackgroundResource(R.drawable.button_grey_corner_border);
+        }
+    }
     int count;
     boolean stopThread;
 

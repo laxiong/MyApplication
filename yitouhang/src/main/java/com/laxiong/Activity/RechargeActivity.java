@@ -1,7 +1,7 @@
 package com.laxiong.Activity;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,15 +9,10 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,26 +40,26 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 	/***
 	 * 充值页面
 	 */
-	private LinearLayout mPayMethod;
 	private FrameLayout mBack;
 	private TextView mRechargeBtn, mPayBank;
 	private ImageView mToggleBtn;
 	private EditText mInputRecharge; //输入的支付金额
 	/**
-	 * ATTENTION: This was auto-generated to implement the App Indexing API.
-	 * See https://g.co/AppIndexing/AndroidStudio for more information.
 	 */
+	private int bankId ;
+	private String bankName ;
+	private String bankCardNum ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_recharge);
 		initView();
-		getBankId();
+		getBankInfo();
 	}
 
 	private void initView() {
-		mPayMethod = (LinearLayout) findViewById(R.id.change_pay_method);
+
 		mBack = (FrameLayout) findViewById(R.id.back_layout);
 		mRechargeBtn = (TextView) findViewById(R.id.rechargeBtn);
 		mToggleBtn = (ImageView) findViewById(R.id.toggle_img);
@@ -72,7 +67,6 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 		mInputRecharge = (EditText) findViewById(R.id.input_recharge);
 
 		mBack.setOnClickListener(this);
-		mPayMethod.setOnClickListener(this);
 		mRechargeBtn.setOnClickListener(this);
 		mToggleBtn.setOnClickListener(this);
 		mInputRecharge.addTextChangedListener(watcher);
@@ -81,9 +75,6 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
-			case R.id.change_pay_method:
-				payMenthodType();
-				break;
 			case R.id.back_layout:
 				this.finish();
 				break;
@@ -131,78 +122,6 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 			mRechargeBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
 		}
 	}
-	// pay Menthod
-	private PopupWindow mPayMathodWindow;
-	private View PayView;
-	private ImageView newCard_img, constranceBank_img ,BankIconPop , NewCardIconPop;
-	private TextView mBankNamePop,mNewCardPop ;
-
-	private void payMenthodType() {
-
-		PayView = LayoutInflater.from(RechargeActivity.this).inflate(R.layout.pay_recharge_mathod_popwindow, null);
-
-		RelativeLayout newCard = (RelativeLayout) PayView.findViewById(R.id.addnewcard);
-		RelativeLayout constranceBank = (RelativeLayout) PayView.findViewById(R.id.concreatebank);
-		TextView mConcel = (TextView) PayView.findViewById(R.id.concel);
-//		TextView bankname = (TextView) PayView.findViewById(R.id.bankname);
-//		bankname.setText(getmBankName()+"(尾号"+bankLastNum+")");
-
-		newCard_img = (ImageView) PayView.findViewById(R.id.change_img_addnewcard);
-		constranceBank_img = (ImageView) PayView.findViewById(R.id.change_img_concreatebank);
-
-		newCard.setOnClickListener(listenner);
-		constranceBank.setOnClickListener(listenner);
-		mConcel.setOnClickListener(listenner);
-
-		//银行卡等信息
-		mBankNamePop =(TextView)PayView.findViewById(R.id.bankname);
-		mNewCardPop =(TextView)PayView.findViewById(R.id.newcard);
-		//Item卡的图片
-		BankIconPop =(ImageView)PayView.findViewById(R.id.icon1);
-		NewCardIconPop =(ImageView)PayView.findViewById(R.id.icon3);
-
-		String nameStr = getmBankName();
-		mBankNamePop.setText(nameStr+"(尾号"+bankLastNum+")");
-
-		if (logokey!=null)
-			BankIconPop.setImageResource(getResources().getIdentifier("logo_" + logokey, "drawable", getPackageName()));
-
-		mPayMathodWindow = new PopupWindow(PayView, ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT, true);
-		mPayMathodWindow.setTouchable(true);
-		mPayMathodWindow.setOutsideTouchable(true);
-		// 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
-		// 我觉得这里是API的一个bug
-		mPayMathodWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.kefu_bg)); //设置半透明
-		mPayMathodWindow.showAtLocation(PayView, Gravity.BOTTOM, 0, 0);
-	}
-
-	View.OnClickListener listenner = new View.OnClickListener() {
-		@Override
-		public void onClick(View v) {
-			initNoSelect();
-			switch (v.getId()) {
-				case R.id.addnewcard:  // 加新卡
-					newCard_img.setImageResource(R.drawable.img_read);
-					break;
-				case R.id.concreatebank:  // 建设银行
-					constranceBank_img.setImageResource(R.drawable.img_read);
-
-					break;
-				case R.id.concel:
-					if (mPayMathodWindow != null && mPayMathodWindow.isShowing()) {
-						mPayMathodWindow.dismiss();
-						mPayMathodWindow = null;
-					}
-					break;
-			}
-		}
-	};
-
-	private void initNoSelect(){
-		newCard_img.setImageResource(R.drawable.img_no_read);
-		constranceBank_img.setImageResource(R.drawable.img_no_read);
-	}
-
 	// 获取订单信息
 	private void getOrderInfo() {
 		RequestParams params = new RequestParams();
@@ -227,8 +146,6 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 							boolean bRet = msp.pay(content4Pay, mHandler, Constants.RQF_PAY,
 									RechargeActivity.this, false);
 
-							Toast.makeText(RechargeActivity.this, "成功", Toast.LENGTH_SHORT).show();
-
 						} else {
 							if (!TextUtils.isEmpty(response.getString("msg"))) {
 								Toast.makeText(RechargeActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
@@ -249,26 +166,22 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 				.getUserLogin().getToken()));
 
 	}
-	private String logokey ;
-	private int bankLastNum ;
-	// 获取银行卡id
-	private void getBankId() {
-		Log.i("WKKKKK", "权限：" + Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
-				.getUserLogin().getToken()));
+
+	private String bankInfo ;
+	// 获取银行卡信息
+	private void getBankInfo() {
 		HttpUtil.get(InterfaceInfo.BASE_URL + "/bank", new JsonHttpResponseHandler() {
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
 				if (response != null) {
 					try {
-						Log.i("WKKKKKK", "我的一张银行卡：" + response);
 						if (response.getInt("code") == 0) {
-							setBankId(response.getInt("id"));
-							setmBankName(response.getString("name"));
-							setmCardNum(response.getString("number"));
-							logokey = response.getString("logoKey");
-							mPayBank.setText(response.getString("name")+"(尾号"+response.getInt("snumber")+")");
-							bankLastNum = response.getInt("snumber");
+							bankId = response.getInt("id");
+							bankName = response.getString("name");
+							bankCardNum = response.getString("number");
+							bankInfo = response.getString("name")+"(尾号"+response.getInt("snumber")+")" ;
+							mPayBank.setText(bankInfo);
 						} else {
 							Toast.makeText(RechargeActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 						}
@@ -287,29 +200,6 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 
 	}
 
-	private int bankId = -1;
-	private String mBankName = "我的余额";
-	private String mCardNum = "00";
-
-	public String getmCardNum() {
-		return mCardNum;
-	}
-
-	public void setmCardNum(String mCardNum) {
-		this.mCardNum = mCardNum;
-	}
-
-	public void setBankId(int bankId) {
-		this.bankId = bankId;
-	}
-
-	public String getmBankName() {
-		return mBankName;
-	}
-
-	public void setmBankName(String mBankName) {
-		this.mBankName = mBankName;
-	}
 	//构造订单类
 	private PayOrder constructPreCardPayOrder(LlOrderInfo mInfo) {
 
@@ -338,7 +228,6 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 
 		order.setBusi_partner(mInfo.getBusi_partner());
 		order.setNo_order(mInfo.getNo_order());
-		Log.i("WK","连连支付的订单号："+mInfo.getNo_order());
 		order.setDt_order(mInfo.getDt_order());
 		order.setName_goods(mInfo.getName_goods());
 		order.setNotify_url(mInfo.getNotify_url());
@@ -387,15 +276,13 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 						// 成功
 						if (Constants.RET_CODE_SUCCESS.equals(retCode)) {
 							// TODO 卡前置模式返回的银行卡绑定协议号，用来下次支付时使用，此处仅作为示例使用。正式接入时去掉
-							// if (pay_type_flag == 1) {
-							// TextView tv_agree_no = (TextView)
-							// findViewById(R.id.tv_agree_no);
-							// tv_agree_no.setVisibility(View.VISIBLE);
-							// tv_agree_no.setText(objContent.optString(
-							// "agreementno", ""));
-							// }
-							BaseHelper.showDialog(RechargeActivity.this, "提示", "支付成功",
-									android.R.drawable.ic_dialog_alert);
+//							BaseHelper.showDialog(RechargeActivity.this, "提示", "支付成功",
+//									android.R.drawable.ic_dialog_alert);
+
+							startActivity(new Intent(RechargeActivity.this,
+									RechargeResultActivity.class).
+									putExtra("money",mInputRecharge.getText().toString().trim()).
+									putExtra("bankNum", bankInfo));
 
 //							NofifyUserinfoChanged nofifyUserinfoChanged = new NofifyUserinfoChanged() {
 //

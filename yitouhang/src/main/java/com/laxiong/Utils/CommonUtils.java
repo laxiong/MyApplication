@@ -83,6 +83,4 @@ public class CommonUtils {
 			return Math.round(bytenum) + "B";
 		}
 	}
-
-
 }
