@@ -8,7 +8,7 @@ import android.text.TextUtils;
  */
 public class StringUtils {
     public static boolean isBlank(String msg) {
-        if (msg.trim() == null || "".equals(msg.trim()))
+        if (msg == null || "".equals(msg.trim()))
             return true;
         return false;
     }

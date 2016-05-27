@@ -260,16 +260,16 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_tab_selected_focused_holo.9.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\messenger_bubble_small_white.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-xhdpi-v4\\messenger_bubble_small_white.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\guide3.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\guide3.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_moreoverflow_normal_holo_dark.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_ic_menu_moreoverflow_normal_holo_dark.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\messenger_bubble_small_white.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-xhdpi-v4\\messenger_bubble_small_white.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ing_shouye_bottom_select.png",

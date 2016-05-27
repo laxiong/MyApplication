@@ -768,12 +768,12 @@
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\appkefu_inputbar_emotionbtn.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\appkefu_menubar_hidemenubtn.xml",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\appkefu_menubar_hidemenubtn.xml"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_search_icon.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_search_icon.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\appkefu_menubar_hidemenubtn.xml",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\appkefu_menubar_hidemenubtn.xml"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_facebook.png",

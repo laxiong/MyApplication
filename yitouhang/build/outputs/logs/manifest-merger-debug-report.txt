@@ -18,7 +18,6 @@ ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\And
 uses-sdk
 ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:19.1.0] D:\work\android_studio\workspace\MyApplication\yitouhang\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\AndroidManifest.xml:18:5-42
-MERGED from [io.reactivex:rxandroid:1.1.0] D:\work\android_studio\workspace\MyApplication\yitouhang\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.1.0\AndroidManifest.xml:19:5-43
 MERGED from [MyApplication:social_sdk_library_project:unspecified] D:\work\android_studio\workspace\MyApplication\yitouhang\build\intermediates\exploded-aar\MyApplication\social_sdk_library_project\unspecified\AndroidManifest.xml:7:5-9:41
 	android:targetSdkVersion
 		ADDED from D:\work\android_studio\workspace\MyApplication\yitouhang\src\main\AndroidManifest.xml:9:9-38
