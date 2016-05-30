@@ -478,4 +478,56 @@ public class User implements Serializable {
     public void setFee(double fee) {
         this.fee = fee;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "code=" + code +
+                ", assess='" + assess + '\'' +
+                ", msg='" + msg + '\'' +
+                ", time='" + time + '\'' +
+                ", id=" + id +
+                ", available_amount=" + available_amount +
+                ", block_amount=" + block_amount +
+                ", total_amount=" + total_amount +
+                ", nickname='" + nickname + '\'' +
+                ", idc='" + idc + '\'' +
+                ", is_idc=" + is_idc +
+                ", realname='" + realname + '\'' +
+                ", named='" + named + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", pay_pwd=" + pay_pwd +
+                ", is_vip=" + is_vip +
+                ", contacts=" + contacts +
+                ", friendsprofit=" + friendsprofit +
+                ", experience=" + experience +
+                ", salt=" + salt +
+                ", score=" + score +
+                ", expire=" + expire +
+                ", notify=" + notify +
+                ", quota=" + quota +
+                ", daishou=" + daishou +
+                ", is_first=" + is_first +
+                ", address='" + address + '\'' +
+                ", last_login='" + last_login + '\'' +
+                ", current=" + current +
+                ", bankcount=" + bankcount +
+                ", packetcount=" + packetcount +
+                ", cards=" + cards +
+                ", amount=" + amount +
+                ", profit=" + profit +
+                ", yesterday=" + yesterday +
+                ", total_get=" + total_get +
+                ", total_pay=" + total_pay +
+                ", withdraw_amount=" + withdraw_amount +
+                ", name='" + name + '\'' +
+                ", place='" + place + '\'' +
+                ", phones='" + phones + '\'' +
+                ", amount_list=" + amount_list +
+                ", profit_list=" + profit_list +
+                ", security_level='" + security_level + '\'' +
+                ", fee=" + fee +
+                '}';
+    }
 }

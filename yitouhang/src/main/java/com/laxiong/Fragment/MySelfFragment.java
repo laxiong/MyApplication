@@ -29,8 +29,10 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.LogUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
+import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.CalendarMonthTrade;
 import com.laxiong.entity.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -122,6 +124,10 @@ public class MySelfFragment extends Fragment implements OnClickListener {
                 startActivity(new Intent(getActivity(), AtHallActivity.class));
                 break;
             case R.id.withdrawcash:  // 提现
+                if(user.getBankcount()==0) {
+                    ToastUtil.customAlert(getActivity(),"请先绑定银行卡");
+                    return;
+                }
                 startActivity(new Intent(getActivity(),
                         WithdrawCashActivity.class));
                 break;

@@ -63,7 +63,7 @@ public class SplashActivity extends BaseActivity implements IViewWelcome, IViewC
                     go(flag);
                 }
             }, time * 1000);
-            Glide.with(SplashActivity.this).load(imgurl).into(iv_bg);
+            Glide.with(getApplicationContext()).load(imgurl).into(iv_bg);
             lgpresenter.reqUserCountMsg(this);
         }
     }

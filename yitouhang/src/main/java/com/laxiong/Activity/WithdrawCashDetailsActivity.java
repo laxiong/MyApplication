@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.StringUtils;
 import com.gongshidai.mistGSD.R;
 import java.text.SimpleDateFormat;
@@ -16,7 +17,7 @@ public class WithdrawCashDetailsActivity extends BaseActivity implements OnClick
     /***
      * 提现结果
      */
-    private TextView mTitle, tv_cash, tv_bank, tv_fee, tv_result, tv_time;
+    private TextView mTitle, tv_cash, tv_bank, tv_fee, tv_result, tv_time,tv_finish;
     private FrameLayout mBack;
 
     @Override
@@ -41,6 +42,7 @@ public class WithdrawCashDetailsActivity extends BaseActivity implements OnClick
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             tv_time.setText(df.format(new Date()));
         }
+        CommonReq.reqUserMsg(this);
     }
 
     private void initView() {
@@ -58,6 +60,9 @@ public class WithdrawCashDetailsActivity extends BaseActivity implements OnClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.back_layout:
+                this.finish();
+                break;
+            case R.id.tv_finish:
                 this.finish();
                 break;
         }
