@@ -50,4 +50,36 @@
     <color name="unread_msg">#328AD4</color>
     <!--消息已读 -->
     <color name="readed_msg">#D6D6D6</color>
+
+    <!-- ==============日历账单============= -->
+    <color name="et_black">#333333</color>
+    <color name="transparent">#00000000</color>
+    <color name="v2_text_black">#757575</color>
+    <color name="v2_text_orange">#fe5e3e</color>
+    <color name="v2_text_orange_pressed">#66fe5e3e</color>
+    <color name="v2_divider_grey">#dbd6d6</color>
+    <color name="v2_bg_color">#f9f9f9</color>
+    <color name="v2_green">#97c83f</color>
+    <color name="v2_semi_transparent">#33000000</color>
+    <color name="v2_blue">#147ec2</color>
+
+    <color name="text_black">#656d7a</color>
+    <color name="dark_blue">#839cca</color>
+    <color name="text_red">#ff0000</color>
+    <color name="text_blue">#6681b3</color>
+    <color name="light_blue">#666681b3</color>
+    <color name="black_9">#999999</color>
+    <color name="dark_black">#666666</color>
+    <color name="text_light_blue">#b2cbeb</color>
+    <color name="shape_red">#e46c6c</color>
+    <color name="shape_pressed_red">#66e46c6c</color>
+    <color name="tran_white">#33ffffff</color>
+    <color name="tran_pressed_white">#11ffffff</color>
+    <color name="d_grey">#dddddd</color>
+    <color name="shape_blue">#7590c0</color>
+    <color name="brown">#a52a2a</color>
+    <!--  <color name="light_stone_grey">#778899</color> -->
+    <color name="light_stone_grey">#cccccc</color>
+
+
 </resources>

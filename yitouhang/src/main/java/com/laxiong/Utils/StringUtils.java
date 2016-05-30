@@ -8,7 +8,7 @@ import android.text.TextUtils;
  */
 public class StringUtils {
     public static boolean isBlank(String msg) {
-        if (msg.trim() == null || "".equals(msg.trim()))
+        if (msg == null || "".equals(msg.trim()))
             return true;
         return false;
     }
@@ -49,4 +49,58 @@ public class StringUtils {
         }
         return null;
     }
+
+    /*
+	 * x,xxx.xxxx
+	 */
+    public static String FormatFloatFour(String str) {
+        if (str == null)
+            return "";
+        if (str.contains(".")) {
+            String inte = str.substring(0, str.indexOf("."));
+            if (str.length() >= (str.indexOf(".") + 5)) {
+                return addcommor(inte) + str.substring(str.indexOf("."), str.indexOf(".") + 5);
+            } else if (str.length() > str.indexOf(".") + 2) {
+                return addcommor(inte) + str.substring(str.indexOf("."), str.length());
+            } else if (str.length() == str.indexOf(".") + 2) {
+                return addcommor(inte) + str.substring(str.indexOf("."), str.indexOf(".") + 2) + "0";
+            } else {
+                return addcommor(inte) + ".00";
+            }
+        } else {
+            return addcommor(str); // 整数
+        }
+    }
+
+    /*
+	 * add ,
+	 */
+    private static String addcommor(String str) {
+
+        StringBuilder sb = new StringBuilder();
+        String newStr = new String(str);
+
+        if (newStr.length() > 3)
+            return splitStr(newStr, sb).toString();
+        else
+            return str;
+    }
+
+    /*
+	 * digui
+	 */
+    private static StringBuilder splitStr(String newStr, StringBuilder sb) {
+        String temp = newStr.substring(newStr.length() - 3, newStr.length());
+        newStr = newStr.substring(0, newStr.length() - 3);
+        if (newStr.length() > 3) {
+            splitStr(newStr, sb);
+            sb.append("," + temp);
+        } else {
+            sb.append(newStr + "," + temp);
+        }
+
+        return sb;
+    }
+
+
 }

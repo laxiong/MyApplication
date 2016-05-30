@@ -88,6 +88,8 @@
             android:launchMode="singleTask"/>
         <activity android:name="com.laxiong.Activity.CalanderHorizontalActivity"
             android:launchMode="singleTask"/>
+        <activity android:name="com.laxiong.Activity.BillCalendarActivity"/>
+        <activity android:name="com.laxiong.Activity.DarkThemeActivity"></activity>
 
         <!-- VIP -->
         <activity android:name="com.laxiong.Activity.ShowVIPActivity"

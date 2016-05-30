@@ -2,6 +2,7 @@ package com.laxiong.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -127,8 +128,8 @@ public class ChangeCountActivity extends BaseActivity implements OnClickListener
     }
 
     public boolean valifyLogin() {
-        if (StringUtils.isBlank(mPswd.getText().toString()) || StringUtils.isBlank(mphone.getText().toString())) {
-            Toast.makeText(this, "账号密码不能为空", Toast.LENGTH_LONG).show();
+        if (TextUtils.isEmpty(mPswd.getText().toString()) || TextUtils.isEmpty(mphone.getText().toString())) {
+            Toast.makeText(this, "fuckyou", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;

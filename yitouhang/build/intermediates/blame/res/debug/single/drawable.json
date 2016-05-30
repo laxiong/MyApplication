@@ -36,6 +36,10 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\bg_edittext_normal.xml"
     },
     {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_stoke_cirlce_black.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_stoke_cirlce_black.xml"
+    },
+    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_twitter.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_twitter.png"
     },
@@ -92,12 +96,20 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_button_grey.9.png"
     },
     {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_stoke_cirlce_red.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_stoke_cirlce_red.xml"
+    },
+    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_yixin_circle_gray.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_yixin_circle_gray.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_gmail_off.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_gmail_off.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\item_background_holo_light.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\item_background_holo_light.xml"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_line.png",
@@ -156,6 +168,10 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_qzone_off.png"
     },
     {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_rili_green_circle.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_rili_green_circle.xml"
+    },
+    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_gray_del_down.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\keyboard_gray_del_down.png"
     },
@@ -178,6 +194,10 @@
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_evernote_gray.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_evernote_gray.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\list_selector_background_transition_holo_dark.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_shareboard_item_background.xml",
@@ -230,6 +250,10 @@
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_right_holo_light.xml",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_textfield_searchview_right_holo_light.xml"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_white_brown.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\selector_white_brown.xml"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\grey_border.xml",
@@ -318,6 +342,10 @@
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_ab_holo_light.xml",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable\\abc_spinner_ab_holo_light.xml"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\item_background_holo_dark.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\item_background_holo_dark.xml"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\keyboard_gray_enter.png",
@@ -546,6 +574,10 @@
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\button_grey_corner_border.xml",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\button_grey_corner_border.xml"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_rili_red_circle.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\shape_rili_red_circle.xml"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\corners_border_new_person.xml",
@@ -902,5 +934,9 @@
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_pocket_gray.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable\\umeng_socialize_pocket_gray.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable\\list_selector_background_transition_holo_light.xml",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable\\list_selector_background_transition_holo_light.xml"
     }
 ]

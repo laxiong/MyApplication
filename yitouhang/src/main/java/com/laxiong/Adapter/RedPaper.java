@@ -36,6 +36,7 @@ public class RedPaper implements Parcelable {
     public static final Creator<RedPaper> CREATOR = new Creator<RedPaper>() {
         @Override
         public RedPaper createFromParcel(Parcel source) {
+            int in0=source.readInt();
             int in1 = source.readInt();
             int in2 = source.readInt();
             String str1 = source.readString();
@@ -43,7 +44,7 @@ public class RedPaper implements Parcelable {
             String str3 = source.readString();
             Integer in3 = source.readInt();
             Integer in4 = source.readInt();
-            return new RedPaper(in1, in2, str1, str2, str3, in3, in4);
+            return new RedPaper(in0,in1, in2, str1, str2, str3, in3, in4);
         }
 
         @Override
@@ -54,7 +55,7 @@ public class RedPaper implements Parcelable {
 
     public RedPaper() {
     }
-
+    private int day_use;
     private int id;
     private int min;
     private String redtype;
@@ -77,8 +78,17 @@ public class RedPaper implements Parcelable {
         this.selected = selected;
     }
 
+    public int getDay_use() {
+        return day_use;
+    }
+
+    public void setDay_use(int day_use) {
+        this.day_use = day_use;
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.day_use);
         dest.writeInt(this.id);
         dest.writeInt(this.min);
         dest.writeString(this.redtype);
@@ -121,7 +131,8 @@ public class RedPaper implements Parcelable {
         return result;
     }
 
-    public RedPaper(int id, int min, String redtype, String date, String rule, Integer is_used, Integer amount) {
+    public RedPaper(int day_use,int id, int min, String redtype, String date, String rule, Integer is_used, Integer amount) {
+        this.day_use=day_use;
         this.id = id;
         this.min = min;
         this.redtype = redtype;

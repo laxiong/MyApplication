@@ -409,7 +409,8 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                     } else if (mHead_left_select_textview.getText().toString().equals("日历账单")) {
                         startActivity(new Intent(MainActivity.this,
 //                                CalanderCountActivity.class));
-                                CalanderHorizontalActivity.class));
+//                                CalanderHorizontalActivity.class));
+                                BillCalendarActivity.class));
                     } else {
                         return;
                     }

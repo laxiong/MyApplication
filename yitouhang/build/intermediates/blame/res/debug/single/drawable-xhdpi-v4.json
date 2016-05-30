@@ -1,23 +1,23 @@
 [
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_user_vip_icon.png",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_user_vip_icon.png"
-    },
-    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_focused_holo.9.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_user_vip_icon.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_user_vip_icon.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_read.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_read.png"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_shezhimm_mr.png",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_shezhimm_mr.png"
-    },
-    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_count_no_read.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_count_no_read.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_shezhimm_mr.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_shezhimm_mr.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ab_bottom_solid_dark_holo.9.png",
@@ -36,12 +36,12 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-xhdpi-v4\\com_facebook_button_like_icon_selected.png"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ab_share_pack_holo_dark.9.png",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_ab_share_pack_holo_dark.9.png"
-    },
-    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_point_lang.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_point_lang.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ab_share_pack_holo_dark.9.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_ab_share_pack_holo_dark.9.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_fire.png",
@@ -112,16 +112,16 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_point_vip.png"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\gongshi_licon.png",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\gongshi_licon.png"
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_countseting_icon_vip_line.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_countseting_icon_vip_line.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\messenger_bubble_large_blue.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-xhdpi-v4\\messenger_bubble_large_blue.png"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_countseting_icon_vip_line.png",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_countseting_icon_vip_line.png"
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\gongshi_licon.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\gongshi_licon.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_cricle_close.png",
@@ -176,12 +176,12 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\pattern_button_untouched.png"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\logo_bjnsh.png",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\logo_bjnsh.png"
-    },
-    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\gongshi_mr.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\gongshi_mr.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\logo_bjnsh.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\logo_bjnsh.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_change_login_count.png",
@@ -200,20 +200,28 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_ic_ab_back_holo_dark.png"
     },
     {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\list_selector_disabled_holo_dark.9.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\list_selector_disabled_holo_dark.9.png"
+    },
+    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\list_selector_disabled_holo_light.9.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\list_selector_disabled_holo_light.9.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\logo_bjyh.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\logo_bjyh.png"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_search_selected_holo_light.9.png",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_textfield_search_selected_holo_light.9.png"
-    },
-    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_spinner_ab_default_holo_dark.9.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_spinner_ab_default_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_search_selected_holo_light.9.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_textfield_search_selected_holo_light.9.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_zichan_bottom.png",
@@ -276,12 +284,12 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_kong_point.png"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_refresh_arrow.png",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_refresh_arrow.png"
-    },
-    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_clear_search_api_disabled_holo_light.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_ic_clear_search_api_disabled_holo_light.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_refresh_arrow.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_refresh_arrow.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_spinner_ab_pressed_holo_light.9.png",
@@ -290,6 +298,10 @@
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_wodehb.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_wodehb.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\list_pressed_holo_light.9.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\list_pressed_holo_light.9.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_tab_unselected_pressed_holo.9.png",
@@ -348,12 +360,12 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\MyApplication\\social_sdk_library_project\\unspecified\\res\\drawable-xhdpi-v4\\messenger_button_send_round_shadow.png"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\guize.png",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\guize.png"
-    },
-    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_divider_holo_light.9.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_list_divider_holo_light.9.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\guize.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\guize.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ab_solid_light_holo.9.png",
@@ -374,6 +386,10 @@
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\img_yaoqinghy.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\img_yaoqinghy.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\list_longpressed_holo.9.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\list_longpressed_holo.9.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\logo_jhyh.png",
@@ -434,6 +450,10 @@
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\logo_zgyzcxyh.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\logo_zgyzcxyh.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\np_numberpicker_selection_divider.9.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\np_numberpicker_selection_divider.9.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_divider_holo_dark.9.png",
@@ -546,6 +566,10 @@
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\appkefu_chatting_setmode_voice_btn_normal.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\appkefu_chatting_setmode_voice_btn_normal.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\list_focused_holo.9.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\list_focused_holo.9.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\umeng_socialize_wxcircle.png",
@@ -682,6 +706,10 @@
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_search_default_holo_light.9.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xhdpi\\abc_textfield_search_default_holo_light.9.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\list_pressed_holo_dark.9.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\list_pressed_holo_dark.9.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\logo_zsyh.png",
@@ -858,6 +886,10 @@
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\logo_gdfzyh.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\logo_gdfzyh.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\arrow_triangle.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\src\\main\\res\\drawable-xhdpi\\arrow_triangle.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\yitouhang\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png",

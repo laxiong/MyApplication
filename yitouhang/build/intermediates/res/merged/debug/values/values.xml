@@ -59,6 +59,7 @@
     <attr format="dimension" name="listPreferredItemHeightSmall"/>
     <attr format="dimension" name="listPreferredItemPaddingLeft"/>
     <attr format="dimension" name="listPreferredItemPaddingRight"/>
+    <attr format="reference" name="numberPickerStyle"/>
     <attr format="reference" name="searchDropdownBackground"/>
     <attr format="dimension" name="searchResultListItemHeight"/>
     <attr format="reference" name="searchViewAutoCompleteTextView"/>
@@ -116,6 +117,8 @@
     <color name="appkefu_face_bg">#eef1f4</color>
     <color name="appkefu_sc_transparent_background">#00111111</color>
     <color name="black">#000000</color>
+    <color name="black_9">#999999</color>
+    <color name="brown">#a52a2a</color>
     <color name="com_facebook_blue">#3B5998</color>
     <color name="com_facebook_button_background_color">#415dae</color>
     <color name="com_facebook_button_background_color_disabled">#bdc1c9</color>
@@ -129,11 +132,15 @@
     <color name="com_facebook_likeboxcountview_text_color">#6a7180</color>
     <color name="com_facebook_likeview_text_color">#6a7180</color>
     <color name="com_facebook_share_button_text_color">#FFFFFF</color>
+    <color name="d_grey">#dddddd</color>
+    <color name="dark_black">#666666</color>
+    <color name="dark_blue">#839cca</color>
     <color name="date_1">#F24949</color>
     <color name="date_2">#40000000</color>
     <color name="default_ev_border_color">#CCCCCC</color>
     <color name="default_ev_password_color">#CCCCCC</color>
     <color name="divider_grey">#D6D6D6</color>
+    <color name="et_black">#333333</color>
     <color name="focus_circle_bg">#F24949</color>
     <color name="fresh_green">#c4f089</color>
     <color name="futext_grey">#666666</color>
@@ -142,8 +149,10 @@
     <color name="grey_bg">#D6D6D6</color>
     <color name="grey_bg_text">#A6A6A6</color>
     <color name="grey_btn">#E6E6E6</color>
+    <color name="light_blue">#666681b3</color>
     <color name="light_green">#83c254</color>
     <color name="light_grey">#F1F2F3</color>
+    <color name="light_stone_grey">#cccccc</color>
     <color name="light_white">#66ffffff</color>
     <color name="maintext_grey">#333333</color>
     <color name="money">#EE7737</color>
@@ -154,9 +163,19 @@
     <color name="readed_msg">#D6D6D6</color>
     <color name="red">#ff0000</color>
     <color name="red_btn_text">#EE4E42</color>
+    <color name="shape_blue">#7590c0</color>
+    <color name="shape_pressed_red">#66e46c6c</color>
+    <color name="shape_red">#e46c6c</color>
     <color name="shen_grey">#999999</color>
+    <color name="text_black">#656d7a</color>
+    <color name="text_blue">#6681b3</color>
+    <color name="text_light_blue">#b2cbeb</color>
     <color name="text_mi">#efede0</color>
+    <color name="text_red">#ff0000</color>
     <color name="title_grey">#EE4E42</color>
+    <color name="tran_pressed_white">#11ffffff</color>
+    <color name="tran_white">#33ffffff</color>
+    <color name="transparent">#00000000</color>
     <color name="umeng_socialize_color_group">#2c3035</color>
     <color name="umeng_socialize_comments_bg">#F4F4F4</color>
     <color name="umeng_socialize_divider">#E6E6E6</color>
@@ -171,6 +190,14 @@
     <color name="umeng_socialize_text_ucenter">#595959</color>
     <color name="umeng_socialize_ucenter_bg">#EEEEEE</color>
     <color name="unread_msg">#328AD4</color>
+    <color name="v2_bg_color">#f9f9f9</color>
+    <color name="v2_blue">#147ec2</color>
+    <color name="v2_divider_grey">#dbd6d6</color>
+    <color name="v2_green">#97c83f</color>
+    <color name="v2_semi_transparent">#33000000</color>
+    <color name="v2_text_black">#757575</color>
+    <color name="v2_text_orange">#fe5e3e</color>
+    <color name="v2_text_orange_pressed">#66fe5e3e</color>
     <color name="vip_color">#FFE2A42A</color>
     <color name="white">#ffffff</color>
     <color name="yellow_paper">#FA8C1A</color>
@@ -189,6 +216,7 @@
     <declare-styleable name="MenuGroup"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:checkableBehavior"/><attr name="android:visible"/><attr name="android:enabled"/></declare-styleable>
     <declare-styleable name="MenuItem"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:title"/><attr name="android:titleCondensed"/><attr name="android:icon"/><attr name="android:alphabeticShortcut"/><attr name="android:numericShortcut"/><attr name="android:checkable"/><attr name="android:checked"/><attr name="android:visible"/><attr name="android:enabled"/><attr name="android:onClick"/><attr name="showAsAction"><flag name="never" value="0"/><flag name="ifRoom" value="1"/><flag name="always" value="2"/><flag name="withText" value="4"/><flag name="collapseActionView" value="8"/></attr><attr format="reference" name="actionLayout"/><attr format="string" name="actionViewClass"/><attr format="string" name="actionProviderClass"/></declare-styleable>
     <declare-styleable name="MenuView"><attr name="android:itemTextAppearance"/><attr name="android:horizontalDivider"/><attr name="android:verticalDivider"/><attr name="android:headerBackground"/><attr name="android:itemBackground"/><attr name="android:windowAnimationStyle"/><attr name="android:itemIconDisabledAlpha"/><attr name="android:preserveIconSpacing"/></declare-styleable>
+    <declare-styleable name="NumberPicker"><attr format="color|reference" name="solidColor"/><attr format="reference" name="selectionDivider"/><attr format="dimension" name="selectionDividerHeight"/><attr format="dimension" name="selectionDividersDistance"/><attr format="dimension" name="internalMinHeight"/><attr format="dimension" name="internalMaxHeight"/><attr format="dimension" name="internalMinWidth"/><attr format="dimension" name="internalMaxWidth"/><attr format="reference" name="internalLayout"/><attr format="reference" name="virtualButtonPressedDrawable"/><attr format="color" name="normalTextColor"/><attr format="dimension" name="normalTextSize"/><attr format="color" name="selecredTextColor"/><attr format="dimension" name="selecredTextSize"/><attr format="dimension" name="unitHight"/><attr format="integer" name="itemNumber"/><attr format="color" name="lineColor"/><attr format="dimension" name="maskHight"/><attr format="boolean" name="noEmpty"/><attr format="boolean" name="isEnable"/></declare-styleable>
     <declare-styleable name="PasswordInputView"><attr format="dimension" name="borderWidth"/><attr format="color" name="borderColor"/><attr format="dimension" name="borderRadius"/><attr format="integer" name="passwordLength"/><attr format="dimension" name="passwordWidth"/><attr format="color" name="passwordColor"/><attr format="dimension" name="passwordRadius"/></declare-styleable>
     <declare-styleable name="PatternView"><attr format="dimension" name="maxSize"/><attr format="color" name="circleColor"/><attr format="integer" name="gridSize"/><attr format="color" name="pathColor"/></declare-styleable>
     <declare-styleable name="SearchView"><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/></declare-styleable>
@@ -274,6 +302,8 @@
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
     <item name="home" type="id"/>
+    <item name="np__decrement" type="id"/>
+    <item name="np__increment" type="id"/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
     <item name="webview" type="id"/>
@@ -698,6 +728,7 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+    <style name="Animation"/>
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
         <!--
             Theme customizations available in newer API levels can go in
@@ -775,6 +806,35 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
         <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="NPWidget">
+        <item name="android:textAppearance">?android:attr/textAppearance</item>
+    </style>
+    <style name="NPWidget.Holo.Light.NumberPicker" parent="NPWidget.Holo.NumberPicker">
+        <item name="virtualButtonPressedDrawable">@drawable/item_background_holo_light</item>
+    </style>
+    <style name="NPWidget.Holo.NumberPicker" parent="NPWidget.NumberPicker">
+        <item name="solidColor">@android:color/transparent</item>
+        <item name="selectionDivider">@drawable/np_numberpicker_selection_divider</item>
+        <item name="selectionDividerHeight">2dip</item>
+        <item name="internalLayout">@layout/number_picker_with_selector_wheel</item>
+        <item name="internalMinWidth">64dip</item>
+        <item name="internalMaxHeight">180dip</item>
+        <item name="virtualButtonPressedDrawable">@drawable/item_background_holo_dark</item>
+    </style>
+    <style name="NPWidget.NumberPicker">
+        <item name="android:orientation">vertical</item>
+        <item name="android:fadingEdge">vertical</item>
+        <item name="android:fadingEdgeLength">50dip</item>
+    </style>
+    <style name="SampleTheme" parent="android:Theme">
+        <item name="numberPickerStyle">@style/NPWidget.Holo.NumberPicker</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="SampleTheme.Light" parent="android:Theme.Light">
+        <item name="numberPickerStyle">@style/NPWidget.Holo.Light.NumberPicker</item>
     </style>
     <style name="TextAppearance.AppCompat.Base.CompactMenu.Dialog" parent="android:TextAppearance.Medium">
         <item name="android:textColor">@android:color/primary_text_light</item>
@@ -1447,6 +1507,11 @@
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12sp</item>
+    </style>
+    <style name="dbdivideline">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">#dbd6d6</item>
     </style>
     <style mce_bogus="1" name="popupAnimation" parent="android:Animation">
 		<item name="android:windowFrame">@null</item>

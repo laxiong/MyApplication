@@ -12,12 +12,12 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_gmail_off.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_x_button.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_x_button.png"
-    },
-    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\messenger_button_blue_bg_selector.xml",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\messenger_button_blue_bg_selector.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_x_button.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_x_button.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_at_selected.png",
@@ -100,12 +100,12 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_laiwang_dynamic.png"
     },
     {
-        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_sina_on.png",
-        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_sina_on.png"
-    },
-    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_oauth_check_off.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_oauth_check_off.png"
+    },
+    {
+        "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_sina_on.png",
+        "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_sina_on.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_title_right_bt.xml",
@@ -172,12 +172,12 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_button_white_blue.xml"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_evernote_gray.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_evernote_gray.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\com_facebook_button_send_background.xml",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\com_facebook_button_send_background.xml"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_evernote_gray.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_evernote_gray.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_foursquare_gray.png",
@@ -192,12 +192,12 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_line.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_qzone_on.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_qzone_on.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_renren_on.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_renren_on.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_qzone_on.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_qzone_on.png"
     },
     {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_twitter.png",
@@ -240,12 +240,12 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_google.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_facebook_close.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_facebook_close.png"
-    },
-    {
         "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_title_right_bt_normal.png",
         "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_title_right_bt_normal.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_facebook_close.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_facebook_close.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_laiwang.png",
@@ -256,12 +256,12 @@
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_tumblr_gray.png"
     },
     {
-        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_action_back_normal.png",
-        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_action_back_normal.png"
-    },
-    {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_foursquare.png",
         "source": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_foursquare.png"
+    },
+    {
+        "merged": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_action_back_normal.png",
+        "source": "D:\\work\\android_studio\\workspace\\MyApplication\\social_sdk_library_project\\build\\intermediates\\bundles\\debug\\res\\drawable\\umeng_socialize_action_back_normal.png"
     },
     {
         "merged": "D:\\gitTools_workspace\\clone4\\MyApplication\\social_sdk_library_project\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\umeng_socialize_whatsapp_gray.png",

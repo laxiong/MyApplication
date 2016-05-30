@@ -356,8 +356,4 @@ public class CalanderHorizontalActivity extends BaseActivity implements View.OnC
     }
 
 
-
-
-
-
 }

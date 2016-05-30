@@ -2,6 +2,7 @@ package com.laxiong.Activity;
 
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;

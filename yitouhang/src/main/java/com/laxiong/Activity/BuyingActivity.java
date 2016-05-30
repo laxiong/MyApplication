@@ -482,7 +482,8 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		@Override
 		public void afterTextChanged(Editable s) {
 			String amountMoney = mBuyAmount.getText().toString().trim();
-			decAmount = Integer.valueOf(amountMoney)-total;
+			if (!amountMoney.equals(""))
+				decAmount = Integer.valueOf(amountMoney)-total;
 			valify();
 			//最多可输入可购买的份额以内的数值
 			if (!amountMoney.equals("")&&amountMoney.length()!=0){
