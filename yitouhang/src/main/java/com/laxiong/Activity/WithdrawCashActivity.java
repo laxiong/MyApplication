@@ -45,6 +45,7 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
     private BankCard_Presenter presenter;
     private double fee;
     private int id;
+    private double edu;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -84,8 +85,9 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
         if (card == null || user == null) {
             startActivity(new Intent(this, LoginActivity.class));
         } else {
+            edu=user.getAvailable_amount() - user.getFee();
             money.setText(keepDecimal2(user.getAvailable_amount()) + "");
-            tv_edu.setText(keepDecimal2((user.getAvailable_amount() - user.getFee())) + "");
+            tv_edu.setText(keepDecimal2(edu) + "");
             tv_bank.setText(card.getName() + "(" + card.getSnumber() + ")");
             fee = user.getFee();
             id = card.getId();
@@ -144,9 +146,9 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
                 super.onTextChanged(s, start, before, count);
                 String input = et_input.getText().toString();
                 double num = Double.valueOf(StringUtils.isBlank(input) ? "0" : input);
-                double kouchu = Double.valueOf(StringUtils.getFactor(fee, num));
-                tv_factor.setText(kouchu + "");
-                tv_daozhang.setText((num - kouchu) + "");
+                double kouchu = Double.valueOf(StringUtils.getFactor(num, edu));
+                tv_factor.setText(keepDecimal2(kouchu) + "");
+                tv_daozhang.setText(keepDecimal2(num - kouchu) + "");
             }
         });
     }

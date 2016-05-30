@@ -22,7 +22,7 @@ public class StringUtils {
     }
 
     public static String getProtectedMobile(String phoneNumber) {
-        if (TextUtils.isEmpty(phoneNumber) || phoneNumber.length() < 11) {
+        if (TextUtils.isEmpty(phoneNumber) || phoneNumber.length() != 11) {
             return "";
         }
         StringBuilder builder = new StringBuilder();
@@ -32,14 +32,14 @@ public class StringUtils {
         return builder.toString();
     }
 
-    public static String getFactor(double fee, double num) {
+    public static String getFactor(double num,double edu) {
         if (num <= 100&&num>0)
             return "1";
         else {
-            if (fee >= 100)
+            if (edu>=num)
                 return "0";
             else
-                return (num * 3 / 1000) + "";
+                return ((num-edu) * 0.003f) + "";
         }
     }
     public static String choose(String... strs){
