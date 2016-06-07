@@ -100,12 +100,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
 
     @Override
     public void logoutsuccess() {
-        YiTouApplication.getInstance().setUserLogin(null);
-        YiTouApplication.getInstance().setUser(null);
-        SharedPreferences sp=SpUtils.getSp(this);
-        SpUtils.saveStrValue(sp, SpUtils.USERLOGIN_KEY, "");
-        SpUtils.saveStrValue(sp, SpUtils.USER_KEY, "");
-        SpUtils.saveStrValue(sp,SpUtils.GESTURE_KEY,"");
+        User.clearLogin(this);
         Toast.makeText(this, "退出登录成功", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, ChangeCountActivity.class);
         startActivity(intent);
@@ -306,7 +301,7 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
             @Override
             public void onSingleClick(View v) {
                 Toast.makeText(PersonalSettingActivity.this, "退出登录", Toast.LENGTH_LONG).show();
-                presenter.exit();
+                presenter.exit(PersonalSettingActivity.this);
             }
         });
         concelBtn.setOnClickListener(new OnSingleClickListener(this) {

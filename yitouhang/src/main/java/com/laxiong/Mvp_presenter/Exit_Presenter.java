@@ -1,8 +1,11 @@
 package com.laxiong.Mvp_presenter;
 
+import android.content.Context;
+
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewExit;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.entity.UserLogin;
 import com.loopj.android.http.Base64;
@@ -24,13 +27,13 @@ public class Exit_Presenter {
         this.iviewexit = iviewexit;
     }
 
-    public void exit() {
+    public void exit(final Context context) {
         UserLogin userLogin = YiTouApplication.getInstance().getUserLogin();
         if (userLogin == null)
             return;
         RequestParams params = new RequestParams();
         String str = userLogin.getToken_id() + ":" + userLogin.getToken();
-        String author=Base64.encodeToString(str.getBytes(),Base64.CRLF);
+        String author = Base64.encodeToString(str.getBytes(), Base64.CRLF);
         HttpUtil.get(InterfaceInfo.LOGINOUT_URL, params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -39,7 +42,10 @@ public class Exit_Presenter {
                     if (response != null && response.getInt("code") == 0) {
                         iviewexit.logoutsuccess();
                     } else {
-                        iviewexit.logoutfailed(response.getString("msg"));
+                        if (response.getInt("code") == 401) {
+                            CommonReq.showReLoginDialog(context);
+                        } else
+                            iviewexit.logoutfailed(response.getString("msg"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

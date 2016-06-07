@@ -47,7 +47,7 @@ public class Password_Presenter {
         this.iviewresetpay = iviewreset;
     }
 
-    public void reqResetPayPwd(Context context, String name, String vali, String identi, String newpwd) {
+    public void reqResetPayPwd(final Context context, String name, String vali, String identi, String newpwd) {
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori) || StringUtils.testBlankAll(name, vali, identi, newpwd))
             return;
@@ -66,7 +66,10 @@ public class Password_Presenter {
                         if (response.getInt("code") == 0) {
                             iviewresetpay.reqbackSuc(null);
                         } else {
-                            iviewresetpay.reqbackFail(response.getString("msg"), null);
+                            if (response.getInt("code") == 401) {
+                                CommonReq.showReLoginDialog(context);
+                            } else
+                                iviewresetpay.reqbackFail(response.getString("msg"), null);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -85,7 +88,7 @@ public class Password_Presenter {
         }, authori);
     }
 
-    public void reqValidation() {
+    public void reqValidation(final Context context) {
         String phonenum = iviewback.getTextPhone();
         RequestParams params = new RequestParams();
         params.put("type", Constants.ReqEnum.PWD.getVal());
@@ -99,6 +102,9 @@ public class Password_Presenter {
                         if (response.getInt("code") == 0) {
                             iviewback.getCodeSuccess();
                         } else {
+                            if (response.getInt("code") == 401) {
+                                CommonReq.showReLoginDialog(context);
+                            }
                             iviewback.getCodeFailure(response.getString("msg"));
                         }
                     } catch (JSONException e) {
@@ -119,7 +125,7 @@ public class Password_Presenter {
 
     }
 
-    public void reqPayCode(Context context) {
+    public void reqPayCode(final Context context) {
         String autori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(autori))
             return;
@@ -134,7 +140,10 @@ public class Password_Presenter {
                         if (response.getInt("code") == 0) {
                             iviewresetpay.reqbackSuc(null);
                         } else {
-                            iviewresetpay.reqbackFail(response.getString("msg"), null);
+                            if (response.getInt("code") == 401) {
+                                CommonReq.showReLoginDialog(context);
+                            } else
+                                iviewresetpay.reqbackFail(response.getString("msg"), null);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -153,7 +162,7 @@ public class Password_Presenter {
         }, autori);
     }
 
-    public void reqChangePayPwd(Context context, String pwd, String newpwd, String code) {
+    public void reqChangePayPwd(final Context context, String pwd, String newpwd, String code) {
         String autori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(autori))
             return;
@@ -172,7 +181,10 @@ public class Password_Presenter {
                         if (response.getInt("code") == 0) {
                             iviewresetpay.reqbackSuc(null);
                         } else {
-                            iviewresetpay.reqbackFail(response.getString("msg"), null);
+                            if (response.getInt("code") == 401) {
+                                CommonReq.showReLoginDialog(context);
+                            } else
+                                iviewresetpay.reqbackFail(response.getString("msg"), null);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -192,7 +204,7 @@ public class Password_Presenter {
 
     }
 
-    public void reqReBackPwd(Context context) {
+    public void reqReBackPwd(final Context context) {
         String phonenum = iviewback.getTextPhone();
         String pwd = iviewback.getTextPwd();
         String code = iviewback.getValiCode();
@@ -210,7 +222,10 @@ public class Password_Presenter {
                         if (response.getInt("code") == 0) {
                             iviewback.reBackSuccess();
                         } else {
-                            iviewback.reBackFailure(response.getString("msg"));
+                            if (response.getInt("code") == 401)
+                                CommonReq.showReLoginDialog(context);
+                            else
+                                iviewback.reBackFailure(response.getString("msg"));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -232,7 +247,7 @@ public class Password_Presenter {
                 , true);
     }
 
-    public void reqChangePwd(Context context) {
+    public void reqChangePwd(final Context context) {
         if (iviewchange == null)
             return;
         String oldpwd = iviewchange.getOldPwd();
@@ -259,8 +274,12 @@ public class Password_Presenter {
                     if (response != null) {
                         if (response.getInt("code") == 0)
                             iviewchange.updateSuc();
-                        else
-                            iviewchange.updateFailure(response.getString("msg"));
+                        else {
+                            if (response.getInt("code") == 401)
+                                CommonReq.showReLoginDialog(context);
+                            else
+                                iviewchange.updateFailure(response.getString("msg"));
+                        }
                     } else {
                         iviewchange.updateFailure(response.getString("出错"));
                     }

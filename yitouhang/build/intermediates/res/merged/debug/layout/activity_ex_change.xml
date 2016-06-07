@@ -14,7 +14,7 @@
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
         custom:texts="@string/welfare_exchange_title"
-        custom:textsize="6sp" />
+        custom:textsize="8sp" />
 
     <ScrollView
         android:id="@+id/sc"

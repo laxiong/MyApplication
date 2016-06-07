@@ -59,7 +59,7 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
     private int mParamIntentCode;
     private String gestruepswd;  // 手势密码
     private int times;
-    private static final int TIMES_ERROR=3;
+    private static final int TIMES_ERROR=5;
     private Exit_Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,13 +118,13 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
                     public void checkedFail() {
                         times++;
                         if(times>= TIMES_ERROR){
-                            presenter.exit();
+                            presenter.exit(PatternViewActivity.this);
                             return;
                         }
                         mGestureContentView.clearDrawlineState(1300L);
                         mTextTip.setVisibility(View.VISIBLE);
                         mTextTip.setText(Html
-                                .fromHtml("<font color='#c70c1e'>密码错误,还有"+(TIMES_ERROR-times)+"次机会</font>"));
+                                .fromHtml("<font color='#c70c1e'>密码错误"+(times>2?",还有"+(TIMES_ERROR-times)+"次机会":"")+"</font>"));
                         // 左右移动动画
                         Animation shakeAnimation = AnimationUtils.loadAnimation(PatternViewActivity.this, R.anim.shake);
                         mTextTip.startAnimation(shakeAnimation);

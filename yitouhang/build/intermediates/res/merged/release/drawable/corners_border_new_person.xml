@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <corners android:radius="2dp"/>
+   <!-- 内部的实体 -->
+   <solid android:color="#FF9AC9F8"/>
+
+   <!-- 周边的边框  stroke-->
+</shape>

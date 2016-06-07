@@ -50,6 +50,8 @@ public class CustomFlipper extends ViewFlipper implements GestureDetector.OnGest
     @Override
     public void showNext() {
         nowposition++;
+        if (interflipper.getListSize() == 0)
+            return;
         nowposition %= interflipper.getListSize();
         changePoint();
         this.setInAnimation(leftInAnimation);

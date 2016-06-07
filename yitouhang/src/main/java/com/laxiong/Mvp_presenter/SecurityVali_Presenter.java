@@ -27,7 +27,7 @@ public class SecurityVali_Presenter {
         this.iviewsecure = iviewback;
     }
 
-    public void valifySecurity(Context context) {
+    public void valifySecurity(final Context context) {
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
@@ -49,7 +49,10 @@ public class SecurityVali_Presenter {
                             iviewsecure.setToken(response.getString("token"));
                             iviewsecure.reqbackSuc(null);
                         } else {
-                            iviewsecure.reqbackFail(response.getString("msg"), null);
+                            if (response.getInt("code") == 401)
+                                CommonReq.showReLoginDialog(context);
+                            else
+                                iviewsecure.reqbackFail(response.getString("msg"), null);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

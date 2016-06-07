@@ -31,15 +31,16 @@ import java.util.List;
  */
 public class Model_RedPaper {
     private OnLoadPaperListener listener;
-    public void loadAllList(Context context,OnLoadPaperListener fuck){
+
+    public void loadAllList(Context context, OnLoadPaperListener fuck) {
         this.listener = fuck;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori) || listener == null)
             return;
-        UserLogin login=YiTouApplication.getInstance().getUserLogin();
+        UserLogin login = YiTouApplication.getInstance().getUserLogin();
         RequestParams params = new RequestParams();
-        params.put("id",login.getToken_id());
-        params.put("type","all");
+        params.put("id", login.getToken_id());
+        params.put("type", "all");
         HttpUtil.get(InterfaceInfo.REDPAPER_URL, params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -49,7 +50,7 @@ public class Model_RedPaper {
                         if (response.getInt("code") == 0) {
                             String jsonstr = response.getJSONArray("list").toString();
                             List<RedPaper> list = JSONUtils.parseArray(jsonstr, RedPaper.class);
-                            listener.onSuccess(list,false,true);
+                            listener.onSuccess(list, false, true);
                         } else {
                             listener.onFailure(response.getString("msg"));
                         }
@@ -69,15 +70,16 @@ public class Model_RedPaper {
             }
         }, authori);
     }
-    public void loadPaperList(final boolean isused,Context context, OnLoadPaperListener fuck) {
+
+    public void loadPaperList(final boolean isused,final Context context, OnLoadPaperListener fuck) {
         this.listener = fuck;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori) || listener == null)
             return;
-        UserLogin login=YiTouApplication.getInstance().getUserLogin();
+        UserLogin login = YiTouApplication.getInstance().getUserLogin();
         RequestParams params = new RequestParams();
-        params.put("id",login.getToken_id());
-        params.put("type",isused?"used":"use");
+        params.put("id", login.getToken_id());
+        params.put("type", isused ? "used" : "use");
         HttpUtil.get(InterfaceInfo.REDPAPER_URL, params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -87,9 +89,12 @@ public class Model_RedPaper {
                         if (response.getInt("code") == 0) {
                             String jsonstr = response.getJSONArray("list").toString();
                             List<RedPaper> list = JSONUtils.parseArray(jsonstr, RedPaper.class);
-                            listener.onSuccess(list, isused,false);
+                            listener.onSuccess(list, isused, false);
                         } else {
-                            listener.onFailure(response.getString("msg"));
+                            if (response.getInt("code") == 401)
+                                CommonReq.showReLoginDialog(context);
+                            else
+                                listener.onFailure(response.getString("msg"));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

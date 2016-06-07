@@ -59,6 +59,7 @@ public class Renmai_Presenter implements OnLoadBasicListener<Renmai> {
             }
         });
     }
+
     private void delayShow(Runnable r) {
         if (r == null)
             return;
@@ -66,6 +67,7 @@ public class Renmai_Presenter implements OnLoadBasicListener<Renmai> {
         long interval = end - start > 2000 ? 0 : 2000 - (end - start);
         handler.postDelayed(r, interval);
     }
+
     @Override
     public void loadOnFailure(final String msg) {
         delayShow(new Runnable() {
@@ -90,7 +92,7 @@ public class Renmai_Presenter implements OnLoadBasicListener<Renmai> {
         madapter.loadListGet(InterfaceInfo.FRIENDS_URL + "/" + user.getId(), context, params, this, Renmai.class);
     }
 
-    public void loadRmNum(Context context) {
+    public void loadRmNum(final Context context) {
         String authroi = CommonReq.getAuthori(context);
         User user = YiTouApplication.getInstance().getUser();
         if (user == null) {
@@ -109,7 +111,10 @@ public class Renmai_Presenter implements OnLoadBasicListener<Renmai> {
                         if (response.getInt("code") == 0) {
                             iviewrm.loadRmNumSuc(response.getInt("one"), response.getInt("two"));
                         } else {
-                            iviewrm.loadRmNumFail(response.getString("msg"));
+                            if (response.getInt("code") == 401)
+                                CommonReq.showReLoginDialog(context);
+                            else
+                                iviewrm.loadRmNumFail(response.getString("msg"));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

@@ -34,7 +34,7 @@ public class Exchange_Presenter {
         this.iviewexc = iviewexc;
     }
 
-    public void exchange(Context context, String num, int id, String pwd) {
+    public void exchange(final Context context, String num, int id, String pwd) {
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
@@ -51,8 +51,11 @@ public class Exchange_Presenter {
                     try {
                         if (response.getInt("code") == 0) {
                             iviewexc.exchangeSuc();
-                        }else{
-                            iviewexc.exchangeFail(response.getString("msg"));
+                        } else {
+                            if (response.getInt("code") == 401) {
+                                CommonReq.showReLoginDialog(context);
+                            } else
+                                iviewexc.exchangeFail(response.getString("msg"));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

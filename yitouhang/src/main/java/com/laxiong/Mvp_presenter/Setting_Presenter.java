@@ -36,7 +36,7 @@ public class Setting_Presenter {
         this.iviewset = iviewset;
     }
 
-    public void reqSetNickName(Context context) {
+    public void reqSetNickName(final Context context) {
         final String nickname = iviewset.getNickName();
         if (!valify((nickname)))
             return;
@@ -58,7 +58,10 @@ public class Setting_Presenter {
                                 user.setNickname(nickname);
                             iviewset.setNickSuccess();
                         } else {
-                            iviewset.setNickFailure(response.getString("msg"));
+                            if (response.getInt("code") == 401)
+                                CommonReq.showReLoginDialog(context);
+                            else
+                                iviewset.setNickFailure(response.getString("msg"));
                         }
                     } else {
                         iviewset.setNickFailure(response.getString("msg"));

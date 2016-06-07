@@ -37,6 +37,7 @@ import com.laxiong.Fragment.VipFinancingFragment;
 import com.laxiong.Mvp_model.UpdateInfo;
 import com.laxiong.Mvp_presenter.MainPage_Presenter;
 import com.laxiong.Mvp_view.IViewMain;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.CommonUtils;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.NotificationUtil;
@@ -123,6 +124,13 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
             pgbar.setProgress(progress);
         }
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        CommonReq.reqUserMsg(this);
+    }
+
     @Override
     public void loadListSuc(List<Banner> list) {
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_firstpage, null);

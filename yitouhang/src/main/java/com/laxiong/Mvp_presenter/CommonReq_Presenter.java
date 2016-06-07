@@ -19,27 +19,35 @@ import org.json.JSONObject;
  */
 public class CommonReq_Presenter {
     private IViewCommonBack iviewback;
-    public CommonReq_Presenter(){}
+    private Context context;
+
+    public CommonReq_Presenter() {
+    }
+
     public CommonReq_Presenter(IViewCommonBack iviewback) {
         this.iviewback = iviewback;
     }
 
     //以下是无授权
     public void reqCommonBackByPost(String url, Context context, RequestParams params, String tag) {
+        this.context = context;
         HttpUtil.post(url, params, new MyJSONHttp(tag), true);
 
     }
 
     public void reqCommonBackByGet(String url, Context context, RequestParams params, String tag) {
+        this.context = context;
         HttpUtil.get(url, params, new MyJSONHttp(tag), true);
     }
 
     public void reqCommonBackByPut(String url, Context context, RequestParams params, String tag) {
+        this.context = context;
         HttpUtil.put(url, params, new MyJSONHttp(tag), true);
     }
 
     // 以下是有授权
     public void aureqByPost(String url, Context context, RequestParams params, String tag) {
+        this.context = context;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
@@ -47,6 +55,7 @@ public class CommonReq_Presenter {
     }
 
     public void aureqByGet(String url, Context context, RequestParams params, String tag) {
+        this.context = context;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
@@ -54,6 +63,7 @@ public class CommonReq_Presenter {
     }
 
     public void aureqByPut(String url, Context context, RequestParams params, String tag) {
+        this.context = context;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
@@ -75,7 +85,10 @@ public class CommonReq_Presenter {
                     if (response.getInt("code") == 0) {
                         iviewback.reqbackSuc(tag);
                     } else {
-                        iviewback.reqbackFail(response.getString("msg"), tag);
+                        if (response.getInt("code") == 401) {
+                            CommonReq.showReLoginDialog(context);
+                        } else
+                            iviewback.reqbackFail(response.getString("msg"), tag);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

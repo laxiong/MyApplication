@@ -1,5 +1,12 @@
 package com.laxiong.entity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Utils.SpUtils;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -106,7 +113,14 @@ public class User implements Serializable {
         this.security_level = security_level;
         this.fee = fee;
     }
-
+    public static void clearLogin(Context context){
+        YiTouApplication.getInstance().setUserLogin(null);
+        YiTouApplication.getInstance().setUser(null);
+        SharedPreferences sp= SpUtils.getSp(context);
+        SpUtils.saveStrValue(sp, SpUtils.USERLOGIN_KEY, "");
+        SpUtils.saveStrValue(sp, SpUtils.USER_KEY, "");
+        SpUtils.saveStrValue(sp,SpUtils.GESTURE_KEY,"");
+    }
     public String getAssess() {
         return assess;
     }
@@ -478,7 +492,6 @@ public class User implements Serializable {
     public void setFee(double fee) {
         this.fee = fee;
     }
-
     @Override
     public String toString() {
         return "User{" +

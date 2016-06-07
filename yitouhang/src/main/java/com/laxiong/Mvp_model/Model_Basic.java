@@ -3,6 +3,7 @@ package com.laxiong.Mvp_model;
 import android.content.Context;
 import android.util.Log;
 
+import com.laxiong.Common.Common;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
@@ -24,6 +25,7 @@ import java.util.List;
 public class Model_Basic<T> {
     private OnLoadBasicListener<T> listener;
     private OnLoadBcObjListener<T> listener2;
+    private Context context;
 
     public void setListener(OnLoadBasicListener<T> listener) {
         this.listener = listener;
@@ -37,37 +39,45 @@ public class Model_Basic<T> {
 
     /**
      * 以req开头的是不需要授权的
-     * @param url 地址
+     *
+     * @param url     地址
      * @param context
-     * @param params 参数
-     * @param tag  JSON数组的对象名称如果为null的话默认以整个response作为parse对象 解析list对象
-     * @param clazz 类的Class对象
+     * @param params  参数
+     * @param tag     JSON数组的对象名称如果为null的话默认以整个response作为parse对象 解析list对象
+     * @param clazz   类的Class对象
      */
     public void reqCommonBackByPost(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
+        this.context = context;
         HttpUtil.post(url, params, new MyJSONHttp(tag, clazz), true);
 
     }
 
     /**
      * 以obj结尾的是解析出一个实体类对象 而不是一个list,其他同上
+     *
      * @param url
      * @param params
      * @param tag
      * @param clazz
      */
     public void reqCommonGetObj(String url, RequestParams params, String tag, Class<T> clazz) {
+        this.context = context;
         HttpUtil.get(url, params, new MyJSONHttp2(tag, clazz));
     }
+
     public void reqCommonBackByGet(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
+        this.context = context;
         HttpUtil.get(url, params, new MyJSONHttp(tag, clazz), true);
     }
 
     public void reqCommonBackByPut(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
+        this.context = context;
         HttpUtil.put(url, params, new MyJSONHttp(tag, clazz), true);
     }
 
     // 以下是有授权
     public void aureqByPost(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
+        this.context = context;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
@@ -75,18 +85,23 @@ public class Model_Basic<T> {
     }
 
     public void aureqByGet(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
+        this.context = context;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
         HttpUtil.get(url, params, new MyJSONHttp(tag, clazz), authori);
     }
+
     public void aureqByPostObj(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
+        this.context = context;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
         HttpUtil.post(url, params, new MyJSONHttp2(tag, clazz), authori);
     }
+
     public void aureqByGetObj(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
+        this.context = context;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
@@ -94,6 +109,7 @@ public class Model_Basic<T> {
     }
 
     public void aureqByPut(String url, Context context, RequestParams params, String tag, Class<T> clazz) {
+        this.context = context;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
@@ -122,7 +138,10 @@ public class Model_Basic<T> {
                             list = JSONUtils.parseArray(response.getJSONArray(tag).toString(), clazz);
                         listener.loadOnSuccess(list);
                     } else {
-                        listener.loadOnFailure(response.getString("msg"));
+                        if (response.getInt("code") == 401) {
+                            CommonReq.showReLoginDialog(context);
+                        } else
+                            listener.loadOnFailure(response.getString("msg"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -156,13 +175,16 @@ public class Model_Basic<T> {
                 try {
                     if (response.getInt("code") == 0) {
                         T obj = null;
-                        if (tag==null||StringUtils.isBlank(tag))
+                        if (tag == null || StringUtils.isBlank(tag))
                             obj = JSONUtils.parseObject(response.toString(), clazz);
                         else
                             obj = JSONUtils.parseObject(response.getJSONObject(tag).toString(), clazz);
                         listener2.onSuccss(obj);
                     } else {
-                        listener2.onFailure(response.getString("msg"));
+                        if (response.getInt("code") == 401) {
+                            CommonReq.showReLoginDialog(context);
+                        } else
+                            listener2.onFailure(response.getString("msg"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -40,7 +40,7 @@ public class UserCount_Presenter {
     public UserCount_Presenter(IViewCount iviewcount) {
         this.iviewcount = iviewcount;
     }
-    public void reqUserCountMsg(Context context) {
+    public void reqUserCountMsg(final Context context) {
         SharedPreferences sp = SpUtils.getSp(context);
         String userlogins = SpUtils.getStrValue(sp, SpUtils.USERLOGIN_KEY);
         UserLogin userlogin=null;
@@ -70,6 +70,8 @@ public class UserCount_Presenter {
                             YiTouApplication.getInstance().setUser(user);
                             iviewcount.getCountMsgSuc();
                         }else{
+                            if(response.getInt("code")==401)
+                                CommonReq.showReLoginDialog(context);
                             iviewcount.getCountMsgFai();
                         }
                     } catch (JSONException e) {

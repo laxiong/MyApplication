@@ -141,7 +141,7 @@ public class FoundPswdActivity extends BaseActivity implements OnClickListener, 
                 break;
             case R.id.tv_getVali:
                 if (validatePhone()) {
-                    presenter.reqValidation();
+                    presenter.reqValidation(FoundPswdActivity.this);
                     timepresenter.loadHandlerTimer(Constants.INTERVAL,Constants.TIME);
                 }
                 break;
