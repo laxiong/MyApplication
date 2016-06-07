@@ -635,7 +635,6 @@ public class NumberPicker extends LinearLayout {
 
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
-
         inflater.inflate(layoutResId, this, true);
 
         OnClickListener onClickListener = new OnClickListener() {

@@ -16,7 +16,7 @@
             android:id="@+id/fristpager_icon" 
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:src="@drawable/ing_shouye_bottom"
+            android:src="@drawable/shouye_mr"
             android:layout_centerHorizontal="true"
             />
         <TextView
@@ -42,7 +42,7 @@
             android:id="@+id/financing_icon" 
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:src="@drawable/img_licai_bottom"
+            android:src="@drawable/licai_mr"
             android:layout_centerHorizontal="true"
             />
         <TextView
@@ -68,7 +68,7 @@
             android:id="@+id/myself_icon" 
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:src="@drawable/img_zichan_bottom"
+            android:src="@drawable/zichan_mr"
             android:layout_centerHorizontal="true"
             />
         <TextView

@@ -45,10 +45,10 @@ public class InvestmentRecordActivity extends BaseActivity implements View.OnCli
     }
 
     private void initData() {
-        reverse(90);
+        reverse(0);
     }
     private void reverse(float degree){
-        Bitmap bm= BitmapFactory.decodeResource(getResources(),R.drawable.back3);
+        Bitmap bm= BitmapFactory.decodeResource(getResources(),R.drawable.expand);
         iv_arrow.setImageBitmap(ImageUtil.reverse(bm,degree));
     }
     @SuppressLint("NewApi")
@@ -96,7 +96,7 @@ public class InvestmentRecordActivity extends BaseActivity implements View.OnCli
     private View mSelectView ;
     private  TextView mYuTag,mTiTag,mTouTag,mShouTag ; // ��� ���� Ͷ�� ���� ��¼
     private void showSelectTypePopupWindow(){
-        reverse(-90);
+        reverse(-180);
         mSelectView = LayoutInflater.from(this).inflate(R.layout.select_type_popupwindow,null);
         mYuTag = (TextView) mSelectView.findViewById(R.id.yu_tag);
         mTiTag = (TextView) mSelectView.findViewById(R.id.ti_tag);
@@ -125,7 +125,7 @@ public class InvestmentRecordActivity extends BaseActivity implements View.OnCli
     View.OnClickListener listener = new View.OnClickListener(){
         @Override@SuppressLint("NewApi")
         public void onClick(View view) {
-            reverse(90);
+            reverse(0);
             FragmentTransaction mTransaction = mFragmentManager.beginTransaction();
             hideFragment(mTransaction);
             switch (view.getId()){

@@ -114,7 +114,7 @@
                 android:layout_marginTop="11dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="持有金额(元)"
+                android:text="理财周期(天)"
                 android:textSize="13dp"
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"

@@ -13,7 +13,7 @@
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
         custom:texts="活动大厅"
-        custom:textsize="6sp" />
+        custom:textsize="8sp" />
 
     <ListView
         android:id="@+id/lvlist"

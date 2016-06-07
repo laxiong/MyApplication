@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Activity.GuXiBaoActivity;
+import com.laxiong.Activity.MessageActivity;
 import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Json.FinanceJsonBean;
@@ -55,6 +57,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 	private FinanceJsonBean  mFinanBean = null;
 	private FinancingListView mListView ;
 	private WaitPgView wp;
+	private static final String NO_SALE="#FFD6D6D6";
 
 	private  List<FinanceInfo>  mList = new ArrayList<FinanceInfo>() ; ;// 全是固息宝的
 	private int listNum ;  // 刷新加载更多所有的个数
@@ -87,7 +90,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 		mConcel_img = (ImageView)view.findViewById(R.id.concel_img);
 		mFinancelMessage = (LinearLayout)view.findViewById(R.id.finance_message);
 		mConcel_img.setOnClickListener(this);
-
+		mFinancelMessage.setOnClickListener(this);
 		mListView = (FinancingListView)view.findViewById(R.id.Listview);
 		showLoadView(true);
 		getProductInfo();
@@ -147,6 +150,9 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 			case R.id.concel_img:
 				if(mFinancelMessage!=null)
 					mFinancelMessage.setVisibility(View.GONE);
+				break;
+			case R.id.finance_message:
+				startActivity(new Intent(getActivity(), MessageActivity.class));
 				break;
 		}
 	}
@@ -240,7 +246,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						}
 					}
 					if(mViewHonder.mCircleProgressView!=null&&mViewHonder.mEnought!=null){
-						mViewHonder.mEnought.setPaintColor("#FFEE4E42");
+						mViewHonder.mEnought.setPaintColor(NO_SALE);
 						if (sxt.getPercent()==100.0){
 							mViewHonder.mCircleProgressView.setVisibility(View.INVISIBLE);
 							mViewHonder.mCircleProgressView.setPaintColor("#FFEE4E42");
@@ -333,7 +339,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						}
 					}
 					if(mViewHonder.mCircleProgressView!=null&&mViewHonder.mEnought!=null){
-						mViewHonder.mEnought.setPaintColor("#FFEE4E42");
+						mViewHonder.mEnought.setPaintColor(NO_SALE);
 						if (gxb.getPercent()==100.0){
 							mViewHonder.mCircleProgressView.setVisibility(View.INVISIBLE);
 							mViewHonder.mCircleProgressView.setPaintColor("#FFEE4E42");

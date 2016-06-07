@@ -2,18 +2,18 @@ package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
+import android.os.Handler;
 
 import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Mvp_model.Model_Yibi;
 import com.laxiong.Mvp_model.OnLoadBasicListener;
-import com.laxiong.Mvp_model.Order;
 import com.laxiong.Mvp_model.Score;
 import com.laxiong.Mvp_view.IViewYibi;
 import com.laxiong.entity.User;
 import com.loopj.android.http.RequestParams;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 /**
@@ -23,13 +23,19 @@ import java.util.List;
 public class YibiDetail_Presenter implements OnLoadBasicListener<Score> {
     private IViewYibi iviewyibi;
     private Model_Yibi<Score> myibi;
+    private long start, end;
+    private WeakReference<Handler> weak;
+    private Handler handler;
 
     public YibiDetail_Presenter(IViewYibi iviewyibi) {
         this.iviewyibi = iviewyibi;
         myibi = new Model_Yibi();
+        weak = new WeakReference<Handler>(new Handler());
+        handler=weak.get();
     }
 
     public void loadYibiOutput(int page, int pagesize, Context context) {
+        start = System.currentTimeMillis();
         User user = YiTouApplication.getInstance().getUser();
         if (user == null) {
             context.startActivity(new Intent(context, LoginActivity.class));
@@ -43,6 +49,7 @@ public class YibiDetail_Presenter implements OnLoadBasicListener<Score> {
     }
 
     public void loadYibiInput(int page, int pagesize, Context context) {
+        start = System.currentTimeMillis();
         User user = YiTouApplication.getInstance().getUser();
         if (user == null) {
             context.startActivity(new Intent(context, LoginActivity.class));
@@ -52,16 +59,32 @@ public class YibiDetail_Presenter implements OnLoadBasicListener<Score> {
         params.put("type", "use");
         params.put("page", page);
         params.put("pageSize", pagesize);
-        myibi.loadYibiInput(user.getId(), params, context,this);
+        myibi.loadYibiInput(user.getId(), params, context, this);
     }
 
     @Override
-    public void loadOnSuccess(List<Score> list) {
-        iviewyibi.loadListSuc(list);
+    public void loadOnSuccess(final List<Score> list) {
+        delayShow(new Runnable() {
+            @Override
+            public void run() {
+                iviewyibi.loadListSuc(list);
+            }
+        });
     }
-
+    private void delayShow(Runnable r) {
+        if (r == null)
+            return;
+        end = System.currentTimeMillis();
+        long interval = end - start > 2000 ? 0 : 2000 - (end - start);
+        handler.postDelayed(r, interval);
+    }
     @Override
-    public void loadOnFailure(String msg) {
-        iviewyibi.loadListFailure(msg);
+    public void loadOnFailure(final String msg) {
+        delayShow(new Runnable() {
+            @Override
+            public void run() {
+                iviewyibi.loadListFailure(msg);
+            }
+        });
     }
 }

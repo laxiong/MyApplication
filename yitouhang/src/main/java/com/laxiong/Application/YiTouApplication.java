@@ -6,12 +6,16 @@ import java.lang.reflect.Field;
 import java.util.Set;
 
 import com.laxiong.Common.Settings;
+import com.laxiong.Utils.JSONUtils;
+import com.laxiong.Utils.SpUtils;
 import com.laxiong.entity.User;
 import com.laxiong.entity.UserLogin;
 import com.umeng.socialize.PlatformConfig;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.os.Environment;
+import android.text.TextUtils;
 
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.TagAliasCallback;
@@ -24,6 +28,13 @@ public class YiTouApplication extends Application {
     private boolean flag = true;
 
     public UserLogin getUserLogin() {
+        if(userLogin==null){
+            SharedPreferences sp= SpUtils.getSp(this);
+            String jsonstr=sp.getString(SpUtils.USERLOGIN_KEY,"");
+            if(!TextUtils.isEmpty(jsonstr)){
+                userLogin=JSONUtils.parseObject(jsonstr,UserLogin.class);
+            }
+        }
         return userLogin;
     }
 

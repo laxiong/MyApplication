@@ -24,7 +24,9 @@ import com.laxiong.Common.Settings;
 import com.laxiong.InputMethod.LPTextField;
 import com.laxiong.Mvp_model.BankCard;
 import com.laxiong.Mvp_presenter.BankCard_Presenter;
+import com.laxiong.Mvp_presenter.Login_Presenter;
 import com.laxiong.Mvp_view.IViewWithdraw;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
@@ -62,8 +64,15 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
     }
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        presenter.loadBankCard(this);
+    }
+
+    @Override
     public void reqbackSuc(String tag) {
         ToastUtil.customAlert(this, "提现成功");
+        CommonReq.reqUserMsg(getApplicationContext());
         Intent intent = new Intent(WithdrawCashActivity.this,
                 WithdrawCashDetailsActivity.class);
         intent.putExtra("cash", et_input.getText().toString());

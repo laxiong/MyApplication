@@ -62,7 +62,6 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
             showVip();
         KFAPIs.visitorLogin(this); //微客服平台的事件
     }
-
     private void initData() {
         user = YiTouApplication.getInstance().getUser();
         presenter = new UserCount_Presenter(this);
@@ -140,6 +139,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
     protected void onRestart() {
         super.onRestart();
         judgeAccess();
+        user=YiTouApplication.getInstance().getUser();
     }
     private void judgeAccess(){
         User user=YiTouApplication.getInstance().getUser();

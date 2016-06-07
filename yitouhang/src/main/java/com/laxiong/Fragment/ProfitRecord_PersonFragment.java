@@ -60,6 +60,8 @@ public class ProfitRecord_PersonFragment extends Fragment implements IViewInvest
     }
     public void initData() {
         list = new ArrayList<InvestItem>();
+        lvlist.setHeaderDividersEnabled(false);
+        lvlist.setFooterDividersEnabled(false);
         adapter = new ReuseAdapter<InvestItem>(getActivity(), list, R.layout.investmentrecord_buying_item) {
             @Override
             public void convert(ViewHolder viewholder, InvestItem item) {

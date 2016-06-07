@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.entity.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -38,6 +39,7 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 	private EditText mBuyAmount;
 	private String mAmountMoney ;
 	private int productId ;
+	private User mUser;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,16 +59,7 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 		mSureTransferOut.setOnClickListener(this);
 		mBuyAmount.addTextChangedListener(watcher);
 
-
-		User mUser =YiTouApplication.getInstance().getUser();
-		if (mUser!=null) {
-			int CurMoney = mUser.getCurrent();
-			mAmountMoney = String.valueOf(CurMoney);
-		}else {
-			mAmountMoney = "0.0";
-		}
-		mTransferOutMoney.setText(mAmountMoney);
-
+		setValue();
 		SharedPreferences sxtId = getSharedPreferences("SXT_ID", Context.MODE_PRIVATE);
 		if (sxtId!=null){
 			productId = sxtId.getInt("sxt_id", 0);
@@ -75,7 +68,16 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 		}
 
 	}
-
+	private void setValue(){
+		mUser =YiTouApplication.getInstance().getUser();
+		if (mUser!=null) {
+			int CurMoney = mUser.getCurrent();
+			mAmountMoney = String.valueOf(CurMoney);
+		}else {
+			mAmountMoney = "0.0";
+		}
+		mTransferOutMoney.setText(mAmountMoney);
+	}
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()){
@@ -143,6 +145,12 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 		mInputPswdWindow.showAtLocation(mInputView, Gravity.BOTTOM, 0, 0);
 	}
 
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		setValue();
+	}
+
 	private void dismissWindows(){
 		if(mInputPswdWindow!=null&&mInputPswdWindow.isShowing()){
 			mInputPswdWindow.dismiss();
@@ -164,10 +172,12 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 				if (response != null) {
 					try {
 						if (response.getInt("code") == 0) {
+							CommonReq.reqUserMsg(getApplicationContext());
 							startActivity(new Intent(TransferOutActivity.this,
 									TransferOutResultActivity.class).
 									putExtra("money", mBuyAmount.getText().toString().trim()));
 							dismissWindows();
+							finish();
 						} else {
 							Toast.makeText(TransferOutActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 						}

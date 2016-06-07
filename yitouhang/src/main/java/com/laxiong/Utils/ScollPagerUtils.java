@@ -95,7 +95,7 @@ public class ScollPagerUtils implements OnPageChangeListener {
             imgs.setScaleType(ScaleType.FIT_XY);
             imgs.setLayoutParams(params);
             //				1			2										3								   4
-            Glide.with(mContext).load(bannerList.get(i).getImageurl()).centerCrop().placeholder(R.drawable.downloading).crossFade().into(imgs);
+            Glide.with(mContext).load(bannerList.get(i).getImageurl()).centerCrop().placeholder(R.drawable.gongshi_banner_mr).crossFade().into(imgs);
             ImagList.add(imgs);
         }
 

@@ -35,13 +35,13 @@ public class LockIndicator extends View {
 		paint.setAntiAlias(true);
 		paint.setStrokeWidth(strokeWidth);
 		paint.setStyle(Paint.Style.STROKE);
-		patternNoraml = getResources().getDrawable(R.drawable.lock_pattern_node_normal);
-		patternPressed = getResources().getDrawable(R.drawable.lock_pattern_node_pressed);
+		patternNoraml = getResources().getDrawable(R.drawable.shape_wbcircle);
+		patternPressed = getResources().getDrawable(R.drawable.shape_wcircle);
 		if (patternPressed != null) {
 			patternWidth = patternPressed.getIntrinsicWidth();
 			patternHeight = patternPressed.getIntrinsicHeight();
-			this.f = (patternWidth / 4);
-			this.g = (patternHeight / 4);
+			this.f = (patternWidth / 2);
+			this.g = (patternHeight / 2);
 			patternPressed.setBounds(0, 0, patternWidth, patternHeight);
 			patternNoraml.setBounds(0, 0, patternWidth, patternHeight);
 		}
@@ -56,6 +56,7 @@ public class LockIndicator extends View {
 		for (int i = 0; i < numRow; i++) {
 			for (int j = 0; j < numColum; j++) {
 				paint.setColor(-16777216);
+				float density=getResources().getDisplayMetrics().density;
 				int i1 = j * patternHeight + j * this.g;
 				int i2 = i * patternWidth + i * this.f;
 				canvas.save();

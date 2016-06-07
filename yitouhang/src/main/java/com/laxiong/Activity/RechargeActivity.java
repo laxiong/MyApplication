@@ -22,6 +22,7 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.BaseHelper;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.Constants;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.Md5Algorithm;
@@ -278,12 +279,12 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 							// TODO 卡前置模式返回的银行卡绑定协议号，用来下次支付时使用，此处仅作为示例使用。正式接入时去掉
 //							BaseHelper.showDialog(RechargeActivity.this, "提示", "支付成功",
 //									android.R.drawable.ic_dialog_alert);
-
+							CommonReq.reqUserMsg(getApplicationContext());
 							startActivity(new Intent(RechargeActivity.this,
 									RechargeResultActivity.class).
 									putExtra("money",mInputRecharge.getText().toString().trim()).
 									putExtra("bankNum", bankInfo));
-
+							finish();
 //							NofifyUserinfoChanged nofifyUserinfoChanged = new NofifyUserinfoChanged() {
 //
 //								@Override

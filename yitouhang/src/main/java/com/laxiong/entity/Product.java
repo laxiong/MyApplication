@@ -13,6 +13,7 @@ public class Product implements Serializable{
     private String img;
     private int num;
     private int type;
+    private String inn_img;
 
     public Product() {
     }
@@ -26,16 +27,25 @@ public class Product implements Serializable{
                 ", img='" + img + '\'' +
                 ", num=" + num +
                 ", type=" + type +
+                ", inn_img='" + inn_img + '\'' +
                 '}';
     }
 
-    public Product(int id, String title, float pay, String img, int num, int type) {
+    public Product(int id, String title, float pay, String img, int num, int type,String inn_img) {
         this.id = id;
         this.title = title;
         this.pay = pay;
         this.img = img;
         this.num = num;
         this.type = type;
+        this.inn_img=inn_img;
+    }
+    public String getInn_img() {
+        return inn_img;
+    }
+
+    public void setInn_img(String inn_img) {
+        this.inn_img = inn_img;
     }
 
     public int getId() {

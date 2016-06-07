@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.OnSingleClickListener;
 import com.laxiong.Calender.CustomDate;
 import com.laxiong.Mvp_presenter.Exit_Presenter;
 import com.laxiong.Mvp_view.IViewExit;
@@ -54,10 +55,15 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         initData();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        user=YiTouApplication.getInstance().getUser();
+    }
+
     private void initData() {
         presenter = new Exit_Presenter(this);
         backBtn.setOnClickListener(this);
-        personIcon.setOnClickListener(this);
         nameSetting.setOnClickListener(this);
         trueName.setOnClickListener(this);
         phoneBind.setOnClickListener(this);
@@ -296,17 +302,16 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         TextView sureBtn = (TextView) backView.findViewById(R.id.back_sure);
         TextView concelBtn = (TextView) backView.findViewById(R.id.back_concel);
 
-        sureBtn.setOnClickListener(new OnClickListener() {
+        sureBtn.setOnClickListener(new OnSingleClickListener(this) {
             @Override
-            public void onClick(View arg0) {
+            public void onSingleClick(View v) {
                 Toast.makeText(PersonalSettingActivity.this, "退出登录", Toast.LENGTH_LONG).show();
                 presenter.exit();
             }
         });
-
-        concelBtn.setOnClickListener(new OnClickListener() {
+        concelBtn.setOnClickListener(new OnSingleClickListener(this) {
             @Override
-            public void onClick(View arg0) {
+            public void onSingleClick(View v) {
                 if (backWindow != null && backWindow.isShowing()) {
                     backWindow.dismiss();
                     backWindow = null;
@@ -376,9 +381,6 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         switch (v.getId()) {
             case R.id.backbtn:                /**退出按钮**/
                 showBackOutMethod();
-                break;
-            case R.id.personIcon:            /**头像设置,时显示的PopupWindow**/
-                showPhotoIconTpye();
                 break;
             case R.id.true_name:            /**实名认证**/
                 if (!user.is_idc()) {

@@ -30,6 +30,7 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.BaseHelper;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.Constants;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.Md5Algorithm;
@@ -87,6 +88,17 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		getBankInfo();
 	}
 
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		setValue();
+	}
+	private void setValue(){
+		user = YiTouApplication.getInstance().getUser();
+		if (user!=null&&mMoneyLimit!=null){
+			mMoneyLimit.setText(""+user.getQuota());
+		}
+	}
 	private void initData() {
 		mChangeBankTpye.setOnClickListener(this);
 		mBack.setOnClickListener(this);
@@ -115,10 +127,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		mBuyAmount =(EditText)findViewById(R.id.buyamount);
 
 		mBuyAmount.addTextChangedListener(watcher);
-		user = YiTouApplication.getInstance().getUser();
-		if (user!=null&&mMoneyLimit!=null){
-			mMoneyLimit.setText(""+user.getQuota());
-		}
+		setValue();
 	}
 	@Override
 	public void onClick(View V) {
@@ -445,11 +454,13 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 				if (response != null) {
 					try {
 						if (response.getInt("code") == 0) {
+							CommonReq.reqUserMsg(getApplicationContext());
 							startActivity(new Intent(BuyingActivity.this,
 									BuyingResultActivity.class).
 									putExtra("Money",String.valueOf(decAmount)).
 									putExtra("ProductName", mProjectStr));
 							disMisInputPay();
+							finish();
 						}else {
 							//交易密码是否正确的判断
 							if (mInputPswdEd!=null){
@@ -671,12 +682,12 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 							// TODO 卡前置模式返回的银行卡绑定协议号，用来下次支付时使用，此处仅作为示例使用。正式接入时去掉
 //							BaseHelper.showDialog(BuyingActivity.this, "提示", "支付成功",
 //									android.R.drawable.ic_dialog_alert);
-
+							CommonReq.reqUserMsg(getApplicationContext());
 							startActivity(new Intent(BuyingActivity.this,
 									BuyingResultActivity.class).
 									putExtra("Money", String.valueOf(decAmount)).
 									putExtra("ProductName", mProjectStr));  // 跳转到购买结果的页面
-
+							finish();
 //							NofifyUserinfoChanged nofifyUserinfoChanged = new NofifyUserinfoChanged() {
 //								@Override
 //								public void onNotifyUserinfoChange() {

@@ -13,6 +13,7 @@ import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Mvp_presenter.Exchange_Presenter;
 import com.laxiong.Mvp_view.IViewExchange;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
@@ -52,6 +53,7 @@ public class ExChangeActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void exchangeSuc() {
         ToastUtil.customAlert(this, "兑换成功");
+        CommonReq.reqUserMsg(getApplicationContext());
         user.setScore(user.getScore() - yuan * 100);
     }
 
@@ -86,10 +88,13 @@ public class ExChangeActivity extends BaseActivity implements View.OnClickListen
         initListener();
     }
 
-    private void initValue() {
-        presenter = new Exchange_Presenter(this);
-        if (!StringUtils.isBlank(url))
-            Glide.with(this).load(url).placeholder(R.drawable.gongshi_banner_mr).into(ivpic);
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        setValue();
+    }
+
+    private void setValue() {
         user = YiTouApplication.getInstance().getUser();
         if (user == null) {
             Intent intent = new Intent(this, LoginActivity.class);
@@ -104,6 +109,13 @@ public class ExChangeActivity extends BaseActivity implements View.OnClickListen
         tv_exchange.setEnabled(flag ? true : false);
         tv_exchange.setBackgroundResource(flag ? R.drawable.shape_redbtn_border : R.drawable.shape_greybtn_border);
         tv_exchange.setText(flag ? R.string.exchange_btn_im : R.string.exchange_btn_noenum);
+    }
+
+    private void initValue() {
+        presenter = new Exchange_Presenter(this);
+        if (!StringUtils.isBlank(url))
+            Glide.with(this).load(url).placeholder(R.drawable.gongshi_banner_mr).into(ivpic);
+        setValue();
     }
 
     private void initListener() {

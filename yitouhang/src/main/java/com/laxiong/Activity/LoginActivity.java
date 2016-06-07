@@ -1,9 +1,11 @@
 package com.laxiong.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -12,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Basic.OnSingleClickListener;
 import com.laxiong.Common.Common;
 import com.laxiong.Mvp_presenter.Login_Presenter;
 import com.laxiong.Mvp_view.IViewLogin;
@@ -49,7 +52,13 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
     private void initData() {
         presenter = new Login_Presenter(this);
         mRegistBtn.setOnClickListener(this);
-        mLoginBtn.setOnClickListener(this);
+        mLoginBtn.setOnClickListener(new OnSingleClickListener(this) {
+            @Override
+            public void onSingleClick(View v) {
+                if (valifiylogin())
+                    presenter.login(LoginActivity.this);
+            }
+        });
         mFindPswd.setOnClickListener(this);
         mChangeCount.setOnClickListener(this);
         mBack.setOnClickListener(this);
@@ -113,17 +122,12 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
         }
         return true;
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.registBtn:
                 startActivity(new Intent(LoginActivity.this,
                         RegistActivity.class));
-                break;
-            case R.id.loginBtn:
-                if (valifiylogin())
-                    presenter.login(this);
                 break;
             case R.id.changecount:
                 startActivity(new Intent(LoginActivity.this,

@@ -24,7 +24,7 @@ public class CommonActionBar extends RelativeLayout {
     private int bgcolor;
     private FrameLayout fl_back;
     private TextView tv_title;
-    private static final int defaultBg = R.color.title_grey;
+    private static final int defaultBg = android.R.color.transparent;
     private static final int defaultTextColor = R.color.white;
 
     public CommonActionBar(Context context, AttributeSet attrs) {

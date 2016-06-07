@@ -78,7 +78,7 @@ public class InvestDetail_Presenter implements OnLoadBasicListener<InvestItem>,O
         if (r == null)
             return;
         end = System.currentTimeMillis();
-        long interval = end - start > 2000 ? 0 : 2000 - (end - start);
+        long interval = end - start > 1500 ? 0 : 1500 - (end - start);
         handler.postDelayed(r, interval);
     }
 

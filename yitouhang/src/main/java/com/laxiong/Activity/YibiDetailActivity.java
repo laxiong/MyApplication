@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,6 +18,8 @@ import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
 import com.laxiong.View.FinancingListView;
 import com.gongshidai.mistGSD.R;
+import com.laxiong.View.WaitPgView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +33,7 @@ public class YibiDetailActivity extends BaseActivity implements IViewYibi {
     private ReuseAdapter<Score> adapter;
     private boolean flag = true;
     private boolean isshouru = true;
-
+    private WaitPgView wp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,18 +42,26 @@ public class YibiDetailActivity extends BaseActivity implements IViewYibi {
         initData();
         initListener();
     }
-
+    public void showLoadView(boolean flag) {
+        wp= (WaitPgView)findViewById(R.id.wp_load);
+        wp.setVisibility(flag ? View.VISIBLE : View.GONE);
+    }
     private void initListener() {
         lvlist.setOnRefreshListener(new FinancingListView.OnRefreshListener() {
             @Override
             public void onPullRefresh() {
-                if (lvlist != null) lvlist.completeRefresh();
+                if (lvlist != null) {
+                    if (isshouru) {
+                        presenter.loadYibiInput(pagenum=1, PAGESIZE, YibiDetailActivity.this);
+                    } else {
+                        presenter.loadYibiOutput(pagenum=1, PAGESIZE, YibiDetailActivity.this);
+                    }
+                }
             }
 
             @Override
             public void onLoadingMore() {
                 if (!flag) {
-                    ToastUtil.customAlert(YibiDetailActivity.this, "没数据了");
                     return;
                 }
                 if (isshouru) {
@@ -64,20 +75,25 @@ public class YibiDetailActivity extends BaseActivity implements IViewYibi {
 
     @Override
     public void loadListSuc(List<Score> listdata) {
-        Log.i("kk",listdata.toString());
+        showLoadView(false);
         if (lvlist != null) lvlist.completeRefresh();
-        if (list != null && listdata != null) {
+        if (list != null && listdata != null&&listdata.size()!=0) {
+            if(pagenum==1)this.list.clear();
             this.list.addAll(listdata);
             adapter.setList(list);
         } else {
             flag = false;
-            ToastUtil.customAlert(this, "没数据了");
+            lvlist.setLoadMoreEnabled(false);
         }
+        if(list==null||list.size()==0)
+            lvlist.setEmptyView(findViewById(R.id.ll_empty));
     }
 
     @Override
     public void loadListFailure(String msg) {
         ToastUtil.customAlert(this, msg);
+        if (lvlist != null) lvlist.completeRefresh();
+        showLoadView(false);
     }
 
     private void initData() {
@@ -87,6 +103,7 @@ public class YibiDetailActivity extends BaseActivity implements IViewYibi {
         isshouru = "shouru".equals(type) ? true : false;
         actionbar.setTitle(isshouru ? "收入" : "支出");
         list = new ArrayList<Score>();
+        showLoadView(true);
         adapter = new ReuseAdapter<Score>(this, list, R.layout.item_order) {
             @Override
             public void convert(ViewHolder helper, Score item) {

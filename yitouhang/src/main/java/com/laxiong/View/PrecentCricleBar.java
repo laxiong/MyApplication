@@ -60,7 +60,7 @@ public class PrecentCricleBar extends View {
 
         canvas.drawArc(oval, -90, 360, false, paint); // 绘制白色圆圈
 
-        String text = "磬完";
+        String text = "售罄";
         int textHeight = height / 4; //设置中间数据的大�?
         paint.setTextSize(textHeight);
         int textWidth = (int) paint.measureText(text, 0, text.length());

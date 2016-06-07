@@ -18,8 +18,10 @@ import android.widget.Toast;
 
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
+import com.laxiong.Mvp_presenter.Exit_Presenter;
 import com.laxiong.Mvp_presenter.UserCount_Presenter;
 import com.laxiong.Mvp_view.IViewCount;
+import com.laxiong.Mvp_view.IViewExit;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.SpUtils;
@@ -28,7 +30,7 @@ import com.laxiong.entity.UserLogin;
 import com.laxiong.fund.widget.GestureContentView;
 import com.laxiong.fund.widget.GestureDrawline.GestureCallBack;
 import com.gongshidai.mistGSD.R;
-public class PatternViewActivity extends BaseActivity implements OnClickListener {
+public class PatternViewActivity extends BaseActivity implements OnClickListener,IViewExit {
     /***
      * 设置手势密码
      */
@@ -56,7 +58,9 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
     private long mExitTime = 0;
     private int mParamIntentCode;
     private String gestruepswd;  // 手势密码
-
+    private int times;
+    private static final int TIMES_ERROR=3;
+    private Exit_Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,12 +70,31 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
         setUpListeners();
     }
 
+    @Override
+    public void logoutfailed(String msg) {
+
+    }
+
+    @Override
+    public void logoutsuccess() {
+        YiTouApplication.getInstance().setUserLogin(null);
+        YiTouApplication.getInstance().setUser(null);
+        SharedPreferences sp=SpUtils.getSp(this);
+        SpUtils.saveStrValue(sp, SpUtils.USERLOGIN_KEY, "");
+        SpUtils.saveStrValue(sp, SpUtils.USER_KEY, "");
+        SpUtils.saveStrValue(sp,SpUtils.GESTURE_KEY,"");
+        Toast.makeText(this, "请重新登录", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, ChangeCountActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void initData() {
         // 初始化一个显示各个点的viewGroup
 
         // TODO 获取登录的手势密码,在启动页里  第一次打开app进入ModifyGestrueActivity这个类，设置初始手势密码   之后的在这里校验
 //        gestruepswd = getSharedPreferences(Common.sharedPrefName, Context.MODE_PRIVATE).getString("patternstring", "");
-
+        presenter=new Exit_Presenter(this);
         gestruepswd = SpUtils.getSp(this).getString(SpUtils.GESTURE_KEY, "");
         mGestureContentView = new GestureContentView(this, true, gestruepswd,
                 new GestureCallBack() {
@@ -93,10 +116,15 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
 
                     @Override
                     public void checkedFail() {
+                        times++;
+                        if(times>= TIMES_ERROR){
+                            presenter.exit();
+                            return;
+                        }
                         mGestureContentView.clearDrawlineState(1300L);
                         mTextTip.setVisibility(View.VISIBLE);
                         mTextTip.setText(Html
-                                .fromHtml("<font color='#c70c1e'>密码错误</font>"));
+                                .fromHtml("<font color='#c70c1e'>密码错误,还有"+(TIMES_ERROR-times)+"次机会</font>"));
                         // 左右移动动画
                         Animation shakeAnimation = AnimationUtils.loadAnimation(PatternViewActivity.this, R.anim.shake);
                         mTextTip.startAnimation(shakeAnimation);

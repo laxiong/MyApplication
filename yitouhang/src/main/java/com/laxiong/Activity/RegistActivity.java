@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Basic.OnSingleClickListener;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
@@ -45,7 +46,31 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 	private void initData() {
 
 		mLoginBtn.setOnClickListener(this);
-		mRegistBtn.setOnClickListener(this);
+		mRegistBtn.setOnClickListener(new OnSingleClickListener(this) {
+			@Override
+			public void onSingleClick(View v) {
+				String mobile0 = mPhoneEd.getText().toString().replaceAll(" ", "");
+				String pswd = mPswdEd.getText().toString().replace(" ", "");
+				String code = mCodeEd.getText().toString().replace(" ", "");
+				if(Common.inputContentNotNull(mobile0)&&Common.inputContentNotNull(pswd)&&Common.inputContentNotNull(code)){
+					if(Common.isMobileNO(mobile0)){
+						if(Common.inputPswdCount(code)){
+							if(isRead){
+								doRegist();
+							}else{
+								Toast.makeText(RegistActivity.this, "请选中壹投行注册协议", Toast.LENGTH_SHORT).show();
+							}
+						}else{
+							Toast.makeText(RegistActivity.this, "请输入密码6到20位字母和数字", Toast.LENGTH_SHORT).show();
+						}
+					}else{
+						Toast.makeText(RegistActivity.this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
+					}
+				}else{
+					Toast.makeText(RegistActivity.this, "手机号码或密码,验证码不能为空", Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
 		mBack.setOnClickListener(this);
 		mToggleBtn.setOnClickListener(this);
 
@@ -80,29 +105,6 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 			case R.id.loginBtn:
 				startActivity(new Intent(RegistActivity.this,
 						LoginActivity.class));
-				break;
-			case R.id.registBtn:
-				String mobile0 = mPhoneEd.getText().toString().replaceAll(" ", "");
-				String pswd = mPswdEd.getText().toString().replace(" ", "");
-				String code = mCodeEd.getText().toString().replace(" ", "");
-				if(Common.inputContentNotNull(mobile0)&&Common.inputContentNotNull(pswd)&&Common.inputContentNotNull(code)){
-					if(Common.isMobileNO(mobile0)){
-						if(Common.inputPswdCount(code)){
-							if(isRead){
-								doRegist();
-							}else{
-								Toast.makeText(RegistActivity.this, "请选中壹投行注册协议", Toast.LENGTH_SHORT).show();
-							}
-						}else{
-							Toast.makeText(RegistActivity.this, "请输入密码6到20位字母和数字", Toast.LENGTH_SHORT).show();
-						}
-					}else{
-						Toast.makeText(RegistActivity.this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
-					}
-				}else{
-					Toast.makeText(RegistActivity.this, "手机号码或密码,验证码不能为空", Toast.LENGTH_SHORT).show();
-				}
-
 				break;
 			case R.id.backlayout:
 				this.finish();

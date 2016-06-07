@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.ListFragment;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.laxiong.Activity.RecordDetailActivity;
 import com.laxiong.Adapter.ReuseAdapter;
@@ -20,6 +22,7 @@ import com.laxiong.Adapter.ViewHolder;
 import com.laxiong.Mvp_model.InvestItem;
 import com.laxiong.Mvp_presenter.InvestDetail_Presenter;
 import com.laxiong.Mvp_view.IViewInvest;
+import com.laxiong.Utils.DensityUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.FinancingListView;
 import com.gongshidai.mistGSD.R;
@@ -96,9 +99,16 @@ public class InvestmentRecord_BuyingFragment extends Fragment implements IViewIn
 
             public void initData() {
                 list = new ArrayList<InvestItem>();
+                lvlist.setHeaderDividersEnabled(false);
+                lvlist.setFooterDividersEnabled(false);
                 adapter = new ReuseAdapter<InvestItem>(getActivity(), list, R.layout.investmentrecord_buying_item) {
                     @Override
                     public void convert(ViewHolder viewholder, InvestItem item) {
+                        TextView tv=viewholder.getView(R.id.name);
+                        Drawable drawable=getResources().getDrawable(R.drawable.lianjie);
+                        drawable.setBounds(0, 0, DensityUtils.dp2px(getActivity(), 15), DensityUtils.dp2px(getActivity(), 15));
+                        tv.setCompoundDrawablePadding(DensityUtils.dp2px(getActivity(),10));
+                        tv.setCompoundDrawables(null,null,drawable,null);
                         viewholder.setText(R.id.name, item.getTitle());
                         viewholder.setText(R.id.time, item.getAdd_time());
                         viewholder.setText(R.id.money_type, item.getAmount());

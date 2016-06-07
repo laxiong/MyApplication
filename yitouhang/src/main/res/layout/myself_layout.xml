@@ -176,7 +176,7 @@
                 android:id="@+id/imgs3"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/img_touzimx" />
+                android:src="@drawable/touzimx" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -240,7 +240,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgs5"
                 android:gravity="center"
-                android:text="1T商城"
+                android:text="@string/hall"
                 android:textSize="11dp" />
         </LinearLayout>
 
@@ -269,7 +269,7 @@
                 android:id="@+id/imgs6"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/img_huodongdt" />
+                android:src="@drawable/huodongdt" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -297,7 +297,7 @@
                 android:id="@+id/imgs7"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/img_renmaisy" />
+                android:src="@drawable/renmaisy" />
 
             <TextView
                 android:layout_width="wrap_content"

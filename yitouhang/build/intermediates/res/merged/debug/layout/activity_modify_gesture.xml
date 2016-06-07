@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gesture_color"
     android:orientation="vertical" >
-    
+    <com.laxiong.View.CommonActionBar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        custom:bgcolor="@android:color/transparent"
+        custom:textcolor="@color/white"
+        custom:texts="设置手势密码"
+        custom:textsize="8sp" />
     <LinearLayout
+        android:layout_below="@id/actionbar"
         android:id="@+id/gesture_tip_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

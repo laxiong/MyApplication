@@ -68,7 +68,7 @@ public class NameSettingActivity extends BaseActivity implements OnClickListener
         presenter = new Setting_Presenter(this);
         User user = YiTouApplication.getInstance().getUser();
         String nickname = user == null || StringUtils.isBlank(user.getNickname()) && StringUtils
-                .isBlank(user.getNamed()) ? "德玛西亚之力" : (StringUtils.isBlank(user.getNickname())
+                .isBlank(user.getNamed()) ? "请输入昵称" : (StringUtils.isBlank(user.getNickname())
                 ? user.getNamed() : user.getNickname());
         et_nickname.setHint(nickname);
         mBack.setOnClickListener(this);

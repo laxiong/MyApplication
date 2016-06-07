@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -65,7 +66,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
 
     private FragmentManager mFragmentManager = null;
 
-    private TextView mHead_title, mHead_left_select_textview, mHead_gongshilicai;  // head Title TextView
+    private TextView mHead_title, mHead_left_select_textview;  // head Title TextView
     private FrameLayout mPersonSetting;
     private RelativeLayout mHeadLayout;
     private UpdateReceiver receiver;
@@ -205,7 +206,6 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         mMyself = (RelativeLayout) findViewById(R.id.myself);
 
         mPersonSetting = (FrameLayout) findViewById(R.id.head_myself_details);
-        mHead_gongshilicai = (TextView) findViewById(R.id.head_gongshilicai);
         mHead_left_select_textview = (TextView) findViewById(R.id.head_select_right_textview);
         mHead_title = (TextView) findViewById(R.id.head_title);
 
@@ -307,20 +307,18 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         switch (index) {
             case 0:  // fristpager
                 //TODO
-                mHead_gongshilicai.setVisibility(View.VISIBLE);
-                mHead_gongshilicai.setText("(原共识理财)");
+//                mHead_gongshilicai.setText("(原共识理财)");
                 mHead_left_select_textview.setVisibility(View.GONE);
                 mHead_title.setVisibility(View.VISIBLE);
-                mHead_title.setText("壹投行");
+                mHead_title.setText(getResources().getString(R.string.appname));
                 mHead_title.setTextColor(Color.parseColor("#ffffff"));
                 mHeadLayout.setBackgroundColor(Color.parseColor("#EE4E42"));  // 红色
 
-                mFristPager_icon.setImageResource(R.drawable.ing_shouye_bottom_select);
+                mFristPager_icon.setImageResource(R.drawable.shouye_xz);
                 mFristPager_tv.setTextColor(Color.parseColor("#FFEE4E42"));
 
                 break;
             case 1:  // financing
-                mHead_gongshilicai.setVisibility(View.GONE);
                 mHead_left_select_textview.setVisibility(View.VISIBLE);
                 mHead_left_select_textview.setText("VIP");                //  show VIP
                 mHead_left_select_textview.setTextColor(Color.parseColor("#ffffff"));
@@ -330,12 +328,11 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                 mHead_left_select_textview.setOnClickListener(listen);
                 mHeadLayout.setBackgroundColor(Color.parseColor("#EE4E42"));  // 红色
 
-                mFinancing_icon.setImageResource(R.drawable.img_licai_bottom_select);
+                mFinancing_icon.setImageResource(R.drawable.licai_xz);
                 mFinancing_tv.setTextColor(Color.parseColor("#FFEE4E42"));
 
                 break;
             case 2:  // myself
-                mHead_gongshilicai.setVisibility(View.GONE);
                 mHead_left_select_textview.setVisibility(View.VISIBLE);
                 mHead_left_select_textview.setText("日历账单");
                 mHead_left_select_textview.setTextColor(Color.parseColor("#ffffff"));
@@ -345,7 +342,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                 mHead_left_select_textview.setOnClickListener(listen);
                 mHeadLayout.setBackgroundColor(Color.parseColor("#EE4E42"));  // 红色
 
-                mMyself_icon.setImageResource(R.drawable.img_zichan_bottom_select);
+                mMyself_icon.setImageResource(R.drawable.zichan_xz);
                 mMyself_tv.setTextColor(Color.parseColor("#FFEE4E42"));
 
                 break;
@@ -355,11 +352,11 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
 
     // set to initbackground
     private void setInitBackground() {
-        mFristPager_icon.setImageResource(R.drawable.ing_shouye_bottom);
+        mFristPager_icon.setImageResource(R.drawable.shouye_mr);
         mFristPager_tv.setTextColor(Color.parseColor("#A6A6A6"));
-        mFinancing_icon.setImageResource(R.drawable.img_licai_bottom);
+        mFinancing_icon.setImageResource(R.drawable.licai_mr);
         mFinancing_tv.setTextColor(Color.parseColor("#A6A6A6"));
-        mMyself_icon.setImageResource(R.drawable.img_zichan_bottom);
+        mMyself_icon.setImageResource(R.drawable.zichan_mr);
         mMyself_tv.setTextColor(Color.parseColor("#A6A6A6"));
     }
 

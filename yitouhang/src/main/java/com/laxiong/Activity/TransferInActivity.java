@@ -31,8 +31,10 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.BaseHelper;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.Constants;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.LogUtils;
 import com.laxiong.Utils.Md5Algorithm;
 import com.laxiong.Utils.MobileSecurePayer;
 import com.laxiong.entity.EnvConstants;
@@ -71,12 +73,21 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 		getBankInfo();
 	}
 
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		setValue();
+	}
+
 	private void initData() {
 		mBack.setOnClickListener(this);
 		mBankCan.setOnClickListener(this);
 		mPayMethod.setOnClickListener(this);
 		mTransferinBtn.setOnClickListener(this);
 		mToggleBtn.setOnClickListener(this);
+		setValue();
+	}
+	private void setValue(){
 		user = YiTouApplication.getInstance().getUser();
 		if (user!=null&&mAmountLimit!=null){
 			int lateAmount = user.getQuota()-user.getCurrent();
@@ -84,7 +95,6 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 			mProjectAmount.setText(""+lateAmount); // 用户可购买金额，普通用户20000元，vip用户500000元
 		}
 	}
-
 	private void initView() {
 		mBack = (FrameLayout)findViewById(R.id.in_backlayout);
 		mBankCan = (TextView)findViewById(R.id.bankcan);
@@ -399,11 +409,13 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 				if (response != null) {
 					try {
 						if (response.getInt("code") == 0) {
-							Log.i("WK", "余额支付" + response);
+							LogUtils.i("WK", "余额支付" + response);
+							CommonReq.reqUserMsg(getApplicationContext());
 							startActivity(new Intent(TransferInActivity.this,
 									TransferInResultActivity.class).
 									putExtra("money", mBuyAmount.getText().toString().trim()));
 							disMisInputPay();
+							finish();
 						} else {
 							Toast.makeText(TransferInActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 						}
@@ -587,12 +599,12 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 							// TODO 卡前置模式返回的银行卡绑定协议号，用来下次支付时使用，此处仅作为示例使用。正式接入时去掉
 //							BaseHelper.showDialog(TransferInActivity.this, "提示", "支付成功",
 //									android.R.drawable.ic_dialog_alert);
-
+							CommonReq.reqUserMsg(getApplicationContext());
 							startActivity(new Intent(TransferInActivity.this,
 											TransferInResultActivity.class).
 											putExtra("Money", mBuyAmount.getText().toString().trim())
 							);  // 跳转到购买结果的页面
-
+							finish();
 //							NofifyUserinfoChanged nofifyUserinfoChanged = new NofifyUserinfoChanged() {
 //								@Override
 //								public void onNotifyUserinfoChange() {

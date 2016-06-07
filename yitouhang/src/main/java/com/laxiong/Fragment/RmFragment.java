@@ -66,6 +66,8 @@ public class RmFragment extends ListFragment implements IViewBasic<Renmai> {
 
     private void initListener() {
         lvlist = (FinancingListView) getListView();
+        lvlist.setHeaderDividersEnabled(false);
+        lvlist.setFooterDividersEnabled(false);
         lvlist.setOnRefreshListener(new FinancingListView.OnRefreshListener() {
             @Override
             public void onPullRefresh() {

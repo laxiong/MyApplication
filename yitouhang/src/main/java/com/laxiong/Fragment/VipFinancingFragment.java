@@ -55,6 +55,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 	private  List<FinanceInfo>  mList = new ArrayList<FinanceInfo>() ;// 全是固息宝的
 	private int listNum ;  // 刷新加载更多所有的个数
 	private WaitPgView wp;
+	private static final String NO_SALE="#FFD6D6D6";
 
 	private Handler handler = new Handler() {
 	      @Override
@@ -249,7 +250,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 								mViewHonder.mCircleProgressView.setVisibility(View.VISIBLE);
 								mViewHonder.mEnought.setVisibility(View.INVISIBLE);
 							}
-						mViewHonder.mEnought.setPaintColor("#FFE2A42A");
+						mViewHonder.mEnought.setPaintColor(NO_SALE);
 						mViewHonder.mCircleProgressView.setPaintColor("#FFE2A42A");
 						mViewHonder.mCircleProgressView.setProgress(Float.parseFloat(String.valueOf(sxt.getPercent())),
 								mViewHonder.iv);
@@ -341,7 +342,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 							mViewHonder.mCircleProgressView.setVisibility(View.VISIBLE);
 							mViewHonder.mEnought.setVisibility(View.INVISIBLE);
 						}
-						mViewHonder.mEnought.setPaintColor("#FFE2A42A");
+						mViewHonder.mEnought.setPaintColor(NO_SALE);
 						mViewHonder.mCircleProgressView.setPaintColor("#FFE2A42A");
 						mViewHonder.mCircleProgressView.setProgress(Float.parseFloat(String.valueOf(gxb.getPercent())),
 								mViewHonder.iv);

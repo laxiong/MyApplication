@@ -26,7 +26,6 @@ import com.laxiong.entity.UserLogin;
 public class Login_Presenter implements OnLoadBcObjListener {
     private IViewLogin iviewlogin;
     private IViewBasicObj<User> iviewbcobj;
-    private Model_Basic<User> mbc;
     private Context context;
     private Model_User muser;
     public Login_Presenter(IViewLogin iviewlogin) {
@@ -36,7 +35,7 @@ public class Login_Presenter implements OnLoadBcObjListener {
 
     public Login_Presenter(IViewBasicObj<User> iviewbcobj) {
         this.iviewbcobj = iviewbcobj;
-        mbc = new Model_Basic<User>();
+        muser=new Model_User();
     }
 
     @Override
@@ -66,8 +65,7 @@ public class Login_Presenter implements OnLoadBcObjListener {
             return;
         }
         int tokenid = userlogin.getToken_id();
-        mbc.setListenerObj(this);
-        mbc.aureqByGetObj(InterfaceInfo.GETCOUNT_URL + tokenid, context, null, "", User.class);
+        muser.loadUserData(tokenid,this);
     }
 
     public TextWatcher getTextWatcher() {
@@ -108,44 +106,4 @@ public class Login_Presenter implements OnLoadBcObjListener {
         int tokenid = userlogin.getToken_id();
         muser.loadUserData(tokenid,this);
     }
-//    public void login(final Context context) {
-//        final String phonnum = iviewlogin.getInputPhoneNum();
-//        String pwd = iviewlogin.getInputPwd();
-//        ToastUtil.customAlert(context,"phone:"+phonnum+"pwd:"+pwd);
-//        RequestParams params = new RequestParams();
-//        params.put("phone", phonnum);
-//        params.put("pwd", pwd);
-//        HttpUtil.post(InterfaceInfo.LOGIN_URL, params, new JsonHttpResponseHandler() {
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-//                super.onSuccess(statusCode, headers, response);
-//                if (response != null) {
-//                    try {
-//                        UserLogin userLogin = JSONUtils.parseObject(response.toString(), UserLogin.class);
-//                        if (userLogin != null && userLogin.getCode() == 0) {
-//                            SharedPreferences sp = SpUtils.getSp(context);
-//                            SpUtils.saveStrValue(sp, SpUtils.USERLOGIN_KEY, response.toString());
-//                            SpUtils.saveStrValue(sp, SpUtils.USER_KEY, phonnum);
-//                            YiTouApplication.getInstance().setUserLogin(userLogin);
-//                            iviewlogin.loginsuccess();
-//                            CommonReq.reqUserMsg(context);
-//                        } else {
-//                            iviewlogin.loginfailed(userLogin.getMsg());
-//                        }
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                        iviewlogin.loginfailed(e.toString());
-//                    }
-//                } else {
-//                    iviewlogin.loginfailed("出错");
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-//                super.onFailure(statusCode, headers, responseString, throwable);
-//                iviewlogin.loginfailed(responseString);
-//            }
-//        }, true);
-//    }
 }

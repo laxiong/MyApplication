@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.gongshidai.mistGSD.R;
+import com.laxiong.Utils.DensityUtils;
 import com.laxiong.Utils.ToastUtil;
 
 import java.text.SimpleDateFormat;
@@ -38,6 +39,7 @@ public class FinancingListView extends ListView implements AbsListView.OnScrollL
     private TextView tv_time,tv_state;
     //设置是否可以加载更多
     private boolean canload=true;
+    private Context mContext;
 
     //定义旋转动画
     private RotateAnimation up,down;
@@ -47,16 +49,19 @@ public class FinancingListView extends ListView implements AbsListView.OnScrollL
 
     public FinancingListView(Context context) {
         super(context);
+        this.mContext=context;
         init();
     }
 
     public FinancingListView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.mContext=context;
         init();
     }
 
     public FinancingListView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        this.mContext=context;
         init();
     }
 

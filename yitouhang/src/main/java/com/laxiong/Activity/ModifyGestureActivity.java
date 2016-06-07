@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.laxiong.Common.Common;
 import com.laxiong.Utils.SpUtils;
+import com.laxiong.View.CommonActionBar;
 import com.laxiong.fund.widget.GestureContentView;
 import com.laxiong.fund.widget.GestureDrawline.GestureCallBack;
 import com.laxiong.fund.widget.LockIndicator;
@@ -50,6 +51,7 @@ public class ModifyGestureActivity extends BaseActivity implements OnClickListen
     private String mFirstPassword = null;
     private String mConfirmPassword = null;
     private int mParamIntentCode;
+    private CommonActionBar actionbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class ModifyGestureActivity extends BaseActivity implements OnClickListen
         mLockIndicator = (LockIndicator) findViewById(R.id.lock_indicator);
         mTextTip = (TextView) findViewById(R.id.text_tip);
         mGestureContainer = (FrameLayout) findViewById(R.id.gesture_container);
+        actionbar= (CommonActionBar) findViewById(R.id.actionbar);
 
     }
 
@@ -76,7 +79,7 @@ public class ModifyGestureActivity extends BaseActivity implements OnClickListen
             @Override
             public void onGestureCodeInput(String inputCode) {
                 if (!isInputPassValidate(inputCode)) {
-                    mTextTip.setText(Html.fromHtml("<font color='#c70c1e'>最少链接4个点, 请重新输入</font>"));
+                    mTextTip.setText(Html.fromHtml("<font color='#E2A42A'>最少链接4个点, 请重新输入</font>"));
                     mGestureContentView.clearDrawlineState(0L);
                     return;
                 }
@@ -106,7 +109,7 @@ public class ModifyGestureActivity extends BaseActivity implements OnClickListen
                         ModifyGestureActivity.this.finish();
 
                     } else {
-                        mTextTip.setText(Html.fromHtml("<font color='#c70c1e'>与上一次绘制不一致，请重新绘制</font>"));
+                        mTextTip.setText(Html.fromHtml("<font color='#E2A42A'>与上一次绘制不一致，请重新绘制</font>"));
                         // 左右移动动画
                         Animation shakeAnimation = AnimationUtils.loadAnimation(ModifyGestureActivity.this, R.anim.shake);
                         mTextTip.startAnimation(shakeAnimation);
@@ -135,6 +138,7 @@ public class ModifyGestureActivity extends BaseActivity implements OnClickListen
     private void setUpListeners() {
 
         mTextReset.setOnClickListener(this);
+        actionbar.setBackListener(this);
     }
 
     private void updateCodeList(String inputCode) {

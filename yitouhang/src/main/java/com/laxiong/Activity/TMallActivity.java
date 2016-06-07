@@ -145,7 +145,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
                         int num = (int) (item.getPay() / 100);
                         intent.putExtra("type", num);
                         intent.putExtra("id", item.getId());
-                        intent.putExtra("url", item.getImg());
+                        intent.putExtra("url", item.getInn_img());
                         TMallActivity.this.startActivity(intent);
                     }
                 });

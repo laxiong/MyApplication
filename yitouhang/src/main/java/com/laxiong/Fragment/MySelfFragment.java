@@ -17,6 +17,7 @@ import com.gongshidai.mistGSD.R;
 import com.laxiong.Activity.AssetActivity;
 import com.laxiong.Activity.AtHallActivity;
 import com.laxiong.Activity.AvailableBalanceActivity;
+import com.laxiong.Activity.ChangeCountActivity;
 import com.laxiong.Activity.InvestmentRecordActivity;
 import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Activity.Profit_Activity;
@@ -170,7 +171,12 @@ public class MySelfFragment extends Fragment implements OnClickListener {
     private List<Integer> values = new ArrayList<Integer>(); // 1,2,3  {1.收益的  2.有操作的  3.有股息的}
     private void getCalenderInfo(){
         RequestParams params = new RequestParams();
-        int mId = YiTouApplication.getInstance().getUser().getId();
+        User user=YiTouApplication.getInstance().getUser();
+        if(user==null){
+            startActivity(new Intent(getActivity(), ChangeCountActivity.class));
+            return;
+        }
+        int mId = user.getId();
         if (mId!=0)
             params.put("id",mId);
         HttpUtil.get(InterfaceInfo.BASE_URL + "/monthtrade/" + mId, params, new JsonHttpResponseHandler() {
