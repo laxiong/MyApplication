@@ -20,6 +20,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.NumberPicker;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -29,6 +30,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Common.Constants;
 import com.laxiong.Common.Settings;
 import com.laxiong.Fragment.FinancingFragment;
 import com.laxiong.Fragment.FristPagerFragment;
@@ -61,12 +63,13 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     private TextView mFristPager_tv, mFinancing_tv, mMyself_tv;
     private ImageView mFristPager_icon, mFinancing_icon, mMyself_icon;
     private PayPop dialog;
+    private User mUser;
     private FristPagerFragment mFristPagerFragment = null;
     private FinancingFragment mFinancingFragment = null;
     private MySelfFragment mMySelfFragment = null;
 
     private FragmentManager mFragmentManager = null;
-
+    private ImageView iv_read,iv_noread;
     private TextView mHead_title, mHead_left_select_textview;  // head Title TextView
     private FrameLayout mPersonSetting;
     private RelativeLayout mHeadLayout;
@@ -90,10 +93,10 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(receiver!=null){
+        if (receiver != null) {
             unregisterReceiver(receiver);
         }
-        if(CommonUtils.isServiceRunning(this,"DownService")){
+        if (CommonUtils.isServiceRunning(this, "DownService")) {
             stopService(new Intent(this, DownService.class));
             NotificationUtil.cancelNoti(this, 100);
         }
@@ -101,21 +104,24 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
 
     @Override
     public void registerUpdateReceiver(View dialog) {
-        receiver=new UpdateReceiver(dialog);
-        registerReceiver(receiver,new IntentFilter("com.update.action"));
+        receiver = new UpdateReceiver(dialog);
+        registerReceiver(receiver, new IntentFilter("com.update.action"));
     }
+
     class UpdateReceiver extends BroadcastReceiver {
         private View v;
-        public UpdateReceiver(View v){
-            this.v=v;
+
+        public UpdateReceiver(View v) {
+            this.v = v;
         }
+
         @Override
         public void onReceive(Context context, Intent intent) {
-            if(v==null)
+            if (v == null)
                 return;
-            int progress =intent.getIntExtra("progress", 0);
-            String ns=intent.getStringExtra("nowsize");
-            String ts=intent.getStringExtra("totalsize");
+            int progress = intent.getIntExtra("progress", 0);
+            String ns = intent.getStringExtra("nowsize");
+            String ts = intent.getStringExtra("totalsize");
             TextView nowsize = (TextView) v.findViewById(R.id.loadingTask_progress);
             TextView totalsize = (TextView) v.findViewById(R.id.loadingTask_dimen);
             ProgressBar pgbar = (ProgressBar) v.findViewById(R.id.loadingTask_progressBar);
@@ -128,7 +134,11 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     @Override
     protected void onRestart() {
         super.onRestart();
-        CommonReq.reqUserMsg(this);
+        iv_read.setVisibility(Constants.isRead ? View.VISIBLE : View.GONE);
+        iv_noread.setVisibility(Constants.isRead?View.GONE:View.VISIBLE);
+        boolean flag = ValifyUtil.judgeInit(this);
+        if (flag)
+            mUser = YiTouApplication.getInstance().getUser();
     }
 
     @Override
@@ -141,13 +151,13 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         iv_ad.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                User user=YiTouApplication.getInstance().getUser();
-                String id=user==null?"":user.getId()+"";
-                Bundle bundle=new Bundle();
-                bundle.putSerializable("banner",new ShareInfo(item.getTitle(),item.getContent(),item.getShareimageurl(),item.getHref()+"?user_id="+id));
+                User user = YiTouApplication.getInstance().getUser();
+                String id = user == null ? "" : user.getId() + "";
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("banner", new ShareInfo(item.getTitle(), item.getContent(), item.getShareimageurl(), item.getHref() + "?user_id=" + id));
                 startActivity(new Intent(MainActivity.this, WebViewActivity.class)
-                        .putExtras(bundle).putExtra("needshare",true).putExtra("url",
-                                item.getHref()+"?id="+id));
+                        .putExtras(bundle).putExtra("needshare", true).putExtra("url",
+                                item.getHref() + "?id=" + id));
             }
         });
         iv_close.setOnClickListener(new OnClickListener() {
@@ -164,20 +174,20 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         DisplayMetrics metrix = new DisplayMetrics();
         getWindow().getWindowManager().getDefaultDisplay().getMetrics(metrix);
         int width = 3 * metrix.widthPixels / 4;
-        int height =  2 * metrix.heightPixels/3;
+        int height = 2 * metrix.heightPixels / 3;
         dialog = new PayPop(view, width, height, this);
         dialog.showAtLocation(ll_wrap, Gravity.CENTER, 0, 0);
     }
 
     @Override
     public void loadUpdateInfo(UpdateInfo info) {
-        if(info==null)
+        if (info == null)
             return;
-        if(info.getStatus()==3){//强制更新
-            presenter.showForceDialog(this,info,ll_wrap);
-        }else if(info.getStatus()==2){//建议更新
-            presenter.showRecDialog(this,info,ll_wrap);
-        }else{
+        if (info.getStatus() == 3) {//强制更新
+            presenter.showForceDialog(this, info, ll_wrap);
+        } else if (info.getStatus() == 2) {//建议更新
+            presenter.showRecDialog(this, info, ll_wrap);
+        } else {
             presenter.loadPageAd(this);//广告
         }
 
@@ -188,9 +198,10 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         ToastUtil.customAlert(this, msg);
         presenter.loadPageAd(this);
     }
-
     @SuppressLint("NewApi")
     private void initData() {
+        iv_read.setVisibility(Constants.isRead?View.GONE:View.VISIBLE);
+        iv_noread.setVisibility(Constants.isRead?View.VISIBLE:View.GONE);
         presenter = new MainPage_Presenter(this);
         presenter.checkUpdate(this);
         mFragmentManager = this.getFragmentManager();
@@ -208,7 +219,8 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     }
 
     private void initView() {
-
+        iv_read= (ImageView) findViewById(R.id.iv_read);
+        iv_noread= (ImageView) findViewById(R.id.iv_noread);
         mFristPager = (RelativeLayout) findViewById(R.id.fristpager);
         mFinancing = (RelativeLayout) findViewById(R.id.financing);
         mMyself = (RelativeLayout) findViewById(R.id.myself);
@@ -395,15 +407,15 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                         return;
                     if (mHead_left_select_textview.getText().toString().equals("VIP")) {
                         User mUser = YiTouApplication.getInstance().getUser();
-                        if (mUser!=null){
+                        if (mUser != null) {
 //                            if (mUser.is_vip()){   // 是VIP
-                                vipAndFinance(2);
-                                financingToVipEachOther(2);
+                            vipAndFinance(2);
+                            financingToVipEachOther(2);
 //                            }else { // 显示怎么成为VIP
 //                                showToBeVipMenthod();
 //                            }
-                        }else {
-                            Toast.makeText(MainActivity.this,"请完成登录",Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(MainActivity.this, "请完成登录", Toast.LENGTH_SHORT).show();
                         }
 
                     } else if (mHead_left_select_textview.getText().toString().equals("理财")) {
@@ -469,11 +481,12 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     }
 
     //显示怎么变成VIP的方法
-    PopupWindow mVipWinds ;
-    View mshowV ;
-    private void showToBeVipMenthod(){
-        mshowV = LayoutInflater.from(this).inflate(R.layout.notice_show_vip_popwindow,null);
-        mVipWinds = new PopupWindow(mshowV,  ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT,true);
+    PopupWindow mVipWinds;
+    View mshowV;
+
+    private void showToBeVipMenthod() {
+        mshowV = LayoutInflater.from(this).inflate(R.layout.notice_show_vip_popwindow, null);
+        mVipWinds = new PopupWindow(mshowV, ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT, true);
         mVipWinds.setTouchable(true);
         mVipWinds.setOutsideTouchable(true);
         // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框

@@ -9,7 +9,6 @@
 
 
     <!-- Don't touch this -->
-    <attr name="numberPickerStyle" format="reference" />
 
     <declare-styleable name="NumberPicker">
 

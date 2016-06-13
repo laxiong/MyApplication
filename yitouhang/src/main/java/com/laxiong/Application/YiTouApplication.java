@@ -27,6 +27,7 @@ public class YiTouApplication extends Application {
     private User user;
     private boolean flag = true;
 
+
     public UserLogin getUserLogin() {
         if(userLogin==null){
             SharedPreferences sp= SpUtils.getSp(this);

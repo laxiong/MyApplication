@@ -10,13 +10,13 @@
     </declare-styleable>
 
     <declare-styleable name="WaterDropView">
-        <attr name="max_circle_radius" format="dimension"/>
-        <attr name="min_circle_radius" format="dimension"/>
-        <attr name="waterdrop_color" format="color"/>
-        <attr name="topcircle_x" format="dimension"/>
-        <attr name="topcircle_y" format="dimension"/>
-        <attr name="bottomcircle_x" format="dimension"/>
-        <attr name="bottomcircle_y" format="dimension"/>
+        <attr name="max_circle_radius" format="dimension" />
+        <attr name="min_circle_radius" format="dimension" />
+        <attr name="waterdrop_color" format="color" />
+        <attr name="topcircle_x" format="dimension" />
+        <attr name="topcircle_y" format="dimension" />
+        <attr name="bottomcircle_x" format="dimension" />
+        <attr name="bottomcircle_y" format="dimension" />
     </declare-styleable>
     <declare-styleable name="CommonActionBar">
         <attr name="texts" format="string"></attr>
@@ -24,7 +24,7 @@
         <attr name="textcolor" format="color"></attr>
         <attr name="textsize" format="dimension"></attr>
     </declare-styleable>
-     <declare-styleable name="CircleProgressView">
+    <declare-styleable name="CircleProgressView">
         <attr name="text" format="string" />
         <attr name="unit" format="string" />
         <attr name="showUnit" format="boolean" />
@@ -43,15 +43,15 @@
         <attr name="spinSpeed" format="dimension" />
         <attr name="fillColor" format="color" />
         <attr name="spinBarLength" format="dimension" />
-        <attr name="contourColor" format="color"/>
-        <attr name="contourSize" format="dimension"/>
+        <attr name="contourColor" format="color" />
+        <attr name="contourSize" format="dimension" />
         <attr name="textScale" format="dimension" />
         <attr name="unitScale" format="dimension" />
     </declare-styleable>
-    
-   <!-- PatternView -->
-   
-   <declare-styleable name="PatternView">
+
+    <!-- PatternView -->
+
+    <declare-styleable name="PatternView">
 
         <!-- This is the maximum size the view will take in wrap_content mode. -->
         <attr name="maxSize" format="dimension" />
@@ -62,26 +62,25 @@
         <!-- The color of the path between the cells. -->
         <attr name="pathColor" format="color" />
     </declare-styleable>
-     
-   <!-- CricleImageView -->  
-   <declare-styleable name="CircleImageView">  
-        <attr name="border_width" format="dimension" />  
-        <attr name="border_color" format="color" />  
+    <attr name="numberPickerStyle" format="reference" />
+    <!-- CricleImageView -->
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
     </declare-styleable>
 
     <!--<declare-styleable name="NumberPicker">-->
-        <!--<attr name="normalTextColor" format="color" />-->
-        <!--<attr name="normalTextSize" format="dimension" />-->
-        <!--<attr name="selecredTextColor" format="color" />-->
-        <!--<attr name="selecredTextSize" format="dimension" />-->
-        <!--<attr name="unitHight" format="dimension" />-->
-        <!--<attr name="itemNumber" format="integer" />-->
-        <!--<attr name="lineColor" format="color" />-->
-        <!--<attr name="maskHight" format="dimension" />-->
-        <!--<attr name="noEmpty" format="boolean" />-->
-        <!--<attr name="isEnable" format="boolean" />-->
+    <!--<attr name="normalTextColor" format="color" />-->
+    <!--<attr name="normalTextSize" format="dimension" />-->
+    <!--<attr name="selecredTextColor" format="color" />-->
+    <!--<attr name="selecredTextSize" format="dimension" />-->
+    <!--<attr name="unitHight" format="dimension" />-->
+    <!--<attr name="itemNumber" format="integer" />-->
+    <!--<attr name="lineColor" format="color" />-->
+    <!--<attr name="maskHight" format="dimension" />-->
+    <!--<attr name="noEmpty" format="boolean" />-->
+    <!--<attr name="isEnable" format="boolean" />-->
     <!--</declare-styleable>-->
 
 
-   
 </resources>

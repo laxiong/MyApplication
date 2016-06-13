@@ -102,9 +102,6 @@ public class CommonReq {
         }
         int tokenid = userlogin.getToken_id();
         String token = userlogin.getToken();
-        User user = YiTouApplication.getInstance().getUser();
-        if (user != null)
-            return;
         final String str = tokenid + ":" + token;
         String autori = Base64.encodeToString(str.getBytes(), Base64.NO_WRAP);
         HttpUtil.get(InterfaceInfo.GETCOUNT_URL + tokenid, new JsonHttpResponseHandler() {

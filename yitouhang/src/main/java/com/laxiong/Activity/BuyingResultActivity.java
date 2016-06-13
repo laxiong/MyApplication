@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.gongshidai.mistGSD.R;
+import com.laxiong.Utils.CommonReq;
 
 import java.text.SimpleDateFormat;
 
@@ -43,6 +44,7 @@ public class BuyingResultActivity extends BaseActivity implements View.OnClickLi
 	}
 
 	private void initData(){
+		CommonReq.reqUserMsg(getApplicationContext());
 		ProductName = getIntent().getStringExtra("ProductName");
 		Money = getIntent().getStringExtra("Money");
 		SharedPreferences GXBssf = getSharedPreferences("GXB_DATE", Context.MODE_PRIVATE);

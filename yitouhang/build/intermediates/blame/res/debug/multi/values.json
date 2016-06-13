@@ -832,13 +832,13 @@
                     "endOffset": 3057
                 },
                 "from": {
-                    "file": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\values\\themes.xml",
+                    "file": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\values\\attrs.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 64,
                         "startColumn": 4,
-                        "startOffset": 331,
+                        "startOffset": 2952,
                         "endColumn": 56,
-                        "endOffset": 383
+                        "endOffset": 3004
                     }
                 }
             },
@@ -13212,12 +13212,12 @@
                 "from": {
                     "file": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\values\\themes.xml",
                     "position": {
-                        "startLine": 50,
+                        "startLine": 49,
                         "startColumn": 4,
-                        "startOffset": 2333,
-                        "endLine": 52,
+                        "startOffset": 2275,
+                        "endLine": 51,
                         "endColumn": 12,
-                        "endOffset": 2451
+                        "endOffset": 2393
                     }
                 }
             },
@@ -13233,12 +13233,12 @@
                 "from": {
                     "file": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\values\\themes.xml",
                     "position": {
-                        "startLine": 70,
+                        "startLine": 69,
                         "startColumn": 4,
-                        "startOffset": 3286,
-                        "endLine": 72,
+                        "startOffset": 3228,
+                        "endLine": 71,
                         "endColumn": 12,
-                        "endOffset": 3478
+                        "endOffset": 3420
                     }
                 }
             },
@@ -13254,12 +13254,12 @@
                 "from": {
                     "file": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\values\\themes.xml",
                     "position": {
-                        "startLine": 60,
+                        "startLine": 59,
                         "startColumn": 4,
-                        "startOffset": 2692,
-                        "endLine": 68,
+                        "startOffset": 2634,
+                        "endLine": 67,
                         "endColumn": 12,
-                        "endOffset": 3278
+                        "endOffset": 3220
                     }
                 }
             },
@@ -13275,12 +13275,12 @@
                 "from": {
                     "file": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\values\\themes.xml",
                     "position": {
-                        "startLine": 54,
+                        "startLine": 53,
                         "startColumn": 4,
-                        "startOffset": 2459,
-                        "endLine": 58,
+                        "startOffset": 2401,
+                        "endLine": 57,
                         "endColumn": 12,
-                        "endOffset": 2684
+                        "endOffset": 2626
                     }
                 }
             },
@@ -13296,12 +13296,12 @@
                 "from": {
                     "file": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\values\\themes.xml",
                     "position": {
-                        "startLine": 74,
+                        "startLine": 73,
                         "startColumn": 4,
-                        "startOffset": 3486,
-                        "endLine": 79,
+                        "startOffset": 3428,
+                        "endLine": 78,
                         "endColumn": 12,
-                        "endOffset": 3821
+                        "endOffset": 3763
                     }
                 }
             },
@@ -13317,12 +13317,12 @@
                 "from": {
                     "file": "D:\\work\\android_studio\\workspace\\MyApplication\\yitouhang\\src\\main\\res\\values\\themes.xml",
                     "position": {
-                        "startLine": 81,
+                        "startLine": 80,
                         "startColumn": 4,
-                        "startOffset": 3829,
-                        "endLine": 83,
+                        "startOffset": 3771,
+                        "endLine": 82,
                         "endColumn": 12,
-                        "endOffset": 3991
+                        "endOffset": 3933
                     }
                 }
             },

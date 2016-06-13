@@ -124,7 +124,7 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
                         mGestureContentView.clearDrawlineState(1300L);
                         mTextTip.setVisibility(View.VISIBLE);
                         mTextTip.setText(Html
-                                .fromHtml("<font color='#c70c1e'>密码错误"+(times>2?",还有"+(TIMES_ERROR-times)+"次机会":"")+"</font>"));
+                                .fromHtml("<font color='#c70c1e'>密码错误,还有"+(TIMES_ERROR-times)+"次机会</font>"));
                         // 左右移动动画
                         Animation shakeAnimation = AnimationUtils.loadAnimation(PatternViewActivity.this, R.anim.shake);
                         mTextTip.startAnimation(shakeAnimation);

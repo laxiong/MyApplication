@@ -111,6 +111,12 @@ public class MySelfFragment extends Fragment implements OnClickListener {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        initData();
+    }
+
+    @Override
     public void onClick(View V) {
         switch (V.getId()) {
             case R.id.togetche_tv:  // 总资产

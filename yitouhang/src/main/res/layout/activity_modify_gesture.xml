@@ -12,7 +12,7 @@
         custom:bgcolor="@android:color/transparent"
         custom:textcolor="@color/white"
         custom:texts="设置手势密码"
-        custom:textsize="8sp" />
+        custom:textsize="7sp" />
     <LinearLayout
         android:layout_below="@id/actionbar"
         android:id="@+id/gesture_tip_layout"

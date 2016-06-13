@@ -454,7 +454,6 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 				if (response != null) {
 					try {
 						if (response.getInt("code") == 0) {
-							CommonReq.reqUserMsg(getApplicationContext());
 							startActivity(new Intent(BuyingActivity.this,
 									BuyingResultActivity.class).
 									putExtra("Money",String.valueOf(decAmount)).
@@ -682,7 +681,6 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 							// TODO 卡前置模式返回的银行卡绑定协议号，用来下次支付时使用，此处仅作为示例使用。正式接入时去掉
 //							BaseHelper.showDialog(BuyingActivity.this, "提示", "支付成功",
 //									android.R.drawable.ic_dialog_alert);
-							CommonReq.reqUserMsg(getApplicationContext());
 							startActivity(new Intent(BuyingActivity.this,
 									BuyingResultActivity.class).
 									putExtra("Money", String.valueOf(decAmount)).

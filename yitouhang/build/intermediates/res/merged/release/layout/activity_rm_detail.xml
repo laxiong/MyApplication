@@ -13,7 +13,7 @@
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
         custom:texts="人脉管理"
-        custom:textsize="8sp" />
+        custom:textsize="7sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

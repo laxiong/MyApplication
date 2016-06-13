@@ -21,6 +21,7 @@ import com.laxiong.Basic.OnSingleClickListener;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.ValifyUtil;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.gongshidai.mistGSD.R;
@@ -115,7 +116,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 			case R.id.getcode:   // 验证码
 				String mobile = mPhoneEd.getText().toString().replaceAll(" ", "");
 				if(Common.inputContentNotNull(mobile)){
-					if(Common.isMobileNO(mobile)){
+					if(ValifyUtil.valifyPhoneNum(mobile)){
 						getCode();
 					}else{
 						Toast.makeText(RegistActivity.this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
@@ -141,7 +142,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 			mToggleBtn.setImageResource(R.drawable.img_no_read);
 			isRead = false ;
 		}
-
+		valify();
 	}
 
 	// show password
@@ -178,6 +179,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 					try {
 						Log.i("URL", "code码：="+response.getInt("code"));
 						if (response.getInt("code") == 0) {
+							mGetCode.setClickable(false);
 							Toast.makeText(RegistActivity.this, "成功获取验证码", Toast.LENGTH_SHORT).show();
 						} else {
 							if (response.getString("msg") != null) {
@@ -298,7 +300,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener{
 	};
 	private void valify(){
 		if(!TextUtils.isEmpty(mPhoneEd.getText().toString())&&!TextUtils.isEmpty(mPswdEd.getText().toString())
-				&&!TextUtils.isEmpty(mCodeEd.getText().toString())&&!isRead){
+				&&!TextUtils.isEmpty(mCodeEd.getText().toString())&&isRead){
 			if(Common.inputPswdCount(mCodeEd.getText().toString().trim())){
 				mRegistBtn.setEnabled(true);
 				mRegistBtn.setBackgroundResource(R.drawable.button_change_bg_border);
