@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -18,246 +19,260 @@ import android.widget.Toast;
 import com.laxiong.Activity.GuXiBaoActivity;
 import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.Activity.WebViewActivity;
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.ScollPagerUtils;
+import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.ChildViewPager;
 import com.laxiong.entity.Banner;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.gongshidai.mistGSD.R;
+
 import org.apache.http.Header;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-@SuppressLint("NewApi") 
-public class FristPagerFragment extends Fragment implements OnClickListener{
-	/****
-	 * 首页的碎片
-	 */
-	private View FristView = null ;
-	private ChildViewPager mChildViewPager = null ;
-	private LinearLayout mLinearDot = null ;
-	private Context mContext = null ;
-	
-	private RelativeLayout mNewBiao , mGuXiBao , mTimeXiTong ;  // 新手标  固息宝  时息通
-	private TextView mNew ,mNew_tv ,mSxt,mSxt_tv,mGxb,mGxb_tv,mAmount,mSolid,mTouTiao,mCental;
-	private String mCentalUrl,mAdTitle;
-	private int mGxbId,mSxtId,mNewbId ;
+@SuppressLint("NewApi")
+public class FristPagerFragment extends Fragment implements OnClickListener {
+    /****
+     * 首页的碎片
+     */
+    private View FristView = null;
+    private ChildViewPager mChildViewPager = null;
+    private LinearLayout mLinearDot = null;
+    private Context mContext = null;
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		
-		FristView = inflater.inflate(R.layout.fristpager_layout, null);
-		mContext = getActivity() ;
-		initView();
-		initData();
-		setListen();
-		return FristView;
-	}
+    private RelativeLayout mNewBiao, mGuXiBao, mTimeXiTong;  // 新手标  固息宝  时息通
+    private TextView mNew, mNew_tv, mSxt, mSxt_tv, mGxb, mGxb_tv, mAmount, mSolid, mTouTiao, mCental;
+    private String mCentalUrl, mAdTitle;
+    private int mGxbId, mSxtId, mNewbId;
 
-	private void initData() {
-		getBanner();
-		getFristPagerData();
-		getTitleContentInfo();
-	}
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        if(FristView==null) {
+            FristView = inflater.inflate(R.layout.fristpager_layout, null);
+        }else{
+            ViewParent parent=FristView.getParent();
+            if(parent!=null&&parent instanceof ViewGroup){
+                ((ViewGroup)parent).removeView(FristView);
+            }
+        }
+        mContext = getActivity();
+        initView();
+        initData();
+        setListen();
+        return FristView;
+    }
 
-	private void initView() {
-		
-		mChildViewPager = (ChildViewPager) FristView.findViewById(R.id.childviewpager);
-		mLinearDot = (LinearLayout)FristView.findViewById(R.id.layout_dot);
-		mNewBiao = (RelativeLayout)FristView.findViewById(R.id.new_biao);
-		mGuXiBao = (RelativeLayout)FristView.findViewById(R.id.gu_xibao);
-		mTimeXiTong = (RelativeLayout)FristView.findViewById(R.id.time_xitong);
-		
-		// set Height 
+    private void initData() {
+        getBanner();
+        getFristPagerData();
+        getTitleContentInfo();
+    }
+
+    private void initView() {
+
+        mChildViewPager = (ChildViewPager) FristView.findViewById(R.id.childviewpager);
+        mLinearDot = (LinearLayout) FristView.findViewById(R.id.layout_dot);
+        mNewBiao = (RelativeLayout) FristView.findViewById(R.id.new_biao);
+        mGuXiBao = (RelativeLayout) FristView.findViewById(R.id.gu_xibao);
+        mTimeXiTong = (RelativeLayout) FristView.findViewById(R.id.time_xitong);
+
+        // set Height
 //		mChildViewPager.getLayoutParams().height = Settings.DISPLAY_WIDTH * 350 / 750 ;
-		mNew =(TextView)FristView.findViewById(R.id.tv1);
-		mNew_tv =(TextView)FristView.findViewById(R.id.new_biao_tv);
-		mSxt =(TextView)FristView.findViewById(R.id.tv2);
-		mSxt_tv =(TextView)FristView.findViewById(R.id.sxt_tv);
-		mGxb =(TextView)FristView.findViewById(R.id.tv3);
-		mGxb_tv =(TextView)FristView.findViewById(R.id.gxb_tv);
-		mAmount = (TextView)FristView.findViewById(R.id.amount);
-		mSolid =(TextView)FristView.findViewById(R.id.solid);
-		mTouTiao = (TextView)FristView.findViewById(R.id.toutiao);
-		mCental =(TextView)FristView.findViewById(R.id.cental);
+        mNew = (TextView) FristView.findViewById(R.id.tv1);
+        mNew_tv = (TextView) FristView.findViewById(R.id.new_biao_tv);
+        mSxt = (TextView) FristView.findViewById(R.id.tv2);
+        mSxt_tv = (TextView) FristView.findViewById(R.id.sxt_tv);
+        mGxb = (TextView) FristView.findViewById(R.id.tv3);
+        mGxb_tv = (TextView) FristView.findViewById(R.id.gxb_tv);
+        mAmount = (TextView) FristView.findViewById(R.id.amount);
+        mSolid = (TextView) FristView.findViewById(R.id.solid);
+        mTouTiao = (TextView) FristView.findViewById(R.id.toutiao);
+        mCental = (TextView) FristView.findViewById(R.id.cental);
 
-	}
+    }
 
-	private void setListen(){
-		mNewBiao.setOnClickListener(this);
-		mGuXiBao.setOnClickListener(this);
-		mTimeXiTong.setOnClickListener(this);
-		mCental.setOnClickListener(this);
-	}
-	
-	@Override
-	public void onClick(View v) {
-		switch(v.getId()){
-			case R.id.new_biao:	//
-				startActivity(new Intent(getActivity(),
-						GuXiBaoActivity.class).putExtra("id",mNewbId));
+    private void setListen() {
+        mNewBiao.setOnClickListener(this);
+        mGuXiBao.setOnClickListener(this);
+        mTimeXiTong.setOnClickListener(this);
+        mCental.setOnClickListener(this);
+    }
 
-				break;
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.new_biao:    //
+                startActivity(new Intent(getActivity(),
+                        GuXiBaoActivity.class).putExtra("id", mNewbId));
 
-			case R.id.gu_xibao:
-					startActivity(new Intent(getActivity(),
-							GuXiBaoActivity.class).putExtra("id",mGxbId));
-				break;
+                break;
 
-			case R.id.time_xitong:
-					startActivity(new Intent(getActivity(),
-							TimeXiTongActivity.class).putExtra("id",mSxtId));
-				break;
+            case R.id.gu_xibao:
+                startActivity(new Intent(getActivity(),
+                        GuXiBaoActivity.class).putExtra("id", mGxbId));
+                break;
 
-			case R.id.cental:
-				if(mCentalUrl!=null&&mAdTitle!=null){
-					startActivity(new Intent(getActivity(),
-							WebViewActivity.class).putExtra("url", mCentalUrl).putExtra("title", mAdTitle));
-				}
-				break;
-		}
-	}
-	// Banner轮播图
-	private void getBanner(){
-		HttpUtil.get(InterfaceInfo.BASE_URL+"/banner",new JsonHttpResponseHandler(){
-			@Override
-			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-				super.onSuccess(statusCode, headers, response);
-				if (response!=null){
-					try {
-						if (response.getInt("code")==0){
-							JSONArray arra = response.getJSONArray("list");
-							ArrayList<Banner> banArra = getBannerData(arra);
+            case R.id.time_xitong:
+                startActivity(new Intent(getActivity(),
+                        TimeXiTongActivity.class).putExtra("id", mSxtId));
+                break;
 
-							//TODO 开始适配器的操作
-							ScollPagerUtils mScollPagerUtils = new ScollPagerUtils(banArra,mContext,mChildViewPager,mLinearDot);
-							mScollPagerUtils.startPlayPic();
+            case R.id.cental:
+                if (mCentalUrl != null && mAdTitle != null) {
+                    startActivity(new Intent(getActivity(),
+                            WebViewActivity.class).putExtra("url", mCentalUrl).putExtra("title", mAdTitle));
+                }
+                break;
+        }
+    }
 
-						}else {
-							Toast.makeText(getActivity(),response.getString("msg"),Toast.LENGTH_SHORT).show();
-						}
-					}catch (Exception E){
-					}
-				}
-			}
-			@Override
-			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-				super.onFailure(statusCode, headers, throwable, errorResponse);
-				Toast.makeText(getActivity(),"获取Banner页失败",Toast.LENGTH_SHORT).show();
-			}
-		});
-	}
+    // Banner轮播图
+    private void getBanner() {
+        HttpUtil.get(InterfaceInfo.BASE_URL + "/banner", new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                if (response != null) {
+                    try {
+                        if (response.getInt("code") == 0) {
+                            JSONArray arra = response.getJSONArray("list");
+                            ArrayList<Banner> banArra = getBannerData(arra);
 
-	private ArrayList<Banner> getBannerData(JSONArray array){
-		try{
-			ArrayList<Banner> banArray = new ArrayList<Banner>();
-			if (array!=null){
-				for (int i=0;i<array.length();i++){
-					JSONObject obj = array.getJSONObject(i);
-					Banner ban = new Banner();
-					ban.setImageurl(obj.getString("imageurl"));
-					ban.setHref(obj.getString("href"));
-					ban.setTitle(obj.getString("title"));
-					ban.setContent(obj.getString("content"));
-					ban.setShareimageurl(obj.getString("shareimageurl"));
-					banArray.add(ban);
-				}
-				return  banArray;
-			}
-		}catch (Exception E){
-		}
-		return  null;
-	}
+                            //TODO 开始适配器的操作
+                            ScollPagerUtils mScollPagerUtils = new ScollPagerUtils(banArra, mContext, mChildViewPager, mLinearDot);
+                            mScollPagerUtils.startPlayPic();
 
-	//首页的数据
-	private void getFristPagerData(){
-		HttpUtil.get(InterfaceInfo.BASE_URL+"/rental",new JsonHttpResponseHandler(){
-			@Override
-			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-				super.onSuccess(statusCode, headers, response);
-				if (response!=null) {
-					try {
-						if (response.getInt("code")==0){
-							JSONArray ARRA = response.getJSONArray("list");
-							setPagerData(ARRA);
-							int solid = response.getInt("solid");
-							double amount = response.getDouble("amount");
-							mAmount.setText(String.valueOf(amount));
-							mSolid.setText("已经有" + String.valueOf(solid) + "位聪明伙伴在壹投行理财(元)");
-							JSONObject AD = response.getJSONObject("ad");
-							mAdTitle = AD.getString("title");
-							mTouTiao.setText(mAdTitle);
-							mCentalUrl = AD.getString("url");
+                        } else {
+                            Toast.makeText(getActivity(), response.getString("msg"), Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception E) {
+                    }
+                }
+            }
 
-						}else {
-							Toast.makeText(getActivity(),response.getString("msg"),Toast.LENGTH_SHORT).show();
-						}
-					} catch (Exception E) {
-					}
-				}
-			}
-			@Override
-			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-				super.onFailure(statusCode, headers, throwable, errorResponse);
-				Toast.makeText(getActivity(),"首页数据获取失败",Toast.LENGTH_SHORT).show();
-			}
-		});
-	}
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+                Toast.makeText(getActivity(), "获取Banner页失败", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
-	private void setPagerData(JSONArray ARRA){
-		try{
-			if (ARRA!=null){
-				if (ARRA.length()>0) {
-					JSONObject xinobj = ARRA.getJSONObject(0);
-					mNew.setText(xinobj.getString("name"));
-					mNew_tv.setText(xinobj.getString("title"));
-					mNewbId = xinobj.getInt("product");
+    private ArrayList<Banner> getBannerData(JSONArray array) {
+        try {
+            ArrayList<Banner> banArray = new ArrayList<Banner>();
+            if (array != null) {
+                for (int i = 0; i < array.length(); i++) {
+                    JSONObject obj = array.getJSONObject(i);
+                    Banner ban = new Banner();
+                    ban.setImageurl(obj.getString("imageurl"));
+                    ban.setHref(obj.getString("href"));
+                    ban.setTitle(obj.getString("title"));
+                    ban.setContent(obj.getString("content"));
+                    ban.setShareimageurl(obj.getString("shareimageurl"));
+                    banArray.add(ban);
+                }
+                return banArray;
+            }
+        } catch (Exception E) {
+        }
+        return null;
+    }
 
-					JSONObject sxtobj = ARRA.getJSONObject(1);
-					mSxt.setText(sxtobj.getString("name"));
-					mSxt_tv.setText(sxtobj.getString("title"));
-					mSxtId = sxtobj.getInt("product");
+    //首页的数据
+    private void getFristPagerData() {
+        HttpUtil.get(InterfaceInfo.BASE_URL + "/rental", new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                if (response != null) {
+                    try {
+                        if (response.getInt("code") == 0) {
+                            JSONArray ARRA = response.getJSONArray("list");
+                            setPagerData(ARRA);
+                            int solid = response.getInt("solid");
+                            double amount = response.getDouble("amount");
+                            mAmount.setText(String.valueOf(amount));
+                            mSolid.setText("已经有" + String.valueOf(solid) + "位聪明伙伴在壹投行理财(元)");
+                            JSONObject AD = response.getJSONObject("ad");
+                            mAdTitle = AD.getString("title");
+                            mTouTiao.setText(mAdTitle);
+                            mCentalUrl = AD.getString("url");
 
-					JSONObject gxbobj = ARRA.getJSONObject(2);
-					mGxb.setText(gxbobj.getString("name"));
-					mGxb_tv.setText(gxbobj.getString("title"));
-					mGxbId = gxbobj.getInt("product");
-				}
-			}
-		}catch (Exception E){
-		}
-	}
-	// 获取财经头条的内容
-	private void getTitleContentInfo(){
-		HttpUtil.get("https://caijing.gongshidai.com/tuijian?act=back&p=1&pageSize=1", new JsonHttpResponseHandler() {
-			@Override
-			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-				super.onSuccess(statusCode, headers, response);
-				if (response != null) {
-					try {
-						if (response.getInt("code") == 0) {
-							Log.i("WK","	这是财经头条的内容	"+response);
-//							JSONArray listArray = response.getJSONArray("list");
-//							if (listArray!=null&&listArray.length()>0) {
-//								JSONObject titConObj = listArray.getJSONObject(0);
-//								if (mCental!=null){
-//									mCental.setText(titConObj.getString("title"));
-//								}
-//							}
-						} else {
-						}
-					} catch (Exception E) {
-					}
-				}
-			}
-			@Override
-			public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-				super.onFailure(statusCode, headers, responseString, throwable);
-			}
-		});
-	}
+                        } else {
+                            Toast.makeText(getActivity(), response.getString("msg"), Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception E) {
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+                Toast.makeText(getActivity(), "首页数据获取失败", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void setPagerData(JSONArray ARRA) {
+        try {
+            if (ARRA != null) {
+                if (ARRA.length() > 0) {
+                    JSONObject xinobj = ARRA.getJSONObject(0);
+                    mNew.setText(xinobj.getString("name"));
+                    mNew_tv.setText(xinobj.getString("title"));
+                    mNewbId = xinobj.getInt("product");
+
+                    JSONObject sxtobj = ARRA.getJSONObject(1);
+                    mSxt.setText(sxtobj.getString("name"));
+                    mSxt_tv.setText(sxtobj.getString("title"));
+                    mSxtId = sxtobj.getInt("product");
+
+                    JSONObject gxbobj = ARRA.getJSONObject(2);
+                    mGxb.setText(gxbobj.getString("name"));
+                    mGxb_tv.setText(gxbobj.getString("title"));
+                    mGxbId = gxbobj.getInt("product");
+                }
+            }
+        } catch (Exception E) {
+        }
+    }
+
+    // 获取财经头条的内容
+    private void getTitleContentInfo() {
+        HttpUtil2.get("http://licai.gongshidai.com:88/v4_1/caijin", new Callback() {
+                    @Override
+                    public void onFailure(String msg) {
+                        ToastUtil.customAlert(getActivity(), msg);
+                    }
+                    @Override
+                    public void onResponse2(JSONObject response) {
+                        try {
+                            if (response != null) {
+                                if (response.getInt("code") == 0) {
+                                    JSONObject titConObj = response.getJSONObject("ad");
+                                    if (mCental != null) {
+                                        mCental.setText(titConObj.getString("content"));
+                                    }
+                                }
+                            } else {
+                                ToastUtil.customAlert(getActivity(), "获取财经头条失败!");
+                            }
+                        } catch (Exception e) {
+                            e.toString();
+                        }
+                    }
+                }
+
+        );
+    }
 }

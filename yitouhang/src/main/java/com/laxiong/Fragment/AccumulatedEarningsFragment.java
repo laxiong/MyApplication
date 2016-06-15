@@ -49,6 +49,12 @@ public class AccumulatedEarningsFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        intiData();
+    }
+
     public void initView() {
         money = (TextView) accimlatedView.findViewById(R.id.money);
         tv_gxb = (TextView) accimlatedView.findViewById(R.id.tv_gxb);

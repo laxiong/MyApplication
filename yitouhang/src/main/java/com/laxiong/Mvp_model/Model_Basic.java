@@ -3,13 +3,17 @@ package com.laxiong.Mvp_model;
 import android.content.Context;
 import android.util.Log;
 
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.Common;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.StringUtils;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.Request;
 
 import org.apache.http.Header;
 import org.json.JSONException;
@@ -63,6 +67,53 @@ public class Model_Basic<T> {
     public void reqCommonGetObj(String url, RequestParams params, String tag, Class<T> clazz) {
         this.context = context;
         HttpUtil.get(url, params, new MyJSONHttp2(tag, clazz));
+    }
+
+    public void reqCommonGetObj(String url, String tag, Class<T> clazz) {
+        this.context = context;
+//        HttpUtil.get(url, params, new MyJSONHttp2(tag, clazz));
+        HttpUtil2.get(url, new MyCallback(tag, clazz));
+    }
+
+    public class MyCallback extends Callback {
+        private String tag;
+        private Class<T> clazz;
+
+        public MyCallback(String tag, Class<T> clazz) {
+            this.tag = tag;
+            this.clazz = clazz;
+        }
+
+        @Override
+        public void onResponse2(JSONObject response) {
+            if (response != null) {
+                try {
+                    if (response.getInt("code") == 0) {
+                        T obj = null;
+                        if (tag == null || StringUtils.isBlank(tag))
+                            obj = JSONUtils.parseObject(response.toString(), clazz);
+                        else
+                            obj = JSONUtils.parseObject(response.getJSONObject(tag).toString(), clazz);
+                        listener2.onSuccss(obj);
+                    } else {
+                        if (response.getInt("code") == 401) {
+                            CommonReq.showReLoginDialog(context);
+                        } else
+                            listener2.onFailure(response.getString("msg"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    listener2.onFailure(e.toString());
+                }
+            } else {
+                listener2.onFailure("无响应");
+            }
+        }
+
+        @Override
+        public void onFailure(String msg) {
+            listener2.onFailure(msg);
+        }
     }
 
     public void reqCommonBackByGet(String url, Context context, RequestParams params, String tag, Class<T> clazz) {

@@ -104,7 +104,10 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         Toast.makeText(this, "退出登录成功", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, ChangeCountActivity.class);
         startActivity(intent);
-        finish();
+        if(mPopWindows!=null) {
+            mPopWindows.dismiss();
+            mPopWindows=null;
+        }
     }
 
     private void initView() {

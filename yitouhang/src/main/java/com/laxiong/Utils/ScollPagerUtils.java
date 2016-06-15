@@ -117,7 +117,7 @@ public class ScollPagerUtils implements OnPageChangeListener {
                         ShareInfo sinfo=new ShareInfo(banner.getTitle(), banner.getContent(),
                                 banner.getShareimageurl(), banner.getHref() + "?user_id=" + (user == null ? "" : user.getId()));
                         bundle.putSerializable("banner",sinfo);
-                        mContext.startActivity(new Intent(mContext, WebViewActivity.class).putExtra("needshare", true).putExtra("url", banner.getHref() + "?id=" + (user == null ? "" : user.getId())).putExtras(bundle));
+                        mContext.startActivity(new Intent(mContext, WebViewActivity.class).putExtra("title",banner.getTitle()).putExtra("needshare", true).putExtra("url", banner.getHref() + "?id=" + (user == null ? "" : user.getId())).putExtras(bundle));
 
                     }
                 }

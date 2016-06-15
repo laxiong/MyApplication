@@ -27,6 +27,7 @@ import com.laxiong.View.PayPop;
 import com.laxiong.entity.Banner;
 import com.laxiong.service.DownService;
 import com.loopj.android.http.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -139,10 +140,8 @@ public class MainPage_Presenter implements OnLoadBasicListener<Banner>, OnLoadBc
             e.printStackTrace();
         }
         String channel = CommonUtils.getMetaData(context, "CHANNEL");
-        RequestParams params = new RequestParams();
-        params.put("version", version);
-        params.put("channel", channel);
-        mbc.reqCommonGetObj(InterfaceInfo.CKUPDATE_URL, params, "", UpdateInfo.class);
+        String url=InterfaceInfo.CKUPDATE_URL+"?version="+version+"&&channel="+channel;
+        mbc.reqCommonGetObj(url,"", UpdateInfo.class);
     }
 
     @Override

@@ -53,6 +53,7 @@ public class ChangePayPwdFragment1 extends Fragment implements View.OnClickListe
 
     @Override
     public void reqbackSuc(String tag) {
+        time_presenter.loadHandlerTimer(1000, 30000);
         ToastUtil.customAlert(getActivity(), "获取验证码成功");
     }
 
@@ -137,7 +138,6 @@ public class ChangePayPwdFragment1 extends Fragment implements View.OnClickListe
                 break;
             case R.id.time:
                 presenter.reqPayCode(getActivity());
-                time_presenter.loadHandlerTimer(1000, 30000);
                 break;
         }
     }

@@ -43,6 +43,12 @@ public class AvailableBalanaceFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        initData();
+    }
+
     public void initView() {
         money = (TextView) availableView.findViewById(R.id.money);
         tv_sxt = (TextView) availableView.findViewById(R.id.tv_sxt);

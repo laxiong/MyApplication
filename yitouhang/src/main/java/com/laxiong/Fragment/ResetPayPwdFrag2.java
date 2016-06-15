@@ -47,6 +47,7 @@ public class ResetPayPwdFrag2 extends Fragment implements View.OnClickListener, 
 
     @Override
     public void reqbackSuc(String tag) {
+        timepresenter.loadHandlerTimer(Constants.INTERVAL,Constants.TIME);
         ToastUtil.customAlert(getActivity(), "获取验证码成功");
     }
 
@@ -90,7 +91,6 @@ public class ResetPayPwdFrag2 extends Fragment implements View.OnClickListener, 
         presenter = new Password_Presenter(this);
         timepresenter=new Handler_Presenter(this);
         presenter.reqPayCode(getActivity());
-        timepresenter.loadHandlerTimer(Constants.INTERVAL,Constants.TIME);
         ValifyUtil.setEnabled(mNextPage, false);
     }
 

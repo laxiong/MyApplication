@@ -229,7 +229,7 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
                         Toast.makeText(WelCenterActivity.this, "请先选择", Toast.LENGTH_SHORT).show();
                     else {
                         intent_select.putParcelableArrayListExtra("data", listselect);
-                        WelCenterActivity.this.setResult(RESULT_OK, intent_select);
+                        WelCenterActivity.this.setResult(RESULT_OK,intent_select);
                         finish();
                     }
                 }

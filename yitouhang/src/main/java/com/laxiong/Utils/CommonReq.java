@@ -39,12 +39,19 @@ public class CommonReq {
      * @param context
      */
     private static AlertDialog.Builder dialog;
-    public static void recordLogin(Context context) {
+    public static void recordLogin(final Context context) {
         String autori = CommonReq.getAuthori(context);
         HttpUtil.post(InterfaceInfo.RECORDLOGIN_URL, null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
+                try {
+                    if(response!=null&&response.getInt("code")==401){
+                        showReLoginDialog(context);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override

@@ -65,6 +65,7 @@ public class FoundPswdActivity extends BaseActivity implements OnClickListener, 
 
     @Override
     public void getCodeSuccess() {
+        timepresenter.loadHandlerTimer(Constants.INTERVAL,Constants.TIME);
         Toast.makeText(this, "获取验证码成功,将会发送到手机", Toast.LENGTH_LONG).show();
     }
 
@@ -142,7 +143,6 @@ public class FoundPswdActivity extends BaseActivity implements OnClickListener, 
             case R.id.tv_getVali:
                 if (validatePhone()) {
                     presenter.reqValidation(FoundPswdActivity.this);
-                    timepresenter.loadHandlerTimer(Constants.INTERVAL,Constants.TIME);
                 }
                 break;
         }

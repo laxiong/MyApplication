@@ -255,7 +255,7 @@
         <!-- 福利中心 -->
         <activity
             android:name="com.laxiong.Activity.WelCenterActivity"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTop" />
         <!-- 红包解释 -->
         <activity
             android:name="com.laxiong.Activity.RpExplainActivity"

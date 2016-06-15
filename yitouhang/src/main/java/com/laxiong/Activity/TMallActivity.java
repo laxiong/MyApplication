@@ -81,6 +81,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
                 intent.putExtra("url",item.getHref()+"?id="+(user==null?"":user.getId()));
                 bundle.putSerializable("banner",new ShareInfo(item.getTitle(),item.getContent(),item.getShareimageurl(),id));
                 intent.putExtra("needshare",true);
+                intent.putExtra("title",item.getTitle());
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

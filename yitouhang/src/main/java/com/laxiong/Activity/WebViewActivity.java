@@ -3,6 +3,7 @@ package com.laxiong.Activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -19,6 +20,7 @@ import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
 import com.laxiong.entity.ShareInfo;
 import com.laxiong.entity.User;
+import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.UMShareAPI;
 
 public class WebViewActivity extends BaseActivity implements IViewBasicObj<ShareInfo> {
@@ -90,7 +92,7 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
 
         };
         mWebView.setWebChromeClient(wvcc);
-        if (titleStr != null)
+        if (!TextUtils.isEmpty(titleStr))
             actionBar.setTitle(titleStr);
 //		mWebView.loadUrl(url); //WebView加载web资源
 //		//覆盖WebView默认使用第三方或系统默认浏览器打开网页的行为，使网页用WebView打开
@@ -121,9 +123,9 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
 //                if (url.startsWith("gongshi2://")) {
 //                    WebViewActivity.this.finish();
 //                }
-                String str = "gongshi1://" ;
-                if (url.startsWith(str)){
-                    String host = url.substring(url.length()-1, url.length());
+                String str = "gongshi1://";
+                if (url.startsWith(str)) {
+                    String host = url.substring(url.length() - 1, url.length());
                     int index = Integer.valueOf(host);
                     jumpActivity(index);
                 }
@@ -131,6 +133,8 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
                 return true;
             }
         });
+        String eventid=urls.substring(urls.lastIndexOf("/")).split("\\?")[0];
+        MobclickAgent.onEvent(this,eventid);
         mWebView.loadUrl(urls);
     }
 
@@ -150,9 +154,10 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
             }
         });
     }
+
     //  根据Host不同跳转的页面不同
-    private void jumpActivity(int index){
-        switch (index){
+    private void jumpActivity(int index) {
+        switch (index) {
             case 0:         //关闭当前页面
                 this.finish();
 
@@ -164,7 +169,7 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
 
                 break;
             case 2:          // 理财产品页
-                Toast.makeText(this,"理财产品页",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "理财产品页", Toast.LENGTH_SHORT).show();
 
                 break;
             case 3:          //个人账户页
@@ -174,7 +179,7 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
 
                 break;
             case 4:         //活动页
-                Toast.makeText(this,"活动页",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "活动页", Toast.LENGTH_SHORT).show();
 
                 break;
             case 5:         //红包页
@@ -184,7 +189,7 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
 
                 break;
             case 6:         //人脉邀请页
-                Toast.makeText(this,"人脉邀请页",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "人脉邀请页", Toast.LENGTH_SHORT).show();
 
                 break;
             case 7:         //积分商城页

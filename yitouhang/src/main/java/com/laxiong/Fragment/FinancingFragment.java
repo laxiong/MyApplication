@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -80,8 +81,14 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-
-		view = inflater.inflate(R.layout.financing_layout, null);
+		if(view==null) {
+			view = inflater.inflate(R.layout.financing_layout, null);
+		}else{
+			ViewParent parent=view.getParent();
+			if(parent!=null&&parent instanceof ViewGroup){
+				((ViewGroup)parent).removeView(view);
+			}
+		}
 		initView();
 		return view;
 	}

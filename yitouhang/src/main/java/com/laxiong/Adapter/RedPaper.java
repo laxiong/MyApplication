@@ -3,11 +3,13 @@ package com.laxiong.Adapter;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
+
 /**
  * Created by xiejin on 2016/4/8.
  * Types RedPaper.java
  */
-public class RedPaper implements Parcelable {
+public class RedPaper implements Parcelable{
     public enum UsetypeEnum {
         /**
          * @param USED 已经用过的红包

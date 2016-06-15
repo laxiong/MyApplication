@@ -72,6 +72,7 @@ public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickLis
     public void reqbackSuc(String tag) {
         if (tag.equals(bindpresenter.TYPE_CODE)) {
             ToastUtil.customAlert(this,"获取验证码成功!");
+            timepresenter.loadHandlerTimer(Constants.INTERVAL, Constants.TIME);
         } else if (tag.equals(bindpresenter.TYPE_BIND)) {
             ToastUtil.customAlert(this, "更换手机号码成功!");
             SpUtils.saveStrValue(SpUtils.getSp(this), SpUtils.USER_KEY, getPhone());
@@ -119,7 +120,6 @@ public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickLis
                     ToastUtil.customAlert(ChangeBindPhoneActivity2.this, "请先输入手机号码");
                 } else {
                     bindpresenter.sendCode(ChangeBindPhoneActivity2.this);
-                    timepresenter.loadHandlerTimer(Constants.INTERVAL, Constants.TIME);
                 }
                 break;
             case R.id.back_layout:

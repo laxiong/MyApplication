@@ -2,6 +2,7 @@ package com.laxiong.Activity;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
@@ -74,12 +75,18 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     private FrameLayout mPersonSetting;
     private RelativeLayout mHeadLayout;
     private UpdateReceiver receiver;
-
+    private Fragment saveFragment;
     private boolean isLogin = false; // 判断是否登录了
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mFragmentManager=getFragmentManager();
+        if(savedInstanceState!=null){
+            mFristPagerFragment= (FristPagerFragment) mFragmentManager.findFragmentByTag("firstpage");
+            mFinancingFragment= (FinancingFragment) mFragmentManager.findFragmentByTag("finace");
+            mMySelfFragment= (MySelfFragment) mFragmentManager.findFragmentByTag("myself");
+        }
         super.onCreate(savedInstanceState);
 
         WindowManager wm = this.getWindowManager();
@@ -137,6 +144,10 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         iv_read.setVisibility(Constants.isRead ? View.VISIBLE : View.GONE);
         iv_noread.setVisibility(Constants.isRead?View.GONE:View.VISIBLE);
         boolean flag = ValifyUtil.judgeInit(this);
+        FragmentTransaction mTransaction = mFragmentManager.beginTransaction();
+        if(saveFragment!=null&&mTransaction!=null){
+            mTransaction.show(saveFragment).commit();
+        }
         if (flag)
             mUser = YiTouApplication.getInstance().getUser();
     }
@@ -177,6 +188,16 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         int height = 2 * metrix.heightPixels / 3;
         dialog = new PayPop(view, width, height, this);
         dialog.showAtLocation(ll_wrap, Gravity.CENTER, 0, 0);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
     }
 
     @Override
@@ -253,24 +274,23 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                 setButtomBackground(1);
                 if (mFinancingFragment == null) {        // 理财页面
                     mFinancingFragment = new FinancingFragment();
-                    mTransaction.add(R.id.setContent, mFinancingFragment);
+                    mTransaction.add(R.id.setContent, mFinancingFragment,"finace");
                 } else {
                     mTransaction.show(mFinancingFragment);
                 }
-
+                saveFragment=mFinancingFragment;
                 break;
             case R.id.fristpager:
                 setButtomBackground(0);
                 if (mFristPagerFragment == null) {     // 首页页面
                     mFristPagerFragment = new FristPagerFragment();
-                    mTransaction.add(R.id.setContent, mFristPagerFragment);
+                    mTransaction.add(R.id.setContent, mFristPagerFragment,"firstpage");
                 } else {
                     mTransaction.show(mFristPagerFragment);
                 }
-
+                saveFragment=mFristPagerFragment;
                 break;
             case R.id.myself:
-
                 //TODO 判断是否  已经登录了
 //				if(isLogin){
                 if (!ValifyUtil.judgeLogin()) {
@@ -279,7 +299,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                     setButtomBackground(2);
                     if (mMySelfFragment == null) {         // 资产页面
                         mMySelfFragment = new MySelfFragment();
-                        mTransaction.add(R.id.setContent, mMySelfFragment);
+                        mTransaction.add(R.id.setContent, mMySelfFragment,"myself");
                     } else {
                         mTransaction.show(mMySelfFragment);
                     }
@@ -384,7 +404,8 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     private void initFristFragment() {
         FragmentTransaction mTransaction = mFragmentManager.beginTransaction();
         mFristPagerFragment = new FristPagerFragment();
-        mTransaction.add(R.id.setContent, mFristPagerFragment);
+        mTransaction.add(R.id.setContent, mFristPagerFragment,"firstpage");
+        saveFragment=mFristPagerFragment;
         mTransaction.commit();
         setButtomBackground(0);
     }

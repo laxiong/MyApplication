@@ -29,11 +29,13 @@ public class YiTouApplication extends Application {
 
 
     public UserLogin getUserLogin() {
-        if(userLogin==null){
-            SharedPreferences sp= SpUtils.getSp(this);
-            String jsonstr=sp.getString(SpUtils.USERLOGIN_KEY,"");
-            if(!TextUtils.isEmpty(jsonstr)){
-                userLogin=JSONUtils.parseObject(jsonstr,UserLogin.class);
+        synchronized (YiTouApplication.class) {
+            if (userLogin == null) {
+                SharedPreferences sp = SpUtils.getSp(this);
+                String jsonstr = sp.getString(SpUtils.USERLOGIN_KEY, "");
+                if (!TextUtils.isEmpty(jsonstr)) {
+                    userLogin = JSONUtils.parseObject(jsonstr, UserLogin.class);
+                }
             }
         }
         return userLogin;

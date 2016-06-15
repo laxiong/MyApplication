@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -64,8 +65,14 @@ public class MySelfFragment extends Fragment implements OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        view = inflater.inflate(R.layout.myself_layout, null);
+        if(view==null) {
+            view = inflater.inflate(R.layout.myself_layout, null);
+        }else{
+            ViewParent parent=view.getParent();
+            if(parent!=null&&parent instanceof ViewGroup){
+                ((ViewGroup)parent).removeView(view);
+            }
+        }
         initView();
         initData();
         getCalenderInfo();

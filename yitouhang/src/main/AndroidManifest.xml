@@ -210,7 +210,8 @@
         <activity android:name="com.laxiong.Activity.WebViewActivity"
             android:launchMode="singleTask"/>
         <activity android:name="com.laxiong.Activity.BuyingActivity"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask"
+            />
         <activity android:name="com.laxiong.Activity.BuyingResultActivity"
             android:launchMode="singleTask"/>
 
@@ -219,7 +220,7 @@
             android:launchMode="singleTask"/>
         <!-- 福利中心 -->
         <activity android:name="com.laxiong.Activity.WelCenterActivity"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTop"/>
         <!-- 红包解释 -->
         <activity android:name="com.laxiong.Activity.RpExplainActivity"
             android:launchMode="singleTask"/>

@@ -21,6 +21,7 @@ import com.gongshidai.mistGSD.R;
 import com.laxiong.InputMethod.LPKeyBoard;
 import com.laxiong.InputMethod.LPTextField;
 import com.laxiong.InputMethod.LPUtils;
+import com.umeng.analytics.MobclickAgent;
 
 public class BaseActivity extends Activity {
 
@@ -29,6 +30,7 @@ public class BaseActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		MobclickAgent.setSessionContinueMillis(3000);
 //		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);  //去掉状态栏
 		requestWindowFeature(Window.FEATURE_NO_TITLE);   //去掉标题
 		DisplayMetrics dm = new DisplayMetrics();
@@ -101,4 +103,15 @@ public class BaseActivity extends Activity {
 		}
 	}
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onResume(this);
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPause(this);
+	}
 }

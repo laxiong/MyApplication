@@ -3,10 +3,12 @@ package com.laxiong.Mvp_presenter;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.util.Log;
 
 import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewChangePwd;
@@ -14,15 +16,21 @@ import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Mvp_view.IViewReBackPwd;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.entity.UserLogin;
 import com.loopj.android.http.Base64;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
 
 /**
  * Created by xiejin on 2016/4/19.
@@ -32,8 +40,6 @@ public class Password_Presenter {
     private IViewChangePwd iviewchange;
     private IViewReBackPwd iviewback;
     private IViewCommonBack iviewresetpay;
-    private long startmiles = -1;
-    private static final long INTER_TIME = 30000;
 
     public Password_Presenter(IViewChangePwd iviewchange) {
         this.iviewchange = iviewchange;
@@ -90,13 +96,17 @@ public class Password_Presenter {
 
     public void reqValidation(final Context context) {
         String phonenum = iviewback.getTextPhone();
-        RequestParams params = new RequestParams();
-        params.put("type", Constants.ReqEnum.PWD.getVal());
-        params.put("phone", phonenum);
-        HttpUtil.post(InterfaceInfo.CODE_URL, params, new JsonHttpResponseHandler() {
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        builder.add("type", Constants.ReqEnum.PWD.getVal());
+        builder.add("phone", phonenum);
+        HttpUtil2.post(InterfaceInfo.CODE_URL, builder, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onFailure(String msg) {
+                iviewback.getCodeFailure(msg);
+            }
+
+            @Override
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
@@ -104,37 +114,35 @@ public class Password_Presenter {
                         } else {
                             if (response.getInt("code") == 401) {
                                 CommonReq.showReLoginDialog(context);
+                            } else {//405...
+                                iviewback.getCodeFailure("code:" + response.getInt("code") + "msg:" + response.getString("msg"));
                             }
-                            iviewback.getCodeFailure(response.getString("msg"));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        iviewback.getCodeFailure(e.toString());
+                        iviewback.getCodeFailure("jsonexception" + e.toString());
                     }
                 } else {
                     iviewback.getCodeFailure("出错");
                 }
             }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                iviewback.getCodeFailure(responseString);
-            }
-        }, true);
-
+        });
     }
 
     public void reqPayCode(final Context context) {
         String autori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(autori))
             return;
-        RequestParams params = new RequestParams();
-        params.put("type", Constants.ReqEnum.RPAY.getVal());
-        HttpUtil.post(InterfaceInfo.CODE_URL, params, new JsonHttpResponseHandler() {
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        builder.add("type", Constants.ReqEnum.RPAY.getVal());
+        HttpUtil2.post(InterfaceInfo.CODE_URL, builder, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onFailure(String msg) {
+                iviewresetpay.reqbackFail(msg, null);
+            }
+
+            @Override
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
@@ -153,29 +161,56 @@ public class Password_Presenter {
                     iviewresetpay.reqbackFail("错误,无响应", null);
                 }
             }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                iviewresetpay.reqbackFail(responseString, null);
-            }
-        }, autori);
+        });
+//        HttpUtil.post(InterfaceInfo.CODE_URL, params, new JsonHttpResponseHandler() {
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+//                super.onSuccess(statusCode, headers, response);
+//                if (response != null) {
+//                    try {
+//                        if (response.getInt("code") == 0) {
+//                            iviewresetpay.reqbackSuc(null);
+//                        } else {
+//                            if (response.getInt("code") == 401) {
+//                                CommonReq.showReLoginDialog(context);
+//                            } else
+//                                iviewresetpay.reqbackFail(response.getString("msg"), null);
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                        iviewresetpay.reqbackFail(e.toString(), null);
+//                    }
+//                } else {
+//                    iviewresetpay.reqbackFail("错误,无响应", null);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+//                super.onFailure(statusCode, headers, responseString, throwable);
+//                iviewresetpay.reqbackFail(responseString, null);
+//            }
+//        }, autori);
     }
 
     public void reqChangePayPwd(final Context context, String pwd, String newpwd, String code) {
         String autori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(autori))
             return;
-        RequestParams params = new RequestParams();
-        params.put("type", Constants.ReqEnum.CPWD.getVal());
-        params.put("old_pay_pwd", pwd);
-        params.put("pay_pwd", newpwd);
-        params.put("repay_pwd", newpwd);
-        params.put("code", code);
-        HttpUtil.put(InterfaceInfo.USER_URL, params, new JsonHttpResponseHandler() {
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        builder.add("type", Constants.ReqEnum.CPWD.getVal());
+        builder.add("old_pay_pwd", pwd);
+        builder.add("pay_pwd", newpwd);
+        builder.add("repay_pwd", newpwd);
+        builder.add("code", code);
+        HttpUtil2.put(InterfaceInfo.USER_URL, builder, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onFailure(String msg) {
+                iviewresetpay.reqbackFail(msg, null);
+            }
+
+            @Override
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
@@ -194,38 +229,36 @@ public class Password_Presenter {
                     iviewresetpay.reqbackFail("无响应", null);
                 }
             }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                iviewresetpay.reqbackFail(responseString, null);
-            }
         }, autori);
-
     }
 
     public void reqReBackPwd(final Context context) {
         String phonenum = iviewback.getTextPhone();
         String pwd = iviewback.getTextPwd();
         String code = iviewback.getValiCode();
-        RequestParams params = new RequestParams();
-        params.put("type", Constants.ReqEnum.PWD.getVal());
-        params.put("phone", phonenum);
-        params.put("pwd", pwd);
-        params.put("code", code);
-        HttpUtil.put(InterfaceInfo.USER_URL, params, new JsonHttpResponseHandler() {
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        builder.add("type", Constants.ReqEnum.PWD.getVal());
+        builder.add("phone", phonenum);
+        builder.add("pwd", pwd);
+        builder.add("code", code);
+        HttpUtil2.put(InterfaceInfo.USER_URL, builder, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onFailure(String msg) {
+                iviewback.reBackFailure(msg);
+            }
+
+            @Override
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
                             iviewback.reBackSuccess();
                         } else {
-                            if (response.getInt("code") == 401)
+                            if (response.getInt("code") == 401) {
                                 CommonReq.showReLoginDialog(context);
-                            else
-                                iviewback.reBackFailure(response.getString("msg"));
+                            } else {
+                                iviewback.reBackFailure("code:" + response.getInt("code") + "msg:" + response.getString("msg"));
+                            }
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -235,16 +268,44 @@ public class Password_Presenter {
                     iviewback.reBackFailure("出错");
                 }
             }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String
-                    responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                iviewback.reBackFailure(responseString);
-            }
-        }
-
-                , true);
+        });
+//        RequestParams params = new RequestParams();
+//        params.put("type", Constants.ReqEnum.PWD.getVal());
+//        params.put("phone", phonenum);
+//        params.put("pwd", pwd);
+//        params.put("code", code);
+//        HttpUtil.put(InterfaceInfo.USER_URL, params, new JsonHttpResponseHandler() {
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+//                super.onSuccess(statusCode, headers, response);
+//                if (response != null) {
+//                    try {
+//                        if (response.getInt("code") == 0) {
+//                            iviewback.reBackSuccess();
+//                        } else {
+//                            if (response.getInt("code") == 401)
+//                                CommonReq.showReLoginDialog(context);
+//                            else
+//                                iviewback.reBackFailure(response.getString("msg"));
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                        iviewback.reBackFailure(e.toString());
+//                    }
+//                } else {
+//                    iviewback.reBackFailure("出错");
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, String
+//                    responseString, Throwable throwable) {
+//                super.onFailure(statusCode, headers, responseString, throwable);
+//                iviewback.reBackFailure(responseString);
+//            }
+//        }
+//
+//                , true);
     }
 
     public void reqChangePwd(final Context context) {
@@ -252,11 +313,11 @@ public class Password_Presenter {
             return;
         String oldpwd = iviewchange.getOldPwd();
         String newpwd = iviewchange.getNewPwd();
-        RequestParams params = new RequestParams();
-        params.put("type", "edpwd");
-        params.put("old_pwd", oldpwd);
-        params.put("pwd", newpwd);
-        params.put("repwd", newpwd);
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        builder.add("type", "edpwd");
+        builder.add("old_pwd", oldpwd);
+        builder.add("pwd", newpwd);
+        builder.add("repwd", newpwd);
         UserLogin userlogin = YiTouApplication.getInstance().getUserLogin();
         if (userlogin == null || StringUtils.isBlank(userlogin.getToken_id() + "") || StringUtils.isBlank(userlogin.getToken())) {
             Intent intent = new Intent(context, LoginActivity.class);
@@ -266,10 +327,14 @@ public class Password_Presenter {
         String token = userlogin.getToken();
         String str = tokenid + ":" + token;
         String authori = Base64.encodeToString(str.getBytes(), Base64.NO_WRAP);
-        HttpUtil.put(InterfaceInfo.USER_URL, params, new JsonHttpResponseHandler() {
+        HttpUtil2.put(InterfaceInfo.USER_URL, builder, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onFailure(String msg) {
+                iviewchange.updateFailure(msg);
+            }
+
+            @Override
+            public void onResponse2(JSONObject response) {
                 try {
                     if (response != null) {
                         if (response.getInt("code") == 0)
@@ -287,12 +352,6 @@ public class Password_Presenter {
                     iviewchange.updateFailure(e.toString());
                     e.printStackTrace();
                 }
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                iviewchange.updateFailure(responseString);
             }
         }, authori);
     }
