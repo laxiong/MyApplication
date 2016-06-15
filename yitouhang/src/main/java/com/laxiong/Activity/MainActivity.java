@@ -141,7 +141,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     @Override
     protected void onRestart() {
         super.onRestart();
-        iv_read.setVisibility(Constants.isRead ? View.VISIBLE : View.GONE);
+        iv_read.setVisibility(Constants.isRead?View.VISIBLE:View.GONE);
         iv_noread.setVisibility(Constants.isRead?View.GONE:View.VISIBLE);
         boolean flag = ValifyUtil.judgeInit(this);
         FragmentTransaction mTransaction = mFragmentManager.beginTransaction();
@@ -221,8 +221,8 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     }
     @SuppressLint("NewApi")
     private void initData() {
-        iv_read.setVisibility(Constants.isRead?View.GONE:View.VISIBLE);
-        iv_noread.setVisibility(Constants.isRead?View.VISIBLE:View.GONE);
+        iv_read.setVisibility(Constants.isRead?View.VISIBLE:View.GONE);
+        iv_noread.setVisibility(Constants.isRead?View.GONE:View.VISIBLE);
         presenter = new MainPage_Presenter(this);
         presenter.checkUpdate(this);
         mFragmentManager = this.getFragmentManager();

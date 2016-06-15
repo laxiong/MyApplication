@@ -59,7 +59,7 @@
             android:layout_width="100dp"
             android:gravity="center"
             android:layout_height="30dp"
-            android:text="下载"
+            android:text="更新"
             android:layout_marginLeft="30dp"
             android:textColor="@color/white"
             android:background="@color/unread_msg"
