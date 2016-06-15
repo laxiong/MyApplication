@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.laxiong.Common.Settings;
 import com.laxiong.View.PayPop;
 import com.laxiong.entity.ShareInfo;
+import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
@@ -63,6 +64,10 @@ public class DialogUtils {
         iv_wx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                int x=shareInfo.getUrl().lastIndexOf("?");
+//                String url=shareInfo.getUrl().substring(0,x==-1?shareInfo.getUrl().length()-1:x);
+                String eventid="s_"+shareInfo.getTitle();
+                MobclickAgent.onEvent(context,eventid);
                 new ShareAction(context).setPlatform(SHARE_MEDIA.WEIXIN).setCallback(umShareListener)
                         .withMedia(new UMImage(context,shareInfo.getImg()))
                                 .withText(shareInfo.getContent())
@@ -76,6 +81,9 @@ public class DialogUtils {
         iv_wxcircle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int x=shareInfo.getUrl().lastIndexOf("?");
+                String url=shareInfo.getUrl().substring(0,x==-1?shareInfo.getUrl().length()-1:x);
+                MobclickAgent.onEvent(context,url);
                 new ShareAction(context).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE).setCallback(umShareListener)
                         .withMedia(new UMImage(context, shareInfo.getImg()))
                         .withText(shareInfo.getContent())

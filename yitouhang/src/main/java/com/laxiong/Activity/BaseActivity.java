@@ -30,7 +30,7 @@ public class BaseActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		MobclickAgent.setSessionContinueMillis(3000);
+		MobclickAgent.setSessionContinueMillis(30000);
 //		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);  //去掉状态栏
 		requestWindowFeature(Window.FEATURE_NO_TITLE);   //去掉标题
 		DisplayMetrics dm = new DisplayMetrics();

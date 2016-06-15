@@ -155,6 +155,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 					intent.putExtra("money", Double.valueOf(money));
 					intent.putExtra("isBuying", true);
 					intent.putExtra("isAll", false);
+					intent.putExtra("limit",limitDay);
 					BuyingActivity.this.startActivityForResult(intent, REQUEST_CODE);
 				}
 				break;

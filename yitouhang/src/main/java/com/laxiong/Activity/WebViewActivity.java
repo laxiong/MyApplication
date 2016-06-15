@@ -33,6 +33,7 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
     private boolean needshare;
     private CommonActionBar actionBar;
     private Share_Presenter presenter;
+    private String titles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +89,7 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
             public void onReceivedTitle(WebView view, String title) {
                 super.onReceivedTitle(view, title);
                 actionBar.setTitle(title);
+                titles=title;
             }
 
         };
@@ -133,8 +135,9 @@ public class WebViewActivity extends BaseActivity implements IViewBasicObj<Share
                 return true;
             }
         });
-        String eventid=urls.substring(urls.lastIndexOf("/")).split("\\?")[0];
-        MobclickAgent.onEvent(this,eventid);
+//        int x=urls.lastIndexOf("?");
+//        String eventid=urls.substring(0,x==-1?urls.length()-1:x);
+        MobclickAgent.onEvent(this,"h5_"+(TextUtils.isEmpty(titleStr)?titles:titleStr));
         mWebView.loadUrl(urls);
     }
 
