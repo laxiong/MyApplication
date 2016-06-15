@@ -49,7 +49,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 	private TextView mJiGetMoney , mShareBtn ,mScrollIn , mScrollOut;
 	private EditText mJiMoney , mJiDay ;
 	private TextView mYesDayProfit,mAmountProfit,mGetCashProfit,mPrecent,mRemark1,mRemark2,mLastCash,SxtTitle;
-	private RelativeLayout mSafeProtect ;
+	private RelativeLayout mSafeProtect ,mMoreDetails;
 	private int mId ;
 	private Double lu = 0.0; // 计算器的计算利率
 	private LinearLayout ll_wrap;
@@ -78,6 +78,8 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		mScrollIn.setOnClickListener(this);
 		mScrollOut.setOnClickListener(this);
 		mSafeProtect.setOnClickListener(this);
+		mMoreDetails.setOnClickListener(this);
+
 		presenter = new Share_Presenter(this);
 		
 		mJiDay.addTextChangedListener(new TextWatcher() {
@@ -161,6 +163,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		mScrollOut = (TextView)findViewById(R.id.scroll_out);
 
 		mSafeProtect =(RelativeLayout)findViewById(R.id.safeprotect);//安全保障
+		mMoreDetails = (RelativeLayout)findViewById(R.id.more_details); // 更多详情
 
 		mRemark1 =(TextView)findViewById(R.id.remark1);
 		mRemark2 =(TextView)findViewById(R.id.remark2);
@@ -228,6 +231,11 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 				startActivity(new Intent(TimeXiTongActivity.this,WebViewActivity.class).
 						putExtra("url", "https://licai.gongshidai.com/wap/public/ytbank/yt.safe.html").
 						putExtra("title","安全保障"));
+				break;
+			case R.id.more_details:
+				startActivity(new Intent(TimeXiTongActivity.this,WebViewActivity.class).
+						putExtra("url", "https://licai.gongshidai.com/wap/public/ytbank/yt.debt.html").
+						putExtra("title","更多详情"));
 				break;
 		}
 	}

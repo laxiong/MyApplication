@@ -5,12 +5,10 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -373,7 +371,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 					}
 
 					// 新手标
-					double bird = gxb.getBird();
+					final double bird = gxb.getBird();
 					if(mViewHonder.mNewPerson!=null){
 						if(bird == 1){
 							mViewHonder.mNewPerson.setVisibility(View.VISIBLE);
@@ -404,13 +402,15 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						view.setOnClickListener(new OnClickListener() {
 							@Override
 							public void onClick(View view) {
-								Log.i("GXB","股息宝的Id参数"+(i-3)+" ==========："+gxb.getId());
-								getActivity().startActivity(new Intent(getActivity(),
-										GuXiBaoActivity.class).
-										putExtra("id", gxb.getId()).
-										putExtra("ttnum", listNum).
-										putExtra("limitday", limit).
-										putExtra("isVip",false));
+								if (gxb.getPercent()!=100.0) {  // 如果是售罄就无法点击进入到详情页面
+									getActivity().startActivity(new Intent(getActivity(),
+											GuXiBaoActivity.class).
+											putExtra("id", gxb.getId()).
+											putExtra("ttnum", listNum).
+											putExtra("limitday", limit).
+											putExtra("isVip", false).
+											putExtra("bird",bird));
+								}
 							}
 						});
 				}

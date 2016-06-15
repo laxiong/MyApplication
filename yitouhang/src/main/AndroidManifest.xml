@@ -409,7 +409,7 @@
         <!-- 请到 http://appkefu.com/AppKeFu/admin/ 申请appkey -->
         <meta-data
             android:name="com.appkefu.lib.appkey"
-            android:value="e4e811e131cfe42b10df4ff6ad622f51" />
+            android:value="a39f7f5b9b8fcdcc54d1828194b0f687" />
 
         <!-- 聊天窗口, 可通过修改layout文件appkefu_activity_kfvip_chat.xml自定义窗口UI -->
         <activity android:name="com.appkefu.lib.ui.activity.KFChatActivity"

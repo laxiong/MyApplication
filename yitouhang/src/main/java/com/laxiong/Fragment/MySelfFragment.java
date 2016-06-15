@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,7 +30,6 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
-import com.laxiong.Utils.LogUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
@@ -201,7 +199,6 @@ public class MySelfFragment extends Fragment implements OnClickListener {
                         if (response.getInt("code") == 0) {
                             keys.clear();
                             values.clear();
-                            Log.i("WK", "=====返回的结果=======：" + response);
                             try {
                                 JSONObject object = response.getJSONObject("list"); // 返回null的
                                 Iterator<String> keysIter = object.keys();

@@ -323,7 +323,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
 
     // 打客服电话的
     private void takePhoneNum() {
-        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:10086"));
+        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:4001515805"));
         this.startActivity(intent);
     }
 
@@ -422,7 +422,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         // BitmapFactory.decodeResource(getResources(), R.drawable.kefu);
         // Bitmap userAvatarBitmap =
         // BitmapFactory.decodeResource(getResources(), R.drawable.user);
-        KFAPIs.startChat(CountSettingActivity.this, "wangkingyitouhang", // 1.
+        KFAPIs.startChat(CountSettingActivity.this, "gongshilicai", // 1.
                 // 客服工作组ID(请务必保证大小写一致)，请在管理后台分配
                 "客服妹妹", // 2. 会话界面标题，可自定义
                 null, // 3. 附加信息，在成功对接客服之后，会自动将此信息发送给客服;

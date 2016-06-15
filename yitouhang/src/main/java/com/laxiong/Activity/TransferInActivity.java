@@ -11,7 +11,6 @@ import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -251,6 +250,14 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 		}
 	}
 
+	// 取消选择支付方式的
+	private void dissPayMethod(){
+		if(mPayMathodWindow!=null&&mPayMathodWindow.isShowing()){
+			mPayMathodWindow.dismiss();
+			mPayMathodWindow = null ;
+		}
+	}
+
 	OnClickListener listenner = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
@@ -263,6 +270,8 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 						mShowBankName.setText("从余额(" + user.getAvailable_amount() + ")元");
 						selectPay = "余额(" + user.getAvailable_amount() + ")元";
 					}
+					dissPayMethod();
+
 					break;
 
 				case R.id.concreatebank:  // 建设银行
@@ -270,13 +279,13 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 					choiceImg = 1 ;
 					mShowBankName.setText(bankname + "(尾号" + bankLastNum + ")");
 					selectPay = bankname + "(尾号" + bankLastNum + ")" ;
+					dissPayMethod();
+
 					break;
 
 				case R.id.concel:
-					if(mPayMathodWindow!=null&&mPayMathodWindow.isShowing()){
-						mPayMathodWindow.dismiss();
-						mPayMathodWindow = null ;
-					}
+					dissPayMethod();
+
 					break;
 
 				case R.id.concel_btn:  // 输入的Text取消

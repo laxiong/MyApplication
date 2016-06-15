@@ -18,10 +18,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.NumberPicker;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -40,7 +38,6 @@ import com.laxiong.Fragment.VipFinancingFragment;
 import com.laxiong.Mvp_model.UpdateInfo;
 import com.laxiong.Mvp_presenter.MainPage_Presenter;
 import com.laxiong.Mvp_view.IViewMain;
-import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.CommonUtils;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.NotificationUtil;
@@ -77,6 +74,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     private UpdateReceiver receiver;
     private Fragment saveFragment;
     private boolean isLogin = false; // 判断是否登录了
+    private showVipRecevice showRecevice ;
 
 
     @Override
@@ -95,40 +93,47 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         setContentView(R.layout.activity_main);
         initView();
         initData();
+
+        /****动态注册的广播接收者*****/
+        showRecevice = new showVipRecevice();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("com.gongshiddai");
+        this.registerReceiver(showRecevice,filter);
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (receiver != null) {
+        if(receiver!=null){
             unregisterReceiver(receiver);
         }
-        if (CommonUtils.isServiceRunning(this, "DownService")) {
+        if(CommonUtils.isServiceRunning(this,"DownService")){
             stopService(new Intent(this, DownService.class));
             NotificationUtil.cancelNoti(this, 100);
+        }
+        if (showRecevice!=null){
+            unregisterReceiver(showRecevice);
         }
     }
 
     @Override
     public void registerUpdateReceiver(View dialog) {
-        receiver = new UpdateReceiver(dialog);
-        registerReceiver(receiver, new IntentFilter("com.update.action"));
+        receiver=new UpdateReceiver(dialog);
+        registerReceiver(receiver,new IntentFilter("com.update.action"));
     }
-
     class UpdateReceiver extends BroadcastReceiver {
         private View v;
-
-        public UpdateReceiver(View v) {
-            this.v = v;
+        public UpdateReceiver(View v){
+            this.v=v;
         }
-
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (v == null)
+            if(v==null)
                 return;
-            int progress = intent.getIntExtra("progress", 0);
-            String ns = intent.getStringExtra("nowsize");
-            String ts = intent.getStringExtra("totalsize");
+            int progress =intent.getIntExtra("progress", 0);
+            String ns=intent.getStringExtra("nowsize");
+            String ts=intent.getStringExtra("totalsize");
             TextView nowsize = (TextView) v.findViewById(R.id.loadingTask_progress);
             TextView totalsize = (TextView) v.findViewById(R.id.loadingTask_dimen);
             ProgressBar pgbar = (ProgressBar) v.findViewById(R.id.loadingTask_progressBar);
@@ -315,7 +320,6 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
 //					}else{
 //						mTransaction.show(mFristPagerFragment);
 //					}
-//					
 //				}
                 }
                 break;
@@ -428,15 +432,15 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                         return;
                     if (mHead_left_select_textview.getText().toString().equals("VIP")) {
                         User mUser = YiTouApplication.getInstance().getUser();
-                        if (mUser != null) {
-//                            if (mUser.is_vip()){   // 是VIP
-                            vipAndFinance(2);
-                            financingToVipEachOther(2);
-//                            }else { // 显示怎么成为VIP
-//                                showToBeVipMenthod();
-//                            }
-                        } else {
-                            Toast.makeText(MainActivity.this, "请完成登录", Toast.LENGTH_SHORT).show();
+                        if (mUser!=null){
+                            if (mUser.is_vip()){   // 是VIP
+                                vipAndFinance(2);
+                                financingToVipEachOther(2);
+                            }else { // 显示怎么成为VIP
+                                showToBeVipMenthod();
+                            }
+                        }else {
+                            Toast.makeText(MainActivity.this,"请完成登录",Toast.LENGTH_SHORT).show();
                         }
 
                     } else if (mHead_left_select_textview.getText().toString().equals("理财")) {
@@ -502,19 +506,70 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     }
 
     //显示怎么变成VIP的方法
-    PopupWindow mVipWinds;
-    View mshowV;
-
-    private void showToBeVipMenthod() {
-        mshowV = LayoutInflater.from(this).inflate(R.layout.notice_show_vip_popwindow, null);
-        mVipWinds = new PopupWindow(mshowV, ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT, true);
+    PopupWindow mVipWinds ;
+    View mshowV ;
+    private void showToBeVipMenthod(){
+        mshowV = LayoutInflater.from(this).inflate(R.layout.notice_show_vip_popwindow,null);
+        mVipWinds = new PopupWindow(mshowV,  ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT,true);
         mVipWinds.setTouchable(true);
         mVipWinds.setOutsideTouchable(true);
+
+        ImageView mImgClose = (ImageView)mshowV.findViewById(R.id.img_close);
+        ImageView showVimg = (ImageView)mshowV.findViewById(R.id.img_show);
+        showVimg.setImageResource(R.drawable.img_vip_shuom);
+
+        mImgClose.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mVipWinds!=null&&mVipWinds.isShowing()){
+                    mVipWinds.dismiss();
+                    mVipWinds=null ;
+                }
+            }
+        });
         // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
         // 我觉得这里是API的一个bug
         mVipWinds.setBackgroundDrawable(getResources().getDrawable(R.drawable.kefu_bg)); //设置半透明
         mVipWinds.showAtLocation(mshowV, Gravity.BOTTOM, 0, 0);
     }
 
+    // 显示成为VIP的显示
+    private void showToBeVip(){
+        mshowV = LayoutInflater.from(this).inflate(R.layout.notice_show_vip_popwindow,null);
+        mVipWinds = new PopupWindow(mshowV,  ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT,true);
+        mVipWinds.setTouchable(true);
+        mVipWinds.setOutsideTouchable(true);
+
+        ImageView mImgClose = (ImageView)mshowV.findViewById(R.id.img_close);
+        ImageView showVimg = (ImageView)mshowV.findViewById(R.id.img_show);
+        showVimg.setImageResource(R.drawable.img_vip_gongx);
+
+        mImgClose.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mVipWinds!=null&&mVipWinds.isShowing()){
+                    mVipWinds.dismiss();
+                    mVipWinds=null ;
+                }
+            }
+        });
+        // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
+        // 我觉得这里是API的一个bug
+        mVipWinds.setBackgroundDrawable(getResources().getDrawable(R.drawable.kefu_bg)); //设置半透明
+        mVipWinds.showAtLocation(mshowV, Gravity.BOTTOM, 0, 0);
+    }
+
+    //当用户投资金额达到50万时的，广播接收者
+    public class showVipRecevice extends BroadcastReceiver{
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int dates = intent.getIntExtra("showVip",-1);
+
+            Toast.makeText(MainActivity.this,"广播接收者里的",Toast.LENGTH_SHORT).show();
+            if (dates == 10001){
+                showToBeVip();
+            }
+        }
+    }
 
 }

@@ -1,6 +1,5 @@
 package com.laxiong.entity;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -61,6 +60,14 @@ public class User implements Serializable {
     private Profit profit_list;
     private String security_level;
     private double fee;
+    private boolean is_bird ;
+
+    public boolean is_bird() {
+        return is_bird;
+    }
+    public void setIs_bird(boolean is_bird) {
+        this.is_bird = is_bird;
+    }
 
     public User() {
     }

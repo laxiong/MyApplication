@@ -116,12 +116,12 @@
 
                 />
             <ImageView
+                android:id="@+id/newb_img"
                 android:layout_width="32dp"
                 android:layout_height="20dp"
                 android:layout_toRightOf="@+id/tv1"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="5dp"
-                android:background="@drawable/img_fire"
                 />
             <ImageView
                 android:id="@+id/arrow"
@@ -226,12 +226,12 @@
                 android:textColor="#FF999999"
                 />
             <ImageView
+                android:id="@+id/gxb_img"
                 android:layout_width="32dp"
                 android:layout_height="20dp"
                 android:layout_toRightOf="@+id/tv3"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="5dp"
-                android:background="@drawable/img_jian"
                 />
             <ImageView
                 android:id="@+id/arrow3"
@@ -241,6 +241,8 @@
                 android:src="@drawable/img_refresh_arrow"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="22dp"
+
+
                 />
         </RelativeLayout>
         <View

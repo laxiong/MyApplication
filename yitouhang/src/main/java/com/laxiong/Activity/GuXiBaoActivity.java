@@ -59,6 +59,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
     private int mId;
     private int ttnum ;
     private double limitDay ;
+    private double bird ;
     private View V_line ;
     // 百分比 等加载的内容
     private TextView mPrecent, mAddPrecent,
@@ -73,19 +74,16 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_guxibao);
+        mUser = YiTouApplication.getInstance().getUser();
         initView();
         initData();
-        mUser = YiTouApplication.getInstance().getUser();
 
-//        if (mUser!= null){
-//            boolean isVip = mUser.is_vip();
         isVip = getIntent().getBooleanExtra("isVip",false);
             if (isVip){
                 setVipTextColor();
             }else {
                 setTextColor();
             }
-//        }
         getNetWork();
     }
 
@@ -99,7 +97,17 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mId = getIntent().getIntExtra("id", -1);
         ttnum = getIntent().getIntExtra("ttnum", -1);
         limitDay = getIntent().getDoubleExtra("limitday", -1);
-        Log.i("WKKKKKK","limitday是多少："+limitDay);
+        bird = getIntent().getDoubleExtra("bird",-1);
+        if (bird == 1.0){
+            if (!mUser.is_bird()){
+                mBuyBtn.setText("仅限新用户购买");
+            }else {
+                mBuyBtn.setText("立即购买");
+            }
+        }else {
+            mBuyBtn.setText("立即购买");
+        }
+
         presenter = new Share_Presenter(this);
     }
 
@@ -176,13 +184,15 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
             case R.id.buying:
                 if (mUser!=null){
                     if (mUser.getBankcount() >=1){
-                        startActivity(new Intent(GuXiBaoActivity.this,
-                                BuyingActivity.class).
-                                putExtra("projectStr", mProjectName).
-                                putExtra("amountStr",mAmountMoney).
-                                putExtra("id",mId).
-                                putExtra("mBuyPrecent", mBuyPrecent).
-                                putExtra("limitday", limitDay));
+                        if (bird != 1) {
+                            startActivity(new Intent(GuXiBaoActivity.this,
+                                    BuyingActivity.class).
+                                    putExtra("projectStr", mProjectName).
+                                    putExtra("amountStr", mAmountMoney).
+                                    putExtra("id", mId).
+                                    putExtra("mBuyPrecent", mBuyPrecent).
+                                    putExtra("limitday", limitDay));
+                        }
                     }else {
                         Toast.makeText(GuXiBaoActivity.this,"请绑定银行卡",Toast.LENGTH_SHORT).show();
                     }

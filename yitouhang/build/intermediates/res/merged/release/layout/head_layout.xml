@@ -14,8 +14,7 @@
             android:layout_height="match_parent"
             android:id="@+id/head_myself_details"
             >
-            <ImageView
-                android:id="@+id/iv_read"
+            <ImageView 
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/img_count"
@@ -23,7 +22,6 @@
                 android:visibility="invisible"
                 />
             <ImageView
-                android:id="@+id/iv_noread"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/img_count_no_read"

@@ -48,7 +48,7 @@
 	                android:layout_toRightOf="@+id/tv"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:text="400-0888-888"
+	                android:text="400-1515-805"
 	                android:textColor="@color/light_green"
 	                />
 	        </RelativeLayout>

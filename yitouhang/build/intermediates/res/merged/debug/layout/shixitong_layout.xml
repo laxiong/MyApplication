@@ -460,6 +460,7 @@
         android:layout_height="120dp"
         android:orientation="vertical"
         android:paddingLeft="26dp"
+        android:paddingRight="22dp"
         android:background="@color/white"
         >
         <TextView 
@@ -474,23 +475,53 @@
             android:layout_height="1dp"
             android:background="@color/divider_grey"
           />
-        <TextView 
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="这个区域是图表形式的理财周期展示"
-            android:gravity="center_vertical"
-            android:textColor="#A6A6A6"
-            />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textColor="#A6A6A6"
+                android:textSize="12sp"
+                android:text="今天转入"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center_vertical"
+                android:textColor="#A6A6A6"
+                android:textSize="12sp"
+                android:text="第二天零点起息"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center_vertical"
+                android:textColor="#A6A6A6"
+                android:textSize="12sp"
+                android:text="第三天收益进入账户余额"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/img_licaizhouqi"/>
+
     </LinearLayout>
-    <View 
+    <View
       android:layout_width="match_parent"
       android:layout_height="1px"
-      android:background="@color/divider_grey"  
+      android:background="@color/divider_grey"
       />
-    
-    
-    
+
+
     <View 
       android:layout_marginTop="10dp"
       android:layout_width="match_parent"
@@ -635,14 +666,15 @@
       android:background="@color/divider_grey"  
       />
     <!-- 产品介绍，保障 -->
-    <LinearLayout 
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:orientation="vertical"
         android:paddingLeft="26dp"
         android:background="@color/white"
         >
-        <RelativeLayout 
+        <RelativeLayout
+            android:id="@+id/more_details"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"

@@ -1,14 +1,18 @@
 package com.laxiong.Activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gongshidai.mistGSD.R;
+import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Utils.CommonReq;
+import com.laxiong.entity.User;
 
 import java.text.SimpleDateFormat;
 
@@ -20,7 +24,8 @@ public class BuyingResultActivity extends BaseActivity implements View.OnClickLi
 	private String Money ;
 	private String ProductName ;
 	private String LastDate ;
-	private TextView mProject,mBuyDate,mBuyMoney,mLastDate ;
+	private TextView mProject,mBuyDate,mBuyMoney,mLastDate ,mCompleteBtn;
+	private User mUser ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,8 @@ public class BuyingResultActivity extends BaseActivity implements View.OnClickLi
 		mTitle.setText("购买结果");
 		FrameLayout mBack = (FrameLayout)findViewById(R.id.back_layout);
 		mBack.setOnClickListener(this);
+		mCompleteBtn = (TextView)findViewById(R.id.complete_Btn);
+		mCompleteBtn.setOnClickListener(this);
 
 		mProject = (TextView)findViewById(R.id.product_name);
 		mBuyMoney = (TextView)findViewById(R.id.pay_money);
@@ -44,7 +51,6 @@ public class BuyingResultActivity extends BaseActivity implements View.OnClickLi
 	}
 
 	private void initData(){
-		CommonReq.reqUserMsg(getApplicationContext());
 		ProductName = getIntent().getStringExtra("ProductName");
 		Money = getIntent().getStringExtra("Money");
 		SharedPreferences GXBssf = getSharedPreferences("GXB_DATE", Context.MODE_PRIVATE);
@@ -66,8 +72,40 @@ public class BuyingResultActivity extends BaseActivity implements View.OnClickLi
 	public void onClick(View v) {
 		switch (v.getId()){
 			case R.id.back_layout:
-				this.finish();
+				isVipUser();
+
 				break;
+			case R.id.complete_Btn:
+				isVipUser();
+
+				break;
+		}
+	}
+
+	// 判断他的vip
+	private void isVipUser(){
+		mUser = YiTouApplication.getInstance().getUser();
+		CommonReq.reqUserMsg(this);  // 刷新用户的信息
+		if (!mUser.is_vip()){ // 一开始不是vip
+
+			float gxbAmount = mUser.getAmount() - mUser.getCurrent();
+			float zongAmount = gxbAmount + Float.valueOf(Money);
+			if (zongAmount >= 500000.0){
+
+				Intent intent = new Intent();
+				intent.setAction("com.gongshiddai");
+				intent.putExtra("showVip", 10001);
+				this.sendBroadcast(intent);
+				Toast.makeText(this,"这是用户变成VIP的时候的",Toast.LENGTH_SHORT).show();
+				this.finish();
+			}else {
+
+				Toast.makeText(this,"还不是VIP的时候",Toast.LENGTH_SHORT).show();
+				this.finish();
+			}
+		}else {
+			Toast.makeText(this,"正常的成为VIP后的",Toast.LENGTH_SHORT).show();
+			this.finish();
 		}
 	}
 }

@@ -433,13 +433,47 @@
             android:orientation="vertical"
             android:paddingRight="22dp"
             >
-            <TextView 
+            <LinearLayout
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="收益规则 这个区域是受益的相关规则"
-                android:gravity="center_vertical"
-                android:textColor="#A6A6A6"
-                />
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="#A6A6A6"
+                    android:text="收益规则"/>
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="#A6A6A6"
+                    android:text="T日开始购买，T+1日开始产生收益，T+2可以看到收益，T为自然日"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="#A6A6A6"
+                    android:text="赎回规则"/>
+                <TextView
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="#A6A6A6"
+                    android:text="T日赎回，T日当天仍有收益"
+                    />
+
+            </LinearLayout>
             
         </LinearLayout>
         

@@ -45,12 +45,12 @@
     <!--&lt;!&ndash; Base style for animations.  This style specifies no animations. &ndash;&gt;-->
     <style name="Animation" />
 
-    <!-- Standard animations for a translucent window or activity.  This
-         style is <em>not</em> used by default for the translucent theme
-         (since translucent activities are a special case that have no
-         clear UI paradigm), but you can make your own specialized theme
-         with this animation style if you would like to have the standard
-         platform transition animation. -->
+    <!--&lt;!&ndash; Standard animations for a translucent window or activity.  This-->
+        <!--style is <em>not</em> used by default for the translucent theme-->
+        <!--(since translucent activities are a special case that have no-->
+        <!--clear UI paradigm), but you can make your own specialized theme-->
+        <!--with this animation style if you would like to have the standard-->
+        <!--platform transition animation. &ndash;&gt;-->
     <!--<style name="Animation.Translucent">-->
         <!--<item name="windowEnterAnimation">@anim/translucent_enter</item>-->
         <!--<item name="windowExitAnimation">@anim/translucent_exit</item>-->

@@ -5,17 +5,18 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Activity.GuXiBaoActivity;
 import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.Activity.WebViewActivity;
@@ -28,11 +29,9 @@ import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.ChildViewPager;
 import com.laxiong.entity.Banner;
 import com.loopj.android.http.JsonHttpResponseHandler;
-import com.gongshidai.mistGSD.R;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -51,6 +50,7 @@ public class FristPagerFragment extends Fragment implements OnClickListener {
     private TextView mNew, mNew_tv, mSxt, mSxt_tv, mGxb, mGxb_tv, mAmount, mSolid, mTouTiao, mCental;
     private String mCentalUrl, mAdTitle;
     private int mGxbId, mSxtId, mNewbId;
+    private ImageView newBImg , gxbImg ; // 火 荐的图标
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -96,6 +96,9 @@ public class FristPagerFragment extends Fragment implements OnClickListener {
         mSolid = (TextView) FristView.findViewById(R.id.solid);
         mTouTiao = (TextView) FristView.findViewById(R.id.toutiao);
         mCental = (TextView) FristView.findViewById(R.id.cental);
+
+        newBImg = (ImageView)FristView.findViewById(R.id.newb_img);
+        gxbImg = (ImageView)FristView.findViewById(R.id.gxb_img);
 
     }
 
@@ -231,6 +234,11 @@ public class FristPagerFragment extends Fragment implements OnClickListener {
                     mNew.setText(xinobj.getString("name"));
                     mNew_tv.setText(xinobj.getString("title"));
                     mNewbId = xinobj.getInt("product");
+                    if (mNewbId==0){
+                        newBImg.setImageResource(R.drawable.img_qiangguang);
+                    }else {
+                        newBImg.setImageResource(R.drawable.img_fire);
+                    }
 
                     JSONObject sxtobj = ARRA.getJSONObject(1);
                     mSxt.setText(sxtobj.getString("name"));
@@ -241,6 +249,11 @@ public class FristPagerFragment extends Fragment implements OnClickListener {
                     mGxb.setText(gxbobj.getString("name"));
                     mGxb_tv.setText(gxbobj.getString("title"));
                     mGxbId = gxbobj.getInt("product");
+                    if (mGxbId==0){
+                        gxbImg.setImageResource(R.drawable.img_qiangguang);
+                    }else {
+                        gxbImg.setImageResource(R.drawable.img_jian);
+                    }
                 }
             }
         } catch (Exception E) {

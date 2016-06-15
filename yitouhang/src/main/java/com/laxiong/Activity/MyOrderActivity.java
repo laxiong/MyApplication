@@ -1,10 +1,9 @@
 package com.laxiong.Activity;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Adapter.ReuseAdapter;
 import com.laxiong.Adapter.ViewHolder;
 import com.laxiong.Mvp_model.Order;
@@ -12,7 +11,7 @@ import com.laxiong.Mvp_presenter.Order_Presenter;
 import com.laxiong.Mvp_view.IViewOrder;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
-import com.gongshidai.mistGSD.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +43,7 @@ public class MyOrderActivity extends BaseActivity implements IViewOrder {
             public void convert(ViewHolder viewholder, Order item) {
                 viewholder.setText(R.id.tv_title, item.getTitle());
                 viewholder.setText(R.id.tv_time, item.getAdd_time());
-                viewholder.setText(R.id.tv_yibi, item.getRental() + "壹币");
+                viewholder.setText(R.id.tv_yibi, item.getRental() + "积分");
                 viewholder.setText(R.id.tv_status, item.getEvent_amount() == 1 ? "交易成功" : "交易失败");
             }
         };

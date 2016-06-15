@@ -7,20 +7,32 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="300dp"
+        android:id="@+id/ll_vip_icon"
+        android:layout_width="230dp"
         android:layout_height="280dp"
         android:orientation="vertical"
         android:background="@color/white">
-        <TextView
+        <ImageView
+            android:id="@+id/img_show"
+            android:scaleType="fitXY"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:text="怎么变成VIP"/>
-
+            android:src="@drawable/img_vip_shuom"/>
     </LinearLayout>
 
-
+    <RelativeLayout
+        android:layout_width="230dp"
+        android:layout_below="@id/ll_vip_icon"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/img_close"
+        android:layout_marginTop="10dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/img_cricle_close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        />
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -6,8 +6,6 @@
         <item name="numberPickerStyle">@style/NPWidget.Holo.Light.NumberPicker</item>
 
     -->
-
-
     <!-- Don't touch this -->
 
     <declare-styleable name="NumberPicker">
@@ -32,19 +30,6 @@
         <attr name="internalLayout" format="reference" />
         <!-- @hide The drawable for pressed virtual (increment/decrement) buttons. -->
         <attr name="virtualButtonPressedDrawable" format="reference" />
-
-
-        <attr name="normalTextColor" format="color" />
-        <attr name="normalTextSize" format="dimension" />
-        <attr name="selecredTextColor" format="color" />
-        <attr name="selecredTextSize" format="dimension" />
-        <attr name="unitHight" format="dimension" />
-        <attr name="itemNumber" format="integer" />
-        <attr name="lineColor" format="color" />
-        <attr name="maskHight" format="dimension" />
-        <attr name="noEmpty" format="boolean" />
-        <attr name="isEnable" format="boolean" />
-
     </declare-styleable>
 
     <style name="NPWidget">

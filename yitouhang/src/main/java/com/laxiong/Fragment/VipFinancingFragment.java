@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Activity.GuXiBaoActivity;
 import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.Common.InterfaceInfo;
@@ -33,7 +33,7 @@ import com.laxiong.View.WaitPgView;
 import com.laxiong.entity.FinanceInfo;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.gongshidai.mistGSD.R;
+
 import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -192,8 +192,10 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						mViewHonder.profit_tv = (TextView)view.findViewById(R.id.profit_tv);
 						mViewHonder.year_hua = (TextView)view.findViewById(R.id.year_hua);
 						mViewHonder.mProject = (TextView)view.findViewById(R.id.rel_tv1);
+						mViewHonder.showRel = (RelativeLayout)view.findViewById(R.id.rel_tv2);
 
 						mViewHonder.mNewPerson = (RelativeLayout)view.findViewById(R.id.new_person);
+						mViewHonder.rl_days =(RelativeLayout)view.findViewById(R.id.days);
 						mViewHonder.mLimitDay = (TextView)view.findViewById(R.id.limit_day);
 
 						mViewHonder.mEnought=(PrecentCricleBar)view.findViewById(R.id.precent_enough);
@@ -266,21 +268,25 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						}
 					}
 
-					// 新手标
-					if(mViewHonder.mNewPerson!=null&&sxt!=null){
-						double bird = sxt.getBird();
-						if(bird == 1){
-							mViewHonder.mNewPerson.setVisibility(View.VISIBLE);
-						}else{
-							mViewHonder.mNewPerson.setVisibility(View.INVISIBLE);
+					// 新手标 //日期
+					double bird = sxt.getBird();
+					double limit = sxt.getLimit();
+					if (hideTextDay(limit)&&hideTextPerson(bird)&&mViewHonder.rl_days!=null&&mViewHonder.mLimitDay!=null&&
+							mViewHonder.mNewPerson!=null&&mViewHonder.showRel!=null){
+						mViewHonder.showRel.setVisibility(View.GONE);
+					}else {
+						if (hideTextDay(limit)){
+							mViewHonder.rl_days.setVisibility(View.GONE);
+						}else {
+							String limit_day = String.valueOf(limit);
+							String[] day = limit_day.split("[.]");
+							mViewHonder.mLimitDay.setText(day[0]+"天");
 						}
-					}
-					//日期
-					if(mViewHonder.mLimitDay!=null&&sxt!=null){
-						double limit = sxt.getLimit();
-						String limit_day = String.valueOf(limit);
-						String[] day = limit_day.split("[.]");
-						mViewHonder.mLimitDay.setText(day[0]+"天");
+						if (hideTextPerson(bird)){
+							mViewHonder.mNewPerson.setVisibility(View.INVISIBLE);
+						}else {
+							mViewHonder.mNewPerson.setVisibility(View.VISIBLE);
+						}
 					}
 
 					if(mViewHonder.profit_tv!=null&&sxt!=null&&mViewHonder.baifenbi!=null&&mViewHonder.mProject!=null&&
@@ -359,7 +365,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 					}
 
 					// 新手标
-					double bird = gxb.getBird();
+					final double bird = gxb.getBird();
 					if(mViewHonder.mNewPerson!=null){
 						if(bird == 1){
 							mViewHonder.mNewPerson.setVisibility(View.VISIBLE);
@@ -390,13 +396,15 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						view.setOnClickListener(new View.OnClickListener() {
 							@Override
 							public void onClick(View view) {
-								Log.i("GXB", "股息宝的Id参数" + (i - 3) + " ==========：" + gxb.getId());
-								getActivity().startActivity(new Intent(getActivity(),
-										GuXiBaoActivity.class).
-										putExtra("id", gxb.getId()).
-										putExtra("ttnum", listNum).
-										putExtra("limitday", limit).
-										putExtra("isVip", true));
+								if (gxb.getPercent()!=100.0) {  // 如果是售罄就无法点击进入到详情页面
+									getActivity().startActivity(new Intent(getActivity(),
+											GuXiBaoActivity.class).
+											putExtra("id", gxb.getId()).
+											putExtra("ttnum", listNum).
+											putExtra("limitday", limit).
+											putExtra("isVip", true).
+											putExtra("bird",bird));
+								}
 							}
 						});
 				}
@@ -436,6 +444,8 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		TextView year_hua ;
 		TextView profit_tv ;
 
+		RelativeLayout showRel ;
+		RelativeLayout rl_days ;
 		RelativeLayout mNewPerson ; //新手标
 		TextView mLimitDay ; // 日期
 	}
@@ -544,5 +554,19 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		return null ;
 	}
 
+	// 用于隐藏天数
+	private boolean hideTextDay(double day){
+		if (day==0.0){
+			return true ;
+		}
+		return false ;
+	}
+	// 用于隐藏 新手标
+	private boolean hideTextPerson(double strs){
+		if (strs==1){
+			return false ;
+		}
+		return true ;
+	}
 
 }

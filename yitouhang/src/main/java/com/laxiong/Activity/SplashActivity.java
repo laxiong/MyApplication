@@ -18,6 +18,7 @@ import com.laxiong.Mvp_view.IViewWelcome;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
+import com.umeng.analytics.MobclickAgent;
 
 public class SplashActivity extends BaseActivity implements IViewWelcome, IViewCount {
     private Welcome_Presenter presenter;
@@ -30,6 +31,9 @@ public class SplashActivity extends BaseActivity implements IViewWelcome, IViewC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        //友盟统计
+        MobclickAgent.updateOnlineConfig(SplashActivity.this);
+
         init();
     }
 

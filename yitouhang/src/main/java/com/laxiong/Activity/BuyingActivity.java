@@ -3,6 +3,7 @@ package com.laxiong.Activity;
 import android.annotation.SuppressLint;
 import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -30,7 +31,6 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.BaseHelper;
-import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.Constants;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.Md5Algorithm;
@@ -182,15 +182,12 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 					redbao=paper.getId()+","+redbao;
 				}
 				redBaoId = redbao.substring(0,redbao.length()-1);
-
 				tv_paper.setText(total + "	元");
 				decAmount = Integer.valueOf(mBuyAmount.getText().toString().trim())-total;
 				mTrueAmount.setText("" + decAmount);
 			}
 		}
 	}
-
-
 
 	// 阅读协议
 	private boolean isRead = true ;
@@ -293,6 +290,14 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		mPayMathodWindow.showAtLocation(PayView, Gravity.BOTTOM, 0, 0);
 	}
 
+	// 取消选择支付方式的
+	private void dissPayMethod(){
+		if(mPayMathodWindow!=null&&mPayMathodWindow.isShowing()){
+			mPayMathodWindow.dismiss();
+			mPayMathodWindow = null ;
+		}
+	}
+
 	OnClickListener listenner = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
@@ -305,6 +310,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 						mShowBankName.setText("从余额(" + user.getAvailable_amount() + ")元");
 						selectPay = "余额(" + user.getAvailable_amount() + ")元";
 					}
+					dissPayMethod();
 
 					break;
 				case R.id.concreatebank:  // 建设银行
@@ -312,12 +318,12 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 					choiceImg = 1 ;
 					mShowBankName.setText(bankname + "(尾号" + bankLastNum + ")");
 					selectPay = bankname + "(尾号" + bankLastNum + ")" ;
+					dissPayMethod();
+
 					break;
 				case R.id.concel:
-					if(mPayMathodWindow!=null&&mPayMathodWindow.isShowing()){
-						mPayMathodWindow.dismiss();
-						mPayMathodWindow = null ;
-					}
+					dissPayMethod();
+
 					break;
 
 				case R.id.imgs_concel: // 支付取消Img
@@ -363,6 +369,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 	private View mInputView ;
 	private EditText mInputPswdEd ;
 	private TextView mNoticeTopayMoney ,mTranInMoney;
+	private LinearLayout mLlPswdBg;
 	private void inputOverToPswd(){
 
 		mInputView = LayoutInflater.from(BuyingActivity.this).inflate(R.layout.overtopswd_popwindow, null);
@@ -374,6 +381,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		mInputPswdEd =(EditText)mInputView.findViewById(R.id.inputpswd);
 		mNoticeTopayMoney =(TextView)mInputView.findViewById(R.id.topaymoney);
 		mTranInMoney =(TextView)mInputView.findViewById(R.id.zhuang_money);
+		mLlPswdBg = (LinearLayout)mInputView.findViewById(R.id.ll_pswd_bg);
 
 		mNoticeTopayMoney.setText("从" + selectPay + "-转入-" + mProjectStr);
 //		int payMoney = Integer.valueOf(mBuyAmount.getText().toString().trim());
@@ -463,8 +471,10 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 							finish();
 						}else {
 							//交易密码是否正确的判断
-							if (mInputPswdEd!=null){
+							if (mInputPswdEd!=null&&mLlPswdBg!=null){
+								mLlPswdBg.setBackgroundResource(R.drawable.red_border);
 								mInputPswdEd.setText("");
+								mInputPswdEd.setHintTextColor(Color.parseColor("#EE4E42"));
 								mInputPswdEd.setHint(response.getString("msg"));
 							}
 						}

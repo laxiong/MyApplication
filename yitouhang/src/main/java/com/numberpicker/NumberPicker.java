@@ -15,8 +15,6 @@
  */
 
 package com.numberpicker;
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -158,7 +156,7 @@ public class NumberPicker extends LinearLayout {
      * way to do this; it avoids creating temporary objects on every call to
      * format().
      */
-    private static class TwoDigitFormatter implements Formatter {
+    private static class TwoDigitFormatter implements NumberPicker.Formatter {
         final StringBuilder mBuilder = new StringBuilder();
 
         char mZeroDigit;
@@ -255,6 +253,7 @@ public class NumberPicker extends LinearLayout {
      * The height of the text.
      */
     private final int mTextSize;
+
     /**
      * The height of the gap between text elements if the selector wheel.
      */
@@ -374,7 +373,7 @@ public class NumberPicker extends LinearLayout {
     /**
      * The time of the last down event.
      */
-//    private long mLastDownEventTime;
+    private long mLastDownEventTime;
 
     /**
      * The Y position of the last down or move event.
@@ -569,8 +568,7 @@ public class NumberPicker extends LinearLayout {
      * @param attrs a collection of attributes.
      * @param defStyle The default style to apply to this view.
      */
-    @SuppressLint("NewApi")
-	public NumberPicker(Context context, AttributeSet attrs, int defStyle) {
+    public NumberPicker(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs);
 
         // process style attributes
@@ -682,7 +680,6 @@ public class NumberPicker extends LinearLayout {
 
         // input text
         mInputText = (EditText) findViewById(R.id.np__numberpicker_input);
-        mInputText.setTextColor(Color.BLACK);
         mInputText.setOnFocusChangeListener(new OnFocusChangeListener() {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
@@ -715,7 +712,7 @@ public class NumberPicker extends LinearLayout {
         paint.setTextSize(mTextSize);
         paint.setTypeface(mInputText.getTypeface());
         ColorStateList colors = mInputText.getTextColors();
-        int color = colors.getColorForState(ENABLED_STATE_SET, Color.BLACK);
+        int color = colors.getColorForState(ENABLED_STATE_SET, Color.WHITE);
         paint.setColor(color);
         mSelectorWheelPaint = paint;
 
@@ -732,6 +729,7 @@ public class NumberPicker extends LinearLayout {
             }
         }
     }
+
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         if (!mHasSelectorWheel) {
@@ -818,7 +816,7 @@ public class NumberPicker extends LinearLayout {
                 removeAllCallbacks();
                 mInputText.setVisibility(View.INVISIBLE);
                 mLastDownOrMoveEventY = mLastDownEventY = event.getY();
-//                mLastDownEventTime = event.getEventTime();
+                mLastDownEventTime = event.getEventTime();
                 mIngonreMoveEvents = false;
                 mShowSoftInputOnTap = false;
                 // Handle pressed state before any state change.
@@ -860,8 +858,7 @@ public class NumberPicker extends LinearLayout {
         return false;
     }
 
-    @SuppressLint("ClickableViewAccessibility")
-	@Override
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (!isEnabled() || !mHasSelectorWheel) {
             return false;
@@ -903,8 +900,8 @@ public class NumberPicker extends LinearLayout {
                 } else {
                     int eventY = (int) event.getY();
                     int deltaMoveY = (int) Math.abs(eventY - mLastDownEventY);
-//                    long deltaTime = event.getEventTime() - mLastDownEventTime;
-//                    long tapTimeout = ViewConfiguration.getTapTimeout();
+                    long deltaTime = event.getEventTime() - mLastDownEventTime;
+                    long tapTimeout = ViewConfiguration.getTapTimeout();
                     if (deltaMoveY <= mTouchSlop) { // && deltaTime < ViewConfiguration.getTapTimeout()) {
                         if (mShowSoftInputOnTap) {
                             mShowSoftInputOnTap = false;
@@ -995,8 +992,7 @@ public class NumberPicker extends LinearLayout {
         return super.dispatchTrackballEvent(event);
     }
 
-    @SuppressLint("NewApi")
-	@Override
+    @Override
     protected boolean dispatchHoverEvent(MotionEvent event) {
         if (!mHasSelectorWheel) {
             return super.dispatchHoverEvent(event);
@@ -1214,6 +1210,7 @@ public class NumberPicker extends LinearLayout {
             }
         }
     }
+
     /**
      * Computes the max width if no such specified as an attribute.
      */
@@ -1437,10 +1434,10 @@ public class NumberPicker extends LinearLayout {
         return TOP_AND_BOTTOM_FADING_EDGE_STRENGTH;
     }
 
-//    @Override
-//    protected void onDetachedFromWindow() {
-//        removeAllCallbacks();
-//    }
+    @Override
+    protected void onDetachedFromWindow() {
+        removeAllCallbacks();
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -1501,8 +1498,7 @@ public class NumberPicker extends LinearLayout {
         }
     }
 
-    @SuppressLint("NewApi")
-	@Override
+    @Override
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);
         event.setClassName(NumberPicker.class.getName());
@@ -1511,8 +1507,7 @@ public class NumberPicker extends LinearLayout {
         event.setMaxScrollY((mMaxValue - mMinValue) * mSelectorElementHeight);
     }
 
-    @SuppressLint("NewApi")
-	@Override
+    @Override
     public AccessibilityNodeProvider getAccessibilityNodeProvider() {
         if (!mHasSelectorWheel) {
             return super.getAccessibilityNodeProvider();
@@ -1558,8 +1553,7 @@ public class NumberPicker extends LinearLayout {
      * @param measureSpec The current measure spec.
      * @return The resolved size and state.
      */
-    @SuppressLint("NewApi")
-	private int resolveSizeAndStateRespectingMinSize(
+    private int resolveSizeAndStateRespectingMinSize(
             int minSize, int measuredSize, int measureSpec) {
         if (minSize != SIZE_UNSPECIFIED) {
             final int desiredWidth = Math.max(minSize, measuredSize);
@@ -1847,7 +1841,6 @@ public class NumberPicker extends LinearLayout {
             mInputText.setText(text);
             return true;
         }
-        
 
         return false;
     }
@@ -1927,8 +1920,7 @@ public class NumberPicker extends LinearLayout {
     /**
      * @return The selected index given its displayed <code>value</code>.
      */
-    @SuppressLint("DefaultLocale")
-	private int getSelectedPos(String value) {
+    private int getSelectedPos(String value) {
         if (mDisplayedValues == null) {
             try {
                 return Integer.parseInt(value);
@@ -2004,8 +1996,7 @@ public class NumberPicker extends LinearLayout {
             return DIGIT_CHARACTERS;
         }
 
-        @SuppressLint("DefaultLocale")
-		@Override
+        @Override
         public CharSequence filter(
                 CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
             if (mDisplayedValues == null) {
@@ -2224,8 +2215,7 @@ public class NumberPicker extends LinearLayout {
             }
         }
 
-        @SuppressLint("NewApi")
-		public boolean performAction(int virtualViewId, int action, Bundle arguments) {
+        public boolean performAction(int virtualViewId, int action, Bundle arguments) {
             if (mProvider != null) {
                 return mProvider.performAction(virtualViewId, action, arguments);
             }
@@ -2241,8 +2231,7 @@ public class NumberPicker extends LinearLayout {
     /**
      * Class for managing virtual view tree rooted at this picker.
      */
-    @SuppressLint("NewApi")
-	class AccessibilityNodeProviderImpl extends AccessibilityNodeProvider {
+    class AccessibilityNodeProviderImpl extends AccessibilityNodeProvider {
         private static final int UNDEFINED = Integer.MIN_VALUE;
 
         private static final int VIRTUAL_VIEW_ID_INCREMENT = 1;
@@ -2279,10 +2268,9 @@ public class NumberPicker extends LinearLayout {
             return super.createAccessibilityNodeInfo(virtualViewId);
         }
 
-        @SuppressLint("DefaultLocale")
-		@Override
+        @Override
         public List<AccessibilityNodeInfo> findAccessibilityNodeInfosByText(String searched,
-                int virtualViewId) {
+                                                                            int virtualViewId) {
             if (TextUtils.isEmpty(searched)) {
                 return Collections.emptyList();
             }
@@ -2487,7 +2475,7 @@ public class NumberPicker extends LinearLayout {
         }
 
         private void sendAccessibilityEventForVirtualButton(int virtualViewId, int eventType,
-                String text) {
+                                                            String text) {
             if (((AccessibilityManager) getContext().getSystemService(Context.ACCESSIBILITY_SERVICE)).isEnabled()) {
                 AccessibilityEvent event = AccessibilityEvent.obtain(eventType);
                 event.setClassName(Button.class.getName());
@@ -2499,9 +2487,8 @@ public class NumberPicker extends LinearLayout {
             }
         }
 
-        @SuppressLint("DefaultLocale")
-		private void findAccessibilityNodeInfosByTextInChild(String searchedLowerCase,
-                int virtualViewId, List<AccessibilityNodeInfo> outResult) {
+        private void findAccessibilityNodeInfosByTextInChild(String searchedLowerCase,
+                                                             int virtualViewId, List<AccessibilityNodeInfo> outResult) {
             switch (virtualViewId) {
                 case VIRTUAL_VIEW_ID_DECREMENT: {
                     String text = getVirtualDecrementButtonText();
@@ -2547,7 +2534,7 @@ public class NumberPicker extends LinearLayout {
         }
 
         private AccessibilityNodeInfo createAccessibilityNodeInfoForVirtualButton(int virtualViewId,
-                String text, int left, int top, int right, int bottom) {
+                                                                                  String text, int left, int top, int right, int bottom) {
             AccessibilityNodeInfo info = AccessibilityNodeInfo.obtain();
             info.setClassName(Button.class.getName());
             info.setPackageName(getContext().getPackageName());
@@ -2581,7 +2568,7 @@ public class NumberPicker extends LinearLayout {
         }
 
         private AccessibilityNodeInfo createAccessibilityNodeInfoForNumberPicker(int left, int top,
-                int right, int bottom) {
+                                                                                 int right, int bottom) {
             AccessibilityNodeInfo info = AccessibilityNodeInfo.obtain();
             info.setClassName(NumberPicker.class.getName());
             info.setPackageName(getContext().getPackageName());
@@ -2600,22 +2587,22 @@ public class NumberPicker extends LinearLayout {
             info.setScrollable(true);
 
             /** TODO: Figure out compat implementation for this
-            final float applicationScale =
-                    getContext().getResources().getCompatibilityInfo().applicationScale;
+             final float applicationScale =
+             getContext().getResources().getCompatibilityInfo().applicationScale;
 
-            Rect boundsInParent = mTempRect;
-            boundsInParent.set(left, top, right, bottom);
-            boundsInParent.scale(applicationScale);
-            info.setBoundsInParent(boundsInParent);
+             Rect boundsInParent = mTempRect;
+             boundsInParent.set(left, top, right, bottom);
+             boundsInParent.scale(applicationScale);
+             info.setBoundsInParent(boundsInParent);
 
-            info.setVisibleToUser(isVisibleToUser());
+             info.setVisibleToUser(isVisibleToUser());
 
-            Rect boundsInScreen = boundsInParent;
-            int[] locationOnScreen = mTempArray;
-            getLocationOnScreen(locationOnScreen);
-            boundsInScreen.offset(locationOnScreen[0], locationOnScreen[1]);
-            boundsInScreen.scale(applicationScale);
-            info.setBoundsInScreen(boundsInScreen);
+             Rect boundsInScreen = boundsInParent;
+             int[] locationOnScreen = mTempArray;
+             getLocationOnScreen(locationOnScreen);
+             boundsInScreen.offset(locationOnScreen[0], locationOnScreen[1]);
+             boundsInScreen.scale(applicationScale);
+             info.setBoundsInScreen(boundsInScreen);
              */
 
             if (mAccessibilityFocusedView != View.NO_ID) {

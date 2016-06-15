@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Inter_Req.LoginService;
 import com.laxiong.Utils.BaseHelper;
-import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.RetrofitUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.entity.User;

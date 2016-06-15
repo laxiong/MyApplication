@@ -23,6 +23,8 @@ import com.laxiong.entity.Banner;
 import com.laxiong.entity.ShareInfo;
 import com.laxiong.entity.User;
 import com.gongshidai.mistGSD.R;
+import com.umeng.analytics.MobclickAgent;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -103,7 +105,6 @@ public class ScollPagerUtils implements OnPageChangeListener {
         mChildViewPager.setOnSingleTouchListener(new OnSingleTouchListener() {
             @Override
             public void onSingleTouch() {
-                // TODO  滑动或点击轮播图时，跳转到的web页面的内容  Example
                 if (bannerList.size() > 0) {
                     Banner banner = bannerList.get(mChildViewPager.getCurrentItem() % bannerList.size());
                     User user = YiTouApplication.getInstance().getUser();
@@ -117,6 +118,10 @@ public class ScollPagerUtils implements OnPageChangeListener {
                         ShareInfo sinfo=new ShareInfo(banner.getTitle(), banner.getContent(),
                                 banner.getShareimageurl(), banner.getHref() + "?user_id=" + (user == null ? "" : user.getId()));
                         bundle.putSerializable("banner",sinfo);
+
+                        //友盟Banner页面的统计
+                        MobclickAgent.onEvent(mContext,"Banner"+banner.getTitle());
+
                         mContext.startActivity(new Intent(mContext, WebViewActivity.class).putExtra("title",banner.getTitle()).putExtra("needshare", true).putExtra("url", banner.getHref() + "?id=" + (user == null ? "" : user.getId())).putExtras(bundle));
 
                     }
