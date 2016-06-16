@@ -28,14 +28,15 @@ public class Login_Presenter implements OnLoadBcObjListener {
     private IViewBasicObj<User> iviewbcobj;
     private Context context;
     private Model_User muser;
+
     public Login_Presenter(IViewLogin iviewlogin) {
         this.iviewlogin = iviewlogin;
-        muser=new Model_User();
+        muser = new Model_User();
     }
 
     public Login_Presenter(IViewBasicObj<User> iviewbcobj) {
         this.iviewbcobj = iviewbcobj;
-        muser=new Model_User();
+        muser = new Model_User();
     }
 
     @Override
@@ -46,6 +47,8 @@ public class Login_Presenter implements OnLoadBcObjListener {
         } else if (obj instanceof User) {
             User user = (User) obj;
             YiTouApplication.getInstance().setUser(user);
+            if (iviewbcobj != null)
+                iviewbcobj.loadObjSuc(user);
         }
     }
 
@@ -65,7 +68,7 @@ public class Login_Presenter implements OnLoadBcObjListener {
             return;
         }
         int tokenid = userlogin.getToken_id();
-        muser.loadUserData(tokenid,this);
+        muser.loadUserData(tokenid, this);
     }
 
     public TextWatcher getTextWatcher() {
@@ -91,12 +94,13 @@ public class Login_Presenter implements OnLoadBcObjListener {
     }
 
     public void login(final Context context) {
-        this.context=context;
+        this.context = context;
         final String phonnum = iviewlogin.getInputPhoneNum();
         String pwd = iviewlogin.getInputPwd();
-        muser.loadUserLoginData(context,phonnum,pwd,this);
+        muser.loadUserLoginData(context, phonnum, pwd, this);
     }
-    public void getUser(Context context){
+
+    public void getUser(Context context) {
         UserLogin userlogin = YiTouApplication.getInstance().getUserLogin();
         if (userlogin == null || StringUtils.isBlank(userlogin.getToken_id() + "") || StringUtils.isBlank(userlogin.getToken())) {
             Intent intent = new Intent(context, LoginActivity.class);
@@ -104,6 +108,6 @@ public class Login_Presenter implements OnLoadBcObjListener {
             return;
         }
         int tokenid = userlogin.getToken_id();
-        muser.loadUserData(tokenid,this);
+        muser.loadUserData(tokenid, this);
     }
 }

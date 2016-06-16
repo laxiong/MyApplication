@@ -30,7 +30,9 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
+import com.laxiong.Mvp_presenter.Login_Presenter;
 import com.laxiong.Mvp_presenter.UserCount_Presenter;
+import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Mvp_view.IViewCount;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.entity.User;
@@ -40,16 +42,16 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.apache.http.Header;
 import org.json.JSONObject;
 
-public class CountSettingActivity extends BaseActivity implements OnClickListener, IViewCount {
+public class CountSettingActivity extends BaseActivity implements OnClickListener, IViewBasicObj<User> {
     /****
      * 账户设置
      */
-    private RelativeLayout mCount,rl_test,mPswdControl, mConnectKefu, mMessage, rl_version ,mMyBankCard ,mSafeProtect ,mAboutUs ,mGuanData;
+    private RelativeLayout mCount, rl_test, mPswdControl, mConnectKefu, mMessage, rl_version, mMyBankCard, mSafeProtect, mAboutUs, mGuanData;
     private FrameLayout mBack;
     private View v_read;
-    private UserCount_Presenter presenter;
-    private TextView tv_username, tv_version, tv_unread,tv_dstatus;
-    private User user ;
+    private Login_Presenter presenter;
+    private TextView tv_username, tv_version, tv_unread, tv_dstatus;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +60,28 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         getBankInfo();
         initView();
         initData();
-        if(user!=null)
+        if (user != null)
             showVip();
         KFAPIs.visitorLogin(this); //微客服平台的事件
     }
+
+    @Override
+    public void loadObjSuc(User obj) {
+        user = obj;
+        if (user != null) {
+            tv_username.setText(isBlank(user.getNickname()) ? user.getNamed() : user.getNickname());
+        }
+    }
+
+    @Override
+    public void loadObjFail(String msg) {
+
+    }
+
     private void initData() {
         user = YiTouApplication.getInstance().getUser();
-        presenter = new UserCount_Presenter(this);
-        presenter.reqUserCountMsg(this);
+        presenter = new Login_Presenter(this);
+        presenter.reqUserMsg(this);
         mCount.setOnClickListener(this);
         mPswdControl.setOnClickListener(this);
         mConnectKefu.setOnClickListener(this);
@@ -97,20 +113,21 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         }
     }
 
-    private ImageView mNameLine ;
-    private ImageView mBankAssow ;
-    private TextView mBankNum ;
-    private TextView mBankName ;
+    private ImageView mNameLine;
+    private ImageView mBankAssow;
+    private TextView mBankNum;
+    private TextView mBankName;
     private RelativeLayout mRl_NoBindCard;
-    private View mLine ;
-    private ImageView mImgLogo ;
+    private View mLine;
+    private ImageView mImgLogo;
+
     // 显示VIP用户的金色的
-    private void showVip(){
+    private void showVip() {
         boolean isVip = user.is_vip();
-        if (user.getBankcount()!=0){
+        if (user.getBankcount() != 0) {
             mRl_NoBindCard.setVisibility(View.GONE);
             mMyBankCard.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             mRl_NoBindCard.setVisibility(View.VISIBLE);
             mMyBankCard.setVisibility(View.GONE);
             mRl_NoBindCard.setOnClickListener(new OnClickListener() {
@@ -122,7 +139,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
             });
         }
 
-        if (isVip){
+        if (isVip) {
             mNameLine.setImageResource(R.drawable.img_countseting_icon_vip_line);
             mBankAssow.setImageResource(R.drawable.img_bank_vip_arrow);
             tv_username.setTextColor(Color.parseColor("#FFFFDFAA"));
@@ -130,7 +147,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
             mBankName.setTextColor(Color.parseColor("#FFFFDFAA"));
             mLine.setBackgroundColor(Color.parseColor("#FFFFDFAA"));
             mImgLogo.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             mNameLine.setImageResource(R.drawable.img_countseting_icon_line);
             mBankAssow.setImageResource(R.drawable.img_bank_arrow);
             tv_username.setTextColor(Color.parseColor("#ffffff"));
@@ -146,23 +163,20 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
     protected void onRestart() {
         super.onRestart();
         judgeAccess();
-        user=YiTouApplication.getInstance().getUser();
-    }
-    private void judgeAccess(){
-        User user=YiTouApplication.getInstance().getUser();
-        if(user!=null){
-            tv_dstatus.setText(user.getAssess());
-            rl_test.setEnabled("未评估".equals(user.getAssess())?true:false);
-        }else{
-            startActivity(new Intent(this,LoginActivity.class));
-            finish();
+        if (user != null) {
+            showVip();
+            tv_username.setText(isBlank(user.getNickname()) ? user.getNamed() : user.getNickname());
         }
     }
-        //获取成功 设置用户信息
-    @Override
-    public void getCountMsgSuc() {
+
+    private void judgeAccess() {
+        user = YiTouApplication.getInstance().getUser();
         if (user != null) {
-            tv_username.setText(isBlank(user.getNickname()) ? user.getNamed() : user.getNickname());
+            tv_dstatus.setText(user.getAssess());
+            rl_test.setEnabled("未评估".equals(user.getAssess()) ? true : false);
+        } else {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
         }
     }
 
@@ -172,20 +186,15 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         return false;
     }
 
-    @Override
-    public void getCountMsgFai() {
-
-    }
-
     private void initView() {
 
-        mNameLine =(ImageView)findViewById(R.id.name_line);
-        mBankAssow =(ImageView)findViewById(R.id.bank_arrow);
-        mBankName =(TextView)findViewById(R.id.tv_bankname);
-        mBankNum =(TextView)findViewById(R.id.tv_banknum);
-        mRl_NoBindCard =(RelativeLayout)findViewById(R.id.no_bandcard);
+        mNameLine = (ImageView) findViewById(R.id.name_line);
+        mBankAssow = (ImageView) findViewById(R.id.bank_arrow);
+        mBankName = (TextView) findViewById(R.id.tv_bankname);
+        mBankNum = (TextView) findViewById(R.id.tv_banknum);
+        mRl_NoBindCard = (RelativeLayout) findViewById(R.id.no_bandcard);
         mLine = findViewById(R.id.lines);
-        mImgLogo = (ImageView)findViewById(R.id.vip_logo);
+        mImgLogo = (ImageView) findViewById(R.id.vip_logo);
 
         mCount = (RelativeLayout) findViewById(R.id.count_setting);
         mPswdControl = (RelativeLayout) findViewById(R.id.pswdControl);
@@ -199,12 +208,12 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         tv_unread = (TextView) findViewById(R.id.tv_unread);
         mMyBankCard = (RelativeLayout) findViewById(R.id.mybankcard);
         rl_test = (RelativeLayout) findViewById(R.id.rl_test);
-        tv_dstatus= (TextView) findViewById(R.id.tv_dstatus);
+        tv_dstatus = (TextView) findViewById(R.id.tv_dstatus);
         v_read = findViewById(R.id.v_read);
         mText.setText("账户");
-        mSafeProtect =(RelativeLayout)findViewById(R.id.rel_safeprotect); //安全保障
-        mAboutUs =(RelativeLayout)findViewById(R.id.rel_aboutus);//关于我们
-        mGuanData =(RelativeLayout)findViewById(R.id.guandata); //官方数据
+        mSafeProtect = (RelativeLayout) findViewById(R.id.rel_safeprotect); //安全保障
+        mAboutUs = (RelativeLayout) findViewById(R.id.rel_aboutus);//关于我们
+        mGuanData = (RelativeLayout) findViewById(R.id.guandata); //官方数据
     }
 
     @Override
@@ -234,7 +243,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
                 }
                 break;
             case R.id.rl_version:
-                Intent intent=new Intent(CountSettingActivity.this,VersionManageActivity.class);
+                Intent intent = new Intent(CountSettingActivity.this, VersionManageActivity.class);
 //                Intent intent = new Intent(CountSettingActivity.this, WebViewActivity.class);
 //                intent.putExtra("url", InterfaceInfo.UPDATE_URL);
                 startActivity(intent);
@@ -243,7 +252,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
                 startActivity(new Intent(this,
                         MyBandBankCardActivity.class));
                 break;
-            case R.id.rel_safeprotect :    /**安全保障**/
+            case R.id.rel_safeprotect:    /**安全保障**/
 
                 startActivity(new Intent(CountSettingActivity.this, WebViewActivity.class).
                         putExtra("url", "https://licai.gongshidai.com/wap/public/ytbank/yt.safe.html").
@@ -444,8 +453,9 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
                 false, // 9. 是否强制用户在关闭会话的时候 进行“满意度”评价， true:是， false:否
                 null);
     }
+
     //获取卡号
-    private void getBankInfo(){
+    private void getBankInfo() {
         HttpUtil.get(InterfaceInfo.BASE_URL + "/bank", new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -453,8 +463,8 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
-                            Log.i("wk","BANKinfo"+response);
-                            mBankName.setText(response.getString("name")+"(尾号"+response.getInt("snumber")+")");
+                            Log.i("wk", "BANKinfo" + response);
+                            mBankName.setText(response.getString("name") + "(尾号" + response.getInt("snumber") + ")");
                             mBankNum.setText(response.getString("cardnum"));
                         } else {
                             Toast.makeText(CountSettingActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
@@ -463,6 +473,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
                     }
                 }
             }
+
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
@@ -471,8 +482,6 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         }, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
                 .getUserLogin().getToken()));
     }
-
-
 
 
 }

@@ -118,6 +118,7 @@ public class DialogUtils {
     public static void bgalpha(Activity context, float alpha) {
         WindowManager.LayoutParams params = context.getWindow().getAttributes();
         params.alpha = alpha;
+        context.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         context.getWindow().setAttributes(params);
     }
 

@@ -19,13 +19,14 @@ import com.gongshidai.mistGSD.R;
  */
 public class CommonActionBar extends RelativeLayout {
     private String text;
-    private int textsize;
+    private float textsize;
     private int textcolor;
     private int bgcolor;
     private FrameLayout fl_back;
     private TextView tv_title;
-    private static final int defaultBg = android.R.color.transparent;
-    private static final int defaultTextColor = R.color.white;
+    private static final int DEFAULT_BG = android.R.color.transparent;
+    private static final int DEFAULT_TBG = R.color.white;
+    private static final int DEFAULT_TSIZE=14;
 
     public CommonActionBar(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -37,13 +38,10 @@ public class CommonActionBar extends RelativeLayout {
                     text = tary.getString(R.styleable.CommonActionBar_texts);
                     break;
                 case R.styleable.CommonActionBar_bgcolor:
-                    bgcolor = tary.getColor(R.styleable.CommonActionBar_bgcolor, getResources().getColor(defaultBg));
+                    bgcolor = tary.getColor(R.styleable.CommonActionBar_bgcolor, getResources().getColor(DEFAULT_BG));
                     break;
                 case R.styleable.CommonActionBar_textcolor:
-                    textcolor = tary.getColor(R.styleable.CommonActionBar_textcolor, getResources().getColor(defaultTextColor));
-                    break;
-                case R.styleable.CommonActionBar_textsize:
-                    textsize = tary.getDimensionPixelSize(R.styleable.CommonActionBar_textsize, DensityUtils.dp2px(context, 14));
+                    textcolor = tary.getColor(R.styleable.CommonActionBar_textcolor, getResources().getColor(DEFAULT_TBG));
                     break;
                 default:
                     break;
@@ -63,7 +61,7 @@ public class CommonActionBar extends RelativeLayout {
         fl_back = (FrameLayout) this.findViewById(R.id.fl_back);
         tv_title = (TextView) this.findViewById(R.id.tv_title);
         tv_title.setText(text);
-        tv_title.setTextSize(textsize);
+        tv_title.setTextSize(DEFAULT_TSIZE);
         tv_title.setTextColor(textcolor);
     }
 

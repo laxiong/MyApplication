@@ -12,7 +12,7 @@
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
         custom:texts="意见反馈"
-        custom:textsize="8sp" />
+        />
     <RelativeLayout
         android:id="@+id/rl_content"
         android:layout_below="@id/actionbar"

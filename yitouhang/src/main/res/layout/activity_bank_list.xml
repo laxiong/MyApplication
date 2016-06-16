@@ -13,7 +13,7 @@
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
         custom:texts="银行卡列表"
-        custom:textsize="6sp"></com.laxiong.View.CommonActionBar>
+        ></com.laxiong.View.CommonActionBar>
 
     <ListView
         android:id="@+id/lvlist"

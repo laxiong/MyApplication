@@ -62,7 +62,6 @@ public class BankListActivity extends BaseActivity implements IViewCardList {
     @Override
     public void loadCardListData(List<BindCardItem> listitem) {
         this.listitem = listitem;
-        Log.i("kk", listitem.toString());
         adapter = new ReuseAdapter<BindCardItem>(BankListActivity.this, listitem, R.layout.item_bankcard) {
             @Override
             public void convert(ViewHolder viewholder, BindCardItem item) {

@@ -33,13 +33,14 @@ import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.User;
 import com.gongshidai.mistGSD.R;
+
 public class PersonalSettingActivity extends BaseActivity implements OnClickListener, IViewExit {
 
     /****
      * 个人设置
      */
     private TextView backBtn, tv_bindphone, tv_shiming, tv_name, tv_identify;
-    private RelativeLayout personIcon, nameSetting,trueName, phoneBind;
+    private RelativeLayout personIcon, nameSetting, trueName, phoneBind;
     private FrameLayout mBack;
     private LinearLayout ll_msg;
     private ImageView mUseFace;
@@ -58,16 +59,10 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
     @Override
     protected void onRestart() {
         super.onRestart();
-        user=YiTouApplication.getInstance().getUser();
+        loadUserData();
     }
 
-    private void initData() {
-        presenter = new Exit_Presenter(this);
-        backBtn.setOnClickListener(this);
-        nameSetting.setOnClickListener(this);
-        trueName.setOnClickListener(this);
-        phoneBind.setOnClickListener(this);
-        mBack.setOnClickListener(this);
+    private void loadUserData() {
         user = YiTouApplication.getInstance().getUser();
         String phone = SpUtils.getStrValue(SpUtils.getSp(this), SpUtils.USER_KEY);
         Intent intent = null;
@@ -93,6 +88,16 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
             tv_bindphone.setText("请先登录");
     }
 
+    private void initData() {
+        presenter = new Exit_Presenter(this);
+        backBtn.setOnClickListener(this);
+        nameSetting.setOnClickListener(this);
+        trueName.setOnClickListener(this);
+        phoneBind.setOnClickListener(this);
+        mBack.setOnClickListener(this);
+        loadUserData();
+    }
+
     @Override
     public void logoutfailed(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
@@ -104,9 +109,9 @@ public class PersonalSettingActivity extends BaseActivity implements OnClickList
         Toast.makeText(this, "退出登录成功", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, ChangeCountActivity.class);
         startActivity(intent);
-        if(mPopWindows!=null) {
+        if (mPopWindows != null) {
             mPopWindows.dismiss();
-            mPopWindows=null;
+            mPopWindows = null;
         }
     }
 

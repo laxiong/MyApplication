@@ -12,7 +12,7 @@
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
         custom:texts="共时理财"
-        custom:textsize="6sp" />
+       />
     
     <WebView 
         android:layout_width="match_parent"

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -113,7 +114,10 @@ public class PswdConturalActivity extends BaseActivity implements OnClickListene
                 dialog.dismiss();
             }
         });
-        dialog.showAtLocation(parent, Gravity.CENTER, 0, 0);
+        DisplayMetrics metrix=new DisplayMetrics();
+        getWindow().getWindowManager().getDefaultDisplay().getMetrics(metrix);
+        int y=(int)(1.0f*metrix.heightPixels/5);
+        dialog.showAtLocation(parent, Gravity.TOP, 0,y);
     }
 
     // 成功修改手势密码 后
