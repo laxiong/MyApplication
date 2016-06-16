@@ -67,6 +67,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 	private int productId ;
 	private double limitDay ;
 	private double mBuyPrecent;  //总年化收益率
+	private LinearLayout mMostMoney ;
 
 	private EditText mBuyAmount ; //购买的份额
 	private List<RedPaper> listpaper;
@@ -125,6 +126,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		mAmountMoney =(TextView)findViewById(R.id.project_amount);
 		mProjectName =(TextView)findViewById(R.id.project_name);
 		mBuyAmount =(EditText)findViewById(R.id.buyamount);
+		mMostMoney = (LinearLayout)findViewById(R.id.most_money);
 
 		mBuyAmount.addTextChangedListener(watcher);
 		setValue();
@@ -309,6 +311,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 					if (user!=null) {
 						mShowBankName.setText("从余额(" + user.getAvailable_amount() + ")元");
 						selectPay = "余额(" + user.getAvailable_amount() + ")元";
+						mMostMoney.setVisibility(View.INVISIBLE);
 					}
 					dissPayMethod();
 
@@ -318,6 +321,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 					choiceImg = 1 ;
 					mShowBankName.setText(bankname + "(尾号" + bankLastNum + ")");
 					selectPay = bankname + "(尾号" + bankLastNum + ")" ;
+					mMostMoney.setVisibility(View.VISIBLE);
 					dissPayMethod();
 
 					break;

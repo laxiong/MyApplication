@@ -87,6 +87,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		mConcel_img = (ImageView)mVipView.findViewById(R.id.concel_img);
 		mFinancelMessage = (LinearLayout)mVipView.findViewById(R.id.finance_message);
 		mConcel_img.setOnClickListener(this);
+		mFinancelMessage.setVisibility(View.GONE);
 
 		mListView = (FinancingListView)mVipView.findViewById(R.id.Listview);
 		showLoadView(true);

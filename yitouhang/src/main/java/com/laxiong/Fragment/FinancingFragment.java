@@ -23,8 +23,8 @@ import android.widget.Toast;
 
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Activity.GuXiBaoActivity;
-import com.laxiong.Activity.MessageActivity;
 import com.laxiong.Activity.TimeXiTongActivity;
+import com.laxiong.Activity.WebViewActivity;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Json.FinanceJsonBean;
 import com.laxiong.Utils.HttpUtil;
@@ -60,6 +60,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 
 	private  List<FinanceInfo>  mList = new ArrayList<FinanceInfo>() ; ;// 全是固息宝的
 	private int listNum ;  // 刷新加载更多所有的个数
+	private TextView mNoticeMsg ;
 
 	private Handler handler = new Handler() {
 		@Override
@@ -94,11 +95,13 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 	private void initView() {
 		mConcel_img = (ImageView)view.findViewById(R.id.concel_img);
 		mFinancelMessage = (LinearLayout)view.findViewById(R.id.finance_message);
+		mNoticeMsg = (TextView)view.findViewById(R.id.notice_msg);
 		mConcel_img.setOnClickListener(this);
 		mFinancelMessage.setOnClickListener(this);
 		mListView = (FinancingListView)view.findViewById(R.id.Listview);
 		showLoadView(true);
 		getProductInfo();
+		getNoticeMsg();
 		mListView.setOnRefreshListener(mRefresh);
 
 	}
@@ -149,6 +152,8 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 		}.start();
 	}
 
+	private String mNoticeUrl = "";
+	private String mTitleStr ="";
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
@@ -157,7 +162,9 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 					mFinancelMessage.setVisibility(View.GONE);
 				break;
 			case R.id.finance_message:
-				startActivity(new Intent(getActivity(), MessageActivity.class));
+				if (!mNoticeUrl.equals("")&&!mTitleStr.equals("")) {
+					startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("title",mTitleStr).putExtra("url",mNoticeUrl));
+				}
 				break;
 		}
 	}
@@ -568,5 +575,31 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 		}
 		return true ;
 	}
+
+	//获取理财的置顶的内容
+	private void getNoticeMsg(){
+
+		HttpUtil.get(InterfaceInfo.BASE_URL+"/ggao",new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+				super.onSuccess(statusCode, headers, response);
+				try {
+					if (response != null) {
+						if (response.getInt("code") == 0) {
+							mTitleStr = response.getString("title") ;
+							mNoticeMsg.setText(mTitleStr);
+							mNoticeUrl = response.getString("url");
+						}
+					}
+				}catch (Exception e){
+				}
+			}
+			@Override
+			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+				super.onFailure(statusCode, headers, throwable, errorResponse);
+			}
+		});
+	}
+
 
 }

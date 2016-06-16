@@ -132,7 +132,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:paddingLeft="23dp"
-                android:text="姓  名 "
+                android:text="姓   名  "
                 android:textSize="14dp" />
             <EditText
                 android:id="@+id/trueName"
@@ -142,7 +142,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/tv"
                 android:background="@null"
-                android:hint="WangKing"
+                android:hint="用户姓名"
+                android:singleLine="true"
                 android:textSize="14dp" >
                 <requestFocus />
             </EditText>
@@ -176,7 +177,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/tv1"
                 android:background="@null"
-                android:hint="340925***********3652"
+                android:hint="身份证号码"
+                android:singleLine="true"
                 android:textSize="14dp" >
                 <requestFocus />
             </EditText>
@@ -293,9 +295,9 @@
             android:layout_width="wrap_content"
             android:layout_height="15dp"
             android:layout_toRightOf="@+id/toggle_tv"
-            android:text="《壹投行服务协议》"
+            android:text="《共时理财服务协议》"
             android:textSize="12dp"
-            android:textColor="@color/light_green"
+            android:textColor="@color/protocolColor"
             />
     </RelativeLayout>
 

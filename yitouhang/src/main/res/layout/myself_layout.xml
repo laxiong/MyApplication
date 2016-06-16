@@ -349,23 +349,25 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="center">
+        android:gravity="center_vertical">
 
         <TextView
             android:id="@+id/ke_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="客服热线：400-0888-888"
+            android:text="客服热线 ：400-1515-805"
             android:textColor="@color/divider_grey"
-            android:textSize="11dp" />
+            android:gravity="center_horizontal"
+            android:textSize="14dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ke_tv"
             android:text="工作时间：9.00-20.00"
+            android:gravity="center_horizontal"
             android:textColor="@color/divider_grey"
-            android:textSize="11dp" />
+            android:textSize="14dp" />
 
     </RelativeLayout>
 

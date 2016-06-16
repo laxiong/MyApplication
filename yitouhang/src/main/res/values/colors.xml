@@ -7,6 +7,9 @@
     <color name="press_light_green">#6683c254</color>
     <color name="fresh_green">#c4f089</color>
 
+    <!--协议的颜色码-->
+    <color name="protocolColor">#379BEB</color>
+
     <!--分界线的颜色-->
     <color name="divider_grey">#D6D6D6</color>
 

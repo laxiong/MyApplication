@@ -322,7 +322,7 @@ ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\Android
 	android:name
 		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:167:19-70
 activity#com.laxiong.Activity.FeedBackActivity
-ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:170:9-171:56
+ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:170:9-171:46
 	android:launchMode
 		ADDED from D:\gitTools_workspace\clone4\MyApplication\yitouhang\src\main\AndroidManifest.xml:171:13-44
 	android:name

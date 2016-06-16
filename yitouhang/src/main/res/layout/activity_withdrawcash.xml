@@ -149,6 +149,7 @@
             android:hint="输入提现金额"
             android:gravity="center_vertical"
             android:textSize="14sp"
+            android:singleLine="true"
             android:layout_marginLeft="10dp"
             />
         <TextView 
@@ -283,8 +284,8 @@
             android:layout_height="15dp"
             android:textSize="12dp"
             android:layout_gravity="center_vertical"
-            android:text="《壹投行委托扣款协议》"
-            android:textColor="@color/light_green"
+            android:text="《共时理财委托扣款协议》"
+            android:textColor="@color/protocolColor"
             />
     </LinearLayout>
 

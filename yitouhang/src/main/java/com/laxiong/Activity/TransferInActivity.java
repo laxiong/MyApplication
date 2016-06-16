@@ -62,6 +62,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 	// 可购买金额
 	private String mAmountMoney ;
 	private String dates ;
+	private LinearLayout mMostMoney ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +109,8 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 		mShowBankName =(TextView)findViewById(R.id.showbankname);
 		mBuyAmount =(EditText)findViewById(R.id.input_money);
 		mBuyAmount.addTextChangedListener(watcher);
+
+		mMostMoney = (LinearLayout)findViewById(R.id.mMost_limit);
 
 
 //		mAmountMoney = getIntent().getStringExtra("mAmountMoney");
@@ -269,6 +272,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 					if (user!=null) {
 						mShowBankName.setText("从余额(" + user.getAvailable_amount() + ")元");
 						selectPay = "余额(" + user.getAvailable_amount() + ")元";
+						mMostMoney.setVisibility(View.INVISIBLE);
 					}
 					dissPayMethod();
 
@@ -279,6 +283,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 					choiceImg = 1 ;
 					mShowBankName.setText(bankname + "(尾号" + bankLastNum + ")");
 					selectPay = bankname + "(尾号" + bankLastNum + ")" ;
+					mMostMoney.setVisibility(View.VISIBLE);
 					dissPayMethod();
 
 					break;

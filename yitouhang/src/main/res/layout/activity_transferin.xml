@@ -114,6 +114,7 @@
             android:textSize="14sp"
             android:background="@null"
             android:paddingLeft="10dp"
+            android:singleLine="true"
             android:inputType="numberSigned"
             />
         <TextView 
@@ -131,7 +132,7 @@
     
     
     
-    <RelativeLayout 
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:paddingLeft="20dp"
@@ -211,7 +212,8 @@
     
     
     
-    <LinearLayout 
+    <LinearLayout
+        android:id="@+id/mMost_limit"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:paddingLeft="20dp"
@@ -268,8 +270,8 @@
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="《壹投行服务协议》"
-            android:textColor="@color/light_green"
+            android:text="《共时理财服务协议》"
+            android:textColor="@color/protocolColor"
             android:gravity="center_vertical"
             />
     </LinearLayout>

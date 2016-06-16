@@ -168,7 +168,7 @@
             android:launchMode="singleTask"/>
 
         <activity android:name="com.laxiong.Activity.FeedBackActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask"/>
 
         <!-- 资产 -->
         <activity android:name="com.laxiong.Activity.AssetActivity"

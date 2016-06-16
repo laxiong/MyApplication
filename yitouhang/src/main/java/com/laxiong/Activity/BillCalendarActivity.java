@@ -1,11 +1,11 @@
 package com.laxiong.Activity;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +40,6 @@ import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -49,7 +48,6 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import java.util.jar.Attributes;
 
 /*
  * 账单日历
@@ -381,7 +379,7 @@ public class BillCalendarActivity extends BaseActivity {
                         if (response.getInt("code") == 0) {
                             JSONArray array = response.getJSONArray("list");
                             int length = array.length();
-
+                            Log.i("WK","DateInfo："+response);
                             datas.clear();
                             for (int i = 0; i < length; i++) {
                                 JSONObject obj = array.getJSONObject(i);

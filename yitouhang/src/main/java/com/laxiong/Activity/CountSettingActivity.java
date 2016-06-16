@@ -113,6 +113,13 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         }else {
             mRl_NoBindCard.setVisibility(View.VISIBLE);
             mMyBankCard.setVisibility(View.GONE);
+            mRl_NoBindCard.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(CountSettingActivity.this,
+                            TrueNameActivity1.class));
+                }
+            });
         }
 
         if (isVip){

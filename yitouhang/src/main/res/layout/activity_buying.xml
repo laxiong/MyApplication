@@ -198,7 +198,8 @@
       />
     
     
-    <LinearLayout 
+    <LinearLayout
+        android:id="@+id/most_money"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:paddingLeft="20dp"
@@ -208,7 +209,7 @@
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="本卡最多可转入"
+            android:text="本次最多可买入"
             android:gravity="center_vertical"
             android:textSize="12sp"
             android:textColor="#A6A6A6"
@@ -396,8 +397,8 @@
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="《壹投行服务协议》"
-            android:textColor="#EE4E42"
+            android:text="《共时理财服务协议》"
+            android:textColor="@color/protocolColor"
             android:textSize="12sp"
             android:gravity="center_vertical"
             android:layout_marginLeft="10dp"

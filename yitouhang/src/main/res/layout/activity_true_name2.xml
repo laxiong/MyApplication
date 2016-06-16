@@ -138,6 +138,7 @@
 	            android:background="@null"
                 android:password="true"
 	            android:hint="输入密码"
+                android:singleLine="true"
 	            android:textSize="14dp" >
 	            <requestFocus />
 	        </EditText>

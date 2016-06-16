@@ -159,10 +159,10 @@
         android:layout_height="30dp"
         android:background="@color/v2_bg_color"
         android:gravity="center_vertical"
-        android:paddingLeft="28dp"
+        android:paddingLeft="24dp"
         android:text=""
         android:textColor="@color/et_black"
-        android:textSize="12dp" />
+        android:textSize="14sp" />
 
     <View style="@style/dbdivideline" />
 

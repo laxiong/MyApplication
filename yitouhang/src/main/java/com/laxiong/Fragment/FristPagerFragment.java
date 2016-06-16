@@ -148,8 +148,6 @@ public class FristPagerFragment extends Fragment implements OnClickListener {
                         if (response.getInt("code") == 0) {
                             JSONArray arra = response.getJSONArray("list");
                             ArrayList<Banner> banArra = getBannerData(arra);
-
-                            //TODO 开始适配器的操作
                             ScollPagerUtils mScollPagerUtils = new ScollPagerUtils(banArra, mContext, mChildViewPager, mLinearDot);
                             mScollPagerUtils.startPlayPic();
 

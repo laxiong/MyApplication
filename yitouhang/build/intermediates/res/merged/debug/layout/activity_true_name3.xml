@@ -120,9 +120,11 @@
 		android:layout_height="130dp"
 		android:background="@color/white"
 		android:orientation="vertical">
-		<RelativeLayout
+		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="43dp"
+			android:orientation="horizontal"
+			android:layout_marginRight="20dp"
 			>
 			<TextView
 				android:id="@+id/tv"
@@ -134,18 +136,19 @@
 				android:textSize="14dp" />
 			<EditText
 				android:id="@+id/et_name"
-				android:layout_width="wrap_content"
+				android:layout_width="0dp"
+				android:layout_weight="1"
 				android:layout_height="match_parent"
 				android:layout_marginLeft="10dp"
 				android:layout_toRightOf="@+id/tv"
 				android:background="@null"
-				android:gravity="center"
-				android:hint="张凯"
+				android:hint="持卡人姓名"
+				android:singleLine="true"
 				android:textSize="14dp" >
 				<requestFocus />
 			</EditText>
 
-		</RelativeLayout>
+		</LinearLayout>
 
 		<View
 			android:id="@+id/view2"
@@ -250,9 +253,11 @@
 		android:layout_height="43dp"
 		android:background="@color/white"
 		android:orientation="vertical">
-		<RelativeLayout
+		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="43dp"
+			android:orientation="horizontal"
+			android:layout_marginRight="20dp"
 			>
 			<TextView
 				android:id="@+id/tv4"
@@ -265,18 +270,19 @@
 			<EditText
 				android:id="@+id/et_phone"
 				android:inputType="number"
-				android:layout_width="wrap_content"
+				android:layout_width="0dp"
+				android:layout_weight="1"
 				android:layout_height="match_parent"
 				android:layout_marginLeft="10dp"
 				android:layout_toRightOf="@+id/tv4"
 				android:background="@null"
-				android:gravity="center"
 				android:hint="手机号码"
+				android:singleLine="true"
 				android:textSize="14dp" >
 				<requestFocus />
 			</EditText>
 
-		</RelativeLayout>
+		</LinearLayout>
 
 	</LinearLayout>
 	<View
@@ -315,7 +321,7 @@
 			android:layout_toRightOf="@+id/toggle_tv"
 			android:text="《壹投行服务协议》"
 			android:textSize="12dp"
-			android:textColor="@color/light_green"
+			android:textColor="@color/protocolColor"
 			/>
 	</RelativeLayout>
 

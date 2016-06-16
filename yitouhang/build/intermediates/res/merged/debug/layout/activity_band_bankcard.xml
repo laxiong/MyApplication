@@ -92,10 +92,16 @@
         android:orientation="vertical">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#999999"
+            android:textSize="16sp"
+            android:text="温馨提示："/>
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="温馨提示：
-为了保障您的账户资金安全，壹投行有且仅支持一张银行卡进行提现，更换银行卡请联系壹投行客服 400-1515-805 ，同时按照客服所说提供相关证明，感谢您的理解和支持～"
+            android:text="        为了保障您的账户资金安全，共时理财有且仅支持一张银行卡进行提现，更换银行卡请联系共时理财客服 400-1515-805 ，同时按照客服所说提供相关证明，感谢您的理解和支持～"
             android:textColor="#999999"
             android:textSize="16sp"
             />
