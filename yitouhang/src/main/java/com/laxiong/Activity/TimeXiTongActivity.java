@@ -23,6 +23,7 @@ import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.OpenAccount;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.Profit;
 import com.laxiong.entity.ShareInfo;
@@ -199,10 +200,10 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 								putExtra("mAmountMoney", mAmountMoney).
 								putExtra("date", dates));
 					}else {
-						Toast.makeText(TimeXiTongActivity.this,"请绑定银行卡",Toast.LENGTH_SHORT).show();
+						OpenAccount.getInstance().goToCreateCountNum(TimeXiTongActivity.this);
 					}
 				}else {
-					Toast.makeText(TimeXiTongActivity.this,"请完成登录",Toast.LENGTH_SHORT).show();
+					startActivity(new Intent(TimeXiTongActivity.this,LoginActivity.class));
 				}
 
 				break;
@@ -220,10 +221,10 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 						startActivity(new Intent(TimeXiTongActivity.this,
 								TransferOutActivity.class));
 					}else {
-						Toast.makeText(TimeXiTongActivity.this,"请绑定银行卡",Toast.LENGTH_SHORT).show();
+						OpenAccount.getInstance().goToCreateCountNum(TimeXiTongActivity.this);
 					}
 				}else {
-					Toast.makeText(TimeXiTongActivity.this,"请完成登录",Toast.LENGTH_SHORT).show();
+					startActivity(new Intent(TimeXiTongActivity.this, LoginActivity.class));
 				}
 
 				break;

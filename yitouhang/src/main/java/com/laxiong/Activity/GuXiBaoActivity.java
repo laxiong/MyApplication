@@ -30,6 +30,7 @@ import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.OpenAccount;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.VerticalNumberProgressBar;
 import com.laxiong.entity.ShareInfo;
@@ -58,7 +59,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
     private ImageView mJiSuanQi ;
     private int mId;
     private int ttnum ;
-    private double limitDay ;
+    private int limitDay ;
     private double bird ;
     private View V_line ;
     // 百分比 等加载的内容
@@ -96,10 +97,10 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
 
         mId = getIntent().getIntExtra("id", -1);
         ttnum = getIntent().getIntExtra("ttnum", -1);
-        limitDay = getIntent().getDoubleExtra("limitday", -1);
+        limitDay = getIntent().getIntExtra("limitday", -1);
         bird = getIntent().getDoubleExtra("bird",-1);
         if (bird == 1.0){
-            if (!mUser.is_bird()){
+            if (mUser!=null&&!mUser.is_bird()){
                 mBuyBtn.setText("仅限新用户购买");
             }else {
                 mBuyBtn.setText("立即购买");
@@ -194,14 +195,16 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                                     putExtra("limitday", limitDay));
                         }
                     }else {
-                        Toast.makeText(GuXiBaoActivity.this,"请绑定银行卡",Toast.LENGTH_SHORT).show();
+                        OpenAccount.getInstance().goToCreateCountNum(GuXiBaoActivity.this);
                     }
                 }else {
-                    Toast.makeText(GuXiBaoActivity.this,"请完成登录",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(GuXiBaoActivity.this,
+                            LoginActivity.class));
                 }
                 break;
         }
     }
+
 
     // set progress textview height
     private void setProgressNumHeight(float f) {

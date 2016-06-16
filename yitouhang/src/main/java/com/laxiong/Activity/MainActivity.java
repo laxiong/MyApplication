@@ -74,8 +74,6 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     private UpdateReceiver receiver;
     private Fragment saveFragment;
     private boolean isLogin = false; // 判断是否登录了
-    private showVipRecevice showRecevice ;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,13 +91,6 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         setContentView(R.layout.activity_main);
         initView();
         initData();
-
-        /****动态注册的广播接收者*****/
-        showRecevice = new showVipRecevice();
-        IntentFilter filter = new IntentFilter();
-        filter.addAction("com.gongshiddai");
-        this.registerReceiver(showRecevice,filter);
-
     }
 
     @Override
@@ -111,9 +102,6 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         if(CommonUtils.isServiceRunning(this,"DownService")){
             stopService(new Intent(this, DownService.class));
             NotificationUtil.cancelNoti(this, 100);
-        }
-        if (showRecevice!=null){
-            unregisterReceiver(showRecevice);
         }
     }
 
@@ -296,7 +284,6 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                 saveFragment=mFristPagerFragment;
                 break;
             case R.id.myself:
-                //TODO 判断是否  已经登录了
 //				if(isLogin){
                 if (!ValifyUtil.judgeLogin()) {
                     startActivity(new Intent(this, LoginActivity.class));
@@ -311,8 +298,6 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
 //				}else{
 //					startActivity(new Intent(MainActivity.this,
 //							RegistActivity.class));
-//					
-//					//TODO 之后直接显示到首页
 //					setButtomBackground(0);
 //					if(mFristPagerFragment == null){     // 首页页面
 //						mFristPagerFragment = new FristPagerFragment();
@@ -347,10 +332,8 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     private void setButtomBackground(int index) {
         setInitBackground();
 
-        //TODO 点击切换时切换的颜色和图片Buttom
         switch (index) {
             case 0:  // fristpager
-                //TODO
 //                mHead_gongshilicai.setText("(原共识理财)");
                 mHead_left_select_textview.setVisibility(View.GONE);
                 mHead_title.setVisibility(View.VISIBLE);
@@ -559,16 +542,13 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         mVipWinds.showAtLocation(mshowV, Gravity.BOTTOM, 0, 0);
     }
 
-    //当用户投资金额达到50万时的，广播接收者
-    public class showVipRecevice extends BroadcastReceiver{
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            int dates = intent.getIntExtra("showVip",-1);
-
-            Toast.makeText(MainActivity.this,"广播接收者里的",Toast.LENGTH_SHORT).show();
-            if (dates == 10001){
-                showToBeVip();
-            }
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        int beginVip = getIntent().getIntExtra("BeginVip",-1);
+        if (beginVip!=-1&&beginVip==10020){
+            showToBeVip();
         }
     }
 

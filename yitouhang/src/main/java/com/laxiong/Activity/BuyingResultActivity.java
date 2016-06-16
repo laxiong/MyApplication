@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
@@ -92,19 +91,17 @@ public class BuyingResultActivity extends BaseActivity implements View.OnClickLi
 			float zongAmount = gxbAmount + Float.valueOf(Money);
 			if (zongAmount >= 500000.0){
 
-				Intent intent = new Intent();
-				intent.setAction("com.gongshiddai");
-				intent.putExtra("showVip", 10001);
-				this.sendBroadcast(intent);
-				Toast.makeText(this,"这是用户变成VIP的时候的",Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(BuyingResultActivity.this,MainActivity.class);
+				intent.putExtra("BeginVip",10020);
+				startActivity(intent);	 // 启动到SingTask模式
+
 				this.finish();
 			}else {
 
-				Toast.makeText(this,"还不是VIP的时候",Toast.LENGTH_SHORT).show();
 				this.finish();
 			}
 		}else {
-			Toast.makeText(this,"正常的成为VIP后的",Toast.LENGTH_SHORT).show();
+
 			this.finish();
 		}
 	}

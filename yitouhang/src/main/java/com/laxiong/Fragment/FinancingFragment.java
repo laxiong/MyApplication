@@ -283,26 +283,11 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						}
 					}
 
-					// 新手标 //日期
-					double bird = sxt.getBird();
-					double limit = sxt.getLimit();
-					if (hideTextDay(limit)&&hideTextPerson(bird)&&mViewHonder.rl_days!=null&&mViewHonder.mLimitDay!=null&&
-							mViewHonder.mNewPerson!=null&&mViewHonder.showRel!=null){
-						mViewHonder.showRel.setVisibility(View.GONE);
-					}else {
-						if (hideTextDay(limit)){
-							mViewHonder.rl_days.setVisibility(View.GONE);
-						}else {
-							String limit_day = String.valueOf(limit);
-							String[] day = limit_day.split("[.]");
-							mViewHonder.mLimitDay.setText(day[0]+"天");
-						}
-						if (hideTextPerson(bird)){
-							mViewHonder.mNewPerson.setVisibility(View.INVISIBLE);
-						}else {
-							mViewHonder.mNewPerson.setVisibility(View.VISIBLE);
-						}
-					}
+					// 日期// 新手标
+					if (mViewHonder.rl_days!=null)
+						mViewHonder.rl_days.setVisibility(View.GONE);
+					if (mViewHonder.mNewPerson!=null)
+						mViewHonder.mNewPerson.setVisibility(View.GONE);
 
 					// 标题
 					if(mViewHonder.mProject!=null)
@@ -373,7 +358,7 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 							mViewHonder.mText_vip.setVisibility(View.INVISIBLE);
 						}else {
 							mViewHonder.mText_vip.setVisibility(View.VISIBLE);
-							mViewHonder.mText_vip.setText("+" + String.valueOf(gxb.getVip())+"%");
+							mViewHonder.mText_vip.setText("+" + String.valueOf(gxb.getVip()) + "%");
 						}
 					}
 
@@ -387,12 +372,10 @@ public class FinancingFragment extends Fragment implements OnClickListener{
 						}
 					}
 					//日期
-					final double limit = gxb.getLimit();
-					if(mViewHonder.mLimitDay!=null&&limit!=0.0&&mViewHonder.rl_days!=null){
-						String limit_day = String.valueOf(limit);
-						String[] day = limit_day.split("[.]");
-						mViewHonder.mLimitDay.setText(day[0]+"天");
-
+					final int limit = gxb.getLimit();
+					if (mViewHonder.mLimitDay!=null&&limit!=0&&mViewHonder.rl_days!=null) {
+						mViewHonder.rl_days.setVisibility(View.VISIBLE);
+						mViewHonder.mLimitDay.setText(limit + "天");
 					}else {
 						mViewHonder.rl_days.setVisibility(View.GONE);
 					}

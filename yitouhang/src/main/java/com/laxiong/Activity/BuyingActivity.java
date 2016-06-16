@@ -65,7 +65,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 	private String mProjectStr ;
 	private String mAmountStr ;
 	private int productId ;
-	private double limitDay ;
+	private int limitDay ;
 	private double mBuyPrecent;  //总年化收益率
 	private LinearLayout mMostMoney ;
 
@@ -81,7 +81,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener{
 		mAmountStr = getIntent().getStringExtra("amountStr");
 		productId = getIntent().getIntExtra("id", -1);
 		mBuyPrecent = getIntent().getDoubleExtra("mBuyPrecent", -1);
-		limitDay = getIntent().getDoubleExtra("limitday",-1);
+		limitDay = getIntent().getIntExtra("limitday",-1);
 
 		initView();
 		initData();

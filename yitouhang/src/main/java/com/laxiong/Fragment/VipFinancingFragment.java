@@ -270,25 +270,11 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 					}
 
 					// 新手标 //日期
-					double bird = sxt.getBird();
-					double limit = sxt.getLimit();
-					if (hideTextDay(limit)&&hideTextPerson(bird)&&mViewHonder.rl_days!=null&&mViewHonder.mLimitDay!=null&&
-							mViewHonder.mNewPerson!=null&&mViewHonder.showRel!=null){
-						mViewHonder.showRel.setVisibility(View.GONE);
-					}else {
-						if (hideTextDay(limit)){
-							mViewHonder.rl_days.setVisibility(View.GONE);
-						}else {
-							String limit_day = String.valueOf(limit);
-							String[] day = limit_day.split("[.]");
-							mViewHonder.mLimitDay.setText(day[0]+"天");
-						}
-						if (hideTextPerson(bird)){
-							mViewHonder.mNewPerson.setVisibility(View.INVISIBLE);
-						}else {
-							mViewHonder.mNewPerson.setVisibility(View.VISIBLE);
-						}
-					}
+					if (mViewHonder.rl_days!=null)
+						mViewHonder.rl_days.setVisibility(View.GONE);
+					if (mViewHonder.mNewPerson!=null)
+						mViewHonder.mNewPerson.setVisibility(View.GONE);
+
 
 					if(mViewHonder.profit_tv!=null&&sxt!=null&&mViewHonder.baifenbi!=null&&mViewHonder.mProject!=null&&
 							mViewHonder.year_hua!=null) {
@@ -375,11 +361,14 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 						}
 					}
 					//日期
-					final double limit = gxb.getLimit();
+					final int limit = gxb.getLimit();
 					if(mViewHonder.mLimitDay!=null){
 						String limit_day = String.valueOf(limit);
 						String[] day = limit_day.split("[.]");
+						mViewHonder.rl_days.setVisibility(View.VISIBLE);
 						mViewHonder.mLimitDay.setText(day[0]+"天");
+					}else {
+						mViewHonder.rl_days.setVisibility(View.GONE);
 					}
 
 					if(mViewHonder.profit_tv!=null)

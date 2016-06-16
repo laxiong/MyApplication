@@ -46,7 +46,7 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
     private WaitPgView wp;
     private boolean isall;
     private double money;
-    private double limit;
+    private int limit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +98,7 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
         showLoadView(true);
         if (isall) presenter.loadAll(this);
         else {
-            limit=getIntent().getDoubleExtra("limit",0);
+            limit=getIntent().getIntExtra("limit",0);
             money = getIntent().getDoubleExtra("money", 0.0);
             flag = getIntent() != null && getIntent().getBooleanExtra("used", false);
             listselect = new ArrayList<RedPaper>();
