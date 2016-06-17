@@ -190,6 +190,7 @@
 
         <!-- 主页面 -->
         <activity android:name="com.laxiong.Activity.MainActivity"
+            android:screenOrientation="portrait"
             android:launchMode="singleTask"/>
 
         <!-- 修改手势 -->

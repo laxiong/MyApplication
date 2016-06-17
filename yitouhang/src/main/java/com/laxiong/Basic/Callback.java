@@ -19,7 +19,7 @@ public abstract class Callback implements com.squareup.okhttp.Callback{
     private Handler handler=new Handler();
     @Override
     public void onFailure(Request request, IOException e) {
-
+        e.printStackTrace();
     }
 
     @Override
