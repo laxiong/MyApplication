@@ -67,6 +67,7 @@ public class CommonReq {
      * @param context
      */
     public static void showReLoginDialog(final Context context) {
+        User.clearLogin(context);
         if(dialog!=null) {
             dialog=null;
             return;
@@ -77,7 +78,6 @@ public class CommonReq {
         dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                User.clearLogin(context);
                 boolean flag = context instanceof Activity;
                 Intent intent = new Intent(context, ChangeCountActivity.class);
                 if (flag) intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

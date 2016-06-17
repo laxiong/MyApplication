@@ -207,6 +207,8 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
                 if (mWindows != null && mWindows.isShowing()) {
                     mWindows.dismiss();
                     mWindows = null;
+                    startActivity(new Intent(TrueNameActivity3.this,CountSettingActivity.class));
+                    finish();
                 }
             }
         });

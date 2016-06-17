@@ -27,6 +27,7 @@ import com.laxiong.Activity.WebViewActivity;
 import com.laxiong.Activity.WelCenterActivity;
 import com.laxiong.Activity.WithdrawCashActivity;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.OnSingleClickListener;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
@@ -84,7 +85,13 @@ public class MySelfFragment extends Fragment implements OnClickListener {
         Recharge.setOnClickListener(this);
         mTouZiLayout.setOnClickListener(this);
         mItMall.setOnClickListener(this);
-        mRedBao.setOnClickListener(this);
+        mRedBao.setOnClickListener(new OnSingleClickListener(getActivity()) {
+            @Override
+            public void onSingleClick(View v) {
+                startActivity(new Intent(getActivity(),
+                        WelCenterActivity.class));
+            }
+        });
         rl_hall.setOnClickListener(this);
         rl_rm.setOnClickListener(this);
         rl_invite.setOnClickListener(this);
@@ -154,10 +161,6 @@ public class MySelfFragment extends Fragment implements OnClickListener {
             case R.id.touzi_layout: //投资明细
                 startActivity(new Intent(getActivity(),
                         InvestmentRecordActivity.class));
-                break;
-            case R.id.myredbao:  //我的红包
-                startActivity(new Intent(getActivity(),
-                        WelCenterActivity.class));
                 break;
             case R.id.rl_1t: //IT商城
                 startActivity(new Intent(getActivity(),

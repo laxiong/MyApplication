@@ -45,7 +45,7 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
     private LinearLayout ll_dot;
     private TextView tv_yibi;
     private CustomFlipper vf_ad;
-    private static final int AD_INTERVAL = 3000;
+    private static final int AD_INTERVAL = 5000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

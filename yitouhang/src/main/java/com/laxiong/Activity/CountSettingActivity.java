@@ -176,7 +176,6 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
             rl_test.setEnabled("未评估".equals(user.getAssess()) ? true : false);
         } else {
             startActivity(new Intent(this, LoginActivity.class));
-            finish();
         }
     }
 
