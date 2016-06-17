@@ -215,7 +215,8 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
                 intent = new Intent(TMallActivity.this, MyYiBiActivity.class);
                 break;
             case R.id.rl_rule:
-                intent = new Intent(TMallActivity.this, RpExplainActivity.class);
+                intent=new Intent(TMallActivity.this,WebViewActivity.class).putExtra("title","关于规则")
+                        .putExtra("url","https://licai.gongshidai.com/wap/public/cylc/guize.html");
                 break;
             case R.id.rl_order:
                 intent = new Intent(TMallActivity.this, MyOrderActivity.class);

@@ -86,7 +86,7 @@ public class AvailableBalanceActivity extends BaseActivity implements OnClickLis
 				break;
 			case R.id.talkcarefor:
 				startActivity(new Intent(AvailableBalanceActivity.this,
-						EarningsSayActivity.class));
+						WebViewActivity.class).putExtra("title","收益说明").putExtra("url","https://licai.gongshidai.com/wap/public/cylc/shouyi.html"));
 				break;
 		}
 

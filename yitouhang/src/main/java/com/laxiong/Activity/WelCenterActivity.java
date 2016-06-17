@@ -195,7 +195,8 @@ public class WelCenterActivity extends BaseActivity implements IViewWelcenter {
         tv_explain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelCenterActivity.this, RpExplainActivity.class);
+                Intent intent = new Intent(WelCenterActivity.this, WebViewActivity.class).putExtra("title","使用说明")
+                        .putExtra("url","https://licai.gongshidai.com/wap/public/cylc/shiyong.html");
                 startActivity(intent);
             }
         });

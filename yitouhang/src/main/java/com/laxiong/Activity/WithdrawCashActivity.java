@@ -181,8 +181,7 @@ public class WithdrawCashActivity extends BaseActivity implements OnClickListene
                 payPswdMethod();
                 break;
             case R.id.notice:
-                startActivity(new Intent(WithdrawCashActivity.this,
-                        WithdrawCashNoticeActivity.class));
+                startActivity(new Intent(this,WebViewActivity.class).putExtra("title","提现说明").putExtra("url","https://licai.gongshidai.com/wap/public/cylc/tixian.html"));
                 break;
             case R.id.img_toggle:
                 readProcotol();

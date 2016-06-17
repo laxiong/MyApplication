@@ -51,7 +51,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
      */
     private Share_Presenter presenter;
     private LinearLayout ll_wrap;
-    private RelativeLayout mLayout_progressbar ,mRemarkLayout ,mSafeProtect;
+    private RelativeLayout mLayout_progressbar ,mRemarkLayout ,mSafeProtect,rl_investrec;
     private View mRemarkLine ;
     private TextView mProgressNum ,mShareBtn , mBuyBtn ,mFinanceLimit,mMinTou ,mTextDes,mPrecentTg;
     private VerticalNumberProgressBar mProgressBar ;
@@ -94,7 +94,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mJiSuanQi.setOnClickListener(this);
         mBuyBtn.setOnClickListener(this);
         mSafeProtect.setOnClickListener(this);
-
+        rl_investrec.setOnClickListener(this);
         mId = getIntent().getIntExtra("id", -1);
         ttnum = getIntent().getIntExtra("ttnum", -1);
         limitDay = getIntent().getIntExtra("limitday", -1);
@@ -143,7 +143,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mTextDes =(TextView)findViewById(R.id.text2);
         mLastDate =(TextView)findViewById(R.id.last_date); //赎回时间
         mFirstDate = (TextView)findViewById(R.id.first_date); // 起息时间
-
+        rl_investrec= (RelativeLayout) findViewById(R.id.rl_investrec);
         mRemarkLine =findViewById(R.id.remark_line);
         mRemarkLayout =(RelativeLayout)findViewById(R.id.remark_layout);
 
@@ -175,6 +175,10 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         switch (v.getId()) {
             case R.id.share:
                 presenter.loadShareData(this);
+                break;
+            case R.id.rl_investrec:
+                startActivity(new Intent(GuXiBaoActivity.this,WebViewActivity.class).putExtra("title","投资记录").putExtra("url",
+                        "https://licai.gongshidai.com/wap/public/cylc/touzi.html"));
                 break;
             case R.id.backlayout:
                 this.finish();

@@ -10,11 +10,13 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.CommonReq;
+import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
+import com.laxiong.Utils.ValifyUtil;
 import com.laxiong.entity.UserLogin;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -32,7 +34,7 @@ import java.util.List;
 public class Model_RedPaper {
     private OnLoadPaperListener listener;
 
-    public void loadAllList(Context context, OnLoadPaperListener fuck) {
+    public void loadAllList(final Context context, OnLoadPaperListener fuck) {
         this.listener = fuck;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori) || listener == null)
@@ -52,7 +54,10 @@ public class Model_RedPaper {
                             List<RedPaper> list = JSONUtils.parseArray(jsonstr, RedPaper.class);
                             listener.onSuccess(list, false, true);
                         } else {
-                            listener.onFailure(response.getString("msg"));
+                            if (response.getInt("code") == 401) {
+                                CommonReq.showReLoginDialog(context);
+                            } else
+                                listener.onFailure(response.getString("msg"));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -71,7 +76,7 @@ public class Model_RedPaper {
         }, authori);
     }
 
-    public void loadPaperList(final boolean isused,final Context context, OnLoadPaperListener fuck) {
+    public void loadPaperList(final boolean isused, final Context context, OnLoadPaperListener fuck) {
         this.listener = fuck;
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori) || listener == null)
@@ -91,8 +96,10 @@ public class Model_RedPaper {
                             List<RedPaper> list = JSONUtils.parseArray(jsonstr, RedPaper.class);
                             listener.onSuccess(list, isused, false);
                         } else {
-                            if (response.getInt("code") == 401)
+                            if (response.getInt("code") == 401) {
+                                listener.onFailure("请求失败");
                                 CommonReq.showReLoginDialog(context);
+                            }
                             else
                                 listener.onFailure(response.getString("msg"));
                         }

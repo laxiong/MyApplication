@@ -148,6 +148,10 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 									RechargeActivity.this, false);
 
 						} else {
+							if (response.getInt("code") == 401) {
+								CommonReq.showReLoginDialog(RechargeActivity.this);
+								return;
+							}
 							if (!TextUtils.isEmpty(response.getString("msg"))) {
 								Toast.makeText(RechargeActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 							} else {

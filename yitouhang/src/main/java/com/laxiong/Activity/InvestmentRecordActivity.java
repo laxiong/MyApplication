@@ -3,6 +3,7 @@ package com.laxiong.Activity;
 import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -30,7 +31,7 @@ import com.gongshidai.mistGSD.R;
 public class InvestmentRecordActivity extends BaseActivity implements View.OnClickListener{
 
     private LinearLayout mSelectType ;
-    private TextView mSelectText ;
+    private TextView mSelectText,savebtn ;
     private FrameLayout mSelectContent ,mBackBtn;
     private FragmentManager mFragmentManager ;
     private ImageView iv_arrow;
@@ -58,7 +59,7 @@ public class InvestmentRecordActivity extends BaseActivity implements View.OnCli
         mSelectText=(TextView) findViewById(R.id.select_text);
         iv_arrow= (ImageView) findViewById(R.id.iv_arrow);
         mBackBtn = (FrameLayout)findViewById(R.id.back_layout);
-
+        savebtn= (TextView) findViewById(R.id.savebtn);
         mFragmentManager = this.getFragmentManager();
         initFristFragment();
     }
@@ -67,6 +68,7 @@ public class InvestmentRecordActivity extends BaseActivity implements View.OnCli
 
         mSelectType.setOnClickListener(this);
         mBackBtn.setOnClickListener(this);
+        savebtn.setOnClickListener(this);
     }
 
     @Override
@@ -80,6 +82,9 @@ public class InvestmentRecordActivity extends BaseActivity implements View.OnCli
                 break;
             case R.id.back_layout:
                 this.finish();
+                break;
+            case R.id.savebtn:
+                startActivity(new Intent(this,WebViewActivity.class).putExtra("title","说明").putExtra("url","https://licai.gongshidai.com/wap/public/cylc/shuoming.html"));
                 break;
         }
 

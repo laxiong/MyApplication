@@ -82,7 +82,6 @@ public class CommonReq {
                 Intent intent = new Intent(context, ChangeCountActivity.class);
                 if (flag) intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
-                if (flag) ((Activity) context).finish();
                 dialog.dismiss();
             }
         });

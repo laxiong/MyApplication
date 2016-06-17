@@ -394,6 +394,10 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 							bankId = response.getInt("id");
 							banknumber = response.getInt("number");
 						} else {
+							if (response.getInt("code") == 401) {
+								CommonReq.showReLoginDialog(TransferInActivity.this);
+								return;
+							}
 							Toast.makeText(TransferInActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 						}
 					} catch (Exception E) {

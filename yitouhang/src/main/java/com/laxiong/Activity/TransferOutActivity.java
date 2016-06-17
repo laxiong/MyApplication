@@ -179,6 +179,10 @@ public class TransferOutActivity extends BaseActivity implements View.OnClickLis
 							dismissWindows();
 							finish();
 						} else {
+							if (response.getInt("code") == 401) {
+								CommonReq.showReLoginDialog(TransferOutActivity.this);
+								return;
+							}
 							Toast.makeText(TransferOutActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 						}
 					} catch (Exception E) {
