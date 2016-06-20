@@ -207,6 +207,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        total=0;
         String redbao = "";
         if (data != null && resultCode == RESULT_OK) {
             listpaper = data.getParcelableArrayListExtra("data");
