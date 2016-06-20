@@ -73,6 +73,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     private RelativeLayout mHeadLayout;
     private UpdateReceiver receiver;
     private Fragment saveFragment;
+    private boolean isMySelf=false;
     private boolean isLogin = false; // 判断是否登录了
 
     @Override
@@ -137,12 +138,12 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
         iv_read.setVisibility(Constants.isRead?View.VISIBLE:View.GONE);
         iv_noread.setVisibility(Constants.isRead?View.GONE:View.VISIBLE);
         boolean flag = ValifyUtil.judgeInit(this);
-        FragmentTransaction mTransaction = mFragmentManager.beginTransaction();
-        if(saveFragment!=null&&mTransaction!=null){
-            mTransaction.show(saveFragment).commit();
-        }
         if (flag)
             mUser = YiTouApplication.getInstance().getUser();
+        FragmentTransaction mTransaction = mFragmentManager.beginTransaction();
+        if(saveFragment!=null&&mTransaction!=null){
+            mTransaction.show(isMySelf&&mMySelfFragment!=null&&mUser!=null?mMySelfFragment:saveFragment).commit();
+        }
     }
 
     @Override
@@ -214,6 +215,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
     }
     @SuppressLint("NewApi")
     private void initData() {
+        mUser = YiTouApplication.getInstance().getUser();
         iv_read.setVisibility(Constants.isRead?View.VISIBLE:View.GONE);
         iv_noread.setVisibility(Constants.isRead?View.GONE:View.VISIBLE);
         presenter = new MainPage_Presenter(this);
@@ -295,6 +297,8 @@ public class MainActivity extends BaseActivity implements OnClickListener, IView
                     } else {
                         mTransaction.show(mMySelfFragment);
                     }
+                    if(mUser!=null)
+                        saveFragment=mMySelfFragment;
 //				}else{
 //					startActivity(new Intent(MainActivity.this,
 //							RegistActivity.class));

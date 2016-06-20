@@ -130,7 +130,11 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         ToastUtil.customAlert(this, msg);
     }
 
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getNetWork();
+    }
 
     private void initView() {
         mLayout_progressbar = (RelativeLayout) findViewById(R.id.progressbar_layout);

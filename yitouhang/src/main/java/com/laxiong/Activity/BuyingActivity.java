@@ -28,6 +28,7 @@ import com.gongshidai.mistGSD.R;
 import com.google.gson.GsonBuilder;
 import com.laxiong.Adapter.RedPaper;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.BaseHelper;
@@ -35,6 +36,8 @@ import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.CommonUtils;
 import com.laxiong.Utils.Constants;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
+import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.Md5Algorithm;
 import com.laxiong.Utils.MobileSecurePayer;
 import com.laxiong.Utils.StringUtils;
@@ -43,11 +46,13 @@ import com.laxiong.entity.EnvConstants;
 import com.laxiong.entity.LlOrderInfo;
 import com.laxiong.entity.PayOrder;
 import com.laxiong.entity.PaySignParam;
+import com.laxiong.entity.Product;
 import com.laxiong.entity.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.NumberFormat;
@@ -103,6 +108,25 @@ public class BuyingActivity extends BaseActivity implements OnClickListener {
         if (user != null && mMoneyLimit != null) {
             mMoneyLimit.setText("" + user.getQuota());
         }
+        HttpUtil2.get(InterfaceInfo.PRODUCT_URL + "?id=" + productId, new Callback() {
+            @Override
+            public void onResponse2(JSONObject response) {
+                if(response==null)
+                    return;
+                try {
+                    mAmountStr=String.valueOf(response.getString("amount"));
+                    mAmountMoney.setText(mAmountStr);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+
+            }
+        });
     }
 
     private void initData() {
@@ -254,14 +278,12 @@ public class BuyingActivity extends BaseActivity implements OnClickListener {
                 break;
         }
     }
-
     // pay Menthod
     private PopupWindow mPayMathodWindow;
     private View PayView;
     private ImageView lateMoney_img, constranceBank_img;
     private ImageView BankIcon, LateMoneyIcon;
     private TextView mBankName, mMyYuE;
-
     private void payMenthodType() {
 
         PayView = LayoutInflater.from(BuyingActivity.this).inflate(R.layout.pay_mathod_popwindow, null);
@@ -486,6 +508,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
+                            sendBroadcast(new Intent("com.action.updatedata").putExtra("id",productId));
                             startActivity(new Intent(BuyingActivity.this,
                                     BuyingResultActivity.class).
                                     putExtra("Money", String.valueOf(decAmount)).

@@ -73,6 +73,12 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		}
 	}
 
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		getNetWork();
+	}
+
 	private void initData() {
 		mBack.setOnClickListener(this);
 		mShareBtn.setOnClickListener(this);
