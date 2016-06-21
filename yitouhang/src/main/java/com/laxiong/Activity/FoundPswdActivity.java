@@ -19,6 +19,8 @@ import com.laxiong.Mvp_view.IViewReBackPwd;
 import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
 import com.gongshidai.mistGSD.R;
+import com.laxiong.Utils.ValifyUtil;
+
 public class FoundPswdActivity extends BaseActivity implements OnClickListener, IViewReBackPwd,IViewTimerHandler{
     /****
      * 找回密码
@@ -112,8 +114,8 @@ public class FoundPswdActivity extends BaseActivity implements OnClickListener, 
 
     //校验手机号
     public boolean validatePhone() {
-        if (StringUtils.isBlank(et_phonenum.getText().toString())) {
-            Toast.makeText(this, "手机号码不能为空", Toast.LENGTH_LONG).show();
+        if (!ValifyUtil.valifyPhoneNum(et_phonenum.getText().toString())) {
+            Toast.makeText(this, "手机号码格式不对", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;

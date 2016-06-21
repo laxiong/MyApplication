@@ -68,7 +68,7 @@ public class ChangePayPwdFragment2 extends Fragment implements View.OnClickListe
             @Override
             public void afterTextChanged(Editable s) {
                 String pwd = mPswdEd.getText().toString();
-                if (!ValifyUtil.valifyPwd(pwd)) {
+                if (!ValifyUtil.valifyPwd(getActivity(),pwd)) {
                     ValifyUtil.setEnabled(mComplete, false);
                 } else {
                     ValifyUtil.setEnabled(mComplete, true);

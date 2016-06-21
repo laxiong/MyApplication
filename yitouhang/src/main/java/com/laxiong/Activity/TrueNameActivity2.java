@@ -72,7 +72,7 @@ public class TrueNameActivity2 extends BaseActivity implements OnClickListener, 
         mPswdEd.addTextChangedListener(new BasicWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (!StringUtils.isBlank(s.toString()) && ValifyUtil.valifyPwd(s.toString())) {
+                if (!StringUtils.isBlank(s.toString()) && ValifyUtil.valifyPwd(TrueNameActivity2.this,s.toString())) {
                     ValifyUtil.setEnabled(mNextPage, true);
                 } else {
                     ValifyUtil.setEnabled(mNextPage, false);
