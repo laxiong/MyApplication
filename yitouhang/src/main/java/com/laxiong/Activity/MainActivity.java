@@ -54,7 +54,7 @@ import java.util.List;
 public class MainActivity extends BaseActivity implements OnClickListener, IViewMain {
     /****
      * 主页
-     */
+    */
     private RelativeLayout mFristPager, mFinancing, mMyself;  // Bottom three Button Layout
     private MainPage_Presenter presenter;
     private LinearLayout ll_wrap;

@@ -58,7 +58,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
                 String code = mCodeEd.getText().toString().replace(" ", "");
                 if (Common.inputContentNotNull(mobile0) && Common.inputContentNotNull(pswd) && Common.inputContentNotNull(code)) {
                     if (ValifyUtil.valifyPhoneNum(mobile0)) {
-                        if (Common.inputPswdCount(RegistActivity.this, code)) {
+                        if (Common.inputPswdCount(RegistActivity.this,pswd)) {
                             if (isRead) {
                                 doRegist();
                             } else {
