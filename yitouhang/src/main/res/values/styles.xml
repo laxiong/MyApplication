@@ -56,4 +56,14 @@
         <!--<item name="windowExitAnimation">@anim/translucent_exit</item>-->
     <!--</style>-->
 
+    <!--进度条的Dialog-->
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
 </resources>

@@ -1,11 +1,9 @@
 package com.laxiong.Activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -14,13 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Basic.OnSingleClickListener;
-import com.laxiong.Common.Common;
 import com.laxiong.Mvp_presenter.Login_Presenter;
 import com.laxiong.Mvp_view.IViewLogin;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
-import com.gongshidai.mistGSD.R;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 
@@ -76,10 +73,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
         } else
             tv_phonenum.setText(StringUtils.getProtectedMobile(getInputPhoneNum()));
     }
-
     @Override
     public void loginsuccess() {
-        Toast.makeText(this, "登录成功", Toast.LENGTH_LONG).show();
+        ToastUtil.customAlert(this,"登录成功");
 //        Intent intent = new Intent(this, MainActivity.class);
 //        this.startActivity(intent);
         boolean isBack=getIntent().getBooleanExtra("isBack",false);

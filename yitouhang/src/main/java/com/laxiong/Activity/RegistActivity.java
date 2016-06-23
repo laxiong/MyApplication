@@ -1,5 +1,6 @@
 package com.laxiong.Activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.laxiong.Basic.OnSingleClickListener;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.LoadUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -38,6 +40,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
     private FrameLayout mBack;
     private ImageView mToggleBtn, mShowPswd;
     private EditText mPhoneEd, mPswdEd, mCodeEd;
+    private Dialog mLoadDialog ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,7 +181,6 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
     boolean stopThread;
 
     private void getCode() {
-        //TODO  绑定参数
         RequestParams params = new RequestParams();
         params.put("type", "reg");
         params.put("phone", mPhoneEd.getText().toString().replaceAll(" ", ""));
@@ -244,9 +246,12 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
             }
         }).start();
     }
-
     //注册  Regist
     private void doRegist() {
+        mLoadDialog = LoadUtils.createbuildDialog(this,"正在注册...");
+        if (mLoadDialog!=null){
+            mLoadDialog.show();
+        }
 
         RequestParams params = new RequestParams();
         params.put("phone", mPhoneEd.getText().toString().replaceAll(" ", ""));
@@ -263,13 +268,17 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
-                            Toast.makeText(RegistActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                            if(mLoadDialog!=null&&mLoadDialog.isShowing()){
+                                mLoadDialog.dismiss();
+                                mLoadDialog = null ;
+                            }
+                            ToastUtil.customAlert(RegistActivity.this,"注册成功");
                             savaUseInfo();
                             startActivity(new Intent(RegistActivity.this, ModifyGestureActivity.class));
                             RegistActivity.this.finish();
                         } else {
                             if (response.getString("msg") != null) {
-                                Toast.makeText(RegistActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                ToastUtil.customAlert(RegistActivity.this, response.getString("msg"));
                             }
                         }
                     } catch (Exception e) {
@@ -280,7 +289,11 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
             @Override
             public void onFailure(int statusCode, Header[] headers,
                                   Throwable throwable, JSONObject errorResponse) {
-                Toast.makeText(RegistActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                if(mLoadDialog!=null&&mLoadDialog.isShowing()){
+                    mLoadDialog.dismiss();
+                    mLoadDialog = null ;
+                }
+                ToastUtil.customAlert(RegistActivity.this, "注册失败");
             }
 
         }, true);

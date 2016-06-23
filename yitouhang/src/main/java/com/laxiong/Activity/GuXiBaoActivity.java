@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -252,7 +251,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
             @Override
             public void afterTextChanged(Editable arg0) {
                 String str = mMoney.getText().toString().trim();
-                //TODO  TextView 的计算结果显示
                 if(mDays!=null&&!mDays.getText().toString().trim().equals("")&&mDays.getText().toString().length()!=0){
                     if (str!=null&&!str.equals("")&&str.length()!=0) {
                         int tM = Integer.parseInt(str);
@@ -278,7 +276,8 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                     if(str!= null)
                         Integer.parseInt(str);
                 }catch(Exception e){
-                    Toast.makeText(GuXiBaoActivity.this, "输入整数", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(GuXiBaoActivity.this, "输入整数", Toast.LENGTH_SHORT).show();
+                    ToastUtil.customAlert(GuXiBaoActivity.this,"输入整数");
                 }
             }
         });
@@ -291,7 +290,8 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                     if(str!= null)
                         Integer.parseInt(str);
                 }catch(Exception e){
-                    Toast.makeText(GuXiBaoActivity.this, "输入整数", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(GuXiBaoActivity.this, "输入整数", Toast.LENGTH_SHORT).show();
+                    ToastUtil.customAlert(GuXiBaoActivity.this,"输入整数");
                 }
             }
             @Override
@@ -301,7 +301,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
             @Override
             public void afterTextChanged(Editable arg0) {
                 String str = mDays.getText().toString().trim();
-                //TODO  TextView 的计算结果显示
                 if(mMoney!=null&&!mMoney.getText().toString().trim().equals("")&&mMoney.getText().toString().length()!=0){
                     if (str!=null&&!str.equals("")&&str.length()!=0) {
                         int tD = Integer.parseInt(str);
@@ -361,8 +360,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                 if (response!=null){
                     try {
                         if (response.getInt("code")==0){
-                            Log.i("WK","所有的对象："+response);
-
                             mProjectName = response.getString("title");
                             mGxbTitle.setText(mProjectName);
                             updataUi(response);
@@ -378,7 +375,8 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
-                Toast.makeText(GuXiBaoActivity.this,"获取数据失败",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(GuXiBaoActivity.this,"获取数据失败",Toast.LENGTH_SHORT).show();
+                ToastUtil.customAlert(GuXiBaoActivity.this,"获取数据失败");
             }
         });
     }
@@ -435,8 +433,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
 
                 mMinTou.setText(String.valueOf(response.getInt("min")));
                 mFinanceLimit.setText(String.valueOf(response.getInt("limit")));
-
-                Log.i("WK", "====1========：" + response.getString("title"));
 
                 JSONArray details = response.getJSONArray("details");
                 if (details.length()>0){
