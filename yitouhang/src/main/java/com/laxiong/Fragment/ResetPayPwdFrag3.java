@@ -63,7 +63,7 @@ public class ResetPayPwdFrag3 extends Fragment implements View.OnClickListener {
             @Override
             public void afterTextChanged(Editable s) {
                 String pwd = mPswdEd.getText().toString();
-                if (!ValifyUtil.valifyPwd(getActivity(),pwd)) {
+                if (!ValifyUtil.valifyPwd(pwd)) {
                     ValifyUtil.setEnabled(mComplete, false);
                 } else {
                     ValifyUtil.setEnabled(mComplete, true);

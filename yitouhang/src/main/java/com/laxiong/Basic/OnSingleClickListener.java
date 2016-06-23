@@ -31,7 +31,7 @@ public abstract class OnSingleClickListener implements View.OnClickListener {
                 }
             }, INTERVAL);
         }else{
-            ToastUtil.customAlert(context,"按得太快了");
+            ToastUtil.customAlert(context,"操作太快了");
         }
     }
 

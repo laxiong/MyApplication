@@ -52,8 +52,8 @@ public class Common {
 	}
 	
 	// 判断输入的密码是不是  至少是6位的
-	public static boolean inputPswdCount(Context context,String pswd){
-		return ValifyUtil.valifyPwd(context,pswd);
+	public static boolean inputPswdCount(String pswd){
+		return ValifyUtil.valifyPwd(pswd);
 //		return true;
 	}
 

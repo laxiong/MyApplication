@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Basic.OnSingleClickListener;
 import com.laxiong.Common.Constants;
 import com.laxiong.Mvp_presenter.Handler_Presenter;
 import com.laxiong.Mvp_presenter.Password_Presenter;
@@ -44,7 +45,14 @@ public class FoundPswdActivity extends BaseActivity implements OnClickListener, 
         mCompletBtn.setOnClickListener(this);
         mBack.setOnClickListener(this);
         mShowPswd.setOnClickListener(this);
-        mGetValidation.setOnClickListener(this);
+        mGetValidation.setOnClickListener(new OnSingleClickListener(this) {
+            @Override
+            public void onSingleClick(View v) {
+                if (validatePhone()) {
+                    presenter.reqValidation(FoundPswdActivity.this);
+                }
+            }
+        });
         presenter = new Password_Presenter(this);
         timepresenter=new Handler_Presenter(this);
     }
@@ -126,7 +134,7 @@ public class FoundPswdActivity extends BaseActivity implements OnClickListener, 
                 et_valicode.getText().toString(), mPswd.getText().toString());
         if(flag)
             Toast.makeText(this,"有必选项未填!",Toast.LENGTH_LONG).show();
-        return !flag;
+        return !flag&&ValifyUtil.toastResult2(this, mPswd.getText().toString().trim());
     }
 
     @Override
@@ -141,11 +149,6 @@ public class FoundPswdActivity extends BaseActivity implements OnClickListener, 
                 break;
             case R.id.img_showpswd:
                 showPassWord();
-                break;
-            case R.id.tv_getVali:
-                if (validatePhone()) {
-                    presenter.reqValidation(FoundPswdActivity.this);
-                }
                 break;
         }
     }

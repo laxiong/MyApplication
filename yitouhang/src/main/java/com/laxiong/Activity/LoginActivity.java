@@ -21,6 +21,9 @@ import com.laxiong.Mvp_view.IViewLogin;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
 import com.gongshidai.mistGSD.R;
+import com.laxiong.Utils.ToastUtil;
+import com.laxiong.Utils.ValifyUtil;
+
 public class LoginActivity extends BaseActivity implements OnClickListener, IViewLogin {
     /***
      * 登录
@@ -117,7 +120,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener, IVie
 
     public boolean valifiylogin() {
         if (StringUtils.isBlank(mPswd.getText().toString())) {
-            Toast.makeText(this, "密码不能为空", Toast.LENGTH_LONG).show();
+            ToastUtil.customAlert(this, "密码不能为空");
+            return false;
+        }else if(!ValifyUtil.toastResult2(this,mPswd.getText().toString().trim())){
             return false;
         }
         return true;

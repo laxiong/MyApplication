@@ -58,7 +58,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
                 String code = mCodeEd.getText().toString().replace(" ", "");
                 if (Common.inputContentNotNull(mobile0) && Common.inputContentNotNull(pswd) && Common.inputContentNotNull(code)) {
                     if (ValifyUtil.valifyPhoneNum(mobile0)) {
-                        if (Common.inputPswdCount(RegistActivity.this,pswd)) {
+                        if (Common.inputPswdCount(pswd)) {
                             if (isRead) {
                                 doRegist();
                             } else {
@@ -321,7 +321,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
     private void valify() {
         if (!TextUtils.isEmpty(mPhoneEd.getText().toString()) && !TextUtils.isEmpty(mPswdEd.getText().toString())
                 && !TextUtils.isEmpty(mCodeEd.getText().toString()) && isRead) {
-            if (Common.inputPswdCount(this, mPswdEd.getText().toString().trim())) {
+            if (Common.inputPswdCount(mPswdEd.getText().toString().trim())) {
                 mRegistBtn.setEnabled(true);
                 mRegistBtn.setBackgroundResource(R.drawable.button_change_bg_border);
 

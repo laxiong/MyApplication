@@ -14,10 +14,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.laxiong.Basic.OnSingleClickListener;
 import com.laxiong.Mvp_presenter.Login_Presenter;
 import com.laxiong.Mvp_view.IViewLogin;
 import com.laxiong.Utils.StringUtils;
 import com.gongshidai.mistGSD.R;
+import com.laxiong.Utils.ToastUtil;
+import com.laxiong.Utils.ValifyUtil;
+
 public class ChangeCountActivity extends BaseActivity implements OnClickListener, IViewLogin {
     /***
      * 切换账号
@@ -83,7 +87,13 @@ public class ChangeCountActivity extends BaseActivity implements OnClickListener
     private void initListener() {
         mFindPswd.setOnClickListener(this);
         mRegistBtn.setOnClickListener(this);
-        mComplete.setOnClickListener(this);
+        mComplete.setOnClickListener(new OnSingleClickListener(this) {
+            @Override
+            public void onSingleClick(View v) {
+                if (valifyLogin())
+                    presenter.login(ChangeCountActivity.this);
+            }
+        });
         mBack.setOnClickListener(this);
         mShowPswd.setOnClickListener(this);
         TextWatcher watcher = presenter.getTextWatcher();
@@ -116,10 +126,6 @@ public class ChangeCountActivity extends BaseActivity implements OnClickListener
             case R.id.backlayout:
                 ChangeCountActivity.this.finish();
                 break;
-            case R.id.completeBtn:
-                if (valifyLogin())
-                    presenter.login(ChangeCountActivity.this);
-                break;
             case R.id.img_showpswd:
                 showPassWord();
                 break;
@@ -129,7 +135,12 @@ public class ChangeCountActivity extends BaseActivity implements OnClickListener
 
     public boolean valifyLogin() {
         if (TextUtils.isEmpty(mPswd.getText().toString()) || TextUtils.isEmpty(mphone.getText().toString())) {
-            Toast.makeText(this, "fuckyou", Toast.LENGTH_LONG).show();
+            ToastUtil.customAlert(this, "账号密码不能为空!");
+            return false;
+        }else if(!ValifyUtil.valifyPhoneNum(mphone.getText().toString().trim())){
+            ToastUtil.customAlert(this,"请输入正确的手机号!");
+            return false;
+        }else if(!ValifyUtil.toastResult2(this, mPswd.getText().toString())){
             return false;
         }
         return true;

@@ -28,24 +28,37 @@ public class ValifyUtil {
         return false;
     }
 
-    public static void toastResult(Context context, String pwd) {
+    public static boolean toastResult2(Context context, String pwd) {
         Pattern p = Pattern.compile("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$");
-        Pattern p2 = Pattern.compile("\\s*");
-        String regEx = "[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
+        String regEx = "[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*]";
         Pattern p3 = Pattern.compile(regEx);
         Matcher mat = p.matcher(pwd);
-        Matcher mat2 = p2.matcher(pwd);
         Matcher mat3 = p3.matcher(pwd);
-        if (mat2.matches()) {
-            ToastUtil.customAlert(context, "密码不能包含空格");
-        } else if (mat3.matches()) {
+        if (mat3.matches()) {
+            ToastUtil.customAlert(context, "密码不能包含非法字符");
+            return false;
+        } else if (!mat.matches()) {
+            ToastUtil.customAlert(context, "密码为6~20位数字和密码组合");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public static void toastResult(Context context, String pwd) {
+        Pattern p = Pattern.compile("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$");
+        String regEx = "[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*]";
+        Pattern p3 = Pattern.compile(regEx);
+        Matcher mat = p.matcher(pwd);
+        Matcher mat3 = p3.matcher(pwd);
+        if (mat3.matches()) {
             ToastUtil.customAlert(context, "密码不能包含非法字符");
         } else if (!mat.matches()) {
             ToastUtil.customAlert(context, "密码为6~20位数字和密码组合");
         }
     }
 
-    public static boolean valifyPwd(Context context, String pwd) {
+    public static boolean valifyPwd(String pwd) {
 //        Pattern pat = Pattern.compile("[\\da-zA-Z]{6,20}");
 //        Pattern patno = Pattern.compile(".*\\d.*");
 //        Pattern paten = Pattern.compile(".*[a-zA-Z].*");
@@ -58,11 +71,9 @@ public class ValifyUtil {
 //        Pattern p=Pattern.compile("[0-9a-zA-Z]{6,20}");
 //        return false;
         Pattern p = Pattern.compile("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$");
-        Pattern p2 = Pattern.compile("\\s*");
-        String regEx = "[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
+        String regEx = "[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*]";
         Pattern p3 = Pattern.compile(regEx);
         Matcher mat = p.matcher(pwd);
-        Matcher mat2 = p2.matcher(pwd);
         Matcher mat3 = p3.matcher(pwd);
 //        if(!mat.matches()){
 //            ToastUtil.customAlert(context,"密码为6~20位数字和密码组合");
@@ -76,7 +87,7 @@ public class ValifyUtil {
 //        }else{
 //            return true;
 //        }
-        return mat.matches() && !mat2.matches() && !mat3.matches();
+        return mat.matches() && !mat3.matches();
     }
 
     public static boolean judgeLogin() {
@@ -93,6 +104,9 @@ public class ValifyUtil {
     }
 
     public static boolean valifyPhoneNum(String phone) {
+        if(phone.length()!=11){
+            return false;
+        }
         Pattern p = Pattern.compile("^((14[7])|(13[0-9])|(15[^4,\\D])|(18[0,1,2,3,5-9]))\\d{8}$");
         Pattern p2 = Pattern.compile("\\s*");
         Matcher m = p.matcher(phone);
