@@ -22,6 +22,7 @@ import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.gongshidai.mistGSD.R;
+import com.laxiong.Utils.ValifyUtil;
 import com.loopj.android.http.RequestParams;
 
 public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickListener, IViewBindPhone, IViewTimerHandler {
@@ -60,18 +61,18 @@ public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickLis
 
     @Override
     public String getPhone() {
-        return et_phone.getText().toString();
+        return et_phone.getText().toString().trim();
     }
 
     @Override
     public String getCode() {
-        return et_code.getText().toString();
+        return et_code.getText().toString().trim();
     }
 
     @Override
     public void reqbackSuc(String tag) {
         if (tag.equals(bindpresenter.TYPE_CODE)) {
-            ToastUtil.customAlert(this,"获取验证码成功!");
+            ToastUtil.customAlert(this, "获取验证码成功!");
             timepresenter.loadHandlerTimer(Constants.INTERVAL, Constants.TIME);
         } else if (tag.equals(bindpresenter.TYPE_BIND)) {
             ToastUtil.customAlert(this, "更换手机号码成功!");
@@ -116,10 +117,13 @@ public class ChangeBindPhoneActivity2 extends BaseActivity implements OnClickLis
                 bindpresenter.bindOtherPhone(this);
                 break;
             case R.id.code:
-                if (StringUtils.isBlank(getCode())) {
+                if (StringUtils.isBlank(getPhone())) {
                     ToastUtil.customAlert(ChangeBindPhoneActivity2.this, "请先输入手机号码");
                 } else {
-                    bindpresenter.sendCode(ChangeBindPhoneActivity2.this);
+                    if (!ValifyUtil.valifyPhoneNum(getPhone())) {
+                        ToastUtil.customAlert(ChangeBindPhoneActivity2.this, "手机号码格式不对");
+                    } else
+                        bindpresenter.sendCode(ChangeBindPhoneActivity2.this);
                 }
                 break;
             case R.id.back_layout:

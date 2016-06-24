@@ -101,7 +101,7 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
         et_phone.addTextChangedListener(tw);
     }
     private void valify(){
-        if (!StringUtils.testBlankAll(et_name.getText().toString(), et_card.getText().toString())
+        if (ValifyUtil.valifySpecial(et_name.getText().toString().trim())&&!StringUtils.testBlankAll(et_name.getText().toString(), et_card.getText().toString())
                 && ValifyUtil.valifyPhoneNum(et_phone.getText().toString()) && bselected && !StringUtils.isBlank(id)&&!isRead) {
             ValifyUtil.setEnabled(mFinish, true);
         } else {
@@ -117,7 +117,7 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
         et_name = (EditText) findViewById(R.id.et_name);
         rl_bank = (RelativeLayout) findViewById(R.id.rl_bank);
         tv_bank = (TextView) findViewById(R.id.tv_bank);
-        mTitle.setText("实名认证");
+        mTitle.setText("绑定银行卡");
 
         et_card = (EditText) findViewById(R.id.et_card);
         mShowPswd = (ImageView) findViewById(R.id.img_showpswd);

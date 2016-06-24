@@ -35,6 +35,7 @@ import com.laxiong.Mvp_presenter.UserCount_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Mvp_view.IViewCount;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.User;
 import com.gongshidai.mistGSD.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -133,8 +134,16 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
             mRl_NoBindCard.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(CountSettingActivity.this,
-                            TrueNameActivity1.class));
+                    if (!user.is_idc()) {
+                        startActivity(new Intent(CountSettingActivity.this,
+                                TrueNameActivity1.class));
+                    } else if (!user.isPay_pwd()) {
+                        startActivity(new Intent(CountSettingActivity.this,
+                                TrueNameActivity2.class));
+                    } else if (user.getBankcount() == 0) {
+                        startActivity(new Intent(CountSettingActivity.this,
+                                TrueNameActivity3.class));
+                    }
                 }
             });
         }

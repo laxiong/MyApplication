@@ -26,8 +26,6 @@ import com.laxiong.Utils.StringUtils;
 import com.laxiong.View.PayPop;
 import com.laxiong.entity.Banner;
 import com.laxiong.service.DownService;
-import com.loopj.android.http.RequestParams;
-import com.squareup.okhttp.FormEncodingBuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -81,7 +79,7 @@ public class MainPage_Presenter implements OnLoadBasicListener<Banner>, OnLoadBc
         if (dialog != null)
             dialog = null;
         DialogUtils.bgalpha(context, 0.3f);
-        final View view = LayoutInflater.from(context).inflate(R.layout.recupdate_dialog, null);
+        final View view = LayoutInflater.from(context).inflate(R.layout.recupdate_dialog,null);
         TextView tv_cancel = (TextView) view.findViewById(R.id.tv_cancel);
         TextView tv_confirm = (TextView) view.findViewById(R.id.tv_confirm);
         TextView tv_content = (TextView) view.findViewById(R.id.tv_content);
@@ -121,7 +119,6 @@ public class MainPage_Presenter implements OnLoadBasicListener<Banner>, OnLoadBc
         intent.setAction("com.download.action");
         context.startService(intent);
     }
-
     @Override
     public void onSuccss(UpdateInfo obj) {
         iViewBasic.loadUpdateInfo(obj);

@@ -1,5 +1,6 @@
 package com.laxiong.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,6 +22,8 @@ import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.SpUtils;
+import com.laxiong.Utils.ToastUtil;
+import com.laxiong.Utils.ValifyUtil;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -99,7 +102,13 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener {
                 if (Common.inputContentNotNull(code) && Common.inputContentNotNull(name) && Common.inputContentNotNull(idcard)
                         ) {
                     if (isRead) {
-                        getNet();
+                        if (!ValifyUtil.valifyName(TrueNameActivity1.this,name)) {
+//                            ToastUtil.customAlert(TrueNameActivity1.this, "姓名不能包含非法字符");
+                        } else if (!ValifyUtil.valifyIdenti(idcard)) {
+                            ToastUtil.customAlert(TrueNameActivity1.this, "身份证号不合法");
+                        } else {
+                            getNet();
+                        }
                     } else {
                         Toast.makeText(TrueNameActivity1.this, "请选中以下协议", Toast.LENGTH_SHORT).show();
                     }
@@ -149,9 +158,10 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener {
             valify();
         }
     };
-    private void valify(){
-        if (!TextUtils.isEmpty(mCode.getText().toString()) && !TextUtils.isEmpty(mIDcard.getText().toString())
-                && !TextUtils.isEmpty(mName.getText().toString())&&isRead) {
+
+    private void valify() {
+        if (!TextUtils.isEmpty(mName.getText().toString())&&ValifyUtil.valifyName(this, mName.getText().toString()) && !TextUtils.isEmpty(mIDcard.getText().toString())
+                &&ValifyUtil.valifyIdenti(mIDcard.getText().toString())&&!TextUtils.isEmpty(mCode.getText().toString()) && isRead) {
             mNextPage.setEnabled(true);
             mNextPage.setBackgroundResource(R.drawable.button_change_bg_border);
         } else {
@@ -159,6 +169,7 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener {
             mNextPage.setBackgroundResource(R.drawable.button_grey_corner_border);
         }
     }
+
     int count;
     boolean stopThread;
 
@@ -229,7 +240,7 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener {
     // 点击下一步的反回数据到后台
     private void getNet() {
         RequestParams params = new RequestParams();
-        params.put("type", "real");
+        params.put("type", "reals");
         params.put("realname", mName.getText().toString().trim());
         params.put("idc", mIDcard.getText().toString().trim());
         params.put("code", mCode.getText().toString().trim());
@@ -244,6 +255,7 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener {
                             Toast.makeText(TrueNameActivity1.this, "认证第一步成功", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(TrueNameActivity1.this,
                                     TrueNameActivity2.class));
+                            TrueNameActivity1.this.finish();
                         } else {
                             Toast.makeText(TrueNameActivity1.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
                         }

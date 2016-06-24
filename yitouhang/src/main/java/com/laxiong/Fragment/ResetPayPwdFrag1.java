@@ -64,7 +64,7 @@ public class ResetPayPwdFrag1 extends Fragment implements View.OnClickListener {
         TextWatcher watcher = new BasicWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (!StringUtils.isBlank(et_name.getText().toString())&&ValifyUtil.valifyIdenti(et_identi.getText().toString())) {
+                if (!StringUtils.isBlank(et_name.getText().toString())&&ValifyUtil.valifyName(getActivity(),et_name.getText().toString())&&ValifyUtil.valifyIdenti(et_identi.getText().toString())) {
                     ValifyUtil.setEnabled(mNextPage,true);
                 } else {
                     ValifyUtil.setEnabled(mNextPage, false);

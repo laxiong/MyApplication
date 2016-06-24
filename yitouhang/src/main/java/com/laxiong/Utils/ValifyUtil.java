@@ -30,7 +30,7 @@ public class ValifyUtil {
 
     public static boolean toastResult2(Context context, String pwd) {
         Pattern p = Pattern.compile("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$");
-        String regEx = "[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*]";
+        String regEx = ".*[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*].*";
         Pattern p3 = Pattern.compile(regEx);
         Matcher mat = p.matcher(pwd);
         Matcher mat3 = p3.matcher(pwd);
@@ -44,10 +44,36 @@ public class ValifyUtil {
             return true;
         }
     }
-
+    public static boolean valifyName(Context context,String str){
+        boolean flag=Pattern.compile(".*\\d.*").matcher(str).matches();
+        if(flag) {
+            ToastUtil.customAlert(context, "姓名不能包含数字");
+            return false;
+        }
+        return valifySpecial(context, str);
+    }
+    public static boolean valifySpecial(Context context,String str){
+        String regEx = ".*[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*].*";
+        Pattern p=Pattern.compile(regEx);
+        Matcher mat=p.matcher(str);
+        if(mat.matches()){
+            ToastUtil.customAlert(context,"不能包含特殊字符");
+            return false;
+        }
+        return true;
+    }
+    public static boolean valifySpecial(String str){
+        String regEx = ".*[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*].*";
+        Pattern p=Pattern.compile(regEx);
+        Matcher mat=p.matcher(str);
+        if(mat.matches()){
+            return false;
+        }
+        return true;
+    }
     public static void toastResult(Context context, String pwd) {
         Pattern p = Pattern.compile("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$");
-        String regEx = "[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*]";
+        String regEx = ".*[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*].*";
         Pattern p3 = Pattern.compile(regEx);
         Matcher mat = p.matcher(pwd);
         Matcher mat3 = p3.matcher(pwd);
@@ -71,7 +97,7 @@ public class ValifyUtil {
 //        Pattern p=Pattern.compile("[0-9a-zA-Z]{6,20}");
 //        return false;
         Pattern p = Pattern.compile("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$");
-        String regEx = "[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*]";
+        String regEx = ".*[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*].*";
         Pattern p3 = Pattern.compile(regEx);
         Matcher mat = p.matcher(pwd);
         Matcher mat3 = p3.matcher(pwd);
@@ -108,7 +134,7 @@ public class ValifyUtil {
             return false;
         }
         Pattern p = Pattern.compile("^((14[7])|(13[0-9])|(15[^4,\\D])|(18[0,1,2,3,5-9]))\\d{8}$");
-        Pattern p2 = Pattern.compile("\\s*");
+        Pattern p2 = Pattern.compile(".*\\s.*");
         Matcher m = p.matcher(phone);
         Matcher m2 = p2.matcher(phone);
         return !StringUtils.isBlank(phone) && m.matches() && !m2.matches();

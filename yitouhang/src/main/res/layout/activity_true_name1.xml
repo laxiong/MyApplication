@@ -238,6 +238,7 @@
                 android:id="@+id/trueCode"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:inputType="number"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/tv3"

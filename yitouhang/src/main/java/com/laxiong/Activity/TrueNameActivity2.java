@@ -64,7 +64,7 @@ public class TrueNameActivity2 extends BaseActivity implements OnClickListener, 
         mNextPage = (TextView) findViewById(R.id.nextpager);
         mBack = (FrameLayout) findViewById(R.id.back_layout);
         TextView mTitle = (TextView) findViewById(R.id.title);
-        mTitle.setText("实名认证");
+        mTitle.setText("设置支付密码");
 
         mShowPswd = (ImageView) findViewById(R.id.img_showpswd);
         mPswdEd = (EditText) findViewById(R.id.pswd);

@@ -55,9 +55,8 @@ public class ChangeBindPhoneActivity1 extends BaseActivity implements OnClickLis
         TextWatcher tw = new BasicWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (!StringUtils.isBlank(et_pwd.getText().toString()) &&
-                        !StringUtils.isBlank(et_name.getText().toString())
-                        && ValifyUtil.valifyIdenti(et_identi.getText().toString())) {
+                if (!StringUtils.isBlank(et_name.getText().toString())&&ValifyUtil.valifyName(ChangeBindPhoneActivity1.this,et_name.getText().toString().trim())&&!StringUtils.isBlank(et_pwd.getText().toString()) &&
+                        ValifyUtil.valifyIdenti(et_identi.getText().toString())&&ValifyUtil.valifyPwd(et_pwd.getText().toString().trim())) {
                     ValifyUtil.setEnabled(nextPage, true);
                 } else {
                     ValifyUtil.setEnabled(nextPage, false);
