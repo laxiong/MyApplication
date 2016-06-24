@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
  * Types ValifyUtil.java
  */
 public class ValifyUtil {
+    //验证身份证号
     public static boolean valifyIdenti(String identi) {
         Pattern idNumPattern = Pattern.compile("(\\d{14}[0-9a-zA-Z])|(\\d{17}[0-9a-zA-Z])");
         Matcher pm = idNumPattern.matcher(identi);
@@ -27,7 +28,7 @@ public class ValifyUtil {
             return true;
         return false;
     }
-
+    //带提示的密码验证
     public static boolean toastResult2(Context context, String pwd) {
         Pattern p = Pattern.compile("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$");
         String regEx = ".*[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*].*";
@@ -44,6 +45,7 @@ public class ValifyUtil {
             return true;
         }
     }
+    //带提示的名字验证不包含数字也不能有特殊字符
     public static boolean valifyName(Context context,String str){
         boolean flag=Pattern.compile(".*\\d.*").matcher(str).matches();
         if(flag) {
@@ -52,6 +54,7 @@ public class ValifyUtil {
         }
         return valifySpecial(context, str);
     }
+    //带提示的不包含特殊字符的验证
     public static boolean valifySpecial(Context context,String str){
         String regEx = ".*[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*].*";
         Pattern p=Pattern.compile(regEx);
@@ -62,6 +65,7 @@ public class ValifyUtil {
         }
         return true;
     }
+    //不带提示的特殊字符验证
     public static boolean valifySpecial(String str){
         String regEx = ".*[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*].*";
         Pattern p=Pattern.compile(regEx);
@@ -71,6 +75,7 @@ public class ValifyUtil {
         }
         return true;
     }
+    //带提示无返回值的密码验证
     public static void toastResult(Context context, String pwd) {
         Pattern p = Pattern.compile("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$");
         String regEx = ".*[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*].*";
@@ -83,7 +88,7 @@ public class ValifyUtil {
             ToastUtil.customAlert(context, "密码为6~20位数字和密码组合");
         }
     }
-
+    //密码验证带返回值无提示
     public static boolean valifyPwd(String pwd) {
 //        Pattern pat = Pattern.compile("[\\da-zA-Z]{6,20}");
 //        Pattern patno = Pattern.compile(".*\\d.*");
@@ -115,7 +120,7 @@ public class ValifyUtil {
 //        }
         return mat.matches() && !mat3.matches();
     }
-
+    //登录判断
     public static boolean judgeLogin() {
         User user = YiTouApplication.getInstance().getUser();
         if (user == null) {
@@ -123,12 +128,12 @@ public class ValifyUtil {
         } else
             return true;
     }
-
+    //设置按钮是否可用
     public static void setEnabled(View view, boolean flag) {
         view.setEnabled(flag);
         view.setBackgroundResource(flag ? R.drawable.button_change_bg_border : R.drawable.button_grey_corner_border);
     }
-
+    //不带提示有返回值的手机号验证
     public static boolean valifyPhoneNum(String phone) {
         if(phone.length()!=11){
             return false;
@@ -139,7 +144,7 @@ public class ValifyUtil {
         Matcher m2 = p2.matcher(phone);
         return !StringUtils.isBlank(phone) && m.matches() && !m2.matches();
     }
-
+    //判断是否初始化
     public static boolean judgeInit(Context context) {
         SharedPreferences sp = SpUtils.getSp(context);
         String userlogin = SpUtils.getStrValue(sp, SpUtils.USERLOGIN_KEY);
