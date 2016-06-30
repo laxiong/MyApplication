@@ -19,10 +19,11 @@ import com.squareup.okhttp.Request;
 
 public class HttpUtil2 {
     public static OkHttpClient client=new OkHttpClient();
-    public static Request.Builder request=new Request.Builder();
+    public static Request.Builder request;
     public final static String CONTENT_TYPE = "application/x-www-form-urlencoded";
     public static void put(String urlString,FormEncodingBuilder builder,Callback callback, String authorization) {
         checkNet();
+        request=new Request.Builder();
         request.addHeader("client", "android");
         request.addHeader("ACCEPT", "*/*");
         request.addHeader("Authorization", "Basic " + authorization);
@@ -34,6 +35,7 @@ public class HttpUtil2 {
     }
     public static void put(String urlString,FormEncodingBuilder builder,Callback callback) {
         checkNet();
+        request=new Request.Builder();
         request.addHeader("client", "android");
         request.addHeader("ACCEPT", "*/*");
         request.addHeader("Content-Type", CONTENT_TYPE);
@@ -44,6 +46,7 @@ public class HttpUtil2 {
     }
     public static void get(String urlString,Callback callback){
         checkNet();
+        request=new Request.Builder();
         request.addHeader("imei", getIdentifier());
         request.addHeader("client", "android");
         request.addHeader("ACCEPT", "*/*");
@@ -54,6 +57,7 @@ public class HttpUtil2 {
     }
     public static void post(String urlString,FormEncodingBuilder builder,Callback callback){
         checkNet();
+        request=new Request.Builder();
         request.addHeader("imei", getIdentifier());
         request.addHeader("client", "android");
         request.addHeader("ACCEPT", "*/*");
@@ -65,6 +69,7 @@ public class HttpUtil2 {
     public static void get(String urlString,Callback callback, String authorization) // 用一个完整url获取一个string对象
     {
         checkNet();
+        request=new Request.Builder();
         request.addHeader("imei", getIdentifier());
         request.addHeader("client", "android");
         request.addHeader("ACCEPT", "*/*");
@@ -77,6 +82,7 @@ public class HttpUtil2 {
     public static void post(String urlString,FormEncodingBuilder builder,Callback callback, String authorization) // 用一个完整url获取一个string对象
     {
         checkNet();
+        request=new Request.Builder();
         request.addHeader("imei", getIdentifier());
         request.addHeader("client", "android");
         request.addHeader("ACCEPT", "*/*");
@@ -89,6 +95,7 @@ public class HttpUtil2 {
     public static void post(String url,FormEncodingBuilder builder,Callback callback,
                             boolean needBear) {
         checkNet();
+        request=new Request.Builder();
         request.addHeader("imei", getIdentifier());
         request.addHeader("client", "android");
         request.addHeader("ACCEPT", "*/*");

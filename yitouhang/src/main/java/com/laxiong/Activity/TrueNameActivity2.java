@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Basic.BasicWatcher;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
@@ -43,6 +44,7 @@ public class TrueNameActivity2 extends BaseActivity implements OnClickListener, 
     @Override
     public void reqbackSuc(String tag) {
         ToastUtil.customAlert(this, "设置支付密码成功!");
+        YiTouApplication.getInstance().getUser().setPay_pwd(true);
         startActivity(new Intent(TrueNameActivity2.this,
                 TrueNameActivity3.class));
         this.finish();

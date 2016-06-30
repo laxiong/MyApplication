@@ -45,7 +45,7 @@ public class BankListActivity extends BaseActivity implements IViewCardList {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (id == -1)
                     return;
-                Intent intent = new Intent();
+                Intent intent = getIntent();
                 intent.putExtra("bankname", listitem.get(position).getName());
                 intent.putExtra("id",listitem.get(position).getId());
                 setResult(RESULT_OK, intent);

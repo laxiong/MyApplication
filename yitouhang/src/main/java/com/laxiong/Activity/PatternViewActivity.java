@@ -6,10 +6,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -23,14 +27,17 @@ import com.laxiong.Mvp_presenter.UserCount_Presenter;
 import com.laxiong.Mvp_view.IViewCount;
 import com.laxiong.Mvp_view.IViewExit;
 import com.laxiong.Utils.CommonReq;
+import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
+import com.laxiong.View.PayPop;
 import com.laxiong.entity.UserLogin;
 import com.laxiong.fund.widget.GestureContentView;
 import com.laxiong.fund.widget.GestureDrawline.GestureCallBack;
 import com.gongshidai.mistGSD.R;
-public class PatternViewActivity extends BaseActivity implements OnClickListener,IViewExit {
+
+public class PatternViewActivity extends BaseActivity implements OnClickListener, IViewExit {
     /***
      * 设置手势密码
      */
@@ -43,7 +50,7 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
     /**
      * 意图
      */
-
+    private PayPop dialog;
     private RelativeLayout mTopLayout;
     private TextView mTextTitle;
     private TextView mTextCancel;
@@ -59,8 +66,9 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
     private int mParamIntentCode;
     private String gestruepswd;  // 手势密码
     private int times;
-    private static final int TIMES_ERROR=5;
+    private static final int TIMES_ERROR = 5;
     private Exit_Presenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,10 +87,10 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
     public void logoutsuccess() {
         YiTouApplication.getInstance().setUserLogin(null);
         YiTouApplication.getInstance().setUser(null);
-        SharedPreferences sp=SpUtils.getSp(this);
+        SharedPreferences sp = SpUtils.getSp(this);
         SpUtils.saveStrValue(sp, SpUtils.USERLOGIN_KEY, "");
         SpUtils.saveStrValue(sp, SpUtils.USER_KEY, "");
-        SpUtils.saveStrValue(sp,SpUtils.GESTURE_KEY,"");
+        SpUtils.saveStrValue(sp, SpUtils.GESTURE_KEY, "");
         Toast.makeText(this, "请重新登录", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, ChangeCountActivity.class);
         startActivity(intent);
@@ -94,7 +102,7 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
 
         // TODO 获取登录的手势密码,在启动页里  第一次打开app进入ModifyGestrueActivity这个类，设置初始手势密码   之后的在这里校验
 //        gestruepswd = getSharedPreferences(Common.sharedPrefName, Context.MODE_PRIVATE).getString("patternstring", "");
-        presenter=new Exit_Presenter(this);
+        presenter = new Exit_Presenter(this);
         gestruepswd = SpUtils.getSp(this).getString(SpUtils.GESTURE_KEY, "");
         mGestureContentView = new GestureContentView(this, true, gestruepswd,
                 new GestureCallBack() {
@@ -117,14 +125,14 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
                     @Override
                     public void checkedFail() {
                         times++;
-                        if(times>= TIMES_ERROR){
+                        if (times >= TIMES_ERROR) {
                             presenter.exit(PatternViewActivity.this);
                             return;
                         }
                         mGestureContentView.clearDrawlineState(1300L);
                         mTextTip.setVisibility(View.VISIBLE);
                         mTextTip.setText(Html
-                                .fromHtml("<font color='#c70c1e'>密码错误,还有"+(TIMES_ERROR-times)+"次机会</font>"));
+                                .fromHtml("<font color='#c70c1e'>密码错误,还有" + (TIMES_ERROR - times) + "次机会</font>"));
                         // 左右移动动画
                         Animation shakeAnimation = AnimationUtils.loadAnimation(PatternViewActivity.this, R.anim.shake);
                         mTextTip.startAnimation(shakeAnimation);
@@ -180,16 +188,11 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.text_forget_gesture:
-
-                startActivity(new Intent(PatternViewActivity.this,
-                        ModifyGestureActivity.class));
-
+                startActivity(new Intent(PatternViewActivity.this,ChangeCountActivity.class));
                 break;
             case R.id.text_other_account:
-
                 startActivity(new Intent(PatternViewActivity.this,
                         ChangeCountActivity.class));
-
                 break;
             default:
                 break;

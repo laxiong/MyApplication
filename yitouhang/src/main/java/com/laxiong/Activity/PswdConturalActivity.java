@@ -70,23 +70,36 @@ public class PswdConturalActivity extends BaseActivity implements OnClickListene
 
     @Override
     public void onClick(View V) {
+        User user = YiTouApplication.getInstance().getUser();
+        if (user == null) {
+            startActivity(new Intent(PswdConturalActivity.this, ChangeCountActivity.class));
+            return;
+        }
         switch (V.getId()) {
             case R.id.changeloginpswd:    /**登录密码**/
                 startActivity(new Intent(PswdConturalActivity.this,
                         ChangeLoginPswdActivity.class));
                 break;
             case R.id.changepaypswd:   /**修改支付密码**/
-                showChangePayPswd(V);
+                if (user.is_idc()&&user.isPay_pwd()) {
+                    showChangePayPswd(V);
+                }else{
+                    ToastUtil.customAlert(PswdConturalActivity.this,"尚未认证");
+                }
                 break;
             case R.id.resetpaypswd:  /**重置支付密码**/
-                startActivity(new Intent(PswdConturalActivity.this,
-                        ResetPayPwdActivity.class));
+                if (user.is_idc())
+                    startActivity(new Intent(PswdConturalActivity.this,
+                            ResetPayPwdActivity.class));
+                else {
+                    ToastUtil.customAlert(PswdConturalActivity.this, "尚未认证");
+                }
                 break;
             case R.id.changegesturepswd: /**修改手势密码**/
 
                 Intent intent = new Intent(PswdConturalActivity.this,
                         ModifyGestureActivity.class);
-                intent.putExtra("setting",true);
+                intent.putExtra("setting", true);
                 startActivityForResult(intent, 1001);
 
                 break;
@@ -114,10 +127,10 @@ public class PswdConturalActivity extends BaseActivity implements OnClickListene
                 dialog.dismiss();
             }
         });
-        DisplayMetrics metrix=new DisplayMetrics();
+        DisplayMetrics metrix = new DisplayMetrics();
         getWindow().getWindowManager().getDefaultDisplay().getMetrics(metrix);
-        int y=(int)(1.0f*metrix.heightPixels/5);
-        dialog.showAtLocation(parent, Gravity.TOP, 0,y);
+        int y = (int) (1.0f * metrix.heightPixels / 5);
+        dialog.showAtLocation(parent, Gravity.TOP, 0, y);
     }
 
     // 成功修改手势密码 后

@@ -13,6 +13,7 @@ import com.laxiong.entity.UserLogin;
 import com.umeng.socialize.PlatformConfig;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.text.TextUtils;
@@ -27,7 +28,9 @@ public class YiTouApplication extends Application {
     private User user;
     private boolean flag = true;
 
-
+    public static Context getContext(){
+        return getInstance().getApplicationContext();
+    }
     public UserLogin getUserLogin() {
         synchronized (YiTouApplication.class) {
             if (userLogin == null) {

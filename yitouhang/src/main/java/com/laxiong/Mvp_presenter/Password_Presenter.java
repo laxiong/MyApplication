@@ -15,6 +15,7 @@ import com.laxiong.Mvp_view.IViewChangePwd;
 import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Mvp_view.IViewReBackPwd;
 import com.laxiong.Utils.CommonReq;
+import com.laxiong.Utils.CommonUtils;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.StringUtils;
@@ -51,6 +52,67 @@ public class Password_Presenter {
 
     public Password_Presenter(IViewCommonBack iviewreset) {
         this.iviewresetpay = iviewreset;
+    }
+    public void valifyCode(final Context context,String code){
+        FormEncodingBuilder builder=new FormEncodingBuilder();
+        builder.add("code",code);
+        HttpUtil2.post(InterfaceInfo.JGCODE_URL, builder, new Callback() {
+            @Override
+            public void onResponse2(JSONObject response) {
+                if (response != null) {
+                    try {
+                        if (response.getInt("code") == 0) {
+                            iviewresetpay.reqbackSuc("vali");
+                        } else if (response.getInt("code") == 401) {
+                            CommonReq.showReLoginDialog(context);
+                        } else {
+                            iviewresetpay.reqbackFail(response.getString("msg"), "");
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        iviewresetpay.reqbackFail(e.toString(), "");
+                    }
+                } else {
+                    iviewresetpay.reqbackFail("无响应", "");
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                iviewresetpay.reqbackFail(msg, "");
+            }
+        },CommonReq.getAuthori(context));
+    }
+    public void valifyIdenti(final Context context, String realname, String idc) {
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        builder.add("idc", idc);
+        builder.add("realname", realname);
+        HttpUtil2.post(InterfaceInfo.JGIDC_URL, builder, new Callback() {
+            @Override
+            public void onResponse2(JSONObject response) {
+                if (response != null) {
+                    try {
+                        if (response.getInt("code") == 0) {
+                            iviewresetpay.reqbackSuc("");
+                        } else if (response.getInt("code") == 401) {
+                            CommonReq.showReLoginDialog(context);
+                        } else {
+                            iviewresetpay.reqbackFail(response.getString("msg"), "");
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        iviewresetpay.reqbackFail(e.toString(), "");
+                    }
+                } else {
+                    iviewresetpay.reqbackFail("无响应", "");
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                iviewresetpay.reqbackFail(msg, "");
+            }
+        }, CommonReq.getAuthori(context));
     }
 
     public void reqResetPayPwd(final Context context, String name, String vali, String identi, String newpwd) {
@@ -161,7 +223,7 @@ public class Password_Presenter {
                     iviewresetpay.reqbackFail("错误,无响应", null);
                 }
             }
-        });
+        },autori);
 //        HttpUtil.post(InterfaceInfo.CODE_URL, params, new JsonHttpResponseHandler() {
 //            @Override
 //            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

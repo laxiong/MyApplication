@@ -66,10 +66,7 @@ public class ChangeCountActivity extends BaseActivity implements OnClickListener
 
     @Override
     public void loginsuccess() {
-        Toast.makeText(this, "登录成功", Toast.LENGTH_LONG).show();
-//        Intent intent = new Intent(this, MainActivity.class);
-//        this.startActivity(intent);
-//        finish();
+        Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(this,ModifyGestureActivity.class);
         startActivity(intent);
         finish();

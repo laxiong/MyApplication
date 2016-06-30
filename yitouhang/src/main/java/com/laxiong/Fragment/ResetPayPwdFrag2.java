@@ -47,8 +47,13 @@ public class ResetPayPwdFrag2 extends Fragment implements View.OnClickListener, 
 
     @Override
     public void reqbackSuc(String tag) {
-        timepresenter.loadHandlerTimer(Constants.INTERVAL,Constants.TIME);
-        ToastUtil.customAlert(getActivity(), "获取验证码成功");
+        if("vali".equals(tag)){
+            ResetPayPwdFrag3 f3 = new ResetPayPwdFrag3();
+            ((ResetPayPwdActivity) getActivity()).setFragment(f3, "flag3");
+        }else {
+            timepresenter.loadHandlerTimer(Constants.INTERVAL, Constants.TIME);
+            ToastUtil.customAlert(getActivity(), "获取验证码成功");
+        }
     }
 
     @Override
@@ -112,8 +117,7 @@ public class ResetPayPwdFrag2 extends Fragment implements View.OnClickListener, 
             case R.id.nextpage:
                 if (intersecond != null)
                     intersecond.recordVali(et_vali.getText().toString());
-                ResetPayPwdFrag3 f3 = new ResetPayPwdFrag3();
-                ((ResetPayPwdActivity) getActivity()).setFragment(f3, "flag3");
+                presenter.valifyCode(getActivity(),et_vali.getText().toString());
                 break;
         }
     }

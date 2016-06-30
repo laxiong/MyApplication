@@ -115,11 +115,11 @@
 
         <!-- 实名认证 -->
         <activity android:name="com.laxiong.Activity.TrueNameActivity1"
-            android:launchMode="singleTask"/>
+           />
         <activity android:name="com.laxiong.Activity.TrueNameActivity2"
-            android:launchMode="singleTask"/>
+            />
         <activity android:name="com.laxiong.Activity.TrueNameActivity3"
-            android:launchMode="singleTask"/>
+           />
 
         <!-- 修改手机号 -->
         <activity android:name="com.laxiong.Activity.ChangeBindPhoneActivity1"
@@ -131,7 +131,7 @@
 
         <!--我的银行卡-->
         <activity android:name="com.laxiong.Activity.MyBandBankCardActivity"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTop"/>
 
         <activity android:name="com.laxiong.Activity.RecordDetailActivity"
             android:launchMode="singleTask"/>
@@ -221,7 +221,7 @@
             android:launchMode="singleTask"/>
         <!-- 福利中心 -->
         <activity android:name="com.laxiong.Activity.WelCenterActivity"
-            android:launchMode="singleTop"/>
+          />
         <!-- 红包解释 -->
         <activity android:name="com.laxiong.Activity.RpExplainActivity"
             android:launchMode="singleTask"/>
@@ -265,8 +265,7 @@
         <!--*****************************************************UMENG_APPKEY*******************************************************-->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="55cbf02e67e58e5b890019af"/>
-        <!--*****************************************************UMENG_APPKEY*******************************************************-->
+            android:value="57708ecd67e58ecdc1000e93"/>
 
         <activity android:name="com.laxiong.Activity.YibiDetailActivity"
             android:launchMode="singleTask"/>

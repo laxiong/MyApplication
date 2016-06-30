@@ -24,7 +24,7 @@ public class TransferInResultActivity extends BaseActivity implements OnClickLis
 	 * 转入结果界面
 	 */
 	private FrameLayout mBack ;
-	private TextView mBankName,mTransferInMoney,mTransferInDate;
+	private TextView mBankName,mTransferInMoney,mTransferInDate,tv_ok;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,7 +46,7 @@ public class TransferInResultActivity extends BaseActivity implements OnClickLis
 		mTransferInMoney = (TextView)findViewById(R.id.tranferin_money);
 		mBack = (FrameLayout)findViewById(R.id.back_layout);
 		mTransferInDate =(TextView)findViewById(R.id.tranferin_date);
-
+		tv_ok= (TextView) findViewById(R.id.tv_ok);
 		String money = getIntent().getStringExtra("money");
 		mTransferInMoney.setText(money);
 		SharedPreferences sxtff = getSharedPreferences("SXT_DATE", Context.MODE_PRIVATE);
@@ -60,6 +60,9 @@ public class TransferInResultActivity extends BaseActivity implements OnClickLis
 	public void onClick(View v) {
 		switch(v.getId()){
 			case R.id.back_layout:
+				this.finish();
+				break;
+			case R.id.tv_ok:
 				this.finish();
 				break;
 		}

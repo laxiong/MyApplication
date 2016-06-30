@@ -9,11 +9,13 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
@@ -34,8 +36,10 @@ import com.laxiong.Mvp_presenter.Login_Presenter;
 import com.laxiong.Mvp_presenter.UserCount_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Mvp_view.IViewCount;
+import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.ToastUtil;
+import com.laxiong.View.PayPop;
 import com.laxiong.entity.User;
 import com.gongshidai.mistGSD.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -53,6 +57,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
     private Login_Presenter presenter;
     private TextView tv_username, tv_version, tv_unread, tv_dstatus;
     private User user;
+    private PayPop dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -223,7 +228,6 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         mAboutUs = (RelativeLayout) findViewById(R.id.rel_aboutus);//关于我们
         mGuanData = (RelativeLayout) findViewById(R.id.guandata); //官方数据
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

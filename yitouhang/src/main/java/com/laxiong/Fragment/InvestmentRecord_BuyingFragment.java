@@ -118,7 +118,7 @@ public class InvestmentRecord_BuyingFragment extends Fragment implements IViewIn
                 lvlist.setAdapter(adapter);
                 showLoadView(true);
                 presenter = new InvestDetail_Presenter(this);
-                presenter.loadInvestView(LIMIT, ++pagenow, "buy", getActivity());
+                presenter.loadInvestView(LIMIT,pagenow++, "buy", getActivity());
             }
 
             @Override

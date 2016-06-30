@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">共识理财</string>
+    <string name="app_name">车友理财</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="appname">共识理财</string>
+    <string name="appname">车友理财</string>
     <string name="listfooterview_normal">查看更多</string>
     <string name="listfooterview_ready">松开载入更多</string>
     <string name="hall">积分商城</string>

@@ -104,6 +104,8 @@ public class FinancingListView extends ListView implements AbsListView.OnScrollL
         headView.setPadding(0, -height, 0, 0);
         addHeaderView(headView);
     }
+
+
     public void setLoadMoreEnabled(boolean flag){
         this.canload=flag;
     }
@@ -111,6 +113,8 @@ public class FinancingListView extends ListView implements AbsListView.OnScrollL
     public boolean onTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                if(currentState==PULL_REFRESH)
+                    return true;
                 downY = (int) ev.getY();
                 getParent().requestDisallowInterceptTouchEvent(true);
                 break;

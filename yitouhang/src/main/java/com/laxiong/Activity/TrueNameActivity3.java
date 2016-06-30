@@ -19,9 +19,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gongshidai.mistGSD.R;
+import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Basic.BasicWatcher;
 import com.laxiong.Mvp_presenter.BankCard_Presenter;
 import com.laxiong.Mvp_view.IViewBindCard;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
@@ -71,6 +73,8 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
     @Override
     public void reqbackSuc(String tag) {
         if (BankCard_Presenter.TYPE_CARD.equals(tag)) {
+            CommonReq.reqUserMsg(this);
+            YiTouApplication.getInstance().getUser().setBankcount(1);
             ToastUtil.customAlert(this, "绑定银行卡成功!");
             showFinishDialog();
         }
@@ -102,7 +106,7 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
     }
     private void valify(){
         if (ValifyUtil.valifySpecial(et_name.getText().toString().trim())&&!StringUtils.testBlankAll(et_name.getText().toString(), et_card.getText().toString())
-                && ValifyUtil.valifyPhoneNum(et_phone.getText().toString()) && bselected && !StringUtils.isBlank(id)&&!isRead) {
+                && ValifyUtil.valifyPhoneNum(et_phone.getText().toString()) && bselected && !StringUtils.isBlank(id)&&isRead) {
             ValifyUtil.setEnabled(mFinish, true);
         } else {
             ValifyUtil.setEnabled(mFinish, false);
@@ -162,15 +166,15 @@ public class TrueNameActivity3 extends BaseActivity implements OnClickListener, 
     /***
      * 阅读协议
      */
-    boolean isRead = true;
+    boolean isRead = false;
 
     private void readProtocol() {
-        if (isRead) {
-            toggleRead.setImageResource(R.drawable.img_no_read);
-            isRead = false;
-        } else {
+        if (!isRead) {
             toggleRead.setImageResource(R.drawable.img_read);
             isRead = true;
+        } else {
+            toggleRead.setImageResource(R.drawable.img_no_read);
+            isRead = false;
         }
         valify();
     }

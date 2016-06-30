@@ -193,7 +193,6 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 
                 if (response != null) {
                     try {
-                        Log.i("URL", "code码：=" + response.getInt("code"));
                         if (response.getInt("code") == 0) {
                             mGetCode.setClickable(false);
                             Toast.makeText(RegistActivity.this, "成功获取验证码", Toast.LENGTH_SHORT).show();
@@ -274,10 +273,14 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
                             }
                             ToastUtil.customAlert(RegistActivity.this,"注册成功");
                             savaUseInfo();
-                            startActivity(new Intent(RegistActivity.this, ModifyGestureActivity.class));
+                            startActivity(new Intent(RegistActivity.this, ChangeCountActivity.class));
                             RegistActivity.this.finish();
                         } else {
                             if (response.getString("msg") != null) {
+                                if(mLoadDialog!=null&&mLoadDialog.isShowing()){
+                                    mLoadDialog.dismiss();
+                                    mLoadDialog = null ;
+                                }
                                 ToastUtil.customAlert(RegistActivity.this, response.getString("msg"));
                             }
                         }
@@ -337,7 +340,6 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
             if (Common.inputPswdCount(mPswdEd.getText().toString().trim())) {
                 mRegistBtn.setEnabled(true);
                 mRegistBtn.setBackgroundResource(R.drawable.button_change_bg_border);
-
             } else {
                 mRegistBtn.setEnabled(false);
                 mRegistBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
@@ -354,7 +356,6 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
         SharedPreferences.Editor editor = prefer.edit();
         editor.putString("useCount", mPhoneEd.getText().toString().replaceAll(" ", ""));
         editor.commit();
-        Toast.makeText(RegistActivity.this, mPhoneEd.getText().toString().replaceAll(" ", ""), Toast.LENGTH_SHORT).show();
     }
 
 

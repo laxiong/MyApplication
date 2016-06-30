@@ -23,7 +23,7 @@ public class ToastUtil {
         TextView tv_msg = (TextView) view.findViewById(R.id.tv_msg);
         tv_msg.setText(msg);
         toast.setView(view);
-        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
     }

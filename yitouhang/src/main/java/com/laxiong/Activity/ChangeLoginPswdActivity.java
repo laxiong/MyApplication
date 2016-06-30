@@ -17,6 +17,9 @@ import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewChangePwd;
 import com.laxiong.Utils.StringUtils;
 import com.gongshidai.mistGSD.R;
+import com.laxiong.Utils.ToastUtil;
+import com.laxiong.Utils.ValifyUtil;
+
 public class ChangeLoginPswdActivity extends BaseActivity implements OnClickListener, IViewChangePwd {
     /***
      * 修改登录密码
@@ -61,7 +64,7 @@ public class ChangeLoginPswdActivity extends BaseActivity implements OnClickList
 
     @Override
     public void updateFailure(String msg) {
-        Toast.makeText(this, "密码修改失败", Toast.LENGTH_LONG).show();
+        Toast.makeText(this,msg, Toast.LENGTH_LONG).show();
     }
 
     private void initView() {
@@ -81,6 +84,12 @@ public class ChangeLoginPswdActivity extends BaseActivity implements OnClickList
             Toast.makeText(this, "新旧密码不能为空", Toast.LENGTH_LONG).show();
             return false;
         }
+        if(!mOldPwd.getText().toString().equals(mPswd.getText().toString())){
+            ToastUtil.customAlert(this,"两次输入的密码不一样");
+            return false;
+        }
+        if (!ValifyUtil.valifyPwd(mOldPwd.getText().toString())||!ValifyUtil.valifyPwd(mPswd.getText().toString()))
+            return false;
         return true;
     }
 

@@ -1,13 +1,15 @@
 package com.laxiong.Common;
 
+import com.laxiong.Utils.BaseHelper;
+
 public class InterfaceInfo {
 	/***
 	 * 接口信息
 	 */
 //	public final static String BASE_URL = "http://licai.gongshidai.com:88/v4_1"; // test  目前不能用
-	public final static String BASE_URL = "http://licai.gongshidai.com:88/v4_1";
+//	public final static String BASE_URL = "http://licai.gongshidai.com:88/v4_1";
 	public final static String XIANSHAGN_URL="http://licai.gongshidai.com/v4_1";
-
+	public final static String BASE_URL="http://www.cheyoulicai.com/v4_1";
 	public final static String USER_URL =BASE_URL + "/user";
 
 	public final static String VERIFY_URL = BASE_URL + "/verify";
@@ -71,5 +73,12 @@ public class InterfaceInfo {
 	public final static String CKUPDATE_URL=XIANSHAGN_URL+"/checkUp";
 	//订单
 	public final static String RDETAIL_URL=BASE_URL+"/receipts";
-
+	//判断身份证
+	public final static String JGIDC_URL=BASE_URL+"/isIdc";
+	//判断验证码
+	public final static String JGCODE_URL=BASE_URL+"/isCode";
+	//通联支付购买产品
+	public final static String TLBUY_URL= BASE_URL+"/tlbuy";
+	//通联支付充值
+	public final static String TLPAY_URL=BASE_URL+"/tlpay";
 }

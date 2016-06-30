@@ -20,6 +20,7 @@ import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
+import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.ToastUtil;
@@ -255,10 +256,13 @@ public class TrueNameActivity1 extends BaseActivity implements OnClickListener {
                             Toast.makeText(TrueNameActivity1.this, "认证第一步成功", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(TrueNameActivity1.this,
                                     TrueNameActivity2.class));
+                            CommonReq.reqUserMsg(TrueNameActivity1.this);
+                            YiTouApplication.getInstance().getUser().setIs_idc(true);
                             TrueNameActivity1.this.finish();
-                        } else {
+                        } else if (response.getInt("code") == 401) {
+                            CommonReq.showReLoginDialog(TrueNameActivity1.this);
+                        } else
                             Toast.makeText(TrueNameActivity1.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
-                        }
                     } catch (Exception e) {
                     }
                 }

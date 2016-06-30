@@ -393,6 +393,8 @@ public class FinancingFragment extends Fragment implements OnClickListener {
                 } else if (i >= 3) { // 固息宝
 //					List<FinanceInfo> mListGXB = mFinanBean.getGxb();
                     final FinanceInfo gxb = mList.get(i - 3);
+                    if(gxb==null)
+                        return null;
                     if (mViewHonder.mInterge != null && mViewHonder.mPoint != null) {
                         double apr = gxb.getApr();
                         if (isInterge(apr)) {
