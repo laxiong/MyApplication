@@ -1,13 +1,11 @@
 package com.laxiong.Activity;
 
-import android.annotation.SuppressLint;
 import android.app.ActionBar.LayoutParams;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -24,30 +22,26 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.allinpay.appayassistex.APPayAssistEx;
 import com.gongshidai.mistGSD.R;
-import com.google.gson.GsonBuilder;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
-import com.laxiong.Utils.BaseHelper;
+import com.laxiong.Mvp_presenter.Buy_Presenter;
+import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Utils.CommonReq;
-import com.laxiong.Utils.Constants;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.LogUtils;
-import com.laxiong.Utils.Md5Algorithm;
-import com.laxiong.Utils.MobileSecurePayer;
-import com.laxiong.entity.EnvConstants;
-import com.laxiong.entity.LlOrderInfo;
-import com.laxiong.entity.PayOrder;
-import com.laxiong.entity.PaySignParam;
 import com.laxiong.entity.User;
 import com.loopj.android.network.JsonHttpResponseHandler;
 import com.loopj.android.network.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
 
 import org.apache.http.Header;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-public class TransferInActivity extends BaseActivity implements OnClickListener{
+public class TransferInActivity extends BaseActivity implements OnClickListener,IViewCommonBack{
 	/****
 	 * 转入的
 	 */
@@ -59,6 +53,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 	private EditText mBuyAmount ;
 	private int productId ;
 	private User user ;
+	private Buy_Presenter presenter;
 	// 可购买金额
 	private String mAmountMoney ;
 	private String dates ;
@@ -79,7 +74,18 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 		setValue();
 	}
 
+	@Override
+	public void reqbackSuc(String tag) {
+
+	}
+
+	@Override
+	public void reqbackFail(String msg, String tag) {
+
+	}
+
 	private void initData() {
+		presenter=new Buy_Presenter(this);
 		mBack.setOnClickListener(this);
 		mBankCan.setOnClickListener(this);
 		mPayMethod.setOnClickListener(this);
@@ -412,6 +418,46 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 		}, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
 				.getUserLogin().getToken()));
 	}
+	public void showAppayRes(String res) {
+		new AlertDialog.Builder(this)
+				.setMessage(res)
+				.setPositiveButton("确定", null)
+				.show();
+	}
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (APPayAssistEx.REQUESTCODE == requestCode) {
+			if (null != data) {
+				String payRes = null;
+				String payAmount = null;
+				String payTime = null;
+				String payOrderId = null;
+				try {
+					JSONObject resultJson = new JSONObject(data.getExtras().getString("result"));
+					payRes = resultJson.getString(APPayAssistEx.KEY_PAY_RES);
+					payAmount = resultJson.getString("payAmount");
+					payTime = resultJson.getString("payTime");
+					payOrderId = resultJson.getString("payOrderId");
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				if (null != payRes && payRes.equals(APPayAssistEx.RES_SUCCESS)) {
+					showAppayRes("转入成功！");
+					CommonReq.reqUserMsg(getApplicationContext());
+					startActivity(new Intent(TransferInActivity.this,
+									TransferInResultActivity.class).
+									putExtra("Money", mBuyAmount.getText().toString().trim())
+					);  // 跳转到购买结果的页面
+					finish();
+				} else {
+					showAppayRes("转入失败！");
+				}
+				disMisInputPay();
+				LogUtils.d("payResult", "payRes: " + payRes + "  payAmount: " + payAmount + "  payTime: " + payTime + "  payOrderId: " + payOrderId);
+			}
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
 
 	//购买产品 余额支付
 	private void payBuyProduct(){
@@ -490,173 +536,15 @@ public class TransferInActivity extends BaseActivity implements OnClickListener{
 	private int banknumber ;
 	//转入的卡支付
 	private void payBuyLLProduct(){
-
-		RequestParams params = new RequestParams();
-		params.put("amount", mBuyAmount.getText().toString().trim());
-		params.put("bank_id", bankId);
-		params.put("product", productId);
-		params.put("pay_pwd", mInputPswdEd.getText().toString().trim());
-		params.put("number",banknumber);
-		params.put("recharge",Integer.valueOf(mBuyAmount.getText().toString().trim()));
-
-		HttpUtil.post(InterfaceInfo.BASE_URL + "/appBuy", params, new JsonHttpResponseHandler() {
-			@Override
-			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-				super.onSuccess(statusCode, headers, response);
-				if (response != null) {
-					try {
-						if (response.getInt("code") == 0) {
-							LlOrderInfo mInfo = new GsonBuilder().create().fromJson(response.toString(),
-									LlOrderInfo.class);
-								PayOrder mPayOrder = constructPreCardPayOrder(mInfo);
-								String content4Pay = BaseHelper.toJSONString(mPayOrder);
-								// 关键 content4Pay
-								// 用于提交到支付SDK的订单支付串，如遇到签名错误的情况，请将该信息帖给我们的技术支持
-								MobileSecurePayer msp = new MobileSecurePayer();
-								boolean bRet = msp.pay(content4Pay, mHandler, Constants.RQF_PAY,
-										TransferInActivity.this, false);
-								if (bRet)
-									disMisInputPay();
-
-						} else {
-							if (!TextUtils.isEmpty(response.getString("msg"))) {
-								Toast.makeText(TransferInActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
-							} else {
-								Toast.makeText(TransferInActivity.this, "获取订单信息失败", Toast.LENGTH_SHORT).show();
-							}
-						}
-
-					} catch (Exception E) {
-					}
-				}
-			}
-			@Override
-			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-				super.onFailure(statusCode, headers, throwable, errorResponse);
-				Toast.makeText(TransferInActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
-			}
-		}, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
-				YiTouApplication.getInstance().getUserLogin().getToken()));
-
-	}
-
-	//构造订单类
-	private PayOrder constructPreCardPayOrder(LlOrderInfo mInfo) {
-
-		PayOrder order = new PayOrder();
-		PaySignParam signParam = new PaySignParam();
-		signParam.setBusi_partner(mInfo.getBusi_partner());
-		signParam.setNo_order(mInfo.getNo_order());
-		signParam.setDt_order(mInfo.getDt_order());
-		signParam.setName_goods(mInfo.getName_goods());
-		signParam.setNotify_url(mInfo.getNotify_url());
-		signParam.setSign_type(PayOrder.SIGN_TYPE_MD5);
-		signParam.setValid_order(mInfo.getValid_order());
-		signParam.setInfo_order(mInfo.getInfo_order());
-		signParam.setMoney_order(mInfo.getMoney_order());
-		// 银行卡历次支付时填写，可以查询得到，协议号匹配会进入SDK，
-		// order.setNo_agree();
-		// 风险控制参数
-		signParam.setRisk_item(mInfo.getRisk_item());
-		signParam.setOid_partner(EnvConstants.PARTNER);
-		String sign = "";
-		String content = BaseHelper.sortParam(signParam);
-		// MD5 签名方式
-		sign = Md5Algorithm.getInstance().sign(content, EnvConstants.MD5_KEY);
-
-		order.setSign(sign);
-
-		order.setBusi_partner(mInfo.getBusi_partner());
-		order.setNo_order(mInfo.getNo_order());
-		order.setDt_order(mInfo.getDt_order());
-		order.setName_goods(mInfo.getName_goods());
-		order.setNotify_url(mInfo.getNotify_url());
-		order.setSign_type(PayOrder.SIGN_TYPE_MD5);
-		order.setValid_order(mInfo.getValid_order());
-
-		order.setUser_id(mInfo.getUser_id());
-		order.setId_no(mInfo.getId_no());
-		order.setInfo_order(mInfo.getInfo_order());
-
-		order.setAcct_name(mInfo.getAcct_name());
-		order.setMoney_order(mInfo.getMoney_order());
-		order.setNo_goods(mInfo.getNo_goods());
-
-		// 银行卡卡号，该卡首次支付时必填
-		order.setCard_no(mInfo.getCard_no());
-		// 银行卡历次支付时填写，可以查询得到，协议号匹配会进入SDK，
-		// order.setNo_agree();
-
-		// int id = ((RadioGroup)
-		// findViewById(R.id.flag_modify_group)).getCheckedRadioButtonId();
-		// if (id == R.id.flag_modify_0) {
-		// order.setFlag_modify("0");
-		// } else if (id == R.id.flag_modify_1) {
-		// order.setFlag_modify("1");
-		// }
-		// 风险控制参数
-		order.setRisk_item(mInfo.getRisk_item());
-		order.setOid_partner(EnvConstants.PARTNER);
-
-		return order;
-	}
-
-	private Handler mHandler = createHandler();
-	@SuppressLint("HandlerLeak")
-	private Handler createHandler() {
-		return new Handler() {
-			public void handleMessage(Message msg) {
-				String strRet = (String) msg.obj;
-				switch (msg.what) {
-					case Constants.RQF_PAY: {
-						JSONObject objContent = BaseHelper.string2JSON(strRet);
-						String retCode = objContent.optString("ret_code");
-						String retMsg = objContent.optString("ret_msg");
-						// 成功
-						if (Constants.RET_CODE_SUCCESS.equals(retCode)) {
-							// TODO 卡前置模式返回的银行卡绑定协议号，用来下次支付时使用，此处仅作为示例使用。正式接入时去掉
-//							BaseHelper.showDialog(TransferInActivity.this, "提示", "支付成功",
-//									android.R.drawable.ic_dialog_alert);
-							CommonReq.reqUserMsg(getApplicationContext());
-							startActivity(new Intent(TransferInActivity.this,
-											TransferInResultActivity.class).
-											putExtra("Money", mBuyAmount.getText().toString().trim())
-							);  // 跳转到购买结果的页面
-							finish();
-//							NofifyUserinfoChanged nofifyUserinfoChanged = new NofifyUserinfoChanged() {
-//								@Override
-//								public void onNotifyUserinfoChange() {
-//									CommonUtils.setmNofifyUserinfoChanged(null);
-//									startActivity(new Intent(TransferInActivity.this,
-//											BuyingResultActivity.class).
-//											putExtra("Money", mBuyAmount.getText().toString().trim())
-//											);  // 跳转到购买结果的页面
-//								}
-//							};
-//							CommonUtils.setmNofifyUserinfoChanged(nofifyUserinfoChanged);
-//							CommonUtils.getUserInfo(YiTouApplication.getInstance().getUserLogin().getToken_id(),
-//									YiTouApplication.getInstance().getUserLogin().getToken(),TransferInActivity.this);
-
-						} else if (Constants.RET_CODE_PROCESS.equals(retCode)) {
-							// 处理中，掉单的情形
-							String resulPay = objContent.optString("result_pay");
-							if (Constants.RESULT_PAY_PROCESSING.equalsIgnoreCase(resulPay)) {
-								BaseHelper.showDialog(TransferInActivity.this, "提示",
-										objContent.optString("ret_msg"),
-										android.R.drawable.ic_dialog_alert);
-							}
-
-						} else {
-							// 失败
-							BaseHelper.showDialog(TransferInActivity.this, "提示", retMsg,
-									android.R.drawable.ic_dialog_alert);
-						}
-					}
-					break;
-				}
-				super.handleMessage(msg);
-			}
-		};
+		FormEncodingBuilder builder=new FormEncodingBuilder();
+		builder.add("amount",mBuyAmount.getText().toString().trim());
+		builder.add("pamount",mBuyAmount.getText().toString().trim());
+		builder.add("bank_id", bankId+"");
+		builder.add("product",productId+"");
+		builder.add("pay_pwd", mInputPswdEd.getText().toString().trim());
+		builder.add("number",banknumber+"");
+		builder.add("recharge",mBuyAmount.getText().toString().trim());
+		presenter.buyByCard(this,builder);
 	}
 
 }

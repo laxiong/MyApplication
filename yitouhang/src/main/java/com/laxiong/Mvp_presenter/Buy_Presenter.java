@@ -67,44 +67,4 @@ public class Buy_Presenter implements OnLoadBcObjListener<OrderInfo> {
         mdel.setListenerObj(this);
         mdel.reqAuthPostObj(context, builder, InterfaceInfo.TLBUY_URL, "", OrderInfo.class);
     }
-//        HttpUtil.post(InterfaceInfo.TLBUY_URL, params, new JsonHttpResponseHandler() {
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-//                super.onSuccess(statusCode, headers, response);
-//                if (response != null) {
-//                    try {
-//                        if (response.getInt("code") == 0) {
-//                            OrderInfo info = JSONUtils.parseObject(response.toString(), OrderInfo.class);
-//                            JSONObject payorder = PaaCreator.randomPaa(info);
-//                            APPayAssistEx.startPay(context, payorder.toString(), APPayAssistEx.MODE_DEBUG);
-//                        } else {
-//                            if (response.getInt("code") == 401) {
-//                                iviewback.reqbackFail("失败", "");
-//                                CommonReq.showReLoginDialog(context);
-//                                return;
-//                            }
-//                            if (!TextUtils.isEmpty(response.getString("msg"))) {
-//                                Toast.makeText(context, response.getString("msg"), Toast.LENGTH_SHORT).show();
-//                            } else {
-//                                Toast.makeText(context, "获取订单信息失败", Toast.LENGTH_SHORT).show();
-//                            }
-//                            iviewback.reqbackFail("失败", "");
-//                        }
-//
-//                    } catch (Exception e) {
-//                        iviewback.reqbackFail("失败", "");
-//                        ToastUtil.customAlert(context, e.toString());
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-//                super.onFailure(statusCode, headers, throwable, errorResponse);
-//                iviewback.reqbackFail("失败", "");
-//                Toast.makeText(context, "获取数据失败", Toast.LENGTH_SHORT).show();
-//            }
-//        }, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
-//                YiTouApplication.getInstance().getUserLogin().getToken()));
-//    }
 }

@@ -16,7 +16,7 @@ import java.io.IOException;
  * Types Callback.java
  */
 public abstract class Callback implements com.squareup.okhttp.Callback{
-    private Handler handler=new Handler();
+    private Handler handler=new Handler(Looper.getMainLooper());
     @Override
     public void onFailure(Request request, IOException e) {
         e.printStackTrace();
@@ -24,7 +24,7 @@ public abstract class Callback implements com.squareup.okhttp.Callback{
 
     @Override
     public void onResponse(final Response response) throws IOException {
-        Looper.prepare();
+//        Looper.prepare();
         if(response.isSuccessful()) {
             try {
                 final JSONObject json = new JSONObject(response.body().string());
@@ -36,15 +36,15 @@ public abstract class Callback implements com.squareup.okhttp.Callback{
                 });
             } catch (JSONException e) {
                 e.printStackTrace();
-                onFailure(e.toString());
+                onFailure("参数异常");
             } catch (IOException e) {
                 e.printStackTrace();
-                onFailure(e.toString());
+                onFailure("流异常");
             }
         }else{
             onFailure("请求失败");
         }
-        Looper.loop();
+//        Looper.loop();
     }
     public abstract void onResponse2(JSONObject response);
     public abstract void onFailure(String msg);

@@ -41,7 +41,7 @@ import org.w3c.dom.Text;
 @SuppressLint("NewApi")
 public class ChangePayPwdFragment1 extends Fragment implements View.OnClickListener, IViewCommonBack, IViewTimerHandler {
     private View layout;
-    private TextView mNextPage, mCode,tv_tip;
+    private TextView mNextPage, mCode, tv_tip;
     private InterChangePwd1 inter1;
     private EditText et_code;
     private Password_Presenter presenter;
@@ -53,12 +53,17 @@ public class ChangePayPwdFragment1 extends Fragment implements View.OnClickListe
 
     @Override
     public void reqbackSuc(String tag) {
-        time_presenter.loadHandlerTimer(1000, 30000);
-        ToastUtil.customAlert(getActivity(), "获取验证码成功");
+        if ("vali".equals(tag)) {
+            ToastUtil.customAlert(getActivity(), "验证码输入正确");
+            ((ChangePayPwdActivity) getActivity()).setFragment(new ChangePayPwdFragment2(), "frag2");
+        } else {
+            time_presenter.loadHandlerTimer(1000, 30000);
+            ToastUtil.customAlert(getActivity(), "获取验证码成功");
+        }
     }
 
     @Override
-    public void reqbackFail(String msg,String tag) {
+    public void reqbackFail(String msg, String tag) {
         ToastUtil.customAlert(getActivity(), msg);
     }
 
@@ -69,6 +74,7 @@ public class ChangePayPwdFragment1 extends Fragment implements View.OnClickListe
         initData();
         return layout;
     }
+
     @Override
     public void handlerViewByTime(int seconds) {
         if (seconds > 0) {
@@ -105,13 +111,13 @@ public class ChangePayPwdFragment1 extends Fragment implements View.OnClickListe
             }
         });
         setEnabled(mNextPage, false);
-        SharedPreferences sp= SpUtils.getSp(getActivity());
-        String phone=sp.getString(SpUtils.USER_KEY,"");
-        if(TextUtils.isEmpty(phone)){
+        SharedPreferences sp = SpUtils.getSp(getActivity());
+        String phone = sp.getString(SpUtils.USER_KEY, "");
+        if (TextUtils.isEmpty(phone)) {
             startActivity(new Intent(getActivity(), LoginActivity.class));
-        }else{
-            String lastnum=phone.substring(phone.length()-4);
-            tv_tip.setText("输入手机尾号"+lastnum+"接收到的短信验证码");
+        } else {
+            String lastnum = phone.substring(phone.length() - 4);
+            tv_tip.setText("输入手机尾号" + lastnum + "接收到的短信验证码");
         }
     }
 
@@ -125,7 +131,7 @@ public class ChangePayPwdFragment1 extends Fragment implements View.OnClickListe
         mNextPage = (TextView) layout.findViewById(R.id.nextpage);
         mCode = (TextView) layout.findViewById(R.id.time);
         et_code = (EditText) layout.findViewById(R.id.et_code);
-        tv_tip= (TextView) layout.findViewById(R.id.tv_tip);
+        tv_tip = (TextView) layout.findViewById(R.id.tv_tip);
     }
 
     @Override
@@ -134,7 +140,7 @@ public class ChangePayPwdFragment1 extends Fragment implements View.OnClickListe
             case R.id.nextpage:
                 if (inter1 != null)
                     inter1.recordCode(et_code.getText().toString());
-                ((ChangePayPwdActivity) getActivity()).setFragment(new ChangePayPwdFragment2(), "frag2");
+                presenter.valifyCode(getActivity(), et_code.getText().toString());
                 break;
             case R.id.time:
                 presenter.reqPayCode(getActivity());

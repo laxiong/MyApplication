@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Inter_Req.LoginService;
 import com.laxiong.Utils.BaseHelper;
+import com.laxiong.Utils.LogUtils;
 import com.laxiong.Utils.RetrofitUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.entity.User;
@@ -49,8 +50,7 @@ public class Model_User {
             }
 
             @Override
-            public void onFailure(Throwable t) {
-                listener.onFailure(t.toString());
+            public void onFailure(Throwable t) {LogUtils.i("model_user loaduser:"+t.toString());listener.onFailure(t.toString());
             }
         });
     }
@@ -85,8 +85,7 @@ public class Model_User {
             }
 
             @Override
-            public void onFailure(Throwable t) {
-                listener.onFailure(t.toString());
+            public void onFailure(Throwable t) {LogUtils.i("model_user loadUserLoginData:",t.toString());listener.onFailure("网络异常");
             }
         });
     }

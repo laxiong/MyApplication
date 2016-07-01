@@ -1,13 +1,18 @@
 package com.laxiong.Mvp_presenter;
 
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.util.Log;
 
 import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Basic.Callback;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
+import com.laxiong.Mvp_model.Model_Basic2;
 import com.laxiong.Mvp_view.IViewChangePwd;
 import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Mvp_view.IViewReBackPwd;
@@ -17,14 +22,19 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.entity.UserLogin;
-import com.loopj.android.network.Base64;
+import com.loopj.android.http.Base64;
 import com.loopj.android.network.JsonHttpResponseHandler;
 import com.loopj.android.network.RequestParams;
 import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
+
+import java.io.IOException;
 
 /**
  * Created by xiejin on 2016/4/19.
@@ -47,8 +57,10 @@ public class Password_Presenter {
         this.iviewresetpay = iviewreset;
     }
     public void valifyCode(final Context context,String code){
+        String auth=CommonReq.getAuthori(context);
+        if(TextUtils.isEmpty(code)||TextUtils.isEmpty(auth))return;
         FormEncodingBuilder builder=new FormEncodingBuilder();
-        builder.add("code",code);
+        builder.add("code", code);
         HttpUtil2.post(InterfaceInfo.JGCODE_URL, builder, new Callback() {
             @Override
             public void onResponse2(JSONObject response) {
@@ -74,7 +86,7 @@ public class Password_Presenter {
             public void onFailure(String msg) {
                 iviewresetpay.reqbackFail(msg, "");
             }
-        },CommonReq.getAuthori(context));
+        },auth);
     }
     public void valifyIdenti(final Context context, String realname, String idc) {
         FormEncodingBuilder builder = new FormEncodingBuilder();
@@ -148,7 +160,39 @@ public class Password_Presenter {
             }
         }, authori);
     }
+    public void valifyPayPwd(final Context context,final String pwd){
+        String author=CommonReq.getAuthori(context);
+        if(TextUtils.isEmpty(pwd)||TextUtils.isEmpty(author))return;
+        FormEncodingBuilder builder=new FormEncodingBuilder();
+        builder.add("pay_pwd",pwd);
+        builder.add("type", "deal");
+        HttpUtil2.post(InterfaceInfo.verifyPay_URL, builder, new Callback() {
+            @Override
+            public void onResponse2(JSONObject response) {
+                if(response!=null){
+                    try {
+                        if(response.getInt("code")==0){
+                            iviewresetpay.reqbackSuc(pwd);
+                        }else if(response.getInt("code")==401){
+                            CommonReq.showReLoginDialog(context);
+                        }else{
+                            iviewresetpay.reqbackFail(response.getString("msg"),"");
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        iviewresetpay.reqbackFail("有一场","");
+                    }
+                }else{
+                    iviewresetpay.reqbackFail("无响应","");
+                }
+        }
 
+            @Override
+            public void onFailure(String msg) {
+                iviewresetpay.reqbackFail(msg,"");
+            }
+        },author);
+    }
     public void reqValidation(final Context context) {
         String phonenum = iviewback.getTextPhone();
         FormEncodingBuilder builder = new FormEncodingBuilder();

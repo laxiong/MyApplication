@@ -81,4 +81,6 @@ public class InterfaceInfo {
 	public final static String TLBUY_URL= BASE_URL+"/tlbuy";
 	//通联支付充值
 	public final static String TLPAY_URL=BASE_URL+"/tlpay";
+	//验证支付密码的单独借口
+	public final static String verifyPay_URL=BASE_URL+"/verify";
 }

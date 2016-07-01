@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Layout;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -21,6 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Mvp_presenter.Password_Presenter;
+import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
@@ -32,20 +35,37 @@ import com.laxiong.entity.User;
 
 import java.util.jar.Attributes;
 
-public class PswdConturalActivity extends BaseActivity implements OnClickListener {
+public class PswdConturalActivity extends BaseActivity implements OnClickListener,IViewCommonBack{
     /***
      * 密码管理
      */
     private RelativeLayout mChangeLoginPswd, mChangePayPswd, mResetPayPswd, mChangeGesturePswd;
     private FrameLayout mBack;
     private PayPop dialog;
-
+    private Password_Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pswd_contural);
         initView();
         initData();
+    }
+
+    @Override
+    public void reqbackSuc(String tag) {
+        if(TextUtils.isEmpty(tag))return;
+        ToastUtil.customAlert(this,"支付密码验证正确");
+        //TODO  输完密码后跳转的页面,携带参数
+        Intent intent = new Intent(PswdConturalActivity.this,
+                ChangePayPwdActivity.class);
+        intent.putExtra("pwd",tag);
+        startActivity(intent);
+        PswdConturalActivity.this.finish();
+    }
+
+    @Override
+    public void reqbackFail(String msg, String tag) {
+        ToastUtil.customAlert(this,msg);
     }
 
     private void initView() {
@@ -60,6 +80,7 @@ public class PswdConturalActivity extends BaseActivity implements OnClickListene
     }
 
     private void initData() {
+        presenter=new Password_Presenter(this);
         mChangeLoginPswd.setOnClickListener(this);
         mChangePayPswd.setOnClickListener(this);
         mResetPayPswd.setOnClickListener(this);
@@ -118,12 +139,7 @@ public class PswdConturalActivity extends BaseActivity implements OnClickListene
             @Override
             public void onClick(View v) {
                 DialogUtils.bgalpha(PswdConturalActivity.this, 1.0f);
-                //TODO  输完密码后跳转的页面,携带参数
-                Intent intent = new Intent(PswdConturalActivity.this,
-                        ChangePayPwdActivity.class);
-                intent.putExtra("pwd", et_pass.getText().toString());
-                startActivity(intent);
-                PswdConturalActivity.this.finish();
+                presenter.valifyPayPwd(PswdConturalActivity.this,et_pass.getText().toString().trim());
                 dialog.dismiss();
             }
         });
