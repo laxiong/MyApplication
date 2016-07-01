@@ -9,8 +9,7 @@ import com.laxiong.Mvp_model.Model_card;
 import com.laxiong.Mvp_view.IViewBindCard;
 import com.laxiong.Mvp_view.IViewCardList;
 import com.laxiong.Mvp_view.IViewWithdraw;
-import com.laxiong.Utils.ToastUtil;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.RequestParams;
 
 import java.util.List;
 

@@ -8,9 +8,9 @@ import com.laxiong.Mvp_view.IViewExit;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.entity.UserLogin;
-import com.loopj.android.http.Base64;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.Base64;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONException;

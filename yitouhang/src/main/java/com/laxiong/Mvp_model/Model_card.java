@@ -1,7 +1,6 @@
 package com.laxiong.Mvp_model;
 
 import android.content.Context;
-import android.graphics.YuvImage;
 import android.util.Log;
 
 import com.laxiong.Common.InterfaceInfo;
@@ -9,8 +8,7 @@ import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.StringUtils;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
 import org.json.JSONException;

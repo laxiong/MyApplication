@@ -2,8 +2,7 @@ package com.laxiong.Mvp_model;
 
 import android.content.Context;
 
-import com.laxiong.Common.InterfaceInfo;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.RequestParams;
 
 /**
  * Created by xiejin on 2016/5/4.

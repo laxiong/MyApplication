@@ -1,10 +1,9 @@
 package com.laxiong.Common;
 
-import android.content.Context;
 import android.widget.ImageView;
 
 import com.laxiong.Utils.ValifyUtil;
-import com.loopj.android.http.Base64;
+import com.loopj.android.network.Base64;
 import com.gongshidai.mistGSD.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

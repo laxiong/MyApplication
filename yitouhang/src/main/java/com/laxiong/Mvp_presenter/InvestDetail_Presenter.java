@@ -1,9 +1,7 @@
 package com.laxiong.Mvp_presenter;
 
-import android.app.DownloadManager;
 import android.content.Context;
 import android.os.Handler;
-import android.util.Log;
 
 import com.laxiong.Mvp_model.InvestDetail;
 import com.laxiong.Mvp_model.InvestItem;
@@ -12,7 +10,7 @@ import com.laxiong.Mvp_model.OnLoadBasicListener;
 import com.laxiong.Mvp_model.OnLoadBcObjListener;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Mvp_view.IViewInvest;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.RequestParams;
 
 import java.lang.ref.WeakReference;
 import java.util.List;

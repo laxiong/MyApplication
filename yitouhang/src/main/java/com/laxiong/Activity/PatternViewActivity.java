@@ -1,33 +1,24 @@
 package com.laxiong.Activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
-import com.laxiong.Common.Common;
 import com.laxiong.Mvp_presenter.Exit_Presenter;
-import com.laxiong.Mvp_presenter.UserCount_Presenter;
-import com.laxiong.Mvp_view.IViewCount;
 import com.laxiong.Mvp_view.IViewExit;
 import com.laxiong.Utils.CommonReq;
-import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
@@ -35,9 +26,7 @@ import com.laxiong.View.PayPop;
 import com.laxiong.entity.UserLogin;
 import com.laxiong.fund.widget.GestureContentView;
 import com.laxiong.fund.widget.GestureDrawline.GestureCallBack;
-import com.gongshidai.mistGSD.R;
-
-public class PatternViewActivity extends BaseActivity implements OnClickListener, IViewExit {
+public class PatternViewActivity extends BaseActivity implements OnClickListener,IViewExit {
     /***
      * 设置手势密码
      */
@@ -99,8 +88,6 @@ public class PatternViewActivity extends BaseActivity implements OnClickListener
 
     private void initData() {
         // 初始化一个显示各个点的viewGroup
-
-        // TODO 获取登录的手势密码,在启动页里  第一次打开app进入ModifyGestrueActivity这个类，设置初始手势密码   之后的在这里校验
 //        gestruepswd = getSharedPreferences(Common.sharedPrefName, Context.MODE_PRIVATE).getString("patternstring", "");
         presenter = new Exit_Presenter(this);
         gestruepswd = SpUtils.getSp(this).getString(SpUtils.GESTURE_KEY, "");

@@ -1,5 +1,6 @@
 package com.laxiong.Activity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -29,13 +30,14 @@ import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.LoadUtils;
 import com.laxiong.Utils.OpenAccount;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.VerticalNumberProgressBar;
 import com.laxiong.entity.ShareInfo;
 import com.laxiong.entity.User;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 import com.umeng.socialize.UMShareAPI;
 
 import org.apache.http.Header;
@@ -69,6 +71,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
 
     private boolean isVip ; // 是从VIP理财点击过来的否
     private  User mUser ;
+    private Dialog dialog ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +90,21 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         getNetWork();
     }
 
+    // 显示正在加载的进度条
+    private void showLoadView(boolean flag){
+        if (flag){
+			dialog.show();
+		}else {
+			if (dialog!=null&&dialog.isShowing()){
+				dialog.dismiss();
+				dialog = null ;
+			}
+		}
+    }
+
     private void initData() {
+        dialog = LoadUtils.createbuildDialog(this, "正在加载...");
+
         mShareBtn.setOnClickListener(this);
         mBack.setOnClickListener(this);
         mJiSuanQi.setOnClickListener(this);
@@ -172,7 +189,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
 
     private String mProjectName ="固息宝";
     private String mAmountMoney ;
-    private double mBuyPrecent ;  // 总年化收益率
+    private double mBuyPrecent ;  //总年化收益率
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -211,7 +228,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                 break;
         }
     }
-
 
     // set progress textview height
     private void setProgressNumHeight(float f) {
@@ -276,7 +292,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                     if(str!= null)
                         Integer.parseInt(str);
                 }catch(Exception e){
-//                    Toast.makeText(GuXiBaoActivity.this, "输入整数", Toast.LENGTH_SHORT).show();
                     ToastUtil.customAlert(GuXiBaoActivity.this,"输入整数");
                 }
             }
@@ -290,7 +305,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                     if(str!= null)
                         Integer.parseInt(str);
                 }catch(Exception e){
-//                    Toast.makeText(GuXiBaoActivity.this, "输入整数", Toast.LENGTH_SHORT).show();
                     ToastUtil.customAlert(GuXiBaoActivity.this,"输入整数");
                 }
             }
@@ -309,7 +323,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                         NumberFormat mFormat = NumberFormat.getNumberInstance();
                         mFormat.setMaximumFractionDigits(3);
                         String comfixNum = mFormat.format(backComfix(tM, tD, mBuyPrecent));
-
                         mComfix.setText(comfixNum);
                     }
                 }
@@ -335,10 +348,9 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
     }
 
     /**
-     * 计算器的算法
      * money:本金
      * day：日期
-     * lu：利率  7.2%
+     * lu：利率
      */
     private double backComfix(float money,float day, double lu){
         double backMoney = money*(lu/100)*(day/365)+money;
@@ -347,6 +359,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
 
     // 设置数据
     private void getNetWork(){
+//        showLoadView(true);
         RequestParams params = new RequestParams();
         params.put("p",1);
         if (ttnum!=-1)
@@ -375,7 +388,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
-//                Toast.makeText(GuXiBaoActivity.this,"获取数据失败",Toast.LENGTH_SHORT).show();
                 ToastUtil.customAlert(GuXiBaoActivity.this,"获取数据失败");
             }
         });
@@ -459,7 +471,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
             return false;
         }
     }
-    //mPrecentTg mPrecent  mAddPrecent mMinTou mFinanceLimit mYdDec mGetCashDec V_line mAprDec
     // vip用户的金色字体
     private void setVipTextColor(){
         mPrecent.setTextColor(Color.parseColor("#FFFFDFAA"));
@@ -474,7 +485,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
 //        mShareBtn.setTextColor(Color.parseColor("#FFE2A42A"));
 //        mGxbTitle.setTextColor(Color.parseColor("#FFE2A42A"));
     }
-
     // 普通用户的普通字体
     private void  setTextColor(){
         mPrecent.setTextColor(Color.parseColor("#ffffff"));

@@ -5,23 +5,15 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
 
 import com.laxiong.Activity.ChangeCountActivity;
-import com.laxiong.Activity.CountSettingActivity;
 import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.entity.User;
 import com.laxiong.entity.UserLogin;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.Base64;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.gongshidai.mistGSD.R;
+import com.loopj.android.network.Base64;
+import com.loopj.android.network.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
 import org.json.JSONException;

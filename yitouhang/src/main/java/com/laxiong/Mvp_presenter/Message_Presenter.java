@@ -6,7 +6,7 @@ import com.laxiong.Mvp_model.Message;
 import com.laxiong.Mvp_model.Model_Msg;
 import com.laxiong.Mvp_model.OnLoadBasicListener;
 import com.laxiong.Mvp_view.IViewMessage;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.RequestParams;
 
 import java.util.List;
 

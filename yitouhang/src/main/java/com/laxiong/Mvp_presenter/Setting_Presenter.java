@@ -1,25 +1,17 @@
 package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.util.Log;
 
-import com.laxiong.Activity.ChangeCountActivity;
-import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewSetting;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
-import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.entity.User;
-import com.laxiong.entity.UserLogin;
-import com.loopj.android.http.Base64;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONException;

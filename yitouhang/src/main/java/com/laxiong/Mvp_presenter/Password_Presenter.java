@@ -1,10 +1,7 @@
 package com.laxiong.Mvp_presenter;
 
-import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
-import android.util.Log;
 
 import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
@@ -20,18 +17,14 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.entity.UserLogin;
-import com.loopj.android.http.Base64;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.Base64;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 import com.squareup.okhttp.FormEncodingBuilder;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
 
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOException;
 
 /**
  * Created by xiejin on 2016/4/19.

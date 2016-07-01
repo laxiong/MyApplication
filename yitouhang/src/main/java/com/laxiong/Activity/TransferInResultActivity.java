@@ -14,7 +14,7 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
-import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.network.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
 import org.json.JSONObject;

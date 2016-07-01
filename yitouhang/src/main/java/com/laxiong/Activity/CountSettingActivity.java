@@ -23,11 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.appkefu.lib.interfaces.KFAPIs;
-import com.appkefu.lib.service.KFMainService;
-import com.appkefu.lib.service.KFXmppManager;
-import com.appkefu.lib.utils.KFLog;
-import com.appkefu.smack.util.StringUtils;
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.Constants;
@@ -41,11 +37,14 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.PayPop;
 import com.laxiong.entity.User;
-import com.gongshidai.mistGSD.R;
-import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.network.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
 import org.json.JSONObject;
+
+import java.util.UUID;
+
+import cn.udesk.UdeskSDKManager;
 
 public class CountSettingActivity extends BaseActivity implements OnClickListener, IViewBasicObj<User> {
     /****
@@ -59,6 +58,9 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
     private User user;
     private PayPop dialog;
 
+    private String UDESK_DOMAIN = "cheyou.udesk.cn";
+    private String UDESK_SECRETKEY = "8a50f1153c1ae8cb0ee258787effb264";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +70,9 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         initData();
         if (user != null)
             showVip();
-        KFAPIs.visitorLogin(this); //微客服平台的事件
+        UdeskSDKManager.getInstance().initApiKey(CountSettingActivity.this,UDESK_DOMAIN,UDESK_SECRETKEY);  // 云平台客服
+        UdeskSDKManager.getInstance().setUserInfo(CountSettingActivity.this, UUID.randomUUID().toString(),null);// 设置用户信息
+
     }
 
     @Override
@@ -228,6 +232,7 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         mAboutUs = (RelativeLayout) findViewById(R.id.rel_aboutus);//关于我们
         mGuanData = (RelativeLayout) findViewById(R.id.guandata); //官方数据
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -308,7 +313,6 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         onLineBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-//                Toast.makeText(CountSettingActivity.this, "在线客服", Toast.LENGTH_SHORT).show();
                 connectKeFu();
                 if (mPopWindows != null && mPopWindows.isShowing()) {
                     mPopWindows.dismiss();
@@ -320,7 +324,6 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
         kefuTelBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-//                Toast.makeText(CountSettingActivity.this, "客服电话：400-0888-888", Toast.LENGTH_SHORT).show();
                 takePhoneNum();
                 if (mPopWindows != null && mPopWindows.isShowing()) {
                     mPopWindows.dismiss();
@@ -358,112 +361,18 @@ public class CountSettingActivity extends BaseActivity implements OnClickListene
     // ConnectWithKefu
     // 联系客服
     private void connectKeFu() {
-        startChat();
-    }
-
-    /**
-     * 监听：连接状态、即时通讯消息、客服在线状态 (微客服)
-     */
-    private BroadcastReceiver mXmppreceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            // 监听：连接状态
-            if (action.equals(KFMainService.ACTION_XMPP_CONNECTION_CHANGED)) // 监听链接状态
-            {
-                updateStatus(intent.getIntExtra("new_state", 0));
-            }
-            // 监听：即时通讯消息
-            else if (action.equals(KFMainService.ACTION_XMPP_MESSAGE_RECEIVED)) // 监听消息
-            {
-                // 消息内容
-                String body = intent.getStringExtra("body");
-                // 消息来自于
-                String from = StringUtils.parseName(intent.getStringExtra("from"));
-                KFLog.d("消息来自于:" + from + " 消息内容:" + body);
-            }
-            // 客服工作组在线状态
-            else if (action.equals(KFMainService.ACTION_XMPP_WORKGROUP_ONLINESTATUS)) {
-                String fromWorkgroupName = intent.getStringExtra("from");
-
-                String onlineStatus = intent.getStringExtra("onlinestatus");
-
-                KFLog.d("客服工作组:" + fromWorkgroupName + " 在线状态:" + onlineStatus);// online：在线；offline:
-            }
-
-        }
-    };
-
-    // 根据监听到的连接变化情况更新界面显示
-    private void updateStatus(int status) {
-
-        switch (status) {
-            case KFXmppManager.CONNECTED:    //连接成功
-                // mTitle.setText("微客服");
-                // 查询客服工作组在线状态，返回结果在BroadcastReceiver中返回
-                KFAPIs.checkKeFuIsOnlineAsync("YTHang"  //注意：此处应该填写 工作组 名称，具体参见第一步
-                        , this);
-
-                break;
-            case KFXmppManager.DISCONNECTED:  //连接失败
-                // mTitle.setText("微客服(未连接)");
-                break;
-            case KFXmppManager.CONNECTING:   //正在连接中...
-                // mTitle.setText("微客服(登录中...)");
-                break;
-            case KFXmppManager.DISCONNECTING:
-                // mTitle.setText("微客服(登出中...)");
-                break;
-            case KFXmppManager.WAITING_TO_CONNECT:
-            case KFXmppManager.WAITING_FOR_NETWORK:
-                // mTitle.setText("微客服(等待中)");
-                break;
-            default:
-                throw new IllegalStateException();
-        }
+        UdeskSDKManager.getInstance().toLanuchChatAcitvity(CountSettingActivity.this); //开始聊天
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        IntentFilter intentFilter = new IntentFilter();
-        //监听网络连接变化情况
-        intentFilter.addAction(KFMainService.ACTION_XMPP_CONNECTION_CHANGED);
-        //监听消息
-        intentFilter.addAction(KFMainService.ACTION_XMPP_MESSAGE_RECEIVED);
-        //工作组在线状态
-        intentFilter.addAction(KFMainService.ACTION_XMPP_WORKGROUP_ONLINESTATUS);
-        registerReceiver(mXmppreceiver, intentFilter);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        unregisterReceiver(mXmppreceiver);
-    }
-
-    /**
-     * 1.咨询人工客服 (在线 微客服)
-     */
-    private void startChat() {
-        // Bitmap kefuAvatarBitmap =
-        // BitmapFactory.decodeResource(getResources(), R.drawable.kefu);
-        // Bitmap userAvatarBitmap =
-        // BitmapFactory.decodeResource(getResources(), R.drawable.user);
-        KFAPIs.startChat(CountSettingActivity.this, "gongshilicai", // 1.
-                // 客服工作组ID(请务必保证大小写一致)，请在管理后台分配
-                "客服妹妹", // 2. 会话界面标题，可自定义
-                null, // 3. 附加信息，在成功对接客服之后，会自动将此信息发送给客服;
-                // 如果不想发送此信息，可以将此信息设置为""或者null
-                false, // 4. 是否显示自定义菜单,如果设置为显示,请务必首先在管理后台设置自定义菜单,
-                // 请务必至少分配三个且只分配三个自定义菜单,多于三个的暂时将不予显示
-                // 显示:true, 不显示:false
-                5, // 5. 默认显示消息数量
-                null, // 6. 修改默认客服头像，如果不想修改默认头像，设置此参数为null
-                null, // 7. 修改默认用户头像, 如果不想修改默认头像，设置此参数为null
-                false, // 8. 默认机器人应答
-                false, // 9. 是否强制用户在关闭会话的时候 进行“满意度”评价， true:是， false:否
-                null);
     }
 
     //获取卡号

@@ -1,6 +1,5 @@
 package com.laxiong.Activity;
 
-import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,24 +9,14 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Basic.BasicWatcher;
-import com.laxiong.Common.Constants;
-import com.laxiong.Common.InterfaceInfo;
-import com.laxiong.Mvp_presenter.CommonReq_Presenter;
-import com.laxiong.Mvp_presenter.Handler_Presenter;
 import com.laxiong.Mvp_presenter.SecurityVali_Presenter;
-import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Mvp_view.IViewSecurity;
-import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.loopj.android.http.RequestParams;
-
-import org.w3c.dom.Text;
 
 public class ChangeBindPhoneActivity1 extends BaseActivity implements OnClickListener, IViewSecurity {
     /***

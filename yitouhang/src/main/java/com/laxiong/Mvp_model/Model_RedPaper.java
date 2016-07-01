@@ -1,25 +1,17 @@
 package com.laxiong.Mvp_model;
 
-import android.app.DownloadManager;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.laxiong.Adapter.RedPaper;
 import com.laxiong.Application.YiTouApplication;
-import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.CommonReq;
-import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
-import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
-import com.laxiong.Utils.ToastUtil;
-import com.laxiong.Utils.ValifyUtil;
 import com.laxiong.entity.UserLogin;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONException;

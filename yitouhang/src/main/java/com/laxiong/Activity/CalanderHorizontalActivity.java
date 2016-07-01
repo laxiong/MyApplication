@@ -31,8 +31,8 @@ import com.laxiong.Utils.DensityUtils;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.entity.DaiesCell;
 import com.laxiong.entity.DayDetails;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONObject;

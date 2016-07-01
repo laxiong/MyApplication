@@ -1,19 +1,19 @@
 package com.laxiong.Fragment;
 
-import com.laxiong.Activity.LoginActivity;
-import com.laxiong.Application.YiTouApplication;
-import com.laxiong.entity.Profit;
-import com.laxiong.entity.User;
-import com.gongshidai.mistGSD.R;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.gongshidai.mistGSD.R;
+import com.laxiong.Activity.LoginActivity;
+import com.laxiong.Application.YiTouApplication;
+import com.laxiong.entity.Profit;
+import com.laxiong.entity.User;
 
 @SuppressLint("NewApi")
 public class AccumulatedEarningsFragment extends Fragment {
@@ -42,9 +42,9 @@ public class AccumulatedEarningsFragment extends Fragment {
             money.setText(user.getProfit() + "");
             if (user.getProfit_list() != null) {
                 Profit profit = user.getProfit_list();
-                tv_gxb.setText(profit.getGxb() + "");
-                tv_sxt.setText(profit.getSxt() + "");
-                tv_rm.setText(profit.getRenmai() + "");
+                tv_gxb.setText(profit.getGxb() + "元");
+                tv_sxt.setText(profit.getSxt() + "元");
+                tv_rm.setText(profit.getRenmai() + "元");
             }
         }
     }

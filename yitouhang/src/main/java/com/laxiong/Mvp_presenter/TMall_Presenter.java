@@ -3,15 +3,10 @@ package com.laxiong.Mvp_presenter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.view.PagerAdapter;
-import android.text.Layout;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewTMall;
@@ -19,15 +14,13 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.entity.Product;
 import com.laxiong.entity.TMall_Ad;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.AsyncHttpResponseHandler;
+import com.loopj.android.network.JsonHttpResponseHandler;
 import com.gongshidai.mistGSD.R;
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

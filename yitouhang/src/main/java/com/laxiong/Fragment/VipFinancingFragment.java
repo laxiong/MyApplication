@@ -1,6 +1,7 @@
 package com.laxiong.Fragment;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -26,13 +27,15 @@ import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Json.FinanceJsonBean;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.LoadUtils;
+import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CircleProgressBar;
 import com.laxiong.View.FinancingListView;
 import com.laxiong.View.PrecentCricleBar;
 import com.laxiong.View.WaitPgView;
 import com.laxiong.entity.FinanceInfo;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
@@ -57,6 +60,8 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 	private WaitPgView wp;
 	private static final String NO_SALE="#FFD6D6D6";
 
+	private Dialog dialog ;
+
 	private Handler handler = new Handler() {
 	      @Override
 	      public void handleMessage(Message msg) {
@@ -74,6 +79,14 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 	public void showLoadView(boolean flag) {
 		wp = (WaitPgView)mVipView.findViewById(R.id.wp_load);
 		wp.setVisibility(flag ? View.VISIBLE : View.GONE);
+//		if (flag){
+//			dialog.show();
+//		}else {
+//			if (dialog!=null&&dialog.isShowing()){
+//				dialog.dismiss();
+//				dialog = null ;
+//			}
+//		}
 	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -83,6 +96,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 		return  mVipView;
 	}
 	private void initView() {
+		dialog = LoadUtils.createbuildDialog(getActivity(), "正在加载...");
 
 		mConcel_img = (ImageView)mVipView.findViewById(R.id.concel_img);
 		mFinancelMessage = (LinearLayout)mVipView.findViewById(R.id.finance_message);
@@ -91,6 +105,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 
 		mListView = (FinancingListView)mVipView.findViewById(R.id.Listview);
 		showLoadView(true);
+
 		getVipProductInfo();
 		mListView.setOnRefreshListener(mRefresh);
 	}
@@ -497,11 +512,12 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 					}
 				}
 			}
+
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
 				super.onFailure(statusCode, headers, throwable, errorResponse);
 				showLoadView(false);
-				Toast.makeText(getActivity(),"网络访问失败",Toast.LENGTH_SHORT).show();
+				ToastUtil.customAlert(getActivity(),"网络访问失败");
 			}
 		},null);
 	}

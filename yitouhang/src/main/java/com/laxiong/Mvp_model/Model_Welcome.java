@@ -1,18 +1,15 @@
 package com.laxiong.Mvp_model;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.JSONUtils;
-import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.network.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.List;
 
 /**
  * Created by xiejin on 2016/5/3.

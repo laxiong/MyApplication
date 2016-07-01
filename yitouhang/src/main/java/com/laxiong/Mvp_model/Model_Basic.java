@@ -1,19 +1,15 @@
 package com.laxiong.Mvp_model;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.laxiong.Basic.Callback;
-import com.laxiong.Common.Common;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.StringUtils;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-import com.squareup.okhttp.FormEncodingBuilder;
-import com.squareup.okhttp.Request;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONException;

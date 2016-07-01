@@ -29,8 +29,8 @@ import com.laxiong.entity.Profit;
 import com.laxiong.entity.ShareInfo;
 import com.laxiong.entity.User;
 import com.laxiong.entity.Yesterday;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 import com.umeng.socialize.UMShareAPI;
 
 import org.apache.http.Header;

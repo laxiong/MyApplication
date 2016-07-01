@@ -5,21 +5,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
 
-import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_model.Model_Welcome;
 import com.laxiong.Mvp_model.WelcImg;
-import com.laxiong.Mvp_view.IViewMessage;
 import com.laxiong.Mvp_view.IViewWelcome;
-import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
 import com.gongshidai.mistGSD.R;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.network.AsyncHttpResponseHandler;
 
 import org.apache.http.Header;
-import org.json.JSONObject;
-
-import java.util.List;
 
 /**
  * Created by xiejin on 2016/5/3.

@@ -37,8 +37,8 @@ import com.laxiong.View.FinancingListView;
 import com.laxiong.View.PrecentCricleBar;
 import com.laxiong.View.WaitPgView;
 import com.laxiong.entity.FinanceInfo;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
@@ -66,7 +66,7 @@ public class FinancingFragment extends Fragment implements OnClickListener {
 
     private List<FinanceInfo> mList = new ArrayList<FinanceInfo>();
     ;// 全是固息宝的
-    private int listNum;  // 刷新加载更多所有的个数
+    private int listNum;  //
     private TextView mNoticeMsg;
     private UpdateReceiver receiver;
 

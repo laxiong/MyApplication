@@ -37,8 +37,8 @@ import com.laxiong.entity.EnvConstants;
 import com.laxiong.entity.LlOrderInfo;
 import com.laxiong.entity.PayOrder;
 import com.laxiong.entity.PaySignParam;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONException;

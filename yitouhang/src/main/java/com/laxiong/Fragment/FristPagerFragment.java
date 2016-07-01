@@ -28,7 +28,7 @@ import com.laxiong.Utils.ScollPagerUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.ChildViewPager;
 import com.laxiong.entity.Banner;
-import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.network.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
 import org.json.JSONArray;

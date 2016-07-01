@@ -21,7 +21,7 @@ import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.RequestParams;
 import com.gongshidai.mistGSD.R;
 public class TrueNameActivity2 extends BaseActivity implements OnClickListener, IViewCommonBack {
     /***

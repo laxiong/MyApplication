@@ -6,9 +6,8 @@ import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_model.Model_adapter;
 import com.laxiong.Mvp_model.OnLoadBcObjListener;
 import com.laxiong.Mvp_view.IViewBasicObj;
-import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.ShareInfo;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.RequestParams;
 
 /**
  * Created by xiejin on 2016/5/5.

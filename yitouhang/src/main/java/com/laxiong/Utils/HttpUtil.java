@@ -6,11 +6,11 @@ import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
 import com.laxiong.Application.YiTouApplication;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.BinaryHttpResponseHandler;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.AsyncHttpClient;
+import com.loopj.android.network.AsyncHttpResponseHandler;
+import com.loopj.android.network.BinaryHttpResponseHandler;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 
 public class HttpUtil {
     private static AsyncHttpClient client = new AsyncHttpClient(); // 实例化对象

@@ -11,7 +11,7 @@ import com.laxiong.Mvp_model.OnLoadBasicListener;
 import com.laxiong.Mvp_model.Score;
 import com.laxiong.Mvp_view.IViewYibi;
 import com.laxiong.entity.User;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.RequestParams;
 
 import java.lang.ref.WeakReference;
 import java.util.List;

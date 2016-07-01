@@ -33,8 +33,8 @@ import com.laxiong.Utils.OnSingleClickListener;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.TimeUtil;
 import com.laxiong.entity.User;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONArray;

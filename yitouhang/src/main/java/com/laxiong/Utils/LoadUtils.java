@@ -17,6 +17,8 @@ import com.gongshidai.mistGSD.R;
  */
 public class LoadUtils {
 
+    // 提示加载中的进度条
+
     public static Dialog createbuildDialog(Context mContext,String msg){
 
         View mView = LayoutInflater.from(mContext).inflate(R.layout.loading_dialog,null);

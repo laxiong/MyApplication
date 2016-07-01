@@ -10,7 +10,7 @@ import com.laxiong.Utils.CommonUtils;
 import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.NotificationUtil;
 import com.laxiong.Utils.StringUtils;
-import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.network.AsyncHttpResponseHandler;
 
 import org.apache.http.Header;
 

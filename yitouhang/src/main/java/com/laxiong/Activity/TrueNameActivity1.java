@@ -1,6 +1,5 @@
 package com.laxiong.Activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,9 +24,8 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 import org.apache.http.Header;
 import org.json.JSONObject;
 

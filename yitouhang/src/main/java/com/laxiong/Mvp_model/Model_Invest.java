@@ -7,9 +7,7 @@ import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.entity.User;
-import com.loopj.android.http.RequestParams;
-
-import java.util.List;
+import com.loopj.android.network.RequestParams;
 
 /**
  * Created by xiejin on 2016/4/28.

@@ -25,8 +25,8 @@ import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.LoadUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 import com.gongshidai.mistGSD.R;
 
 import org.apache.http.Header;
