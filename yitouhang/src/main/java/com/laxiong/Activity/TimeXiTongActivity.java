@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -55,6 +56,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 	private Double lu = 0.0; // 计算器的计算利率
 	private LinearLayout ll_wrap;
 	private  User mUser ;
+	private ImageView mSxtBack ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -189,6 +191,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		mPrecentTitle = (TextView)findViewById(R.id.tv1);
 		mline1 = findViewById(R.id.line_1);
 		mline2 = findViewById(R.id.line_2);
+		mSxtBack = (ImageView)findViewById(R.id.sxt_back);
 
 	}
 
@@ -368,6 +371,9 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		mMathPrecent.setTextColor(Color.parseColor("#FFFFDFAA"));
 		mline1.setBackgroundColor(Color.parseColor("#FFFFDFAA"));
 		mline2.setBackgroundColor(Color.parseColor("#FFFFDFAA"));
+		mShareBtn.setTextColor(Color.parseColor("#FFFFDFAA"));
+		SxtTitle.setTextColor(Color.parseColor("#FFFFDFAA"));
+		mSxtBack.setImageResource(R.drawable.img_vip_back);
 	}
 	//设置一般的白色
 	private void setColors(){
@@ -382,6 +388,9 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		mMathPrecent.setTextColor(Color.parseColor("#FFFFFFFF"));
 		mline1.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
 		mline2.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+		mShareBtn.setTextColor(Color.parseColor("#FFFFFFFF"));
+		SxtTitle.setTextColor(Color.parseColor("#FFFFFFFF"));
+		mSxtBack.setImageResource(R.drawable.img_back);
 	}
 
 

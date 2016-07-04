@@ -20,6 +20,8 @@ public class FinanceInfo {
     private Double  birdapr;//新手标加息量
     private String  date;//时间
     private Double  percent;//百分比
+    private Double  present ;
+    private Double  accum ;
     private String  rule;
     private int  members;
     private String  remark;
@@ -30,6 +32,22 @@ public class FinanceInfo {
     private String  key;
     private int  score;
     private int  total_amount;
+
+    public Double getPresent() {
+        return present;
+    }
+
+    public void setPresent(Double present) {
+        this.present = present;
+    }
+
+    public Double getAccum() {
+        return accum;
+    }
+
+    public void setAccum(Double accum) {
+        this.accum = accum;
+    }
 
     public String getTitle() {
         return title;

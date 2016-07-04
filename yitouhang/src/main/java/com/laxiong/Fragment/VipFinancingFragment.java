@@ -361,7 +361,7 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 							mViewHonder.vip_addbf.setVisibility(View.INVISIBLE);
 						}else {
 							mViewHonder.vip_addbf.setVisibility(View.VISIBLE);
-							mViewHonder.vip_addbf.setText("+"+String.valueOf(gxb.getVip())+"%");
+							mViewHonder.vip_addbf.setText("+"+String.valueOf(gxb.getAccum())+"%");
 							mViewHonder.vip_addbf.setTextColor(Color.parseColor("#FF785603"));
 						}
 					}
@@ -542,6 +542,8 @@ public class VipFinancingFragment extends Fragment implements View.OnClickListen
 				info.setMembers(obj.getInt("members"));
 				info.setPaytype(obj.getString("paytype"));
 				info.setPercent(obj.getDouble("percent"));
+				info.setPresent(obj.getDouble("present"));
+				info.setAccum(obj.getDouble("accum"));
 				info.setRemark(obj.getString("remark"));
 				info.setRule(obj.getString("rule"));
 				info.setMin(obj.getString("min"));

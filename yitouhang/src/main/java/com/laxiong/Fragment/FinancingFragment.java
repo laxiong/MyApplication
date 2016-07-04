@@ -436,7 +436,7 @@ public class FinancingFragment extends Fragment implements OnClickListener {
                             mViewHonder.mText_vip.setVisibility(View.INVISIBLE);
                         } else {
                             mViewHonder.mText_vip.setVisibility(View.VISIBLE);
-                            mViewHonder.mText_vip.setText("+" + String.valueOf(gxb.getVip()) + "%");
+                            mViewHonder.mText_vip.setText("+" + String.valueOf(gxb.getPresent()) + "%");
                         }
                     }
 
@@ -615,6 +615,8 @@ public class FinancingFragment extends Fragment implements OnClickListener {
                 info.setRule(obj.getString("rule"));
                 info.setMin(obj.getString("min"));
                 info.setScore(obj.getInt("score"));
+                info.setPresent(obj.getDouble("present"));
+                info.setAccum(obj.getDouble("accum"));
                 info.setVip(obj.getDouble("vip"));
                 info.setUrl(obj.getString("url"));
                 info.setTotal_amount(obj.getInt("total_amount"));

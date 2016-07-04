@@ -57,7 +57,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
     private TextView mProgressNum ,mShareBtn , mBuyBtn ,mFinanceLimit,mMinTou ,mTextDes,mPrecentTg;
     private VerticalNumberProgressBar mProgressBar ;
     private FrameLayout mBack ;
-    private ImageView mJiSuanQi ;
+    private ImageView mJiSuanQi ,mGxbBack;
     private int mId;
     private int ttnum ;
     private int limitDay ;
@@ -184,6 +184,8 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mGetCashDec =(TextView)findViewById(R.id.tv4);
         V_line= findViewById(R.id.v_line);
         mAprDec = (TextView)findViewById(R.id.tv1);
+        mGxbBack = (ImageView)findViewById(R.id.gxb_back);
+
 
     }
 
@@ -410,7 +412,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                     mAddPrecent.setText("+"+String.valueOf(response.getDouble("accum"))+"%");
                     mAddOther.setText(String.valueOf(response.getDouble("accum"))+"%");
                     // vip
-                    mTextDes.setText("VIP用户，平台奖励");
+                    mTextDes.setText("VIP用户 平台奖励");
 
                     mBuyPrecent = num+response.getDouble("accum");  //VIP的年化总收益利率
 
@@ -418,7 +420,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                     mAddPrecent.setText("+"+String.valueOf(response.getDouble("birdapr"))+"%");
                     mAddOther.setText(String.valueOf(response.getDouble("birdapr"))+"%");
                     //新手标
-                    mTextDes.setText("新客专享，平台奖励");
+                    mTextDes.setText("新客专享 平台奖励");
 
                     mBuyPrecent = num+response.getDouble("birdapr");  //新手标的年化总收益利率
 
@@ -426,7 +428,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                     mAddPrecent.setText("+"+String.valueOf(response.getDouble("present"))+"%");
                     mAddOther.setText(String.valueOf(response.getDouble("present"))+"%");
                     //平台赠送
-                    mTextDes.setText("，平台奖励");
+                    mTextDes.setText(" 平台奖励");
 
                     mBuyPrecent = num+response.getDouble("present");  //平台奖励的年化总收益利率
                 }
@@ -471,6 +473,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
             return false;
         }
     }
+
     // vip用户的金色字体
     private void setVipTextColor(){
         mPrecent.setTextColor(Color.parseColor("#FFFFDFAA"));
@@ -482,9 +485,11 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mGetCashDec.setTextColor(Color.parseColor("#FFFFDFAA"));
         mAprDec.setTextColor(Color.parseColor("#FFFFDFAA"));
         V_line.setBackgroundColor(Color.parseColor("#FFFFDFAA"));
-//        mShareBtn.setTextColor(Color.parseColor("#FFE2A42A"));
-//        mGxbTitle.setTextColor(Color.parseColor("#FFE2A42A"));
+        mShareBtn.setTextColor(Color.parseColor("#FFFFDFAA"));
+        mGxbTitle.setTextColor(Color.parseColor("#FFFFDFAA"));
+        mGxbBack.setImageResource(R.drawable.img_vip_back);
     }
+
     // 普通用户的普通字体
     private void  setTextColor(){
         mPrecent.setTextColor(Color.parseColor("#ffffff"));
@@ -496,8 +501,9 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mGetCashDec.setTextColor(Color.parseColor("#ffffff"));
         mAprDec.setTextColor(Color.parseColor("#ffffff"));
         V_line.setBackgroundColor(Color.parseColor("#ffffff"));
-//        mShareBtn.setTextColor(Color.parseColor("#ffffff"));
-//        mGxbTitle.setTextColor(Color.parseColor("#ffffff"));
+        mShareBtn.setTextColor(Color.parseColor("#ffffff"));
+        mGxbTitle.setTextColor(Color.parseColor("#ffffff"));
+        mGxbBack.setImageResource(R.drawable.img_back);
     }
 
 }
