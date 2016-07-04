@@ -25,11 +25,13 @@ import android.widget.Toast;
 
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.LoadUtils;
 import com.laxiong.Utils.OpenAccount;
 import com.laxiong.Utils.ToastUtil;
@@ -38,6 +40,7 @@ import com.laxiong.entity.ShareInfo;
 import com.laxiong.entity.User;
 import com.loopj.android.network.JsonHttpResponseHandler;
 import com.loopj.android.network.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
 import com.umeng.socialize.UMShareAPI;
 
 import org.apache.http.Header;
@@ -362,16 +365,21 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
     // 设置数据
     private void getNetWork(){
 //        showLoadView(true);
-        RequestParams params = new RequestParams();
-        params.put("p",1);
-        if (ttnum!=-1)
-            params.put("limit",ttnum);
-        if (mId!=-1)
-            params.put("id",mId);
-        HttpUtil.get(InterfaceInfo.PRODUCT_URL,params,new JsonHttpResponseHandler(){
+//        RequestParams params = new RequestParams();
+//        params.put("p",1);
+//        if (ttnum!=-1)
+//            params.put("limit",ttnum);
+//        if (mId!=-1)
+//            params.put("id",mId);
+        String url=InterfaceInfo.PRODUCT_URL;
+        url=url+"?p=1";
+        if(ttnum!=-1)
+            url=url+"&&limit="+ttnum;
+        if(mId!=-1)
+            url=url+"&&id="+mId;
+        HttpUtil2.get(url, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 if (response!=null){
                     try {
                         if (response.getInt("code")==0){
@@ -387,12 +395,37 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                     }
                 }
             }
+
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
+            public void onFailure(String msg) {
                 ToastUtil.customAlert(GuXiBaoActivity.this,"获取数据失败");
             }
         });
+//        HttpUtil.get(InterfaceInfo.PRODUCT_URL,params,new JsonHttpResponseHandler(){
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+//                super.onSuccess(statusCode, headers, response);
+//                if (response!=null){
+//                    try {
+//                        if (response.getInt("code")==0){
+//                            mProjectName = response.getString("title");
+//                            mGxbTitle.setText(mProjectName);
+//                            updataUi(response);
+//                            double percent = response.getDouble("percent");
+//                            setProgressNumHeight((float)percent);
+//                        }else {
+//                            Toast.makeText(GuXiBaoActivity.this,response.getString("msg"),Toast.LENGTH_SHORT).show();
+//                        }
+//                    }catch (Exception E){
+//                    }
+//                }
+//            }
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+//                super.onFailure(statusCode, headers, throwable, errorResponse);
+//                ToastUtil.customAlert(GuXiBaoActivity.this,"获取数据失败");
+//            }
+//        });
     }
 
     private void updataUi(JSONObject response){
