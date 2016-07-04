@@ -6,12 +6,14 @@ import android.os.Handler;
 
 import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_model.Model_Yibi;
 import com.laxiong.Mvp_model.OnLoadBasicListener;
 import com.laxiong.Mvp_model.Score;
 import com.laxiong.Mvp_view.IViewYibi;
 import com.laxiong.entity.User;
 import com.loopj.android.network.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -41,11 +43,16 @@ public class YibiDetail_Presenter implements OnLoadBasicListener<Score> {
             context.startActivity(new Intent(context, LoginActivity.class));
             return;
         }
-        RequestParams params = new RequestParams();
-        params.put("type", "used");
-        params.put("page", page);
-        params.put("pageSize", pagesize);
-        myibi.loadYibiOutput(user.getId(), params, context, this);
+//        RequestParams params = new RequestParams();
+//        params.put("type", "used");
+//        params.put("page", page);
+//        params.put("pageSize", pagesize);
+        FormEncodingBuilder builder=new FormEncodingBuilder();
+        builder.add("type","used");
+        builder.add("page", page + "");
+        builder.add("pageSize", pagesize + "");
+        String url= InterfaceInfo.SCORE_URL+"?id="+user.getId()+"&&type=used&&page="+page+"&&pageSize="+pagesize;
+        myibi.loadYibiOutput(url, context, this);
     }
 
     public void loadYibiInput(int page, int pagesize, Context context) {
@@ -55,11 +62,12 @@ public class YibiDetail_Presenter implements OnLoadBasicListener<Score> {
             context.startActivity(new Intent(context, LoginActivity.class));
             return;
         }
-        RequestParams params = new RequestParams();
-        params.put("type", "use");
-        params.put("page", page);
-        params.put("pageSize", pagesize);
-        myibi.loadYibiInput(user.getId(), params, context, this);
+        FormEncodingBuilder builder=new FormEncodingBuilder();
+        builder.add("type", "use");
+        builder.add("page", page + "");
+        builder.add("pageSize", pagesize + "");
+        String url= InterfaceInfo.SCORE_URL+"?id="+user.getId()+"&&type=used&&page="+page+"&&pageSize="+pagesize;
+        myibi.loadYibiInput(url, context, this);
     }
 
     @Override

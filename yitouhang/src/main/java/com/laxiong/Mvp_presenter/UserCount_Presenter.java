@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewCount;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
@@ -48,18 +50,17 @@ public class UserCount_Presenter {
             iviewcount.getCountMsgSuc();
             return;
         }
-        HttpUtil.get(InterfaceInfo.GETCOUNT_URL + tokenid, new JsonHttpResponseHandler() {
+        HttpUtil2.get(InterfaceInfo.GETCOUNT_URL + tokenid, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
-                        if(response.getInt("code")==0) {
+                        if (response.getInt("code") == 0) {
                             User user = JSONUtils.parseObject(response.toString(), User.class);
                             YiTouApplication.getInstance().setUser(user);
                             iviewcount.getCountMsgSuc();
-                        }else{
-                            if(response.getInt("code")==401)
+                        } else {
+                            if (response.getInt("code") == 401)
                                 CommonReq.showReLoginDialog(context);
                             iviewcount.getCountMsgFai();
                         }
@@ -68,10 +69,8 @@ public class UserCount_Presenter {
                     }
                 }
             }
-
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
+            public void onFailure(String msg) {
                 iviewcount.getCountMsgFai();
             }
         }, autori);

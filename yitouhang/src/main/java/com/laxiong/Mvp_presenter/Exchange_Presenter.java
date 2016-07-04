@@ -2,14 +2,17 @@ package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
 
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewExchange;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.StringUtils;
 import com.loopj.android.network.JsonHttpResponseHandler;
 import com.loopj.android.network.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
 
 import org.apache.http.Header;
 import org.json.JSONException;
@@ -30,15 +33,14 @@ public class Exchange_Presenter {
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
-        RequestParams params = new RequestParams();
-        params.put("amount", Integer.parseInt(num));
-        params.put("product", id);
-        params.put("type", Constants.ReqEnum.BUY);
-        params.put("pay_pwd", pwd);
-        HttpUtil.post(InterfaceInfo.SHOPORDER_URL, params, new JsonHttpResponseHandler() {
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        builder.add("amount", num + "");
+        builder.add("product", id + "");
+        builder.add("type", Constants.ReqEnum.BUY + "");
+        builder.add("pay_pwd", pwd + "");
+        HttpUtil2.post(InterfaceInfo.SHOPORDER_URL, builder, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
@@ -59,9 +61,8 @@ public class Exchange_Presenter {
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                iviewexc.exchangeFail(responseString);
+            public void onFailure(String msg) {
+                iviewexc.exchangeFail(msg);
             }
         }, authori);
     }

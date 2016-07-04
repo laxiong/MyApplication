@@ -6,6 +6,7 @@ import android.os.Handler;
 
 import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_model.Model_adapter;
 import com.laxiong.Mvp_model.OnLoadBasicListener;
@@ -14,6 +15,7 @@ import com.laxiong.Mvp_view.IViewBasic;
 import com.laxiong.Mvp_view.IView_Renmai;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.entity.User;
 import com.loopj.android.network.JsonHttpResponseHandler;
@@ -84,11 +86,9 @@ public class Renmai_Presenter implements OnLoadBasicListener<Renmai> {
             context.startActivity(new Intent(context, LoginActivity.class));
             return;
         }
-        RequestParams params = new RequestParams();
-        params.put("type", type);
-        params.put("page", page);
-        params.put("pageSize", pagesize);
-        madapter.loadListGet(InterfaceInfo.FRIENDS_URL + "/" + user.getId(), context, params, this, Renmai.class);
+        String url = InterfaceInfo.FRIENDS_URL + "?id=" + user.getId() + "&&type=" + type + "&&page=" + page + "&&pageSize=" + pagesize;
+        madapter.loadListGet(url, context, this, Renmai.class);
+//        madapter.loadListGet(InterfaceInfo.FRIENDS_URL + "/" + user.getId(), context, params, this, Renmai.class);
     }
 
     public void loadRmNum(final Context context) {
@@ -101,10 +101,9 @@ public class Renmai_Presenter implements OnLoadBasicListener<Renmai> {
         }
         if (StringUtils.isBlank(authroi))
             return;
-        HttpUtil.get(InterfaceInfo.RMNUM_URL + "/" + user.getId(), new JsonHttpResponseHandler() {
+        HttpUtil2.get(InterfaceInfo.RMNUM_URL + "/" + user.getId(), new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
@@ -125,9 +124,8 @@ public class Renmai_Presenter implements OnLoadBasicListener<Renmai> {
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                iviewrm.loadRmNumFail(responseString);
+            public void onFailure(String msg) {
+                iviewrm.loadRmNumFail(msg);
             }
         }, authroi);
     }

@@ -12,7 +12,7 @@
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
         custom:texts="共识理财"
-        custom:textsize="6sp" />
+        />
     <LinearLayout
         android:layout_marginTop="30dp"
         android:id="@+id/ll_data"

@@ -14,7 +14,7 @@
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
         custom:texts="@string/hall"
-        custom:textsize="8sp"></com.laxiong.View.CommonActionBar>
+        ></com.laxiong.View.CommonActionBar>
 
     <LinearLayout
         android:layout_width="match_parent"

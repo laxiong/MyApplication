@@ -91,7 +91,8 @@ public class TMallActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void getCountMsgSuc() {
         User user = YiTouApplication.getInstance().getUser();
-        tv_yibi.setText(user.getScore() + "");
+        int score=user.getScore();
+        tv_yibi.setText(score<0?"0":score+"");
     }
 
     @Override

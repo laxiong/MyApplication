@@ -327,7 +327,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 				mAmountProfit.setText(String.valueOf(mSxtProfit));
 				// 昨日收益
 				Yesterday mYesterday = AppUser.getYesterday();
-				float mSxtYester = mYesterday.getSxt();
+				double mSxtYester = mYesterday.getSxt();
 				mYesDayProfit.setText(String.valueOf(mSxtYester));
 			} else {
 				mGetCashProfit.setText("0.0");

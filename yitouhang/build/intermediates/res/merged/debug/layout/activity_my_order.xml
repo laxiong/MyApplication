@@ -12,7 +12,7 @@
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
         custom:texts="我的订单"
-        custom:textsize="6sp" />
+        />
 
     <ListView
         android:id="@+id/lvlist"

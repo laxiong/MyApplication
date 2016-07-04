@@ -261,35 +261,6 @@ public class Password_Presenter {
                 }
             }
         },autori);
-//        HttpUtil.post(InterfaceInfo.CODE_URL, params, new JsonHttpResponseHandler() {
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-//                super.onSuccess(statusCode, headers, response);
-//                if (response != null) {
-//                    try {
-//                        if (response.getInt("code") == 0) {
-//                            iviewresetpay.reqbackSuc(null);
-//                        } else {
-//                            if (response.getInt("code") == 401) {
-//                                CommonReq.showReLoginDialog(context);
-//                            } else
-//                                iviewresetpay.reqbackFail(response.getString("msg"), null);
-//                        }
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                        iviewresetpay.reqbackFail(e.toString(), null);
-//                    }
-//                } else {
-//                    iviewresetpay.reqbackFail("错误,无响应", null);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-//                super.onFailure(statusCode, headers, responseString, throwable);
-//                iviewresetpay.reqbackFail(responseString, null);
-//            }
-//        }, autori);
     }
 
     public void reqChangePayPwd(final Context context, String pwd, String newpwd, String code) {

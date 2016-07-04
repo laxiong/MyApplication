@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -100,6 +101,7 @@ public class MySelfFragment extends Fragment implements OnClickListener {
             startActivity(new Intent(getActivity(), LoginActivity.class));
             return;
         }
+        Log.i("kk","profit："+user.getYesterday().getTotal());
         iv_yesterprofit.setText(user.getYesterday().getTotal() + "元");
         textView1.setText(user.getAvailable_amount() + "元");
         togetche_tv.setText(user.getAmount() + "元");

@@ -173,10 +173,33 @@
     <color name="text_light_blue">#b2cbeb</color>
     <color name="text_mi">#efede0</color>
     <color name="text_red">#ff0000</color>
+    <color name="textlinkcolor">#ffffff</color>
     <color name="title_grey">#EE4E42</color>
     <color name="tran_pressed_white">#11ffffff</color>
     <color name="tran_white">#33ffffff</color>
     <color name="transparent">#00000000</color>
+    <color name="udesk_anim_color_background_red">#FF4040</color>
+    <color name="udesk_anim_color_background_yellow">#FF9900</color>
+    <color name="udesk_color_bg_white">#FFFFFFFF</color>
+    <color name="udesk_color_im_avatar_border">#FFEEEEEE</color>
+    <color name="udesk_color_im_commondity_link">#1f54db</color>
+    <color name="udesk_color_im_commondity_subtitle">#a5adc1</color>
+    <color name="udesk_color_im_commondity_title">#444444</color>
+    <color name="udesk_color_im_text_left">#444444</color>
+    <color name="udesk_color_im_text_right">#FFFFFF</color>
+    <color name="udesk_color_im_time_text">#c7c6c6</color>
+    <color name="udesk_color_line">#e2e2eb</color>
+    <color name="udesk_color_navi_text">#FFFFFF</color>
+    <color name="udesk_color_text_gray">#dadada</color>
+    <color name="udesk_color_text_light">#efeff3</color>
+    <color name="udesk_color_titlebar_text_center">#FFFFFF</color>
+    <color name="udesk_default_gray_bg">#F0EFF5</color>
+    <color name="udesk_divider">#cecdcd</color>
+    <color name="udesk_loginDialog_background">#50000000</color>
+    <color name="udesk_pw_text_color">#808080</color>
+    <color name="udesk_statusbar_bg">#ff13ad67</color>
+    <color name="udesk_titlebar_bg">#3565df</color>
+    <color name="udesk_view_line">#d0D8D8D8</color>
     <color name="umeng_socialize_color_group">#2c3035</color>
     <color name="umeng_socialize_comments_bg">#F4F4F4</color>
     <color name="umeng_socialize_divider">#E6E6E6</color>
@@ -211,7 +234,7 @@
     <declare-styleable name="ActivityChooserView"><attr format="string" name="initialActivityCount"/><attr format="reference" name="expandActivityOverflowButtonDrawable"/></declare-styleable>
     <declare-styleable name="CircleImageView"><attr format="dimension" name="border_width"/><attr format="color" name="border_color"/></declare-styleable>
     <declare-styleable name="CircleProgressView"><attr format="string" name="text"/><attr format="string" name="unit"/><attr format="boolean" name="showUnit"/><attr format="color" name="textColor"/><attr format="color" name="unitColor"/><attr format="dimension" name="textSize"/><attr format="color" name="spinColor"/><attr format="dimension" name="maxValue"/><attr format="color" name="barColor"/><attr format="color" name="barColor1"/><attr format="color" name="barColor2"/><attr format="color" name="barColor3"/><attr format="color" name="rimColor"/><attr format="dimension" name="rimWidth"/><attr format="dimension" name="barWidth"/><attr format="dimension" name="spinSpeed"/><attr format="color" name="fillColor"/><attr format="dimension" name="spinBarLength"/><attr format="color" name="contourColor"/><attr format="dimension" name="contourSize"/><attr format="dimension" name="textScale"/><attr format="dimension" name="unitScale"/></declare-styleable>
-    <declare-styleable name="CommonActionBar"><attr format="string" name="texts"/><attr format="color" name="bgcolor"/><attr format="color" name="textcolor"/><attr format="dimension" name="textsize"/></declare-styleable>
+    <declare-styleable name="CommonActionBar"><attr format="string" name="texts"/><attr format="color" name="bgcolor"/><attr format="color" name="textcolor"/></declare-styleable>
     <declare-styleable name="CompatTextView"><attr format="reference|boolean" name="textAllCaps"/></declare-styleable>
     <declare-styleable name="LinearLayoutICS"><attr name="divider"/><attr name="showDividers"><flag name="none" value="0"/><flag name="beginning" value="1"/><flag name="middle" value="2"/><flag name="end" value="4"/></attr><attr format="dimension" name="dividerPadding"/></declare-styleable>
     <declare-styleable name="MenuGroup"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:checkableBehavior"/><attr name="android:visible"/><attr name="android:enabled"/></declare-styleable>
@@ -223,6 +246,7 @@
     <declare-styleable name="SearchView"><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/></declare-styleable>
     <declare-styleable name="Spinner"><attr format="reference" name="prompt"/><attr format="enum" name="spinnerMode"><enum name="dialog" value="0"/><enum name="dropdown" value="1"/></attr><attr name="android:dropDownSelector"/><attr name="android:popupBackground"/><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownHorizontalOffset"/><attr name="android:dropDownWidth"/><attr format="reference" name="popupPromptView"/><attr name="android:gravity"/><attr format="boolean" name="disableChildrenWhenDisabled"/></declare-styleable>
     <declare-styleable name="Theme"><attr format="reference" name="actionDropDownStyle"/><attr format="dimension" name="dropdownListPreferredItemHeight"/><attr format="reference" name="popupMenuStyle"/><attr format="dimension" name="panelMenuListWidth"/><attr format="reference" name="panelMenuListTheme"/><attr format="reference" name="listChoiceBackgroundIndicator"/></declare-styleable>
+    <declare-styleable name="UdeskTitleBar"><attr format="string" name="titleBarTitle"/><attr format="string" name="titleBarRightText"/><attr format="string" name="titleBarLeftText"/><attr format="reference" name="titleBarLeftImage"/><attr format="reference|color" name="titleBarBackground"/></declare-styleable>
     <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/></declare-styleable>
     <declare-styleable name="WaitPgView"><attr format="color" name="firstColor"/><attr format="color" name="secondColor"/><attr format="string" name="circletext"/><attr format="dimension" name="strokewidth"/><attr format="dimension" name="tsize"/></declare-styleable>
     <declare-styleable name="WaterDropView"><attr format="dimension" name="max_circle_radius"/><attr format="dimension" name="min_circle_radius"/><attr format="color" name="waterdrop_color"/><attr format="dimension" name="topcircle_x"/><attr format="dimension" name="topcircle_y"/><attr format="dimension" name="bottomcircle_x"/><attr format="dimension" name="bottomcircle_y"/></declare-styleable>
@@ -297,8 +321,67 @@
     <item name="dialog_fixed_height_minor" type="dimen">100%</item>
     <item name="dialog_fixed_width_major" type="dimen">320dp</item>
     <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
+    <dimen name="title_size">14sp</dimen>
+    <dimen name="udesk_1">1dip</dimen>
+    <dimen name="udesk_10">10dip</dimen>
+    <dimen name="udesk_15">15dip</dimen>
+    <dimen name="udesk_2">2dip</dimen>
+    <dimen name="udesk_20">20dip</dimen>
+    <dimen name="udesk_22">22dip</dimen>
+    <dimen name="udesk_25">25dip</dimen>
+    <dimen name="udesk_3">3dip</dimen>
+    <dimen name="udesk_30">30dip</dimen>
+    <dimen name="udesk_35">35dip</dimen>
+    <dimen name="udesk_4">4dip</dimen>
+    <dimen name="udesk_40">40dip</dimen>
+    <dimen name="udesk_45">45dip</dimen>
+    <dimen name="udesk_5">5dip</dimen>
+    <dimen name="udesk_50">50dip</dimen>
+    <dimen name="udesk_55">55dip</dimen>
+    <dimen name="udesk_60">60dip</dimen>
+    <dimen name="udesk_70">70dip</dimen>
+    <dimen name="udesk_8">8dip</dimen>
+    <dimen name="udesk_80">80dip</dimen>
+    <dimen name="udesk_agent_state_bottom">0dp</dimen>
+    <dimen name="udesk_chat_context_margin_other_derction">62dip</dimen>
+    <dimen name="udesk_chat_head">45dip</dimen>
+    <dimen name="udesk_chat_head_margin">3dip</dimen>
+    <dimen name="udesk_chat_head_margin_left_or_right">8dip</dimen>
+    <dimen name="udesk_chat_msg_send_fail_pic">22dip</dimen>
+    <dimen name="udesk_im_avatar_border_width">2dp</dimen>
+    <dimen name="udesk_im_avatar_width_height">45dp</dimen>
+    <dimen name="udesk_im_commondity_width_height">59dp</dimen>
+    <dimen name="udesk_im_divider_height">0dp</dimen>
+    <dimen name="udesk_im_emoji_height">46dp</dimen>
+    <dimen name="udesk_im_emoji_width">38dp</dimen>
+    <dimen name="udesk_im_item_padding_left_right_max">65dp</dimen>
+    <dimen name="udesk_im_item_padding_left_right_min">20dp</dimen>
+    <dimen name="udesk_im_item_padding_top_bottom">5dp</dimen>
+    <dimen name="udesk_im_message_margin_left_right">75dp</dimen>
+    <dimen name="udesk_im_move_to_cancel_offset">50dp</dimen>
+    <dimen name="udesk_im_record_popup_height">148dp</dimen>
+    <dimen name="udesk_im_record_popup_status_height">118dp</dimen>
+    <dimen name="udesk_im_record_popup_txt_height">30dp</dimen>
+    <dimen name="udesk_im_record_popup_width">148dp</dimen>
+    <dimen name="udesk_navi_text_size">16sp</dimen>
+    <dimen name="udesk_navi_title_padding">5dp</dimen>
+    <dimen name="udesk_sp12">12sp</dimen>
+    <dimen name="udesk_sp14">14sp</dimen>
+    <dimen name="udesk_sp16">16sp</dimen>
+    <dimen name="udesk_sp18">18sp</dimen>
+    <dimen name="udesk_sp20">20sp</dimen>
+    <dimen name="udesk_titlebar_agent_state_size">12sp</dimen>
+    <dimen name="udesk_titlebar_height">48dp</dimen>
+    <dimen name="udesk_titlebar_left_margin">10dp</dimen>
+    <dimen name="udesk_titlebar_padding">2dp</dimen>
+    <dimen name="udesk_titlebar_right_margin">10dp</dimen>
+    <dimen name="udesk_titlebar_title_size">16sp</dimen>
     <dimen name="umeng_socialize_pad_window_height">350dip</dimen>
     <dimen name="umeng_socialize_pad_window_width">580dip</dimen>
+    <drawable name="udesk_commondity_default_thumbnail">#a5adc1</drawable>
+    <drawable name="udesk_im_conversation_bg">#F2F2F2</drawable>
+    <drawable name="udesk_im_conversation_list_selector">@android:color/transparent</drawable>
+    <drawable name="udesk_im_divider">@android:color/transparent</drawable>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
@@ -324,7 +407,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="action_settings">Settings</string>
-    <string name="app_name">Yitouhang</string>
+    <string name="app_name">车友理财</string>
     <string name="appkefu_agent_offline">客服暂时离开,请稍后</string>
     <string name="appkefu_already_rated">已经评价过此次会话</string>
     <string name="appkefu_backkeypressed_toast">再按一次退出</string>
@@ -559,7 +642,7 @@
     <string name="appkefu_webbrowser_title">网页</string>
     <string name="appkefu_webview_loadingprogress">页面加载中，请稍后..</string>
     <string name="appkefu_yestoday">昨天</string>
-    <string name="appname">共识理财</string>
+    <string name="appname">车友理财</string>
     <string name="com_facebook_dialogloginactivity_ok_button">OK</string>
     <string name="com_facebook_image_download_unknown_error">Unexpected error while downloading an image.</string>
     <string name="com_facebook_internet_permission_error_message">WebView login requires INTERNET permission</string>
@@ -627,6 +710,81 @@
     <string name="tumblr_no_client">未安装Tumblr客户端</string>
     <string name="tumblr_no_content">请设置分享内容</string>
     <string name="tumblr_showword">Tumblr</string>
+    <string name="udesk_agent_offline_no_send">当前没有可用客服，不能发送消息</string>
+    <string name="udesk_cancel">取消</string>
+    <string name="udesk_cancle_im_long_voice">松开 结束</string>
+    <string name="udesk_commit_form">提交请求</string>
+    <string name="udesk_copy">复制</string>
+    <string name="udesk_domain_is_null">UDesk注册的域名不能为空！</string>
+    <string name="udesk_download_image">正在下载图片…</string>
+    <string name="udesk_download_image_fail">图片下载失败！</string>
+    <string name="udesk_error_network">没有可用网络</string>
+    <string name="udesk_error_network_parse">数据解析异常</string>
+    <string name="udesk_error_no_store">你的手机上没有安装App市场类软件</string>
+    <string name="udesk_fail_save_image">图片保存失败</string>
+    <string name="udesk_get_more_history">拉取历史记录</string>
+    <string name="udesk_has_not_open_robot">当前APP还没有开启智能机器人客服功能</string>
+    <string name="udesk_has_wrong_net">网络出错了,请检查网络设置!</string>
+    <string name="udesk_helper_get_article_failed">获取问题失败.</string>
+    <string name="udesk_helper_get_list_failed">获取问题列表失败.</string>
+    <string name="udesk_helper_loadding">正在获取，请稍候…</string>
+    <string name="udesk_helper_search_empty">没有找到相关的知识点.</string>
+    <string name="udesk_im_record_error">录音出错，请检查是否开启了应用的录音权限</string>
+    <string name="udesk_im_time_format">"MM月dd日 EE HH时mm分"</string>
+    <string name="udesk_im_time_format_am">"上午"</string>
+    <string name="udesk_im_time_format_date">"yyyy/MM/dd"</string>
+    <string name="udesk_im_time_format_dby">"前天"</string>
+    <string name="udesk_im_time_format_pm">"下午"</string>
+    <string name="udesk_im_time_format_yday">"昨天"</string>
+    <string name="udesk_label_customer_offline">客服不在线，请留言</string>
+    <string name="udesk_label_customer_online">"客服%1$s在线"</string>
+    <string name="udesk_label_hint_cancel">松开手指 立即取消</string>
+    <string name="udesk_label_hint_recording">向上滑动 取消发送</string>
+    <string name="udesk_label_hint_too_short">说话时间太短</string>
+    <string name="udesk_label_im_long_voice">长按录音</string>
+    <string name="udesk_label_no_sd">SD卡不可用，请检查</string>
+    <string name="udesk_label_search_fail">无法找到你搜索的内容</string>
+    <string name="udesk_label_send_commondity_link">"发送链接"</string>
+    <string name="udesk_loading_more">正在拉取记录</string>
+    <string name="udesk_msg_busyline_to_form">当前客服正繁忙，如需留言请点击按钮进入表单留言</string>
+    <string name="udesk_msg_offline_to_form">当前客服不在线，您可以选择提交表单来通知客服</string>
+    <string name="udesk_msg_retry">重发该消息</string>
+    <string name="udesk_navi_close">关闭</string>
+    <string name="udesk_navi_helper_input_hint">描述你的问题</string>
+    <string name="udesk_navi_helper_title_content">问题</string>
+    <string name="udesk_navi_helper_title_main">帮助</string>
+    <string name="udesk_navi_helper_title_search">搜索</string>
+    <string name="udesk_navi_im_title_offline">离线消息</string>
+    <string name="udesk_navi_im_title_online">会话</string>
+    <string name="udesk_navi_open_im">联系我们</string>
+    <string name="udesk_no_more_history">本地已经没有历史记录了</string>
+    <string name="udesk_not_find_customer_service">没有找到可用的客服！</string>
+    <string name="udesk_ok">留言</string>
+    <string name="udesk_options_agentgroup">请选择客服组</string>
+    <string name="udesk_rate_dialog_message">如果你喜欢我们的应用，请花点时间给我们点赞</string>
+    <string name="udesk_rate_dialog_title">给应用评分</string>
+    <string name="udesk_rate_feedback">发送反馈</string>
+    <string name="udesk_rate_grade">评分</string>
+    <string name="udesk_recordllegal">录音出错，请检查是否开启了应用的录音权限</string>
+    <string name="udesk_release_to_get_more">松开拉取记录</string>
+    <string name="udesk_retry">重发</string>
+    <string name="udesk_robot_title">智能机器人对话</string>
+    <string name="udesk_save">保存</string>
+    <string name="udesk_send_message">发送</string>
+    <string name="udesk_send_message_empty">不能发送空消息.</string>
+    <string name="udesk_success_save_image">成功保存</string>
+    <string name="udesk_take_camera">拍照</string>
+    <string name="udesk_take_photo">图片</string>
+    <string name="udesk_titlebar_back">返回</string>
+    <string name="udesk_transfer_persion">转人工</string>
+    <string name="udesk_upload_file">上传文件</string>
+    <string name="udesk_upload_image">正在上传图片…</string>
+    <string name="udesk_upload_image_error">图片上传失败，请重试！</string>
+    <string name="udesk_upload_image_forbidden">暂时无法上传，下载图片！</string>
+    <string name="udesk_upload_image_process">正在处理图片…</string>
+    <string name="udesk_upload_record">正在上传录音…</string>
+    <string name="udesk_upload_record_error">录音上传失败，请重试！</string>
+    <string name="udesk_upload_record_process">正在处理录音文件…</string>
     <string name="umeng_example_home_btn_plus">社交分享</string>
     <string name="umeng_socialize_back" translatable="false">返回</string>
     <string name="umeng_socialize_cancel_btn_str">取消</string>
@@ -1205,6 +1363,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
+    <style name="Udesk_Theme" parent="android:Theme.Translucent.NoTitleBar"/>
     <style name="Widget.AppCompat.ActionBar" parent="Widget.AppCompat.Base.ActionBar"/>
     <style name="Widget.AppCompat.ActionBar.Solid" parent="Widget.AppCompat.Base.ActionBar.Solid"/>
     <style name="Widget.AppCompat.ActionBar.TabBar" parent="Widget.AppCompat.Base.ActionBar.TabBar"/>
@@ -1516,6 +1675,13 @@
         <item name="android:layout_height">0.5dp</item>
         <item name="android:background">#dbd6d6</item>
     </style>
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
     <style mce_bogus="1" name="popupAnimation" parent="android:Animation">
 		<item name="android:windowFrame">@null</item>
 		<item name="android:windowIsFloating">true</item>
@@ -1533,6 +1699,41 @@
 	    <item name="android:shadowDy">-1</item>
 	    <item name="android:shadowRadius">0.25</item>
 	    <item name="android:shadowColor">#40000000</item>
+    </style>
+    <style name="transcutestyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@android:color/transparent</item><!-- 边框 -->
+        <item name="android:windowIsFloating">true</item><!-- 是否浮现在activity之上 -->
+        <item name="android:windowNoTitle">true</item><!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item><!-- 背景透明 -->
+
+    </style>
+    <style name="udesk_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/udesk_loginDialog_background</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="udesk_navi_button_text_style">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/udesk_color_navi_text</item>
+        <item name="android:textSize">@dimen/udesk_navi_text_size</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">3dp</item>
+    </style>
+    <style name="udesk_titlebar_button_text_style">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/udesk_color_navi_text</item>
+        <item name="android:textSize">@dimen/udesk_navi_text_size</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">3dp</item>
     </style>
     <style name="umeng_socialize_action_bar_item_im">
         <item name="android:layout_width">25dp</item>

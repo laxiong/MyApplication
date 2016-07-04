@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <com.laxiong.View.CommonActionBar
         android:id="@+id/actionbar"
         android:layout_width="match_parent"
@@ -13,8 +12,7 @@
         custom:bgcolor="@color/title_grey"
         custom:textcolor="@color/white"
         custom:texts="活动大厅"
-        custom:textsize="8sp" />
-
+        />
     <ListView
         android:id="@+id/lvlist"
         android:layout_width="match_parent"

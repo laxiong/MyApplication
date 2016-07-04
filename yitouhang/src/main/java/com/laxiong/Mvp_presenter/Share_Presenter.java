@@ -35,6 +35,8 @@ public class Share_Presenter implements OnLoadBcObjListener<ShareInfo> {
     public void loadShareData(Context context) {
         RequestParams params = new RequestParams();
         params.put("type", "invite");
-        madapter.loadObjGet(InterfaceInfo.SHARE_URL, context, params, this, "weixin", ShareInfo.class);
+        String url=InterfaceInfo.SHARE_URL+"?type=invite";
+        madapter.loadObjGet(url,context,this,"weixin",ShareInfo.class);
+//        madapter.loadObjGet(InterfaceInfo.SHARE_URL, context, params, this, "weixin", ShareInfo.class);
     }
 }

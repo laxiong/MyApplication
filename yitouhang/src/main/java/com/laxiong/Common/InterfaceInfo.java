@@ -1,15 +1,12 @@
 package com.laxiong.Common;
 
-import com.laxiong.Utils.BaseHelper;
 
 public class InterfaceInfo {
 	/***
 	 * 接口信息
 	 */
-//	public final static String BASE_URL = "http://licai.gongshidai.com:88/v4_1"; // test  目前不能用
-//	public final static String BASE_URL = "http://licai.gongshidai.com:88/v4_1";
-	public final static String XIANSHAGN_URL="http://licai.gongshidai.com/v4_1";
-	public final static String BASE_URL="http://www.cheyoulicai.com/v4_1";
+	public final static String BASE_URL="https://www.cheyoulicai.com/v4_1";
+	public final static String XIANSHAGN_URL=BASE_URL;
 	public final static String USER_URL =BASE_URL + "/user";
 
 	public final static String VERIFY_URL = BASE_URL + "/verify";
@@ -42,7 +39,7 @@ public class InterfaceInfo {
 	//消息
 	public final static String NOTICE_URL=BASE_URL+"/notice";
 	//积分
-	public final static String SCORE_URL=BASE_URL+"/score/";
+	public final static String SCORE_URL=BASE_URL+"/score";
 	//欢迎
 	public final static String WELCOME_URL=BASE_URL+"/start";
 	//活动大厅

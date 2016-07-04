@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/relativelayout1" 
         android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:paddingLeft="15dp"
@@ -70,7 +70,7 @@
         android:paddingLeft="15dp"
         android:id="@+id/relativelayout2" 
          android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:layout_height="match_parent"
         android:gravity="center"
         >
@@ -121,7 +121,7 @@
                    android:id="@+id/limit_day"
                    android:layout_width="wrap_content"
                    android:layout_height="match_parent"
-                   android:text="30天"
+                   android:text="0天"
                    android:textColor="@color/white"
                    android:textSize="10sp"
                    android:gravity="center"

@@ -11,6 +11,7 @@ import com.laxiong.Mvp_model.OnLoadBcObjListener;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Mvp_view.IViewInvest;
 import com.loopj.android.network.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
  * Types InvestDetail_Presenter.java
  * 用于投资明细的所有操作
  */
-public class InvestDetail_Presenter implements OnLoadBasicListener<InvestItem>,OnLoadBcObjListener<InvestDetail>{
+public class InvestDetail_Presenter implements OnLoadBasicListener<InvestItem>, OnLoadBcObjListener<InvestDetail> {
     private IViewInvest iviewinvest;
     private Model_Invest minvest;
     private IViewBasicObj<InvestDetail> iviewbasic;
@@ -32,31 +33,39 @@ public class InvestDetail_Presenter implements OnLoadBasicListener<InvestItem>,O
         this.iviewinvest = iviewinvest;
         this.minvest = new Model_Invest();
         weak = new WeakReference<Handler>(new Handler());
-        handler=weak.get();
+        handler = weak.get();
     }
-    public InvestDetail_Presenter(IViewBasicObj<InvestDetail> iviewbasic){
-        this.iviewbasic=iviewbasic;
-        if(minvest==null)
-            minvest=new Model_Invest();
+
+    public InvestDetail_Presenter(IViewBasicObj<InvestDetail> iviewbasic) {
+        this.iviewbasic = iviewbasic;
+        if (minvest == null)
+            minvest = new Model_Invest();
     }
+
     public void loadInvestView(int limit, int page, String type, Context context) {
         start = System.currentTimeMillis();
-        RequestParams params = new RequestParams();
-        params.put("limit", limit);
-        params.put("p", page);
-        params.put("type", type);
-        minvest.loadInvestList("list", context, params, this, InvestItem.class);
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        builder.add("limit", limit + "");
+        builder.add("p", page + "");
+        builder.add("type", type);
+        minvest.loadInvestList("list", context, builder, this, InvestItem.class);
     }
-    public void loadInvestDetail(int id,String types,Context context){
-        RequestParams params=new RequestParams();
-        params.put("id",id);
-        params.put("type",types);
-        minvest.loadDetaiil(id,"",context,params,this,InvestDetail.class);
+
+    public void loadInvestDetail(int id, String types, Context context) {
+//        RequestParams params=new RequestParams();
+//        params.put("id",id);
+//        params.put("type",types);
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        builder.add("id", id + "");
+        builder.add("type", types);
+        minvest.loadDetaiil(id, "", context, builder, this, InvestDetail.class);
     }
+
     @Override
     public void onSuccss(InvestDetail obj) {
         iviewbasic.loadObjSuc(obj);
     }
+
     @Override
     public void onFailure(String msg) {
         iviewbasic.loadObjFail(msg);

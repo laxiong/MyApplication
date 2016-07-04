@@ -1,18 +1,14 @@
 package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
+import android.text.TextUtils;
 
-import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewExit;
 import com.laxiong.Utils.CommonReq;
-import com.laxiong.Utils.HttpUtil;
-import com.laxiong.entity.UserLogin;
-import com.loopj.android.network.Base64;
-import com.loopj.android.network.JsonHttpResponseHandler;
-import com.loopj.android.network.RequestParams;
+import com.laxiong.Utils.HttpUtil2;
 
-import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,16 +24,11 @@ public class Exit_Presenter {
     }
 
     public void exit(final Context context) {
-        UserLogin userLogin = YiTouApplication.getInstance().getUserLogin();
-        if (userLogin == null)
-            return;
-        RequestParams params = new RequestParams();
-        String str = userLogin.getToken_id() + ":" + userLogin.getToken();
-        String author = Base64.encodeToString(str.getBytes(), Base64.CRLF);
-        HttpUtil.get(InterfaceInfo.LOGINOUT_URL, params, new JsonHttpResponseHandler() {
+        String autho = CommonReq.getAuthori(context);
+        if (TextUtils.isEmpty(autho)) return;
+        HttpUtil2.get(InterfaceInfo.LOGINOUT_URL, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 try {
                     if (response != null && response.getInt("code") == 0) {
                         iviewexit.logoutsuccess();
@@ -53,10 +44,9 @@ public class Exit_Presenter {
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                iviewexit.logoutfailed(responseString);
+            public void onFailure(String msg) {
+                iviewexit.logoutfailed(msg);
             }
-        }, author);
+        }, autho);
     }
 }
