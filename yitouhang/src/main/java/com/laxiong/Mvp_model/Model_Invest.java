@@ -8,23 +8,25 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.entity.User;
 import com.loopj.android.network.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
 
 /**
  * Created by xiejin on 2016/4/28.
  * Types Model_Invest.java
  */
-public class Model_Invest<T,X> extends Model_Basic {
-    public void loadInvestList(String tag, Context context, RequestParams params, OnLoadBasicListener<T> listener, Class<T> clazz) {
+public class Model_Invest<T, X> extends Model_Basic2 {
+    public void loadInvestList(String tag, Context context, FormEncodingBuilder builder, OnLoadBasicListener<T> listener, Class<T> clazz) {
         setListener(listener);
         User user = YiTouApplication.getInstance().getUser();
         if (user == null) {
             context.startActivity(new Intent(context, LoginActivity.class));
             return;
         }
-        aureqByPost(InterfaceInfo.FUND_URL + user.getId(), context, params, tag, clazz);
+        reqAuthPostList(context, builder, InterfaceInfo.FUND_URL + user.getId(), tag, clazz);
     }
-    public void loadDetaiil(int id,String tag,Context context,RequestParams params,OnLoadBcObjListener<X> listener,Class<X> clazz){
+
+    public void loadDetaiil(int id, String tag, Context context, FormEncodingBuilder builder, OnLoadBcObjListener<X> listener, Class<X> clazz) {
         setListenerObj(listener);
-        aureqByPostObj(InterfaceInfo.RDETAIL_URL + "/" + id, context, params, tag, clazz);
+        reqAuthPostObj(context, builder, InterfaceInfo.RDETAIL_URL + "/" + id, tag, clazz);
     }
 }

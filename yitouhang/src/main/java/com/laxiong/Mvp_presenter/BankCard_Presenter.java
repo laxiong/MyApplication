@@ -1,5 +1,6 @@
 package com.laxiong.Mvp_presenter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 
 import com.laxiong.Common.InterfaceInfo;
@@ -10,6 +11,7 @@ import com.laxiong.Mvp_view.IViewBindCard;
 import com.laxiong.Mvp_view.IViewCardList;
 import com.laxiong.Mvp_view.IViewWithdraw;
 import com.loopj.android.network.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
 
 import java.util.List;
 
@@ -39,13 +41,6 @@ public class BankCard_Presenter extends CommonReq_Presenter implements Model_car
         this.ivlist=iviewclist;
         this.mcard=new Model_card();
     }
-
-//    public void sendCode(Context context) {
-//        RequestParams params = new RequestParams();
-//        params.put("type", Constants.ReqEnum.CPHONE.getVal());
-//        params.put("phone", iviewbank.getPhone());
-//        aureqByPost(InterfaceInfo.CODE_URL, context, params, TYPE_CODE);
-//    }
     public void loadCardlist(Context context){
         mcard.loadBankList(context,this);
     }
@@ -71,21 +66,21 @@ public class BankCard_Presenter extends CommonReq_Presenter implements Model_car
     }
 
     public void bindCard(Context context) {
-        RequestParams params=new RequestParams();
-        params.put("number",iviewbank.getCardNum());
-        params.put("name",iviewbank.getName());
-        params.put("org_id",iviewbank.getCardId());
-        params.put("phone", iviewbank.getPhoneNum());
-        aureqByPost(InterfaceInfo.BINDCARD_URL, context, params, TYPE_CARD);
+        FormEncodingBuilder builder=new FormEncodingBuilder();
+        builder.add("number", iviewbank.getCardNum());
+        builder.add("name", iviewbank.getName());
+        builder.add("org_id", iviewbank.getCardId());
+        builder.add("phone", iviewbank.getPhoneNum());
+        aureqByPost(InterfaceInfo.BINDCARD_URL, context, builder, TYPE_CARD);
     }
     public void loadBankCard(Context context){
         mcard.loadBankCard(context, this);
     }
     public void widthdrawCash(Context context,int id,double cash,String pwd){
-        RequestParams params=new RequestParams();
-        params.put("bank_id",id);
-        params.put("amount",cash);
-        params.put("pay_pwd",pwd);
-        aureqByPost(InterfaceInfo.WITHDRAW_URL,context,params,null);
+        FormEncodingBuilder builder=new FormEncodingBuilder();
+        builder.add("bank_id", id + "");
+        builder.add("amount", cash + "");
+        builder.add("pay_pwd", pwd);
+        aureqByPost(InterfaceInfo.WITHDRAW_URL, context, builder, null);
     }
 }

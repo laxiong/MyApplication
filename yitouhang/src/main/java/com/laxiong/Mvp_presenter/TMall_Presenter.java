@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewTMall;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.JSONUtils;
 import com.laxiong.entity.Product;
 import com.laxiong.entity.TMall_Ad;
@@ -35,10 +37,9 @@ public class TMall_Presenter {
     }
 
     public void reqLoadPageData(final Context context) {
-        HttpUtil.get(InterfaceInfo.SHOP_URL, new JsonHttpResponseHandler() {
+        HttpUtil2.get(InterfaceInfo.SHOP_URL, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
                         String productlist = response.getJSONArray("product").toString();
@@ -54,68 +55,31 @@ public class TMall_Presenter {
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
+            public void onFailure(String msg) {
+
             }
+//
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+//                super.onSuccess(statusCode, headers, response);
+//                if (response != null) {
+//                    try {
+//                        String productlist = response.getJSONArray("product").toString();
+//                        String adlist = response.getJSONArray("list").toString();
+//                        List<Product> plist = JSONUtils.parseArray(productlist, Product.class);
+//                        List<TMall_Ad> alist = JSONUtils.parseArray(adlist, TMall_Ad.class);
+//                        ivewtmall.fillVPData(alist);
+//                        ivewtmall.fillPListData(plist);
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+//                super.onFailure(statusCode, headers, responseString, throwable);
+//            }
         });
-    }
-    public static void reqLoadImageView(String url, final ImageView iv) {
-        HttpUtil.get(url, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if (responseBody != null) {
-                    if (responseBody == null) {
-                        setImageFailure(R.drawable.gongshi_banner_mr, iv);
-                    } else {
-                        Bitmap bm = BitmapFactory.decodeByteArray(responseBody, 0, responseBody.length);
-                        if (bm == null)
-                            setImageFailure(R.drawable.gongshi_banner_mr, iv);
-                        else
-                            setImageSuccess(bm, iv);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                setImageFailure(R.drawable.gongshi_banner_mr, iv);
-            }
-        });
-    }
-    public static void setImageFailure(int id, ImageView iv) {
-        iv.setImageResource(id);
-    }
-
-    public static void setImageSuccess(Bitmap bm, ImageView iv) {
-        iv.setImageBitmap(bm);
-    }
-
-    public PagerAdapter getPageAdapter(final List<ImageView> ivlist) {
-        if (ivlist == null || ivlist.size() == 0)
-            return null;
-        return new PagerAdapter() {
-            @Override
-            public int getCount() {
-                return ivlist.size();
-//                return Integer.MAX_VALUE;
-            }
-
-            @Override
-            public Object instantiateItem(ViewGroup container, int position) {
-                ImageView iv=ivlist.get(position);
-                container.addView(iv);
-                return iv;
-            }
-
-            @Override
-            public boolean isViewFromObject(View view, Object object) {
-                return view == object;
-            }
-
-            @Override
-            public void destroyItem(ViewGroup container, int position, Object object) {
-                container.removeView(ivlist.get(position));
-            }
-        };
     }
 }

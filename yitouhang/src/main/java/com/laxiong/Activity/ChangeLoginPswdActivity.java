@@ -84,10 +84,6 @@ public class ChangeLoginPswdActivity extends BaseActivity implements OnClickList
             Toast.makeText(this, "新旧密码不能为空", Toast.LENGTH_LONG).show();
             return false;
         }
-        if(!mOldPwd.getText().toString().equals(mPswd.getText().toString())){
-            ToastUtil.customAlert(this,"两次输入的密码不一样");
-            return false;
-        }
         if (!ValifyUtil.valifyPwd(mOldPwd.getText().toString())||!ValifyUtil.valifyPwd(mPswd.getText().toString()))
             return false;
         return true;

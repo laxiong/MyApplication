@@ -21,10 +21,11 @@ import retrofit.Retrofit;
  * Created by xiejin on 2016/5/27.
  * Types Model_User.java
  */
-public class Model_User {
-    public void loadUserData(int id, final OnLoadBcObjListener listener) {
+public class Model_User{
+    public void loadUserData(Context context,int id, final OnLoadBcObjListener listener) {
         if (listener == null)
             return;
+//        reqAuthGetObj(context, InterfaceInfo.USER_URL+"?tokenid="+id,"",User.class);
         Retrofit retrofit = RetrofitUtils.getRetrofitAuth();
         if (retrofit == null)
             return;
@@ -56,6 +57,7 @@ public class Model_User {
     }
 
     public void loadUserLoginData(final Context context, final String phonnum, String pwd, final OnLoadBcObjListener<UserLogin> listener) {
+          if(listener==null)return;
         Retrofit retrofit = RetrofitUtils.getRetrofitUnAuth();
         if (retrofit == null)
             return;

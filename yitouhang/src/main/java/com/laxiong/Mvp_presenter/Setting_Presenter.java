@@ -3,15 +3,18 @@ package com.laxiong.Mvp_presenter;
 import android.content.Context;
 
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewSetting;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.entity.User;
 import com.loopj.android.network.JsonHttpResponseHandler;
 import com.loopj.android.network.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
 
 import org.apache.http.Header;
 import org.json.JSONException;
@@ -35,13 +38,15 @@ public class Setting_Presenter {
         String authori = CommonReq.getAuthori(context);
         if (StringUtils.isBlank(authori))
             return;
-        RequestParams params = new RequestParams();
-        params.put("type", Constants.ReqEnum.NICK.getVal());
-        params.put("nickname", nickname);
-        HttpUtil.put(InterfaceInfo.USER_URL, params, new JsonHttpResponseHandler() {
+//        RequestParams params = new RequestParams();
+//        params.put("type", Constants.ReqEnum.NICK.getVal());
+//        params.put("nickname", nickname);
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        builder.add("type", Constants.ReqEnum.NICK.getVal());
+        builder.add("nickname", nickname);
+        HttpUtil2.put(InterfaceInfo.USER_URL, builder, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 try {
                     if (response != null) {
                         if (response.getInt("code") == 0) {
@@ -65,10 +70,40 @@ public class Setting_Presenter {
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                iviewset.setNickFailure(responseString);
+            public void onFailure(String msg) {
+                iviewset.setNickFailure(msg);
             }
+
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+//                super.onSuccess(statusCode, headers, response);
+//                try {
+//                    if (response != null) {
+//                        if (response.getInt("code") == 0) {
+//                            User user = YiTouApplication.getInstance().getUser();
+//                            if (user != null)
+//                                user.setNickname(nickname);
+//                            iviewset.setNickSuccess();
+//                        } else {
+//                            if (response.getInt("code") == 401)
+//                                CommonReq.showReLoginDialog(context);
+//                            else
+//                                iviewset.setNickFailure(response.getString("msg"));
+//                        }
+//                    } else {
+//                        iviewset.setNickFailure(response.getString("msg"));
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                    iviewset.setNickFailure(e.toString());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+//                super.onFailure(statusCode, headers, responseString, throwable);
+//                iviewset.setNickFailure(responseString);
+//            }
         }, authori);
     }
 

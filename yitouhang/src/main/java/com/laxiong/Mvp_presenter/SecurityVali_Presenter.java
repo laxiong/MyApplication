@@ -2,14 +2,17 @@ package com.laxiong.Mvp_presenter;
 
 import android.content.Context;
 
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewSecurity;
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.StringUtils;
 import com.loopj.android.network.JsonHttpResponseHandler;
 import com.loopj.android.network.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
 
 import org.apache.http.Header;
 import org.json.JSONException;
@@ -33,15 +36,19 @@ public class SecurityVali_Presenter {
         String name = iviewsecure.getName();
         String identi = iviewsecure.getIdenti();
         String code = iviewsecure.getPwd();
-        RequestParams params = new RequestParams();
-        params.put("type", Constants.ReqEnum.CPHONE.getVal());
-        params.put("pay_pwd", code);
-        params.put("realname", name);
-        params.put("idc", identi);
-        HttpUtil.post(InterfaceInfo.VERIFY_URL, params, new JsonHttpResponseHandler() {
+//        RequestParams params = new RequestParams();
+//        params.put("type", Constants.ReqEnum.CPHONE.getVal());
+//        params.put("pay_pwd", code);
+//        params.put("realname", name);
+//        params.put("idc", identi);
+        FormEncodingBuilder builder=new FormEncodingBuilder();
+        builder.add("type",Constants.ReqEnum.CPHONE.getVal());
+        builder.add("pay_pwd",code);
+        builder.add("realname",name);
+        builder.add("idc",identi);
+        HttpUtil2.post(InterfaceInfo.VERIFY_URL, builder, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
@@ -63,10 +70,38 @@ public class SecurityVali_Presenter {
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                iviewsecure.reqbackFail(responseString, null);
+            public void onFailure(String msg) {
+                iviewsecure.reqbackFail(msg, null);
             }
+//
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+//                super.onSuccess(statusCode, headers, response);
+//                if (response != null) {
+//                    try {
+//                        if (response.getInt("code") == 0) {
+//                            iviewsecure.setToken(response.getString("token"));
+//                            iviewsecure.reqbackSuc(null);
+//                        } else {
+//                            if (response.getInt("code") == 401)
+//                                CommonReq.showReLoginDialog(context);
+//                            else
+//                                iviewsecure.reqbackFail(response.getString("msg"), null);
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                        iviewsecure.reqbackFail(e.toString(), null);
+//                    }
+//                } else {
+//                    iviewsecure.reqbackFail("无响应", null);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+//                super.onFailure(statusCode, headers, responseString, throwable);
+//                iviewsecure.reqbackFail(responseString, null);
+//            }
         }, authori);
     }
 }

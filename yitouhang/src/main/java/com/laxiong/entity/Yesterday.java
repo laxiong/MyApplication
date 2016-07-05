@@ -5,30 +5,30 @@ package com.laxiong.entity;
  * Types Yesterday.java
  */
 public class Yesterday {
-    private float sxt;
-    private float gxb;
-    private float rm;
-    private float total;
+    private double sxt;
+    private double gxb;
+    private double rm;
+    private double total;
 
     public Yesterday() {
     }
 
-    public Yesterday(float sxt, float gxb, float rm, float total) {
+    public Yesterday(double sxt, double gxb, double rm, double total) {
         this.sxt = sxt;
         this.gxb = gxb;
         this.rm = rm;
         this.total = total;
     }
 
-    public float getSxt() {
+    public double getSxt() {
         return sxt;
     }
 
-    public void setSxt(float sxt) {
+    public void setSxt(double sxt) {
         this.sxt = sxt;
     }
 
-    public float getGxb() {
+    public double getGxb() {
         return gxb;
     }
 
@@ -36,19 +36,19 @@ public class Yesterday {
         this.gxb = gxb;
     }
 
-    public float getRm() {
+    public double getRm() {
         return rm;
     }
 
-    public void setRm(float rm) {
+    public void setRm(double rm) {
         this.rm = rm;
     }
 
-    public float getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(float total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 }

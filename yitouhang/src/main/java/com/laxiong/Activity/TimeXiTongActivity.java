@@ -19,11 +19,13 @@ import android.widget.Toast;
 
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.OpenAccount;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.Profit;
@@ -261,13 +263,12 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 	}
 
 	private void getNetWork(){
-		RequestParams params = new RequestParams();
-		if (mId!=-1)
-			params.put("id",mId);
-		HttpUtil.get(InterfaceInfo.PRODUCT_URL,params,new JsonHttpResponseHandler(){
+		String url=InterfaceInfo.PRODUCT_URL;
+		if(mId!=-1)
+			url=url+"?id="+mId;
+		HttpUtil2.get(url, new Callback() {
 			@Override
-			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-				super.onSuccess(statusCode, headers, response);
+			public void onResponse2(JSONObject response) {
 				if (response!=null){
 					try {
 						if (response.getInt("code")==0){
@@ -280,8 +281,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 				}
 			}
 			@Override
-			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-				super.onFailure(statusCode, headers, throwable, errorResponse);
+			public void onFailure(String msg) {
 				Toast.makeText(TimeXiTongActivity.this,"获取数据失败",Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -327,7 +327,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 				mAmountProfit.setText(String.valueOf(mSxtProfit));
 				// 昨日收益
 				Yesterday mYesterday = AppUser.getYesterday();
-				float mSxtYester = mYesterday.getSxt();
+				double mSxtYester = mYesterday.getSxt();
 				mYesDayProfit.setText(String.valueOf(mSxtYester));
 			} else {
 				mGetCashProfit.setText("0.0");

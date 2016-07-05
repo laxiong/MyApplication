@@ -23,6 +23,8 @@ import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 import com.loopj.android.network.RequestParams;
 import com.gongshidai.mistGSD.R;
+import com.squareup.okhttp.FormEncodingBuilder;
+
 public class TrueNameActivity2 extends BaseActivity implements OnClickListener, IViewCommonBack {
     /***
      * 实名认证第二步
@@ -87,10 +89,13 @@ public class TrueNameActivity2 extends BaseActivity implements OnClickListener, 
     public void onClick(View V) {
         switch (V.getId()) {
             case R.id.nextpager:
-                RequestParams params = new RequestParams();
-                params.put("type", Constants.ReqEnum.PAYPWD.getVal());
-                params.put("pay_pwd", mPswdEd.getText().toString());
-                presenter.aureqByPut(InterfaceInfo.USER_URL, TrueNameActivity2.this, params, null);
+                FormEncodingBuilder builder=new FormEncodingBuilder();
+                builder.add("type",Constants.ReqEnum.PAYPWD.getVal());
+                builder.add("pay_pwd",mPswdEd.getText().toString());
+//                RequestParams params = new RequestParams();
+//                params.put("type", Constants.ReqEnum.PAYPWD.getVal());
+//                params.put("pay_pwd", mPswdEd.getText().toString());
+                presenter.aureqByPut(InterfaceInfo.USER_URL, TrueNameActivity2.this,builder, null);
                 break;
             case R.id.back_layout:
                 this.finish();

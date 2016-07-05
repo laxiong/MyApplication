@@ -6,6 +6,7 @@ import com.laxiong.Common.Constants;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_view.IViewBindPhone;
 import com.loopj.android.network.RequestParams;
+import com.squareup.okhttp.FormEncodingBuilder;
 
 /**
  * Created by xiejin on 2016/4/22.
@@ -22,18 +23,18 @@ public class BindPhone_Presenter extends CommonReq_Presenter {
     }
 
     public void sendCode(Context context) {
-        RequestParams params = new RequestParams();
-        params.put("type", Constants.ReqEnum.CPHONE.getVal());
-        params.put("phone", iviewbind.getPhone());
-        aureqByPost(InterfaceInfo.CODE_URL, context, params, TYPE_CODE);
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        builder.add("type", Constants.ReqEnum.CPHONE.getVal());
+        builder.add("phone", iviewbind.getPhone());
+        aureqByPost(InterfaceInfo.CODE_URL, context, builder, TYPE_CODE);
     }
 
     public void bindOtherPhone(Context context) {
-        RequestParams params = new RequestParams();
-        params.put("type", Constants.ReqEnum.CPHONE.getVal());
-        params.put("token", iviewbind.getToken());
-        params.put("code", iviewbind.getCode());
-        params.put("phone", iviewbind.getPhone());
-        aureqByPut(InterfaceInfo.USER_URL, context, params, TYPE_BIND);
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        builder.add("type", Constants.ReqEnum.CPHONE.getVal());
+        builder.add("token", iviewbind.getToken());
+        builder.add("code", iviewbind.getCode());
+        builder.add("phone", iviewbind.getPhone());
+        aureqByPut(InterfaceInfo.USER_URL, context, builder, TYPE_BIND);
     }
 }

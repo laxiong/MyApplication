@@ -68,7 +68,7 @@ public class Login_Presenter implements OnLoadBcObjListener {
             return;
         }
         int tokenid = userlogin.getToken_id();
-        muser.loadUserData(tokenid, this);
+        muser.loadUserData(context,tokenid, this);
     }
 
     public TextWatcher getTextWatcher() {
@@ -108,6 +108,6 @@ public class Login_Presenter implements OnLoadBcObjListener {
             return;
         }
         int tokenid = userlogin.getToken_id();
-        muser.loadUserData(tokenid, this);
+        muser.loadUserData(context,tokenid, this);
     }
 }
