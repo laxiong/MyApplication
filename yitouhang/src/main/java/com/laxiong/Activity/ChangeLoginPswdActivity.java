@@ -16,7 +16,7 @@ import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewChangePwd;
 import com.laxiong.Utils.StringUtils;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 

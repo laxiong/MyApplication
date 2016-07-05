@@ -23,7 +23,7 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 /**
  * An circle view, similar to Android's ProgressBar.
  * Can be used in 'value mode' or 'spinning mode'.

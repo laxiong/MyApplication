@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Activity.LoginActivity;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.entity.User;

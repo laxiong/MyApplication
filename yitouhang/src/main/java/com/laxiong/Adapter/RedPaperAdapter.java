@@ -8,8 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import java.util.ArrayList;
 import java.util.List;
 

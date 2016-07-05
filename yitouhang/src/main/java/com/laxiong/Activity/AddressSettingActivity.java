@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 
 public class AddressSettingActivity extends BaseActivity implements OnClickListener{
 	/***

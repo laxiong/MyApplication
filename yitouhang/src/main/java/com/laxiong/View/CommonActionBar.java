@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.laxiong.Basic.BackListener;
 import com.laxiong.Utils.DensityUtils;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 /**
  * Created by win7 on 2016/4/6.
  * Types CommonActionBar.java

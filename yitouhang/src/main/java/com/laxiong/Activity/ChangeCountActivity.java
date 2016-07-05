@@ -19,7 +19,7 @@ import com.laxiong.Basic.OnSingleClickListener;
 import com.laxiong.Mvp_presenter.Login_Presenter;
 import com.laxiong.Mvp_view.IViewLogin;
 import com.laxiong.Utils.StringUtils;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 

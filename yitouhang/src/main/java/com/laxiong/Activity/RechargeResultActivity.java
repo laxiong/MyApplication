@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 /**
  * Created by admin on 2016/4/8.
  */

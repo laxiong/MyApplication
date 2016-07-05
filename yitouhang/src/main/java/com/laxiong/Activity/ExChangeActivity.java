@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Mvp_presenter.Exchange_Presenter;
 import com.laxiong.Mvp_view.IViewExchange;

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 /**
  * Created by xiejin on 2016/4/7.
  * Types ToastUtil.java

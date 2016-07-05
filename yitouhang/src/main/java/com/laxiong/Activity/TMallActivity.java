@@ -11,7 +11,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Adapter.ReuseAdapter;
 import com.laxiong.Adapter.ViewHolder;
 import com.laxiong.Application.YiTouApplication;

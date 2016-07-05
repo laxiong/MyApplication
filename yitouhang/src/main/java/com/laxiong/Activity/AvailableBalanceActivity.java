@@ -10,7 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Fragment.AccumulatedEarningsFragment;
 import com.laxiong.Fragment.AvailableBalanaceFragment;

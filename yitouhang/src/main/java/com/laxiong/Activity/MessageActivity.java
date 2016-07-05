@@ -19,7 +19,7 @@ import com.laxiong.Mvp_model.Message;
 import com.laxiong.Mvp_presenter.Message_Presenter;
 import com.laxiong.Mvp_view.IViewMessage;
 import com.laxiong.Utils.ToastUtil;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import java.util.ArrayList;
 import java.util.List;
 

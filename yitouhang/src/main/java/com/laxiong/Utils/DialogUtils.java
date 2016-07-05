@@ -23,7 +23,7 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMVideo;
 import com.umeng.socialize.media.UMusic;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 /**
  * Created by xiejin on 2016/4/7.
  * Types DialogUtils.java

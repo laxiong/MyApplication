@@ -15,7 +15,6 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
@@ -24,6 +23,7 @@ import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.PayPop;
+import com.carfriend.mistCF.R;
 import com.laxiong.entity.User;
 
 public class PswdConturalActivity extends BaseActivity implements OnClickListener,IViewCommonBack{

@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 /**
  * 手势密码图案提示
  */

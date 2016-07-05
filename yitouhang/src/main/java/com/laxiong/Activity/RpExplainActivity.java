@@ -4,7 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 
 import com.laxiong.View.CommonActionBar;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 public class RpExplainActivity extends BaseActivity {
     private static final String TAG = "RpExplainActivity";
     private CommonActionBar actionbar;

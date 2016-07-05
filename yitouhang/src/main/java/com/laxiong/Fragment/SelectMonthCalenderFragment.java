@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.TextView;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Adapter.CalenderBean;
 import com.laxiong.Adapter.SelectCalenderAdapter;
 import com.laxiong.Calender.CalendarView;

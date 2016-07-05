@@ -13,7 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.allinpay.appayassistex.APPayAssistEx;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
+import com.google.gson.GsonBuilder;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Basic.Callback;
 import com.laxiong.Common.Common;

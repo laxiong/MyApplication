@@ -4,7 +4,7 @@ package com.laxiong.fund.entity;
 import android.widget.ImageView;
 
 import com.laxiong.fund.common.Constants;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 public class GesturePoint {
 	/**
 	 * 左边x的值

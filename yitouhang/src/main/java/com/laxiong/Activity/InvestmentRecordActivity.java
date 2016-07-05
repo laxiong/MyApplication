@@ -24,7 +24,7 @@ import com.laxiong.Fragment.ProfitRecordFragment;
 import com.laxiong.Fragment.WithdrawRecordFragment;
 import com.laxiong.Fragment.YuMoneyRecordFragment;
 import com.laxiong.Utils.ImageUtil;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 /**
  *投资明细
  */

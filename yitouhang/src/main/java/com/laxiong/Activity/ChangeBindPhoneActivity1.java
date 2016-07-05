@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Basic.BasicWatcher;
 import com.laxiong.Mvp_presenter.SecurityVali_Presenter;
 import com.laxiong.Mvp_view.IViewSecurity;

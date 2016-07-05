@@ -17,7 +17,7 @@ import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 public class ResetPayPwdActivity extends BaseActivity implements View.OnClickListener, ResetPayPwdFrag1.InterFirst,
         ResetPayPwdFrag2.InterSecond, ResetPayPwdFrag3.InterThird, IViewCommonBack {
     private TextView mText;

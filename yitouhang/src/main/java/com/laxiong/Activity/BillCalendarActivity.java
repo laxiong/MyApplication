@@ -20,7 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Calender.CalendarGridView;
 import com.laxiong.Calender.CalendarGridViewAdapter;

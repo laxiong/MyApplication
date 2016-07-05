@@ -17,7 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Basic.Callback;
 import com.laxiong.Common.InterfaceInfo;
@@ -58,6 +58,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 	private Double lu = 0.0; // 计算器的计算利率
 	private LinearLayout ll_wrap;
 	private  User mUser ;
+	private boolean isVip;
 	private ImageView mSxtBack ;
 
 	@Override
@@ -69,7 +70,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		getNetWork();
 		setAmountData();
 		mUser = YiTouApplication.getInstance().getUser();
-		boolean isVip = getIntent().getBooleanExtra("isVip",false);
+		isVip = getIntent().getBooleanExtra("isVip", false);
 		if (isVip){
 			setVipColor();
 		}else {
@@ -208,6 +209,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 					if (mUser.getBankcount() >=1){
 						startActivity(new Intent(TimeXiTongActivity.this,
 								TransferInActivity.class).
+								putExtra("isVip",isVip).
 								putExtra("mAmountMoney", mAmountMoney).
 								putExtra("date", dates));
 					}else {

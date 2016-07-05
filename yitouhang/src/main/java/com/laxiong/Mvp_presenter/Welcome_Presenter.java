@@ -9,7 +9,7 @@ import com.laxiong.Mvp_model.Model_Welcome;
 import com.laxiong.Mvp_model.WelcImg;
 import com.laxiong.Mvp_view.IViewWelcome;
 import com.laxiong.Utils.HttpUtil;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.loopj.android.network.AsyncHttpResponseHandler;
 
 import org.apache.http.Header;

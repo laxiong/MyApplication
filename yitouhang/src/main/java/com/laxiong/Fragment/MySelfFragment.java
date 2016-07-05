@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Activity.AssetActivity;
 import com.laxiong.Activity.AtHallActivity;
 import com.laxiong.Activity.AvailableBalanceActivity;

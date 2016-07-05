@@ -12,7 +12,7 @@ import com.laxiong.Mvp_presenter.Welcome_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 
 /**
  * Created by admin on 2016/4/26.

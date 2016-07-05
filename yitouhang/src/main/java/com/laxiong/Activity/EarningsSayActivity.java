@@ -6,7 +6,7 @@ import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 public class EarningsSayActivity extends BaseActivity implements OnClickListener{
 	/***
 	 * 收益说明

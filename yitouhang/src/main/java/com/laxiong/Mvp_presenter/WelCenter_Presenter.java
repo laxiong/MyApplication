@@ -14,7 +14,7 @@ import com.laxiong.Activity.WelCenterActivity;
 import com.laxiong.Adapter.RedPaper;
 import com.laxiong.Mvp_model.Model_RedPaper;
 import com.laxiong.Mvp_view.IViewWelcenter;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -19,7 +19,7 @@ import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewReBackPwd;
 import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Utils.ValifyUtil;
 
 public class FoundPswdActivity extends BaseActivity implements OnClickListener, IViewReBackPwd,IViewTimerHandler{

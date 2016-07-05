@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gongshidai.mistGSD"
+    package="com.carfriend.mistCF"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -56,7 +56,7 @@
     <application
         android:name="com.laxiong.Application.YiTouApplication"
         android:allowBackup="true"
-        android:icon="@drawable/gongshi_licon"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
@@ -265,7 +265,7 @@
         <!--*****************************************************UMENG_APPKEY*******************************************************-->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="57708ecd67e58ecdc1000e93"/>
+            android:value="577b6a63e0f55a355f003051"/>
 
         <activity android:name="com.laxiong.Activity.YibiDetailActivity"
             android:launchMode="singleTask"/>
@@ -397,7 +397,7 @@
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="08a46b6f6d6341908dbdd8d2" />
+            android:value="a173a9fa69919c3117939e14" />
         <!-- </>值来自开发者平台取得的AppKey -->
         <receiver android:name="com.laxiong.Receiver.BroadBootReceiver">
             <intent-filter>

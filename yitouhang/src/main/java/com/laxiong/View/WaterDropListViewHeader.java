@@ -20,7 +20,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 
 public class WaterDropListViewHeader extends FrameLayout {
     private LinearLayout mContainer;

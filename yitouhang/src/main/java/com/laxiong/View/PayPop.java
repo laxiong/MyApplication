@@ -11,7 +11,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.laxiong.Utils.DialogUtils;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import org.w3c.dom.Text;
 
 /**

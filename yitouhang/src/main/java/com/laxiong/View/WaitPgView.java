@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 
 /**
  * Created by xiejin on 2016/5/17.

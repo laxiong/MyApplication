@@ -22,7 +22,7 @@ import com.laxiong.Mvp_view.IViewTimerHandler;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 /**
  * Created by xiejin on 2016/4/20.
  * Types ResetPayPwdFrag1.java

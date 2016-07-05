@@ -11,7 +11,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 /**
  * Desc:
  * UserLogin: tiansj

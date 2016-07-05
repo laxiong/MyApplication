@@ -12,7 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Adapter.RedPaper;
 import com.laxiong.Adapter.RedPaperAdapter;
 import com.laxiong.Basic.BackListener;

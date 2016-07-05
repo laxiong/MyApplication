@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Adapter.ReuseAdapter;
 import com.laxiong.Adapter.ViewHolder;
 import com.laxiong.Mvp_model.InvestItem;

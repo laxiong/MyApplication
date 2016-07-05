@@ -12,7 +12,7 @@ import com.laxiong.Activity.MainActivity;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.entity.User;
 import com.laxiong.entity.UserLogin;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -15,7 +15,7 @@ import com.laxiong.Activity.GuXiBaoActivity;
 import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.View.CircleProgressBar;
 import com.laxiong.View.PinnedSectionListView.PinnedSectionListAdapter;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import java.util.ArrayList;
 
 public class VipPinnedListViewAdapter extends BaseAdapter implements PinnedSectionListAdapter{

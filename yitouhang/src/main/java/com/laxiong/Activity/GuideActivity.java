@@ -20,7 +20,7 @@ import android.widget.TextView;
 import com.laxiong.Adapter.CmViewPagerAdapter;
 import com.laxiong.Basic.BasicPageListener;
 import com.laxiong.Utils.ToastUtil;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.sina.weibo.sdk.api.share.Base;
 
 import java.util.ArrayList;

@@ -32,7 +32,7 @@ import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.User;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 
 public class PersonalSettingActivity extends BaseActivity implements OnClickListener, IViewExit {
 

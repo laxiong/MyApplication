@@ -21,7 +21,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.laxiong.Activity.BaseActivity;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 /**
  * 密码键盘，字母、数字随机排列显示
  */

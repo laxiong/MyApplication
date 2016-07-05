@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.parser.Feature;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Mvp_presenter.Version_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Utils.StringUtils;

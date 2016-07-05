@@ -23,7 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allinpay.appayassistex.APPayAssistEx;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Basic.Callback;
 import com.laxiong.Common.Common;
@@ -57,6 +57,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 	private String mAmountMoney ;
 	private String dates ;
 	private LinearLayout mMostMoney ;
+	private boolean isVip;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +85,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 	}
 
 	private void initData() {
+		isVip=getIntent().getBooleanExtra("isVip",false);
 		presenter=new Buy_Presenter(this);
 		mBack.setOnClickListener(this);
 		mBankCan.setOnClickListener(this);
@@ -539,6 +541,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 		builder.add("pay_pwd", mInputPswdEd.getText().toString().trim());
 		builder.add("number",banknumber+"");
 		builder.add("recharge",mBuyAmount.getText().toString().trim());
+		builder.add("vip",isVip+"");
 		presenter.buyByCard(this,builder);
 	}
 

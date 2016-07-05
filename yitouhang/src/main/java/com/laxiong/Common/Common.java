@@ -4,7 +4,7 @@ import android.widget.ImageView;
 
 import com.laxiong.Utils.ValifyUtil;
 import com.loopj.android.network.Base64;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

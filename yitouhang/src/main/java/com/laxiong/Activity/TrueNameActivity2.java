@@ -22,7 +22,7 @@ import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 import com.loopj.android.network.RequestParams;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.squareup.okhttp.FormEncodingBuilder;
 
 public class TrueNameActivity2 extends BaseActivity implements OnClickListener, IViewCommonBack {

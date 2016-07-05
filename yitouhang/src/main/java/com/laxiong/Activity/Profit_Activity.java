@@ -17,7 +17,7 @@ import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CommonActionBar;
 import com.laxiong.entity.User;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 public class Profit_Activity extends BaseActivity implements IView_Renmai, View.OnClickListener {
     private CommonActionBar actionbar;
     private TextView tv_rmshouyi, tv_num1, tv_num2;

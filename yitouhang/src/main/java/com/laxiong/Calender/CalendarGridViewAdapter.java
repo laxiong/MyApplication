@@ -10,7 +10,7 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Common.Settings;
 import com.laxiong.Interface.NotifyDateSelect;
 import com.laxiong.Utils.OnSingleClickListener;

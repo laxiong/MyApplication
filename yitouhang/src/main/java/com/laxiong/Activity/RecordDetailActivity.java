@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Mvp_model.InvestDetail;
 import com.laxiong.Mvp_presenter.InvestDetail_Presenter;
 import com.laxiong.Mvp_view.IViewBasic;

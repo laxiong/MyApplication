@@ -21,7 +21,7 @@ import com.laxiong.Mvp_presenter.InvestDetail_Presenter;
 import com.laxiong.Mvp_view.IViewInvest;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.FinancingListView;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.View.WaitPgView;
 
 import java.util.ArrayList;

@@ -15,7 +15,7 @@ import com.laxiong.Calender.CalendarView;
 import com.laxiong.Calender.CustomDate;
 import com.laxiong.Mvp_presenter.WeekCal_Presenter;
 import com.laxiong.Mvp_view.IWeekCalendar;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import java.util.ArrayList;
 
 @SuppressLint("NewApi")

@@ -23,7 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Basic.Callback;
 import com.laxiong.Common.InterfaceInfo;
@@ -222,6 +222,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                                     putExtra("projectStr", mProjectName).
                                     putExtra("amountStr", mAmountMoney).
                                     putExtra("id", mId).
+                                    putExtra("isVip",isVip).
                                     putExtra("mBuyPrecent", mBuyPrecent).
                                     putExtra("limitday", limitDay).
                                     putExtra("viplimitmoney",special).

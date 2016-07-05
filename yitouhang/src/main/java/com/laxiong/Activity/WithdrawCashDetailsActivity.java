@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.laxiong.Utils.CommonReq;
 import com.laxiong.Utils.StringUtils;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

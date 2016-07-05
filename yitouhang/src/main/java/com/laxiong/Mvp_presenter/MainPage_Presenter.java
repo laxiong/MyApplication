@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_model.Model_Basic;
 import com.laxiong.Mvp_model.OnLoadBasicListener;

@@ -27,7 +27,7 @@ import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 import com.loopj.android.network.JsonHttpResponseHandler;
 import com.loopj.android.network.RequestParams;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 
 import org.apache.http.Header;
 import org.json.JSONObject;

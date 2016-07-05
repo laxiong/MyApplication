@@ -19,7 +19,7 @@ package com.loopj.android.network;
 
 import java.io.UnsupportedEncodingException;
 
-import com.gongshidai.mistGSD.BuildConfig;
+import com.carfriend.mistCF.BuildConfig;
 
 
 

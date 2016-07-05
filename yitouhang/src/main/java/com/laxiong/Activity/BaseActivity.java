@@ -17,7 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.InputMethod.LPKeyBoard;
 import com.laxiong.InputMethod.LPTextField;
 import com.laxiong.InputMethod.LPUtils;

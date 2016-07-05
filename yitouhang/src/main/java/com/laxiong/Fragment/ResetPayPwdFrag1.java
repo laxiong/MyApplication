@@ -20,7 +20,7 @@ import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

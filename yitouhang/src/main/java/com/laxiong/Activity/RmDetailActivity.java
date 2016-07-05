@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.laxiong.Fragment.RmFragment;
 import com.laxiong.View.CommonActionBar;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -22,7 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allinpay.appayassistex.APPayAssistEx;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Adapter.RedPaper;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Basic.Callback;
@@ -31,13 +31,17 @@ import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.Buy_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Utils.CommonReq;
+import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.LogUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.User;
+import com.loopj.android.network.JsonHttpResponseHandler;
+import com.loopj.android.network.RequestParams;
 import com.squareup.okhttp.FormEncodingBuilder;
 
+import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -659,6 +663,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener, IVi
         builder.add("recharge", decAmount + "");
         builder.add("pamount", total + "");
         builder.add("pids", redBaoId);
+        builder.add("vip",isVip+"");
         presenter.buyByCard(this, builder);
     }
 

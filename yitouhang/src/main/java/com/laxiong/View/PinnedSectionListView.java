@@ -49,8 +49,8 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import com.laxiong.Adapter.CalenderBean;
-import com.gongshidai.mistGSD.BuildConfig;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.BuildConfig;
+import com.carfriend.mistCF.R;
 public class PinnedSectionListView extends ListView {
 
 	 //-- inner classes

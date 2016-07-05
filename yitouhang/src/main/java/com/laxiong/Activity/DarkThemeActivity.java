@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.laxiong.Utils.OnSingleClickListener;
 import com.laxiong.Utils.TimeUtil;
 

@@ -18,7 +18,7 @@ import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.Utils.ValifyUtil;
 import com.laxiong.entity.User;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 public class NameSettingActivity extends BaseActivity implements OnClickListener, IViewSetting {
     /***
      * 昵称设置

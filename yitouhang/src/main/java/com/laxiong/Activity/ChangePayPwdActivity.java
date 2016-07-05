@@ -15,7 +15,7 @@ import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 public class ChangePayPwdActivity extends BaseActivity implements View.OnClickListener, ChangePayPwdFragment1.InterChangePwd1
         , ChangePayPwdFragment2.InterChangePwd2, IViewCommonBack {
     private FrameLayout mBack;

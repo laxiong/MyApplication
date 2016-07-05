@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 
 import com.laxiong.entity.CalendarMonthTrade;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import java.util.List;
 
 /**

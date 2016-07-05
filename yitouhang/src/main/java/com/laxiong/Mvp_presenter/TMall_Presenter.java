@@ -18,7 +18,7 @@ import com.laxiong.entity.Product;
 import com.laxiong.entity.TMall_Ad;
 import com.loopj.android.network.AsyncHttpResponseHandler;
 import com.loopj.android.network.JsonHttpResponseHandler;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;

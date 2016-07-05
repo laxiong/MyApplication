@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.ViewFlipper;
 
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 
 /**
  * Created by xiejin on 2016/5/10.

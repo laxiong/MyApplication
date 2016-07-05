@@ -22,7 +22,7 @@ import com.laxiong.View.ChildViewPager.OnSingleTouchListener;
 import com.laxiong.entity.Banner;
 import com.laxiong.entity.ShareInfo;
 import com.laxiong.entity.User;
-import com.gongshidai.mistGSD.R;
+import com.carfriend.mistCF.R;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
