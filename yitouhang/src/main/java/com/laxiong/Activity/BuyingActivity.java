@@ -31,17 +31,13 @@ import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.Buy_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Utils.CommonReq;
-import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.LogUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.User;
-import com.loopj.android.network.JsonHttpResponseHandler;
-import com.loopj.android.network.RequestParams;
 import com.squareup.okhttp.FormEncodingBuilder;
 
-import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -70,6 +66,8 @@ public class BuyingActivity extends BaseActivity implements OnClickListener, IVi
     private List<RedPaper> listpaper;
     private User user;
     private Buy_Presenter presenter;
+    private int special ;
+    private boolean isVip ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +79,9 @@ public class BuyingActivity extends BaseActivity implements OnClickListener, IVi
         productId = getIntent().getIntExtra("id", -1);
         mBuyPrecent = getIntent().getDoubleExtra("mBuyPrecent", -1);
         limitDay = getIntent().getIntExtra("limitday", -1);
+        special = getIntent().getIntExtra("viplimitmoney",-1);
+        isVip = getIntent().getBooleanExtra("isVip",false);
+
 
         initView();
         initData();
@@ -139,6 +140,11 @@ public class BuyingActivity extends BaseActivity implements OnClickListener, IVi
 
         mProjectName.setText(mProjectStr);
         mAmountMoney.setText(mAmountStr);
+
+        if (special!=-1){
+            if (mBuyAmount!=null)
+                mBuyAmount.setHint("最低可购买"+special/10000+"万元");
+        }
     }
 
     private void initView() {
@@ -173,9 +179,13 @@ public class BuyingActivity extends BaseActivity implements OnClickListener, IVi
                 break;
             case R.id.buyingbtn:
                 if (Common.inputContentNotNull(mBuyAmount.getText().toString().trim())) {
-                    selectPayMethod();
+                    if (minBugAmount()) {
+                        selectPayMethod();
+                    }else {
+                        ToastUtil.customAlert(BuyingActivity.this,"最低可购买"+special/10000+"万元");
+                    }
                 } else {
-                    Toast.makeText(BuyingActivity.this, "请输入购买金额", Toast.LENGTH_LONG).show();
+                    ToastUtil.customAlert(BuyingActivity.this,"请输入购买金额");
                 }
 
                 break;
@@ -500,11 +510,9 @@ public class BuyingActivity extends BaseActivity implements OnClickListener, IVi
 
     //获取银行卡信息
     private void getBankInfo() {
-        HttpUtil.get(InterfaceInfo.BASE_URL + "/bank", new JsonHttpResponseHandler() {
+        HttpUtil2.get(InterfaceInfo.BASE_URL + "/bank", new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
-
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
@@ -521,38 +529,33 @@ public class BuyingActivity extends BaseActivity implements OnClickListener, IVi
                                 CommonReq.showReLoginDialog(BuyingActivity.this);
                                 return;
                             }
-                            Toast.makeText(BuyingActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                            ToastUtil.customAlert(BuyingActivity.this,response.getString("msg"));
                         }
                     } catch (Exception E) {
                     }
                 }
             }
-
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
-                Toast.makeText(BuyingActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
+            public void onFailure(String msg) {
+                ToastUtil.customAlert(BuyingActivity.this, "获取数据失败");
             }
-        }, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
+        },Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
                 .getUserLogin().getToken()));
     }
 
     //购买产品  余额购买
     private void payBuyProduct() {
-        RequestParams params = new RequestParams();
-
+        FormEncodingBuilder builder = new FormEncodingBuilder();
         int money = Integer.valueOf(mBuyAmount.getText().toString().trim());
-        params.put("amount", money);
-        params.put("product", productId);
-        params.put("pay_pwd", mInputPswdEd.getText().toString().trim());
-        // 抵扣的红包
-        params.put("pamount", total);
-        params.put("pids", redBaoId);
-//		Log.i("WK", "余额购买的红包数据：" + "pamount红包的金额= "+total+" ; "+"pids红包的id= "+redBaoId);
-        HttpUtil.post(InterfaceInfo.BASE_URL + "/appBuy", params, new JsonHttpResponseHandler() {
+        builder.add("amount", money+"");
+        builder.add("product", productId+"");
+        builder.add("pay_pwd", mInputPswdEd.getText().toString().trim());
+        //我的红包
+        builder.add("pamount", total+"");
+        builder.add("pids", redBaoId);
+        HttpUtil2.post(InterfaceInfo.BASE_URL + "/appBuy", builder, new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
@@ -576,18 +579,15 @@ public class BuyingActivity extends BaseActivity implements OnClickListener, IVi
                                 mInputPswdEd.setHint(response.getString("msg"));
                             }
                         }
-
                     } catch (Exception E) {
                     }
                 }
             }
-
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
-                Toast.makeText(BuyingActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
+            public void onFailure(String msg) {
+                ToastUtil.customAlert(BuyingActivity.this,"获取数据失败");
             }
-        }, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
+        },Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
                 YiTouApplication.getInstance().getUserLogin().getToken()));
     }
 
@@ -616,7 +616,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener, IVi
         }
     };
 
-    //设置计算后的数据	mTrueAmount ,mProfitAmout  实际支付  预期收益
+    //设置计算后的数据
     private void setMathData(int amount) {
         if (mBuyPrecent != -1 && limitDay != -1) {
             NumberFormat mFormat = NumberFormat.getNumberInstance();
@@ -672,4 +672,19 @@ public class BuyingActivity extends BaseActivity implements OnClickListener, IVi
             mBuyBtn.setBackgroundResource(R.drawable.button_grey_corner_border);
         }
     }
+
+    // 最低可购买的份额
+    private boolean minBugAmount(){
+        if (isVip) {
+            String amountMoney = mBuyAmount.getText().toString().trim();
+            if (!amountMoney.equals("") && amountMoney.length() != 0) {
+                if (Integer.valueOf(amountMoney) >= special) {
+                    return true;
+                }
+                return false;
+            }
+        }
+        return true ;
+    }
+
 }

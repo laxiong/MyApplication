@@ -1,46 +1,30 @@
 package com.laxiong.Activity;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.allinpay.appayassistex.APPayAssistEx;
 import com.gongshidai.mistGSD.R;
-import com.google.gson.GsonBuilder;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.Buy_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
-import com.laxiong.Utils.BaseHelper;
 import com.laxiong.Utils.CommonReq;
-import com.laxiong.Utils.Constants;
-import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.LogUtils;
-import com.laxiong.Utils.Md5Algorithm;
-import com.laxiong.Utils.MobileSecurePayer;
 import com.laxiong.Utils.ToastUtil;
-import com.laxiong.entity.EnvConstants;
-import com.laxiong.entity.LlOrderInfo;
-import com.laxiong.entity.PayOrder;
-import com.laxiong.entity.PaySignParam;
-import com.loopj.android.network.JsonHttpResponseHandler;
-import com.loopj.android.network.RequestParams;
 
-import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -189,10 +173,9 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 	private String bankInfo ;
 	// 获取银行卡信息
 	private void getBankInfo() {
-		HttpUtil.get(InterfaceInfo.BASE_URL + "/bank", new JsonHttpResponseHandler() {
+		HttpUtil2.get(InterfaceInfo.BASE_URL + "/bank", new Callback() {
 			@Override
-			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-				super.onSuccess(statusCode, headers, response);
+			public void onResponse2(JSONObject response) {
 				if (response != null) {
 					try {
 						if (response.getInt("code") == 0) {
@@ -202,21 +185,18 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 							bankInfo = response.getString("name")+"(尾号"+response.getInt("snumber")+")" ;
 							mPayBank.setText(bankInfo);
 						} else {
-							Toast.makeText(RechargeActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+							ToastUtil.customAlert(RechargeActivity.this, response.getString("msg"));
 						}
 					} catch (Exception E) {
 					}
 				}
 			}
-
 			@Override
-			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-				super.onFailure(statusCode, headers, throwable, errorResponse);
-				Toast.makeText(RechargeActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
+			public void onFailure(String msg) {
+				ToastUtil.customAlert(RechargeActivity.this,"获取数据失败");
 			}
 		}, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
 				.getUserLogin().getToken()));
-
 	}
 
 }

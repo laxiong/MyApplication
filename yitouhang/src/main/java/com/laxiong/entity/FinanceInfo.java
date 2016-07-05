@@ -32,6 +32,15 @@ public class FinanceInfo {
     private String  key;
     private int  score;
     private int  total_amount;
+    private int specials ;  // Vip限购买的额度
+
+    public int getSpecials() {
+        return specials;
+    }
+
+    public void setSpecial(int specials) {
+        this.specials = specials;
+    }
 
     public Double getPresent() {
         return present;

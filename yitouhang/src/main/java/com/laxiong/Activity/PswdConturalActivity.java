@@ -3,24 +3,19 @@ package com.laxiong.Activity;
 import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.Layout;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
 import com.laxiong.Mvp_presenter.Password_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
@@ -28,12 +23,8 @@ import com.laxiong.Utils.DialogUtils;
 import com.laxiong.Utils.SpUtils;
 import com.laxiong.Utils.StringUtils;
 import com.laxiong.Utils.ToastUtil;
-import com.laxiong.View.PasswordInputView;
 import com.laxiong.View.PayPop;
-import com.gongshidai.mistGSD.R;
 import com.laxiong.entity.User;
-
-import java.util.jar.Attributes;
 
 public class PswdConturalActivity extends BaseActivity implements OnClickListener,IViewCommonBack{
     /***
@@ -55,7 +46,6 @@ public class PswdConturalActivity extends BaseActivity implements OnClickListene
     public void reqbackSuc(String tag) {
         if(TextUtils.isEmpty(tag))return;
         ToastUtil.customAlert(this,"支付密码验证正确");
-        //TODO  输完密码后跳转的页面,携带参数
         Intent intent = new Intent(PswdConturalActivity.this,
                 ChangePayPwdActivity.class);
         intent.putExtra("pwd",tag);

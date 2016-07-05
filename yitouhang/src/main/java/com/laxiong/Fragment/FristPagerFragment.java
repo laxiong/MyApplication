@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Activity.GuXiBaoActivity;
@@ -22,15 +21,12 @@ import com.laxiong.Activity.TimeXiTongActivity;
 import com.laxiong.Activity.WebViewActivity;
 import com.laxiong.Basic.Callback;
 import com.laxiong.Common.InterfaceInfo;
-import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.ScollPagerUtils;
 import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.ChildViewPager;
 import com.laxiong.entity.Banner;
-import com.loopj.android.network.JsonHttpResponseHandler;
 
-import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -139,10 +135,9 @@ public class FristPagerFragment extends Fragment implements OnClickListener {
 
     // Banner轮播图
     private void getBanner() {
-        HttpUtil.get(InterfaceInfo.BASE_URL + "/banner", new JsonHttpResponseHandler() {
+        HttpUtil2.get(InterfaceInfo.BASE_URL + "/banner", new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
@@ -152,17 +147,15 @@ public class FristPagerFragment extends Fragment implements OnClickListener {
                             mScollPagerUtils.startPlayPic();
 
                         } else {
-                            Toast.makeText(getActivity(), response.getString("msg"), Toast.LENGTH_SHORT).show();
+                            ToastUtil.customAlert(getActivity(),response.getString("msg"));
                         }
                     } catch (Exception E) {
                     }
                 }
             }
-
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
-                Toast.makeText(getActivity(), "获取Banner页失败", Toast.LENGTH_SHORT).show();
+            public void onFailure(String msg) {
+                ToastUtil.customAlert(getActivity(),"获取Banner页失败");
             }
         });
     }
@@ -190,10 +183,9 @@ public class FristPagerFragment extends Fragment implements OnClickListener {
 
     //首页的数据
     private void getFristPagerData() {
-        HttpUtil.get(InterfaceInfo.BASE_URL + "/rental", new JsonHttpResponseHandler() {
+        HttpUtil2.get(InterfaceInfo.BASE_URL + "/rental", new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
                         if (response.getInt("code") == 0) {
@@ -209,17 +201,15 @@ public class FristPagerFragment extends Fragment implements OnClickListener {
                             mCentalUrl = AD.getString("url");
 
                         } else {
-                            Toast.makeText(getActivity(), response.getString("msg"), Toast.LENGTH_SHORT).show();
+                            ToastUtil.customAlert(getActivity(),response.getString("msg"));
                         }
                     } catch (Exception E) {
                     }
                 }
             }
-
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
-                Toast.makeText(getActivity(), "首页数据获取失败", Toast.LENGTH_SHORT).show();
+            public void onFailure(String msg) {
+                ToastUtil.customAlert(getActivity(),"首页数据获取失败");
             }
         });
     }

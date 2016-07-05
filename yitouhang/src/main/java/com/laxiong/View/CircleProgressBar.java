@@ -61,8 +61,8 @@ public class CircleProgressBar extends View {
 		oval.bottom = height - marxArcStorkeWidth / 2; // 右下角y
 
 		canvas.drawArc(oval, -90, 360, false, paint); // 绘制白色圆圈，即进度条背�?
-//		paint.setColor(Color.rgb(0x57, 0x87, 0xb6));
-		paint.setColor(Color.parseColor(PaintColor));
+		if (PaintColor!=null)
+			paint.setColor(Color.parseColor(PaintColor));
 		paint.setStrokeWidth(marxArcStorkeWidth);
 		canvas.drawArc(oval, -90, ((float) progress / maxProgress) * 360,
 				false, paint);  // 绘制进度圆弧，这里是蓝色�?

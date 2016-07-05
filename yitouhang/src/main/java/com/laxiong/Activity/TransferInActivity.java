@@ -25,19 +25,18 @@ import android.widget.Toast;
 import com.allinpay.appayassistex.APPayAssistEx;
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.Buy_Presenter;
 import com.laxiong.Mvp_view.IViewCommonBack;
 import com.laxiong.Utils.CommonReq;
-import com.laxiong.Utils.HttpUtil;
+import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.LogUtils;
+import com.laxiong.Utils.ToastUtil;
 import com.laxiong.entity.User;
-import com.loopj.android.network.JsonHttpResponseHandler;
-import com.loopj.android.network.RequestParams;
 import com.squareup.okhttp.FormEncodingBuilder;
 
-import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -384,10 +383,9 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 
 	// 获取银行卡的信息
 	private void getBankInfo(){
-		HttpUtil.get(InterfaceInfo.BASE_URL + "/bank", new JsonHttpResponseHandler() {
+		HttpUtil2.get(InterfaceInfo.BASE_URL + "/bank", new Callback() {
 			@Override
-			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-				super.onSuccess(statusCode, headers, response);
+			public void onResponse2(JSONObject response) {
 				if (response != null) {
 					try {
 						if (response.getInt("code") == 0) {
@@ -411,13 +409,14 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 				}
 			}
 			@Override
-			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-				super.onFailure(statusCode, headers, throwable, errorResponse);
-				Toast.makeText(TransferInActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
+			public void onFailure(String msg) {
+				ToastUtil.customAlert(TransferInActivity.this,"获取数据失败");
 			}
-		}, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
+		},Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
 				.getUserLogin().getToken()));
 	}
+
+
 	public void showAppayRes(String res) {
 		new AlertDialog.Builder(this)
 				.setMessage(res)
@@ -461,15 +460,13 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 
 	//购买产品 余额支付
 	private void payBuyProduct(){
-		RequestParams params = new RequestParams();
-		params.put("amount", mBuyAmount.getText().toString().trim());
-		params.put("product", productId);
-		params.put("pay_pwd", mInputPswdEd.getText().toString().trim());
-
-		HttpUtil.post(InterfaceInfo.BASE_URL + "/appBuy", params, new JsonHttpResponseHandler() {
+		FormEncodingBuilder builder = new FormEncodingBuilder();
+		builder.add("amount", mBuyAmount.getText().toString().trim());
+		builder.add("product", productId+"");
+		builder.add("pay_pwd", mInputPswdEd.getText().toString().trim());
+		HttpUtil2.post(InterfaceInfo.BASE_URL + "/appBuy", builder, new Callback() {
 			@Override
-			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-				super.onSuccess(statusCode, headers, response);
+			public void onResponse2(JSONObject response) {
 				if (response != null) {
 					try {
 						if (response.getInt("code") == 0) {
@@ -481,19 +478,17 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 							disMisInputPay();
 							finish();
 						} else {
-							Toast.makeText(TransferInActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+							ToastUtil.customAlert(TransferInActivity.this, response.getString("msg"));
 						}
 					} catch (Exception E) {
 					}
 				}
 			}
-
 			@Override
-			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-				super.onFailure(statusCode, headers, throwable, errorResponse);
-				Toast.makeText(TransferInActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
+			public void onFailure(String msg) {
+				ToastUtil.customAlert(TransferInActivity.this,"获取数据失败");
 			}
-		}, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
+		},Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
 				YiTouApplication.getInstance().getUserLogin().getToken()));
 	}
 

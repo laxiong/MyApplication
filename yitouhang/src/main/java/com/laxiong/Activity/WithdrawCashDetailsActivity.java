@@ -30,6 +30,7 @@ public class WithdrawCashDetailsActivity extends BaseActivity implements OnClick
 
     private void initData() {
         mBack.setOnClickListener(this);
+        tv_finish.setOnClickListener(this);
         Intent intent = getIntent();
         String cash = intent.getStringExtra("cash");
         String fee = intent.getStringExtra("fee");
@@ -54,6 +55,7 @@ public class WithdrawCashDetailsActivity extends BaseActivity implements OnClick
         tv_fee = (TextView) findViewById(R.id.tv_fee);
         tv_result = (TextView) findViewById(R.id.tv_result);
         tv_time = (TextView) findViewById(R.id.tv_time);
+        tv_finish = (TextView)findViewById(R.id.tv_finish);
     }
 
     @Override

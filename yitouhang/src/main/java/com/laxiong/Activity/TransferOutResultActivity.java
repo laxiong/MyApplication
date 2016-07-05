@@ -15,7 +15,7 @@ public class TransferOutResultActivity extends BaseActivity implements View.OnCl
      * 转出结果页面
      */
 
-    private TextView mTitle ;
+    private TextView mTitle ,finish_ok;
     private FrameLayout mBackLayout ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +32,17 @@ public class TransferOutResultActivity extends BaseActivity implements View.OnCl
         TextView tranferout = (TextView)findViewById(R.id.tranferout_money);
         String money = getIntent().getStringExtra("money");
         tranferout.setText(money);
+        finish_ok = (TextView)findViewById(R.id.finish_ok);
+        finish_ok.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.back_layout:
+                TransferOutResultActivity.this.finish();
+                break;
+            case R.id.finish_ok:
                 TransferOutResultActivity.this.finish();
                 break;
 

@@ -36,6 +36,7 @@ public class TransferInResultActivity extends BaseActivity implements OnClickLis
 
 	private void initData() {
 		mBack.setOnClickListener(this);
+		tv_ok.setOnClickListener(this);
 	}
 
 	private void initView() {

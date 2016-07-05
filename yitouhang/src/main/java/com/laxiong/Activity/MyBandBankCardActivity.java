@@ -1,21 +1,19 @@
 package com.laxiong.Activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gongshidai.mistGSD.R;
 import com.laxiong.Application.YiTouApplication;
+import com.laxiong.Basic.Callback;
 import com.laxiong.Common.Common;
 import com.laxiong.Common.InterfaceInfo;
-import com.laxiong.Utils.HttpUtil;
-import com.loopj.android.network.JsonHttpResponseHandler;
+import com.laxiong.Utils.HttpUtil2;
+import com.laxiong.Utils.ToastUtil;
 
-import org.apache.http.Header;
 import org.json.JSONObject;
 
 /**
@@ -51,18 +49,15 @@ public class MyBandBankCardActivity extends BaseActivity implements View.OnClick
     }
 
     private void getBankInfo(){
-        HttpUtil.get(InterfaceInfo.BASE_URL + "/bank", new JsonHttpResponseHandler() {
+        HttpUtil2.get(InterfaceInfo.BASE_URL + "/bank", new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 if (response != null) {
                     try {
-                        Log.i("WKKKKKK", "我的银行卡：" + response);
                         if (response.getInt("code") == 0) {
                             upDataUi(response);
-
                         } else {
-                            Toast.makeText(MyBandBankCardActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                            ToastUtil.customAlert(MyBandBankCardActivity.this,response.getString("msg"));
                         }
                     } catch (Exception E) {
                     }
@@ -70,11 +65,10 @@ public class MyBandBankCardActivity extends BaseActivity implements View.OnClick
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
-                Toast.makeText(MyBandBankCardActivity.this, "获取数据失败", Toast.LENGTH_SHORT).show();
+            public void onFailure(String msg) {
+                ToastUtil.customAlert(MyBandBankCardActivity.this,"获取数据失败");
             }
-        }, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
+        },Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
                 .getUserLogin().getToken()));
     }
 

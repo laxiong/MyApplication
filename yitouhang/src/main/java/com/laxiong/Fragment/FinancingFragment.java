@@ -30,17 +30,14 @@ import com.laxiong.Activity.WebViewActivity;
 import com.laxiong.Basic.Callback;
 import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Json.FinanceJsonBean;
-import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.HttpUtil2;
+import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.CircleProgressBar;
 import com.laxiong.View.FinancingListView;
 import com.laxiong.View.PrecentCricleBar;
 import com.laxiong.View.WaitPgView;
 import com.laxiong.entity.FinanceInfo;
-import com.loopj.android.network.JsonHttpResponseHandler;
-import com.loopj.android.network.RequestParams;
 
-import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -535,13 +532,9 @@ public class FinancingFragment extends Fragment implements OnClickListener {
     private int pager = 1;
 
     private void getProductInfo() {
-        final RequestParams params = new RequestParams();
-        params.put("p", pager);
-        params.put("limit", "10");
-        HttpUtil.get(InterfaceInfo.PRODUCT_URL, params, new JsonHttpResponseHandler() {
+        HttpUtil2.get(InterfaceInfo.PRODUCT_URL+"?p="+pager+"&limit=10", new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 showLoadView(false);
                 if (response != null) {
                     try {
@@ -575,20 +568,19 @@ public class FinancingFragment extends Fragment implements OnClickListener {
                             }
 
                         } else {
-                            Toast.makeText(getActivity(), response.getString("msg"), Toast.LENGTH_SHORT).show();
+                            ToastUtil.customAlert(getActivity(),response.getString("msg"));
                         }
                     } catch (Exception e) {
                     }
                 }
             }
-
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
+            public void onFailure(String msg) {
                 showLoadView(false);
-                Toast.makeText(getActivity(), "网络访问失败", Toast.LENGTH_SHORT).show();
+                ToastUtil.customAlert(getActivity(), "网络访问失败");
             }
-        }, null);
+        });
+
     }
 
     // 设置产品的信息
@@ -649,11 +641,9 @@ public class FinancingFragment extends Fragment implements OnClickListener {
 
     //获取理财的置顶的内容
     private void getNoticeMsg() {
-
-        HttpUtil.get(InterfaceInfo.BASE_URL + "/ggao", new JsonHttpResponseHandler() {
+        HttpUtil2.get(InterfaceInfo.BASE_URL + "/ggao", new Callback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
+            public void onResponse2(JSONObject response) {
                 try {
                     if (response != null) {
                         if (response.getInt("code") == 0) {
@@ -665,13 +655,10 @@ public class FinancingFragment extends Fragment implements OnClickListener {
                 } catch (Exception e) {
                 }
             }
-
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
+            public void onFailure(String msg) {
             }
         });
+
     }
-
-
 }

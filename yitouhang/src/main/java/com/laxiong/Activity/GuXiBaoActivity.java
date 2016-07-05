@@ -62,6 +62,7 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
     private int ttnum ;
     private int limitDay ;
     private double bird ;
+    private int special ;
     private View V_line ;
     // 百分比 等加载的内容
     private TextView mPrecent, mAddPrecent,
@@ -114,7 +115,9 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         mId = getIntent().getIntExtra("id", -1);
         ttnum = getIntent().getIntExtra("ttnum", -1);
         limitDay = getIntent().getIntExtra("limitday", -1);
-        bird = getIntent().getDoubleExtra("bird",-1);
+        bird = getIntent().getDoubleExtra("bird", -1);
+        special = getIntent().getIntExtra("viplimitmoney",-1);
+
         if (bird == 1.0){
             if (mUser!=null&&!mUser.is_bird()){
                 mBuyBtn.setText("仅限新用户购买");
@@ -124,7 +127,6 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
         }else {
             mBuyBtn.setText("立即购买");
         }
-
         presenter = new Share_Presenter(this);
     }
 
@@ -218,7 +220,9 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                                     putExtra("amountStr", mAmountMoney).
                                     putExtra("id", mId).
                                     putExtra("mBuyPrecent", mBuyPrecent).
-                                    putExtra("limitday", limitDay));
+                                    putExtra("limitday", limitDay).
+                                    putExtra("viplimitmoney",special).
+                                    putExtra("isVip",true));
                         }
                     }else {
                         OpenAccount.getInstance().goToCreateCountNum(GuXiBaoActivity.this);
