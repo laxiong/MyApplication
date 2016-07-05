@@ -30,7 +30,6 @@ import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Utils.DialogUtils;
-import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.LoadUtils;
 import com.laxiong.Utils.OpenAccount;
@@ -38,12 +37,8 @@ import com.laxiong.Utils.ToastUtil;
 import com.laxiong.View.VerticalNumberProgressBar;
 import com.laxiong.entity.ShareInfo;
 import com.laxiong.entity.User;
-import com.loopj.android.network.JsonHttpResponseHandler;
-import com.loopj.android.network.RequestParams;
-import com.squareup.okhttp.FormEncodingBuilder;
 import com.umeng.socialize.UMShareAPI;
 
-import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -225,8 +220,8 @@ public class GuXiBaoActivity extends BaseActivity implements OnClickListener, IV
                                     putExtra("isVip",isVip).
                                     putExtra("mBuyPrecent", mBuyPrecent).
                                     putExtra("limitday", limitDay).
-                                    putExtra("viplimitmoney",special).
-                                    putExtra("isVip",true));
+                                    putExtra("viplimitmoney",special));
+
                         }
                     }else {
                         OpenAccount.getInstance().goToCreateCountNum(GuXiBaoActivity.this);

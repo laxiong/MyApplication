@@ -24,7 +24,6 @@ import com.laxiong.Common.InterfaceInfo;
 import com.laxiong.Mvp_presenter.Share_Presenter;
 import com.laxiong.Mvp_view.IViewBasicObj;
 import com.laxiong.Utils.DialogUtils;
-import com.laxiong.Utils.HttpUtil;
 import com.laxiong.Utils.HttpUtil2;
 import com.laxiong.Utils.OpenAccount;
 import com.laxiong.Utils.ToastUtil;
@@ -32,11 +31,8 @@ import com.laxiong.entity.Profit;
 import com.laxiong.entity.ShareInfo;
 import com.laxiong.entity.User;
 import com.laxiong.entity.Yesterday;
-import com.loopj.android.network.JsonHttpResponseHandler;
-import com.loopj.android.network.RequestParams;
 import com.umeng.socialize.UMShareAPI;
 
-import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -58,8 +54,8 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 	private Double lu = 0.0; // 计算器的计算利率
 	private LinearLayout ll_wrap;
 	private  User mUser ;
-	private boolean isVip;
 	private ImageView mSxtBack ;
+	private boolean isVip ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +66,7 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 		getNetWork();
 		setAmountData();
 		mUser = YiTouApplication.getInstance().getUser();
-		isVip = getIntent().getBooleanExtra("isVip", false);
+		isVip = getIntent().getBooleanExtra("isVip",false);
 		if (isVip){
 			setVipColor();
 		}else {
@@ -209,9 +205,9 @@ public class TimeXiTongActivity extends BaseActivity implements OnClickListener,
 					if (mUser.getBankcount() >=1){
 						startActivity(new Intent(TimeXiTongActivity.this,
 								TransferInActivity.class).
-								putExtra("isVip",isVip).
 								putExtra("mAmountMoney", mAmountMoney).
-								putExtra("date", dates));
+								putExtra("date", dates).
+								putExtra("isVip",isVip));
 					}else {
 						OpenAccount.getInstance().goToCreateCountNum(TimeXiTongActivity.this);
 					}

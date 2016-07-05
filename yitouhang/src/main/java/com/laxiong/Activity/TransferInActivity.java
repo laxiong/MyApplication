@@ -57,7 +57,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 	private String mAmountMoney ;
 	private String dates ;
 	private LinearLayout mMostMoney ;
-	private boolean isVip;
+	private boolean isVip ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +100,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 			int lateAmount = user.getQuota()-user.getCurrent();
 			mAmountMoney = lateAmount+"";
 			mProjectAmount.setText(""+lateAmount); // 用户可购买金额，普通用户20000元，vip用户500000元
+			mBuyAmount.setHint("最高可购买" + lateAmount + "元");
 		}
 	}
 	private void initView() {
@@ -145,13 +146,13 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 				if (Common.inputContentNotNull(mBuyAmount.getText().toString().trim())){
 					selectPayMethod();
 				}else {
-					Toast.makeText(TransferInActivity.this, "请输入购买金额",Toast.LENGTH_LONG).show();
+					ToastUtil.customAlert(TransferInActivity.this, "请输入购买金额");
 				}
 				break;
 
 			case R.id.bankcan:
-				Toast.makeText(this, "银行限额", Toast.LENGTH_SHORT).show();
 				break;
+
 			case R.id.img_toggle:
 				readProcotol();
 				break;
@@ -392,9 +393,9 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 					try {
 						if (response.getInt("code") == 0) {
 							bankname = response.getString("name");
-							mShowBankName.setText(bankname+"(尾号"+response.getInt("snumber")+")");
-							selectPay = bankname+"(尾号"+response.getInt("snumber")+")";
-							mAmountLimit.setText(response.getString("one_limit")); 					 // 这是银行卡限额
+							mShowBankName.setText(bankname + "(尾号" + response.getInt("snumber") + ")");
+							selectPay = bankname + "(尾号" + response.getInt("snumber") + ")";
+							mAmountLimit.setText(response.getString("one_limit"));                     // 这是银行卡限额
 							logokey = response.getString("logoKey");
 							bankLastNum = response.getInt("snumber");
 							bankId = response.getInt("id");
@@ -410,11 +411,12 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 					}
 				}
 			}
+
 			@Override
 			public void onFailure(String msg) {
-				ToastUtil.customAlert(TransferInActivity.this,"获取数据失败");
+				ToastUtil.customAlert(TransferInActivity.this, "获取数据失败");
 			}
-		},Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
+		}, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(), YiTouApplication.getInstance()
 				.getUserLogin().getToken()));
 	}
 
@@ -464,7 +466,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 	private void payBuyProduct(){
 		FormEncodingBuilder builder = new FormEncodingBuilder();
 		builder.add("amount", mBuyAmount.getText().toString().trim());
-		builder.add("product", productId+"");
+		builder.add("product", productId + "");
 		builder.add("pay_pwd", mInputPswdEd.getText().toString().trim());
 		HttpUtil2.post(InterfaceInfo.BASE_URL + "/appBuy", builder, new Callback() {
 			@Override
@@ -486,38 +488,55 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 					}
 				}
 			}
+
 			@Override
 			public void onFailure(String msg) {
-				ToastUtil.customAlert(TransferInActivity.this,"获取数据失败");
+				ToastUtil.customAlert(TransferInActivity.this, "获取数据失败");
 			}
-		},Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
+		}, Common.authorizeStr(YiTouApplication.getInstance().getUserLogin().getToken_id(),
 				YiTouApplication.getInstance().getUserLogin().getToken()));
 	}
 
 	TextWatcher watcher = new TextWatcher() {
+		private boolean isChange = false ;
+
 		@Override
 		public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+			if (isChange){
+				return;
+			}
 		}
 		@Override
 		public void onTextChanged(CharSequence s, int start, int before, int count) {
 			String str = mBuyAmount.getText().toString().trim();
 			if (str == null || str.equals("") || str.length() == 0) {
-
 			}
 		}
 		@Override
 		public void afterTextChanged(Editable s) {
+
+			if (isChange){
+				return;
+			}
 			String amountMoney = mBuyAmount.getText().toString().trim();
 			valify();
 			//最多可输入可购买的份额以内的数值
 			if (!amountMoney.equals("")&&amountMoney.length()!=0){
-				if (Integer.valueOf(amountMoney)>Integer.valueOf(mAmountMoney)){
-					mBuyAmount.setText(mAmountMoney);
-					mBuyAmount.setSelection(mAmountMoney.length()); // 设置光标的位置
+				if (Double.valueOf(amountMoney)>=Double.valueOf(mAmountMoney)){
+					isChange = true ;
+					setEditTv(mAmountMoney);
+					isChange = false ;
 				}
 			}
 		}
 	};
+
+	private void setEditTv(String str){
+		mBuyAmount.setText(str);
+		mBuyAmount.setSelection(str.length());
+		mBuyAmount.invalidate();
+	}
+
 	private void valify(){
 		if (!TextUtils.isEmpty(mBuyAmount.getText().toString().trim())&&!isRead){
 			mTransferinBtn.setClickable(true);
