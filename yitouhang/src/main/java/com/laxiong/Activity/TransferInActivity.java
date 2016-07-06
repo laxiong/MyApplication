@@ -467,6 +467,7 @@ public class TransferInActivity extends BaseActivity implements OnClickListener,
 		FormEncodingBuilder builder = new FormEncodingBuilder();
 		builder.add("amount", mBuyAmount.getText().toString().trim());
 		builder.add("product", productId + "");
+		builder.add("vip", isVip + "");
 		builder.add("pay_pwd", mInputPswdEd.getText().toString().trim());
 		HttpUtil2.post(InterfaceInfo.BASE_URL + "/appBuy", builder, new Callback() {
 			@Override

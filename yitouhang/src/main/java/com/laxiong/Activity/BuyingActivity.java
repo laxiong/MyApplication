@@ -563,6 +563,7 @@ public class BuyingActivity extends BaseActivity implements OnClickListener, IVi
         //我的红包
         builder.add("pamount", total+"");
         builder.add("pids", redBaoId);
+        builder.add("vip", isVip + "");
         HttpUtil2.post(InterfaceInfo.BASE_URL + "/appBuy", builder, new Callback() {
             @Override
             public void onResponse2(JSONObject response) {

@@ -32,8 +32,8 @@ public class Settings {
 	public static float RATIO_WIDTH;
 	
 	//微信appid
-	public static final String WX_APP_ID="wxca3c8abe28def933";
-	public static final String WX_SECRET="8283af8f91e1ed82e69d94ea18a93dd6";
+	public static final String WX_APP_ID="wx6fbaf64ffca22194";
+	public static final String WX_SECRET="a6646c8451a27ad70e598d617a400813";
 
 	
 }
